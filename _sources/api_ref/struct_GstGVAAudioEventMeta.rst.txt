@@ -1,0 +1,29 @@
+.. index:: pair: struct; GstGVAAudioEventMeta
+.. _doxid-struct_gst_g_v_a_audio_event_meta:
+
+struct GstGVAAudioEventMeta
+===========================
+
+.. toctree::
+	:hidden:
+
+:ref:`GstGVAAudioEventMeta <doxid-struct_gst_g_v_a_audio_event_meta>` : @meta: parent #GstMeta @event_type: GQuark describing the semantic of the AudioEvent (f.i. a Sound, a Speech, Silence) @id: identifier of this particular event @start_timestamp: start time stamp of the segment @end_timestamp: end time stamp of the segment @params: list of #GstStructure containing element-specific params for downstream, see :ref:`gst_gva_audio_event_meta_add_param() <doxid-gva__audio__event__meta_8c_1a9c7f911c4a75090131a66a0e3c929ca0>`.
+
+Extra buffer metadata describing an audio frame event details
+
+
+.. ref-code-block:: cpp
+	:class: doxyrest-overview-code-block
+
+	#include <gva_audio_event_meta.h>
+	
+	struct GstGVAAudioEventMeta {
+		// fields
+	
+		GstMeta :target:`meta<doxid-struct_gst_g_v_a_audio_event_meta_1a8079f162e250bcebd8823a5a4abd10f6>`;
+		GQuark :target:`event_type<doxid-struct_gst_g_v_a_audio_event_meta_1a0da58fd3d76a47f29b433324ddbb7eb2>`;
+		gint :target:`id<doxid-struct_gst_g_v_a_audio_event_meta_1a4111b8663c308b556178f57283f58ab1>`;
+		gulong :target:`start_timestamp<doxid-struct_gst_g_v_a_audio_event_meta_1ab0bfe9a39393e45708a31fbae3b1f6e8>`;
+		gulong :target:`end_timestamp<doxid-struct_gst_g_v_a_audio_event_meta_1a5fc51fe682b4f8039df8b8ef75956ff0>`;
+		GList* :target:`params<doxid-struct_gst_g_v_a_audio_event_meta_1ab2ccda99b7c5b34505eb80fc99fd3c67>`;
+	};

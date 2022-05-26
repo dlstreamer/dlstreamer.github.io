@@ -1,0 +1,556 @@
+.. index:: pair: class; gstgva::tensor::Tensor
+.. _doxid-classgstgva_1_1tensor_1_1_tensor:
+
+class gstgva::tensor::Tensor
+============================
+
+.. toctree::
+	:hidden:
+
+	class_gstgva_tensor_Tensor_LAYOUT.rst
+	class_gstgva_tensor_Tensor_PRECISION.rst
+
+Overview
+~~~~~~~~
+
+This class represents tensor - map-like storage for inference result information, such as output blob description (output layer dims, layout, rank, precision, etc.), inference result in a raw and interpreted forms. :ref:`More...<details-classgstgva_1_1tensor_1_1_tensor>`
+
+
+.. ref-code-block:: cpp
+	:class: doxyrest-overview-code-block
+
+	
+	class Tensor {
+	public:
+		// classes
+	
+		class :ref:`LAYOUT<doxid-classgstgva_1_1tensor_1_1_tensor_1_1_l_a_y_o_u_t>`;
+		class :ref:`PRECISION<doxid-classgstgva_1_1tensor_1_1_tensor_1_1_p_r_e_c_i_s_i_o_n>`;
+
+		// methods
+	
+		List[int] :ref:`dims<doxid-classgstgva_1_1tensor_1_1_tensor_1abc261e3b136831d4d039d20491997f15>`(self self);
+		:ref:`PRECISION<doxid-classgstgva_1_1tensor_1_1_tensor_1_1_p_r_e_c_i_s_i_o_n>` :ref:`precision<doxid-classgstgva_1_1tensor_1_1_tensor_1a77292db0a6694a67d00663f8d4cf939b>`(self self);
+		:ref:`LAYOUT<doxid-classgstgva_1_1tensor_1_1_tensor_1_1_l_a_y_o_u_t>` :ref:`layout<doxid-classgstgva_1_1tensor_1_1_tensor_1a3af839f5968808cf76f323f9148d72e3>`(self self);
+		numpy.ndarray :ref:`data<doxid-classgstgva_1_1tensor_1_1_tensor_1ada98d45397a28a562d10b1048f2e2e32>`(self self);
+		str :ref:`name<doxid-classgstgva_1_1tensor_1_1_tensor_1ae08da59a301a964818a3a5acb1319ca2>`(self self);
+		str :ref:`model_name<doxid-classgstgva_1_1tensor_1_1_tensor_1aab1a96b038b8a14ad63afa300e4834df>`(self self);
+		str :ref:`layer_name<doxid-classgstgva_1_1tensor_1_1_tensor_1aa2b19d2d6fb9e392aeff7761004012d5>`(self self);
+		float :ref:`confidence<doxid-classgstgva_1_1tensor_1_1_tensor_1a6f01326af54aafc4c20677ad15358e37>`(self self);
+		str :ref:`label<doxid-classgstgva_1_1tensor_1_1_tensor_1a25297dbc2f94aa111695ad40c37731ce>`(self self);
+		int :ref:`object_id<doxid-classgstgva_1_1tensor_1_1_tensor_1a0dc226fb3bbd4ae76d33f1e736d87f03>`(self self);
+		str :ref:`format<doxid-classgstgva_1_1tensor_1_1_tensor_1ac45cc197d5bc26866ac70088a340ce18>`(self self);
+		List[str] :ref:`fields<doxid-classgstgva_1_1tensor_1_1_tensor_1a209f579d9f67e4f8239bba23652d8056>`(self self);
+		def :ref:`__getitem__<doxid-classgstgva_1_1tensor_1_1_tensor_1a3ab01dbbaf27041bfd3314436f85fff0>`(self self, key key);
+		int :ref:`__len__<doxid-classgstgva_1_1tensor_1_1_tensor_1abea87393025d64edaafd714db71f9f68>`(self self);
+		def :ref:`__iter__<doxid-classgstgva_1_1tensor_1_1_tensor_1a5cbe46167c365043becc260dc3a260e8>`(self self);
+		str :ref:`__repr__<doxid-classgstgva_1_1tensor_1_1_tensor_1a1643309778ec226638cf46b28a99f5db>`(self self);
+		None :ref:`__delitem__<doxid-classgstgva_1_1tensor_1_1_tensor_1ac9a9e264891662a62a9eb2e3d6789a3b>`(self self, str key);
+		int :ref:`label_id<doxid-classgstgva_1_1tensor_1_1_tensor_1ae72ee6ec97b393de2fd83e7bcbc9b2e4>`(self self);
+		str :ref:`element_id<doxid-classgstgva_1_1tensor_1_1_tensor_1a385bdd01e292c4766e37894356bbd547>`(self self);
+		None :ref:`set_name<doxid-classgstgva_1_1tensor_1_1_tensor_1a058668d949db13fcb8178840d7c49987>`(self self, str name);
+		str :ref:`layout_as_string<doxid-classgstgva_1_1tensor_1_1_tensor_1ad3a676e6ec727a9e49d1b0f2177dca68>`(self self);
+		str :ref:`precision_as_string<doxid-classgstgva_1_1tensor_1_1_tensor_1a86995cbd76a8d91d768de09b67dd54e8>`(self self);
+		None :ref:`set_label<doxid-classgstgva_1_1tensor_1_1_tensor_1af5347eb95a75404d3d758b04929bce69>`(self self, str label);
+		bool :ref:`has_field<doxid-classgstgva_1_1tensor_1_1_tensor_1a5ddc4c428642026e92b038e6c8231f62>`(self self, str field_name);
+		bool :ref:`is_detection<doxid-classgstgva_1_1tensor_1_1_tensor_1aa029317328569d55c5023a49678c960e>`(self self);
+		def :ref:`__init__<doxid-classgstgva_1_1tensor_1_1_tensor_1a41515e9cfd10b16d519d3a932902e5fa>`(self self, ctypes.c_void_p structure);
+		None :ref:`__setitem__<doxid-classgstgva_1_1tensor_1_1_tensor_1a6c7527530451938c7fc3e277dc8df3a3>`(self self, str key, item item);
+	};
+.. _details-classgstgva_1_1tensor_1_1_tensor:
+
+Detailed Documentation
+~~~~~~~~~~~~~~~~~~~~~~
+
+This class represents tensor - map-like storage for inference result information, such as output blob description (output layer dims, layout, rank, precision, etc.), inference result in a raw and interpreted forms.
+
+:ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` is based on GstStructure and, in general, can contain arbitrary (user-defined) fields of simplest data types, like integers, floats & strings. :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` can contain only raw inference result (such :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` is produced by gvainference in Gstreamer pipeline), detection result (such :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` is produced by gvadetect in Gstreamer pipeline and it's called detection :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>`), or both raw & interpreted inference results (such :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` is produced by gvaclassify in Gstreamer pipeline). Tensors can be created and used on their own, or they can be created within RegionOfInterest or VideoFrame instances. Usually, in Gstreamer pipeline with :ref:`GVA <doxid-namespace_g_v_a>` elements (gvadetect, gvainference, gvaclassify) :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` objects will be available for access and modification from RegionOfInterest and VideoFrame instances
+
+Methods
+-------
+
+.. index:: pair: function; dims
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1abc261e3b136831d4d039d20491997f15:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	List[int] dims(self self)
+
+Get inference result blob dimensions info.
+
+
+
+.. rubric:: Returns:
+
+list of dimensions
+
+.. index:: pair: function; precision
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1a77292db0a6694a67d00663f8d4cf939b:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	:ref:`PRECISION<doxid-classgstgva_1_1tensor_1_1_tensor_1_1_p_r_e_c_i_s_i_o_n>` precision(self self)
+
+Get inference results blob precision.
+
+
+
+.. rubric:: Returns:
+
+:ref:`PRECISION <doxid-classgstgva_1_1tensor_1_1_tensor_1_1_p_r_e_c_i_s_i_o_n>`, :ref:`PRECISION.UNSPECIFIED <doxid-classgstgva_1_1tensor_1_1_tensor_1_1_p_r_e_c_i_s_i_o_n_1a43f115016f499e238818d6d84c8c76b1>` if can't be read
+
+.. index:: pair: function; layout
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1a3af839f5968808cf76f323f9148d72e3:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	:ref:`LAYOUT<doxid-classgstgva_1_1tensor_1_1_tensor_1_1_l_a_y_o_u_t>` layout(self self)
+
+Get inference result blob layout.
+
+
+
+.. rubric:: Returns:
+
+:ref:`LAYOUT <doxid-classgstgva_1_1tensor_1_1_tensor_1_1_l_a_y_o_u_t>`, :ref:`LAYOUT.ANY <doxid-classgstgva_1_1tensor_1_1_tensor_1_1_l_a_y_o_u_t_1ab18c69ea1169aff3ee266422aee76469>` if can't be read
+
+.. index:: pair: function; data
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1ada98d45397a28a562d10b1048f2e2e32:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	numpy.ndarray data(self self)
+
+Get raw inference result blob data.
+
+
+
+.. rubric:: Returns:
+
+numpy.ndarray of values representing raw inference data, None if data can't be read
+
+.. index:: pair: function; name
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1ae08da59a301a964818a3a5acb1319ca2:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	str name(self self)
+
+Get name as a string.
+
+
+
+.. rubric:: Returns:
+
+:ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` instance's name
+
+.. index:: pair: function; model_name
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1aab1a96b038b8a14ad63afa300e4834df:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	str model_name(self self)
+
+Get model name which was used for inference.
+
+
+
+.. rubric:: Returns:
+
+model name as a string, None if failed to get
+
+.. index:: pair: function; layer_name
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1aa2b19d2d6fb9e392aeff7761004012d5:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	str layer_name(self self)
+
+Get inference result blob layer name.
+
+
+
+.. rubric:: Returns:
+
+layer name as a string, None if failed to get
+
+.. index:: pair: function; confidence
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1a6f01326af54aafc4c20677ad15358e37:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	float confidence(self self)
+
+Get confidence of inference result.
+
+
+
+.. rubric:: Returns:
+
+confidence of inference result as a float, None if failed to get
+
+.. index:: pair: function; label
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1a25297dbc2f94aa111695ad40c37731ce:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	str label(self self)
+
+Get label.
+
+This label is set for :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` instances produced by gvaclassify element. It will raise exception if called for detection :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>`. To get detection class label, use RegionOfInterest.label
+
+
+
+.. rubric:: Returns:
+
+label as a string, None if failed to get
+
+.. index:: pair: function; object_id
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1a0dc226fb3bbd4ae76d33f1e736d87f03:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	int object_id(self self)
+
+Get object id.
+
+
+
+.. rubric:: Returns:
+
+object id as an int, None if failed to get
+
+.. index:: pair: function; format
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1ac45cc197d5bc26866ac70088a340ce18:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	str format(self self)
+
+Get format.
+
+
+
+.. rubric:: Returns:
+
+format as a string, None if failed to get
+
+.. index:: pair: function; fields
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1a209f579d9f67e4f8239bba23652d8056:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	List[str] fields(self self)
+
+Get list of fields contained in :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` instance.
+
+
+
+.. rubric:: Returns:
+
+List of fields contained in :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` instance
+
+.. index:: pair: function; __getitem__
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1a3ab01dbbaf27041bfd3314436f85fff0:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	def __getitem__(self self, key key)
+
+Get item by the field name.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+	:widths: 20 80
+
+	*
+		- key
+
+		- Field name
+
+
+
+.. rubric:: Returns:
+
+Item, None if failed to get
+
+.. index:: pair: function; __len__
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1abea87393025d64edaafd714db71f9f68:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	int __len__(self self)
+
+Get number of fields contained in :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` instance.
+
+
+
+.. rubric:: Returns:
+
+Number of fields contained in :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` instance
+
+.. index:: pair: function; __iter__
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1a5cbe46167c365043becc260dc3a260e8:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	def __iter__(self self)
+
+Iterable by all :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` fields.
+
+
+
+.. rubric:: Returns:
+
+Generator for all :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` fields
+
+.. index:: pair: function; __repr__
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1a1643309778ec226638cf46b28a99f5db:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	str __repr__(self self)
+
+Return string represenation of the :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` instance.
+
+
+
+.. rubric:: Returns:
+
+String of field names and values
+
+.. index:: pair: function; __delitem__
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1ac9a9e264891662a62a9eb2e3d6789a3b:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	None __delitem__(self self, str key)
+
+Remove item by the field name.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+	:widths: 20 80
+
+	*
+		- key
+
+		- Field name
+
+.. index:: pair: function; label_id
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1ae72ee6ec97b393de2fd83e7bcbc9b2e4:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	int label_id(self self)
+
+Get label id.
+
+
+
+.. rubric:: Returns:
+
+label id as an int, None if failed to get
+
+.. index:: pair: function; element_id
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1a385bdd01e292c4766e37894356bbd547:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	str element_id(self self)
+
+Get inference-id property value of :ref:`GVA <doxid-namespace_g_v_a>` element from which this :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` came.
+
+
+
+.. rubric:: Returns:
+
+inference-id property value of :ref:`GVA <doxid-namespace_g_v_a>` element from which this :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` came, None if failed to get
+
+.. index:: pair: function; set_name
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1a058668d949db13fcb8178840d7c49987:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	None set_name(self self, str name)
+
+Set :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` instance's name.
+
+.. index:: pair: function; layout_as_string
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1ad3a676e6ec727a9e49d1b0f2177dca68:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	str layout_as_string(self self)
+
+Get inference result blob layout as a string.
+
+
+
+.. rubric:: Returns:
+
+layout as a string, "ANY" if can't be read
+
+.. index:: pair: function; precision_as_string
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1a86995cbd76a8d91d768de09b67dd54e8:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	str precision_as_string(self self)
+
+Get inference results blob precision as a string.
+
+
+
+.. rubric:: Returns:
+
+precision as a string, "UNSPECIFIED" if can't be read
+
+.. index:: pair: function; set_label
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1af5347eb95a75404d3d758b04929bce69:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	None set_label(self self, str label)
+
+Set label.
+
+It will raise exception if called for detection :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>`
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+	:widths: 20 80
+
+	*
+		- label
+
+		- label name as a string
+
+.. index:: pair: function; has_field
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1a5ddc4c428642026e92b038e6c8231f62:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	bool has_field(self self, str field_name)
+
+Check if :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` instance has field.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+	:widths: 20 80
+
+	*
+		- field_name
+
+		- field name
+
+
+
+.. rubric:: Returns:
+
+True if field with this name is found, False otherwise
+
+.. index:: pair: function; is_detection
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1aa029317328569d55c5023a49678c960e:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	bool is_detection(self self)
+
+Check if this :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` is detection :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` (contains detection results)
+
+
+
+.. rubric:: Returns:
+
+True if tensor contains detection results, False otherwise
+
+.. index:: pair: function; __init__
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1a41515e9cfd10b16d519d3a932902e5fa:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	def __init__(self self, ctypes.c_void_p structure)
+
+Construct :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` instance from C-style GstStructure.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+	:widths: 20 80
+
+	*
+		- structure
+
+		- C-style pointer to GstStructure to create :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` instance from. There are much simpler ways for creating and obtaining :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>` instances - see RegionOfInterest and VideoFrame classes
+
+.. index:: pair: function; __setitem__
+.. _doxid-classgstgva_1_1tensor_1_1_tensor_1a6c7527530451938c7fc3e277dc8df3a3:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	None __setitem__(self self, str key, item item)
+
+Set item to :ref:`Tensor <doxid-classgstgva_1_1tensor_1_1_tensor>`.
+
+It can be one of the following types: string, int, float.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+	:widths: 20 80
+
+	*
+		- key
+
+		- Name of new field
+
+	*
+		- item
+
+		- Item
+

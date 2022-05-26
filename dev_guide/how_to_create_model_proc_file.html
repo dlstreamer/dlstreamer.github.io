@@ -1,0 +1,1399 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>How to Create Model-proc File &#8212; Intel® DL Streamer  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/doxyrest-pygments.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/target-highlight.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python Bindings" href="python_bindings.html" />
+    <link rel="prev" title="Model-proc File" href="model_proc_file.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Intel® DL Streamer  documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../get_started/get_started_index.html">
+   Get Started
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../get_started/hardware_requirements.html">
+     Hardware Requirements
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../get_started/install/install_guide_index.html">
+     Install Guide
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../get_started/install/install_guide_ubuntu.html">
+       Install Guide Ubuntu
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../get_started/install/install_guide_rhel.html">
+       Install Guide RHEL
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../get_started/install/install_guide_windows.html">
+       Install Guide Windows (Preview)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../get_started/tutorial.html">
+     Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/README.md">
+     Samples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="dev_guide_index.html">
+   Developer Guide
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="metadata.html">
+     Metadata
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="model_preparation.html">
+     Model Preparation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="model_proc_file.html">
+     Model-proc File
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     How to Create Model-proc File
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="python_bindings.html">
+     Python Bindings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="custom_processing.html">
+     Custom Processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="object_tracking.html">
+     Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="converting_deepstream_to_dlstreamer.html">
+     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer)
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="how_to_contribute.html">
+     How to Contribute
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="coding_style.html">
+       Coding Style
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="preview_features/preview_features.html">
+     Preview Features
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="preview_features/action_recognition.html">
+       Action Recognition
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="preview_features/segmentation.html">
+       Segmentation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../elements/elements.html">
+   Elements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvainference.html">
+     gvainference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvadetect.html">
+     gvadetect
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvaclassify.html">
+     gvaclassify
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvatrack.html">
+     gvatrack
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvametaconvert.html">
+     gvametaconvert
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvametapublish.html">
+     gvametapublish
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvametaaggregate.html">
+     gvametaaggregate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvaaudiodetect.html">
+     gvaaudiodetect
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvafpscounter.html">
+     gvafpscounter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvapython.html">
+     gvapython
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvawatermark.html">
+     gvawatermark
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../supported_models.html">
+   Supported Models
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../api_ref/api_reference.html">
+   API Reference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api_ref/page_index.html">
+     Intel® Deep Learning Streamer (Intel® DL Streamer) API reference
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../api_ref/global.html">
+     Global Namespace
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api_ref/namespace_GVA.html">
+       namespace GVA
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/struct_GVA_Rect.html">
+         template struct GVA::Rect
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/struct_GVA_Segment.html">
+         template struct GVA::Segment
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/class_GVA_AudioEvent.html">
+         class GVA::AudioEvent
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/class_GVA_AudioFrame.html">
+         class GVA::AudioFrame
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/class_GVA_RegionOfInterest.html">
+         class GVA::RegionOfInterest
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/class_GVA_Tensor.html">
+         class GVA::Tensor
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/class_GVA_VideoFrame.html">
+         class GVA::VideoFrame
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api_ref/namespace_gstgva.html">
+       namespace gstgva
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/namespace_gstgva_region_of_interest.html">
+         namespace gstgva::region_of_interest
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/namespace_gstgva_tensor.html">
+         namespace gstgva::tensor
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/namespace_gstgva_video_frame.html">
+         namespace gstgva::video_frame
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../api_ref/enum_GVALayout.html">
+       enum GVALayout
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../api_ref/enum_GVAPrecision.html">
+       enum GVAPrecision
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api_ref/struct_GstGVAAudioEventMeta.html">
+       struct GstGVAAudioEventMeta
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="simple">
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api_ref/struct__GstGVAJSONMeta.html">
+       struct _GstGVAJSONMeta
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="simple">
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api_ref/struct__GstGVATensorMeta.html">
+       struct _GstGVATensorMeta
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="simple">
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/dev_guide/how_to_create_model_proc_file.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#content">
+   Content
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#theory">
+   Theory
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#when-do-you-need-to-specify-model-proc-file">
+     When do you need to specify model-proc file?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-define-pre-processing">
+   How to define pre-processing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-has-several-input-layers">
+     Model has several input layers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-requires-more-advance-image-pre-processing-algorithm-then-resize-without-aspect-ratio-preservation">
+     Model requires more advance image pre-processing algorithm then resize without aspect-ratio preservation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-define-post-processing">
+   How to define post-processing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-has-several-output-layers">
+     Model has several output layers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#output-blob-s-shape-is-not-appropriate-for-default-converter">
+     Output blob’s shape is not appropriate for default converter
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#need-to-have-labels-information">
+     Need to have
+     <em>
+      labels
+     </em>
+     information
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practice">
+   Practice
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-model-proc-for-classification-model-with-advance-pre-processing">
+     Build model-proc for classification model with advance pre-processing
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#defining-input-preproc">
+       Defining “input_preproc”
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#defining-output-postproc">
+       Defining “output_postproc”
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#result">
+       Result
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-model-proc-for-detection-model-with-advance-post-processing">
+     Build model-proc for detection model with advance post-processing
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-to-model-proc-ex2-input-preproc">
+       Defining “input_preproc”
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-to-model-proc-ex2-output-postproc">
+       Defining “output_postproc”
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-to-model-proc-ex2-result">
+       Result
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>How to Create Model-proc File</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#content">
+   Content
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#theory">
+   Theory
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#when-do-you-need-to-specify-model-proc-file">
+     When do you need to specify model-proc file?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-define-pre-processing">
+   How to define pre-processing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-has-several-input-layers">
+     Model has several input layers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-requires-more-advance-image-pre-processing-algorithm-then-resize-without-aspect-ratio-preservation">
+     Model requires more advance image pre-processing algorithm then resize without aspect-ratio preservation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-define-post-processing">
+   How to define post-processing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-has-several-output-layers">
+     Model has several output layers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#output-blob-s-shape-is-not-appropriate-for-default-converter">
+     Output blob’s shape is not appropriate for default converter
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#need-to-have-labels-information">
+     Need to have
+     <em>
+      labels
+     </em>
+     information
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practice">
+   Practice
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-model-proc-for-classification-model-with-advance-pre-processing">
+     Build model-proc for classification model with advance pre-processing
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#defining-input-preproc">
+       Defining “input_preproc”
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#defining-output-postproc">
+       Defining “output_postproc”
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#result">
+       Result
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-model-proc-for-detection-model-with-advance-post-processing">
+     Build model-proc for detection model with advance post-processing
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-to-model-proc-ex2-input-preproc">
+       Defining “input_preproc”
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-to-model-proc-ex2-output-postproc">
+       Defining “output_postproc”
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-to-model-proc-ex2-result">
+       Result
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="how-to-create-model-proc-file">
+<h1>How to Create Model-proc File<a class="headerlink" href="#how-to-create-model-proc-file" title="Permalink to this headline">#</a></h1>
+<p>In this tutorial you will learn how to create model-proc file for your
+own CNN model that can be processed by Intel® Deep Learning Streamer (Intel® DL Streamer).</p>
+<p>Please refer to the <a class="reference internal" href="model_proc_file.html"><span class="doc">model-proc documentation</span></a>
+before going through this tutorial.</p>
+<section id="content">
+<h2>Content<a class="headerlink" href="#content" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="#theory">Theory</a></p>
+<ul>
+<li><p><a class="reference internal" href="#when-do-you-need-to-specify-model-proc-file"><span class="std std-ref">When do you need to specify model-proc file?</span></a></p></li>
+<li><p><a class="reference internal" href="#how-to-define-pre-processing"><span class="std std-ref">How to define pre-processing</span></a></p></li>
+<li><p><a class="reference internal" href="#how-to-define-post-processing"><span class="std std-ref">How to define post-processing</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#practice">Practice</a></p>
+<ul>
+<li><p><a class="reference internal" href="#build-model-proc-for-classification-model-with-advance-pre-processing"><span class="std std-ref">Build model-proc for classification model with advance
+pre-processing</span></a></p></li>
+<li><p><a class="reference internal" href="#build-model-proc-for-detection-model-with-advance-post-processing"><span class="std std-ref">Build model-proc for detection model with advance
+post-processing</span></a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="theory">
+<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">#</a></h2>
+<section id="when-do-you-need-to-specify-model-proc-file">
+<span id="id1"></span><h3>When do you need to specify model-proc file?<a class="headerlink" href="#when-do-you-need-to-specify-model-proc-file" title="Permalink to this headline">#</a></h3>
+<p>To answer this question, you need to answer the following:</p>
+<ol class="arabic simple">
+<li><p>Does the model have one input layer?</p></li>
+<li><p>Is one image resize enough as a pre-processing?</p></li>
+<li><p>Does the model have one output layer?</p></li>
+<li><p>Is the default post-processing suitable for the output layer type of the model? About default behavior read <a class="reference external" href="model_proc_file#output-postproc-configuration">here</a></p></li>
+<li><p>Is it necessary to specify labels so that the post-processor uses this information and adds it to the classification or detection results?</p></li>
+</ol>
+<p>If at least one question from the list above is answered in the
+negative, it is mandatory to determine the model-proc file.</p>
+<p>If the answer is negative only for items 1-2, you need to define the
+field <em>“input_preproc”</em>. How to do this is described in the section
+<a class="reference internal" href="#how-to-define-pre-processing"><span class="std std-ref">How to define pre-processing</span></a>.</p>
+<p>If the answer is negative only for items 3-5, you need to define the
+field <em>“output_postproc”</em>. How to do this is described in the section
+<a class="reference internal" href="#how-to-define-post-processing"><span class="std std-ref">How to define post-processing</span></a>.</p>
+</section>
+</section>
+<section id="how-to-define-pre-processing">
+<span id="id2"></span><h2>How to define pre-processing<a class="headerlink" href="#how-to-define-pre-processing" title="Permalink to this headline">#</a></h2>
+<section id="model-has-several-input-layers">
+<h3>Model has several input layers<a class="headerlink" href="#model-has-several-input-layers" title="Permalink to this headline">#</a></h3>
+<p>The general case when the model has 2 or more input layers is <strong>not
+supported</strong> by Intel DL Streamer, however, there is an <strong>exception</strong>:</p>
+<ol class="arabic">
+<li><p>The model requires an image as an input for only one layer;</p></li>
+<li><p>The second layer is a layer of the following formats:</p>
+<ol class="arabic">
+<li><p><em>“image_info”</em> - format: <em>B, C</em>, where:</p>
+<ul class="simple">
+<li><p><em>B</em> - batch size</p></li>
+<li><p><em>C</em> - vector of 3 values in format <em>H, W, S</em>, where <em>H</em> is an image height, <em>W</em> is an image width, <em>S</em> is an image scale factor (usually 1).</p></li>
+</ul>
+<p>You can specify only <em>S</em> parameter.</p>
+</li>
+<li><p><em>“sequence_index”</em> - Set blob for this layer to <em>[1, 1, 1, …, 1]</em>.</p></li>
+</ol>
+</li>
+</ol>
+<p>In the table below you can find examples of model-proc files that use formats described above:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Model-proc</p></th>
+<th class="head"><p>2nd layer format</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_faster_rcnn_resnet50_coco.html#converted_model">Faster-RCNN</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/faster-rcnn-coco.json">faster-rcnn-coco.json</a></p></td>
+<td><p>image_info</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_license_plate_recognition_barrier_0001.html">license-plate-recognition-barrier-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/license-plate-recognition-barrier-0001.json">license-plate-recognition-barrier-0001.json</a></p></td>
+<td><p>sequence_index</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="model-requires-more-advance-image-pre-processing-algorithm-then-resize-without-aspect-ratio-preservation">
+<h3>Model requires more advance image pre-processing algorithm then resize without aspect-ratio preservation<a class="headerlink" href="#model-requires-more-advance-image-pre-processing-algorithm-then-resize-without-aspect-ratio-preservation" title="Permalink to this headline">#</a></h3>
+<p>In the simplest case, one resize is enough for the model inference to be successful.
+However, if the goal is to get the highest possible accuracy, this may not be enough.</p>
+<p><em>OpenCV pre-process-backend</em> supports follow operations:</p>
+<ol class="arabic simple">
+<li><p><em>resize</em></p></li>
+<li><p><em>crop</em></p></li>
+<li><p><em>color_space</em></p></li>
+<li><p><em>normalization</em></p></li>
+<li><p><em>padding</em></p></li>
+</ol>
+<p>In the table below you can find examples of model-proc files that use some of the operations described above:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Model-proc</p></th>
+<th class="head"><p>Operation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/models/master/vision/classification/mobilenet">MobileNet</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/onnx/mobilenetv2-7.json">mobilenetv2-7.json</a></p></td>
+<td><p>normalization</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/models/master/vision/classification/mobilenet">single-human-pose-estimation-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/single-human-pose-estimation-0001.json">single-human-pose-estimation-0001.json</a></p></td>
+<td><p>padding</p></td>
+</tr>
+</tbody>
+</table>
+<p>For details see <a class="reference internal" href="model_proc_file.html"><span class="doc">model-proc documentation</span></a>.</p>
+</section>
+</section>
+<section id="how-to-define-post-processing">
+<span id="id3"></span><h2>How to define post-processing<a class="headerlink" href="#how-to-define-post-processing" title="Permalink to this headline">#</a></h2>
+<section id="model-has-several-output-layers">
+<h3>Model has several output layers<a class="headerlink" href="#model-has-several-output-layers" title="Permalink to this headline">#</a></h3>
+<p>If the model has several output layers, each of them should have a
+converter in <em>“output_postproc”</em> for separate processing. Example:</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Model-proc</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_age_gender_recognition_retail_0013.html">age-gender-recognition-retail-0013</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/age-gender-recognition-retail-0013.json">age-gender-recognition-retail-0013.json</a></p></td>
+</tr>
+</tbody>
+</table>
+<p>For joint processing of blobs from several output layers, it is enough to specify only one converter and
+the field <em>“layer_names”: [“layer_name_1”, .. , “layer_name_n”]</em> in it. Example:</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Model-proc</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v3_tf.html">YOLOv3</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/yolo-v3-tf.json">yolo-v3-tf.json</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this example, you will not find the use of the <em>“layer_names”</em> field, because it is not necessary to specify it in
+the case when the converter expects the same number of outputs as the model has.</p>
+</div>
+</section>
+<section id="output-blob-s-shape-is-not-appropriate-for-default-converter">
+<h3>Output blob’s shape is not appropriate for default converter<a class="headerlink" href="#output-blob-s-shape-is-not-appropriate-for-default-converter" title="Permalink to this headline">#</a></h3>
+<p>In this case in <em>“output_postproc”</em> it’s necessary to list the
+description of converters for each of the output layer (or list of
+layers) that requires processing, with an explicit indication of the
+type of converter. See the examples from the previous sections.</p>
+<p>To determine which converter is suitable in your case, please refer to the <a class="reference internal" href="model_proc_file.html"><span class="doc">documentation</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If there is no suitable converter among the listed converters, there are several ways to add the necessary processing.
+For more information, see <a class="reference internal" href="custom_processing.html"><span class="doc">Custom Processing section</span></a>.</p>
+</div>
+</section>
+<section id="need-to-have-labels-information">
+<h3>Need to have <em>labels</em> information<a class="headerlink" href="#need-to-have-labels-information" title="Permalink to this headline">#</a></h3>
+<p>The information about labels can be provided in two ways:</p>
+<ul class="simple">
+<li><p>via <em>labels</em> property of inference elements</p></li>
+<li><p>via model-proc file</p></li>
+</ul>
+<p>The <em>labels</em> property is a convenient way to provide information about labels.
+It takes the path to a file where each label starts with a new line.</p>
+<p>To specify labels in a model-proc file, you need to define the converter
+and specify <em>“labels”</em> field as a list or a path to labels file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <em>labels</em> property takes precedence over labels specified in a model-proc file.</p>
+</div>
+<p>Examples of labels in model-proc files:</p>
+<table class="table">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dataset</p></th>
+<th class="head"><p>Model</p></th>
+<th class="head"><p>Model-proc</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ImageNet</p></td>
+<td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_resnet_18_pytorch.html">resnet-18-pytorch</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/resnet-18-pytorch.json">resnet-18-pytorch.json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>COCO</p></td>
+<td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v2_tf.html">YOLOv2</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/yolo-v2-tf.json">yolo-v2-tf.json</a></p></td>
+</tr>
+<tr class="row-even"><td><p>PASCAL VOC</p></td>
+<td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v2_ava_0001.html">yolo-v2-ava-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/yolo-v2-ava-0001.json">yolo-v2-ava-0001.json</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="practice">
+<h2>Practice<a class="headerlink" href="#practice" title="Permalink to this headline">#</a></h2>
+<section id="build-model-proc-for-classification-model-with-advance-pre-processing">
+<span id="id4"></span><h3>Build model-proc for classification model with advance pre-processing<a class="headerlink" href="#build-model-proc-for-classification-model-with-advance-pre-processing" title="Permalink to this headline">#</a></h3>
+<p>In this section, we will learn how to build a model-proc file for a
+model <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/squeezenet1.1#squeezenet11">SqueezeNet v1.1</a>.
+Let’s start with an empty template:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// squeezenet1.1.json</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;json_schema_version&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2.2.0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;output_postproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<section id="defining-input-preproc">
+<h4>Defining “input_preproc”<a class="headerlink" href="#defining-input-preproc" title="Permalink to this headline">#</a></h4>
+<p>This model is trained on the ImageNet dataset.
+The standard pre-processing when training models on this
+dataset is <em>resize with aspect-ratio</em> preservation with
+<em>central crop</em>. Also, the input channels of the <em>RGB</em> image are
+normalized according to a given distribution
+<em>mean: [0.485, 0.456, 0.406], std: [0.229, 0.224, 0.225]</em>. However,
+similar operations are added when converting the model to Intermediate
+Representation. It is worth noting that trained models usually accept an</p>
+<p><em>RGB</em> image as input, while the Inference Engine requires <em>BGR</em> as
+input. And the <em>RGB -&gt; BGR</em> conversion is also an IR model
+pre-processing operation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are going to use the ONNX model, you need to add these operations to <em>“input_preproc”</em> yourself.</p>
+</div>
+<p>If you are in doubt about which pre-processing is necessary, then
+contact the creator of the model. If the model is represented by OMZ,
+refer to the documentation. A config file for the Accuracy Checker tool
+can also help. Usually, it is located in the folder with the description
+of the model. There is our file
+<a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/public/squeezenet1.1/accuracy-check.yml">squeezenet1.1/accuracy-check.yml</a>.
+It shows that the converted model (<em>- framework: sdk</em>) requires only
+resize and crop.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;image&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// &lt;input value=&quot;data&quot;/&gt; field in the end of .xml (&lt;meta_data&gt; section)</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;params&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;resize&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;aspect-ratio&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;crop&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;central&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+<p>So, <em>“input_preproc”</em> is defined.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For ONNX model <em>“input_preproc”</em> most likely would be the following:</p>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;image&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;precision&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;FP32&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// because onnx model usually requires pixels in [0, 1] range</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;params&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;color_space&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;resize&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;aspect-ratio&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;crop&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;central&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;range&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;mean&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.485</span><span class="p">,</span><span class="w"> </span><span class="mf">0.456</span><span class="p">,</span><span class="w"> </span><span class="mf">0.406</span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;std&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.229</span><span class="p">,</span><span class="w"> </span><span class="mf">0.224</span><span class="p">,</span><span class="w"> </span><span class="mf">0.225</span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Such a configurable pre-processing can be executed only with
+OpenCV <em>pre-process-backend</em>. To improve performance, you can leave
+“input_preproc” empty (<em>“input_preproc”: []</em>), then resize without
+aspect-ratio will be performed by any of the <em>pre-process-backend</em>.
+However, this may affect the accuracy of the model inference.</p>
+</div>
+</section>
+<section id="defining-output-postproc">
+<h4>Defining “output_postproc”<a class="headerlink" href="#defining-output-postproc" title="Permalink to this headline">#</a></h4>
+<p>This model has a single output layer (<em>&lt;output value=”[‘prob’]”/&gt;</em>
+field in the end of .xml ( section)), so field <em>“layer_name”: “prob”</em>
+is optional. For this model <em>label</em> with <em>max</em> method is suitable
+converter.</p>
+<p>Also if you want to see results with labels you should set <em>“labels”</em>
+field. They also can be put into a separate file to keep model-proc file
+small in size.</p>
+<p>Alternatively, you can specify labels using the <em>labels</em> property of
+inference elements. In this case, you don’t need to add the <em>“labels”</em>
+field to the model-proc file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Because of ImageNet’s model contains 1000 labels, part of them are omitted</p>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;output_postproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;prob&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// (optional)</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;label&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;method&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;tench, Tinca tinca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;goldfish, Carassius auratus&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;tiger shark, Galeocerdo cuvieri&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;hammerhead, hammerhead shark&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">...,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;earthstar&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;hen-of-the-woods, hen of the woods, Polyporus frondosus, Grifola frondosa&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;bolete&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;ear, spike, capitulum&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;toilet tissue, toilet paper, bathroom tissue&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="result">
+<h4>Result<a class="headerlink" href="#result" title="Permalink to this headline">#</a></h4>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// squeezenet1.1.json</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;json_schema_version&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2.2.0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;image&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;params&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;resize&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;aspect-ratio&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;crop&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;central&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;output_postproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;label&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;method&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;tench, Tinca tinca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;goldfish, Carassius auratus&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;tiger shark, Galeocerdo cuvieri&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;hammerhead, hammerhead shark&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">...,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;earthstar&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;hen-of-the-woods, hen of the woods, Polyporus frondosus, Grifola frondosa&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;bolete&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;ear, spike, capitulum&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;toilet tissue, toilet paper, bathroom tissue&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="build-model-proc-for-detection-model-with-advance-post-processing">
+<span id="id5"></span><h3>Build model-proc for detection model with advance post-processing<a class="headerlink" href="#build-model-proc-for-detection-model-with-advance-post-processing" title="Permalink to this headline">#</a></h3>
+<p>In this section, we will learn how to build a model-proc file for a model
+<a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/yolo-v4-tiny-tf#yolo-v4-tiny-tf">YOLO v4 Tiny</a>.
+Let’s start with an empty template:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// squeezenet1.1.json</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;json_schema_version&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2.2.0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;output_postproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<section id="how-to-model-proc-ex2-input-preproc">
+<span id="id6"></span><h4>Defining “input_preproc”<a class="headerlink" href="#how-to-model-proc-ex2-input-preproc" title="Permalink to this headline">#</a></h4>
+<p>The selected model has one input layer and it does not require a special pre-processing algorithm -
+resize without aspect-ratio preservation is enough. Therefore, we can leave
+this field empty: <em>“input_preproc”: []</em>. However, you are free to
+experiment and configure pre-processing as you wish.</p>
+</section>
+<section id="how-to-model-proc-ex2-output-postproc">
+<span id="id7"></span><h4>Defining “output_postproc”<a class="headerlink" href="#how-to-model-proc-ex2-output-postproc" title="Permalink to this headline">#</a></h4>
+<p>To begin with, we will determine which layers are the output ones.
+Let’s turn to the description of
+<a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/yolo-v4-tiny-tf#converted-model-1">Output of converted
+model</a>.</p>
+<ol class="arabic simple">
+<li><p>The array of detection summary info, name -
+<em>conv2d_20/BiasAdd/Add</em>, shape - <em>1, 26, 26, 255</em>. The anchor values
+for each bbox on cell are <em>23,27, 37,58, 81,82</em>.</p></li>
+<li><p>The array of detection summary info, name - <em>conv2d_17/BiasAdd/Add</em>, shape -
+<em>1, 13, 13, 255</em>. The anchor values bbox on cell are <em>81,82, 135,169, 344,319</em>.</p></li>
+</ol>
+<p>Thus:
+<em>“layer_names”: [“conv2d_20/BiasAdd/Add”, “conv2d_17/BiasAdd/Add”]</em>,
+<em>“anchors”: [23.0, 27.0, 37.0, 58.0, 81.0, 82.0, 135.0, 169.0, 344.0, 319.0]</em>,
+<em>“masks”: [2, 3, 4, 0, 1, 2]</em>, <em>“bbox_number_on_cell”: 3</em>,
+<em>“cells_number”: 13</em>.</p>
+<p>The output of the model can be converted using <em>yolo_v3</em> converter
+since it has a suitable structure.</p>
+<p>Model was trained on COCO dataset with 80 classes: <em>“classes”: 80</em>,
+<em>“labels”: [“person”, “bicycle”, “car”, “motorbike”, …, “hair drier”, “toothbrush”]</em>.</p>
+<p>The parameters listed above are hyperparameters set when defining the
+network architecture. It is known that YOLO models are anchor-based
+models. This means that the network determines the classification of
+objects in predetermined areas (bboxes) and adjusts the coordinates of
+these areas. Roughly speaking, the whole picture is divided into regions
+as follows: a grid of a certain size is imposed on the image
+(<em>cells_number</em> depends on the size of the input layer and usually is
+equal to <em>input_layer_size // 32</em>); then a certain number of bboxes of
+different proportions (<em>bbox_number_on_cell</em>) are placed in each cell,
+and the center of these bboxes coincides with the center of the cell;
+then for each bbox (their number are
+<em>cells_number * cells_number * bbox_number_on_cell</em>) the values
+<em>x, y, w, h, bbox_confidence</em> and
+<em>class_1_confidence, .., class_N_confidence</em>, where <em>N = classes</em>
+are predicted. Thus, the size of the <strong>one</strong> output layer should be
+equal to
+<em>cells_number * cells_number * bbox_number_on_cell * (5 + classes)</em>.
+Note that the <em>anchors</em> values are compiled
+as <em>[x_coordinate_bbox_size_multiplier_1, y_coordinate_bbox_size_multiplier_1, .., x_coordinate_bbox_size_multiplier_N, y_coordinate_bbox_size_multiplier_N]</em>,
+where <em>N = bbox_number_on_cell</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the case of multiple output layers, the grid size
+changes to accommodate smaller or larger objects. In this case,
+<em>cells_number</em> is specified for the layer with the smallest grid
+size. The grid sizes are sequentially doubled for each output layer:
+([13, 13], [26, 26], [52, 52] …) - other cases are not supported. In
+case this upsets you, please open an issue.</p>
+</div>
+<p><em>masks</em> is about which set of anchors belongs to which output layer,
+in the case of processing results from multiple layers. For example:
+<em>number_of_outputs = 2, anchors: [x_1, y_1, x_2, y_2], masks: [0, 1]</em>
+- then for the first output layer <em>anchors: [x_1, y_1]</em> and for the
+second <em>anchors: [x_2, y_2]</em>. Thus <em>bbox_number_on_cell = 1</em> will be
+applied for each output.</p>
+<p>Resume:</p>
+<ul class="simple">
+<li><p><em>classes</em> - number of detection object classes (<em>optional if you set “labels” correctly</em>). You can get it from description of a model;</p></li>
+<li><p><em>anchors</em> - one-dimensional array of anchors. See description of a model to get this parameter;</p></li>
+<li><p><em>masks</em> - one-dimensional array contains subsets of anchors which correspond to output layers. Usually provided with documentation or architecture
+config as two-dimensional array, but you can pick up values by yourself;</p></li>
+<li><p><em>cells_number</em> &amp; <em>bbox_number_on_cell</em> - you can get them from model’s architecture config or from information about dimensional of
+output layers. If you can not get it, you can solve the system of equations:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cells_number</span> <span class="o">*</span> <span class="n">cells_number</span> <span class="o">*</span> <span class="n">bbox_number_on_cell</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="n">classes</span><span class="p">)</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_blob_1</span><span class="p">),</span> <span class="o">..</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">output_blob_N</span><span class="p">));</span>
+<span class="n">bbox_number_on_cell</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">anchors</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="n">where</span> <span class="n">N</span> <span class="ow">is</span> <span class="n">number</span> <span class="n">of</span> <span class="n">output</span> <span class="n">layers</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Let’s move on.
+<a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/yolo-v4-tiny-tf#converted-model-1">Model’s output description</a>
+says that it is necessary to apply the <strong>sigmoid</strong> functions to the
+output values. Also we replaced the sigmoid call with softmax to
+distribute the confidence values of the classes. This can be configured
+with <em>“output_sigmoid_activation”: true</em> and
+<em>“do_cls_softmax”: true</em> fields.</p>
+<p>Next, to run the NMS algorithm, you need to set the parameter
+<em>“iou_threshold”: 0.4</em>, you can experiment with it to get a better
+result in your task.</p>
+<p>Thus, we have defined all the fields necessary for the <em>yolo_v3</em> converter.</p>
+</section>
+<section id="how-to-model-proc-ex2-result">
+<span id="id8"></span><h4>Result<a class="headerlink" href="#how-to-model-proc-ex2-result" title="Permalink to this headline">#</a></h4>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// yolo-v4-tiny-tf.json</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;json_schema_version&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2.2.0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;output_postproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;layer_names&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;conv2d_20/BiasAdd/Add&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;conv2d_17/BiasAdd/Add&quot;</span><span class="p">],</span><span class="w"> </span><span class="c1">// optional</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;yolo_v3&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;anchors&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">23.0</span><span class="p">,</span><span class="w"> </span><span class="mf">27.0</span><span class="p">,</span><span class="w"> </span><span class="mf">37.0</span><span class="p">,</span><span class="w"> </span><span class="mf">58.0</span><span class="p">,</span><span class="w"> </span><span class="mf">81.0</span><span class="p">,</span><span class="w"> </span><span class="mf">82.0</span><span class="p">,</span><span class="w"> </span><span class="mf">135.0</span><span class="p">,</span><span class="w"> </span><span class="mf">169.0</span><span class="p">,</span><span class="w"> </span><span class="mf">344.0</span><span class="p">,</span><span class="w"> </span><span class="mf">319.0</span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;masks&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;bbox_number_on_cell&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;cells_number&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">13</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;do_cls_softmax&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;output_sigmoid_activation&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;iou_threshold&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;classes&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">80</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;person&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;bicycle&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;car&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;motorbike&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;aeroplane&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;bus&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="p">...,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;teddy bear&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;hair drier&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;toothbrush&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="model_proc_file.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Model-proc File</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="python_bindings.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Python Bindings</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Intel Corporation<br/>
+  
+      &copy; Copyright 2022, Intel Corporation.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

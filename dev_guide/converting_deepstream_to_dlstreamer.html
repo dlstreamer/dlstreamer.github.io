@@ -1,0 +1,968 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) &#8212; Intel® DL Streamer  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/doxyrest-pygments.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/target-highlight.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="How to Contribute" href="how_to_contribute.html" />
+    <link rel="prev" title="Object Tracking" href="object_tracking.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Intel® DL Streamer  documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../get_started/get_started_index.html">
+   Get Started
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../get_started/hardware_requirements.html">
+     Hardware Requirements
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../get_started/install/install_guide_index.html">
+     Install Guide
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../get_started/install/install_guide_ubuntu.html">
+       Install Guide Ubuntu
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../get_started/install/install_guide_rhel.html">
+       Install Guide RHEL
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../get_started/install/install_guide_windows.html">
+       Install Guide Windows (Preview)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../get_started/tutorial.html">
+     Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/README.md">
+     Samples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="dev_guide_index.html">
+   Developer Guide
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="metadata.html">
+     Metadata
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="model_preparation.html">
+     Model Preparation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="model_proc_file.html">
+     Model-proc File
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="how_to_create_model_proc_file.html">
+     How to Create Model-proc File
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="python_bindings.html">
+     Python Bindings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="custom_processing.html">
+     Custom Processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="object_tracking.html">
+     Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer)
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="how_to_contribute.html">
+     How to Contribute
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="coding_style.html">
+       Coding Style
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="preview_features/preview_features.html">
+     Preview Features
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="preview_features/action_recognition.html">
+       Action Recognition
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="preview_features/segmentation.html">
+       Segmentation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../elements/elements.html">
+   Elements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvainference.html">
+     gvainference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvadetect.html">
+     gvadetect
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvaclassify.html">
+     gvaclassify
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvatrack.html">
+     gvatrack
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvametaconvert.html">
+     gvametaconvert
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvametapublish.html">
+     gvametapublish
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvametaaggregate.html">
+     gvametaaggregate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvaaudiodetect.html">
+     gvaaudiodetect
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvafpscounter.html">
+     gvafpscounter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvapython.html">
+     gvapython
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvawatermark.html">
+     gvawatermark
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../supported_models.html">
+   Supported Models
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../api_ref/api_reference.html">
+   API Reference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api_ref/page_index.html">
+     Intel® Deep Learning Streamer (Intel® DL Streamer) API reference
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../api_ref/global.html">
+     Global Namespace
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api_ref/namespace_GVA.html">
+       namespace GVA
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/struct_GVA_Rect.html">
+         template struct GVA::Rect
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/struct_GVA_Segment.html">
+         template struct GVA::Segment
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/class_GVA_AudioEvent.html">
+         class GVA::AudioEvent
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/class_GVA_AudioFrame.html">
+         class GVA::AudioFrame
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/class_GVA_RegionOfInterest.html">
+         class GVA::RegionOfInterest
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/class_GVA_Tensor.html">
+         class GVA::Tensor
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/class_GVA_VideoFrame.html">
+         class GVA::VideoFrame
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api_ref/namespace_gstgva.html">
+       namespace gstgva
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/namespace_gstgva_region_of_interest.html">
+         namespace gstgva::region_of_interest
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/namespace_gstgva_tensor.html">
+         namespace gstgva::tensor
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/namespace_gstgva_video_frame.html">
+         namespace gstgva::video_frame
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../api_ref/enum_GVALayout.html">
+       enum GVALayout
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../api_ref/enum_GVAPrecision.html">
+       enum GVAPrecision
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api_ref/struct_GstGVAAudioEventMeta.html">
+       struct GstGVAAudioEventMeta
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="simple">
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api_ref/struct__GstGVAJSONMeta.html">
+       struct _GstGVAJSONMeta
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="simple">
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api_ref/struct__GstGVATensorMeta.html">
+       struct _GstGVATensorMeta
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="simple">
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/dev_guide/converting_deepstream_to_dlstreamer.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preparing-your-model">
+   Preparing Your Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gstreamer-pipeline-adjustments">
+   GStreamer Pipeline Adjustments
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mux-and-demux-elements">
+     Mux and Demux Elements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inferencing-elements">
+     Inferencing Elements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#video-processing-elements">
+     Video Processing Elements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metadata-elements">
+     Metadata Elements
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiple-input-streams">
+   Multiple Input Streams
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preparing-your-model">
+   Preparing Your Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gstreamer-pipeline-adjustments">
+   GStreamer Pipeline Adjustments
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mux-and-demux-elements">
+     Mux and Demux Elements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inferencing-elements">
+     Inferencing Elements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#video-processing-elements">
+     Video Processing Elements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metadata-elements">
+     Metadata Elements
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiple-input-streams">
+   Multiple Input Streams
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="converting-nvidia-deepstream-pipelines-to-intel-deep-learning-streamer-intel-dl-streamer">
+<h1>Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer)<a class="headerlink" href="#converting-nvidia-deepstream-pipelines-to-intel-deep-learning-streamer-intel-dl-streamer" title="Permalink to this headline">#</a></h1>
+<p>This document will describe the steps to convert a pipeline from NVIDIA
+DeepStream to Intel DL Streamer.
+We also have a running example through the document that will be updated at
+each step to help show the modifications being described.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The intermediate steps of the pipeline are not meant to run. They are simply
+there as a reference example of the changes being made in each section.</p>
+</div>
+<section id="preparing-your-model">
+<h2>Preparing Your Model<a class="headerlink" href="#preparing-your-model" title="Permalink to this headline">#</a></h2>
+<p>To use Intel DL Streamer and OpenVINO™ Toolkit the
+model needs to be in Intermediate Representation (IR) format. To convert
+your model to this format, use the <a class="reference external" href="https://docs.openvino.ai/latest/openvino_docs_MO_DG_Deep_Learning_Model_Optimizer_DevGuide.html">Model Optimizer</a>
+tool from OpenVINO™ Toolkit.</p>
+<p>Intel DL Streamer’s inferencing plugins optionally can do some pre- and
+post-processing operations before/after running inferencing. These
+operations are specified in a model-proc file. Visit <a class="reference internal" href="model_preparation.html"><span class="doc">this page</span></a>
+for more information on creating a model-proc file and examples with
+various models from <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo">Open Model Zoo</a>.</p>
+</section>
+<section id="gstreamer-pipeline-adjustments">
+<h2>GStreamer Pipeline Adjustments<a class="headerlink" href="#gstreamer-pipeline-adjustments" title="Permalink to this headline">#</a></h2>
+<p>In the following sections we will be converting the below pipeline that
+is using DeepStream elements to Intel DL Streamer. It is taken from one of the
+examples
+<a class="reference external" href="https://github.com/NVIDIA-AI-IOT/redaction_with_deepstream">here</a>.
+It takes an input stream from file, decodes, runs inferencing, overlays
+the inferences on the video, re-encodes and outputs a new .mp4 file.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>filesrc <span class="nv">location</span><span class="o">=</span>input_file.mp4 ! decodebin ! <span class="se">\</span>
+nvstreammux batch-size<span class="o">=</span><span class="m">1</span> <span class="nv">width</span><span class="o">=</span><span class="m">1920</span> <span class="nv">height</span><span class="o">=</span><span class="m">1080</span> ! queue ! <span class="se">\</span>
+nvinfer config-file-path<span class="o">=</span>./config.txt ! <span class="se">\</span>
+nvvideoconvert ! <span class="s2">&quot;video/x-raw(memory:NVMM), format=RGBA&quot;</span> ! <span class="se">\</span>
+nvdsosd ! queue ! <span class="se">\</span>
+nvvideoconvert ! <span class="s2">&quot;video/x-raw, format=I420&quot;</span> ! videoconvert ! avenc_mpeg4 <span class="nv">bitrate</span><span class="o">=</span><span class="m">8000000</span> ! qtmux ! filesink <span class="nv">location</span><span class="o">=</span>output_file.mp4
+</pre></div>
+</div>
+<section id="mux-and-demux-elements">
+<h3>Mux and Demux Elements<a class="headerlink" href="#mux-and-demux-elements" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">nvstreammux</span></code> and <code class="docutils literal notranslate"><span class="pre">nvstreamdemux</span></code> and all their
+properties.</p>
+<ul>
+<li><p>These elements are used in the case of multiple input streams to
+connect all inputs to the same inferencing element. In DL
+Streamer, the inferencing elements share properties and instances
+if they share the same <code class="docutils literal notranslate"><span class="pre">model-instance-id</span></code> property.</p></li>
+<li><p>In our example, we only have one source so we will skip this for
+now. See more on how to do this with Intel DL Streamer in the section
+<a class="reference internal" href="#multiple-input-streams"><span class="std std-ref">Multiple Input Streams</span></a> below.</p></li>
+</ul>
+</li>
+</ul>
+<p>At this stage we have removed <code class="docutils literal notranslate"><span class="pre">nvstreammux</span></code> and the <code class="docutils literal notranslate"><span class="pre">queue</span></code> that
+followed it. Notably, the <code class="docutils literal notranslate"><span class="pre">batch-size</span></code> property is also removed. It
+will be added in the next section as a property of the Intel DL Streamer
+inference elements.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>filesrc <span class="nv">location</span><span class="o">=</span>input_file.mp4 ! decodebin ! <span class="se">\</span>
+nvinfer config-file-path<span class="o">=</span>./config.txt ! <span class="se">\</span>
+nvvideoconvert ! <span class="s2">&quot;video/x-raw(memory:NVMM), format=RGBA&quot;</span> ! <span class="se">\</span>
+nvdsosd ! queue ! <span class="se">\</span>
+nvvideoconvert ! <span class="s2">&quot;video/x-raw, format=I420&quot;</span> ! videoconvert ! avenc_mpeg4 <span class="nv">bitrate</span><span class="o">=</span><span class="m">8000000</span> ! qtmux ! filesink <span class="nv">location</span><span class="o">=</span>output_file.mp4
+</pre></div>
+</div>
+</section>
+<section id="inferencing-elements">
+<h3>Inferencing Elements<a class="headerlink" href="#inferencing-elements" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">nvinfer</span></code> and replace it with <code class="docutils literal notranslate"><span class="pre">gvainference</span></code>,
+<code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> or <code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code> depending on the following use
+cases:</p>
+<ul>
+<li><p>For doing detection on full frames and outputting a region of
+interest, use
+<a class="reference internal" href="../elements/gvadetect.html"><span class="doc">gvadetect</span></a>.
+This replaces <code class="docutils literal notranslate"><span class="pre">nvinfer</span></code> when it is used in primary mode.</p>
+<ul>
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">config-file-path</span></code> property with <code class="docutils literal notranslate"><span class="pre">model</span></code> and
+<code class="docutils literal notranslate"><span class="pre">model-proc</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> generates GstVideoRegionOfInterestMeta.</p></li>
+</ul>
+</li>
+<li><p>For doing classification on previously detected objects, use
+<a class="reference internal" href="../elements/gvaclassify.html"><span class="doc">gvaclassify</span></a>.
+This replaces nvinfer when it is used in secondary mode.</p>
+<ul>
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">config-file-path</span></code> property with <code class="docutils literal notranslate"><span class="pre">model</span></code> and
+<code class="docutils literal notranslate"><span class="pre">model-proc</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code> requires GstVideoRegionOfInterestMeta as input.</p></li>
+</ul>
+</li>
+<li><p>For doing generic full frame inferencing, use
+<a class="reference internal" href="../elements/gvainference.html"><span class="doc">gvainference</span></a>.
+This replaces <code class="docutils literal notranslate"><span class="pre">nvinfer</span></code> when used in primary mode.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">gvainference</span></code> generates GstGVATensorMeta.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>In this example we will use gvadetect to infer on the full frame and
+output region of interests. <code class="docutils literal notranslate"><span class="pre">batch-size</span></code> was also added for
+consistency with what was removed above (the default value is 1 so it is
+not needed). We replaced <code class="docutils literal notranslate"><span class="pre">config-file-path</span></code> property with <code class="docutils literal notranslate"><span class="pre">model</span></code>
+and <code class="docutils literal notranslate"><span class="pre">model-proc</span></code> properties. See the section above about “Preparing
+your model” for converting the model to IR format and creating a
+model-proc file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">model-proc</span></code> file is not always needed depending on the model’s inputs and outputs.</p>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>filesrc <span class="nv">location</span><span class="o">=</span>input_file.mp4 ! decodebin ! <span class="se">\</span>
+gvadetect <span class="nv">model</span><span class="o">=</span>./model.xml model-proc<span class="o">=</span>./model_proc.json batch-size<span class="o">=</span><span class="m">1</span> ! <span class="se">\</span>
+nvvideoconvert ! <span class="s2">&quot;video/x-raw(memory:NVMM), format=RGBA&quot;</span> ! <span class="se">\</span>
+nvdsosd ! queue ! <span class="se">\</span>
+nvvideoconvert ! <span class="s2">&quot;video/x-raw, format=I420&quot;</span> ! videoconvert ! avenc_mpeg4 <span class="nv">bitrate</span><span class="o">=</span><span class="m">8000000</span> ! qtmux ! filesink <span class="nv">location</span><span class="o">=</span>output_file.mp4
+</pre></div>
+</div>
+</section>
+<section id="video-processing-elements">
+<h3>Video Processing Elements<a class="headerlink" href="#video-processing-elements" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Replace video processing elements with vaapi equivalents for GPU or
+native GStreamer elements for CPU.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">nvvideoconvert</span></code> with <code class="docutils literal notranslate"><span class="pre">vaapipostproc</span></code> or <code class="docutils literal notranslate"><span class="pre">mfxvpp</span></code> (GPU) or
+<code class="docutils literal notranslate"><span class="pre">videoconvert</span></code> (CPU).</p>
+<ul>
+<li><p>If the <code class="docutils literal notranslate"><span class="pre">nvvideoconvert</span></code> is being used to convert to/from
+<code class="docutils literal notranslate"><span class="pre">memory:NVMM</span></code> it can just be removed.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nvv4ldecoder</span></code> can be replaced with <code class="docutils literal notranslate"><span class="pre">vaapi{CODEC}dec</span></code>, for
+example <code class="docutils literal notranslate"><span class="pre">vaapih264dec</span></code> for decode only or <code class="docutils literal notranslate"><span class="pre">vaapidecodebin</span></code> for
+decode and vaapipostproc. Alternatively, the native GStreamer
+element <code class="docutils literal notranslate"><span class="pre">decodebin</span></code> can be used to automatically choose an
+available decoder.</p></li>
+</ul>
+</li>
+<li><p>Some caps filters that follow an inferencing element may need to be
+adjusted or removed. Intel DL Streamer inferencing elements do not support
+color space conversion in post-processing. You will need to have a
+<code class="docutils literal notranslate"><span class="pre">vaapipostproc</span></code> or <code class="docutils literal notranslate"><span class="pre">videoconvert</span></code> element to handle this.</p></li>
+</ul>
+<p>Here we removed a few caps filters and instances of <code class="docutils literal notranslate"><span class="pre">nvvideoconvert</span></code>
+used for conversions from DeepStream’s NVMM because Intel DL Streamer uses
+standard GStreamer structures and memory types. We will leave the
+standard gstreamer element <code class="docutils literal notranslate"><span class="pre">videoconvert</span></code> to do color space conversion
+on CPU, however if available, we suggest using <code class="docutils literal notranslate"><span class="pre">vaapipostproc</span></code> to run
+on Intel Graphics. Also, we will use the GStreamer standard element
+<code class="docutils literal notranslate"><span class="pre">decodebin</span></code> to choose an appropriate demuxer and decoder depending on
+the input stream as well as what is available on the system.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>filesrc <span class="nv">location</span><span class="o">=</span>input_file.mp4 ! decodebin ! <span class="se">\</span>
+gvadetect <span class="nv">model</span><span class="o">=</span>./model.xml model-proc<span class="o">=</span>./model_proc.json batch-size<span class="o">=</span><span class="m">1</span> ! <span class="se">\</span>
+nvdsosd ! queue ! <span class="se">\</span>
+videoconvert ! avenc_mpeg4 <span class="nv">bitrate</span><span class="o">=</span><span class="m">8000000</span> ! qtmux ! filesink <span class="nv">location</span><span class="o">=</span>output_file.mp4
+</pre></div>
+</div>
+</section>
+<section id="metadata-elements">
+<h3>Metadata Elements<a class="headerlink" href="#metadata-elements" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">nvtracker</span></code> with
+<a class="reference internal" href="../elements/gvatrack.html"><span class="doc">gvatrack</span></a></p>
+<ul>
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">ll-lib-file</span></code> property. Optionally replace with
+<code class="docutils literal notranslate"><span class="pre">tracking-type</span></code> if you want to specify the algorithm used. By
+default it will use the ‘short-term’ tracker.</p></li>
+<li><p>Remove all other properties.</p></li>
+</ul>
+</li>
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">nvdsosd</span></code> with
+<a class="reference internal" href="../elements/gvawatermark.html"><span class="doc">gvawatermark</span></a></p>
+<ul>
+<li><p>Remove all properties</p></li>
+</ul>
+</li>
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">nvmsgconv</span></code> with
+<a class="reference internal" href="../elements/gvametaconvert.html"><span class="doc">gvametaconvert</span></a></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">gvametaconvert</span></code> can be used to convert metadata from
+inferencing elements to JSON and to output metadata to the
+GST_DEBUG log.</p></li>
+<li><p>It has optional properties to configure what information goes into
+the JSON object including frame data for frames with no detections
+found, tensor data, the source the inferences came from, and tags,
+a user defined JSON object that is attached to each output for
+additional custom data.</p></li>
+</ul>
+</li>
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">nvmsgbroker</span></code> with
+<a class="reference internal" href="../elements/gvametapublish.html"><span class="doc">gvametapublish</span></a></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">gvametapublish</span></code> can be used to output the JSON messages
+generated by <code class="docutils literal notranslate"><span class="pre">gvametaconvert</span></code> to stdout, file, MQTT or Kafka.</p></li>
+</ul>
+</li>
+</ul>
+<p>The only metadata processing that is done in this pipeline is to overlay
+the inferences on the video for which we use <code class="docutils literal notranslate"><span class="pre">gvawatermark</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>filesrc <span class="nv">location</span><span class="o">=</span>input_file.mp4 ! decodebin ! <span class="se">\</span>
+gvadetect <span class="nv">model</span><span class="o">=</span>./model.xml model-proc<span class="o">=</span>./model_proc.json batch-size<span class="o">=</span><span class="m">1</span> ! <span class="se">\</span>
+gvawatermark ! queue ! <span class="se">\</span>
+videoconvert ! avenc_mpeg4 <span class="nv">bitrate</span><span class="o">=</span><span class="m">8000000</span> ! qtmux ! filesink <span class="nv">location</span><span class="o">=</span>output_file.mp4
+</pre></div>
+</div>
+</section>
+</section>
+<section id="multiple-input-streams">
+<span id="id1"></span><h2>Multiple Input Streams<a class="headerlink" href="#multiple-input-streams" title="Permalink to this headline">#</a></h2>
+<div class="line-block">
+<div class="line">Unlike DeepStream, where all sources need to be linked to the sink
+pads of the <code class="docutils literal notranslate"><span class="pre">nvstreammux</span></code> element, Intel DL Streamer shares all model and
+Inference Engine properties between elements that have the same
+<code class="docutils literal notranslate"><span class="pre">model-instance-id</span></code> property. Meaning that you do not need to mux
+all sources together before inferencing and you can remove any
+instances of <code class="docutils literal notranslate"><span class="pre">nvstreammux</span></code> and <code class="docutils literal notranslate"><span class="pre">nvstreamdemux</span></code>. Below is a pseudo
+example of a pipeline with two streams.</div>
+<div class="line">For DeepStream, the pipeline would look like this:</div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nvstreammux ! nvinfer config-file-path<span class="o">=</span>./config.txt ! nvstreamdemux filesrc ! decode ! mux.sink_0 filesrc ! decode ! mux.sink_1 demux.src_0 ! encode ! filesink demux.src_1 ! encode ! filesink
+</pre></div>
+</div>
+<p>When using Intel DL Streamer, the pipeline will look like this:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>filesrc ! decode ! gvadetect <span class="nv">model</span><span class="o">=</span>./model.xml model-proc<span class="o">=</span>./model_proc.json model-instance-id<span class="o">=</span>model1 ! encode ! filesink filesrc ! decode ! gvadetect model-instance-id<span class="o">=</span>model1 ! encode ! filesink
+</pre></div>
+</div>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="object_tracking.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Object Tracking</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="how_to_contribute.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">How to Contribute</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Intel Corporation<br/>
+  
+      &copy; Copyright 2022, Intel Corporation.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

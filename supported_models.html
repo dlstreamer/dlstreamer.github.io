@@ -1,0 +1,1517 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Supported Models &#8212; Intel® DL Streamer  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/target-highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Reference" href="api_ref/api_reference.html" />
+    <link rel="prev" title="gvawatermark" href="elements/gvawatermark.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Intel® DL Streamer  documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="get_started/get_started_index.html">
+   Get Started
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="get_started/hardware_requirements.html">
+     Hardware Requirements
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="get_started/install/install_guide_index.html">
+     Install Guide
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="get_started/install/install_guide_ubuntu.html">
+       Install Guide Ubuntu
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="get_started/install/install_guide_rhel.html">
+       Install Guide RHEL
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="get_started/install/install_guide_windows.html">
+       Install Guide Windows (Preview)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="get_started/tutorial.html">
+     Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/README.md">
+     Samples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="dev_guide/dev_guide_index.html">
+   Developer Guide
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dev_guide/metadata.html">
+     Metadata
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dev_guide/model_preparation.html">
+     Model Preparation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dev_guide/model_proc_file.html">
+     Model-proc File
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dev_guide/how_to_create_model_proc_file.html">
+     How to Create Model-proc File
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dev_guide/python_bindings.html">
+     Python Bindings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dev_guide/custom_processing.html">
+     Custom Processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dev_guide/object_tracking.html">
+     Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dev_guide/converting_deepstream_to_dlstreamer.html">
+     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer)
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="dev_guide/how_to_contribute.html">
+     How to Contribute
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="dev_guide/coding_style.html">
+       Coding Style
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="dev_guide/preview_features/preview_features.html">
+     Preview Features
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="dev_guide/preview_features/action_recognition.html">
+       Action Recognition
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="dev_guide/preview_features/segmentation.html">
+       Segmentation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="elements/elements.html">
+   Elements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="elements/gvainference.html">
+     gvainference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="elements/gvadetect.html">
+     gvadetect
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="elements/gvaclassify.html">
+     gvaclassify
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="elements/gvatrack.html">
+     gvatrack
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="elements/gvametaconvert.html">
+     gvametaconvert
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="elements/gvametapublish.html">
+     gvametapublish
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="elements/gvametaaggregate.html">
+     gvametaaggregate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="elements/gvaaudiodetect.html">
+     gvaaudiodetect
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="elements/gvafpscounter.html">
+     gvafpscounter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="elements/gvapython.html">
+     gvapython
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="elements/gvawatermark.html">
+     gvawatermark
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Supported Models
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="api_ref/api_reference.html">
+   API Reference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api_ref/page_index.html">
+     Intel® Deep Learning Streamer (Intel® DL Streamer) API reference
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="api_ref/global.html">
+     Global Namespace
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api_ref/namespace_GVA.html">
+       namespace GVA
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/struct_GVA_Rect.html">
+         template struct GVA::Rect
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/struct_GVA_Segment.html">
+         template struct GVA::Segment
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/class_GVA_AudioEvent.html">
+         class GVA::AudioEvent
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/class_GVA_AudioFrame.html">
+         class GVA::AudioFrame
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/class_GVA_RegionOfInterest.html">
+         class GVA::RegionOfInterest
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/class_GVA_Tensor.html">
+         class GVA::Tensor
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/class_GVA_VideoFrame.html">
+         class GVA::VideoFrame
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api_ref/namespace_gstgva.html">
+       namespace gstgva
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/namespace_gstgva_region_of_interest.html">
+         namespace gstgva::region_of_interest
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/namespace_gstgva_tensor.html">
+         namespace gstgva::tensor
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/namespace_gstgva_video_frame.html">
+         namespace gstgva::video_frame
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api_ref/enum_GVALayout.html">
+       enum GVALayout
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api_ref/enum_GVAPrecision.html">
+       enum GVAPrecision
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api_ref/struct_GstGVAAudioEventMeta.html">
+       struct GstGVAAudioEventMeta
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="simple">
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api_ref/struct__GstGVAJSONMeta.html">
+       struct _GstGVAJSONMeta
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="simple">
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api_ref/struct__GstGVATensorMeta.html">
+       struct _GstGVATensorMeta
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="simple">
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/supported_models.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Supported Models
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#object-detection-models-intel">
+     Object Detection Models (Intel)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#object-detection-models-public">
+     Object Detection Models (Public)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#object-recognition-models-intel">
+     Object Recognition Models (Intel)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-models-intel">
+     Classification Models (Intel)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-models-public">
+     Classification Models (Public)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#human-pose-estimation-models">
+     Human Pose Estimation Models
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sound-classification-models-public">
+     Sound Classification Models (Public)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#object-detection-and-recognition-models-onnx-model-zoo">
+     Object Detection and Recognition Models (ONNX Model Zoo)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview-of-supported-models-for-preview-features">
+   Overview of supported models for preview features
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#action-recognition-models-intel">
+     Action Recognition Models (Intel)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#semantic-segmentation-models-intel">
+     Semantic Segmentation Models (Intel)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#instance-segmentation-models-intel">
+     Instance Segmentation Models (Intel)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#text-detection-models-intel">
+     Text Detection Models (Intel)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Supported Models</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Supported Models
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#object-detection-models-intel">
+     Object Detection Models (Intel)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#object-detection-models-public">
+     Object Detection Models (Public)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#object-recognition-models-intel">
+     Object Recognition Models (Intel)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-models-intel">
+     Classification Models (Intel)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-models-public">
+     Classification Models (Public)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#human-pose-estimation-models">
+     Human Pose Estimation Models
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sound-classification-models-public">
+     Sound Classification Models (Public)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#object-detection-and-recognition-models-onnx-model-zoo">
+     Object Detection and Recognition Models (ONNX Model Zoo)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview-of-supported-models-for-preview-features">
+   Overview of supported models for preview features
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#action-recognition-models-intel">
+     Action Recognition Models (Intel)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#semantic-segmentation-models-intel">
+     Semantic Segmentation Models (Intel)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#instance-segmentation-models-intel">
+     Instance Segmentation Models (Intel)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#text-detection-models-intel">
+     Text Detection Models (Intel)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="supported-models">
+<h1>Supported Models<a class="headerlink" href="#supported-models" title="Permalink to this headline">#</a></h1>
+<p>Here is a set of some pre-trained models <cite>Open Model Zoo &lt;https://github.com/openvinotoolkit/open_model_zoo&gt;</cite>
+that we use for testing. Model Proc is a <code class="docutils literal notranslate"><span class="pre">.json</span></code> file that describes input and output layers of a model,
+format and rules for data pre-processing and post-processing.</p>
+<section id="object-detection-models-intel">
+<h2>Object Detection Models (Intel)<a class="headerlink" href="#object-detection-models-intel" title="Permalink to this headline">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model Name</p></th>
+<th class="head"><p>Model Proc</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_face_detection_0200.html">face-detection-0200</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/face-detection-0200.json)">face-detection-0200.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_face_detection_0202.html">face-detection-0202</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/face-detection-0202.json">face-detection-0202.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_face_detection_0204.html">face-detection-0204</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/face-detection-0204.json">face-detection-0204.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_face_detection_0205.html">face-detection-0205</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/face-detection-0205.json">face-detection-0205.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_face_detection_0206.html">face-detection-0206</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/face-detection-0206.json">face-detection-0206.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_face_detection_adas_0001.html">face-detection-adas-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/face-detection-adas-0001.json">face-detection-adas-0001.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_face_detection_retail_0004.html">face-detection-retail-0004</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/face-detection-retail-0004.json">face-detection-retail-0004.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_face_detection_retail_0005.html">face-detection-retail-0005</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/face-detection-retail-0005.json">face-detection-retail-0005.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_faster_rcnn_resnet101_coco_sparse_60_0001.html">faster-rcnn-resnet101-coco-sparse-60-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/faster-rcnn-resnet101-coco-sparse-60-0001.json">faster-rcnn-resnet101-coco-sparse-60-0001.json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_pedestrian_and_vehicle_detector_adas_0001.html">pedestrian-and-vehicle-detector-adas-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/pedestrian-and-vehicle-detector-adas-0001.json">pedestrian-and-vehicle-detector-adas-0001.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_pedestrian_detection_adas_0002.html">pedestrian-detection-adas-0002</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/pedestrian-detection-adas-0002.json">pedestrian-detection-adas-0002.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_detection_0200.html">person-detection-0200</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/person-detection-0200.json">person-detection-0200.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_detection_0201.html">person-detection-0201</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/person-detection-0201.json">person-detection-0201.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_detection_0202.html">person-detection-0202</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/person-detection-0202.json">person-detection-0202.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_detection_0203.html">person-detection-0203</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/person-detection-0203.json">person-detection-0203.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_detection_asl_0001.html">person-detection-asl-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/person-detection-asl-0001.json">person-detection-0203.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_detection_retail_0002.html">person-detection-retail-0002</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/person-detection-retail-0002.json">person-detection-retail-0002.json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_detection_retail_0013.html">person-detection-retail-0013</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/person-detection-retail-0013.json">person-detection-retail-0013.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_intel_person_vehicle_bike_detection_2000_description_person_vehicle_bike_detection_2000.html">person-vehicle-bike-detection-2000</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/person-vehicle-bike-detection-2000.json">person-vehicle-bike-detection-2000.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_intel_person_vehicle_bike_detection_2001_description_person_vehicle_bike_detection_2001.html">person-vehicle-bike-detection-2001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/person-vehicle-bike-detection-2001.json">person-vehicle-bike-detection-2001.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_intel_person_vehicle_bike_detection_2002_description_person_vehicle_bike_detection_2002.html">person-vehicle-bike-detection-2002</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/person-vehicle-bike-detection-2002.json">person-vehicle-bike-detection-2002.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_2003.html">person-vehicle-bike-detection-2003</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/person-vehicle-bike-detection-2003.json">person-vehicle-bike-detection-2003.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_2004.html">person-vehicle-bike-detection-2004</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/person-vehicle-bike-detection-2004.json">person-vehicle-bike-detection-2004.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_crossroad_0078.html">person-vehicle-bike-detection-crossroad-0078</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/person-vehicle-bike-detection-crossroad-0078.json">person-vehicle-bike-detection-crossroad-0078.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_crossroad_1016.html">person-vehicle-bike-detection-crossroad-1016</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/person-vehicle-bike-detection-crossroad-1016.json">person-vehicle-bike-detection-crossroad-1016.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_crossroad_yolov3_1020.html">person-vehicle-bike-detection-crossroad-yolov3-1020</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/person-vehicle-bike-detection-crossroad-yolov3-1020.json">person-vehicle-bike-detection-crossroad-yolov3-1020.json</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_product_detection_0001.html">product-detection-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/product-detection-0001.json">product-detection-0001.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_vehicle_detection_0200.html">vehicle-detection-0200</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/vehicle-detection-0200.json">vehicle-detection-0200.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_vehicle_detection_0201.html">vehicle-detection-0201</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/vehicle-detection-0201.json">vehicle-detection-0201.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_vehicle_detection_0202.html">vehicle-detection-0202</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/vehicle-detection-0202.json">vehicle-detection-0202.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_vehicle_detection_adas_0002.html">vehicle-detection-adas-0002</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/vehicle-detection-adas-0002.json">vehicle-detection-adas-0002.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_vehicle_license_plate_detection_barrier_0106.html">vehicle-license-plate-detection-barrier-0106</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/vehicle-license-plate-detection-barrier-0106.json">vehicle-license-plate-detection-barrier-0106.json</a> <em>(optional)</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v2_ava_0001.html">yolo-v2-ava-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/yolo-v2-ava-0001.json">yolo-v2-ava-0001.json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v2_ava_sparse_35_0001.html">yolo-v2-ava-sparse-35-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/yolo-v2-ava-sparse-35-0001.json">yolo-v2-ava-sparse-35-0001.json</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v2_ava_sparse_70_0001.html">yolo-v2-ava-sparse-70-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/yolo-v2-ava-sparse-70-0001.json">yolo-v2-ava-sparse-70-0001.json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v2_tiny_ava_0001.html">yolo-v2-tiny-ava-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/yolo-v2-tiny-ava-0001.json">yolo-v2-tiny-ava-0001.json</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v2_tiny_ava_sparse_30_0001.html">yolo-v2-tiny-ava-sparse-30-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/yolo-v2-tiny-ava-sparse-30-0001.json">yolo-v2-tiny-ava-sparse-30-0001.json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v2_tiny_ava_sparse_60_0001.html">yolo-v2-tiny-ava-sparse-60-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/yolo-v2-tiny-ava-sparse-60-0001.json">yolo-v2-tiny-ava-sparse-60-0001.json</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v2_tiny_vehicle_detection_0001.html">yolo-v2-tiny-vehicle-detection-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/yolo-v2-tiny-vehicle-detection-0001.json">yolo-v2-tiny-vehicle-detection-0001.json</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="object-detection-models-public">
+<h2>Object Detection Models (Public)<a class="headerlink" href="#object-detection-models-public" title="Permalink to this headline">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model Name</p></th>
+<th class="head"><p>Model Proc</p></th>
+<th class="head"><p>Labels</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_efficientdet_d0_tf.html">efficientdet-d0-tf</a></p></td>
+<td><p><em>None</em></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco-91cl.txt">coco-91cl</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_efficientdet_d1_tf.html">efficientdet-d1-tf</a></p></td>
+<td><p><em>None</em></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco-91cl.txt">coco-91cl</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_face_detection_retail_0044.html">face-detection-retail-0044</a></p></td>
+<td><p><em>None</em></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/face-bkgr.txt">face-bkgr</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_faster_rcnn_inception_resnet_v2_atrous_coco.html">faster_rcnn_inception_resnet_v2_atrous_coco</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-image-info.json">preproc-image-info.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco-91cl-bkgr.txt">coco-91cl-bkgr</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_faster_rcnn_resnet50_coco.html">faster_rcnn_resnet50_coco</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-image-info.json">preproc-image-info.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco-91cl-bkgr.txt">coco-91cl-bkgr</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/ce08b6a69e011edfe340d05390284fa19e5d8494/models/public/mobilenet-yolo-v4-syg#readme">mobilenet-yolo-v4-syg</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/mobilenet-yolo-v4-syg.json">mobilenet-yolo-v4-syg.json</a></p></td>
+<td><p><em>None</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_pelee_coco.html">pelee-coco</a></p></td>
+<td><p><em>None</em></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco-80cl-bkgr.txt">coco-80cl-bkgr</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_retinanet_tf.html">retinanet-tf</a></p></td>
+<td><p><em>None</em></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco-80cl.txt">coco-80cl</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_rfcn_resnet101_coco_tf.html">rfcn-resnet101-coco-tf</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-image-info.json">preproc-image-info.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco-91cl-bkgr.txt">coco-91cl-bkgr</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_ssd300.html">ssd300</a></p></td>
+<td><p><em>None</em></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/voc-20cl-bkgr.txt">voc-20cl-bkgr</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_ssd512.html">ssd512</a></p></td>
+<td><p><em>None</em></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/voc-20cl-bkgr.txt">voc-20cl-bkgr</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_mobilenet_ssd.html">mobilenet-ssd</a></p></td>
+<td><p><em>None</em></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/voc-20cl-bkgr.txt">voc-20cl-bkgr</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_ssd_mobilenet_v1_coco.html">ssd_mobilenet_v1_coco</a></p></td>
+<td><p><em>None</em></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco-91cl-bkgr.txt">coco-91cl-bkgr</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_ssd_mobilenet_v1_fpn_coco.html">ssd_mobilenet_v1_fpn_coco</a></p></td>
+<td><p><em>None</em></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco-91cl-bkgr.txt">coco-91cl-bkgr</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_ssdlite_mobilenet_v2.html">ssdlite_mobilenet_v2</a></p></td>
+<td><p><em>None</em></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco-91cl-bkgr.txt">coco-91cl-bkgr</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_vehicle_license_plate_detection_barrier_0123.html">vehicle-license-plate-detection-barrier-0123</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/vehicle-license-plate-detection-barrier-0123.json">vehicle-license-plate-detection-barrier-0123.json</a></p></td>
+<td><p><em>None</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v1_tiny_tf.html">yolo-v1-tiny-tf</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/yolo-v1-tiny-tf.json">yolo-v1-tiny-tf.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/voc-20cl.txt">voc-20cl</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v2_tiny_tf.html">yolo-v2-tiny-tf</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/yolo-v2-tiny-tf.json">yolo-v2-tiny-tf.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco-80cl.txt">coco-80cl</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v2_tf.html">yolo-v2-tf</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/yolo-v2-tf.json">yolo-v2-tf.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco-80cl.txt">coco-80cl</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v3_tiny_tf.html">yolo-v3-tiny-tf</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/yolo-v3-tiny-tf.json">yolo-v3-tiny-tf.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco-80cl.txt">coco-80cl</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v3_tf.html">yolo-v3-tf</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/yolo-v3-tf.json">yolo-v3-tf.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco-80cl.txt">coco-80cl</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v4_tiny_tf.html">yolo-v4-tiny-tf</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/yolo-v4-tiny-tf.json">yolo-v4-tiny-tf.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco-80cl.txt">coco-80cl</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v4_tf.html">yolo-v4-tf</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/yolo-v4-tf.json">yolo-v4-tf.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco-80cl.txt">coco-80cl</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="object-recognition-models-intel">
+<h2>Object Recognition Models (Intel)<a class="headerlink" href="#object-recognition-models-intel" title="Permalink to this headline">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model Name</p></th>
+<th class="head"><p>Model Proc</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_age_gender_recognition_retail_0013.html">age-gender-recognition-retail-0013</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/age-gender-recognition-retail-0013.json">age-gender-recognition-retail-0013.json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_emotions_recognition_retail_0003.html">emotions-recognition-retail-0003</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/emotions-recognition-retail-0003.json">emotions-recognition-retail-0003.json</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_facial_landmarks_35_adas_0002.html">facial-landmarks-35-adas-0002</a></p></td>
+<td><p><em>None</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_head_pose_estimation_adas_0001.html">head-pose-estimation-adas-0001</a></p></td>
+<td><p><em>None</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_landmarks_regression_retail_0009.html">landmarks-regression-retail-0009</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/landmarks-regression-retail-0009.json">landmarks-regression-retail-0009.json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_license_plate_recognition_barrier_0001.html">license-plate-recognition-barrier-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/license-plate-recognition-barrier-0001.json">license-plate-recognition-barrier-0001.json</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_attributes_recognition_crossroad_0230.html">person-attributes-recognition-crossroad-0230</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/person-attributes-recognition-crossroad-0230.json">person-attributes-recognition-crossroad-0230.json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_attributes_recognition_crossroad_0234.html">person-attributes-recognition-crossroad-0234</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/person-attributes-recognition-crossroad-0234.json">person-attributes-recognition-crossroad-0234.json</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_attributes_recognition_crossroad_0238.html">person-attributes-recognition-crossroad-0238</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/person-attributes-recognition-crossroad-0238.json">person-attributes-recognition-crossroad-0238.json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_vehicle_attributes_recognition_barrier_0039.html">vehicle-attributes-recognition-barrier-0039</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/vehicle-attributes-recognition-barrier-0039.json">vehicle-attributes-recognition-barrier-0039.json</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_vehicle_attributes_recognition_barrier_0042.html">vehicle-attributes-recognition-barrier-0042</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/vehicle-attributes-recognition-barrier-0042.json">vehicle-attributes-recognition-barrier-0042.json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_weld_porosity_detection_0001.html">weld-porosity-detection-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/weld-porosity-detection-0001.json">weld-porosity-detection-0001.json</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classification-models-intel">
+<h2>Classification Models (Intel)<a class="headerlink" href="#classification-models-intel" title="Permalink to this headline">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model Name</p></th>
+<th class="head"><p>Model Proc</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_resnet50_binary_0001.html">resnet50-binary-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/resnet50-binary-0001.json">resnet50-binary-0001.json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_resnet18_xnor_binary_onnx_0001.html">resnet18-xnor-binary-onnx-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/resnet18-xnor-binary-onnx-0001.json">resnet18-xnor-binary-onnx-0001.json</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classification-models-public">
+<h2>Classification Models (Public)<a class="headerlink" href="#classification-models-public" title="Permalink to this headline">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model Name</p></th>
+<th class="head"><p>Model Proc</p></th>
+<th class="head"><p>Labels</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_alexnet.html">alexnet</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_anti_spoof_mn3.html">anti-spoof-mn3</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/anti-spoof-mn3.json">anti-spoof-mn3.json</a></p></td>
+<td><p><em>None</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_densenet_121.html">densenet-121</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_densenet_121_tf.html">densenet-121-tf</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_dla_34.html">dla-34</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_efficientnet_b0.html">efficientnet-b0</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_efficientnet_b0_pytorch.html">efficientnet-b0-pytorch</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_hbonet_1_0.html">hbonet-1.0</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_hbonet_0_25.html">hbonet-0.25</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_googlenet_v1.html">googlenet-v1</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_googlenet_v1_tf.html">googlenet-v1-tf</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_googlenet_v2.html">googlenet-v2</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2015.txt">imagenet-2015</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_googlenet_v2_tf.html">googlenet-v2-tf</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012-bkgr.txt">imagenet-2012-bkgr</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_googlenet_v3.html">googlenet-v3</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012-bkgr.txt">imagenet-2012-bkgr</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_googlenet_v3_pytorch.html">googlenet-v3-pytorch</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_googlenet_v4_tf.html">googlenet-v4-tf</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012-bkgr.txt">imagenet-2012-bkgr</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_inception_resnet_v2_tf.html">inception-resnet-v2-tf</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012-bkgr.txt">imagenet-2012-bkgr</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_mixnet_l.html">mixnet-l</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_mobilenet_v1_0_25_128.html">mobilenet-v1-0.25-128</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012-bkgr.txt">imagenet-2012-bkgr</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_mobilenet_v1_1_0_224.html">mobilenet-v1-1.0-224</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_mobilenet_v1_1_0_224_tf.html">mobilenet-v1-1.0-224-tf</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012-bkgr.txt">imagenet-2012-bkgr</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_mobilenet_v2.html">mobilenet-v2</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_mobilenet_v2_1_0_224.html">mobilenet-v2-1.0-224</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012-bkgr.txt">imagenet-2012-bkgr</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_mobilenet_v2_pytorch.html">mobilenet-v2-pytorch</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_mobilenet_v2_1_4_224.html">mobilenet-v2-1.4-224</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012-bkgr.txt">imagenet-2012-bkgr</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_mobilenet_v3_small_1_0_224_tf.html">mobilenet-v3-small-1.0-224-tf</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_mobilenet_v3_large_1_0_224_tf.html">mobilenet-v3-large-1.0-224-tf</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_nfnet_f0.html">nfnet-f0</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_regnetx_3_2gf.html">regnetx-3.2gf</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_octave_resnet_26_0_25.html">octave-resnet-26-0.25</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_open_closed_eye_0001.html">open-closed-eye-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/open-closed-eye-0001.json">open-closed-eye-0001.json</a></p></td>
+<td><p><em>None</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_repvgg_a0.html">repvgg-a0</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_repvgg_b1.html">repvgg-b1</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_repvgg_b3.html">repvgg-b3</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_resnest_50_pytorch.html">resnest-50-pytorch</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_resnet_18_pytorch.html">resnet-18-pytorch</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_resnet_34_pytorch.html">resnet-34-pytorch</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_resnet_50_pytorch.html">resnet-50-pytorch</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_resnet_50_tf.html">resnet-50-tf</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012-bkgr.txt">imagenet-2012-bkgr</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_rexnet_v1_x1_0.html">rexnet-v1-x1.0</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_se_inception.html">se-inception</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2015.txt">imagenet-2015</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_se_resnet_50.html">se-resnet-50</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2015.txt">imagenet-2015</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_se_resnext_50.html">se-resnext-50</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2015.txt">imagenet-2015</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_shufflenet_v2_x0_5.html">shufflenet-v2-x0.5</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_shufflenet_v2_x1_0.html">shufflenet-v2-x1.0</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_squeezenet1_0.html">squeezenet1.0</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_squeezenet1_1.html">squeezenet1.1</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_swin_tiny_patch4_window7_224.html">swin-tiny-patch4-window7-224</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_vgg16.html">vgg16</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_vgg19.html">vgg19</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet-2012.txt">imagenet-2012</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="human-pose-estimation-models">
+<h2>Human Pose Estimation Models<a class="headerlink" href="#human-pose-estimation-models" title="Permalink to this headline">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model Name</p></th>
+<th class="head"><p>Model Proc</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_human_pose_estimation_0001.html">human-pose-estimation-0001</a> (intel)</p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/human-pose-estimation-0001.json">human-pose-estimation-0001.json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_single_human_pose_estimation_0001.html">single-human-pose-estimation-0001</a> (public)</p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/single-human-pose-estimation-0001.json">single-human-pose-estimation-0001.json</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sound-classification-models-public">
+<h2>Sound Classification Models (Public)<a class="headerlink" href="#sound-classification-models-public" title="Permalink to this headline">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model Name</p></th>
+<th class="head"><p>Model Proc</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_aclnet.html">aclnet</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/aclnet.json">aclnet.json</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="object-detection-and-recognition-models-onnx-model-zoo">
+<h2>Object Detection and Recognition Models (ONNX Model Zoo)<a class="headerlink" href="#object-detection-and-recognition-models-onnx-model-zoo" title="Permalink to this headline">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model Name</p></th>
+<th class="head"><p>Model Proc</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/models/tree/master/vision/object_detection_segmentation/yolov2-coco">YOLOv2</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/onnx/yolov2-coco-9.json">yolov2-coco-9.json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/models/tree/master/vision/object_detection_segmentation/tiny-yolov2">YOLOv2 Tiny</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/onnx/tinyyolov2-8.json">tinyyolov2-8.json</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/models/tree/master/vision/classification/mobilenet">MobileNet</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/onnx/mobilenetv2-7.json">mobilenetv2-7.json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/models/tree/master/vision/body_analysis/emotion_ferplus">FER+ Emotion Recognition</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/onnx/emotion-ferplus-8.json">emotion-ferplus-8.json</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="overview-of-supported-models-for-preview-features">
+<h1>Overview of supported models for preview features<a class="headerlink" href="#overview-of-supported-models-for-preview-features" title="Permalink to this headline">#</a></h1>
+<section id="action-recognition-models-intel">
+<h2>Action Recognition Models (Intel)<a class="headerlink" href="#action-recognition-models-intel" title="Permalink to this headline">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model Name</p></th>
+<th class="head"><p>Model Proc</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_action_recognition_0001.html">action-recognition-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/action-recognition-0001.json">action-recognition-0001.json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_driver_action_recognition_adas_0002.html">driver-action-recognition-adas-0002</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/driver-action-recognition-adas-0002.json">driver-action-recognition-adas-0002.json</a></p></td>
+</tr>
+</tbody>
+</table>
+<p>Support for the models below is only available on the
+<a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/preview/segmentation">preview/segmentation</a>
+branch.</p>
+</section>
+<section id="semantic-segmentation-models-intel">
+<h2>Semantic Segmentation Models (Intel)<a class="headerlink" href="#semantic-segmentation-models-intel" title="Permalink to this headline">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model Name</p></th>
+<th class="head"><p>Model Proc</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_road_segmentation_adas_0001.html">road-segmentation-adas-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/preview/segmentation/samples/model_proc/road-segmentation-adas-0001.json">road-segmentation-adas-0001.json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_semantic_segmentation_adas_0001.html">semantic-segmentation-adas-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/preview/segmentation/samples/model_proc/semantic-segmentation-adas-0001.json">semantic-segmentation-adas-0001.json</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_icnet_camvid_ava_0001.html">icnet-camvid-ava-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/preview/segmentation/samples/model_proc/icnet-camvid-ava-0001.json">icnet-camvid-ava-0001.json</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="instance-segmentation-models-intel">
+<h2>Instance Segmentation Models (Intel)<a class="headerlink" href="#instance-segmentation-models-intel" title="Permalink to this headline">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model Name</p></th>
+<th class="head"><p>Model Proc</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/2021.2/omz_models_intel_instance_segmentation_security_0083_description_instance_segmentation_security_0083.html">instance-segmentation-security-0083</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/preview/segmentation/samples/model_proc/instance-segmentation-security-0083.json">instance-segmentation-security-0083.json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/2021.2/omz_models_intel_instance_segmentation_security_1025_description_instance_segmentation_security_1025.html">instance-segmentation-security-1025</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/preview/segmentation/samples/model_proc/instance-segmentation-security-1025.json">instance-segmentation-security-1025.json</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="text-detection-models-intel">
+<h2>Text Detection Models (Intel)<a class="headerlink" href="#text-detection-models-intel" title="Permalink to this headline">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model Name</p></th>
+<th class="head"><p>Model Proc</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_text_detection_0003.html">text-detection-0003</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/preview/segmentation/samples/model_proc/text-detection-0003.json">text-detection-0003.json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_horizontal_text_detection_0001.html">horizontal-text-detection-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/horizontal-text-detection-0001.json">horizontal-text-detection-0001.json</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="elements/gvawatermark.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">gvawatermark</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="api_ref/api_reference.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">API Reference</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Intel Corporation<br/>
+  
+      &copy; Copyright 2022, Intel Corporation.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
