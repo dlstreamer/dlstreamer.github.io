@@ -185,7 +185,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="converting_deepstream_to_dlstreamer.html">
-     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer)
+     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
     </a>
    </li>
    <li class="toctree-l2 has-children">
@@ -836,7 +836,7 @@ title="Print to PDF"
   <section id="how-to-create-model-proc-file">
 <h1>How to Create Model-proc File<a class="headerlink" href="#how-to-create-model-proc-file" title="Permalink to this headline">#</a></h1>
 <p>In this tutorial you will learn how to create model-proc file for your
-own CNN model that can be processed by Intel® Deep Learning Streamer (Intel® DL Streamer).</p>
+own CNN model that can be processed by Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework.</p>
 <p>Please refer to the <a class="reference internal" href="model_proc_file.html"><span class="doc">model-proc documentation</span></a>
 before going through this tutorial.</p>
 <section id="content">
@@ -886,7 +886,7 @@ field <em>“output_postproc”</em>. How to do this is described in the section
 <section id="model-has-several-input-layers">
 <h3>Model has several input layers<a class="headerlink" href="#model-has-several-input-layers" title="Permalink to this headline">#</a></h3>
 <p>The general case when the model has 2 or more input layers is <strong>not
-supported</strong> by Intel DL Streamer, however, there is an <strong>exception</strong>:</p>
+supported</strong> by Pipeline Framework, however, there is an <strong>exception</strong>:</p>
 <ol class="arabic">
 <li><p>The model requires an image as an input for only one layer;</p></li>
 <li><p>The second layer is a layer of the following formats:</p>

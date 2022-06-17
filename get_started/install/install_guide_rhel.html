@@ -185,7 +185,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../dev_guide/converting_deepstream_to_dlstreamer.html">
-     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer)
+     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
     </a>
    </li>
    <li class="toctree-l2 has-children">
@@ -583,8 +583,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#compile-intel-dl-streamer-as-docker-image">
-   Compile Intel DL Streamer as Docker image
+  <a class="reference internal nav-link" href="#compile-intel-dl-streamer-pipeline-framework-as-docker-image">
+   Compile Intel® DL Streamer Pipeline Framework as Docker image
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -634,8 +634,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#compile-intel-dl-streamer-as-docker-image">
-   Compile Intel DL Streamer as Docker image
+  <a class="reference internal nav-link" href="#compile-intel-dl-streamer-pipeline-framework-as-docker-image">
+   Compile Intel® DL Streamer Pipeline Framework as Docker image
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -677,11 +677,11 @@ title="Print to PDF"
                 
   <section id="install-guide-rhel">
 <h1>Install Guide RHEL<a class="headerlink" href="#install-guide-rhel" title="Permalink to this headline">#</a></h1>
-<p>For Red Hat Enterprise Linux 8, Intel® Deep Learning Streamer (Intel® DL Streamer) can be built from the source code provided in this
+<p>For Red Hat Enterprise Linux 8, Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework can be built from the source code provided in this
 repository as Docker image.</p>
-<section id="compile-intel-dl-streamer-as-docker-image">
-<h2>Compile Intel DL Streamer as Docker image<a class="headerlink" href="#compile-intel-dl-streamer-as-docker-image" title="Permalink to this headline">#</a></h2>
-<p>To be able to create Intel DL Streamer Docker image, <strong>activated RHEL Docker image is required</strong>.</p>
+<section id="compile-intel-dl-streamer-pipeline-framework-as-docker-image">
+<h2>Compile Intel® DL Streamer Pipeline Framework as Docker image<a class="headerlink" href="#compile-intel-dl-streamer-pipeline-framework-as-docker-image" title="Permalink to this headline">#</a></h2>
+<p>To be able to create Intel® DL Streamer Pipeline Framework Docker image, <strong>activated RHEL Docker image is required</strong>.</p>
 <section id="step-1-install-docker-ce-if-not-installed">
 <h3>Step 1: Install Docker CE (if not installed)<a class="headerlink" href="#step-1-install-docker-ce-if-not-installed" title="Permalink to this headline">#</a></h3>
 <p>Refer to <a class="reference external" href="https://docs.docker.com/install/">Docker installation documentation</a></p>
@@ -717,7 +717,7 @@ the steps above.</p>
 </section>
 <section id="step-4-run-docker-image">
 <h3>Step 4: Run Docker image<a class="headerlink" href="#step-4-run-docker-image" title="Permalink to this headline">#</a></h3>
-<p>Some Intel DL Streamer samples use display to render results.
+<p>Some Pipeline Framework samples use display to render results.
 In order to allow connection from Docker container to host X server run the following commands.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>xhost local:root
 setfacl -m user:1000:r ~/.Xauthority
@@ -761,7 +761,7 @@ smooth authentication with X server.</p></li>
 Environment variable MODELS_PATH in the Docker container is responsible for it.</p></li>
 <li><p>Entrypoint of the Docker is by default <code class="docutils literal notranslate"><span class="pre">/opt/intel/dlstreamer/samples</span></code>.</p></li>
 </ul>
-<p>Inside Docker image you can find Intel DL Streamer samples at the entrypoint.
+<p>Inside Docker image you can find Pipeline Framework samples at the entrypoint.
 Before using the samples, run the script <code class="docutils literal notranslate"><span class="pre">download_models.sh</span></code> (located
 in <code class="docutils literal notranslate"><span class="pre">samples</span></code> folder) to download the models required for samples.</p>
 <div class="admonition note">

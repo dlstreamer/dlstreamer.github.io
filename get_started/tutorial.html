@@ -185,7 +185,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../dev_guide/converting_deepstream_to_dlstreamer.html">
-     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer)
+     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
     </a>
    </li>
    <li class="toctree-l2 has-children">
@@ -605,8 +605,8 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction-to-intel-deep-learning-streamer-intel-dl-streamer">
-   Introduction to Intel® Deep Learning Streamer (Intel® DL Streamer)
+  <a class="reference internal nav-link" href="#introduction-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework">
+   Introduction to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -726,8 +726,8 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction-to-intel-deep-learning-streamer-intel-dl-streamer">
-   Introduction to Intel® Deep Learning Streamer (Intel® DL Streamer)
+  <a class="reference internal nav-link" href="#introduction-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework">
+   Introduction to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -818,10 +818,10 @@ title="Print to PDF"
   <section id="tutorial">
 <h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">#</a></h1>
 <p>In this tutorial, you will learn how to build video analytics pipelines
-using Intel® Deep Learning Streamer (Intel® DL Streamer).</p>
+using Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="#about-gstreamer">About GStreamer</a></p></li>
-<li><p><a class="reference external" href="#introduction-to-intel-deep-learning-streamer-intel-dl-streamer">Introduction to Intel® Deep Learning Streamer (Intel® DL Streamer)</a></p></li>
+<li><p><a class="reference external" href="#introduction-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework">Introduction to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></p></li>
 <li><p><a class="reference external" href="#tutorial-setup">Tutorial Setup</a></p></li>
 <li><p><a class="reference internal" href="#object-detection"><span class="std std-ref">Exercise 1 - Build object detection pipeline</span></a></p></li>
 <li><p><a class="reference internal" href="#object-classification"><span class="std std-ref">Exercise 2 - Build object classification pipeline</span></a></p></li>
@@ -832,22 +832,22 @@ using Intel® Deep Learning Streamer (Intel® DL Streamer).</p>
 <h2>About GStreamer<a class="headerlink" href="#about-gstreamer" title="Permalink to this headline">#</a></h2>
 <p>In this section we introduce basic GStreamer* concepts that you will
 use in the rest of the tutorial. If you are already familiar with
-GStreamer feel free to skip ahead to the next section - <a class="reference external" href="#introduction-to-intel-deep-learning-streamer-intel-dl-streamer">Introduction to
-Intel DL Streamer</a>.</p>
+GStreamer feel free to skip ahead to the next section - <a class="reference external" href="#introduction-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework">Introduction to
+Intel® DL Streamer Pipeline Framework</a>.</p>
 <p><a class="reference external" href="https://gstreamer.freedesktop.org/">GStreamer</a> is a flexible, fast
 and multiplatform open-source multimedia framework. It has an easy to
 use command line tool for running pipelines, as well as an API with
-bindings in C, Python, Javascript and more. In this tutorial we will use
+bindings in C*, Python*, Javascript* and more. In this tutorial we will use
 the GStreamer command line tool gst-launch-1.0. For more information and
 examples please refer to the online documentation for
 <a class="reference external" href="https://gstreamer.freedesktop.org/documentation/tools/gst-launch.html?gi-language=c">gst-launch-1.0</a>.</p>
 <section id="pipelines">
 <h3>Pipelines<a class="headerlink" href="#pipelines" title="Permalink to this headline">#</a></h3>
-<p>The command line tool gst-launch-1.0 enables developers to describe
+<p>The command line tool <strong>gst-launch-1.0</strong> enables developers to describe
 a media analytics pipeline as a series of connected elements. The list of
 elements, their configuration properties, and their connections are all
 specified as a list of strings separated by exclamation marks (!).
-gst-launch-1.0 parses the string and instantiates the software modules
+<strong>gst-launch-1.0</strong> parses the string and instantiates the software modules
 which perform the individual media analytics operations. Internally, the
 GStreamer library constructs a pipeline object that contains the
 individual elements and handles common operations such as clocking,
@@ -872,15 +872,15 @@ element that reads input from a local file.</p>
 <p>Elements designated as sink elements represent the final stage of a
 pipeline. As an example, a sink element could write transcoded frames to
 a file on the local disk or open a window to render the video content to
-the screen or even restream the content via rtsp. We will use the
+the screen or even restream the content via RTSP. We will use the
 standard
 <a class="reference external" href="https://gstreamer.freedesktop.org/documentation/xvimagesink/index.html?gi-language=c">xvimagesink</a>
 element to render the video frames on a local display.</p>
 <p>We will also use the
 <a class="reference external" href="https://gstreamer.freedesktop.org/documentation/playback/decodebin.html#decodebin">decodebin</a>
-utility element. The decodebin element constructs a concrete set of
+utility element. The <strong>decodebin</strong> element constructs a concrete set of
 decode operations based on the given input format and the decoder and
-demuxer elements available in the system. At a high level, the decodebin
+demuxer elements available in the system. At a high level, the <strong>decodebin</strong>
 abstracts the individual operations required to take encoded frames and
 produce raw video frames suitable for image transformation and
 inferencing.</p>
@@ -892,19 +892,19 @@ example, the filesrc element has a property named location which
 specifies the file path for input.</p>
 <p>Example: filesrc location=cars_1900.mp4</p>
 <p>The documentation for each element, which can be viewed using the
-command line tool gst-inspect-1.0, describes its properties as well as
+command line tool <strong>gst-inspect-1.0</strong>, describes its properties as well as
 the valid range of values for each property.</p>
 </section>
 </section>
-<section id="introduction-to-intel-deep-learning-streamer-intel-dl-streamer">
-<h2>Introduction to Intel® Deep Learning Streamer (Intel® DL Streamer)<a class="headerlink" href="#introduction-to-intel-deep-learning-streamer-intel-dl-streamer" title="Permalink to this headline">#</a></h2>
-<p>Deep Learning(DL) Streamer is an easy way to construct media analytics
+<section id="introduction-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework">
+<h2>Introduction to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework<a class="headerlink" href="#introduction-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework" title="Permalink to this headline">#</a></h2>
+<p>Intel® DL Streamer Pipeline Framework is an easy way to construct media analytics
 pipelines using Intel® Distribution of OpenVINO™ toolkit. It leverages
 the open source media framework GStreamer to provide optimized media
 operations and <a class="reference external" href="https://docs.openvino.ai/latest/openvino_docs_IE_DG_inference_engine_intro.html">Deep Learning Inference
 Engine</a>
 from OpenVINO™ Toolkit to provide optimized inference.</p>
-<p>The elements packaged in the Intel DL Streamer binary release can be divided into three categories:</p>
+<p>The elements packaged in the Intel® DL Streamer Pipeline Framework binary release can be divided into three categories:</p>
 <ul class="simple">
 <li><p>Elements for optimized streaming media operations (usb and ip camera
 support, file handling, decode, color-space-conversion, scaling,
@@ -913,14 +913,14 @@ GStreamer community.</p></li>
 <li><p>Elements that use the Deep Learning Inference
 Engine from OpenVINO™ Toolkit or OpenCV for optimized video analytics
 (detection, classification, tracking). These elements are provided as
-part of the Intel DL Streamer’s GVA plugin.</p></li>
+part of the Pipeline Framework’s GVA plugin.</p></li>
 <li><p>Elements that convert and
 publish inference results to the screen as overlaid bounding boxes, to a
 file as a list of JSON Objects, or to popular message brokers (Kafka or
 MQTT) as JSON messages. These elements are provided as part of the DL
 Streamer’s GVA plugin.</p></li>
 </ul>
-<p>The elements in the last two categories above are part of Intel DL Streamer’s
+<p>The elements in the last two categories above are part of Pipeline Framework’s
 GVA plugin and start with the prefix ‘gva’. We will describe the ‘gva’
 elements used in this tutorial with some important properties here.
 Refer to <a class="reference internal" href="../elements/elements.html"><span class="doc">Intel DL Streamer elements</span></a> page for more details.</p>
@@ -973,7 +973,7 @@ or a file using <em>gvametaconvert</em> and <em>gvametapublish</em> of Intel DL 
 <section id="tutorial-setup">
 <h2>Tutorial Setup<a class="headerlink" href="#tutorial-setup" title="Permalink to this headline">#</a></h2>
 <ol class="arabic">
-<li><p>Install Intel® Deep Learning Streamer (Intel® DL Streamer) by following the <a class="reference internal" href="install/install_guide_ubuntu.html"><span class="doc">Install-Guide</span></a>.</p></li>
+<li><p>Install Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework by following the <a class="reference internal" href="install/install_guide_ubuntu.html"><span class="doc">Install-Guide</span></a>.</p></li>
 <li><p>Set the environment variables:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/intel/openvino_2022/setupvars.sh
 <span class="nb">source</span> /opt/intel/dlstreamer/setupvars.sh
@@ -1009,8 +1009,8 @@ here</a></p>
 <a class="reference external" href="https://github.com/intel-iot-devkit/sample-videos/raw/master/person-bicycle-car-detection.mp4">here</a>.
 If you provide your own video file as an input, please make sure that
 it is in h264 or mp4 format. You can also download and use freely
-licensed content from the websites such as Pexels. Any video with
-cars, pedestrians can be used with the exercise.</p>
+licensed content from the websites such as Pexels*. Any video with
+cars, or pedestrians can be used with the exercise.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># This tutorial uses ~/path/to/video as the video path</span>
 <span class="c1"># and FILENAME as the placeholder for a video file name.</span>
 <span class="c1"># Change this information to fit your setup.</span>
@@ -1025,9 +1025,9 @@ cars, pedestrians can be used with the exercise.</p>
 <p>This exercise helps you create a GStreamer pipeline that will perform
 object detection using <em>gvadetect</em> element and Intermediate
 Representation (IR) formatted object detection model. It provides two
-optional add-ons to show you how to use video from a Web camera stream
+optional add-ons to show you how to use video from a web camera stream
 and an RTSP URI.</p>
-<p>This exercise introduces you to using the following Intel DL Streamer elements:</p>
+<p>This exercise introduces you to using the following Pipeline Framework elements:</p>
 <ul class="simple">
 <li><p>gvadetect</p></li>
 <li><p>gvawatermark</p></li>
@@ -1057,7 +1057,7 @@ video sources. If the add-ons don’t suit you, jump ahead to start
 <a class="reference external" href="#object-classification">Exercise 2</a>.</p>
 <section id="pipeline-with-a-web-camera-video-stream-input-first-optional-add-on-to-exercise-1">
 <h4>Pipeline with a Web Camera Video Stream Input (First optional add-on to Exercise 1)<a class="headerlink" href="#pipeline-with-a-web-camera-video-stream-input-first-optional-add-on-to-exercise-1" title="Permalink to this headline">#</a></h4>
-<p>GStreamer supports connected video devices, like Web cameras, which
+<p>GStreamer supports connected video devices, like web cameras, which
 means you use a web camera to perform real-time inference.</p>
 <p>In order to use web camera as an input, we will replace the <em>filesrc</em>
 element in the object detection pipeline with
@@ -1067,7 +1067,7 @@ the below updated pipeline, check the web camera path and update it in
 the pipeline. The web camera stream is usually in the <em>/dev/</em>
 directory.</p>
 <p>Object detection pipeline using Web camera:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change &lt;pat-to-video&gt; below by your web camera device path</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change &lt;path-to-device&gt; below to your web camera device path</span>
 gst-launch-1.0 <span class="se">\</span>
 v4l2src <span class="nv">device</span><span class="o">=</span>&lt;path-to-device&gt; ! decodebin ! <span class="se">\</span>
 gvadetect <span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL</span><span class="si">}</span> <span class="nv">model_proc</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL_PROC</span><span class="si">}</span> <span class="nv">device</span><span class="o">=</span>CPU ! queue ! <span class="se">\</span>
@@ -1083,7 +1083,7 @@ element in the object detection pipeline with
 to access URIs. Before running the below updated pipeline, replace ‘&lt;RTSP_uri&gt;’
 with your RTSP URI and verify it before running the command.</p>
 <p>Object detection pipeline using RTSP URI:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change &lt;RTSP_uri&gt; below by your RTSP URL</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change &lt;RTSP_uri&gt; below to your RTSP URL</span>
 gst-launch-1.0 <span class="se">\</span>
 urisourcebin <span class="nv">uri</span><span class="o">=</span>&lt;RTSP_uri&gt; ! decodebin ! <span class="se">\</span>
 gvadetect <span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL</span><span class="si">}</span> <span class="nv">model_proc</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL_PROC</span><span class="si">}</span> <span class="nv">device</span><span class="o">=</span>CPU ! queue ! <span class="se">\</span>
@@ -1096,10 +1096,10 @@ gvawatermark ! videoconvert ! fpsdisplaysink video-sink<span class="o">=</span>x
 <section id="exercise-2-build-object-classification-pipeline">
 <span id="object-classification"></span><h2>Exercise 2: Build object classification pipeline<a class="headerlink" href="#exercise-2-build-object-classification-pipeline" title="Permalink to this headline">#</a></h2>
 <p>This exercise helps you create a GStreamer pipeline that will perform
-object classification on the ROIs detected by <em>gvadetect</em> using
+object classification on the Regions of Interest (ROIs) detected by <em>gvadetect</em> using
 <em>gvaclassify</em> element and Intermediate Representation (IR) formatted
 object classification model.</p>
-<p>This exercise uses the following Intel DL Streamer elements:</p>
+<p>This exercise uses the following Pipeline Framework elements:</p>
 <ul class="simple">
 <li><p>gvadetect</p></li>
 <li><p>gvaclassify</p></li>
@@ -1145,7 +1145,7 @@ for the model-procs and its input and output specifications.</p>
 <p>This exercise helps you create a GStreamer pipeline that will use object
 tracking for reducing the frequency of object detection and
 classification, thereby increasing the throughput, using <em>gvatrack</em>.</p>
-<p>This exercise uses the following Intel DL Streamer elements:</p>
+<p>This exercise uses the following Pipeline Framework elements:</p>
 <ul class="simple">
 <li><p>gvadetect</p></li>
 <li><p>gvaclassify</p></li>
@@ -1200,7 +1200,7 @@ you how to publish your results to a <em>.json</em>.</p>
 <span id="result-publishing"></span><h2>Exercise 4: Publish Inference Results<a class="headerlink" href="#exercise-4-publish-inference-results" title="Permalink to this headline">#</a></h2>
 <p>This exercise extends the pipeline to publish your detection and
 classification results to a <em>.json</em> file from a GStreamer pipeline.</p>
-<p>This exercise uses the following Intel DL Streamer elements:</p>
+<p>This exercise uses the following Pipeline Framework elements:</p>
 <ul class="simple">
 <li><p>gvadetect</p></li>
 <li><p>gvaclassify</p></li>
@@ -1244,7 +1244,7 @@ inference results is available. Review the JSON file.</p>
 <p>For publishing the results to MQTT or Kafka, please refer to the
 <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gst_launch/metapublish">metapublish samples</a>.</p>
 <p>You have completed this tutorial. Now, start creating your video
-analytics pipeline with Intel DL Streamer!</p>
+analytics pipeline with Intel® DL Streamer Pipeline Framework!</p>
 </section>
 </section>
 <section id="next-steps">

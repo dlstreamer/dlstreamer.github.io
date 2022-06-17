@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) &#8212; Intel® DL Streamer  documentation</title>
+    <title>Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework &#8212; Intel® DL Streamer  documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -185,7 +185,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer)
+     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
     </a>
    </li>
    <li class="toctree-l2 has-children">
@@ -628,7 +628,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer)</h1>
+                <h1>Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -685,10 +685,10 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="converting-nvidia-deepstream-pipelines-to-intel-deep-learning-streamer-intel-dl-streamer">
-<h1>Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer)<a class="headerlink" href="#converting-nvidia-deepstream-pipelines-to-intel-deep-learning-streamer-intel-dl-streamer" title="Permalink to this headline">#</a></h1>
+  <section id="converting-nvidia-deepstream-pipelines-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework">
+<h1>Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework<a class="headerlink" href="#converting-nvidia-deepstream-pipelines-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework" title="Permalink to this headline">#</a></h1>
 <p>This document will describe the steps to convert a pipeline from NVIDIA
-DeepStream to Intel DL Streamer.
+DeepStream to Intel® DL Streamer Pipeline Framework.
 We also have a running example through the document that will be updated at
 each step to help show the modifications being described.</p>
 <div class="admonition note">
@@ -698,11 +698,11 @@ there as a reference example of the changes being made in each section.</p>
 </div>
 <section id="preparing-your-model">
 <h2>Preparing Your Model<a class="headerlink" href="#preparing-your-model" title="Permalink to this headline">#</a></h2>
-<p>To use Intel DL Streamer and OpenVINO™ Toolkit the
+<p>To use Intel® DL Streamer Pipeline Framework and OpenVINO™ Toolkit the
 model needs to be in Intermediate Representation (IR) format. To convert
 your model to this format, use the <a class="reference external" href="https://docs.openvino.ai/latest/openvino_docs_MO_DG_Deep_Learning_Model_Optimizer_DevGuide.html">Model Optimizer</a>
 tool from OpenVINO™ Toolkit.</p>
-<p>Intel DL Streamer’s inferencing plugins optionally can do some pre- and
+<p>Pipeline Framework’s inferencing plugins optionally can do some pre- and
 post-processing operations before/after running inferencing. These
 operations are specified in a model-proc file. Visit <a class="reference internal" href="model_preparation.html"><span class="doc">this page</span></a>
 for more information on creating a model-proc file and examples with
@@ -711,7 +711,7 @@ various models from <a class="reference external" href="https://github.com/openv
 <section id="gstreamer-pipeline-adjustments">
 <h2>GStreamer Pipeline Adjustments<a class="headerlink" href="#gstreamer-pipeline-adjustments" title="Permalink to this headline">#</a></h2>
 <p>In the following sections we will be converting the below pipeline that
-is using DeepStream elements to Intel DL Streamer. It is taken from one of the
+is using DeepStream elements to Pipeline Framework. It is taken from one of the
 examples
 <a class="reference external" href="https://github.com/NVIDIA-AI-IOT/redaction_with_deepstream">here</a>.
 It takes an input stream from file, decodes, runs inferencing, overlays
@@ -735,14 +735,14 @@ connect all inputs to the same inferencing element. In DL
 Streamer, the inferencing elements share properties and instances
 if they share the same <code class="docutils literal notranslate"><span class="pre">model-instance-id</span></code> property.</p></li>
 <li><p>In our example, we only have one source so we will skip this for
-now. See more on how to do this with Intel DL Streamer in the section
+now. See more on how to do this with Pipeline Framework in the section
 <a class="reference internal" href="#multiple-input-streams"><span class="std std-ref">Multiple Input Streams</span></a> below.</p></li>
 </ul>
 </li>
 </ul>
 <p>At this stage we have removed <code class="docutils literal notranslate"><span class="pre">nvstreammux</span></code> and the <code class="docutils literal notranslate"><span class="pre">queue</span></code> that
 followed it. Notably, the <code class="docutils literal notranslate"><span class="pre">batch-size</span></code> property is also removed. It
-will be added in the next section as a property of the Intel DL Streamer
+will be added in the next section as a property of the Pipeline Framework
 inference elements.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>filesrc <span class="nv">location</span><span class="o">=</span>input_file.mp4 ! decodebin ! <span class="se">\</span>
 nvinfer config-file-path<span class="o">=</span>./config.txt ! <span class="se">\</span>
@@ -828,12 +828,12 @@ available decoder.</p></li>
 </ul>
 </li>
 <li><p>Some caps filters that follow an inferencing element may need to be
-adjusted or removed. Intel DL Streamer inferencing elements do not support
+adjusted or removed. Pipeline Framework inferencing elements do not support
 color space conversion in post-processing. You will need to have a
 <code class="docutils literal notranslate"><span class="pre">vaapipostproc</span></code> or <code class="docutils literal notranslate"><span class="pre">videoconvert</span></code> element to handle this.</p></li>
 </ul>
 <p>Here we removed a few caps filters and instances of <code class="docutils literal notranslate"><span class="pre">nvvideoconvert</span></code>
-used for conversions from DeepStream’s NVMM because Intel DL Streamer uses
+used for conversions from DeepStream’s NVMM because Pipeline Framework uses
 standard GStreamer structures and memory types. We will leave the
 standard gstreamer element <code class="docutils literal notranslate"><span class="pre">videoconvert</span></code> to do color space conversion
 on CPU, however if available, we suggest using <code class="docutils literal notranslate"><span class="pre">vaapipostproc</span></code> to run
@@ -900,7 +900,7 @@ videoconvert ! avenc_mpeg4 <span class="nv">bitrate</span><span class="o">=</spa
 <span id="id1"></span><h2>Multiple Input Streams<a class="headerlink" href="#multiple-input-streams" title="Permalink to this headline">#</a></h2>
 <div class="line-block">
 <div class="line">Unlike DeepStream, where all sources need to be linked to the sink
-pads of the <code class="docutils literal notranslate"><span class="pre">nvstreammux</span></code> element, Intel DL Streamer shares all model and
+pads of the <code class="docutils literal notranslate"><span class="pre">nvstreammux</span></code> element, Pipeline Framework shares all model and
 Inference Engine properties between elements that have the same
 <code class="docutils literal notranslate"><span class="pre">model-instance-id</span></code> property. Meaning that you do not need to mux
 all sources together before inferencing and you can remove any
@@ -911,7 +911,7 @@ example of a pipeline with two streams.</div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nvstreammux ! nvinfer config-file-path<span class="o">=</span>./config.txt ! nvstreamdemux filesrc ! decode ! mux.sink_0 filesrc ! decode ! mux.sink_1 demux.src_0 ! encode ! filesink demux.src_1 ! encode ! filesink
 </pre></div>
 </div>
-<p>When using Intel DL Streamer, the pipeline will look like this:</p>
+<p>When using Pipeline Framework, the pipeline will look like this:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>filesrc ! decode ! gvadetect <span class="nv">model</span><span class="o">=</span>./model.xml model-proc<span class="o">=</span>./model_proc.json model-instance-id<span class="o">=</span>model1 ! encode ! filesink filesrc ! decode ! gvadetect model-instance-id<span class="o">=</span>model1 ! encode ! filesink
 </pre></div>
 </div>

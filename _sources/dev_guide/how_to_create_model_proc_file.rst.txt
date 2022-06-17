@@ -2,7 +2,7 @@ How to Create Model-proc File
 =============================
 
 In this tutorial you will learn how to create model-proc file for your
-own CNN model that can be processed by Intel® Deep Learning Streamer (Intel® DL Streamer).
+own CNN model that can be processed by Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework.
 
 Please refer to the :doc:`model-proc documentation <model_proc_file>`
 before going through this tutorial.
@@ -59,7 +59,7 @@ Model has several input layers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The general case when the model has 2 or more input layers is **not
-supported** by Intel DL Streamer, however, there is an **exception**:
+supported** by Pipeline Framework, however, there is an **exception**:
 
 1. The model requires an image as an input for only one layer;
 2. The second layer is a layer of the following formats:

@@ -1,11 +1,11 @@
 Supported Models
 ================
 
-Here is a set of some pre-trained models `Open Model Zoo <https://github.com/openvinotoolkit/open_model_zoo>`
-that we use for testing. Model Proc is a ``.json`` file that describes input and output layers of a model,
+Below is a set of pre-trained models we use from `Open Model Zoo <https://github.com/openvinotoolkit/open_model_zoo>`
+that we use for testing. **Model Proc** is a ``.json`` file that describes input and output layers of a model,
 format and rules for data pre-processing and post-processing.
 
-Object Detection Models (Intel)
+Object Detection Models (Intel®)
 -------------------------------
 
 .. list-table::
@@ -174,7 +174,7 @@ Object Detection Models (Public)
      - `coco-80cl <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco-80cl.txt>`__
 
 
-Object Recognition Models (Intel)
+Object Recognition Models (Intel®)
 ---------------------------------
 
 .. list-table::
@@ -219,7 +219,7 @@ Object Recognition Models (Intel)
    * - `weld-porosity-detection-0001 <https://docs.openvino.ai/latest/omz_models_model_weld_porosity_detection_0001.html>`__
      - `weld-porosity-detection-0001.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/weld-porosity-detection-0001.json>`__
 
-Classification Models (Intel)
+Classification Models (Intel®)
 -----------------------------
 
 .. list-table::
@@ -501,7 +501,7 @@ Object Detection and Recognition Models (ONNX Model Zoo)
 Overview of supported models for preview features
 =================================================
 
-Action Recognition Models (Intel)
+Action Recognition Models (Intel®)
 ---------------------------------
 
 .. list-table::
@@ -521,7 +521,7 @@ Support for the models below is only available on the
 `preview/segmentation <https://github.com/dlstreamer/dlstreamer/tree/preview/segmentation>`__
 branch.
 
-Semantic Segmentation Models (Intel)
+Semantic Segmentation Models (Intel®)
 ------------------------------------
 
 .. list-table::
@@ -540,7 +540,7 @@ Semantic Segmentation Models (Intel)
      - `icnet-camvid-ava-0001.json <https://github.com/dlstreamer/dlstreamer/blob/preview/segmentation/samples/model_proc/icnet-camvid-ava-0001.json>`__
 
 
-Instance Segmentation Models (Intel)
+Instance Segmentation Models (Intel®)
 ------------------------------------
 
 .. list-table::
@@ -555,7 +555,7 @@ Instance Segmentation Models (Intel)
    * - `instance-segmentation-security-1025 <https://docs.openvino.ai/2021.2/omz_models_intel_instance_segmentation_security_1025_description_instance_segmentation_security_1025.html>`__
      - `instance-segmentation-security-1025.json <https://github.com/dlstreamer/dlstreamer/blob/preview/segmentation/samples/model_proc/instance-segmentation-security-1025.json>`__
 
-Text Detection Models (Intel)
+Text Detection Models (Intel®)
 -----------------------------
 
 .. list-table::

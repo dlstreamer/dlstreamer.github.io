@@ -185,7 +185,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="converting_deepstream_to_dlstreamer.html">
-     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer)
+     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
     </a>
    </li>
    <li class="toctree-l2 has-children">
@@ -747,17 +747,16 @@ title="Print to PDF"
 <span id="id1"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
 <p>A model-proc file is a regular JSON file with pre- and post-processing
 configuration.</p>
-<p>As an example of what it can look like, model-proc file for emotions
-recognition model is shown in the code snippet below.</p>
-<p><code class="docutils literal notranslate"><span class="pre">input_preproc</span></code> set to <code class="docutils literal notranslate"><span class="pre">[]</span></code> says that images don’t need to be
-pre-processed with custom means before inference. They’ll be resized
+<p>As an example implementation, see the model-proc file for the emotions
+recognition model shown in the code snippet below.</p>
+<p><code class="docutils literal notranslate"><span class="pre">input_preproc</span></code> set to <code class="docutils literal notranslate"><span class="pre">[]</span></code> indicates that images do not need to be
+pre-processed with custom means before inference. They will be resized
 without aspect-ratio preservation and their color space will be changed
 to BGR.</p>
-<p><code class="docutils literal notranslate"><span class="pre">output_postproc</span></code> says that inference result is one of the strings
+<p><code class="docutils literal notranslate"><span class="pre">output_postproc</span></code> says that the inference result is one of the strings
 listed in <code class="docutils literal notranslate"><span class="pre">&quot;labels&quot;</span></code>.</p>
-<p>Also see <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/model_proc">this
-folder</a>
-for examples of .json files for various models from <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo">Open Model Zoo</a> and some
+<p>See the <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/model_proc">samples/model_proc</a>
+for examples of .json files using various models from <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo">Open Model Zoo</a> and some
 public models.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="s2">&quot;json_schema_version&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2.2.0&quot;</span><span class="p">,</span><span class="w"></span>
@@ -781,7 +780,7 @@ public models.</p>
 </div>
 <p>This file has specific fields:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">json_schema_version</span></code>. Service information needed by Intel® Deep Learning Streamer (Intel® DL Streamer). <strong>The latest version should be used: 2.2.0</strong>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">json_schema_version</span></code>. Service information needed by Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework. <strong>The latest version should be used: 2.2.0</strong>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">input_preproc</span></code>. Describes how to process an input tensor before inference.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">output_postproc</span></code>. Describes how to process inference results.</p></li>
 </ul>
@@ -830,7 +829,7 @@ should be described in a key-value format. Valid keys for
 <div class="line">sequence_index</div>
 </div>
 </td>
-<td><p>Input format for layer with specified name. In other words: “What to pre-process?”. Can be one of the following:</p>
+<td><p>Input format for the layer with the specified name. In other words: “What to pre-process?”. Can be one of the following:</p>
 <ul class="simple">
 <li><p><em>image</em> - pre-process images;</p></li>
 <li><p><em>image_info</em> - pre-process additional layer with image info;</p></li>
@@ -892,7 +891,7 @@ should be described in a key-value format. Valid keys for
 <tr class="row-odd"><td><p>params</p></td>
 <td><p>range</p></td>
 <td><p>[ 0.0, 1.0 ]</p></td>
-<td><p>Normalize input image values to be in specified range.</p></td>
+<td><p>Normalize input image values to be in the specified range.</p></td>
 <td><div class="line-block">
 <div class="line">opencv,</div>
 <div class="line">vaapi</div>
@@ -902,7 +901,7 @@ should be described in a key-value format. Valid keys for
 <tr class="row-even"><td><p>params</p></td>
 <td><p>mean</p></td>
 <td><p>[ 0.485, 0.456, 0.406 ]</p></td>
-<td><p>JSON arrays of doubles. Size of arrays should be equal to number of channels of input image.</p></td>
+<td><p>JSON arrays of doubles. Size of arrays should be equal to the number of channels of the input image.</p></td>
 <td><div class="line-block">
 <div class="line">opencv,</div>
 <div class="line">vaapi</div>
@@ -912,7 +911,7 @@ should be described in a key-value format. Valid keys for
 <tr class="row-odd"><td><p>params</p></td>
 <td><p>std</p></td>
 <td><p>[ 0.229, 0.224, 0.225 ]</p></td>
-<td><p>JSON arrays of doubles. Size of arrays should be equal to number of channels of input image.</p></td>
+<td><p>JSON arrays of doubles. Size of arrays should be equal to the number of channels of the input image.</p></td>
 <td><div class="line-block">
 <div class="line">opencv,</div>
 <div class="line">vaapi</div>
@@ -931,7 +930,7 @@ should be described in a key-value format. Valid keys for
 <div class="line">}</div>
 </div>
 </td>
-<td><p>A JSON object with following keys:</p>
+<td><p>A JSON object with the following keys:</p>
 <ul class="simple">
 <li><p>stride in pixels from image boundaries (also can be set with <em>stride_x</em> and <em>stride_y</em>);</p></li>
 <li><p>and <em>fill_value</em> with color to fill (in target color format).</p></li>
@@ -1007,10 +1006,10 @@ in the code snippet below.</p>
 the <code class="docutils literal notranslate"><span class="pre">output_postproc</span></code> key. The key should contain an array of JSON
 objects with post-processing configuration. Each object describes
 operations for one output layer. This array can be empty for models with
-one output layer. In that case, Intel DL Streamer will detect the name of the
-output layer and set a default converter for specified Intel DL Streamer
+one output layer. In that case, Pipeline Framework will detect the name of the
+output layer and set a default converter for specified Pipeline Framework
 inference element.</p>
-<p>Intel DL Streamer uses converters to transform output blob into suitable form.
+<p>Pipeline Framework uses converters to transform output blob into suitable form.
 Currently several converters are supported and its usage depends on what
 model was used (whether detection, classification, or any other model).</p>
 <p>Some converters may require the name of the output layer (usually applicable with <code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code>).
@@ -1192,11 +1191,10 @@ converter can be applied.</p>
 </section>
 <section id="output-postproc-example">
 <span id="id2"></span><h3>Example<a class="headerlink" href="#output-postproc-example" title="Permalink to this headline">#</a></h3>
-<p>Example of what <code class="docutils literal notranslate"><span class="pre">output_postproc</span></code> and its parameters can look like are
-in the code snippet below.</p>
+<p>See an example of what <code class="docutils literal notranslate"><span class="pre">output_postproc</span></code> and its parameters can look in the code snippet below.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This configuration can’t be used for any model.</p>
+<p>This configuration cannot be used for any model.</p>
 </div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">...</span><span class="w"></span>
 <span class="s2">&quot;output_postproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>

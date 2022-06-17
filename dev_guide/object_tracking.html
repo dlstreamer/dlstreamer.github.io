@@ -35,7 +35,7 @@
     <script src="../_static/target-highlight.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer)" href="converting_deepstream_to_dlstreamer.html" />
+    <link rel="next" title="Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework" href="converting_deepstream_to_dlstreamer.html" />
     <link rel="prev" title="Custom Processing" href="custom_processing.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -185,7 +185,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="converting_deepstream_to_dlstreamer.html">
-     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer)
+     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
     </a>
    </li>
    <li class="toctree-l2 has-children">
@@ -689,7 +689,7 @@ title="Print to PDF"
 <h1>Object Tracking<a class="headerlink" href="#object-tracking" title="Permalink to this headline">#</a></h1>
 <section id="object-tracking-types">
 <h2>Object tracking types<a class="headerlink" href="#object-tracking-types" title="Permalink to this headline">#</a></h2>
-<p>Object tracking element <a class="reference internal" href="../elements/gvatrack.html"><span class="doc">gvatrack</span></a> typically inserted into
+<p>Object tracking element is <a class="reference internal" href="../elements/gvatrack.html"><span class="doc">gvatrack</span></a> typically inserted into a
 video analytics pipeline right after object detection element
 <a class="reference internal" href="../elements/gvadetect.html"><span class="doc">gvadetect</span></a> and can work in the following modes as
 specified by property <em>tracking-type</em>:</p>
@@ -714,19 +714,19 @@ specified by property <em>tracking-type</em>:</p>
 <td><p>&lt;= 5</p></td>
 <td><p>Yes</p></td>
 <td><p>No</p></td>
-<td><p>Assigns unique id to objects and generates object position on frames object detection was skipped, by extrapolati ng object trajectory on previous frames. Fast algorithm without access to image data.</p></td>
+<td><p>Assigns a unique id to objects and generates object position for frames on which object detection was skipped. Fast algorithm that extrapolates object trajectory from previous frame(s) without access to image data.</p></td>
 </tr>
 <tr class="row-odd"><td><p>zero‑ term</p></td>
 <td><p>1 (every frame)</p></td>
 <td><p>Yes</p></td>
 <td><p>Yes</p></td>
-<td><p>Assigns unique id to objects, requires object detection run every frame. Takes into account object trajectory as well as color histogram of object image data.</p></td>
+<td><p>Assigns a unique id to objects, and requires object detection run on every frame. Takes into account object trajectory as well as a color histogram of object image data.</p></td>
 </tr>
 <tr class="row-even"><td><p>zero‑term‑imageless</p></td>
 <td><p>1 (every frame)</p></td>
 <td><p>Yes</p></td>
 <td><p>No</p></td>
-<td><p>Assigns unique id to objects, requires object detection run every frame. Fastest algorithm as based on comparing object coordinates on current frame with objects trajectory on previous frames.</p></td>
+<td><p>Assigns a unique id to objects, and requires object detection run on every frame. Fastest algorithm as based on comparing object coordinates on current frame with objects trajectory on previous frames.</p></td>
 </tr>
 </tbody>
 </table>
@@ -754,8 +754,8 @@ The default value is <code class="docutils literal notranslate"><span class="pre
 <section id="maximum-number-of-objects">
 <h3>Maximum number of objects<a class="headerlink" href="#maximum-number-of-objects" title="Permalink to this headline">#</a></h3>
 <p>Configurable via <code class="docutils literal notranslate"><span class="pre">max_num_objects</span></code> parameter. It specifies the maximum
-number of the objects that the object tracker will track. On devices
-with less computing power, tracking smaller number of objects can reduce
+number of objects that the object tracker will track. On devices
+with less computing power, tracking a smaller number of objects can reduce
 compute and increase throughput.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span> <span class="n">gvatrack</span> <span class="n">config</span><span class="o">=</span><span class="n">max_num_objects</span><span class="o">=</span><span class="mi">20</span> <span class="o">...</span>
@@ -773,7 +773,7 @@ elements</p>
 <section id="how-to-read-object-unique-id">
 <h2>How to read object unique id<a class="headerlink" href="#how-to-read-object-unique-id" title="Permalink to this headline">#</a></h2>
 <p>The following code example iterates all objects detected or tracked on
-current frame and prints object unique id and bounding box coordinates</p>
+the current frame and prints object unique id and bounding box coordinates</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;video_frame.h&quot;</span>
 
 <span class="n">void</span> <span class="n">PrintObjects</span><span class="p">(</span><span class="n">GstBuffer</span> <span class="o">*</span><span class="n">buffer</span><span class="p">)</span> <span class="p">{</span>
@@ -835,7 +835,7 @@ frame.</p>
     <a class='right-next' id="next-link" href="converting_deepstream_to_dlstreamer.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer)</p>
+        <p class="prev-next-title">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

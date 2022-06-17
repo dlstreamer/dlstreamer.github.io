@@ -185,7 +185,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="converting_deepstream_to_dlstreamer.html">
-     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer)
+     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
     </a>
    </li>
    <li class="toctree-l2 current active has-children">
@@ -634,14 +634,13 @@ title="Print to PDF"
   <section id="coding-style">
 <h1>Coding Style<a class="headerlink" href="#coding-style" title="Permalink to this headline">#</a></h1>
 <p>We use Clang formatter for our code. Code style checker is being run
-through CI, so it’s essential for you to format code before you can
+through CI, so it is essential to format your code before you can
 actually merge it to <code class="docutils literal notranslate"><span class="pre">master</span></code>. There is a config for clang-format-7
-(<code class="docutils literal notranslate"><span class="pre">.clang-format</span></code> in the root folder of project). Hence, you need to
-install it locally and configure your IDE to format your code by using
-it.</p>
+(<code class="docutils literal notranslate"><span class="pre">.clang-format</span></code> in the root folder of this project). You will need to
+install it locally and configure your IDE to format your code with it.</p>
 <section id="install-clang-formatter">
 <h2>Install clang formatter<a class="headerlink" href="#install-clang-formatter" title="Permalink to this headline">#</a></h2>
-<p>If you are using Ubuntu 18.04 it’s quite simple:</p>
+<p>If you are using Ubuntu 18.04 it is quite simple:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install -y clang-format-7
 sudo ln -s /usr/bin/clang-format-7 /usr/bin/clang-format
 </pre></div>
@@ -656,9 +655,8 @@ sudo ln -s /usr/bin/clang-format-9 /usr/bin/clang-format
 <section id="configure-ide">
 <h2>Configure IDE<a class="headerlink" href="#configure-ide" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>Visual Studio Code If you are using VS Code you just need to install
-corresponding extension clang-format and configure autoformat on save
-(you can find instruction on the extension page).</p></li>
+<li><p>Visual Studio Code - If you are using VS Code you can simply install the
+<cite>Clang-Format</cite> extension and follow the provided instructions to configure VS Code to automatically format on save.</p></li>
 <li><p>CLion</p>
 <ul>
 <li><p>Go to File → Settings → Tools → External Tools and click on the plus
@@ -678,11 +676,13 @@ a parent directory.</p></li>
 </li>
 </ul>
 </li>
-<li><p>Different IDE If you are using different IDE or text editor please
-find an appropriate instruction by yourself and suggest updates for
-this wiki. We would be glad to accept your contributions.</p></li>
+<li><p>Other IDE - For different IDEs or text editors, please refer to their
+respective documentation.
+If you would like to contribute instructions for your preferred
+IDE or editor suggest a update for this wiki. We would be glad to
+accept your contribution.</p></li>
 </ul>
-<p>Have a good coding 😊</p>
+<p>Have a good time coding! 😊</p>
 </section>
 </section>
 

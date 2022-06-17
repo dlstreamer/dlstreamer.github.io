@@ -185,7 +185,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../dev_guide/converting_deepstream_to_dlstreamer.html">
-     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer)
+     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
     </a>
    </li>
    <li class="toctree-l2 has-children">
@@ -583,8 +583,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#option-1-compile-intel-dl-streamer-from-sources-on-host-system">
-   Option 1: Compile Intel DL Streamer from sources on host system
+  <a class="reference internal nav-link" href="#option-1-compile-intel-dl-streamer-pipeline-framework-from-sources-on-host-system">
+   Option 1: Compile Intel DL Streamer Pipeline Framework from sources on host system
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -603,15 +603,15 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-4-build-intel-dl-streamer">
-     Step 4: Build Intel DL Streamer
+    <a class="reference internal nav-link" href="#step-4-build-intel-dl-streamer-pipeline-framework">
+     Step 4: Build Intel® DL Streamer Pipeline Framework
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#option-2-compile-intel-dl-streamer-as-docker-image">
-   Option 2: Compile Intel DL Streamer as Docker image
+  <a class="reference internal nav-link" href="#option-2-compile-intel-dl-streamer-pipeline-framework-as-docker-image">
+   Option 2: Compile Intel® DL Streamer Pipeline Framework as Docker image
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -666,8 +666,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#option-1-compile-intel-dl-streamer-from-sources-on-host-system">
-   Option 1: Compile Intel DL Streamer from sources on host system
+  <a class="reference internal nav-link" href="#option-1-compile-intel-dl-streamer-pipeline-framework-from-sources-on-host-system">
+   Option 1: Compile Intel DL Streamer Pipeline Framework from sources on host system
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -686,15 +686,15 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-4-build-intel-dl-streamer">
-     Step 4: Build Intel DL Streamer
+    <a class="reference internal nav-link" href="#step-4-build-intel-dl-streamer-pipeline-framework">
+     Step 4: Build Intel® DL Streamer Pipeline Framework
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#option-2-compile-intel-dl-streamer-as-docker-image">
-   Option 2: Compile Intel DL Streamer as Docker image
+  <a class="reference internal nav-link" href="#option-2-compile-intel-dl-streamer-pipeline-framework-as-docker-image">
+   Option 2: Compile Intel® DL Streamer Pipeline Framework as Docker image
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -741,10 +741,10 @@ title="Print to PDF"
                 
   <section id="install-guide-windows-preview">
 <h1>Install Guide Windows (Preview)<a class="headerlink" href="#install-guide-windows-preview" title="Permalink to this headline">#</a></h1>
-<p>Building Intel® Deep Learning Streamer (Intel® DL Streamer) from the source code provided in this
+<p>Building Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework from the source code provided in this
 repository may be performed either on host system or as a Docker image.</p>
-<section id="option-1-compile-intel-dl-streamer-from-sources-on-host-system">
-<h2>Option 1: Compile Intel DL Streamer from sources on host system<a class="headerlink" href="#option-1-compile-intel-dl-streamer-from-sources-on-host-system" title="Permalink to this headline">#</a></h2>
+<section id="option-1-compile-intel-dl-streamer-pipeline-framework-from-sources-on-host-system">
+<h2>Option 1: Compile Intel DL Streamer Pipeline Framework from sources on host system<a class="headerlink" href="#option-1-compile-intel-dl-streamer-pipeline-framework-from-sources-on-host-system" title="Permalink to this headline">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>These instructions are verified on Windows 10 Version 1909 and Windows 11 Version 10.0.22000.</p>
@@ -838,9 +838,9 @@ pip install openvino-dev[onnx]
 </pre></div>
 </div>
 </section>
-<section id="step-4-build-intel-dl-streamer">
-<h3>Step 4: Build Intel DL Streamer<a class="headerlink" href="#step-4-build-intel-dl-streamer" title="Permalink to this headline">#</a></h3>
-<p>With all dependencies installed, proceed to build Intel DL Streamer:</p>
+<section id="step-4-build-intel-dl-streamer-pipeline-framework">
+<h3>Step 4: Build Intel® DL Streamer Pipeline Framework<a class="headerlink" href="#step-4-build-intel-dl-streamer-pipeline-framework" title="Permalink to this headline">#</a></h3>
+<p>With all dependencies installed, proceed to build Pipeline Framework:</p>
 <div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="p">@</span><span class="c1">REM OpenVINO™ Toolkit environment</span>
 <span class="s2">&quot;C:\Program Files (x86)\Intel\openvino_2022\setupvars.bat&quot;</span>
 
@@ -855,11 +855,11 @@ cmake --build . --config Release
 <span class="p">@</span><span class="c1">REM Setup env variables with script</span>
 <span class="nv">%USERPROFILE%</span>\intel\dlstreamer_gst\scripts\setup_env.bat
 
-<span class="p">@</span><span class="c1">REM Verify GStreamer and Intel® DL Streamer plugins are now available</span>
+<span class="p">@</span><span class="c1">REM Verify GStreamer and Intel® DL Streamer Pipeline Framework plugins are now available</span>
 gst-inspect-1.0 gvadetect
 </pre></div>
 </div>
-<p>Intel DL Streamer is now ready to use!</p>
+<p>Pipeline Framework is now ready to use!</p>
 <p>You can find samples in folder
 <code class="docutils literal notranslate"><span class="pre">%USERPROFILE%\intel\dlstreamer_gst\samples</span></code>. Before using the
 samples, run the script <code class="docutils literal notranslate"><span class="pre">download_models.bat</span></code> (located in <code class="docutils literal notranslate"><span class="pre">samples</span></code>
@@ -872,8 +872,8 @@ Variables” settings.</p>
 </div>
 </section>
 </section>
-<section id="option-2-compile-intel-dl-streamer-as-docker-image">
-<h2>Option 2: Compile Intel DL Streamer as Docker image<a class="headerlink" href="#option-2-compile-intel-dl-streamer-as-docker-image" title="Permalink to this headline">#</a></h2>
+<section id="option-2-compile-intel-dl-streamer-pipeline-framework-as-docker-image">
+<h2>Option 2: Compile Intel® DL Streamer Pipeline Framework as Docker image<a class="headerlink" href="#option-2-compile-intel-dl-streamer-pipeline-framework-as-docker-image" title="Permalink to this headline">#</a></h2>
 <section id="step-1-install-docker-desktop-if-not-installed">
 <h3>Step 1: Install Docker Desktop (if not installed)<a class="headerlink" href="#step-1-install-docker-desktop-if-not-installed" title="Permalink to this headline">#</a></h3>
 <p>Refer to <a class="reference external" href="https://docs.docker.com/install/">Docker installation
