@@ -1,0 +1,948 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+
+    <title>Migration to 2.0 &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/doxyrest-pygments.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/target-highlight.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="① Memory Interop and C++ abstract interfaces" href="cpp_interfaces.html" />
+    <link rel="prev" title="Architecture 2.0 [Preview]" href="architecture_2.0.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../get_started/get_started_index.html">
+   Get Started
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../get_started/hardware_requirements.html">
+     Hardware Requirements
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../get_started/install/install_guide_index.html">
+     Install Guide
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../get_started/install/install_guide_ubuntu.html">
+       Install Guide Ubuntu
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../get_started/tutorial.html">
+     Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">
+     Samples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../dev_guide/dev_guide_index.html">
+   Developer Guide
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/metadata.html">
+     Metadata
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../dev_guide/model_preparation.html">
+     Model Preparation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../dev_guide/yolov5_model_preparation.html">
+       Yolov5 Model Preparation Example
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/model_proc_file.html">
+     Model-proc File
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/how_to_create_model_proc_file.html">
+     How to Create Model-proc File
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/python_bindings.html">
+     Python Bindings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/custom_processing.html">
+     Custom Processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/object_tracking.html">
+     Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/profiling.html">
+     Profiling with Intel VTune™
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/converting_deepstream_to_dlstreamer.html">
+     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../dev_guide/how_to_contribute.html">
+     How to Contribute
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../dev_guide/coding_style.html">
+       Coding Style
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../elements/elements.html">
+   Elements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvadetect.html">
+     gvadetect
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvaclassify.html">
+     gvaclassify
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvainference.html">
+     gvainference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvaaudiodetect.html">
+     gvaaudiodetect
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvatrack.html">
+     gvatrack
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvametaconvert.html">
+     gvametaconvert
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvametapublish.html">
+     gvametapublish
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvametaaggregate.html">
+     gvametaaggregate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvapython.html">
+     gvapython
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvawatermark.html">
+     gvawatermark
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvafpscounter.html">
+     gvafpscounter
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../supported_models.html">
+   Supported Models
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../api_ref/api_reference.html">
+   API Reference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api_ref/page_index.html">
+     Intel® Deep Learning Streamer (Intel® DL Streamer) API reference
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../api_ref/global.html">
+     Global Namespace
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api_ref/namespace_GVA.html">
+       namespace GVA
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/struct_GVA_Rect.html">
+         template struct GVA::Rect
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/struct_GVA_Segment.html">
+         template struct GVA::Segment
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/class_GVA_AudioEvent.html">
+         class GVA::AudioEvent
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/class_GVA_AudioFrame.html">
+         class GVA::AudioFrame
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/class_GVA_RegionOfInterest.html">
+         class GVA::RegionOfInterest
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/class_GVA_Tensor.html">
+         class GVA::Tensor
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/class_GVA_VideoFrame.html">
+         class GVA::VideoFrame
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api_ref/namespace_gstgva.html">
+       namespace gstgva
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/namespace_gstgva_region_of_interest.html">
+         namespace gstgva::region_of_interest
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/namespace_gstgva_tensor.html">
+         namespace gstgva::tensor
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/namespace_gstgva_video_frame.html">
+         namespace gstgva::video_frame
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../api_ref/enum_GVALayout.html">
+       enum GVALayout
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../api_ref/enum_GVAPrecision.html">
+       enum GVAPrecision
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api_ref/struct_GstGVAAudioEventMeta.html">
+       struct GstGVAAudioEventMeta
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="simple">
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api_ref/struct__GstGVAJSONMeta.html">
+       struct _GstGVAJSONMeta
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="simple">
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api_ref/struct__GstGVATensorMeta.html">
+       struct _GstGVATensorMeta
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="simple">
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="architecture_2.0.html">
+   Architecture 2.0 [Preview]
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Migration to 2.0
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cpp_interfaces.html">
+     ① Memory Interop and C++ abstract interfaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cpp_elements.html">
+     ② C++ elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gstreamer_elements.html">
+     ③ GStreamer Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gstreamer_bins.html">
+     ③ GStreamer Bin Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="python_bindings.html">
+     ③ Python Bindings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="elements_list.html">
+     Elements 2.0 reference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="packaging.html">
+     Packaging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="samples_2.0.html">
+     Samples 2.0
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="api_ref/index.html">
+     API 2.0 Reference
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api_ref/global.html">
+       Global Namespace
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/namespace_dlstreamer.html">
+         namespace dlstreamer
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/enum_GVALayout.html">
+         enum GVALayout
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/enum_GVAPrecision.html">
+         enum GVAPrecision
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/struct_GstGVAAudioEventMeta.html">
+         struct GstGVAAudioEventMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/struct__GstGVAJSONMeta.html">
+         struct _GstGVAJSONMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/struct__GstGVATensorMeta.html">
+         struct _GstGVATensorMeta
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/architecture_2.0/migration_guide.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiple-ways-to-program-media-analytics-pipeline">
+   Multiple ways to program media analytics pipeline
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#backward-compatibility-between-1-0-and-2-0">
+   Backward compatibility between 1.0 and 2.0
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deprecated-properties-not-available-in-2-0">
+   Deprecated properties not available in 2.0
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Migration to 2.0</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiple-ways-to-program-media-analytics-pipeline">
+   Multiple ways to program media analytics pipeline
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#backward-compatibility-between-1-0-and-2-0">
+   Backward compatibility between 1.0 and 2.0
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deprecated-properties-not-available-in-2-0">
+   Deprecated properties not available in 2.0
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="migration-to-2-0">
+<h1>Migration to 2.0<a class="headerlink" href="#migration-to-2-0" title="Permalink to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Architecture 2.0 currently available in preview mode as transition not completed yet. There is no strict backward
+compatibility in preview mode (some changes/renamings may occur). It could be used for evaluation and prototyping,
+it’s not recommended for production usage yet.</p>
+</div>
+<section id="multiple-ways-to-program-media-analytics-pipeline">
+<h2>Multiple ways to program media analytics pipeline<a class="headerlink" href="#multiple-ways-to-program-media-analytics-pipeline" title="Permalink to this heading">#</a></h2>
+<p>Starting release 2022.2, Intel® DL Streamer offers multiple ways to program media analytics pipeline.
+The following table summarizes major differences between programming models</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Programming model:</p></th>
+<td><p><code class="docutils literal notranslate"><span class="pre">GStreamer</span> <span class="pre">high-level</span> <span class="pre">(gva</span> <span class="pre">elements)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">GStreamer</span> <span class="pre">low-level</span> <span class="pre">(low-level</span> <span class="pre">elements</span> <span class="pre">and</span> <span class="pre">processbin)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Direct</span> <span class="pre">programming</span></code></p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Why choice:</p></th>
+<td><ul class="simple">
+<li><p>Very easy to program - small or no C++/Python coding to build GStreamer pipeline</p></li>
+<li><p>Out-of-box support for many typical use cases</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Pretty easy to program</p></li>
+<li><p>Allows to create custom C++ elements and mix with existent C++ elements in GStreamer pipeline</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Full flexibility of C++/Python programming to any library/framework APIs:
+FFmpeg, GStreamer, OpenVINO™, Level-Zero, OpenCL, OpenCV Mat, SYCL, VA-API</p></li>
+<li><p>Application is responsible for pipeline management and data flow (queues, async execution, multi-stream, etc)</p></li>
+<li><p>Application can use memory interop library and any C++ elements provided by Intel® DL Streamer</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Sample(s):</p></th>
+<td><ul class="simple">
+<li><p>GStreamer command-line: <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/gst_launch">samples/gstreamer/gst_launch</a></p></li>
+<li><p>GStreamer C++: <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/cpp">samples/gstreamer/cpp</a></p></li>
+<li><p>GStreamer Python: <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/python">samples/gstreamer/python</a></p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>For example, what if we should implement object classification (on ROI cropped images) with background removal?</p></li>
+<li><p>Adding custom C++ element <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/src/opencv/opencv_remove_background/opencv_remove_background.cpp">opencv_remove_background</a>
+in ~100 C++ lines <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/gst_launch/instance_segmentation">allows to achieve that</a></p></li>
+<li><p>We reused many existent low-level elements for pre-processing, inference, post-processing on segmentation and classification models.</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>FFmpeg+OpenVINO™: <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/ffmpeg_openvino">samples/ffmpeg_openvino</a></p></li>
+<li><p>FFmpeg+DPCPP/SYCL: <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/ffmpeg_dpcpp">samples/ffmpeg_dpcpp</a></p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference external" href="samples_2.0">Samples 2.0</a> for table with all samples.</p>
+</section>
+<section id="backward-compatibility-between-1-0-and-2-0">
+<h2>Backward compatibility between 1.0 and 2.0<a class="headerlink" href="#backward-compatibility-between-1-0-and-2-0" title="Permalink to this heading">#</a></h2>
+<p>Intel® DL Streamer sets the goal of backward compatible transition from GStreamer gva* 1.0 elements to architecture 2.0
+bin-elements, including all elements and all properties except deprecated properties. After transition is completed, all
+existent application and pipeline are expected to continue working without any changes or with minor changes replacing
+deprecated properties with new properties.</p>
+<p>Many GStreamer high-level elements are now implemented as bin elements with names different from gva* element. The table below
+lists mapping from old to new names</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>gva* element 1.0</p></th>
+<th class="head"><p>bin element 2.0</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>gvainference</p></td>
+<td><p>video_inference</p></td>
+</tr>
+<tr class="row-odd"><td><p>gvadetect</p></td>
+<td><p>object_detect</p></td>
+</tr>
+<tr class="row-even"><td><p>gvaclassify</p></td>
+<td><p>object_classify</p></td>
+</tr>
+<tr class="row-odd"><td><p>gvatrack</p></td>
+<td><p>object_track</p></td>
+</tr>
+<tr class="row-even"><td><p>gvawatermark</p></td>
+<td><p>meta_overlay (WIP)</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+</tbody>
+</table>
+<p>We introduced environment variable to automatically redirect gva* elements <code class="docutils literal notranslate"><span class="pre">gvainference</span></code>, <code class="docutils literal notranslate"><span class="pre">gvadetect</span></code>, <code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code> to
+corresponding bin elements <code class="docutils literal notranslate"><span class="pre">video_inference</span></code>, <code class="docutils literal notranslate"><span class="pre">object_detect</span></code>, <code class="docutils literal notranslate"><span class="pre">object_classify</span></code>. Any existent application automatically
+switches to architecture 2.0 elements if the following environment variable is set:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>export DLSTREAMER_GEN=2
+</pre></div>
+</div>
+<p>One of 2023.x releases is expected to make such redirection from gva* element to bin elements the default behaviour, essentially
+automatically migrating all existent applications to architecture 2.0. After such transion the same environment variable will
+allow to switch back to gva* elements and architecture 1.0 (for significant time period) via setting:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>export DLSTREAMER_GEN=1
+</pre></div>
+</div>
+</section>
+<section id="deprecated-properties-not-available-in-2-0">
+<h2>Deprecated properties not available in 2.0<a class="headerlink" href="#deprecated-properties-not-available-in-2-0" title="Permalink to this heading">#</a></h2>
+<p>The following table lists deprecated properties (not supported in 2.0) and new property/value to set this parameter
+(supported in 2.0, and 1.0 as well for some properties).</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Element(s)</p></th>
+<th class="head"><p>Deprecated property</p></th>
+<th class="head"><p>New property (and element)</p></th>
+<th class="head"><p>New property supported by both 1.0 and 2.0?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>gvainference, gvadetect, gvaclassify</p></td>
+<td><p>labels=`LABELS_FILE.txt`</p></td>
+<td><p>labels-file=`LABELS_FILE.txt`</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>gvainference, gvadetect, gvaclassify</p></td>
+<td><p>cpu-throughput-streams=`N`</p></td>
+<td><p>ie-config=CPU_THROUGHPUT_STREAMS=`N`</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>gvainference, gvadetect, gvaclassify</p></td>
+<td><p>gpu-throughput-streams=`N`</p></td>
+<td><p>ie-config=GPU_THROUGHPUT_STREAMS=`N`</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>gvainference, gvadetect, gvaclassify</p></td>
+<td><p>pre-process-config=VAAPI_FAST_SCALE_LOAD_FACTOR=1</p></td>
+<td><p>scale-method=fast</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>gvawatermark</p></td>
+<td><p>device=GPU</p></td>
+<td><p>vaapipostproc ! opencv_meta_overlay attach-label-mask=true ! sycl_meta_overlay ! vaapipostproc</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>gvatrack</p></td>
+<td><p>device=GPU tracking-type=zero-term</p></td>
+<td><p>vaapipostproc ! object_track spatial-feature=sliced-histogram device=GPU ! vaapipostproc</p></td>
+<td><p>No</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="architecture_2.0.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Architecture 2.0 [Preview]</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="cpp_interfaces.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">① Memory Interop and C++ abstract interfaces</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Intel Corporation<br/>
+  
+      &copy; Copyright 2022, Intel Corporation.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

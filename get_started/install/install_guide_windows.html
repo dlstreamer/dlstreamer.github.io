@@ -1,12 +1,12 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
 
-    <title>Install Guide Windows (Preview) &#8212; Intel® DL Streamer  documentation</title>
+    <title>Install Guide Windows (Preview) &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +21,8 @@
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/doxyrest-pygments.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -30,15 +31,15 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../../_static/target-highlight.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Tutorial" href="../tutorial.html" />
-    <link rel="prev" title="Install Guide RHEL" href="install_guide_rhel.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -75,7 +76,7 @@
       
       
       
-      <h1 class="site-logo" id="site-title">Intel® DL Streamer  documentation</h1>
+      <h1 class="site-logo" id="site-title">Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -83,45 +84,35 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../get_started_index.html">
    Get Started
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../hardware_requirements.html">
      Hardware Requirements
     </a>
    </li>
-   <li class="toctree-l2 current active has-children">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="install_guide_index.html">
      Install Guide
     </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
     <label for="toctree-checkbox-2">
      <i class="fas fa-chevron-down">
      </i>
     </label>
-    <ul class="current">
+    <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="install_guide_ubuntu.html">
        Install Guide Ubuntu
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="install_guide_rhel.html">
-       Install Guide RHEL
-      </a>
-     </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
-       Install Guide Windows (Preview)
       </a>
      </li>
     </ul>
@@ -132,7 +123,7 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/README.md">
+    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">
      Samples
     </a>
    </li>
@@ -153,10 +144,22 @@
      Metadata
     </a>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../dev_guide/model_preparation.html">
      Model Preparation
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../dev_guide/yolov5_model_preparation.html">
+       Yolov5 Model Preparation Example
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../dev_guide/model_proc_file.html">
@@ -184,6 +187,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_guide/profiling.html">
+     Profiling with Intel VTune™
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../../dev_guide/converting_deepstream_to_dlstreamer.html">
      Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
     </a>
@@ -192,23 +200,6 @@
     <a class="reference internal" href="../../dev_guide/how_to_contribute.html">
      How to Contribute
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../dev_guide/coding_style.html">
-       Coding Style
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../dev_guide/preview_features/preview_features.html">
-     Preview Features
-    </a>
     <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
     <label for="toctree-checkbox-5">
      <i class="fas fa-chevron-down">
@@ -216,13 +207,8 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../dev_guide/preview_features/action_recognition.html">
-       Action Recognition
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../dev_guide/preview_features/segmentation.html">
-       Segmentation
+      <a class="reference internal" href="../../dev_guide/coding_style.html">
+       Coding Style
       </a>
      </li>
     </ul>
@@ -240,11 +226,6 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../elements/gvainference.html">
-     gvainference
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../../elements/gvadetect.html">
      gvadetect
     </a>
@@ -252,6 +233,16 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../elements/gvaclassify.html">
      gvaclassify
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../elements/gvainference.html">
+     gvainference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../elements/gvaaudiodetect.html">
+     gvaaudiodetect
     </a>
    </li>
    <li class="toctree-l2">
@@ -275,16 +266,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../elements/gvaaudiodetect.html">
-     gvaaudiodetect
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../elements/gvafpscounter.html">
-     gvafpscounter
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../../elements/gvapython.html">
      gvapython
     </a>
@@ -292,6 +273,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../elements/gvawatermark.html">
      gvawatermark
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../elements/gvafpscounter.html">
+     gvafpscounter
     </a>
    </li>
   </ul>
@@ -450,6 +436,117 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../architecture_2.0/architecture_2.0.html">
+   Architecture 2.0 [Preview]
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../architecture_2.0/migration_guide.html">
+     Migration to 2.0
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../architecture_2.0/cpp_interfaces.html">
+     ① Memory Interop and C++ abstract interfaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../architecture_2.0/cpp_elements.html">
+     ② C++ elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../architecture_2.0/gstreamer_elements.html">
+     ③ GStreamer Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../architecture_2.0/gstreamer_bins.html">
+     ③ GStreamer Bin Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../architecture_2.0/python_bindings.html">
+     ③ Python Bindings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../architecture_2.0/elements_list.html">
+     Elements 2.0 reference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../architecture_2.0/packaging.html">
+     Packaging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../architecture_2.0/samples_2.0.html">
+     Samples 2.0
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../architecture_2.0/api_ref/index.html">
+     API 2.0 Reference
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../architecture_2.0/api_ref/global.html">
+       Global Namespace
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../architecture_2.0/api_ref/namespace_dlstreamer.html">
+         namespace dlstreamer
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../architecture_2.0/api_ref/enum_GVALayout.html">
+         enum GVALayout
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../architecture_2.0/api_ref/enum_GVAPrecision.html">
+         enum GVAPrecision
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html">
+         struct GstGVAAudioEventMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../architecture_2.0/api_ref/struct__GstGVAJSONMeta.html">
+         struct _GstGVAJSONMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../architecture_2.0/api_ref/struct__GstGVATensorMeta.html">
+         struct _GstGVATensorMeta
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </div>
@@ -584,7 +681,7 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#option-1-compile-intel-dl-streamer-pipeline-framework-from-sources-on-host-system">
-   Option 1: Compile Intel DL Streamer Pipeline Framework from sources on host system
+   Option 1: Compile Intel® DL Streamer Pipeline Framework from sources on host system
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -667,7 +764,7 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#option-1-compile-intel-dl-streamer-pipeline-framework-from-sources-on-host-system">
-   Option 1: Compile Intel DL Streamer Pipeline Framework from sources on host system
+   Option 1: Compile Intel® DL Streamer Pipeline Framework from sources on host system
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -740,17 +837,17 @@ title="Print to PDF"
               <div>
                 
   <section id="install-guide-windows-preview">
-<h1>Install Guide Windows (Preview)<a class="headerlink" href="#install-guide-windows-preview" title="Permalink to this headline">#</a></h1>
+<h1>Install Guide Windows (Preview)<a class="headerlink" href="#install-guide-windows-preview" title="Permalink to this heading">#</a></h1>
 <p>Building Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework from the source code provided in this
 repository may be performed either on host system or as a Docker image.</p>
 <section id="option-1-compile-intel-dl-streamer-pipeline-framework-from-sources-on-host-system">
-<h2>Option 1: Compile Intel DL Streamer Pipeline Framework from sources on host system<a class="headerlink" href="#option-1-compile-intel-dl-streamer-pipeline-framework-from-sources-on-host-system" title="Permalink to this headline">#</a></h2>
+<h2>Option 1: Compile Intel® DL Streamer Pipeline Framework from sources on host system<a class="headerlink" href="#option-1-compile-intel-dl-streamer-pipeline-framework-from-sources-on-host-system" title="Permalink to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>These instructions are verified on Windows 10 Version 1909 and Windows 11 Version 10.0.22000.</p>
 </div>
 <section id="step-1-clone-this-repository">
-<h3>Step 1: Clone this repository<a class="headerlink" href="#step-1-clone-this-repository" title="Permalink to this headline">#</a></h3>
+<h3>Step 1: Clone this repository<a class="headerlink" href="#step-1-clone-this-repository" title="Permalink to this heading">#</a></h3>
 <p>First, clone this repository into folder
 <code class="docutils literal notranslate"><span class="pre">%USERPROFILE%\intel\dlstreamer_gst</span></code>:</p>
 <div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">md</span> <span class="nv">%USERPROFILE%</span>\intel
@@ -760,7 +857,7 @@ git clone https://github.com/dlstreamer/dlstreamer.git <span class="nv">%USERPRO
 </div>
 </section>
 <section id="step-2-install-dependencies">
-<h3>Step 2: Install dependencies<a class="headerlink" href="#step-2-install-dependencies" title="Permalink to this headline">#</a></h3>
+<h3>Step 2: Install dependencies<a class="headerlink" href="#step-2-install-dependencies" title="Permalink to this heading">#</a></h3>
 <p>Install Python 3.7 for Windows: <a class="reference external" href="https://www.python.org/ftp/python/3.7.9/python-3.7.9-amd64.exe">https://www.python.org/ftp/python/3.7.9/python-3.7.9-amd64.exe</a></p>
 <p>Install CMake 3.19 for Windows: <a class="reference external" href="https://github.com/Kitware/CMake/releases/download/v3.19.4/cmake-3.19.4-win64-x64.msi">https://github.com/Kitware/CMake/releases/download/v3.19.4/cmake-3.19.4-win64-x64.msi</a></p>
 <p>Install Visual Studio 2019* with C++ build tools:
@@ -802,10 +899,10 @@ pacman -S mingw-w64-x86_64-pkg-config
 </ul>
 </li>
 </ul>
-<p>Install GStreamer 1.18.4 runtime and development packages:</p>
+<p>Install GStreamer 1.20.3 runtime and development packages:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://gstreamer.freedesktop.org/data/pkg/windows/1.18.4/msvc/gstreamer-1.0-msvc-x86_64-1.18.4.msi">https://gstreamer.freedesktop.org/data/pkg/windows/1.18.4/msvc/gstreamer-1.0-msvc-x86_64-1.18.4.msi</a></p></li>
-<li><p><a class="reference external" href="https://gstreamer.freedesktop.org/data/pkg/windows/1.18.4/msvc/gstreamer-1.0-devel-msvc-x86_64-1.18.4.msi">https://gstreamer.freedesktop.org/data/pkg/windows/1.18.4/msvc/gstreamer-1.0-devel-msvc-x86_64-1.18.4.msi</a></p></li>
+<li><p><a class="reference external" href="https://gstreamer.freedesktop.org/data/pkg/windows/1.20.3/msvc/gstreamer-1.0-msvc-x86_64-1.20.3.msi">https://gstreamer.freedesktop.org/data/pkg/windows/1.20.3/msvc/gstreamer-1.0-msvc-x86_64-1.20.3.msi</a></p></li>
+<li><p><a class="reference external" href="https://gstreamer.freedesktop.org/data/pkg/windows/1.20.3/msvc/gstreamer-1.0-devel-msvc-x86_64-1.20.3.msi">https://gstreamer.freedesktop.org/data/pkg/windows/1.20.3/msvc/gstreamer-1.0-devel-msvc-x86_64-1.20.3.msi</a></p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -818,7 +915,7 @@ pacman -S mingw-w64-x86_64-pkg-config
 </div>
 </section>
 <section id="step-3-download-and-install-intel-distribution-of-openvino-toolkit">
-<h3>Step 3: Download and install Intel® Distribution of OpenVINO™ Toolkit<a class="headerlink" href="#step-3-download-and-install-intel-distribution-of-openvino-toolkit" title="Permalink to this headline">#</a></h3>
+<h3>Step 3: Download and install Intel® Distribution of OpenVINO™ Toolkit<a class="headerlink" href="#step-3-download-and-install-intel-distribution-of-openvino-toolkit" title="Permalink to this heading">#</a></h3>
 <p>Please register to download the latest version of <a class="reference external" href="https://software.seek.intel.com/openvino-toolkit">OpenVINO™ Toolkit for
 Windows*</a>.</p>
 <p>For the installation recommended to follow the <a class="reference external" href="https://docs.openvino.ai/latest/openvino_docs_install_guides_installing_openvino_windows.html">OpenVINO™ Toolkit
@@ -839,7 +936,7 @@ pip install openvino-dev[onnx]
 </div>
 </section>
 <section id="step-4-build-intel-dl-streamer-pipeline-framework">
-<h3>Step 4: Build Intel® DL Streamer Pipeline Framework<a class="headerlink" href="#step-4-build-intel-dl-streamer-pipeline-framework" title="Permalink to this headline">#</a></h3>
+<h3>Step 4: Build Intel® DL Streamer Pipeline Framework<a class="headerlink" href="#step-4-build-intel-dl-streamer-pipeline-framework" title="Permalink to this heading">#</a></h3>
 <p>With all dependencies installed, proceed to build Pipeline Framework:</p>
 <div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="p">@</span><span class="c1">REM OpenVINO™ Toolkit environment</span>
 <span class="s2">&quot;C:\Program Files (x86)\Intel\openvino_2022\setupvars.bat&quot;</span>
@@ -873,9 +970,9 @@ Variables” settings.</p>
 </section>
 </section>
 <section id="option-2-compile-intel-dl-streamer-pipeline-framework-as-docker-image">
-<h2>Option 2: Compile Intel® DL Streamer Pipeline Framework as Docker image<a class="headerlink" href="#option-2-compile-intel-dl-streamer-pipeline-framework-as-docker-image" title="Permalink to this headline">#</a></h2>
+<h2>Option 2: Compile Intel® DL Streamer Pipeline Framework as Docker image<a class="headerlink" href="#option-2-compile-intel-dl-streamer-pipeline-framework-as-docker-image" title="Permalink to this heading">#</a></h2>
 <section id="step-1-install-docker-desktop-if-not-installed">
-<h3>Step 1: Install Docker Desktop (if not installed)<a class="headerlink" href="#step-1-install-docker-desktop-if-not-installed" title="Permalink to this headline">#</a></h3>
+<h3>Step 1: Install Docker Desktop (if not installed)<a class="headerlink" href="#step-1-install-docker-desktop-if-not-installed" title="Permalink to this heading">#</a></h3>
 <p>Refer to <a class="reference external" href="https://docs.docker.com/install/">Docker installation
 documentation</a></p>
 <div class="admonition note">
@@ -886,7 +983,7 @@ from the Docker Desktop menu in the system tray.</p>
 </div>
 </section>
 <section id="step-2-clone-this-repository">
-<h3>Step 2: Clone this repository<a class="headerlink" href="#step-2-clone-this-repository" title="Permalink to this headline">#</a></h3>
+<h3>Step 2: Clone this repository<a class="headerlink" href="#step-2-clone-this-repository" title="Permalink to this heading">#</a></h3>
 <p>Clone this repository into folder
 <code class="docutils literal notranslate"><span class="pre">%USERPROFILE%\intel\dlstreamer_gst</span></code>:</p>
 <div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">md</span> <span class="nv">%USERPROFILE%</span>\intel
@@ -896,7 +993,7 @@ git clone https://github.com/dlstreamer/dlstreamer.git <span class="nv">%USERPRO
 </div>
 </section>
 <section id="step-3-build-docker-image">
-<h3>Step 3: Build Docker image<a class="headerlink" href="#step-3-build-docker-image" title="Permalink to this headline">#</a></h3>
+<h3>Step 3: Build Docker image<a class="headerlink" href="#step-3-build-docker-image" title="Permalink to this heading">#</a></h3>
 <p>Run the following command to build Docker image:</p>
 <div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">cd</span> <span class="nv">%USERPROFILE%</span>\intel\dlstreamer_gst\docker\source\windows
 <span class="p">@</span><span class="c1">REM provide a link to the OpenVINO™ Toolkit development package as a first argument (by default link to 2022.1 package)</span>
@@ -928,7 +1025,7 @@ description. If the image is absent in your output, please repeat all
 the steps above.</p>
 </section>
 <section id="step-4-run-docker-image">
-<h3>Step 4: Run Docker image<a class="headerlink" href="#step-4-run-docker-image" title="Permalink to this headline">#</a></h3>
+<h3>Step 4: Run Docker image<a class="headerlink" href="#step-4-run-docker-image" title="Permalink to this heading">#</a></h3>
 <p>Run container:</p>
 <div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>docker run -it <span class="se">^</span>
 <span class="se">-</span>v <span class="nv">%USERPROFILE%</span>\intel\dl_streamer\models:C:\intel\dl_streamer\models <span class="se">^</span>
@@ -948,7 +1045,7 @@ and OpenVINO™ Toolkit and open PowerShell* in <code class="docutils literal no
 </section>
 </section>
 <section id="limitations">
-<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">#</a></h2>
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">gvatrack</span></code> and <code class="docutils literal notranslate"><span class="pre">gvapython</span></code> elements are not available</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">gvametapublish</span></code> works only with filesystem and console output</p></li>
@@ -960,10 +1057,10 @@ for requirements to run inference on GPU in Docker</p></li>
 </ul>
 </section>
 <section id="next-steps">
-<h2>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">#</a></h2>
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../tutorial.html"><span class="doc">Tutorial</span></a></p></li>
-<li><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/README.md">Samples overview</a></p></li>
+<li><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">Samples overview</a></p></li>
 </ul>
 <hr class="docutils" />
 <blockquote>
@@ -980,20 +1077,6 @@ for requirements to run inference on GPU in Docker</p></li>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="install_guide_rhel.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Install Guide RHEL</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="../tutorial.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tutorial</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

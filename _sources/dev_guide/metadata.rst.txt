@@ -42,7 +42,7 @@ metadata **GstGVATensorMeta** (as many instances as output layers in the
 model) containing tensor raw data and additional information such as
 tensor dimensions, data precision, etc.
 
-Using the following pipeline as an example
+Using the following pipeline as an example (more examples can be found in the `gst_launch <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/gst_launch>`__ folder)
 
 .. code:: shell
 

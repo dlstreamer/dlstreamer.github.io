@@ -1,0 +1,1235 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+
+    <title>namespace dlstreamer &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/doxyrest-pygments.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/target-highlight.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="namespace dlstreamer::detail" href="namespace_dlstreamer_detail.html" />
+    <link rel="prev" title="Global Namespace" href="global.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../get_started/get_started_index.html">
+   Get Started
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../get_started/hardware_requirements.html">
+     Hardware Requirements
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../get_started/install/install_guide_index.html">
+     Install Guide
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../get_started/install/install_guide_ubuntu.html">
+       Install Guide Ubuntu
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../get_started/tutorial.html">
+     Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">
+     Samples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../dev_guide/dev_guide_index.html">
+   Developer Guide
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_guide/metadata.html">
+     Metadata
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../dev_guide/model_preparation.html">
+     Model Preparation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../dev_guide/yolov5_model_preparation.html">
+       Yolov5 Model Preparation Example
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_guide/model_proc_file.html">
+     Model-proc File
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_guide/how_to_create_model_proc_file.html">
+     How to Create Model-proc File
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_guide/python_bindings.html">
+     Python Bindings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_guide/custom_processing.html">
+     Custom Processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_guide/object_tracking.html">
+     Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_guide/profiling.html">
+     Profiling with Intel VTune™
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_guide/converting_deepstream_to_dlstreamer.html">
+     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../dev_guide/how_to_contribute.html">
+     How to Contribute
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../dev_guide/coding_style.html">
+       Coding Style
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../elements/elements.html">
+   Elements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../elements/gvadetect.html">
+     gvadetect
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../elements/gvaclassify.html">
+     gvaclassify
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../elements/gvainference.html">
+     gvainference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../elements/gvaaudiodetect.html">
+     gvaaudiodetect
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../elements/gvatrack.html">
+     gvatrack
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../elements/gvametaconvert.html">
+     gvametaconvert
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../elements/gvametapublish.html">
+     gvametapublish
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../elements/gvametaaggregate.html">
+     gvametaaggregate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../elements/gvapython.html">
+     gvapython
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../elements/gvawatermark.html">
+     gvawatermark
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../elements/gvafpscounter.html">
+     gvafpscounter
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../supported_models.html">
+   Supported Models
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../api_ref/api_reference.html">
+   API Reference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../api_ref/page_index.html">
+     Intel® Deep Learning Streamer (Intel® DL Streamer) API reference
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../api_ref/global.html">
+     Global Namespace
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../api_ref/namespace_GVA.html">
+       namespace GVA
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api_ref/struct_GVA_Rect.html">
+         template struct GVA::Rect
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api_ref/struct_GVA_Segment.html">
+         template struct GVA::Segment
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api_ref/class_GVA_AudioEvent.html">
+         class GVA::AudioEvent
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api_ref/class_GVA_AudioFrame.html">
+         class GVA::AudioFrame
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api_ref/class_GVA_RegionOfInterest.html">
+         class GVA::RegionOfInterest
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api_ref/class_GVA_Tensor.html">
+         class GVA::Tensor
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api_ref/class_GVA_VideoFrame.html">
+         class GVA::VideoFrame
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../api_ref/namespace_gstgva.html">
+       namespace gstgva
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api_ref/namespace_gstgva_region_of_interest.html">
+         namespace gstgva::region_of_interest
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api_ref/namespace_gstgva_tensor.html">
+         namespace gstgva::tensor
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api_ref/namespace_gstgva_video_frame.html">
+         namespace gstgva::video_frame
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../api_ref/enum_GVALayout.html">
+       enum GVALayout
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../api_ref/enum_GVAPrecision.html">
+       enum GVAPrecision
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../api_ref/struct_GstGVAAudioEventMeta.html">
+       struct GstGVAAudioEventMeta
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="simple">
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../api_ref/struct__GstGVAJSONMeta.html">
+       struct _GstGVAJSONMeta
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="simple">
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../api_ref/struct__GstGVATensorMeta.html">
+       struct _GstGVATensorMeta
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="simple">
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../architecture_2.0.html">
+   Architecture 2.0 [Preview]
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../migration_guide.html">
+     Migration to 2.0
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../cpp_interfaces.html">
+     ① Memory Interop and C++ abstract interfaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../cpp_elements.html">
+     ② C++ elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../gstreamer_elements.html">
+     ③ GStreamer Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../gstreamer_bins.html">
+     ③ GStreamer Bin Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_bindings.html">
+     ③ Python Bindings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements_list.html">
+     Elements 2.0 reference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../packaging.html">
+     Packaging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../samples_2.0.html">
+     Samples 2.0
+    </a>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="index.html">
+     API 2.0 Reference
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 current active has-children">
+      <a class="reference internal" href="global.html">
+       Global Namespace
+      </a>
+      <input checked="" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="current">
+       <li class="toctree-l4 current active">
+        <a class="current reference internal" href="#">
+         namespace dlstreamer
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="enum_GVALayout.html">
+         enum GVALayout
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="enum_GVAPrecision.html">
+         enum GVAPrecision
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="struct_GstGVAAudioEventMeta.html">
+         struct GstGVAAudioEventMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="struct__GstGVAJSONMeta.html">
+         struct _GstGVAJSONMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="struct__GstGVATensorMeta.html">
+         struct _GstGVATensorMeta
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/architecture_2.0/api_ref/namespace_dlstreamer.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#detailed-documentation">
+   Detailed Documentation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#typedefs">
+     Typedefs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#global-functions">
+     Global Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>namespace dlstreamer</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#detailed-documentation">
+   Detailed Documentation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#typedefs">
+     Typedefs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#global-functions">
+     Global Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="namespace-dlstreamer">
+<span id="doxid-namespacedlstreamer"></span><span id="index-0"></span><h1>namespace dlstreamer<a class="headerlink" href="#namespace-dlstreamer" title="Permalink to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="k">namespace</span> <span class="n">dlstreamer</span> <span class="p">{</span>
+
+<span class="c1">// namespaces</span>
+
+<span class="k">namespace</span> <a class="reference internal" href="namespace_dlstreamer_detail.html#doxid-namespacedlstreamer-1-1detail"><span class="std std-ref">dlstreamer::detail</span></a><span></span><span class="p">;</span>
+<span class="k">namespace</span> <a class="reference internal" href="namespace_dlstreamer_tensor.html#doxid-namespacedlstreamer-1-1tensor"><span class="std std-ref">dlstreamer::tensor</span></a><span></span><span class="p">;</span>
+    <span class="k">namespace</span> <a class="reference internal" href="namespace_dlstreamer_tensor_key.html#doxid-namespacedlstreamer-1-1tensor-1-1key"><span class="std std-ref">dlstreamer::tensor::key</span></a><span></span><span class="p">;</span>
+
+<span class="c1">// typedefs</span>
+
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_BaseFrame.html#doxid-classdlstreamer-1-1-base-frame"><span class="std std-ref">BaseFrame</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a245c22ae194eb3d18422b681cc105a61"><span></span><span class="n">BaseFramePtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_BaseSink.html#doxid-classdlstreamer-1-1-base-sink"><span class="std std-ref">BaseSink</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ac8ec2c82a6db4f21a1d5bfcef750e411"><span></span><span class="n">BaseSinkPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_BaseSource.html#doxid-classdlstreamer-1-1-base-source"><span class="std std-ref">BaseSource</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1afaf3a20e543b9d82f7ded7f3f6682958"><span></span><span class="n">BaseSourcePtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_BaseTransform.html#doxid-classdlstreamer-1-1-base-transform"><span class="std std-ref">BaseTransform</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ab741de7c7111c893fc82c9ddfa6582cf"><span></span><span class="n">BaseTransformPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_Context.html#doxid-classdlstreamer-1-1-context"><span class="std std-ref">Context</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a2eba287f35b2698b87aa6f560299ffe8"><span></span><span class="n">ContextPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_MemoryMapper.html#doxid-classdlstreamer-1-1-memory-mapper"><span class="std std-ref">MemoryMapper</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a6e9a7ff17b4ff02042f7ad6784323f10"><span></span><span class="n">MemoryMapperPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_CPUContext.html#doxid-classdlstreamer-1-1-c-p-u-context"><span class="std std-ref">CPUContext</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a200c2b09b523905681ad9a67febb7fff"><span></span><span class="n">CPUContextPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_CPUTensor.html#doxid-classdlstreamer-1-1-c-p-u-tensor"><span class="std std-ref">CPUTensor</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a4d0c966a6e8dffdab16c10cf40c7e315"><span></span><span class="n">CPUTensorPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">variant</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">double</span><span class="p">,</span> <span class="kt">size_t</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">intptr_t</span><span class="p">,</span> <span class="kt">bool</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1ab7893a9ae168d5251d6a85330aea0bc4"><span class="std std-ref">Any</span></a><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1ab7893a9ae168d5251d6a85330aea0bc4"><span class="std std-ref">Any</span></a><span></span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">less</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a655f61b1cf16bd014b1faf20046dc518"><span></span><span class="n">AnyMap</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_Dictionary.html#doxid-classdlstreamer-1-1-dictionary"><span class="std std-ref">Dictionary</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ab94d4f1fc850dbd9c71343191460d20a"><span></span><span class="n">DictionaryPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="k">const</span> <a class="reference internal" href="class_dlstreamer_Dictionary.html#doxid-classdlstreamer-1-1-dictionary"><span class="std std-ref">Dictionary</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a8407dcbf0aebfcb357acad3ac2d27bfc"><span></span><span class="n">DictionaryCPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_DMAContext.html#doxid-classdlstreamer-1-1-d-m-a-context"><span class="std std-ref">DMAContext</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a6da150094fe9002df7d1405742b725ed"><span></span><span class="n">DMAContextPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_DMATensor.html#doxid-classdlstreamer-1-1-d-m-a-tensor"><span class="std std-ref">DMATensor</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a7c76a05a98266c7c18c4c2c71e63c3c2"><span></span><span class="n">DMATensorPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_Element.html#doxid-classdlstreamer-1-1-element"><span class="std std-ref">Element</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ae66a7cb3f12db3c71b507f28cfa950f2"><span></span><span class="n">ElementPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><a class="reference internal" href="struct_dlstreamer_ParamDesc.html#doxid-structdlstreamer-1-1-param-desc"><span class="std std-ref">ParamDesc</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a1c0d94608894c5255d65851870d3a184"><span></span><span class="n">ParamDescVector</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_FFmpegContext.html#doxid-classdlstreamer-1-1-f-fmpeg-context"><span class="std std-ref">FFmpegContext</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a229ecdbe4c38c550e144d3aa8a507c33"><span></span><span class="n">FFmpegContextPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_FFmpegFrame.html#doxid-classdlstreamer-1-1-f-fmpeg-frame"><span class="std std-ref">FFmpegFrame</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1aa3da3375cf9341ad2c2bb470590279bf"><span></span><span class="n">FFmpegFramePtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">int64_t</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1acfddbd36bfab06a818f4c2a32613eb96"><span></span><span class="n">Format</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><a class="reference internal" href="struct_dlstreamer_FrameInfo.html#doxid-structdlstreamer-1-1-frame-info"><span class="std std-ref">FrameInfo</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ad9841a81bbd2afc2c172b7df8f575a80"><span></span><span class="n">FrameInfoVector</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_GSTFrame.html#doxid-classdlstreamer-1-1-g-s-t-frame"><span class="std std-ref">GSTFrame</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1aa8eec5041f919584a28a14dd775bd9be"><span></span><span class="n">GstFramePtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_GSTTensor.html#doxid-classdlstreamer-1-1-g-s-t-tensor"><span class="std std-ref">GSTTensor</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1af63c902c90cd015c11d127f972d32807"><span></span><span class="n">GstTensorPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_USMTensor.html#doxid-classdlstreamer-1-1-u-s-m-tensor"><span class="std std-ref">USMTensor</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a7480cf1dd4864f7f587e3929b9c11c21"><span></span><span class="n">USMTensorPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_OpenCLContext.html#doxid-classdlstreamer-1-1-open-c-l-context"><span class="std std-ref">OpenCLContext</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a7f761081c52f1b65cbedc172ace99982"><span></span><span class="n">OpenCLContextPtr</span></span><span></span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="n">CL_API_ENTRY</span> <a class="reference internal" href="global.html#doxid-opencl-2tensor-8h-1af2141916ad9655073b9810d7bc71494d"><span class="std std-ref">cl_mem</span></a><span></span><span class="p">(</span><span class="n">CL_API_CALL</span><span class="o">*</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a0771493631cde755f1d301c5ef0d5bd3"><span></span><span class="n">clCreateBufferWithPropertiesINTEL_fn</span></span><span></span><span class="p">)(</span>
+    <span class="n">cl_context</span> <span class="n">context</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n">cl_bitfield</span> <span class="o">*</span><span class="n">properties</span><span class="p">,</span>
+    <span class="n">cl_mem_flags</span> <span class="n">flags</span><span class="p">,</span>
+    <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">host_ptr</span><span class="p">,</span>
+    <span class="n">cl_int</span> <span class="o">*</span><span class="n">errcode_ret</span>
+    <span class="p">);</span>
+
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_OpenCLTensor.html#doxid-classdlstreamer-1-1-open-c-l-tensor"><span class="std std-ref">OpenCLTensor</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1aea8a79b8847a6f65bc904aaabe89f194"><span></span><span class="n">OpenCLTensorPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_OpenCVContext.html#doxid-classdlstreamer-1-1-open-c-v-context"><span class="std std-ref">OpenCVContext</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a4ac3dd08f732cda0cf75aa908f643388"><span></span><span class="n">OpenCVContextPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_OpenCVTensor.html#doxid-classdlstreamer-1-1-open-c-v-tensor"><span class="std std-ref">OpenCVTensor</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a1f8b374078d438ed4f3337fafffc4921"><span></span><span class="n">OpenCVTensorPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_OpenCVUMatContext.html#doxid-classdlstreamer-1-1-open-c-v-u-mat-context"><span class="std std-ref">OpenCVUMatContext</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1acfd3ae66f815f2d837fd2a8c334cdef4"><span></span><span class="n">OpenCVUMatContextPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_OpenCVUMatTensor.html#doxid-classdlstreamer-1-1-open-c-v-u-mat-tensor"><span class="std std-ref">OpenCVUMatTensor</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a3bf699dd14e7bf49d9178936e2a72062"><span></span><span class="n">OpenCVUMatTensorPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_OpenVINOContext.html#doxid-classdlstreamer-1-1-open-v-i-n-o-context"><span class="std std-ref">OpenVINOContext</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ac0e51f0c3ed7558e4494b81862282db6"><span></span><span class="n">OpenVINOContextPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_OpenVINOFrame.html#doxid-classdlstreamer-1-1-open-v-i-n-o-frame"><span class="std std-ref">OpenVINOFrame</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ae8a3b8f0778f7f17d2ba994de848013b"><span></span><span class="n">OpenVINOFramePtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_OpenVINOTensor.html#doxid-classdlstreamer-1-1-open-v-i-n-o-tensor"><span class="std std-ref">OpenVINOTensor</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ac468faa0490fd21effccf2436cd98795"><span></span><span class="n">OpenVINOTensorPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_Sink.html#doxid-classdlstreamer-1-1-sink"><span class="std std-ref">Sink</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1aa788e2cb8000621cfb9648dd7d00bec0"><span></span><span class="n">SinkPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_Source.html#doxid-classdlstreamer-1-1-source"><span class="std std-ref">Source</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a188a2497b4b06719d2d24197ad5294a4"><span></span><span class="n">SourcePtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_SYCLContext.html#doxid-classdlstreamer-1-1-s-y-c-l-context"><span class="std std-ref">SYCLContext</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1aab4aa06a967a45db7a9a782cdcdaa8cd"><span></span><span class="n">SYCLContextPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_SYCLUSMTensor.html#doxid-classdlstreamer-1-1-s-y-c-l-u-s-m-tensor"><span class="std std-ref">SYCLUSMTensor</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a94967b79500d5403ac809f2cdaec53c4"><span></span><span class="n">SYCLUSMTensorPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_TensorPtr.html#doxid-classdlstreamer-1-1-tensor-ptr"><span class="std std-ref">TensorPtr</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1aef57279f206868573faca2d977200ea9"><span></span><span class="n">TensorVector</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><a class="reference internal" href="struct_dlstreamer_TensorInfo.html#doxid-structdlstreamer-1-1-tensor-info"><span class="std std-ref">TensorInfo</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a6dc9660eef60412db1ceb13fc012734b"><span></span><span class="n">TensorInfoVector</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_Transform.html#doxid-classdlstreamer-1-1-transform"><span class="std std-ref">Transform</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a6580e9fce893aa88197fa20240783c9b"><span></span><span class="n">TransformPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="p">)</span><span class="o">&gt;&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a53305291cab1b066fe310ec8d72b2deb"><span></span><span class="n">auto_ptr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_VAAPIContext.html#doxid-classdlstreamer-1-1-v-a-a-p-i-context"><span class="std std-ref">VAAPIContext</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ab6f31ebb8968060d413d39a9c754c07d"><span></span><span class="n">VAAPIContextPtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_VAAPIFrame.html#doxid-classdlstreamer-1-1-v-a-a-p-i-frame"><span class="std std-ref">VAAPIFrame</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a189caced54d8f866b4cae6be31c76a82"><span></span><span class="n">VAAPIFramePtr</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><a class="reference internal" href="class_dlstreamer_VAAPITensor.html#doxid-classdlstreamer-1-1-v-a-a-p-i-tensor"><span class="std std-ref">VAAPITensor</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a0585ca2e3499bf577cfa0c3384a9e1bb"><span></span><span class="n">VAAPITensorPtr</span></span><span></span><span class="p">;</span>
+
+<span class="c1">// enums</span>
+
+<span class="k">enum</span> <a class="reference internal" href="enum_dlstreamer_AccessMode.html#doxid-namespacedlstreamer-1a688aea01f1e852531b035128bbea9e10"><span class="std std-ref">AccessMode</span></a><span></span><span class="p">;</span>
+<span class="k">enum</span> <a class="reference internal" href="enum_dlstreamer_DataType.html#doxid-namespacedlstreamer-1a7a7492b0df5cc3ad654a97cd54502d82"><span class="std std-ref">DataType</span></a><span></span><span class="p">;</span>
+<span class="k">enum</span> <a class="reference internal" href="enum_dlstreamer_ElementFlags.html#doxid-namespacedlstreamer-1ae8d777fdddec0030ed4811d12c60ec11"><span class="std std-ref">ElementFlags</span></a><span></span><span class="p">;</span>
+<span class="k">enum</span> <a class="reference internal" href="enum_dlstreamer_ImageFormat.html#doxid-namespacedlstreamer-1a335d5fffc58016aeb44c15b058f56466"><span class="std std-ref">ImageFormat</span></a><span></span><span class="p">;</span>
+<span class="k">enum</span> <a class="reference internal" href="enum_dlstreamer_MediaType.html#doxid-namespacedlstreamer-1aa880cf952e5b844d472f66d51efa3707"><span class="std std-ref">MediaType</span></a><span></span><span class="p">;</span>
+<span class="k">enum</span> <a class="reference internal" href="enum_dlstreamer_MemoryType.html#doxid-namespacedlstreamer-1adf13505dedb784c9027f629e8e97f1db"><span class="std std-ref">MemoryType</span></a><span></span><span class="p">;</span>
+
+<span class="c1">// structs</span>
+
+<span class="k">struct</span> <a class="reference internal" href="struct_dlstreamer_AudioFormat.html#doxid-structdlstreamer-1-1-audio-format"><span class="std std-ref">AudioFormat</span></a><span></span><span class="p">;</span>
+<span class="k">struct</span> <a class="reference internal" href="struct_dlstreamer_AudioInfo.html#doxid-structdlstreamer-1-1-audio-info"><span class="std std-ref">AudioInfo</span></a><span></span><span class="p">;</span>
+<span class="k">struct</span> <a class="reference internal" href="struct_dlstreamer_ElementDesc.html#doxid-structdlstreamer-1-1-element-desc"><span class="std std-ref">ElementDesc</span></a><span></span><span class="p">;</span>
+<span class="k">struct</span> <a class="reference internal" href="struct_dlstreamer_FrameInfo.html#doxid-structdlstreamer-1-1-frame-info"><span class="std std-ref">FrameInfo</span></a><span></span><span class="p">;</span>
+<span class="k">struct</span> <a class="reference internal" href="struct_dlstreamer_GstDLStreamerMemory.html#doxid-structdlstreamer-1-1-gst-d-l-streamer-memory"><span class="std std-ref">GstDLStreamerMemory</span></a><span></span><span class="p">;</span>
+<span class="k">struct</span> <a class="reference internal" href="struct_dlstreamer_ImageInfo.html#doxid-structdlstreamer-1-1-image-info"><span class="std std-ref">ImageInfo</span></a><span></span><span class="p">;</span>
+<span class="k">struct</span> <a class="reference internal" href="struct_dlstreamer_ParamDesc.html#doxid-structdlstreamer-1-1-param-desc"><span class="std std-ref">ParamDesc</span></a><span></span><span class="p">;</span>
+<span class="k">struct</span> <a class="reference internal" href="struct_dlstreamer_TensorInfo.html#doxid-structdlstreamer-1-1-tensor-info"><span class="std std-ref">TensorInfo</span></a><span></span><span class="p">;</span>
+
+<span class="c1">// classes</span>
+
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_AffineTransformInfoMetadata.html#doxid-classdlstreamer-1-1-affine-transform-info-metadata"><span class="std std-ref">AffineTransformInfoMetadata</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_BaseContext.html#doxid-classdlstreamer-1-1-base-context"><span class="std std-ref">BaseContext</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_BaseDictionary.html#doxid-classdlstreamer-1-1-base-dictionary"><span class="std std-ref">BaseDictionary</span></a><span></span><span class="p">;</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_BaseElement.html#doxid-classdlstreamer-1-1-base-element"><span class="std std-ref">BaseElement</span></a><span></span><span class="p">;</span>
+
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_BaseFrame.html#doxid-classdlstreamer-1-1-base-frame"><span class="std std-ref">BaseFrame</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_BaseMemoryMapper.html#doxid-classdlstreamer-1-1-base-memory-mapper"><span class="std std-ref">BaseMemoryMapper</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_BaseMetadata.html#doxid-classdlstreamer-1-1-base-metadata"><span class="std std-ref">BaseMetadata</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_BaseSink.html#doxid-classdlstreamer-1-1-base-sink"><span class="std std-ref">BaseSink</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_BaseSource.html#doxid-classdlstreamer-1-1-base-source"><span class="std std-ref">BaseSource</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_BaseTensor.html#doxid-classdlstreamer-1-1-base-tensor"><span class="std std-ref">BaseTensor</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_BaseTransform.html#doxid-classdlstreamer-1-1-base-transform"><span class="std std-ref">BaseTransform</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_BaseTransformInplace.html#doxid-classdlstreamer-1-1-base-transform-inplace"><span class="std std-ref">BaseTransformInplace</span></a><span></span><span class="p">;</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_BlockingQueue.html#doxid-classdlstreamer-1-1-blocking-queue"><span class="std std-ref">BlockingQueue</span></a><span></span><span class="p">;</span>
+
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_CPUContext.html#doxid-classdlstreamer-1-1-c-p-u-context"><span class="std std-ref">CPUContext</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_CPUFrameAlloc.html#doxid-classdlstreamer-1-1-c-p-u-frame-alloc"><span class="std std-ref">CPUFrameAlloc</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_CPUTensor.html#doxid-classdlstreamer-1-1-c-p-u-tensor"><span class="std std-ref">CPUTensor</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_CPUTensorAlloc.html#doxid-classdlstreamer-1-1-c-p-u-tensor-alloc"><span class="std std-ref">CPUTensorAlloc</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_ClassificationMetadata.html#doxid-classdlstreamer-1-1-classification-metadata"><span class="std std-ref">ClassificationMetadata</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_Context.html#doxid-classdlstreamer-1-1-context"><span class="std std-ref">Context</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_DMAContext.html#doxid-classdlstreamer-1-1-d-m-a-context"><span class="std std-ref">DMAContext</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_DMATensor.html#doxid-classdlstreamer-1-1-d-m-a-tensor"><span class="std std-ref">DMATensor</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_DetectionMetadata.html#doxid-classdlstreamer-1-1-detection-metadata"><span class="std std-ref">DetectionMetadata</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_Dictionary.html#doxid-classdlstreamer-1-1-dictionary"><span class="std std-ref">Dictionary</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_DictionaryProxy.html#doxid-classdlstreamer-1-1-dictionary-proxy"><span class="std std-ref">DictionaryProxy</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_Element.html#doxid-classdlstreamer-1-1-element"><span class="std std-ref">Element</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_FFmpegContext.html#doxid-classdlstreamer-1-1-f-fmpeg-context"><span class="std std-ref">FFmpegContext</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_FFmpegFrame.html#doxid-classdlstreamer-1-1-f-fmpeg-frame"><span class="std std-ref">FFmpegFrame</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_Frame.html#doxid-classdlstreamer-1-1-frame"><span class="std std-ref">Frame</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_FramePtr.html#doxid-classdlstreamer-1-1-frame-ptr"><span class="std std-ref">FramePtr</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_GSTContext.html#doxid-classdlstreamer-1-1-g-s-t-context"><span class="std std-ref">GSTContext</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_GSTContextQuery.html#doxid-classdlstreamer-1-1-g-s-t-context-query"><span class="std std-ref">GSTContextQuery</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_GSTDictionary.html#doxid-classdlstreamer-1-1-g-s-t-dictionary"><span class="std std-ref">GSTDictionary</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_GSTFrame.html#doxid-classdlstreamer-1-1-g-s-t-frame"><span class="std std-ref">GSTFrame</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_GSTFrameBatch.html#doxid-classdlstreamer-1-1-g-s-t-frame-batch"><span class="std std-ref">GSTFrameBatch</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_GSTMetadata.html#doxid-classdlstreamer-1-1-g-s-t-metadata"><span class="std std-ref">GSTMetadata</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_GSTROIDictionary.html#doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary"><span class="std std-ref">GSTROIDictionary</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_GSTROIMetadata.html#doxid-classdlstreamer-1-1-g-s-t-r-o-i-metadata"><span class="std std-ref">GSTROIMetadata</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_GSTTensor.html#doxid-classdlstreamer-1-1-g-s-t-tensor"><span class="std std-ref">GSTTensor</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_ImageLayout.html#doxid-classdlstreamer-1-1-image-layout"><span class="std std-ref">ImageLayout</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_InferenceResultMetadata.html#doxid-classdlstreamer-1-1-inference-result-metadata"><span class="std std-ref">InferenceResultMetadata</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_LevelZeroContext.html#doxid-classdlstreamer-1-1-level-zero-context"><span class="std std-ref">LevelZeroContext</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapper.html#doxid-classdlstreamer-1-1-memory-mapper"><span class="std std-ref">MemoryMapper</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperAnyToGST.html#doxid-classdlstreamer-1-1-memory-mapper-any-to-g-s-t"><span class="std std-ref">MemoryMapperAnyToGST</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperCPUToOpenCV.html#doxid-classdlstreamer-1-1-memory-mapper-c-p-u-to-open-c-v"><span class="std std-ref">MemoryMapperCPUToOpenCV</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperCPUToOpenVINO.html#doxid-classdlstreamer-1-1-memory-mapper-c-p-u-to-open-v-i-n-o"><span class="std std-ref">MemoryMapperCPUToOpenVINO</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperCache.html#doxid-classdlstreamer-1-1-memory-mapper-cache"><span class="std std-ref">MemoryMapperCache</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperChain.html#doxid-classdlstreamer-1-1-memory-mapper-chain"><span class="std std-ref">MemoryMapperChain</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperDMAToOpenCL.html#doxid-classdlstreamer-1-1-memory-mapper-d-m-a-to-open-c-l"><span class="std std-ref">MemoryMapperDMAToOpenCL</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperDMAToUSM.html#doxid-classdlstreamer-1-1-memory-mapper-d-m-a-to-u-s-m"><span class="std std-ref">MemoryMapperDMAToUSM</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperDMAToVAAPI.html#doxid-classdlstreamer-1-1-memory-mapper-d-m-a-to-v-a-a-p-i"><span class="std std-ref">MemoryMapperDMAToVAAPI</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperFFMPEGToVAAPI.html#doxid-classdlstreamer-1-1-memory-mapper-f-f-m-p-e-g-to-v-a-a-p-i"><span class="std std-ref">MemoryMapperFFMPEGToVAAPI</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperGSTToDMA.html#doxid-classdlstreamer-1-1-memory-mapper-g-s-t-to-d-m-a"><span class="std std-ref">MemoryMapperGSTToDMA</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperGSTToOpenCL.html#doxid-classdlstreamer-1-1-memory-mapper-g-s-t-to-open-c-l"><span class="std std-ref">MemoryMapperGSTToOpenCL</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperGSTToVAAPI.html#doxid-classdlstreamer-1-1-memory-mapper-g-s-t-to-v-a-a-p-i"><span class="std std-ref">MemoryMapperGSTToVAAPI</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperOpenCLToCPU.html#doxid-classdlstreamer-1-1-memory-mapper-open-c-l-to-c-p-u"><span class="std std-ref">MemoryMapperOpenCLToCPU</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperOpenCLToDMA.html#doxid-classdlstreamer-1-1-memory-mapper-open-c-l-to-d-m-a"><span class="std std-ref">MemoryMapperOpenCLToDMA</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperOpenCLToOpenCVUMat.html#doxid-classdlstreamer-1-1-memory-mapper-open-c-l-to-open-c-v-u-mat"><span class="std std-ref">MemoryMapperOpenCLToOpenCVUMat</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperOpenCLToOpenVINO.html#doxid-classdlstreamer-1-1-memory-mapper-open-c-l-to-open-v-i-n-o"><span class="std std-ref">MemoryMapperOpenCLToOpenVINO</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperOpenVINOToCPU.html#doxid-classdlstreamer-1-1-memory-mapper-open-v-i-n-o-to-c-p-u"><span class="std std-ref">MemoryMapperOpenVINOToCPU</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperSYCLUSMToCPU.html#doxid-classdlstreamer-1-1-memory-mapper-s-y-c-l-u-s-m-to-c-p-u"><span class="std std-ref">MemoryMapperSYCLUSMToCPU</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperUSMToDMA.html#doxid-classdlstreamer-1-1-memory-mapper-u-s-m-to-d-m-a"><span class="std std-ref">MemoryMapperUSMToDMA</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperVAAPIToDMA.html#doxid-classdlstreamer-1-1-memory-mapper-v-a-a-p-i-to-d-m-a"><span class="std std-ref">MemoryMapperVAAPIToDMA</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_MemoryMapperVAAPIToOpenVINO.html#doxid-classdlstreamer-1-1-memory-mapper-v-a-a-p-i-to-open-v-i-n-o"><span class="std std-ref">MemoryMapperVAAPIToOpenVINO</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_Metadata.html#doxid-classdlstreamer-1-1-metadata"><span class="std std-ref">Metadata</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_ModelInfoMetadata.html#doxid-classdlstreamer-1-1-model-info-metadata"><span class="std std-ref">ModelInfoMetadata</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_ObjectIdMetadata.html#doxid-classdlstreamer-1-1-object-id-metadata"><span class="std std-ref">ObjectIdMetadata</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_OpenCLContext.html#doxid-classdlstreamer-1-1-open-c-l-context"><span class="std std-ref">OpenCLContext</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_OpenCLTensor.html#doxid-classdlstreamer-1-1-open-c-l-tensor"><span class="std std-ref">OpenCLTensor</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_OpenCLTensorRefCounted.html#doxid-classdlstreamer-1-1-open-c-l-tensor-ref-counted"><span class="std std-ref">OpenCLTensorRefCounted</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_OpenCVContext.html#doxid-classdlstreamer-1-1-open-c-v-context"><span class="std std-ref">OpenCVContext</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_OpenCVTensor.html#doxid-classdlstreamer-1-1-open-c-v-tensor"><span class="std std-ref">OpenCVTensor</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_OpenCVUMatContext.html#doxid-classdlstreamer-1-1-open-c-v-u-mat-context"><span class="std std-ref">OpenCVUMatContext</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_OpenCVUMatTensor.html#doxid-classdlstreamer-1-1-open-c-v-u-mat-tensor"><span class="std std-ref">OpenCVUMatTensor</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_OpenVINOContext.html#doxid-classdlstreamer-1-1-open-v-i-n-o-context"><span class="std std-ref">OpenVINOContext</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_OpenVINOFrame.html#doxid-classdlstreamer-1-1-open-v-i-n-o-frame"><span class="std std-ref">OpenVINOFrame</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_OpenVINOTensor.html#doxid-classdlstreamer-1-1-open-v-i-n-o-tensor"><span class="std std-ref">OpenVINOTensor</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_OpenVINOTensorBatch.html#doxid-classdlstreamer-1-1-open-v-i-n-o-tensor-batch"><span class="std std-ref">OpenVINOTensorBatch</span></a><span></span><span class="p">;</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_Pool.html#doxid-classdlstreamer-1-1-pool"><span class="std std-ref">Pool</span></a><span></span><span class="p">;</span>
+
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_SYCLContext.html#doxid-classdlstreamer-1-1-s-y-c-l-context"><span class="std std-ref">SYCLContext</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_SYCLUSMTensor.html#doxid-classdlstreamer-1-1-s-y-c-l-u-s-m-tensor"><span class="std std-ref">SYCLUSMTensor</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_Sink.html#doxid-classdlstreamer-1-1-sink"><span class="std std-ref">Sink</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_Source.html#doxid-classdlstreamer-1-1-source"><span class="std std-ref">Source</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_SourceIdentifierMetadata.html#doxid-classdlstreamer-1-1-source-identifier-metadata"><span class="std std-ref">SourceIdentifierMetadata</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_Tensor.html#doxid-classdlstreamer-1-1-tensor"><span class="std std-ref">Tensor</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_TensorPtr.html#doxid-classdlstreamer-1-1-tensor-ptr"><span class="std std-ref">TensorPtr</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_TimestampMetadata.html#doxid-classdlstreamer-1-1-timestamp-metadata"><span class="std std-ref">TimestampMetadata</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_Transform.html#doxid-classdlstreamer-1-1-transform"><span class="std std-ref">Transform</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_TransformInplace.html#doxid-classdlstreamer-1-1-transform-inplace"><span class="std std-ref">TransformInplace</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_USMTensor.html#doxid-classdlstreamer-1-1-u-s-m-tensor"><span class="std std-ref">USMTensor</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_VAAPIContext.html#doxid-classdlstreamer-1-1-v-a-a-p-i-context"><span class="std std-ref">VAAPIContext</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_VAAPIFrame.html#doxid-classdlstreamer-1-1-v-a-a-p-i-frame"><span class="std std-ref">VAAPIFrame</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_VAAPIFrameAlloc.html#doxid-classdlstreamer-1-1-v-a-a-p-i-frame-alloc"><span class="std std-ref">VAAPIFrameAlloc</span></a><span></span><span class="p">;</span>
+<span class="k">class</span> <a class="reference internal" href="class_dlstreamer_VAAPITensor.html#doxid-classdlstreamer-1-1-v-a-a-p-i-tensor"><span class="std std-ref">VAAPITensor</span></a><span></span><span class="p">;</span>
+
+<span class="c1">// global variables</span>
+
+<span class="k">static</span> <span class="k">constexpr</span> <span class="kt">int32_t</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a4945e41baded9f9a6a5c2c7e25c1e0c7"><span></span><span class="n">ElementDescMagic</span></span><span></span> <span class="o">=</span> <span class="mh">0x34495239</span><span class="p">;</span>
+<span class="k">static</span> <span class="k">constexpr</span> <span class="k">static</span> <span class="n">GstMapFlags</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a37bc58b93336eec44c00034d0cedb63b"><span></span><span class="n">GST_MAP_NATIVE_HANDLE</span></span><span></span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">GstMapFlags</span><span class="o">&gt;</span><span class="p">(</span><span class="n">GST_MAP_FLAG_LAST</span><span class="o">&lt;&lt;</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="c1">// global functions</span>
+
+<span class="k">static</span> <a class="reference internal" href="struct_dlstreamer_TensorInfo.html#doxid-structdlstreamer-1-1-tensor-info"><span class="std std-ref">TensorInfo</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1af7a2ea3aad0ca095d0fb041346bf580c"><span></span><span class="n">squeeze_tensor_info</span></span><span></span><span class="p">(</span><span class="k">const</span> <a class="reference internal" href="struct_dlstreamer_TensorInfo.html#doxid-structdlstreamer-1-1-tensor-info"><span class="std std-ref">TensorInfo</span></a><span></span><span class="o">&amp;</span> <span class="n">info</span><span class="p">);</span>
+
+<span class="k">static</span> <a class="reference internal" href="class_dlstreamer_TensorPtr.html#doxid-classdlstreamer-1-1-tensor-ptr"><span class="std std-ref">TensorPtr</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a86ded495d308373e4b712cd3f01ed209"><span></span><span class="n">get_tensor_slice</span></span><span></span><span class="p">(</span>
+    <a class="reference internal" href="class_dlstreamer_TensorPtr.html#doxid-classdlstreamer-1-1-tensor-ptr"><span class="std std-ref">TensorPtr</span></a><span></span> <span class="n">tensor</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span> <span class="kt">size_t</span><span class="o">&gt;&gt;&amp;</span> <span class="n">slice</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">squeeze</span> <span class="o">=</span> <span class="nb">false</span>
+<span class="p">);</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ab0c9c65e3507c1380b0f550e4e2d86df"><span></span><span class="n">any_cast</span></span><span></span><span class="p">(</span><span class="k">const</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1ab7893a9ae168d5251d6a85330aea0bc4"><span class="std std-ref">Any</span></a><span></span><span class="o">&amp;</span> <span class="n">any</span><span class="p">);</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">bool</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ac2651b21f764020fb6a7b0db04ac1e58"><span></span><span class="n">any_holds_type</span></span><span></span><span class="p">(</span><span class="k">const</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1ab7893a9ae168d5251d6a85330aea0bc4"><span class="std std-ref">Any</span></a><span></span><span class="o">&amp;</span> <span class="n">any</span><span class="p">);</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="n">Ty</span><span class="o">&gt;</span>
+<span class="k">static</span> <a class="reference internal" href="class_dlstreamer_Element.html#doxid-classdlstreamer-1-1-element"><span class="std std-ref">Element</span></a><span></span><span class="o">*</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a97fd94335d311fb5170502f1213e5ef8"><span></span><span class="n">create_element</span></span><span></span><span class="p">(</span>
+    <a class="reference internal" href="#doxid-namespacedlstreamer-1a8407dcbf0aebfcb357acad3ac2d27bfc"><span class="std std-ref">DictionaryCPtr</span></a><span></span> <span class="n">params</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a2eba287f35b2698b87aa6f560299ffe8"><span class="std std-ref">ContextPtr</span></a><span></span><span class="o">&amp;</span> <span class="n">app_context</span>
+<span class="p">);</span>
+
+<a class="reference internal" href="enum_dlstreamer_ImageFormat.html#doxid-namespacedlstreamer-1a335d5fffc58016aeb44c15b058f56466"><span class="std std-ref">ImageFormat</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1aae1e74f3e7278d1c375a5bced6484fbb"><span></span><span class="n">avformat_to_image_format</span></span><span></span><span class="p">(</span><span class="kt">int</span> <span class="n">format</span><span class="p">);</span>
+<a class="reference internal" href="struct_dlstreamer_FrameInfo.html#doxid-structdlstreamer-1-1-frame-info"><span class="std std-ref">FrameInfo</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a641296fed0b98f648de0354e03fdcbb9"><span></span><span class="n">avframe_to_info</span></span><span></span><span class="p">(</span><span class="n">AVFrame</span><span class="o">*</span> <span class="n">frame</span><span class="p">);</span>
+<span class="n">G_BEGIN_DECLS</span> <span class="n">GstAllocator</span><span class="o">*</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a2b9efcdbda16dde4402f832fd8855043"><span></span><span class="n">gst_dlstreamer_allocator_new</span></span><span></span><span class="p">(</span><a class="reference internal" href="enum_dlstreamer_MemoryType.html#doxid-namespacedlstreamer-1adf13505dedb784c9027f629e8e97f1db"><span class="std std-ref">MemoryType</span></a><span></span> <span class="n">memory_type</span><span class="p">);</span>
+
+<span class="n">GstMemory</span><span class="o">*</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a38e6756da4ab44528878bd53030a0c0d"><span></span><span class="n">gst_dlstreamer_allocator_wrap_tensor</span></span><span></span><span class="p">(</span>
+    <span class="n">GstAllocator</span><span class="o">*</span> <span class="n">allocator</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="class_dlstreamer_TensorPtr.html#doxid-classdlstreamer-1-1-tensor-ptr"><span class="std std-ref">TensorPtr</span></a><span></span><span class="o">&amp;</span> <span class="n">tensor</span>
+<span class="p">);</span>
+
+<span class="n">gboolean</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a4eebdf0832c4011481dc7d8cb4f33bf4"><span></span><span class="n">gst_is_dlstreamer_memory</span></span><span></span><span class="p">(</span><span class="n">GstMemory</span><span class="o">*</span> <span class="n">mem</span><span class="p">);</span>
+<span class="n">G_END_DECLS</span> <a class="reference internal" href="class_dlstreamer_TensorPtr.html#doxid-classdlstreamer-1-1-tensor-ptr"><span class="std std-ref">TensorPtr</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1aed90f5e1720d44f515e0b8a035404913"><span></span><span class="n">gst_dlstreamer_memory_get_tensor_ptr</span></span><span></span><span class="p">(</span><span class="n">GstMemory</span><span class="o">*</span> <span class="n">mem</span><span class="p">);</span>
+<span class="k">static</span> <a class="reference internal" href="enum_dlstreamer_ImageFormat.html#doxid-namespacedlstreamer-1a335d5fffc58016aeb44c15b058f56466"><span class="std std-ref">ImageFormat</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a5f9ded0845f1ddbeb803f5d759e154a7"><span></span><span class="n">gst_format_to_video_format</span></span><span></span><span class="p">(</span><span class="kt">int</span> <span class="n">format</span><span class="p">);</span>
+<span class="k">static</span> <span class="n">GstVideoFormat</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ac7d8a5bdbab5ff93bca4142e276ad093"><span></span><span class="n">video_format_to_gst_format</span></span><span></span><span class="p">(</span><a class="reference internal" href="enum_dlstreamer_ImageFormat.html#doxid-namespacedlstreamer-1a335d5fffc58016aeb44c15b058f56466"><span class="std std-ref">ImageFormat</span></a><span></span> <span class="n">format</span><span class="p">);</span>
+<span class="k">static</span> <a class="reference internal" href="struct_dlstreamer_FrameInfo.html#doxid-structdlstreamer-1-1-frame-info"><span class="std std-ref">FrameInfo</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a895e170293538acf3f00a633c3b4e9fa"><span></span><span class="n">gst_video_info_to_frame_info</span></span><span></span><span class="p">(</span><span class="k">const</span> <span class="n">GstVideoInfo</span><span class="o">*</span> <span class="n">vinfo</span><span class="p">);</span>
+<span class="k">static</span> <span class="n">GstCapsFeatures</span><span class="o">*</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ab323b8a5f28515730c15199d078965e6"><span></span><span class="n">memory_type_to_gst_caps_feature</span></span><span></span><span class="p">(</span><a class="reference internal" href="enum_dlstreamer_MemoryType.html#doxid-namespacedlstreamer-1adf13505dedb784c9027f629e8e97f1db"><span class="std std-ref">MemoryType</span></a><span></span> <span class="n">memory_type</span><span class="p">);</span>
+<span class="k">static</span> <span class="n">GstCaps</span><span class="o">*</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a364ab6f72c1873f7044c293e60e77937"><span></span><span class="n">frame_info_to_gst_caps</span></span><span></span><span class="p">(</span><span class="k">const</span> <a class="reference internal" href="struct_dlstreamer_FrameInfo.html#doxid-structdlstreamer-1-1-frame-info"><span class="std std-ref">FrameInfo</span></a><span></span><span class="o">&amp;</span> <span class="n">info</span><span class="p">);</span>
+<span class="k">static</span> <span class="n">GstCaps</span><span class="o">*</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1adb6c16dc28a4347eab3914e462e86ed2"><span></span><span class="n">frame_info_vector_to_gst_caps</span></span><span></span><span class="p">(</span><span class="k">const</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1ad9841a81bbd2afc2c172b7df8f575a80"><span class="std std-ref">FrameInfoVector</span></a><span></span><span class="o">&amp;</span> <span class="n">infos</span><span class="p">);</span>
+<span class="k">static</span> <a class="reference internal" href="struct_dlstreamer_FrameInfo.html#doxid-structdlstreamer-1-1-frame-info"><span class="std std-ref">FrameInfo</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a5665058b880657645d938addab95fed7"><span></span><span class="n">gst_caps_to_frame_info</span></span><span></span><span class="p">(</span><span class="k">const</span> <span class="n">GstCaps</span><span class="o">*</span> <span class="n">caps</span><span class="p">,</span> <span class="n">guint</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+<span class="k">static</span> <a class="reference internal" href="enum_dlstreamer_AccessMode.html#doxid-namespacedlstreamer-1a688aea01f1e852531b035128bbea9e10"><span class="std std-ref">AccessMode</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a4f415c809c4079fd4aaffb77e26b6bd7"><span></span><span class="n">gst_map_flags_to_access_mode</span></span><span></span><span class="p">(</span><span class="n">GstMapFlags</span> <span class="n">flags</span><span class="p">);</span>
+
+<span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">optional</span><span class="o">&lt;</span><a class="reference internal" href="#doxid-namespacedlstreamer-1ab7893a9ae168d5251d6a85330aea0bc4"><span class="std std-ref">Any</span></a><span></span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a12225bf60e288e2ac84795e291d73cef"><span></span><span class="n">gvalue_to_any</span></span><span></span><span class="p">(</span>
+    <span class="k">const</span> <span class="n">GValue</span><span class="o">*</span> <span class="n">gval</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="struct_dlstreamer_ParamDesc.html#doxid-structdlstreamer-1-1-param-desc"><span class="std std-ref">ParamDesc</span></a><span></span><span class="o">*</span> <span class="n">desc</span> <span class="o">=</span> <span class="k">nullptr</span>
+<span class="p">);</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ac0b31911d085c8a5be04eedc87eae143"><span></span><span class="n">any_to_gvalue</span></span><span></span><span class="p">(</span>
+    <a class="reference internal" href="#doxid-namespacedlstreamer-1ab7893a9ae168d5251d6a85330aea0bc4"><span class="std std-ref">Any</span></a><span></span> <span class="n">value</span><span class="p">,</span>
+    <span class="n">GValue</span><span class="o">*</span> <span class="n">gvalue</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">init</span> <span class="o">=</span> <span class="nb">true</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="struct_dlstreamer_ParamDesc.html#doxid-structdlstreamer-1-1-param-desc"><span class="std std-ref">ParamDesc</span></a><span></span><span class="o">*</span> <span class="n">desc</span> <span class="o">=</span> <span class="k">nullptr</span>
+<span class="p">);</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1aa00b33c6f32daf46930ebe4949248426"><span></span><span class="n">gvalue_to_vector</span></span><span></span><span class="p">(</span><span class="k">const</span> <span class="n">GValue</span><span class="o">*</span> <span class="n">value</span><span class="p">);</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ae0fce3795ccc4a0e113113f7cff8dcee"><span></span><span class="n">vector_to_gvalue</span></span><span></span><span class="p">(</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">vec</span><span class="p">,</span>
+    <span class="n">GValue</span><span class="o">*</span> <span class="n">gvalue</span>
+<span class="p">);</span>
+
+<span class="k">static</span> <span class="n">GParamSpec</span><span class="o">*</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a6d8e05cb9484b23c93de595143f11ea3"><span></span><span class="n">param_desc_to_spec</span></span><span></span><span class="p">(</span>
+    <span class="k">const</span> <a class="reference internal" href="struct_dlstreamer_ParamDesc.html#doxid-structdlstreamer-1-1-param-desc"><span class="std std-ref">ParamDesc</span></a><span></span><span class="o">&amp;</span> <span class="n">param</span><span class="p">,</span>
+    <span class="n">GstStructure</span><span class="o">*</span> <span class="n">enums_storage</span>
+<span class="p">);</span>
+
+<span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a8ebf5d10cc86c8524a940a4510dba404"><span></span><span class="n">get_property_as_string</span></span><span></span><span class="p">(</span><span class="n">GObject</span><span class="o">*</span> <span class="n">object</span><span class="p">,</span> <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">name</span><span class="p">);</span>
+<span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a2de1ab6f00d5b80d92aeed5bba2fd3b0"><span></span><span class="n">image_format_to_string</span></span><span></span><span class="p">(</span><a class="reference internal" href="enum_dlstreamer_ImageFormat.html#doxid-namespacedlstreamer-1a335d5fffc58016aeb44c15b058f56466"><span class="std std-ref">ImageFormat</span></a><span></span> <span class="n">format</span><span class="p">);</span>
+
+<span class="k">static</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a6e9a7ff17b4ff02042f7ad6784323f10"><span class="std std-ref">MemoryMapperPtr</span></a><span></span> <a class="reference internal" href="#doxid-namespacedlstreamer-1ab5c22570d8b24704bc18334687b55012"><span class="std std-ref">create_mapper</span></a><span></span><span class="p">(</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><a class="reference internal" href="#doxid-namespacedlstreamer-1a2eba287f35b2698b87aa6f560299ffe8"><span class="std std-ref">ContextPtr</span></a><span></span><span class="o">&gt;</span> <span class="n">context_chain</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">use_cache</span> <span class="o">=</span> <span class="nb">false</span>
+<span class="p">);</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T_DOWN</span><span class="p">,</span> <span class="k">typename</span> <span class="n">T_UP</span><span class="o">&gt;</span>
+<span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T_DOWN</span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a5e78b5546846d6e89765e299cf8b65d6"><span></span><span class="n">ptr_cast</span></span><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T_UP</span><span class="o">&gt;&amp;</span> <span class="n">ptr_up</span><span class="p">);</span>
+
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1af56c1fcc59434cbd3437a58c2fea0f09"><span></span><span class="n">memory_type_to_string</span></span><span></span><span class="p">(</span><a class="reference internal" href="enum_dlstreamer_MemoryType.html#doxid-namespacedlstreamer-1adf13505dedb784c9027f629e8e97f1db"><span class="std std-ref">MemoryType</span></a><span></span> <span class="n">type</span><span class="p">);</span>
+<span class="k">static</span> <a class="reference internal" href="enum_dlstreamer_MemoryType.html#doxid-namespacedlstreamer-1adf13505dedb784c9027f629e8e97f1db"><span class="std std-ref">MemoryType</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a76f6273c2eb45a00643f37053be666f0"><span></span><span class="n">memory_type_from_string</span></span><span></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">str</span><span class="p">);</span>
+<span class="n">cl_channel_order</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a25d676c7e11bd1f73f11d77bebfe4580"><span></span><span class="n">num_channels_to_opencl</span></span><span></span><span class="p">(</span><span class="kt">int</span> <span class="n">channels</span><span class="p">);</span>
+<span class="n">cl_channel_type</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a0e808b36812acf84f43d096de6f7c328"><span></span><span class="n">data_type_to_opencl</span></span><span></span><span class="p">(</span><a class="reference internal" href="enum_dlstreamer_DataType.html#doxid-namespacedlstreamer-1a7a7492b0df5cc3ad654a97cd54502d82"><span class="std std-ref">DataType</span></a><span></span> <span class="n">type</span><span class="p">);</span>
+<span class="k">static</span> <span class="kt">int</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a792a2da7dadd92c17879c80873eb4bdb"><span></span><span class="n">data_type_to_opencv</span></span><span></span><span class="p">(</span><a class="reference internal" href="enum_dlstreamer_DataType.html#doxid-namespacedlstreamer-1a7a7492b0df5cc3ad654a97cd54502d82"><span class="std std-ref">DataType</span></a><span></span> <span class="n">type</span><span class="p">);</span>
+<span class="k">static</span> <a class="reference internal" href="enum_dlstreamer_DataType.html#doxid-namespacedlstreamer-1a7a7492b0df5cc3ad654a97cd54502d82"><span class="std std-ref">DataType</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a98d0dc3468bd4a5e6e20bd57e468535c"><span></span><span class="n">data_type_from_openvino</span></span><span></span><span class="p">(</span><span class="n">ov</span><span class="o">::</span><span class="n">element</span><span class="o">::</span><span class="n">Type</span> <span class="n">element</span><span class="p">);</span>
+<span class="k">static</span> <span class="n">ov</span><span class="o">::</span><span class="n">element</span><span class="o">::</span><span class="n">Type</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1aa8c7db6a9d5e75c3b984f1eaabf19bf1"><span></span><span class="n">data_type_to_openvino</span></span><span></span><span class="p">(</span><a class="reference internal" href="enum_dlstreamer_DataType.html#doxid-namespacedlstreamer-1a7a7492b0df5cc3ad654a97cd54502d82"><span class="std std-ref">DataType</span></a><span></span> <span class="n">type</span><span class="p">);</span>
+<span class="k">static</span> <a class="reference internal" href="struct_dlstreamer_TensorInfo.html#doxid-structdlstreamer-1-1-tensor-info"><span class="std std-ref">TensorInfo</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a5c113df9d2c45daebfb8061a5abe6b6e"><span></span><span class="n">ov_tensor_to_tensor_info</span></span><span></span><span class="p">(</span><span class="n">ov</span><span class="o">::</span><span class="n">Tensor</span> <span class="n">tensor</span><span class="p">);</span>
+
+<span class="k">static</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1aa788e2cb8000621cfb9648dd7d00bec0"><span class="std std-ref">SinkPtr</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a817566a40b776144f7a343af449d7c5d"><span></span><span class="n">create_sink</span></span><span></span><span class="p">(</span>
+    <span class="k">const</span> <a class="reference internal" href="struct_dlstreamer_ElementDesc.html#doxid-structdlstreamer-1-1-element-desc"><span class="std std-ref">ElementDesc</span></a><span></span><span class="o">&amp;</span> <span class="n">desc</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a655f61b1cf16bd014b1faf20046dc518"><span class="std std-ref">AnyMap</span></a><span></span><span class="o">&amp;</span> <span class="n">params</span> <span class="o">=</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a655f61b1cf16bd014b1faf20046dc518"><span class="std std-ref">AnyMap</span></a><span></span><span class="p">(),</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a2eba287f35b2698b87aa6f560299ffe8"><span class="std std-ref">ContextPtr</span></a><span></span><span class="o">&amp;</span> <span class="n">app_context</span> <span class="o">=</span> <span class="k">nullptr</span>
+<span class="p">);</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="n">Ty</span><span class="o">&gt;</span>
+<span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Ty</span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a0f4bf6f3609c1d6f259563c1f45f1f30"><span></span><span class="n">create_sink</span></span><span></span><span class="p">(</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a655f61b1cf16bd014b1faf20046dc518"><span class="std std-ref">AnyMap</span></a><span></span><span class="o">&amp;</span> <span class="n">params</span> <span class="o">=</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a655f61b1cf16bd014b1faf20046dc518"><span class="std std-ref">AnyMap</span></a><span></span><span class="p">(),</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a2eba287f35b2698b87aa6f560299ffe8"><span class="std std-ref">ContextPtr</span></a><span></span><span class="o">&amp;</span> <span class="n">app_context</span> <span class="o">=</span> <span class="k">nullptr</span>
+<span class="p">);</span>
+
+<span class="k">static</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a188a2497b4b06719d2d24197ad5294a4"><span class="std std-ref">SourcePtr</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1adb8f0f6bcad8984542423f07eec92330"><span></span><span class="n">create_source</span></span><span></span><span class="p">(</span>
+    <span class="k">const</span> <a class="reference internal" href="struct_dlstreamer_ElementDesc.html#doxid-structdlstreamer-1-1-element-desc"><span class="std std-ref">ElementDesc</span></a><span></span><span class="o">&amp;</span> <span class="n">desc</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a655f61b1cf16bd014b1faf20046dc518"><span class="std std-ref">AnyMap</span></a><span></span><span class="o">&amp;</span> <span class="n">params</span> <span class="o">=</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a655f61b1cf16bd014b1faf20046dc518"><span class="std std-ref">AnyMap</span></a><span></span><span class="p">(),</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a2eba287f35b2698b87aa6f560299ffe8"><span class="std std-ref">ContextPtr</span></a><span></span><span class="o">&amp;</span> <span class="n">app_context</span> <span class="o">=</span> <span class="k">nullptr</span>
+<span class="p">);</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="n">Ty</span><span class="o">&gt;</span>
+<span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Ty</span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a50267b818bff2154a003e5054d3ab1be"><span></span><span class="n">create_source</span></span><span></span><span class="p">(</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a655f61b1cf16bd014b1faf20046dc518"><span class="std std-ref">AnyMap</span></a><span></span><span class="o">&amp;</span> <span class="n">params</span> <span class="o">=</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a655f61b1cf16bd014b1faf20046dc518"><span class="std std-ref">AnyMap</span></a><span></span><span class="p">(),</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a2eba287f35b2698b87aa6f560299ffe8"><span class="std std-ref">ContextPtr</span></a><span></span><span class="o">&amp;</span> <span class="n">app_context</span> <span class="o">=</span> <span class="k">nullptr</span>
+<span class="p">);</span>
+
+<span class="k">static</span> <span class="kt">size_t</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ae577fbcdcfa9f0cb6b5acac8c24fd0e3"><span></span><span class="n">datatype_size</span></span><span></span><span class="p">(</span><a class="reference internal" href="enum_dlstreamer_DataType.html#doxid-namespacedlstreamer-1a7a7492b0df5cc3ad654a97cd54502d82"><span class="std std-ref">DataType</span></a><span></span> <span class="n">datatype</span><span class="p">);</span>
+
+<span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a1c3d84ad285a42ec3d3c930cd9c285ed"><span></span><span class="n">contiguous_stride</span></span><span></span><span class="p">(</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;&amp;</span> <span class="n">shape</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dlstreamer_DataType.html#doxid-namespacedlstreamer-1a7a7492b0df5cc3ad654a97cd54502d82"><span class="std std-ref">DataType</span></a><span></span> <span class="n">type</span>
+<span class="p">);</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">bool</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ad83c0c90f03cfc9b4d822dcc5b8daa29"><span></span><span class="n">check_datatype</span></span><span></span><span class="p">(</span><a class="reference internal" href="enum_dlstreamer_DataType.html#doxid-namespacedlstreamer-1a7a7492b0df5cc3ad654a97cd54502d82"><span class="std std-ref">DataType</span></a><span></span><span class="p">);</span>
+
+<span class="kt">bool</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a8a8a38a1de5de4e7edff2f412eb427fa"><span></span><span class="n">check_datatype</span><span class="o">&lt;</span> <span class="kt">uint8_t</span> <span class="o">&gt;</span></span><span></span><span class="p">(</span><a class="reference internal" href="enum_dlstreamer_DataType.html#doxid-namespacedlstreamer-1a7a7492b0df5cc3ad654a97cd54502d82"><span class="std std-ref">DataType</span></a><span></span> <span class="n">dtype</span><span class="p">);</span>
+<span class="kt">bool</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a7c2fd59626284e312ab27d5080228187"><span></span><span class="n">check_datatype</span><span class="o">&lt;</span> <span class="kt">int32_t</span> <span class="o">&gt;</span></span><span></span><span class="p">(</span><a class="reference internal" href="enum_dlstreamer_DataType.html#doxid-namespacedlstreamer-1a7a7492b0df5cc3ad654a97cd54502d82"><span class="std std-ref">DataType</span></a><span></span> <span class="n">dtype</span><span class="p">);</span>
+<span class="kt">bool</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ac7cce0cc1bf970afd1dca5dc1b16bf7f"><span></span><span class="n">check_datatype</span><span class="o">&lt;</span> <span class="kt">int64_t</span> <span class="o">&gt;</span></span><span></span><span class="p">(</span><a class="reference internal" href="enum_dlstreamer_DataType.html#doxid-namespacedlstreamer-1a7a7492b0df5cc3ad654a97cd54502d82"><span class="std std-ref">DataType</span></a><span></span> <span class="n">dtype</span><span class="p">);</span>
+<span class="kt">bool</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a7622ac160ea821e20215a851f52a6699"><span></span><span class="n">check_datatype</span><span class="o">&lt;</span> <span class="kt">float</span> <span class="o">&gt;</span></span><span></span><span class="p">(</span><a class="reference internal" href="enum_dlstreamer_DataType.html#doxid-namespacedlstreamer-1a7a7492b0df5cc3ad654a97cd54502d82"><span class="std std-ref">DataType</span></a><span></span> <span class="n">dtype</span><span class="p">);</span>
+
+<span class="k">static</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a6580e9fce893aa88197fa20240783c9b"><span class="std std-ref">TransformPtr</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a66ba9aa2d9f8d9d3195aeb5ddea46a19"><span></span><span class="n">create_transform</span></span><span></span><span class="p">(</span>
+    <span class="k">const</span> <a class="reference internal" href="struct_dlstreamer_ElementDesc.html#doxid-structdlstreamer-1-1-element-desc"><span class="std std-ref">ElementDesc</span></a><span></span><span class="o">&amp;</span> <span class="n">desc</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a655f61b1cf16bd014b1faf20046dc518"><span class="std std-ref">AnyMap</span></a><span></span><span class="o">&amp;</span> <span class="n">params</span> <span class="o">=</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a655f61b1cf16bd014b1faf20046dc518"><span class="std std-ref">AnyMap</span></a><span></span><span class="p">(),</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a2eba287f35b2698b87aa6f560299ffe8"><span class="std std-ref">ContextPtr</span></a><span></span><span class="o">&amp;</span> <span class="n">app_context</span> <span class="o">=</span> <span class="k">nullptr</span>
+<span class="p">);</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="n">Ty</span><span class="o">&gt;</span>
+<span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Ty</span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a1820e26ca860af800f3333d37574da51"><span></span><span class="n">create_transform</span></span><span></span><span class="p">(</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a655f61b1cf16bd014b1faf20046dc518"><span class="std std-ref">AnyMap</span></a><span></span><span class="o">&amp;</span> <span class="n">params</span> <span class="o">=</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a655f61b1cf16bd014b1faf20046dc518"><span class="std std-ref">AnyMap</span></a><span></span><span class="p">(),</span>
+    <span class="k">const</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a2eba287f35b2698b87aa6f560299ffe8"><span class="std std-ref">ContextPtr</span></a><span></span><span class="o">&amp;</span> <span class="n">app_context</span> <span class="o">=</span> <span class="k">nullptr</span>
+<span class="p">);</span>
+
+<span class="k">static</span> <a class="reference internal" href="struct_dlstreamer_FrameInfo.html#doxid-structdlstreamer-1-1-frame-info"><span class="std std-ref">FrameInfo</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ac36f235232a97a5aedd67f37ab909548"><span></span><span class="n">frame_info</span></span><span></span><span class="p">(</span><a class="reference internal" href="class_dlstreamer_FramePtr.html#doxid-classdlstreamer-1-1-frame-ptr"><span class="std std-ref">FramePtr</span></a><span></span> <span class="n">frame</span><span class="p">);</span>
+
+<span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1abec726a8fdcefe5929a462e79c7aca8e"><span></span><span class="n">split_string</span></span><span></span><span class="p">(</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">input</span><span class="p">,</span>
+    <span class="kt">char</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="sc">&#39;,&#39;</span>
+<span class="p">);</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">OUTPUT</span><span class="p">,</span> <span class="k">typename</span> <span class="n">INPUT</span><span class="p">,</span> <span class="k">typename</span> <span class="n">O</span><span class="o">&gt;</span>
+<span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">OUTPUT</span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1aa964716a172bdf755a1100c1bc0349c6"><span></span><span class="n">transform_vector</span></span><span></span><span class="p">(</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">INPUT</span><span class="o">&gt;&amp;</span> <span class="n">input</span><span class="p">,</span>
+    <span class="n">O</span> <span class="n">op</span>
+<span class="p">);</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Iter</span><span class="o">&gt;</span>
+<span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a033576b4a266d94f73ef03eb97ce994a"><span></span><span class="n">join_strings</span></span><span></span><span class="p">(</span>
+    <span class="n">Iter</span> <span class="n">begin</span><span class="p">,</span>
+    <span class="n">Iter</span> <span class="n">end</span><span class="p">,</span>
+    <span class="kt">char</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="sc">&#39;,&#39;</span>
+<span class="p">);</span>
+
+<span class="k">static</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1ab94d4f1fc850dbd9c71343191460d20a"><span class="std std-ref">DictionaryPtr</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a2b638ada96e1b3e6ac1da43d77e8ee1f"><span></span><span class="n">find_metadata</span></span><span></span><span class="p">(</span>
+    <span class="k">const</span> <a class="reference internal" href="class_dlstreamer_Frame.html#doxid-classdlstreamer-1-1-frame"><span class="std std-ref">Frame</span></a><span></span><span class="o">&amp;</span> <span class="n">frame</span><span class="p">,</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">meta_name</span>
+<span class="p">);</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a323dc4d6c1d411035d9f4b329ab8867e"><span></span><span class="n">find_metadata</span></span><span></span><span class="p">(</span>
+    <span class="k">const</span> <a class="reference internal" href="class_dlstreamer_Frame.html#doxid-classdlstreamer-1-1-frame"><span class="std std-ref">Frame</span></a><span></span><span class="o">&amp;</span> <span class="n">frame</span><span class="p">,</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">meta_name</span><span class="p">,</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">format</span>
+<span class="p">);</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">static</span> <span class="n">T</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1aa0a6ab498abc8738b37b2125253a66be"><span></span><span class="n">add_metadata</span></span><span></span><span class="p">(</span>
+    <a class="reference internal" href="class_dlstreamer_Frame.html#doxid-classdlstreamer-1-1-frame"><span class="std std-ref">Frame</span></a><span></span><span class="o">&amp;</span> <span class="n">frame</span><span class="p">,</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">meta_name</span> <span class="o">=</span> <span class="n">T</span><span class="o">::</span><span class="n">name</span>
+<span class="p">);</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a8e95ac5a6e80d8fe1c68e9353a732507"><span></span><span class="n">copy_dictionary</span></span><span></span><span class="p">(</span>
+    <span class="k">const</span> <a class="reference internal" href="class_dlstreamer_Dictionary.html#doxid-classdlstreamer-1-1-dictionary"><span class="std std-ref">Dictionary</span></a><span></span><span class="o">&amp;</span> <span class="n">src</span><span class="p">,</span>
+    <a class="reference internal" href="class_dlstreamer_Dictionary.html#doxid-classdlstreamer-1-1-dictionary"><span class="std std-ref">Dictionary</span></a><span></span><span class="o">&amp;</span> <span class="n">dst</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">copy_name</span> <span class="o">=</span> <span class="nb">false</span>
+<span class="p">);</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a72ab49c4ca98bbc8acb731395c10c029"><span></span><span class="n">copy_metadata</span></span><span></span><span class="p">(</span><span class="k">const</span> <a class="reference internal" href="class_dlstreamer_Frame.html#doxid-classdlstreamer-1-1-frame"><span class="std std-ref">Frame</span></a><span></span><span class="o">&amp;</span> <span class="n">src</span><span class="p">,</span> <a class="reference internal" href="class_dlstreamer_Frame.html#doxid-classdlstreamer-1-1-frame"><span class="std std-ref">Frame</span></a><span></span><span class="o">&amp;</span> <span class="n">dst</span><span class="p">);</span>
+<span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1aed80c96f5f21992dd63a1ad0e210a8f5"><span></span><span class="n">any_to_string</span></span><span></span><span class="p">(</span><a class="reference internal" href="#doxid-namespacedlstreamer-1ab7893a9ae168d5251d6a85330aea0bc4"><span class="std std-ref">Any</span></a><span></span> <span class="n">value</span><span class="p">);</span>
+<span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1aed82d1279b4aecc9827d0cca9cef80e5"><span></span><span class="n">datatype_to_string</span></span><span></span><span class="p">(</span><a class="reference internal" href="enum_dlstreamer_DataType.html#doxid-namespacedlstreamer-1a7a7492b0df5cc3ad654a97cd54502d82"><span class="std std-ref">DataType</span></a><span></span> <span class="n">datatype</span><span class="p">);</span>
+<span class="k">static</span> <a class="reference internal" href="enum_dlstreamer_DataType.html#doxid-namespacedlstreamer-1a7a7492b0df5cc3ad654a97cd54502d82"><span class="std std-ref">DataType</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ab49213151d46fd89dfc6f6f1a2b4fab6"><span></span><span class="n">datatype_from_string</span></span><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">str</span><span class="p">);</span>
+<span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a2ba8573cc867d917930079b3b55ec0fd"><span></span><span class="n">media_type_to_string</span></span><span></span><span class="p">(</span><a class="reference internal" href="enum_dlstreamer_MediaType.html#doxid-namespacedlstreamer-1aa880cf952e5b844d472f66d51efa3707"><span class="std std-ref">MediaType</span></a><span></span> <span class="n">media_type</span><span class="p">);</span>
+<span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ac0511fc212372d00f7e1075844ecfe79"><span></span><span class="n">shape_from_string</span></span><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">str</span><span class="p">);</span>
+<span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1af1a0826c12ddfb389a1d8eaf8e58a49b"><span></span><span class="n">shape_to_string</span></span><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;&amp;</span> <span class="n">dims</span><span class="p">);</span>
+<span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ae3c9aaf2d209d520fb0c81898df42004"><span></span><span class="n">tensor_info_to_string</span></span><span></span><span class="p">(</span><span class="k">const</span> <a class="reference internal" href="struct_dlstreamer_TensorInfo.html#doxid-structdlstreamer-1-1-tensor-info"><span class="std std-ref">TensorInfo</span></a><span></span><span class="o">&amp;</span> <span class="n">info</span><span class="p">);</span>
+<span class="k">static</span> <a class="reference internal" href="struct_dlstreamer_TensorInfo.html#doxid-structdlstreamer-1-1-tensor-info"><span class="std std-ref">TensorInfo</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1ac1f7357757c447b6e1604c81c142c07a"><span></span><span class="n">tensor_info_from_string</span></span><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">str</span><span class="p">);</span>
+<span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a01bc5a10f3534a3f890c77d8eb084927"><span></span><span class="n">frame_info_to_string</span></span><span></span><span class="p">(</span><span class="k">const</span> <a class="reference internal" href="struct_dlstreamer_FrameInfo.html#doxid-structdlstreamer-1-1-frame-info"><span class="std std-ref">FrameInfo</span></a><span></span><span class="o">&amp;</span> <span class="n">finfo</span><span class="p">);</span>
+<span class="k">static</span> <span class="kt">uint32_t</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a17f2205862aeaeb16b86fdcab7c7f48e"><span></span><span class="n">video_format_to_vaapi</span></span><span></span><span class="p">(</span><a class="reference internal" href="enum_dlstreamer_ImageFormat.html#doxid-namespacedlstreamer-1a335d5fffc58016aeb44c15b058f56466"><span class="std std-ref">ImageFormat</span></a><span></span> <span class="n">format</span><span class="p">);</span>
+<span class="k">static</span> <span class="kt">uint32_t</span> <span class="doxyrest-code-target target" id="doxid-namespacedlstreamer-1a104094492bb4546cb7f7d705157a5f47"><span></span><span class="n">vaapi_video_format_to_rtformat</span></span><span></span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">video_format</span><span class="p">);</span>
+
+<span class="p">}</span> <span class="c1">// namespace dlstreamer</span></pre>
+</section>
+<section id="detailed-documentation">
+<span id="details-namespacedlstreamer"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this heading">#</a></h2>
+<section id="typedefs">
+<h3>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this heading">#</a></h3>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-namespacedlstreamer-1ab7893a9ae168d5251d6a85330aea0bc4"><span id="index-1"></span><span></span><span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">variant</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">double</span><span class="p">,</span> <span class="kt">size_t</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">intptr_t</span><span class="p">,</span> <span class="kt">bool</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">Any</span></pre>
+<p>Type-safe union of selective basic types (defined via std::variant, requires C++17).</p>
+</section>
+<section id="global-functions">
+<h3>Global Functions<a class="headerlink" href="#global-functions" title="Permalink to this heading">#</a></h3>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-namespacedlstreamer-1ab5c22570d8b24704bc18334687b55012"><span id="index-2"></span><span></span><span class="k">static</span> <a class="reference internal" href="#doxid-namespacedlstreamer-1a6e9a7ff17b4ff02042f7ad6784323f10"><span class="std std-ref">MemoryMapperPtr</span></a><span></span> <span class="n">create_mapper</span><span class="p">(</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><a class="reference internal" href="#doxid-namespacedlstreamer-1a2eba287f35b2698b87aa6f560299ffe8"><span class="std std-ref">ContextPtr</span></a><span></span><span class="o">&gt;</span> <span class="n">context_chain</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">use_cache</span> <span class="o">=</span> <span class="nb">false</span>
+<span class="p">)</span></pre>
+<p>Creates chain of memory mappers as requested by vector of ContextPtr objects, and returns mapper object with input context equal to first element in specified vector and output context equal to last element in specified vector of context objects.</p>
+<p class="rubric">Parameters:</p>
+<table class="table">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>context_chain</p></td>
+<td><p>Vector of context objects defining mapping sequence</p></td>
+</tr>
+<tr class="row-even"><td><p>use_cache</p></td>
+<td><p>If true, the returned mapper cashes internally all mapped <a class="reference internal" href="class_dlstreamer_TensorPtr.html#doxid-classdlstreamer-1-1-tensor-ptr"><span class="std std-ref">TensorPtr</span></a> and <a class="reference internal" href="class_dlstreamer_FramePtr.html#doxid-classdlstreamer-1-1-frame-ptr"><span class="std std-ref">FramePtr</span></a> objects to avoid mapping operation on same TensorPtr/FramePtr multiple times. This optimization is useful for case mapper works on pool of limited number TensorPtr/FramePtr objects.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="global.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Global Namespace</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="namespace_dlstreamer_detail.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">namespace dlstreamer::detail</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Intel Corporation<br/>
+  
+      &copy; Copyright 2022, Intel Corporation.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

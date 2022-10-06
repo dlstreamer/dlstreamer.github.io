@@ -1,12 +1,12 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
 
-    <title>enum GVAPrecision &#8212; Intel® DL Streamer  documentation</title>
+    <title>enum GVAPrecision &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +21,8 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/doxyrest-pygments.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -30,15 +31,17 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/target-highlight.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="struct GstGVAAudioEventMeta" href="struct_GstGVAAudioEventMeta.html" />
     <link rel="prev" title="enum GVALayout" href="enum_GVALayout.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -75,7 +78,7 @@
       
       
       
-      <h1 class="site-logo" id="site-title">Intel® DL Streamer  documentation</h1>
+      <h1 class="site-logo" id="site-title">Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -114,16 +117,6 @@
        Install Guide Ubuntu
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../get_started/install/install_guide_rhel.html">
-       Install Guide RHEL
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../get_started/install/install_guide_windows.html">
-       Install Guide Windows (Preview)
-      </a>
-     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -132,7 +125,7 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/README.md">
+    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">
      Samples
     </a>
    </li>
@@ -153,10 +146,22 @@
      Metadata
     </a>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../dev_guide/model_preparation.html">
      Model Preparation
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../dev_guide/yolov5_model_preparation.html">
+       Yolov5 Model Preparation Example
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../dev_guide/model_proc_file.html">
@@ -184,6 +189,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/profiling.html">
+     Profiling with Intel VTune™
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../dev_guide/converting_deepstream_to_dlstreamer.html">
      Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
     </a>
@@ -192,23 +202,6 @@
     <a class="reference internal" href="../dev_guide/how_to_contribute.html">
      How to Contribute
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../dev_guide/coding_style.html">
-       Coding Style
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../dev_guide/preview_features/preview_features.html">
-     Preview Features
-    </a>
     <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
     <label for="toctree-checkbox-5">
      <i class="fas fa-chevron-down">
@@ -216,13 +209,8 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../dev_guide/preview_features/action_recognition.html">
-       Action Recognition
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../dev_guide/preview_features/segmentation.html">
-       Segmentation
+      <a class="reference internal" href="../dev_guide/coding_style.html">
+       Coding Style
       </a>
      </li>
     </ul>
@@ -240,11 +228,6 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvainference.html">
-     gvainference
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvadetect.html">
      gvadetect
     </a>
@@ -252,6 +235,16 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvaclassify.html">
      gvaclassify
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvainference.html">
+     gvainference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvaaudiodetect.html">
+     gvaaudiodetect
     </a>
    </li>
    <li class="toctree-l2">
@@ -275,16 +268,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvaaudiodetect.html">
-     gvaaudiodetect
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvafpscounter.html">
-     gvafpscounter
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvapython.html">
      gvapython
     </a>
@@ -292,6 +275,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvawatermark.html">
      gvawatermark
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvafpscounter.html">
+     gvafpscounter
     </a>
    </li>
   </ul>
@@ -444,6 +432,117 @@
        </i>
       </label>
       <ul class="simple">
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../architecture_2.0/architecture_2.0.html">
+   Architecture 2.0 [Preview]
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/migration_guide.html">
+     Migration to 2.0
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/cpp_interfaces.html">
+     ① Memory Interop and C++ abstract interfaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/cpp_elements.html">
+     ② C++ elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/gstreamer_elements.html">
+     ③ GStreamer Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/gstreamer_bins.html">
+     ③ GStreamer Bin Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/python_bindings.html">
+     ③ Python Bindings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/elements_list.html">
+     Elements 2.0 reference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/packaging.html">
+     Packaging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/samples_2.0.html">
+     Samples 2.0
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../architecture_2.0/api_ref/index.html">
+     API 2.0 Reference
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../architecture_2.0/api_ref/global.html">
+       Global Namespace
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/namespace_dlstreamer.html">
+         namespace dlstreamer
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVALayout.html">
+         enum GVALayout
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html">
+         enum GVAPrecision
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html">
+         struct GstGVAAudioEventMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVAJSONMeta.html">
+         struct _GstGVAJSONMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html">
+         struct _GstGVATensorMeta
+        </a>
+       </li>
       </ul>
      </li>
     </ul>
@@ -646,39 +745,39 @@ title="Print to PDF"
               <div>
                 
   <section id="enum-gvaprecision">
-<span id="doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ce"></span><span id="index-0"></span><h1>enum GVAPrecision<a class="headerlink" href="#enum-gvaprecision" title="Permalink to this headline">#</a></h1>
+<span id="doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ce"></span><span id="index-0"></span><h1>enum GVAPrecision<a class="headerlink" href="#enum-gvaprecision" title="Permalink to this heading">#</a></h1>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
-<p>This enum describes model layer precision. <a class="reference internal" href="#details-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ce"><span class="std std-ref">More…</span></a></p>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>This enum describes model layer precision. <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#details-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ce"><span class="std std-ref">More…</span></a></p>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;gva_tensor_meta.h&gt;</span><span class="cp"></span>
 
 <span class="k">enum</span> <span class="n">GVAPrecision</span> <span class="p">{</span>
-    <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795cea28476a6525b1d4fe1f8e8882bdfe5d6e"><span class="std std-ref">GVA_PRECISION_UNSPECIFIED</span></a><span></span> <span class="o">=</span> <span class="mi">255</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795cea9be31ded971c1fe2b9d8307c460a1c28"><span class="std std-ref">GVA_PRECISION_FP32</span></a><span></span>        <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ceaa261d349bdc91cdd2cf06fac2bafb85e"><span class="std std-ref">GVA_PRECISION_FP16</span></a><span></span>        <span class="o">=</span> <span class="mi">11</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ceacd87ce4aa5e4bd89dd2d6f9def1b04b9"><span class="std std-ref">GVA_PRECISION_BF16</span></a><span></span>        <span class="o">=</span> <span class="mi">12</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795cea622212209079404716a501d74db0187c"><span class="std std-ref">GVA_PRECISION_FP64</span></a><span></span>        <span class="o">=</span> <span class="mi">13</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795cea461b72923c37d9eb095493943370b4b4"><span class="std std-ref">GVA_PRECISION_Q78</span></a><span></span>         <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ceae8c3e6dceda5f34b636830f6d0248005"><span class="std std-ref">GVA_PRECISION_I16</span></a><span></span>         <span class="o">=</span> <span class="mi">30</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ceaa6ff18df48e8730bb548ebea3b13b65b"><span class="std std-ref">GVA_PRECISION_U4</span></a><span></span>          <span class="o">=</span> <span class="mi">39</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795cea88c3e9afd5d03d97e7baf46f124df0f0"><span class="std std-ref">GVA_PRECISION_U8</span></a><span></span>          <span class="o">=</span> <span class="mi">40</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ceae72894568612e0a54195320bce8e4b3e"><span class="std std-ref">GVA_PRECISION_I4</span></a><span></span>          <span class="o">=</span> <span class="mi">49</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795cea80ba446ab097f5c4bdddc00c3f2d9c0a"><span class="std std-ref">GVA_PRECISION_I8</span></a><span></span>          <span class="o">=</span> <span class="mi">50</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795cea99847e16356c8a7fb2d9b4254d63b867"><span class="std std-ref">GVA_PRECISION_U16</span></a><span></span>         <span class="o">=</span> <span class="mi">60</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795cea8ee7c0b02fd09012e50f7be3812c45b4"><span class="std std-ref">GVA_PRECISION_I32</span></a><span></span>         <span class="o">=</span> <span class="mi">70</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ceaf1e2edffdfcdc9951a41e2e17693007c"><span class="std std-ref">GVA_PRECISION_U32</span></a><span></span>         <span class="o">=</span> <span class="mi">74</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ceaafb2eb2fedd98b36ce5fced93bbbb110"><span class="std std-ref">GVA_PRECISION_I64</span></a><span></span>         <span class="o">=</span> <span class="mi">72</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ceae90ec3f9bf1e6d97c269eb0790f43b3a"><span class="std std-ref">GVA_PRECISION_U64</span></a><span></span>         <span class="o">=</span> <span class="mi">73</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ceaccea4965077151e3e8981202f92444de"><span class="std std-ref">GVA_PRECISION_BIN</span></a><span></span>         <span class="o">=</span> <span class="mi">71</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795cea8dba8160588a6de7f66a437905eb9ff8"><span class="std std-ref">GVA_PRECISION_BOOL</span></a><span></span>        <span class="o">=</span> <span class="mi">41</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ceaf0315c9dd1508288a2cc0083d3cd03b8"><span class="std std-ref">GVA_PRECISION_CUSTOM</span></a><span></span>      <span class="o">=</span> <span class="mi">80</span><span class="p">,</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795cea28476a6525b1d4fe1f8e8882bdfe5d6e"><span class="std std-ref">GVA_PRECISION_UNSPECIFIED</span></a><span></span> <span class="o">=</span> <span class="mi">255</span><span class="p">,</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795cea9be31ded971c1fe2b9d8307c460a1c28"><span class="std std-ref">GVA_PRECISION_FP32</span></a><span></span>        <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ceaa261d349bdc91cdd2cf06fac2bafb85e"><span class="std std-ref">GVA_PRECISION_FP16</span></a><span></span>        <span class="o">=</span> <span class="mi">11</span><span class="p">,</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ceacd87ce4aa5e4bd89dd2d6f9def1b04b9"><span class="std std-ref">GVA_PRECISION_BF16</span></a><span></span>        <span class="o">=</span> <span class="mi">12</span><span class="p">,</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795cea622212209079404716a501d74db0187c"><span class="std std-ref">GVA_PRECISION_FP64</span></a><span></span>        <span class="o">=</span> <span class="mi">13</span><span class="p">,</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795cea461b72923c37d9eb095493943370b4b4"><span class="std std-ref">GVA_PRECISION_Q78</span></a><span></span>         <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ceae8c3e6dceda5f34b636830f6d0248005"><span class="std std-ref">GVA_PRECISION_I16</span></a><span></span>         <span class="o">=</span> <span class="mi">30</span><span class="p">,</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ceaa6ff18df48e8730bb548ebea3b13b65b"><span class="std std-ref">GVA_PRECISION_U4</span></a><span></span>          <span class="o">=</span> <span class="mi">39</span><span class="p">,</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795cea88c3e9afd5d03d97e7baf46f124df0f0"><span class="std std-ref">GVA_PRECISION_U8</span></a><span></span>          <span class="o">=</span> <span class="mi">40</span><span class="p">,</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ceae72894568612e0a54195320bce8e4b3e"><span class="std std-ref">GVA_PRECISION_I4</span></a><span></span>          <span class="o">=</span> <span class="mi">49</span><span class="p">,</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795cea80ba446ab097f5c4bdddc00c3f2d9c0a"><span class="std std-ref">GVA_PRECISION_I8</span></a><span></span>          <span class="o">=</span> <span class="mi">50</span><span class="p">,</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795cea99847e16356c8a7fb2d9b4254d63b867"><span class="std std-ref">GVA_PRECISION_U16</span></a><span></span>         <span class="o">=</span> <span class="mi">60</span><span class="p">,</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795cea8ee7c0b02fd09012e50f7be3812c45b4"><span class="std std-ref">GVA_PRECISION_I32</span></a><span></span>         <span class="o">=</span> <span class="mi">70</span><span class="p">,</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ceaf1e2edffdfcdc9951a41e2e17693007c"><span class="std std-ref">GVA_PRECISION_U32</span></a><span></span>         <span class="o">=</span> <span class="mi">74</span><span class="p">,</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ceaafb2eb2fedd98b36ce5fced93bbbb110"><span class="std std-ref">GVA_PRECISION_I64</span></a><span></span>         <span class="o">=</span> <span class="mi">72</span><span class="p">,</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ceae90ec3f9bf1e6d97c269eb0790f43b3a"><span class="std std-ref">GVA_PRECISION_U64</span></a><span></span>         <span class="o">=</span> <span class="mi">73</span><span class="p">,</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ceaccea4965077151e3e8981202f92444de"><span class="std std-ref">GVA_PRECISION_BIN</span></a><span></span>         <span class="o">=</span> <span class="mi">71</span><span class="p">,</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795cea8dba8160588a6de7f66a437905eb9ff8"><span class="std std-ref">GVA_PRECISION_BOOL</span></a><span></span>        <span class="o">=</span> <span class="mi">41</span><span class="p">,</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ceaf0315c9dd1508288a2cc0083d3cd03b8"><span class="std std-ref">GVA_PRECISION_CUSTOM</span></a><span></span>      <span class="o">=</span> <span class="mi">80</span><span class="p">,</span>
 <span class="p">};</span></pre>
 </section>
 <section id="detailed-documentation">
-<span id="details-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ce"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this headline">#</a></h2>
+<span id="details-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ce"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this heading">#</a></h2>
 <p>This enum describes model layer precision.</p>
 <section id="enum-values">
-<h3>Enum Values<a class="headerlink" href="#enum-values" title="Permalink to this headline">#</a></h3>
+<h3>Enum Values<a class="headerlink" href="#enum-values" title="Permalink to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795cea28476a6525b1d4fe1f8e8882bdfe5d6e"><span id="index-1"></span><span></span><span class="n">GVA_PRECISION_UNSPECIFIED</span></pre>
 <p>default value</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795cea9be31ded971c1fe2b9d8307c460a1c28"><span id="index-2"></span><span></span><span class="n">GVA_PRECISION_FP32</span></pre>

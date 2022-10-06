@@ -1,12 +1,12 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
 
-    <title>class GVA::Tensor &#8212; Intel® DL Streamer  documentation</title>
+    <title>class GVA::Tensor &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +21,8 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/doxyrest-pygments.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -30,15 +31,17 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/target-highlight.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="enum GVA::Tensor::Layout" href="enum_GVA_Tensor_Layout.html" />
     <link rel="prev" title="class GVA::RegionOfInterest" href="class_GVA_RegionOfInterest.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -75,7 +78,7 @@
       
       
       
-      <h1 class="site-logo" id="site-title">Intel® DL Streamer  documentation</h1>
+      <h1 class="site-logo" id="site-title">Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -114,16 +117,6 @@
        Install Guide Ubuntu
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../get_started/install/install_guide_rhel.html">
-       Install Guide RHEL
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../get_started/install/install_guide_windows.html">
-       Install Guide Windows (Preview)
-      </a>
-     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -132,7 +125,7 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/README.md">
+    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">
      Samples
     </a>
    </li>
@@ -153,10 +146,22 @@
      Metadata
     </a>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../dev_guide/model_preparation.html">
      Model Preparation
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../dev_guide/yolov5_model_preparation.html">
+       Yolov5 Model Preparation Example
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../dev_guide/model_proc_file.html">
@@ -184,6 +189,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/profiling.html">
+     Profiling with Intel VTune™
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../dev_guide/converting_deepstream_to_dlstreamer.html">
      Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
     </a>
@@ -192,23 +202,6 @@
     <a class="reference internal" href="../dev_guide/how_to_contribute.html">
      How to Contribute
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../dev_guide/coding_style.html">
-       Coding Style
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../dev_guide/preview_features/preview_features.html">
-     Preview Features
-    </a>
     <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
     <label for="toctree-checkbox-5">
      <i class="fas fa-chevron-down">
@@ -216,13 +209,8 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../dev_guide/preview_features/action_recognition.html">
-       Action Recognition
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../dev_guide/preview_features/segmentation.html">
-       Segmentation
+      <a class="reference internal" href="../dev_guide/coding_style.html">
+       Coding Style
       </a>
      </li>
     </ul>
@@ -240,11 +228,6 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvainference.html">
-     gvainference
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvadetect.html">
      gvadetect
     </a>
@@ -252,6 +235,16 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvaclassify.html">
      gvaclassify
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvainference.html">
+     gvainference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvaaudiodetect.html">
+     gvaaudiodetect
     </a>
    </li>
    <li class="toctree-l2">
@@ -275,16 +268,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvaaudiodetect.html">
-     gvaaudiodetect
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvafpscounter.html">
-     gvafpscounter
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvapython.html">
      gvapython
     </a>
@@ -292,6 +275,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvawatermark.html">
      gvawatermark
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvafpscounter.html">
+     gvafpscounter
     </a>
    </li>
   </ul>
@@ -444,6 +432,117 @@
        </i>
       </label>
       <ul class="simple">
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../architecture_2.0/architecture_2.0.html">
+   Architecture 2.0 [Preview]
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/migration_guide.html">
+     Migration to 2.0
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/cpp_interfaces.html">
+     ① Memory Interop and C++ abstract interfaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/cpp_elements.html">
+     ② C++ elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/gstreamer_elements.html">
+     ③ GStreamer Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/gstreamer_bins.html">
+     ③ GStreamer Bin Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/python_bindings.html">
+     ③ Python Bindings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/elements_list.html">
+     Elements 2.0 reference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/packaging.html">
+     Packaging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/samples_2.0.html">
+     Samples 2.0
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../architecture_2.0/api_ref/index.html">
+     API 2.0 Reference
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../architecture_2.0/api_ref/global.html">
+       Global Namespace
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/namespace_dlstreamer.html">
+         namespace dlstreamer
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVALayout.html">
+         enum GVALayout
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html">
+         enum GVAPrecision
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html">
+         struct GstGVAAudioEventMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVAJSONMeta.html">
+         struct _GstGVAJSONMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html">
+         struct _GstGVATensorMeta
+        </a>
+       </li>
       </ul>
      </li>
     </ul>
@@ -656,11 +755,11 @@ title="Print to PDF"
               <div>
                 
   <section id="class-gva-tensor">
-<span id="doxid-class-g-v-a-1-1-tensor"></span><span id="index-0"></span><h1>class GVA::Tensor<a class="headerlink" href="#class-gva-tensor" title="Permalink to this headline">#</a></h1>
+<span id="doxid-class-g-v-a-1-1-tensor"></span><span id="index-0"></span><h1>class GVA::Tensor<a class="headerlink" href="#class-gva-tensor" title="Permalink to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>This class represents tensor - map-like storage for inference result information, such as output blob description (output layer dims, layout, rank, precision, etc.), inference result in a raw and interpreted forms. <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> is based on GstStructure and, in general, can contain arbitrary (user-defined) fields of simplest data types, like integers, floats &amp; strings. <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> can contain raw inference result (such <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> is produced by gvainference in Gstreamer pipeline), detection result (such <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> is produced by gvadetect in Gstreamer pipeline and it’s called detection <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a>), or both raw &amp; interpreted inference results (such <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> is produced by gvaclassify in Gstreamer pipeline). Tensors can be created and used on their own, or they can be created within <a class="reference internal" href="class_GVA_RegionOfInterest.html#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> or <a class="reference internal" href="class_GVA_VideoFrame.html#doxid-class-g-v-a-1-1-video-frame"><span class="std std-ref">VideoFrame</span></a> instances. Usually, in Gstreamer pipeline with <a class="reference internal" href="namespace_GVA.html#doxid-namespace-g-v-a"><span class="std std-ref">GVA</span></a> elements (gvadetect, gvainference, gvaclassify) <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> objects will be available for access and modification from <a class="reference internal" href="class_GVA_RegionOfInterest.html#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> and <a class="reference internal" href="class_GVA_VideoFrame.html#doxid-class-g-v-a-1-1-video-frame"><span class="std std-ref">VideoFrame</span></a> instances. <a class="reference internal" href="#details-class-g-v-a-1-1-tensor"><span class="std std-ref">More…</span></a></p>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;tensor.h&gt;</span><span class="cp"></span>
 
@@ -713,14 +812,14 @@ title="Print to PDF"
 <span class="p">};</span></pre>
 </section>
 <section id="detailed-documentation">
-<span id="details-class-g-v-a-1-1-tensor"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this headline">#</a></h2>
+<span id="details-class-g-v-a-1-1-tensor"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this heading">#</a></h2>
 <p>This class represents tensor - map-like storage for inference result information, such as output blob description (output layer dims, layout, rank, precision, etc.), inference result in a raw and interpreted forms. <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> is based on GstStructure and, in general, can contain arbitrary (user-defined) fields of simplest data types, like integers, floats &amp; strings. <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> can contain raw inference result (such <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> is produced by gvainference in Gstreamer pipeline), detection result (such <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> is produced by gvadetect in Gstreamer pipeline and it’s called detection <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a>), or both raw &amp; interpreted inference results (such <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> is produced by gvaclassify in Gstreamer pipeline). Tensors can be created and used on their own, or they can be created within <a class="reference internal" href="class_GVA_RegionOfInterest.html#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> or <a class="reference internal" href="class_GVA_VideoFrame.html#doxid-class-g-v-a-1-1-video-frame"><span class="std std-ref">VideoFrame</span></a> instances. Usually, in Gstreamer pipeline with <a class="reference internal" href="namespace_GVA.html#doxid-namespace-g-v-a"><span class="std std-ref">GVA</span></a> elements (gvadetect, gvainference, gvaclassify) <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> objects will be available for access and modification from <a class="reference internal" href="class_GVA_RegionOfInterest.html#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> and <a class="reference internal" href="class_GVA_VideoFrame.html#doxid-class-g-v-a-1-1-video-frame"><span class="std std-ref">VideoFrame</span></a> instances.</p>
 <section id="construction">
-<h3>Construction<a class="headerlink" href="#construction" title="Permalink to this headline">#</a></h3>
+<h3>Construction<a class="headerlink" href="#construction" title="Permalink to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a70f04bdac507b0ccba6fd0a24addad29"><span id="index-1"></span><span></span><span class="n">Tensor</span><span class="p">(</span><span class="n">GstStructure</span><span class="o">*</span> <span class="n">structure</span><span class="p">)</span></pre>
 <p>Construct <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> instance from GstStructure. <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> does not own structure, so if you use this constructor, free structure after <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> ‘s lifetime, if needed.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
+<table class="table">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -733,12 +832,12 @@ title="Print to PDF"
 </table>
 </section>
 <section id="methods">
-<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">#</a></h3>
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1ac61de94784df20b83e2b045b26b48506"><span id="index-2"></span><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="n">T</span><span class="o">&gt;</span>
 <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">data</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Get raw inference output blob data.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
+<table class="table">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -794,7 +893,7 @@ title="Print to PDF"
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a02af446bd566495a2d8915047445f717"><span id="index-13"></span><span></span><span class="kt">bool</span> <span class="n">has_field</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">)</span> <span class="k">const</span></pre>
 <p>Check if <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> instance has field.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
+<table class="table">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -813,7 +912,7 @@ title="Print to PDF"
 <span class="p">)</span> <span class="k">const</span></pre>
 <p>Get string contained in value stored at field_name.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
+<table class="table">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -832,7 +931,7 @@ title="Print to PDF"
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1aa060cfe8ed40e586905868c0905b11e1"><span id="index-15"></span><span></span><span class="kt">int</span> <span class="n">get_int</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="kt">int32_t</span> <span class="n">default_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span></pre>
 <p>Get int contained in value stored at field_name.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
+<table class="table">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -851,7 +950,7 @@ title="Print to PDF"
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1ad06d2883a852b8713b7993f349616ee0"><span id="index-16"></span><span></span><span class="kt">double</span> <span class="n">get_double</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="kt">double</span> <span class="n">default_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span></pre>
 <p>Get double contained in value stored at field_name.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
+<table class="table">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -870,7 +969,7 @@ title="Print to PDF"
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a1cd955d556f2fd16df47d28e95b7b423"><span id="index-17"></span><span></span><span class="kt">void</span> <span class="n">set_string</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">)</span></pre>
 <p>Set field_name with string value.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
+<table class="table">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -887,7 +986,7 @@ title="Print to PDF"
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a6bf5b624608bed60ea5b7edc5dddf61d"><span id="index-18"></span><span></span><span class="kt">void</span> <span class="n">set_int</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">value</span><span class="p">)</span></pre>
 <p>Set field_name with int value.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
+<table class="table">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -904,7 +1003,7 @@ title="Print to PDF"
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a899c7cd7ef6428a13a76f29a3869c730"><span id="index-19"></span><span></span><span class="kt">void</span> <span class="n">set_double</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="kt">double</span> <span class="n">value</span><span class="p">)</span></pre>
 <p>Set field_name with double value.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
+<table class="table">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -923,7 +1022,7 @@ title="Print to PDF"
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a249ddb89ab4abb3787d2836feccbc2c1"><span id="index-21"></span><span></span><span class="kt">void</span> <span class="n">set_label</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">label</span><span class="p">)</span></pre>
 <p>Set label. It will throw an exception if called for detection <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a>.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
+<table class="table">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />

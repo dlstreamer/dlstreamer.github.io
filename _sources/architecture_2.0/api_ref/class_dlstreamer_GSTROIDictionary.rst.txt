@@ -1,0 +1,106 @@
+.. index:: pair: class; dlstreamer::GSTROIDictionary
+.. _doxid-classdlstreamer_1_1_g_s_t_r_o_i_dictionary:
+
+class dlstreamer::GSTROIDictionary
+==================================
+
+.. toctree::
+	:hidden:
+
+Overview
+~~~~~~~~
+
+
+
+
+.. ref-code-block:: cpp
+	:class: doxyrest-overview-code-block
+
+	#include <metadata.h>
+	
+	class GSTROIDictionary: public :ref:`dlstreamer::BaseDictionary<doxid-classdlstreamer_1_1_base_dictionary>` {
+	public:
+		// construction
+	
+		:target:`GSTROIDictionary<doxid-classdlstreamer_1_1_g_s_t_r_o_i_dictionary_1ab59a1284c3da5400e29981cea9ca5325>`(
+			GstVideoRegionOfInterestMeta* roi,
+			const GstVideoInfo* video_info
+		);
+
+		// methods
+	
+		virtual void :ref:`set<doxid-classdlstreamer_1_1_g_s_t_r_o_i_dictionary_1aa9b7b3cc3ec46b3808fb68d5e0a07f16>`(std::string_view key, :ref:`Any<doxid-namespacedlstreamer_1ab7893a9ae168d5251d6a85330aea0bc4>` value);
+	};
+
+Inherited Members
+-----------------
+
+.. ref-code-block:: cpp
+	:class: doxyrest-overview-inherited-code-block
+
+	public:
+		// methods
+	
+		virtual std::string :ref:`name<doxid-classdlstreamer_1_1_dictionary_1a0b3ae50e8e01b3e63aebc5ae55735931>`() const = 0;
+		virtual std::vector<std::string> :ref:`keys<doxid-classdlstreamer_1_1_dictionary_1a3bf8b56e3372c43db14063c1d0fa783c>`() const = 0;
+		virtual std::optional<:ref:`Any<doxid-namespacedlstreamer_1ab7893a9ae168d5251d6a85330aea0bc4>`> :ref:`try_get<doxid-classdlstreamer_1_1_dictionary_1a91ef8bc0807e8f27a4cd08eac5e073ae>`(std::string_view key) const = 0;
+		virtual std::pair<const void*, size_t> :ref:`try_get_array<doxid-classdlstreamer_1_1_dictionary_1a8038122a2247af7d49c0538983fb4587>`(std::string_view key) const = 0;
+		virtual void :ref:`set<doxid-classdlstreamer_1_1_dictionary_1a07d06ea3a8f9905f2db71171792608a3>`(std::string_view key, :ref:`Any<doxid-namespacedlstreamer_1ab7893a9ae168d5251d6a85330aea0bc4>` value) = 0;
+		virtual void :ref:`set_array<doxid-classdlstreamer_1_1_dictionary_1ac2cea5376a4fa4033d1e606b619c3176>`(std::string_view key, const void* data, size_t nbytes) = 0;
+		virtual void :ref:`set_name<doxid-classdlstreamer_1_1_dictionary_1a53e8ef5840d033ad145f2955f8cf181d>`(std::string const& name) = 0;
+	
+		template <typename T>
+		T :ref:`get<doxid-classdlstreamer_1_1_dictionary_1a1d6204f7da82bed3fe5762f3f52513bb>`(std::string_view key) const;
+	
+		template <typename T>
+		T :ref:`get<doxid-classdlstreamer_1_1_dictionary_1a96b9134b9349c562f9a25a6065a03676>`(std::string_view key, T default_value) const;
+	
+		template <class T>
+		const std::vector<T> :ref:`get_array<doxid-classdlstreamer_1_1_dictionary_1a2552c3e81c18df3561e82de0b51ac353>`(std::string_view key) const;
+	
+		virtual std::string :ref:`name<doxid-classdlstreamer_1_1_base_dictionary_1ad0a6d1bf50ce0ec64375ac2c4b2833ff>`() const;
+		virtual std::optional<:ref:`Any<doxid-namespacedlstreamer_1ab7893a9ae168d5251d6a85330aea0bc4>`> :ref:`try_get<doxid-classdlstreamer_1_1_base_dictionary_1aed85979e7f763345e41b9fda90b72b00>`(std::string_view key) const;
+		virtual std::pair<const void*, size_t> :ref:`try_get_array<doxid-classdlstreamer_1_1_base_dictionary_1ad642ffcbac470fde8282ef3a2c591b3d>`(std::string_view key) const;
+		virtual void :ref:`set<doxid-classdlstreamer_1_1_base_dictionary_1a74275609cd028e015713dc488deb375c>`(std::string_view key, :ref:`Any<doxid-namespacedlstreamer_1ab7893a9ae168d5251d6a85330aea0bc4>` value);
+		virtual void :ref:`set_array<doxid-classdlstreamer_1_1_base_dictionary_1a2ef54d2556db7420470ccd09bb2ee668>`(std::string_view key, const void* data, size_t nbytes);
+		virtual void :ref:`set_name<doxid-classdlstreamer_1_1_base_dictionary_1a2fdf3b21dce1562f16efc6821006cce2>`(std::string const& name);
+		virtual std::vector<std::string> :ref:`keys<doxid-classdlstreamer_1_1_base_dictionary_1a7ead8d11cd747fbb22c852534aaea03a>`() const;
+		bool :ref:`operator <<doxid-classdlstreamer_1_1_base_dictionary_1ac430fd0de3552c65ea47c55d4ad4f8b7>` (const :ref:`BaseDictionary<doxid-classdlstreamer_1_1_base_dictionary>`& r) const;
+
+.. _details-classdlstreamer_1_1_g_s_t_r_o_i_dictionary:
+
+Detailed Documentation
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+Methods
+-------
+
+.. index:: pair: function; set
+.. _doxid-classdlstreamer_1_1_g_s_t_r_o_i_dictionary_1aa9b7b3cc3ec46b3808fb68d5e0a07f16:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	virtual void set(std::string_view key, :ref:`Any<doxid-namespacedlstreamer_1ab7893a9ae168d5251d6a85330aea0bc4>` value)
+
+Adds element into the dictionary. If the dictionary already contains an element with specified key, the existing value will be overwritten.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+	:widths: 20 80
+
+	*
+		- key
+
+		- the key of the element to add
+
+	*
+		- value
+
+		- the value of the element to add
+

@@ -41,7 +41,7 @@ The C/C++ application can either
 - Insert **appsink** element at the end of pipeline and utilize **appsink** functions and signals for GstBuffer and metadata consumption
 
 The pad probe callback demonstrated in C++ sample
-`draw_face_attributes <https://github.com/dlstreamer/dlstreamer/blob/master/samples/cpp/draw_face_attributes/main.cpp>`__
+`draw_face_attributes <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/cpp/draw_face_attributes/main.cpp>`__
 
 2. Set C/Python callback in the middle of GStreamer pipeline
 ------------------------------------------------------------
@@ -72,7 +72,7 @@ The :doc:`gvapython element <../elements/gvapython>` takes reference to user pro
 Python script with function to be called on every frame processing.
 
 The callback function can attach/modify metadata as demonstrated in
-`sample <https://github.com/dlstreamer/dlstreamer/tree/master/samples/>`__
+`sample <https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/gst_launch/gvapython/face_detection_and_classification>`__
 
 4. Insert new GStreamer element implemented on C/C++
 ----------------------------------------------------

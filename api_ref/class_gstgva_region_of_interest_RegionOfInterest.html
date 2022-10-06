@@ -1,12 +1,12 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
 
-    <title>class gstgva::region_of_interest::RegionOfInterest &#8212; Intel® DL Streamer  documentation</title>
+    <title>class gstgva::region_of_interest::RegionOfInterest &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +21,8 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/doxyrest-pygments.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -30,15 +31,17 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/target-highlight.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="namespace gstgva::tensor" href="namespace_gstgva_tensor.html" />
     <link rel="prev" title="namespace gstgva::region_of_interest" href="namespace_gstgva_region_of_interest.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -75,7 +78,7 @@
       
       
       
-      <h1 class="site-logo" id="site-title">Intel® DL Streamer  documentation</h1>
+      <h1 class="site-logo" id="site-title">Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -114,16 +117,6 @@
        Install Guide Ubuntu
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../get_started/install/install_guide_rhel.html">
-       Install Guide RHEL
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../get_started/install/install_guide_windows.html">
-       Install Guide Windows (Preview)
-      </a>
-     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -132,7 +125,7 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/README.md">
+    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">
      Samples
     </a>
    </li>
@@ -153,10 +146,22 @@
      Metadata
     </a>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../dev_guide/model_preparation.html">
      Model Preparation
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../dev_guide/yolov5_model_preparation.html">
+       Yolov5 Model Preparation Example
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../dev_guide/model_proc_file.html">
@@ -184,6 +189,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/profiling.html">
+     Profiling with Intel VTune™
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../dev_guide/converting_deepstream_to_dlstreamer.html">
      Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
     </a>
@@ -192,23 +202,6 @@
     <a class="reference internal" href="../dev_guide/how_to_contribute.html">
      How to Contribute
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../dev_guide/coding_style.html">
-       Coding Style
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../dev_guide/preview_features/preview_features.html">
-     Preview Features
-    </a>
     <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
     <label for="toctree-checkbox-5">
      <i class="fas fa-chevron-down">
@@ -216,13 +209,8 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../dev_guide/preview_features/action_recognition.html">
-       Action Recognition
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../dev_guide/preview_features/segmentation.html">
-       Segmentation
+      <a class="reference internal" href="../dev_guide/coding_style.html">
+       Coding Style
       </a>
      </li>
     </ul>
@@ -240,11 +228,6 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvainference.html">
-     gvainference
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvadetect.html">
      gvadetect
     </a>
@@ -252,6 +235,16 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvaclassify.html">
      gvaclassify
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvainference.html">
+     gvainference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvaaudiodetect.html">
+     gvaaudiodetect
     </a>
    </li>
    <li class="toctree-l2">
@@ -275,16 +268,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvaaudiodetect.html">
-     gvaaudiodetect
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvafpscounter.html">
-     gvafpscounter
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvapython.html">
      gvapython
     </a>
@@ -292,6 +275,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvawatermark.html">
      gvawatermark
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvafpscounter.html">
+     gvafpscounter
     </a>
    </li>
   </ul>
@@ -444,6 +432,117 @@
        </i>
       </label>
       <ul class="simple">
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../architecture_2.0/architecture_2.0.html">
+   Architecture 2.0 [Preview]
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/migration_guide.html">
+     Migration to 2.0
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/cpp_interfaces.html">
+     ① Memory Interop and C++ abstract interfaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/cpp_elements.html">
+     ② C++ elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/gstreamer_elements.html">
+     ③ GStreamer Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/gstreamer_bins.html">
+     ③ GStreamer Bin Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/python_bindings.html">
+     ③ Python Bindings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/elements_list.html">
+     Elements 2.0 reference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/packaging.html">
+     Packaging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/samples_2.0.html">
+     Samples 2.0
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../architecture_2.0/api_ref/index.html">
+     API 2.0 Reference
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../architecture_2.0/api_ref/global.html">
+       Global Namespace
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/namespace_dlstreamer.html">
+         namespace dlstreamer
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVALayout.html">
+         enum GVALayout
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html">
+         enum GVAPrecision
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html">
+         struct GstGVAAudioEventMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVAJSONMeta.html">
+         struct _GstGVAJSONMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html">
+         struct _GstGVATensorMeta
+        </a>
+       </li>
       </ul>
      </li>
     </ul>
@@ -646,11 +745,11 @@ title="Print to PDF"
               <div>
                 
   <section id="class-gstgva-region-of-interest-regionofinterest">
-<span id="doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest"></span><span id="index-0"></span><h1>class gstgva::region_of_interest::RegionOfInterest<a class="headerlink" href="#class-gstgva-region-of-interest-regionofinterest" title="Permalink to this headline">#</a></h1>
+<span id="doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest"></span><span id="index-0"></span><h1>class gstgva::region_of_interest::RegionOfInterest<a class="headerlink" href="#class-gstgva-region-of-interest-regionofinterest" title="Permalink to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>This class represents region of interest - object describing detection result (bounding box) and containing multiple Tensor objects (inference results) attached by multiple models. <a class="reference internal" href="#details-classgstgva-1-1region-of-interest-1-1-region-of-interest"><span class="std std-ref">More…</span></a></p>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="k">class</span> <span class="nl">RegionOfInterest</span><span class="p">:</span> <span class="k">public</span> <span class="n">object</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
@@ -664,18 +763,18 @@ title="Print to PDF"
     <span class="n">def</span> <a class="reference internal" href="#doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest-1a046ba7fb121d48f07d9ed8af6c736258"><span class="std std-ref">tensors</span></a><span></span><span class="p">(</span><span class="n">self</span> <span class="n">self</span><span class="p">);</span>
     <a class="reference internal" href="class_gstgva_tensor_Tensor.html#doxid-classgstgva-1-1tensor-1-1-tensor"><span class="std std-ref">Tensor</span></a><span></span> <a class="reference internal" href="#doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest-1a2b6228cf390720f534c33d7d15d3f029"><span class="std std-ref">detection</span></a><span></span><span class="p">(</span><span class="n">self</span> <span class="n">self</span><span class="p">);</span>
     <span class="kt">int</span> <a class="reference internal" href="#doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest-1af336f75b2857158690fae653cc18b60b"><span class="std std-ref">label_id</span></a><span></span><span class="p">(</span><span class="n">self</span> <span class="n">self</span><span class="p">);</span>
-    <a class="reference internal" href="class_gstgva_tensor_Tensor.html#doxid-classgstgva-1-1tensor-1-1-tensor"><span class="std std-ref">Tensor</span></a><span></span> <a class="reference internal" href="#doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest-1a0a4712fb53d3878b920f72d58f151331"><span class="std std-ref">add_tensor</span></a><span></span><span class="p">(</span><span class="n">self</span> <span class="n">self</span><span class="p">,</span> <span class="n">str</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
+    <a class="reference internal" href="class_gstgva_tensor_Tensor.html#doxid-classgstgva-1-1tensor-1-1-tensor"><span class="std std-ref">Tensor</span></a><span></span> <a class="reference internal" href="#doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest-1af34160d6f6385fa1a3e326e154f667ef"><span class="std std-ref">add_tensor</span></a><span></span><span class="p">(</span><span class="n">self</span> <span class="n">self</span><span class="p">,</span> <span class="n">str</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <a class="reference internal" href="class_gstgva_tensor_Tensor.html#doxid-classgstgva-1-1tensor-1-1-tensor"><span class="std std-ref">Tensor</span></a><span></span> <span class="n">tensor</span> <span class="o">=</span> <span class="n">None</span><span class="p">);</span>
     <span class="n">VideoRegionOfInterestMeta</span> <a class="reference internal" href="#doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest-1a7a3b0b57c0aac876304f5d1d093e43b4"><span class="std std-ref">meta</span></a><span></span><span class="p">(</span><span class="n">self</span> <span class="n">self</span><span class="p">);</span>
     <span class="n">def</span> <a class="reference internal" href="#doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest-1a59fefcf6558f61f2ecc01ec866294d5e"><span class="std std-ref">__init__</span></a><span></span><span class="p">(</span><span class="n">self</span> <span class="n">self</span><span class="p">,</span> <span class="n">VideoRegionOfInterestMeta</span> <span class="n">roi_meta</span><span class="p">);</span>
     <span class="n">def</span> <a class="reference internal" href="#doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest-1acbd5d4152932e649b2f4a9bc54432dfe"><span class="std std-ref">region_id</span></a><span></span><span class="p">(</span><span class="n">self</span> <span class="n">self</span><span class="p">);</span>
 <span class="p">};</span></pre>
 </section>
 <section id="detailed-documentation">
-<span id="details-classgstgva-1-1region-of-interest-1-1-region-of-interest"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this headline">#</a></h2>
+<span id="details-classgstgva-1-1region-of-interest-1-1-region-of-interest"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this heading">#</a></h2>
 <p>This class represents region of interest - object describing detection result (bounding box) and containing multiple Tensor objects (inference results) attached by multiple models.</p>
 <p>For example, it can be region of interest with detected face and recognized age and sex of a person. It can be produced by a pipeline with gvadetect with detection model and two gvaclassify elements with two classification models. Such <a class="reference internal" href="#doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> will have bounding box coordinates filled and will have 3 Tensor objects attached - 1 Tensor object with detection result and 2 Tensor objects with classification results coming from 2 classifications</p>
 <section id="methods">
-<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">#</a></h3>
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest-1a59bf32803e6692268c7c6128fc1e95d1"><span id="index-1"></span><span></span><span class="n">def</span> <span class="n">rect</span><span class="p">(</span><span class="n">self</span> <span class="n">self</span><span class="p">)</span></pre>
 <p>Get bounding box of the <a class="reference internal" href="#doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> as pixel coordinates in original image.</p>
 <p class="rubric">Returns:</p>
@@ -709,17 +808,20 @@ title="Print to PDF"
 <p>Get label_id from detection Tensor, last added to this <a class="reference internal" href="#doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a>.</p>
 <p class="rubric">Returns:</p>
 <p>last added detection Tensor label_id if exists, otherwise None</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest-1a0a4712fb53d3878b920f72d58f151331"><span id="index-9"></span><a class="reference internal" href="class_gstgva_tensor_Tensor.html#doxid-classgstgva-1-1tensor-1-1-tensor"><span class="std std-ref">Tensor</span></a><span></span> <span class="n">add_tensor</span><span class="p">(</span><span class="n">self</span> <span class="n">self</span><span class="p">,</span> <span class="n">str</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest-1af34160d6f6385fa1a3e326e154f667ef"><span id="index-9"></span><a class="reference internal" href="class_gstgva_tensor_Tensor.html#doxid-classgstgva-1-1tensor-1-1-tensor"><span class="std std-ref">Tensor</span></a><span></span> <span class="n">add_tensor</span><span class="p">(</span><span class="n">self</span> <span class="n">self</span><span class="p">,</span> <span class="n">str</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <a class="reference internal" href="class_gstgva_tensor_Tensor.html#doxid-classgstgva-1-1tensor-1-1-tensor"><span class="std std-ref">Tensor</span></a><span></span> <span class="n">tensor</span> <span class="o">=</span> <span class="n">None</span><span class="p">)</span></pre>
 <p>Add new Tensor (inference result) to the <a class="reference internal" href="#doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a>.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
+<table class="table">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>name</p></td>
-<td><p>Name for the tensor. This function does not take ownership of tensor passed, but only copies its contents</p></td>
+<td><p>Name for the tensor.</p></td>
+</tr>
+<tr class="row-even"><td><p>tensor</p></td>
+<td><p>(optional) Tensor object. This function does not take ownership of tensor passed, but only copies its contents</p></td>
 </tr>
 </tbody>
 </table>
@@ -734,7 +836,7 @@ title="Print to PDF"
 <p>Construct <a class="reference internal" href="#doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> instance from VideoRegionOfInterestMeta.</p>
 <p>After this, <a class="reference internal" href="#doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> will obtain all tensors (detection &amp; inference results) from VideoRegionOfInterestMeta</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
+<table class="table">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />

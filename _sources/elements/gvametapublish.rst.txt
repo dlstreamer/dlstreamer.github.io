@@ -34,6 +34,9 @@ pipeline.
     address             : [method= kafka | mqtt] Broker address
                           flags: readable, writable
                           String. Default: null
+    async-handling      : The bin will handle Asynchronous state changes
+                          flags: readable, writable
+                          Boolean. Default: false
     file-format         : [method= file] Structure of JSON objects in the file
                           flags: readable, writable
                           Enum "GstGVAMetaPublishFileFormat" Default: 1, "json"
@@ -63,17 +66,6 @@ pipeline.
     parent              : The parent of the object
                           flags: readable, writable
                           Object of type "GstObject"
-    qos                 : Handle Quality-of-Service events
-                          flags: readable, writable
-                          Boolean. Default: false
-    signal-handoffs     : Send signal before pushing the buffer
-                          flags: readable, writable
-                          Boolean. Default: false
     topic               : [method= kafka | mqtt] Topic on which to send broker messages
                           flags: readable, writable
                           String. Default: null
-
-  Element Signals:
-    "handoff" :  void user_function (GstElement* object,
-                                    GstBuffer* arg0,
-                                    gpointer user_data);

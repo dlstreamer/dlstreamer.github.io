@@ -1,12 +1,12 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
 
-    <title>Model-proc File &#8212; Intel® DL Streamer  documentation</title>
+    <title>Model-proc File &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +21,8 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/doxyrest-pygments.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -30,15 +31,17 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/target-highlight.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="How to Create Model-proc File" href="how_to_create_model_proc_file.html" />
-    <link rel="prev" title="Model Preparation" href="model_preparation.html" />
+    <link rel="prev" title="Yolov5 Model Preparation Example" href="yolov5_model_preparation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -75,7 +78,7 @@
       
       
       
-      <h1 class="site-logo" id="site-title">Intel® DL Streamer  documentation</h1>
+      <h1 class="site-logo" id="site-title">Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -114,16 +117,6 @@
        Install Guide Ubuntu
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../get_started/install/install_guide_rhel.html">
-       Install Guide RHEL
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../get_started/install/install_guide_windows.html">
-       Install Guide Windows (Preview)
-      </a>
-     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -132,7 +125,7 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/README.md">
+    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">
      Samples
     </a>
    </li>
@@ -153,10 +146,22 @@
      Metadata
     </a>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="model_preparation.html">
      Model Preparation
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="yolov5_model_preparation.html">
+       Yolov5 Model Preparation Example
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
@@ -184,6 +189,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="profiling.html">
+     Profiling with Intel VTune™
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="converting_deepstream_to_dlstreamer.html">
      Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
     </a>
@@ -192,23 +202,6 @@
     <a class="reference internal" href="how_to_contribute.html">
      How to Contribute
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="coding_style.html">
-       Coding Style
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="preview_features/preview_features.html">
-     Preview Features
-    </a>
     <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
     <label for="toctree-checkbox-5">
      <i class="fas fa-chevron-down">
@@ -216,13 +209,8 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="preview_features/action_recognition.html">
-       Action Recognition
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="preview_features/segmentation.html">
-       Segmentation
+      <a class="reference internal" href="coding_style.html">
+       Coding Style
       </a>
      </li>
     </ul>
@@ -240,11 +228,6 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvainference.html">
-     gvainference
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvadetect.html">
      gvadetect
     </a>
@@ -252,6 +235,16 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvaclassify.html">
      gvaclassify
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvainference.html">
+     gvainference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvaaudiodetect.html">
+     gvaaudiodetect
     </a>
    </li>
    <li class="toctree-l2">
@@ -275,16 +268,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvaaudiodetect.html">
-     gvaaudiodetect
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvafpscounter.html">
-     gvafpscounter
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvapython.html">
      gvapython
     </a>
@@ -292,6 +275,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvawatermark.html">
      gvawatermark
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvafpscounter.html">
+     gvafpscounter
     </a>
    </li>
   </ul>
@@ -444,6 +432,117 @@
        </i>
       </label>
       <ul class="simple">
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../architecture_2.0/architecture_2.0.html">
+   Architecture 2.0 [Preview]
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/migration_guide.html">
+     Migration to 2.0
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/cpp_interfaces.html">
+     ① Memory Interop and C++ abstract interfaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/cpp_elements.html">
+     ② C++ elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/gstreamer_elements.html">
+     ③ GStreamer Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/gstreamer_bins.html">
+     ③ GStreamer Bin Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/python_bindings.html">
+     ③ Python Bindings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/elements_list.html">
+     Elements 2.0 reference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/packaging.html">
+     Packaging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/samples_2.0.html">
+     Samples 2.0
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../architecture_2.0/api_ref/index.html">
+     API 2.0 Reference
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../architecture_2.0/api_ref/global.html">
+       Global Namespace
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/namespace_dlstreamer.html">
+         namespace dlstreamer
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVALayout.html">
+         enum GVALayout
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html">
+         enum GVAPrecision
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html">
+         struct GstGVAAudioEventMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVAJSONMeta.html">
+         struct _GstGVAJSONMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html">
+         struct _GstGVATensorMeta
+        </a>
+       </li>
       </ul>
      </li>
     </ul>
@@ -724,9 +823,9 @@ title="Print to PDF"
               <div>
                 
   <section id="model-proc-file">
-<h1>Model-proc File<a class="headerlink" href="#model-proc-file" title="Permalink to this headline">#</a></h1>
+<h1>Model-proc File<a class="headerlink" href="#model-proc-file" title="Permalink to this heading">#</a></h1>
 <section id="contents">
-<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">#</a></h2>
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#overview"><span class="std std-ref">Overview</span></a></p></li>
 <li><p><a class="reference internal" href="#input-preproc"><span class="std std-ref">Pre-processing description input_preproc</span></a></p>
@@ -744,7 +843,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="overview">
-<span id="id1"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
+<span id="id1"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>A model-proc file is a regular JSON file with pre- and post-processing
 configuration.</p>
 <p>As an example implementation, see the model-proc file for the emotions
@@ -755,7 +854,7 @@ without aspect-ratio preservation and their color space will be changed
 to BGR.</p>
 <p><code class="docutils literal notranslate"><span class="pre">output_postproc</span></code> says that the inference result is one of the strings
 listed in <code class="docutils literal notranslate"><span class="pre">&quot;labels&quot;</span></code>.</p>
-<p>See the <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/model_proc">samples/model_proc</a>
+<p>See the <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/model_proc">samples/gstreamer/model_proc</a>
 for examples of .json files using various models from <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo">Open Model Zoo</a> and some
 public models.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
@@ -786,9 +885,9 @@ public models.</p>
 </ul>
 </section>
 <section id="pre-processing-description-input-preproc">
-<span id="input-preproc"></span><h2>Pre-processing description (<code class="docutils literal notranslate"><span class="pre">input_preproc</span></code>)<a class="headerlink" href="#pre-processing-description-input-preproc" title="Permalink to this headline">#</a></h2>
+<span id="input-preproc"></span><h2>Pre-processing description (<code class="docutils literal notranslate"><span class="pre">input_preproc</span></code>)<a class="headerlink" href="#pre-processing-description-input-preproc" title="Permalink to this heading">#</a></h2>
 <section id="pre-processing-configuration">
-<span id="input-preproc-configuration"></span><h3>Pre-processing configuration<a class="headerlink" href="#pre-processing-configuration" title="Permalink to this headline">#</a></h3>
+<span id="input-preproc-configuration"></span><h3>Pre-processing configuration<a class="headerlink" href="#pre-processing-configuration" title="Permalink to this heading">#</a></h3>
 <p>Pre-processing is described by the <code class="docutils literal notranslate"><span class="pre">input_preproc</span></code> key.
 <code class="docutils literal notranslate"><span class="pre">input_preproc</span></code> value should contain an array of JSON objects with
 pre-processing configuration. Each object describes operations for one
@@ -799,13 +898,6 @@ and color space conversion to BGR). Input pre-processing configuration
 should be described in a key-value format. Valid keys for
 <code class="docutils literal notranslate"><span class="pre">input_preproc</span></code> are presented in the table below.</p>
 <table class="table">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Key</p></th>
 <th class="head"></th>
@@ -855,24 +947,6 @@ should be described in a key-value format. Valid keys for
 </td>
 </tr>
 <tr class="row-odd"><td><p>params</p></td>
-<td><p>crop</p></td>
-<td><div class="line-block">
-<div class="line">central,</div>
-<div class="line">top_left,</div>
-<div class="line">top_right,</div>
-<div class="line">bottom_left,</div>
-<div class="line">bottom_right</div>
-</div>
-</td>
-<td><p>Crop an image.</p></td>
-<td><div class="line-block">
-<div class="line">opencv,</div>
-<div class="line">vaapi,</div>
-<div class="line">vaapi-surface-sharing</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>params</p></td>
 <td><p>color_space</p></td>
 <td><div class="line-block">
 <div class="line">RGB,</div>
@@ -888,7 +962,7 @@ should be described in a key-value format. Valid keys for
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>params</p></td>
+<tr class="row-even"><td><p>params</p></td>
 <td><p>range</p></td>
 <td><p>[ 0.0, 1.0 ]</p></td>
 <td><p>Normalize input image values to be in the specified range.</p></td>
@@ -898,7 +972,7 @@ should be described in a key-value format. Valid keys for
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>params</p></td>
+<tr class="row-odd"><td><p>params</p></td>
 <td><p>mean</p></td>
 <td><p>[ 0.485, 0.456, 0.406 ]</p></td>
 <td><p>JSON arrays of doubles. Size of arrays should be equal to the number of channels of the input image.</p></td>
@@ -908,7 +982,7 @@ should be described in a key-value format. Valid keys for
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>params</p></td>
+<tr class="row-even"><td><p>params</p></td>
 <td><p>std</p></td>
 <td><p>[ 0.229, 0.224, 0.225 ]</p></td>
 <td><p>JSON arrays of doubles. Size of arrays should be equal to the number of channels of the input image.</p></td>
@@ -918,24 +992,18 @@ should be described in a key-value format. Valid keys for
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>params</p></td>
+<tr class="row-odd"><td><p>params</p></td>
 <td><p>padding</p></td>
 <td><div class="line-block">
 <div class="line">{</div>
 <div class="line-block">
 <div class="line">“stride_x”: 8,</div>
-<div class="line">“stride_y”: 8,</div>
-<div class="line">“fill_value”: [0.0, 0.0, 0.0]</div>
+<div class="line">“stride_y”: 8</div>
 </div>
 <div class="line">}</div>
 </div>
 </td>
-<td><p>A JSON object with the following keys:</p>
-<ul class="simple">
-<li><p>stride in pixels from image boundaries (also can be set with <em>stride_x</em> and <em>stride_y</em>);</p></li>
-<li><p>and <em>fill_value</em> with color to fill (in target color format).</p></li>
-</ul>
-</td>
+<td><p>A JSON object with stride in pixels from image boundaries (also can be set with <em>stride_x</em> and <em>stride_y</em>)</p></td>
 <td><div class="line-block">
 <div class="line">opencv,</div>
 <div class="line">vaapi,</div>
@@ -959,7 +1027,7 @@ layers in the IR model using the appropriate model optimizer parameters.</p>
 </div>
 </section>
 <section id="example">
-<span id="input-preproc-example"></span><h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h3>
+<span id="input-preproc-example"></span><h3>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h3>
 <p>Example of what <code class="docutils literal notranslate"><span class="pre">input_preproc</span></code> and its parameters can look like are
 in the code snippet below.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">...</span><span class="w"></span>
@@ -981,15 +1049,13 @@ in the code snippet below.</p>
 <span class="w">        </span><span class="s2">&quot;format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;image&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="s2">&quot;params&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="s2">&quot;resize&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;aspect-ratio&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;crop&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;central&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="s2">&quot;color_space&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;BGR&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="s2">&quot;range&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
 <span class="w">            </span><span class="s2">&quot;mean&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">0.485</span><span class="p">,</span><span class="w"> </span><span class="mf">0.456</span><span class="p">,</span><span class="w"> </span><span class="mf">0.406</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
 <span class="w">            </span><span class="s2">&quot;std&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">0.229</span><span class="p">,</span><span class="w"> </span><span class="mf">0.224</span><span class="p">,</span><span class="w"> </span><span class="mf">0.225</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
 <span class="w">            </span><span class="s2">&quot;padding&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="s2">&quot;stride_x&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;stride_y&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;fill_value&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">]</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;stride_y&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
@@ -999,9 +1065,9 @@ in the code snippet below.</p>
 </section>
 </section>
 <section id="post-processing-description-output-postproc">
-<span id="output-postproc"></span><h2>Post-processing description (<code class="docutils literal notranslate"><span class="pre">output_postproc</span></code>)<a class="headerlink" href="#post-processing-description-output-postproc" title="Permalink to this headline">#</a></h2>
+<span id="output-postproc"></span><h2>Post-processing description (<code class="docutils literal notranslate"><span class="pre">output_postproc</span></code>)<a class="headerlink" href="#post-processing-description-output-postproc" title="Permalink to this heading">#</a></h2>
 <section id="post-processing-configuration">
-<span id="output-postproc-configuration"></span><h3>Post-processing configuration<a class="headerlink" href="#post-processing-configuration" title="Permalink to this headline">#</a></h3>
+<span id="output-postproc-configuration"></span><h3>Post-processing configuration<a class="headerlink" href="#post-processing-configuration" title="Permalink to this heading">#</a></h3>
 <p>Post-processing is described in the similar to pre-processing fashion by
 the <code class="docutils literal notranslate"><span class="pre">output_postproc</span></code> key. The key should contain an array of JSON
 objects with post-processing configuration. Each object describes
@@ -1022,10 +1088,6 @@ This can be done with the following fields:</p>
 the used element. If described by the table behavior is suitable,
 model-proc can be ignored.</p>
 <table class="table">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Element</p></th>
 <th class="head"><p>Default converter</p></th>
@@ -1048,11 +1110,6 @@ model-proc can be ignored.</p>
 converter. The last column contains a link to a model for which this
 converter can be applied.</p>
 <table class="table">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Converter</p></th>
 <th class="head"><p>Description</p></th>
@@ -1072,7 +1129,7 @@ converter can be applied.</p>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/face-detection-retail-0004.json">detection_output</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/model_proc/intel/face-detection-retail-0004.json">detection_output</a></p></td>
 <td><p>Parse output blob produced by object detection neural network with <em>DetectionOutput</em> IR output layer’s type. Output is RegionOfInterest.</p>
 <p><em>labels</em> - an array of strings representing labels or a path to a file with labels where each label is on a new line.</p>
 </td>
@@ -1080,7 +1137,7 @@ converter can be applied.</p>
 <p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_crossroad_0078.html#outputs">person-vehicle-bike-detection-crossroad-0078</a></p>
 </td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/face-detection-0205.json">boxes_labels</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-0205.json">boxes_labels</a></p></td>
 <td><p>Parse output blob produced by object detection neural network with two output layers: <em>boxes</em> and <em>labels</em>. Output is RegionOfInterest.</p>
 <p><em>labels</em> - an array of strings representing labels or a path to a file with labels where each label is on a new line.</p>
 </td>
@@ -1088,7 +1145,7 @@ converter can be applied.</p>
 <p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_2004.html#outputs">person-vehicle-bike-detection-2004</a></p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/yolo-v2-tf.json">yolo_v2</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v2-tf.json">yolo_v2</a></p></td>
 <td><p>Parse output blob produced by object detection neural network with YOLO v2 architecture. Output is RegionOfInterest.</p>
 <ul class="simple">
 <li><p><em>labels</em> - an array of strings representing labels or a path to a file with labels where each label is on a new line;</p></li>
@@ -1103,7 +1160,7 @@ converter can be applied.</p>
 <p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v2_tiny_tf.html#output">yolo-v2-tiny-tf</a></p>
 </td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/yolo-v3-tf.json">yolo_v3</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v3-tf.json">yolo_v3</a></p></td>
 <td><p>Parse output blob produced by object detection neural network with YOLO v3 architecture.</p>
 <ul class="simple">
 <li><p><em>labels</em> - an array of strings representing labels or a path to a file with labels where each label is on a new line;</p></li>
@@ -1125,7 +1182,7 @@ converter can be applied.</p>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/age-gender-recognition-retail-0013.json">text</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/age-gender-recognition-retail-0013.json">text</a></p></td>
 <td><p>Transform output tensor to text.</p>
 <ul class="simple">
 <li><p><em>text_scale</em> - scales data by this number;</p></li>
@@ -1134,7 +1191,7 @@ converter can be applied.</p>
 </td>
 <td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_age_gender_recognition_retail_0013.html#outputs">age-gender-recognition-retail-0013</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/vehicle-attributes-recognition-barrier-0039.json">label</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/vehicle-attributes-recognition-barrier-0039.json">label</a></p></td>
 <td><p>Put an appropriate label for result.</p>
 <ul class="simple">
 <li><p><em>method</em>: one of [<em>max</em>, <em>index</em>, <em>compound</em> (threshold is required. 0.5 is default)];</p></li>
@@ -1146,7 +1203,7 @@ converter can be applied.</p>
 <p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_attributes_recognition_crossroad_0230.html#outputs">person-attributes-recognition-crossroad-0230</a></p>
 </td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/single-human-pose-estimation-0001.json">keypoints_hrnet</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/single-human-pose-estimation-0001.json">keypoints_hrnet</a></p></td>
 <td><p>Parse output blob produced by network with HRNet architecture. Output tensor will have an array of key points.</p>
 <ul class="simple">
 <li><p><em>point_names</em> - an array of strings with the name of the points;</p></li>
@@ -1155,7 +1212,7 @@ converter can be applied.</p>
 </td>
 <td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_single_human_pose_estimation_0001.html#outputs">single-human-pose-estimation-0001</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/intel/human-pose-estimation-0001.json">keypoints_openpose</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/human-pose-estimation-0001.json">keypoints_openpose</a></p></td>
 <td><p>Parse output blob produced by network with OpenPose architecture. Output tensor will have an array of key points.</p>
 <ul class="simple">
 <li><p><em>point_names</em> - an array of strings with the name of the points;</p></li>
@@ -1177,7 +1234,7 @@ converter can be applied.</p>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/model_proc/public/aclnet.json">audio_labels</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/aclnet.json">audio_labels</a></p></td>
 <td><p>Output tensor - audio detections tensor.</p>
 <ul class="simple">
 <li><p><em>layer_name</em> - name of the layer to process;</p></li>
@@ -1190,7 +1247,7 @@ converter can be applied.</p>
 </table>
 </section>
 <section id="output-postproc-example">
-<span id="id2"></span><h3>Example<a class="headerlink" href="#output-postproc-example" title="Permalink to this headline">#</a></h3>
+<span id="id2"></span><h3>Example<a class="headerlink" href="#output-postproc-example" title="Permalink to this heading">#</a></h3>
 <p>See an example of what <code class="docutils literal notranslate"><span class="pre">output_postproc</span></code> and its parameters can look in the code snippet below.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1298,11 +1355,11 @@ converter can be applied.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="model_preparation.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="yolov5_model_preparation.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Model Preparation</p>
+            <p class="prev-next-title">Yolov5 Model Preparation Example</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="how_to_create_model_proc_file.html" title="next page">

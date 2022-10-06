@@ -4,9 +4,9 @@ Install Guide Ubuntu
 The easiest way to install Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework is installing :ref:`from APT repository <1>`.
 If you prefer containerized development or runtime
 environment based on Docker, the Intel® DL Streamer Pipeline Framework is also available in
-`2022.1.0-ubuntu20-devel <https://hub.docker.com/r/intel/dlstreamer/dlstreamer:2022.1.0-ubuntu20-devel>`__
+`devel <https://hub.docker.com/r/intel/dlstreamer/dlstreamer:devel>`__
 or
-`2022.1.0-ubuntu20 <https://hub.docker.com/r/intel/dlstreamer/dlstreamer:2022.1.0-ubuntu20>`__
+`runtime <https://hub.docker.com/r/intel/dlstreamer/dlstreamer:latest>`__
 Docker image containers.
 
 Alternatively, you can build Intel® DL Streamer Pipeline Framework from the source code
@@ -26,17 +26,14 @@ links in the first column of the table.
      - Notes
 
    * - :ref:`Install Intel® DL Streamer Pipeline Framework from APT repository <1>`
-     - Ubuntu 20.04, Ubuntu 18.04
+     - Ubuntu 20.04
      - \-
    * - :ref:`Pull and run Intel® DL Streamer Pipeline Framework Docker image<2>`
      - Any Linux OS as host system
      - Recommended for containerized environment and when host OS is not supported by the Pipeline Framework installer
    * - :ref:`Compile Intel® DL Streamer Pipeline Framework from sources on host system <3>`
-     - Ubuntu 20.04, Ubuntu 18.04
+     - Ubuntu 20.04, Ubuntu 22.04
      - If you want to build Pipeline Framework from source code on host system
-   * - :ref:`Compile Intel® DL Streamer Pipeline Framework as Docker image <4>`
-     - Any Linux OS as host system
-     - If you want to build Docker image from Pipeline Framework source code and run as container
 
 Refer to :doc:`Windows Install Guide<install_guide_windows>` for Windows
 installation.
@@ -49,58 +46,36 @@ installation.
 Option #1: Install Intel® DL Streamer Pipeline Framework from APT repository
 ----------------------------------------------------------------------------
 
-Step 1: Install required packages
+Step 1: Install Intel® DL Streamer and OpenVINO™ toolkit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Option a : (Recommended) Specific GPU driver versions used in OpenVINO™ and Pipeline Framework validation
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Install Intel® DL Streamer via ``apt-get install`` and OpenVINO™ toolkit via script ``install_openvino.sh``
 
 ..  code:: sh
 
    # Install dependencies
    sudo apt-get update && sudo apt-get install curl gpg-agent software-properties-common
 
-   # Register OpenVINO™ toolkit APT repository
-   curl https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB | sudo apt-key add -
-   echo "deb https://apt.repos.intel.com/openvino/2022 `. /etc/os-release && echo ${UBUNTU_CODENAME}` main" | sudo tee /etc/apt/sources.list.d/intel-openvino-2022.list
-
-   # Install OpenVINO™ toolkit and recommended version of OpenCL™ driver
-   sudo apt-get update && sudo apt-get install openvino-libraries-dev-2022.1.0
-   sudo -E /opt/intel/openvino_2022/install_dependencies/install_NEO_OCL_driver.sh
-
-   # Install Intel® DL Streamer Pipeline Framework and recommended version of media driver
-   sudo apt-get update && sudo apt-get install intel-dlstreamer-dev
-   sudo -E /opt/intel/dlstreamer/install_dependencies/install_media_driver.sh
-
-   # Setup OpenVINO™ and Intel® DL Streamer Pipeline Framework environment
-   source /opt/intel/openvino_2022/setupvars.sh
-   source /opt/intel/dlstreamer/setupvars.sh
-
-Option b : For latest OpenCL™ and media driver versions
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-..  code:: sh
-
-   # Install dependencies
-   sudo apt-get update && sudo apt-get install curl gpg-agent software-properties-common
-
-   # Register Intel® Graphics APT repository
-   curl -sSL https://repositories.intel.com/graphics/intel-graphics.key | sudo apt-key add  - && \
-   . /etc/os-release && sudo -E apt-add-repository "deb [arch=amd64] https://repositories.intel.com/graphics/ubuntu ${UBUNTU_CODENAME} main"
+   # Register Intel® Graphics APT repository https://dgpu-docs.intel.com/releases_legacy/index.html
+   curl -sSL https://repositories.intel.com/graphics/intel-graphics.key | sudo apt-key add -
+   echo "deb [arch=amd64] https://repositories.intel.com/graphics/ubuntu `. /etc/os-release && echo ${UBUNTU_CODENAME}-legacy` main" | sudo tee /etc/apt/sources.list.d/intel-graphics-legacy.list
 
    # Register OpenVINO™ toolkit APT repository
    curl https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB | sudo apt-key add -
    echo "deb https://apt.repos.intel.com/openvino/2022 `. /etc/os-release && echo ${UBUNTU_CODENAME}` main" | sudo tee /etc/apt/sources.list.d/intel-openvino-2022.list
 
-   # Install
+   # Install Intel® DL Streamer
    sudo apt-get update && sudo apt-get install intel-dlstreamer-dev
 
-   # Setup OpenVINO™ and Intel® DL Streamer Pipeline Framework environment
+   # Install OpenVINO™ toolkit (if not installed)
+   sudo -E /opt/intel/dlstreamer/install_dependencies/install_openvino.sh
+
+   # Setup OpenVINO™ and Intel® DL Streamer environment
    source /opt/intel/openvino_2022/setupvars.sh
    source /opt/intel/dlstreamer/setupvars.sh
 
 
-Step 2: Install optional dependencies
+Step 2: (Optional) Install MQTT and Kafka clients for element `gvametapublish`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order to enable all `gvametapublish` backends install required dependencies with scripts:
@@ -111,8 +86,10 @@ In order to enable all `gvametapublish` backends install required dependencies w
    sudo -E /opt/intel/dlstreamer/install_dependencies/install_kafka_client.sh
 
 
+Step 3: (Optional) Install features based on DPC++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To install Intel® DL Streamer Pipeline Framework package that contains Intel® oneAPI DPC++/C++ Compiler features:
+To install Intel® oneAPI DPC++/C++ Compiler runtime package and Intel® DL Streamer features based on DPC++:
 
 .. code:: sh
 
@@ -120,9 +97,9 @@ To install Intel® DL Streamer Pipeline Framework package that contains Intel® 
    sudo add-apt-repository "deb https://apt.repos.intel.com/oneapi all main"
 
    # Install
-   sudo apt-get update && sudo apt-get install intel-dlstreamer-dpcpp
+   sudo apt-get update && sudo apt-get install intel-level-zero-gpu level-zero intel-dlstreamer-dpcpp
 
-Also you can install Intel® oneAPI DPC++/C++ Compiler itself if you want:
+You can additionally install full Intel® oneAPI DPC++/C++ Compiler (previous command installs runtime only):
 
 .. code:: sh
 
@@ -230,7 +207,7 @@ elements on GPU you should download container with Intel® oneAPI DPC++/C++ Comp
       -v /tmp/.X11-unix \
       -e DISPLAY=$DISPLAY \
       -v /dev/bus/usb \
-      --rm dlstreamer/dlstreamer:2022.1.0-ubuntu20-dpcpp /bin/bash
+      --rm dlstreamer/dlstreamer:dpcpp /bin/bash
 
 .. _gpu-ubuntu20:
 
@@ -284,19 +261,14 @@ First, clone this repository into folder ``~/intel/dlstreamer_gst``:
 Step 2: Install Intel® Distribution of OpenVINO™ Toolkit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Set up the OpenVINO™ Toolkit APT repository:
+`Download OpenVINO™ Toolkit package here <https://www.intel.com/content/www/us/en/developer/tools/openvino-toolkit/download.html>`__ by selecting:
 
-.. code:: sh
+* Environment: **Runtime**
+* Operating System: **Linux**
+* Version: **Latest**
+* Distribution: **OpenVINO™ Archives**
 
-   sudo apt-get update && sudo apt-get install -y --no-install-recommends software-properties-common gnupg curl
-   curl https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB | sudo apt-key add -
-   echo "deb https://apt.repos.intel.com/openvino/2022 `. /etc/os-release && echo ${UBUNTU_CODENAME}` main" | sudo tee /etc/apt/sources.list.d/intel-openvino-2022.list
-
-Install required packages:
-
-.. code:: sh
-
-   sudo apt-get update && sudo apt-get install -y OpenVINO™ openvino-opencv
+`Follow OpenVINO™ Toolkit instruction guide here <https://docs.openvino.ai/2022.2/openvino_docs_install_guides_installing_openvino_from_archive_linux.html#doxid-openvino-docs-install-guides-installing-openvino-from-archive-linux>`__ to install your own OpenVINO™ from the archive on Linux.
 
 After successful OpenVINO™ Toolkit package installation, run the
 following commands to install OpenVINO™ Toolkit dependencies and enable
@@ -321,7 +293,7 @@ Install GStreamer and other build dependencies:
 
 .. code:: sh
 
-   sudo apt-get install -y --no-install-recommends intel-dlstreamer-gst cmake build-essential libpython3-dev python-gi-dev
+   sudo apt-get install -y --no-install-recommends intel-dlstreamer-gst cmake build-essential libpython3-dev python-gi-dev libopencv-dev
 
 Step 4: Install Python dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -369,10 +341,10 @@ Run the following commands to install OpenCL™ driver:
 
    # Register Intel® Graphics APT repository:
    curl -sSL https://repositories.intel.com/graphics/intel-graphics.key | sudo apt-key add - && \
-   sudo apt-add-repository 'deb [arch=amd64] https://repositories.intel.com/graphics/ubuntu focal main'
+   sudo apt-add-repository 'deb [arch=amd64] https://repositories.intel.com/graphics/ubuntu ${UBUNTU_CODENAME}-legacy main'
 
    # Install
-   sudo apt-get update && sudo apt-get install -y intel-opencl-icd
+   sudo apt-get update && sudo apt-get install -y intel-opencl-icd ocl-icd-opencl-dev opencl-clhpp-headers
 
 Step 6: Install message brokers [OPTIONAL]
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -492,157 +464,11 @@ in ``samples`` folder) to download the models required for samples.
    Also, you can create an issue on GitHub
    `here <https://github.com/dlstreamer/dlstreamer/issues>`__.
 
-.. _4:
-
-Option #4: Compile Intel® DL Streamer Pipeline Framework as Docker image
-------------------------------------------------------------------------
-
-Step 1: Install Docker CE (if not installed)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Refer to `Docker installation
-documentation <https://docs.docker.com/install/>`__
-
-Step 2: Clone this repository
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Clone this repository into folder ``~/intel/dlstreamer_gst``:
-
-.. code:: sh
-
-   mkdir -p ~/intel
-   git clone https://github.com/dlstreamer/dlstreamer.git ~/intel/dlstreamer_gst
-   cd ~/intel/dlstreamer_gst
-
-Step 3: Build Docker image
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Run the following command to build Docker image:
-
-.. code:: sh
-
-   cd ~/intel/dlstreamer_gst/docker/source/ubuntu20
-   # if you want to build an image with a specific tag then provide it as a second argument (by default latest)
-   # if you want to use a Docker registry then provide it as a third argument (in this case you should provide the tag as well)
-   ./build_docker_image.sh [tag] [registry]
-
-It’s also possible to build Docker image with ``gvawatermark`` and
-``gvatrack`` elements supporting offload on GPU. This is achieved with
-Intel® oneAPI DPC++/C++ Compiler installation.
-
-To enable that option, please run the following commands to build Docker
-image:
-
-.. code:: sh
-
-   cd ~/intel/dlstreamer_gst/docker/source/ubuntu20
-
-   docker build -f Dockerfile -t dlstreamer:<tag> \
-       --build-arg http_proxy=$HTTP_PROXY \
-       --build-arg https_proxy=$HTTPS_PROXY \
-       --build-arg DOCKER_PRIVATE_REGISTRY=<registry> \
-       --build-arg ENABLE_DPCPP_INSTALLATION=ON \
-       ~/intel/dlstreamer_gst/
-
-Here is the additional information and the meaning of some options in
-the Docker build command:
-
--  Option ``-f`` is name of the Dockerfile (Default is ‘PATH/Dockerfile’).
--  Option ``-t`` is name and optionally a tag of the Docker image in the ‘name:tag’ format. For example, you may set ``dlstreamer:latest``.
--  Argument ``DOCKER_PRIVATE_REGISTRY`` is needed, if you want to use a Docker registry. Otherwise, you don't need to set this option.
--  Argument ``ENABLE_DPCPP_INSTALLATION`` enables installation of Intel® oneAPI DPC++/C++ Compiler.
-
-The build process may take significant time and should finally create
-Docker image ``dlstreamer:<tag>`` (by default ``latest``). Validate
-Docker image with command:
-
-.. code:: sh
-
-   docker images | grep dlstreamer
-
-This command will return a line with image ``dlstreamer:<tag>``
-description. If the image is absent in your output, please repeat all
-the steps above.
-
-Step 4: Run Docker image
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-Some Pipeline Framework samples use display. Hence, first run the following commands to
-allow connection from Docker container to X server on host:
-
-.. code:: sh
-
-   xhost local:root
-   setfacl -m user:1000:r ~/.Xauthority
-
-Then, run container:
-
-.. code:: sh
-
-   docker run -it --privileged --net=host \
-   \
-   -v ~/.Xauthority:/home/dlstreamer/.Xauthority \
-   -v /tmp/.X11-unix \
-   -e DISPLAY=$DISPLAY \
-   -e HTTP_PROXY=$HTTP_PROXY \
-   -e HTTPS_PROXY=$HTTPS_PROXY \
-   -e http_proxy=$http_proxy \
-   -e https_proxy=$https_proxy \
-   \
-   -v ~/intel/dl_streamer/models:/home/dlstreamer/intel/dl_streamer/models \
-   \
-   -v ~/intel/dl_streamer/video:/home/dlstreamer/video-examples:ro \
-   -e VIDEO_EXAMPLES_DIR=/home/dlstreamer/video-examples \
-   \
-   dlstreamer:<tag>
-
-.. note::
-   If your host OS is Ubuntu 20 refer to :ref:`this guide <gpu-ubuntu20>` in order to setup access to GPU from container.
-
-Here is the additional information and the meaning of some options in
-the ``docker run`` command:
-
--  Option ``--privileged`` is required for Docker container to access the host system’s GPU
--  Option ``--net=host`` provides host network access to container. It is needed for correct interaction with X server.
--  Files ``~/.Xauthority`` and ``/tmp/.X11-unix`` mapped to the container are needed to ensure smooth authentication with X server.
--  ``-v`` instances are needed to map host system directories inside Docker container.
--  ``-e`` instances set Docker container environment variables. The samples need some of them set in order to operate correctly. Proxy variables are needed if the host is behind a firewall.
--  Volume provided for ``models`` folder will be used to download and store the models. Environment variable MODELS_PATH in the Docker container is responsible for it.
--  Entrypoint of the Docker container is by default ``/opt/intel/dlstreamer/samples``.
-
-Inside the Docker image you can find Pipeline Framework samples at the entrypoint.
-Before using the samples, run the script ``download_models.sh`` (located
-in ``samples`` folder) to download the models required for samples.
-
-.. note::
-   If you want to use video from web camera as an input in
-   sample ``face_detection_and_classification.sh`` you should mount the
-   device with this command (add this command when running the container):
-
-   .. code:: sh
-
-      -v /dev/video0:/dev/video0
-
-   Now you can run the sample with video from web camera:
-
-   .. code:: sh
-
-      ./face_detection_and_classification.sh /dev/video0
-
-.. note::
-   You can run Docker image using utility script located in ``docker`` folder:
-
-   .. code:: sh
-
-      cd ~/intel/dlstreamer_gst/docker  # essential
-      export DATA_PATH=~/intel/dl_streamer  # essential
-      sudo ./run_docker_container.sh --video-examples-path=$DATA_PATH/video --models-path=$DATA_PATH/models --image-name=dlstreamer:<tag>
-
 Next Steps
 ----------
 
 * :doc:`../tutorial`
-* `Samples overview <https://github.com/dlstreamer/dlstreamer/blob/master/samples/README.md>`__
+* `Samples overview <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md>`__
 
 -----
 

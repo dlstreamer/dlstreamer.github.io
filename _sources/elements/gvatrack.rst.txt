@@ -1,11 +1,10 @@
 gvatrack
 ========
 
-Performs object tracking using zero-term or short-term tracking
-algorithms. Zero-term tracking assigns unique object IDs and requires
-object detection to run on every frame. Short-term tracking allows to
-track objects between frames, thereby reducing the need to run object
-detection on each frame.
+Performs object tracking using zero-term, zero-term-imageless, or short-term-imageless tracking algorithms. 
+Zero-term tracking assigns unique object IDs and requires object detection to run on every frame. 
+Short-term tracking allows to track objects between frames, thereby reducing the need to run object detection on each frame. 
+Imageless tracking forms object associations based on the movement and shape of objects, and it does not use image data.
 
 Please refer to :doc:`Object Tracking <../dev_guide/object_tracking>` for more
 information on the element properties.

@@ -7,4 +7,4 @@ Get Started
    hardware_requirements
    install/install_guide_index
    tutorial
-   Samples <https://github.com/dlstreamer/dlstreamer/blob/master/samples/README.md>
+   Samples <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md>

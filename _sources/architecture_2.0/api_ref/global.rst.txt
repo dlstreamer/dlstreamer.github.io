@@ -1,0 +1,377 @@
+.. _global:
+.. index:: pair: namespace; global
+
+Global Namespace
+================
+
+.. toctree::
+	:hidden:
+
+	namespace_dlstreamer.rst
+	enum_GVALayout.rst
+	enum_GVAPrecision.rst
+	struct_GstGVAAudioEventMeta.rst
+	struct__GstGVAJSONMeta.rst
+	struct__GstGVATensorMeta.rst
+
+Overview
+~~~~~~~~
+
+
+
+
+.. ref-code-block:: cpp
+	:class: doxyrest-overview-code-block
+
+	
+	// namespaces
+
+	namespace :ref:`dlstreamer<doxid-namespacedlstreamer>`;
+		namespace :ref:`dlstreamer::detail<doxid-namespacedlstreamer_1_1detail>`;
+		namespace :ref:`dlstreamer::tensor<doxid-namespacedlstreamer_1_1tensor>`;
+			namespace :ref:`dlstreamer::tensor::key<doxid-namespacedlstreamer_1_1tensor_1_1key>`;
+
+	// typedefs
+
+	typedef struct _cl_mem* :target:`cl_mem<doxid-opencl_2tensor_8h_1af2141916ad9655073b9810d7bc71494d>`;
+	typedef typedefG_BEGIN_DECLS struct :ref:`_GstGVAJSONMeta<doxid-struct___gst_g_v_a_j_s_o_n_meta>` :target:`GstGVAJSONMeta<doxid-gva__json__meta_8h_1a64a17a6fb82826c3a7159e71c9449a54>`;
+	typedef struct :ref:`_GstGVATensorMeta<doxid-struct___gst_g_v_a_tensor_meta>` :target:`GstGVATensorMeta<doxid-gva__tensor__meta_8h_1a038ecf5fdabb0acf1f2053800ba16d62>`;
+
+	// enums
+
+	enum :ref:`GVALayout<doxid-gva__tensor__meta_8h_1a2d0113c46cec570b215b893571ab14ed>`;
+	enum :ref:`GVAPrecision<doxid-gva__tensor__meta_8h_1ac26bbefa1eda84e0a4b888d51d2795ce>`;
+
+	// structs
+
+	struct :ref:`GstGVAAudioEventMeta<doxid-struct_gst_g_v_a_audio_event_meta>`;
+	struct :ref:`_GstGVAJSONMeta<doxid-struct___gst_g_v_a_j_s_o_n_meta>`;
+	struct :ref:`_GstGVATensorMeta<doxid-struct___gst_g_v_a_tensor_meta>`;
+
+	// global variables
+
+	const :ref:`dlstreamer::ElementDesc<doxid-structdlstreamer_1_1_element_desc>`* :target:`dlstreamer_elements<doxid-element_8h_1a987bf5e60e7e63da522cd55828febf58>`[];
+
+	// global functions
+
+	GType :target:`gst_gva_audio_event_meta_api_get_type<doxid-gva__audio__event__meta_8h_1abbda3842d56b2d1be936c56fc10b5fe4>`(void);
+	const GstMetaInfo* :target:`gst_gva_audio_event_meta_get_info<doxid-gva__audio__event__meta_8h_1ada019174d6ba549dd03bd53b456149f1>`(void);
+
+	:ref:`GstGVAAudioEventMeta<doxid-struct_gst_g_v_a_audio_event_meta>`* :target:`gst_gva_buffer_get_audio_event_meta_id<doxid-gva__audio__event__meta_8h_1a28911a7b18dd81195a62f99bfce3a677>`(
+		GstBuffer* buffer,
+		gint id
+	);
+
+	:ref:`GstGVAAudioEventMeta<doxid-struct_gst_g_v_a_audio_event_meta>`* :target:`gst_gva_buffer_add_audio_event_meta<doxid-gva__audio__event__meta_8h_1a4afcfba36998cd584614490ecf310f75>`(
+		GstBuffer* buffer,
+		const gchar* event_type,
+		gulong start_timestamp,
+		gulong end_timestamp
+	);
+
+	:ref:`GstGVAAudioEventMeta<doxid-struct_gst_g_v_a_audio_event_meta>`* :target:`gst_gva_buffer_add_audio_event_meta_id<doxid-gva__audio__event__meta_8h_1a37a9125b4ca9dfddfabb5a75a0fd1672>`(
+		GstBuffer* buffer,
+		GQuark event_type,
+		gulong start_timestamp,
+		gulong end_timestamp
+	);
+
+	void :target:`gst_gva_audio_event_meta_add_param<doxid-gva__audio__event__meta_8h_1ab2ac8cd76f8f0a52f344f80921903f20>`(
+		:ref:`GstGVAAudioEventMeta<doxid-struct_gst_g_v_a_audio_event_meta>`* meta,
+		GstStructure* s
+	);
+
+	GstStructure* :target:`gst_gva_audio_event_meta_get_param<doxid-gva__audio__event__meta_8h_1ad70cb8cbce41685958c327888e1b1a4d>`(
+		:ref:`GstGVAAudioEventMeta<doxid-struct_gst_g_v_a_audio_event_meta>`* meta,
+		const gchar* name
+	);
+
+	const GstMetaInfo* :ref:`gst_gva_json_meta_get_info<doxid-gva__json__meta_8h_1aa3e2cbd81b77b33be3a69a11c190cb57>`(void);
+	GType :ref:`gst_gva_json_meta_api_get_type<doxid-gva__json__meta_8h_1a4136c51ca9905bc6da7a3536ca957899>`(void);
+	gchar* :ref:`get_json_message<doxid-gva__json__meta_8h_1aa545ce5192458c944e25cd7a420ba6c1>`(:ref:`GstGVAJSONMeta<doxid-gva__json__meta_8h_1a64a17a6fb82826c3a7159e71c9449a54>`* meta);
+	void :ref:`set_json_message<doxid-gva__json__meta_8h_1a0ea9b77e35bd236b9d3e842764a970ae>`(:ref:`GstGVAJSONMeta<doxid-gva__json__meta_8h_1a64a17a6fb82826c3a7159e71c9449a54>`* meta, const gchar* message);
+	const void* :ref:`gva_get_tensor_data<doxid-gva__tensor__meta_8h_1a10f40dae431beeca931a84d6e803df03>`(GstStructure* s, gsize* nbytes);
+	const GstMetaInfo* :ref:`gst_gva_tensor_meta_get_info<doxid-gva__tensor__meta_8h_1a09753594569dbadb68669cdddf5bdad1>`(void);
+	GType :ref:`gst_gva_tensor_meta_api_get_type<doxid-gva__tensor__meta_8h_1ac5b45e42b95ae7bb4bd51711551fd3c1>`(void);
+
+	:ref:`GstGVATensorMeta<doxid-gva__tensor__meta_8h_1a038ecf5fdabb0acf1f2053800ba16d62>`* :ref:`find_tensor_meta<doxid-gva__tensor__meta_8h_1a8c412ce7685600f250c77914b95bdb1f>`(
+		GstBuffer* buffer,
+		const char* model_name,
+		const char* output_layer
+	);
+
+	:ref:`GstGVATensorMeta<doxid-gva__tensor__meta_8h_1a038ecf5fdabb0acf1f2053800ba16d62>`* :ref:`find_tensor_meta_ext<doxid-gva__tensor__meta_8h_1a9ffad4d93dc268c876678f6565a4745a>`(
+		GstBuffer* buffer,
+		const char* model_name,
+		const char* output_layer,
+		const char* element_id
+	);
+
+	GST_EXPORT gboolean :target:`register_element_gst_plugin<doxid-plugin_8h_1a778af1fb568fd01400c33e1bc59b957f>`(
+		const :ref:`dlstreamer::ElementDesc<doxid-structdlstreamer_1_1_element_desc>`* element,
+		GstPlugin* plugin
+	);
+
+	GST_EXPORT gboolean :target:`register_elements_gst_plugin<doxid-plugin_8h_1a647fb58a58356734d096474386eb7c1d>`(
+		const :ref:`dlstreamer::ElementDesc<doxid-structdlstreamer_1_1_element_desc>`** elements,
+		GstPlugin* plugin
+	);
+
+.. _details-global:
+
+Detailed Documentation
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+Global Functions
+----------------
+
+.. index:: pair: function; gst_gva_json_meta_get_info
+.. _doxid-gva__json__meta_8h_1aa3e2cbd81b77b33be3a69a11c190cb57:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	const GstMetaInfo* gst_gva_json_meta_get_info(void)
+
+This function registers, if needed, and returns GstMetaInfo for :ref:`_GstGVAJSONMeta <doxid-struct___gst_g_v_a_j_s_o_n_meta>`.
+
+
+
+.. rubric:: Returns:
+
+const GstMetaInfo* for registered type
+
+.. index:: pair: function; gst_gva_json_meta_api_get_type
+.. _doxid-gva__json__meta_8h_1a4136c51ca9905bc6da7a3536ca957899:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	GType gst_gva_json_meta_api_get_type(void)
+
+This function registers, if needed, and returns a GType for api "GstGVAJSONMetaAPI" and associate it with GVA_JSON_META_TAG tag.
+
+
+
+.. rubric:: Returns:
+
+GType type
+
+.. index:: pair: function; get_json_message
+.. _doxid-gva__json__meta_8h_1aa545ce5192458c944e25cd7a420ba6c1:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	gchar* get_json_message(:ref:`GstGVAJSONMeta<doxid-gva__json__meta_8h_1a64a17a6fb82826c3a7159e71c9449a54>`* meta)
+
+This function returns message field of :ref:`_GstGVAJSONMeta <doxid-struct___gst_g_v_a_j_s_o_n_meta>`.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+	:widths: 20 80
+
+	*
+		- meta
+
+		- _GstGVAJSONMeta* to retrieve message of
+
+
+
+.. rubric:: Returns:
+
+C-style string with message
+
+.. index:: pair: function; set_json_message
+.. _doxid-gva__json__meta_8h_1a0ea9b77e35bd236b9d3e842764a970ae:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	void set_json_message(:ref:`GstGVAJSONMeta<doxid-gva__json__meta_8h_1a64a17a6fb82826c3a7159e71c9449a54>`* meta, const gchar* message)
+
+This function sets message field of :ref:`_GstGVAJSONMeta <doxid-struct___gst_g_v_a_j_s_o_n_meta>`.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+	:widths: 20 80
+
+	*
+		- meta
+
+		- _GstGVAJSONMeta* to set message
+
+	*
+		- message
+
+		- message
+
+
+
+.. rubric:: Returns:
+
+void
+
+.. index:: pair: function; gva_get_tensor_data
+.. _doxid-gva__tensor__meta_8h_1a10f40dae431beeca931a84d6e803df03:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	const void* gva_get_tensor_data(GstStructure* s, gsize* nbytes)
+
+This function returns a pointer to the fixed array of tensor bytes.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+	:widths: 20 80
+
+	*
+		- s
+
+		- GstStructure* to get tensor from. It's assumed that tensor data is stored in "data_buffer" field
+
+	*
+		- nbytes
+
+		- pointer to the location to store the number of bytes in returned array
+
+
+
+.. rubric:: Returns:
+
+void* to tensor data as bytes, NULL if s has no "data_buffer" field
+
+.. index:: pair: function; gst_gva_tensor_meta_get_info
+.. _doxid-gva__tensor__meta_8h_1a09753594569dbadb68669cdddf5bdad1:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	const GstMetaInfo* gst_gva_tensor_meta_get_info(void)
+
+This function registers, if needed, and returns GstMetaInfo for :ref:`_GstGVATensorMeta <doxid-struct___gst_g_v_a_tensor_meta>`.
+
+
+
+.. rubric:: Returns:
+
+GstMetaInfo* for registered type
+
+.. index:: pair: function; gst_gva_tensor_meta_api_get_type
+.. _doxid-gva__tensor__meta_8h_1ac5b45e42b95ae7bb4bd51711551fd3c1:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	GType gst_gva_tensor_meta_api_get_type(void)
+
+This function registers, if needed, and returns a GType for api "GstGVATensorMetaAPI" and associate it with GVA_TENSOR_META_TAG tag.
+
+
+
+.. rubric:: Returns:
+
+GType type
+
+.. index:: pair: function; find_tensor_meta
+.. _doxid-gva__tensor__meta_8h_1a8c412ce7685600f250c77914b95bdb1f:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	:ref:`GstGVATensorMeta<doxid-gva__tensor__meta_8h_1a038ecf5fdabb0acf1f2053800ba16d62>`* find_tensor_meta(
+		GstBuffer* buffer,
+		const char* model_name,
+		const char* output_layer
+	)
+
+This function searches for first :ref:`_GstGVATensorMeta <doxid-struct___gst_g_v_a_tensor_meta>` instance that satisfies passed parameters.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+	:widths: 20 80
+
+	*
+		- buffer
+
+		- GstBuffer* that is searched for metadata
+
+	*
+		- model_name
+
+		- substring that should be in :ref:`_GstGVATensorMeta <doxid-struct___gst_g_v_a_tensor_meta>` instance's model_name
+
+	*
+		- output_layer
+
+		- substring that should be in :ref:`_GstGVATensorMeta <doxid-struct___gst_g_v_a_tensor_meta>` instance's layer_name
+
+
+
+.. rubric:: Returns:
+
+GstGVATensorMeta* for found instance or NULL if none are found
+
+.. index:: pair: function; find_tensor_meta_ext
+.. _doxid-gva__tensor__meta_8h_1a9ffad4d93dc268c876678f6565a4745a:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	:ref:`GstGVATensorMeta<doxid-gva__tensor__meta_8h_1a038ecf5fdabb0acf1f2053800ba16d62>`* find_tensor_meta_ext(
+		GstBuffer* buffer,
+		const char* model_name,
+		const char* output_layer,
+		const char* element_id
+	)
+
+This function searches for first :ref:`_GstGVATensorMeta <doxid-struct___gst_g_v_a_tensor_meta>` instance that satisfies passed parameters.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+	:widths: 20 80
+
+	*
+		- buffer
+
+		- GstBuffer* that is searched for metadata
+
+	*
+		- model_name
+
+		- substring that should be in :ref:`_GstGVATensorMeta <doxid-struct___gst_g_v_a_tensor_meta>` instance's model_name
+
+	*
+		- output_layer
+
+		- substring that should be in :ref:`_GstGVATensorMeta <doxid-struct___gst_g_v_a_tensor_meta>` instance's layer_name
+
+	*
+		- element_id
+
+		- element_id substring that should be in :ref:`_GstGVATensorMeta <doxid-struct___gst_g_v_a_tensor_meta>` instance's element_id
+
+
+
+.. rubric:: Returns:
+
+GstGVATensorMeta* for found instance or NULL if none are found
+

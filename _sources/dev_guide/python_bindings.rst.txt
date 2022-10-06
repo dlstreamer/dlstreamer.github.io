@@ -9,7 +9,7 @@ Ubuntu you can install it through apt package manager as
 
 ::
 
-   sudo apt-get install python-gst-1.0
+   sudo apt-get install python3-gst-1.0
 
 GStreamer Python interface has one-to-one mapping with C interface as
 Python wrappers generated automatically via GObject introspection.
@@ -19,7 +19,7 @@ connecting elements programmatically), set pad probe callback(s) on
 source or sink pad of any element in the pipeline, etc.
 
 Please see Python sample
-`draw_face_attributes.py <https://github.com/dlstreamer/dlstreamer/blob/master/samples/python/draw_face_attributes/draw_face_attributes.py>`__
+`draw_face_attributes.py <https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/python/draw_face_attributes/draw_face_attributes.py>`__
 as one of examples.
 
 2. Video-analytics specific Python bindings
@@ -72,7 +72,7 @@ The *gvapython* element implemented in “C” language as normal GStreamer
 element and invokes Python functions via “C” interface (Python.h).
 
 Please see samples for *gvapython* element in `this
-folder <https://github.com/dlstreamer/dlstreamer/tree/master/samples/gst_launch/gvapython/face_detection_and_classification>`__
+folder <https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/gst_launch/gvapython/face_detection_and_classification>`__
 
 4. Performance considerations
 -----------------------------

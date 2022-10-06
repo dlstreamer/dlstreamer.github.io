@@ -29,7 +29,7 @@ This class represents region of interest - object describing detection result (b
 		def :ref:`tensors<doxid-classgstgva_1_1region__of__interest_1_1_region_of_interest_1a046ba7fb121d48f07d9ed8af6c736258>`(self self);
 		:ref:`Tensor<doxid-classgstgva_1_1tensor_1_1_tensor>` :ref:`detection<doxid-classgstgva_1_1region__of__interest_1_1_region_of_interest_1a2b6228cf390720f534c33d7d15d3f029>`(self self);
 		int :ref:`label_id<doxid-classgstgva_1_1region__of__interest_1_1_region_of_interest_1af336f75b2857158690fae653cc18b60b>`(self self);
-		:ref:`Tensor<doxid-classgstgva_1_1tensor_1_1_tensor>` :ref:`add_tensor<doxid-classgstgva_1_1region__of__interest_1_1_region_of_interest_1a0a4712fb53d3878b920f72d58f151331>`(self self, str name = "");
+		:ref:`Tensor<doxid-classgstgva_1_1tensor_1_1_tensor>` :ref:`add_tensor<doxid-classgstgva_1_1region__of__interest_1_1_region_of_interest_1af34160d6f6385fa1a3e326e154f667ef>`(self self, str name = "", :ref:`Tensor<doxid-classgstgva_1_1tensor_1_1_tensor>` tensor = None);
 		VideoRegionOfInterestMeta :ref:`meta<doxid-classgstgva_1_1region__of__interest_1_1_region_of_interest_1a7a3b0b57c0aac876304f5d1d093e43b4>`(self self);
 		def :ref:`__init__<doxid-classgstgva_1_1region__of__interest_1_1_region_of_interest_1a59fefcf6558f61f2ecc01ec866294d5e>`(self self, VideoRegionOfInterestMeta roi_meta);
 		def :ref:`region_id<doxid-classgstgva_1_1region__of__interest_1_1_region_of_interest_1acbd5d4152932e649b2f4a9bc54432dfe>`(self self);
@@ -177,12 +177,12 @@ Get label_id from detection Tensor, last added to this :ref:`RegionOfInterest <d
 last added detection Tensor label_id if exists, otherwise None
 
 .. index:: pair: function; add_tensor
-.. _doxid-classgstgva_1_1region__of__interest_1_1_region_of_interest_1a0a4712fb53d3878b920f72d58f151331:
+.. _doxid-classgstgva_1_1region__of__interest_1_1_region_of_interest_1af34160d6f6385fa1a3e326e154f667ef:
 
 .. ref-code-block:: cpp
 	:class: doxyrest-title-code-block
 
-	:ref:`Tensor<doxid-classgstgva_1_1tensor_1_1_tensor>` add_tensor(self self, str name = "")
+	:ref:`Tensor<doxid-classgstgva_1_1tensor_1_1_tensor>` add_tensor(self self, str name = "", :ref:`Tensor<doxid-classgstgva_1_1tensor_1_1_tensor>` tensor = None)
 
 Add new Tensor (inference result) to the :ref:`RegionOfInterest <doxid-classgstgva_1_1region__of__interest_1_1_region_of_interest>`.
 
@@ -196,7 +196,12 @@ Add new Tensor (inference result) to the :ref:`RegionOfInterest <doxid-classgstg
 	*
 		- name
 
-		- Name for the tensor. This function does not take ownership of tensor passed, but only copies its contents
+		- Name for the tensor.
+
+	*
+		- tensor
+
+		- (optional) Tensor object. This function does not take ownership of tensor passed, but only copies its contents
 
 
 

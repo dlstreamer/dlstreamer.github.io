@@ -1,12 +1,12 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
 
-    <title>Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework &#8212; Intel® DL Streamer  documentation</title>
+    <title>Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +21,8 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/doxyrest-pygments.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -30,15 +31,17 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/target-highlight.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="How to Contribute" href="how_to_contribute.html" />
-    <link rel="prev" title="Object Tracking" href="object_tracking.html" />
+    <link rel="prev" title="Profiling with Intel VTune™" href="profiling.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -75,7 +78,7 @@
       
       
       
-      <h1 class="site-logo" id="site-title">Intel® DL Streamer  documentation</h1>
+      <h1 class="site-logo" id="site-title">Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -114,16 +117,6 @@
        Install Guide Ubuntu
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../get_started/install/install_guide_rhel.html">
-       Install Guide RHEL
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../get_started/install/install_guide_windows.html">
-       Install Guide Windows (Preview)
-      </a>
-     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -132,7 +125,7 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/README.md">
+    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">
      Samples
     </a>
    </li>
@@ -153,10 +146,22 @@
      Metadata
     </a>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="model_preparation.html">
      Model Preparation
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="yolov5_model_preparation.html">
+       Yolov5 Model Preparation Example
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="model_proc_file.html">
@@ -183,6 +188,11 @@
      Object Tracking
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="profiling.html">
+     Profiling with Intel VTune™
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
@@ -192,23 +202,6 @@
     <a class="reference internal" href="how_to_contribute.html">
      How to Contribute
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="coding_style.html">
-       Coding Style
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="preview_features/preview_features.html">
-     Preview Features
-    </a>
     <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
     <label for="toctree-checkbox-5">
      <i class="fas fa-chevron-down">
@@ -216,13 +209,8 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="preview_features/action_recognition.html">
-       Action Recognition
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="preview_features/segmentation.html">
-       Segmentation
+      <a class="reference internal" href="coding_style.html">
+       Coding Style
       </a>
      </li>
     </ul>
@@ -240,11 +228,6 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvainference.html">
-     gvainference
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvadetect.html">
      gvadetect
     </a>
@@ -252,6 +235,16 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvaclassify.html">
      gvaclassify
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvainference.html">
+     gvainference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvaaudiodetect.html">
+     gvaaudiodetect
     </a>
    </li>
    <li class="toctree-l2">
@@ -275,16 +268,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvaaudiodetect.html">
-     gvaaudiodetect
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvafpscounter.html">
-     gvafpscounter
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvapython.html">
      gvapython
     </a>
@@ -292,6 +275,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvawatermark.html">
      gvawatermark
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvafpscounter.html">
+     gvafpscounter
     </a>
    </li>
   </ul>
@@ -444,6 +432,117 @@
        </i>
       </label>
       <ul class="simple">
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../architecture_2.0/architecture_2.0.html">
+   Architecture 2.0 [Preview]
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/migration_guide.html">
+     Migration to 2.0
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/cpp_interfaces.html">
+     ① Memory Interop and C++ abstract interfaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/cpp_elements.html">
+     ② C++ elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/gstreamer_elements.html">
+     ③ GStreamer Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/gstreamer_bins.html">
+     ③ GStreamer Bin Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/python_bindings.html">
+     ③ Python Bindings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/elements_list.html">
+     Elements 2.0 reference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/packaging.html">
+     Packaging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/samples_2.0.html">
+     Samples 2.0
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../architecture_2.0/api_ref/index.html">
+     API 2.0 Reference
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../architecture_2.0/api_ref/global.html">
+       Global Namespace
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/namespace_dlstreamer.html">
+         namespace dlstreamer
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVALayout.html">
+         enum GVALayout
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html">
+         enum GVAPrecision
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html">
+         struct GstGVAAudioEventMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVAJSONMeta.html">
+         struct _GstGVAJSONMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html">
+         struct _GstGVATensorMeta
+        </a>
+       </li>
       </ul>
      </li>
     </ul>
@@ -686,7 +785,7 @@ title="Print to PDF"
               <div>
                 
   <section id="converting-nvidia-deepstream-pipelines-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework">
-<h1>Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework<a class="headerlink" href="#converting-nvidia-deepstream-pipelines-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework" title="Permalink to this headline">#</a></h1>
+<h1>Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework<a class="headerlink" href="#converting-nvidia-deepstream-pipelines-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework" title="Permalink to this heading">#</a></h1>
 <p>This document will describe the steps to convert a pipeline from NVIDIA
 DeepStream to Intel® DL Streamer Pipeline Framework.
 We also have a running example through the document that will be updated at
@@ -697,7 +796,7 @@ each step to help show the modifications being described.</p>
 there as a reference example of the changes being made in each section.</p>
 </div>
 <section id="preparing-your-model">
-<h2>Preparing Your Model<a class="headerlink" href="#preparing-your-model" title="Permalink to this headline">#</a></h2>
+<h2>Preparing Your Model<a class="headerlink" href="#preparing-your-model" title="Permalink to this heading">#</a></h2>
 <p>To use Intel® DL Streamer Pipeline Framework and OpenVINO™ Toolkit the
 model needs to be in Intermediate Representation (IR) format. To convert
 your model to this format, use the <a class="reference external" href="https://docs.openvino.ai/latest/openvino_docs_MO_DG_Deep_Learning_Model_Optimizer_DevGuide.html">Model Optimizer</a>
@@ -709,7 +808,7 @@ for more information on creating a model-proc file and examples with
 various models from <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo">Open Model Zoo</a>.</p>
 </section>
 <section id="gstreamer-pipeline-adjustments">
-<h2>GStreamer Pipeline Adjustments<a class="headerlink" href="#gstreamer-pipeline-adjustments" title="Permalink to this headline">#</a></h2>
+<h2>GStreamer Pipeline Adjustments<a class="headerlink" href="#gstreamer-pipeline-adjustments" title="Permalink to this heading">#</a></h2>
 <p>In the following sections we will be converting the below pipeline that
 is using DeepStream elements to Pipeline Framework. It is taken from one of the
 examples
@@ -725,7 +824,7 @@ nvvideoconvert ! <span class="s2">&quot;video/x-raw, format=I420&quot;</span> ! 
 </pre></div>
 </div>
 <section id="mux-and-demux-elements">
-<h3>Mux and Demux Elements<a class="headerlink" href="#mux-and-demux-elements" title="Permalink to this headline">#</a></h3>
+<h3>Mux and Demux Elements<a class="headerlink" href="#mux-and-demux-elements" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Remove <code class="docutils literal notranslate"><span class="pre">nvstreammux</span></code> and <code class="docutils literal notranslate"><span class="pre">nvstreamdemux</span></code> and all their
 properties.</p>
@@ -753,7 +852,7 @@ nvvideoconvert ! <span class="s2">&quot;video/x-raw, format=I420&quot;</span> ! 
 </div>
 </section>
 <section id="inferencing-elements">
-<h3>Inferencing Elements<a class="headerlink" href="#inferencing-elements" title="Permalink to this headline">#</a></h3>
+<h3>Inferencing Elements<a class="headerlink" href="#inferencing-elements" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Remove <code class="docutils literal notranslate"><span class="pre">nvinfer</span></code> and replace it with <code class="docutils literal notranslate"><span class="pre">gvainference</span></code>,
 <code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> or <code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code> depending on the following use
@@ -808,7 +907,7 @@ nvvideoconvert ! <span class="s2">&quot;video/x-raw, format=I420&quot;</span> ! 
 </div>
 </section>
 <section id="video-processing-elements">
-<h3>Video Processing Elements<a class="headerlink" href="#video-processing-elements" title="Permalink to this headline">#</a></h3>
+<h3>Video Processing Elements<a class="headerlink" href="#video-processing-elements" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Replace video processing elements with vaapi equivalents for GPU or
 native GStreamer elements for CPU.</p>
@@ -848,7 +947,7 @@ videoconvert ! avenc_mpeg4 <span class="nv">bitrate</span><span class="o">=</spa
 </div>
 </section>
 <section id="metadata-elements">
-<h3>Metadata Elements<a class="headerlink" href="#metadata-elements" title="Permalink to this headline">#</a></h3>
+<h3>Metadata Elements<a class="headerlink" href="#metadata-elements" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Replace <code class="docutils literal notranslate"><span class="pre">nvtracker</span></code> with
 <a class="reference internal" href="../elements/gvatrack.html"><span class="doc">gvatrack</span></a></p>
@@ -897,7 +996,7 @@ videoconvert ! avenc_mpeg4 <span class="nv">bitrate</span><span class="o">=</spa
 </section>
 </section>
 <section id="multiple-input-streams">
-<span id="id1"></span><h2>Multiple Input Streams<a class="headerlink" href="#multiple-input-streams" title="Permalink to this headline">#</a></h2>
+<span id="id1"></span><h2>Multiple Input Streams<a class="headerlink" href="#multiple-input-streams" title="Permalink to this heading">#</a></h2>
 <div class="line-block">
 <div class="line">Unlike DeepStream, where all sources need to be linked to the sink
 pads of the <code class="docutils literal notranslate"><span class="pre">nvstreammux</span></code> element, Pipeline Framework shares all model and
@@ -926,11 +1025,11 @@ example of a pipeline with two streams.</div>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="object_tracking.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="profiling.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Object Tracking</p>
+            <p class="prev-next-title">Profiling with Intel VTune™</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="how_to_contribute.html" title="next page">

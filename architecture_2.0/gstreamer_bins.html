@@ -1,0 +1,1252 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+
+    <title>③ GStreamer Bin Elements &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/doxyrest-pygments.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/target-highlight.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="③ Python Bindings" href="python_bindings.html" />
+    <link rel="prev" title="③ GStreamer Elements" href="gstreamer_elements.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../get_started/get_started_index.html">
+   Get Started
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../get_started/hardware_requirements.html">
+     Hardware Requirements
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../get_started/install/install_guide_index.html">
+     Install Guide
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../get_started/install/install_guide_ubuntu.html">
+       Install Guide Ubuntu
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../get_started/tutorial.html">
+     Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">
+     Samples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../dev_guide/dev_guide_index.html">
+   Developer Guide
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/metadata.html">
+     Metadata
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../dev_guide/model_preparation.html">
+     Model Preparation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../dev_guide/yolov5_model_preparation.html">
+       Yolov5 Model Preparation Example
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/model_proc_file.html">
+     Model-proc File
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/how_to_create_model_proc_file.html">
+     How to Create Model-proc File
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/python_bindings.html">
+     Python Bindings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/custom_processing.html">
+     Custom Processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/object_tracking.html">
+     Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/profiling.html">
+     Profiling with Intel VTune™
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/converting_deepstream_to_dlstreamer.html">
+     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../dev_guide/how_to_contribute.html">
+     How to Contribute
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../dev_guide/coding_style.html">
+       Coding Style
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../elements/elements.html">
+   Elements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvadetect.html">
+     gvadetect
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvaclassify.html">
+     gvaclassify
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvainference.html">
+     gvainference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvaaudiodetect.html">
+     gvaaudiodetect
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvatrack.html">
+     gvatrack
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvametaconvert.html">
+     gvametaconvert
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvametapublish.html">
+     gvametapublish
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvametaaggregate.html">
+     gvametaaggregate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvapython.html">
+     gvapython
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvawatermark.html">
+     gvawatermark
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvafpscounter.html">
+     gvafpscounter
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../supported_models.html">
+   Supported Models
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../api_ref/api_reference.html">
+   API Reference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api_ref/page_index.html">
+     Intel® Deep Learning Streamer (Intel® DL Streamer) API reference
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../api_ref/global.html">
+     Global Namespace
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api_ref/namespace_GVA.html">
+       namespace GVA
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/struct_GVA_Rect.html">
+         template struct GVA::Rect
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/struct_GVA_Segment.html">
+         template struct GVA::Segment
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/class_GVA_AudioEvent.html">
+         class GVA::AudioEvent
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/class_GVA_AudioFrame.html">
+         class GVA::AudioFrame
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/class_GVA_RegionOfInterest.html">
+         class GVA::RegionOfInterest
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/class_GVA_Tensor.html">
+         class GVA::Tensor
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/class_GVA_VideoFrame.html">
+         class GVA::VideoFrame
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api_ref/namespace_gstgva.html">
+       namespace gstgva
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/namespace_gstgva_region_of_interest.html">
+         namespace gstgva::region_of_interest
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/namespace_gstgva_tensor.html">
+         namespace gstgva::tensor
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api_ref/namespace_gstgva_video_frame.html">
+         namespace gstgva::video_frame
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../api_ref/enum_GVALayout.html">
+       enum GVALayout
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../api_ref/enum_GVAPrecision.html">
+       enum GVAPrecision
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api_ref/struct_GstGVAAudioEventMeta.html">
+       struct GstGVAAudioEventMeta
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="simple">
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api_ref/struct__GstGVAJSONMeta.html">
+       struct _GstGVAJSONMeta
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="simple">
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api_ref/struct__GstGVATensorMeta.html">
+       struct _GstGVATensorMeta
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="simple">
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="architecture_2.0.html">
+   Architecture 2.0 [Preview]
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="migration_guide.html">
+     Migration to 2.0
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cpp_interfaces.html">
+     ① Memory Interop and C++ abstract interfaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cpp_elements.html">
+     ② C++ elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gstreamer_elements.html">
+     ③ GStreamer Elements
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     ③ GStreamer Bin Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="python_bindings.html">
+     ③ Python Bindings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="elements_list.html">
+     Elements 2.0 reference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="packaging.html">
+     Packaging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="samples_2.0.html">
+     Samples 2.0
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="api_ref/index.html">
+     API 2.0 Reference
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api_ref/global.html">
+       Global Namespace
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/namespace_dlstreamer.html">
+         namespace dlstreamer
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/enum_GVALayout.html">
+         enum GVALayout
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/enum_GVAPrecision.html">
+         enum GVAPrecision
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/struct_GstGVAAudioEventMeta.html">
+         struct GstGVAAudioEventMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/struct__GstGVAJSONMeta.html">
+         struct _GstGVAJSONMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api_ref/struct__GstGVATensorMeta.html">
+         struct _GstGVATensorMeta
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/architecture_2.0/gstreamer_bins.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pipelines-with-branches">
+   Pipelines with branches
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pre-processing">
+   Pre-processing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#video-pre-processing">
+     Video Pre-processing
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#video-pre-processing-backends-for-inference">
+       Video Pre-processing Backends for Inference
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#video-pre-processing-elements">
+       Video Pre-processing Elements
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#batched-pre-processing">
+     Batched Pre-processing
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#batched-pre-processing-shared-across-multiple-streams">
+       Batched Pre-processing shared across multiple streams
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#processing">
+   Processing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#post-processing">
+   Post-processing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bin-elements">
+   Bin elements
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#element-video-inference">
+     Element
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       video_inference
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#element-object-detect">
+     Element
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       object_detect
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#element-object-classify">
+     Element
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       object_classify
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>③ GStreamer Bin Elements</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pipelines-with-branches">
+   Pipelines with branches
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pre-processing">
+   Pre-processing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#video-pre-processing">
+     Video Pre-processing
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#video-pre-processing-backends-for-inference">
+       Video Pre-processing Backends for Inference
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#video-pre-processing-elements">
+       Video Pre-processing Elements
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#batched-pre-processing">
+     Batched Pre-processing
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#batched-pre-processing-shared-across-multiple-streams">
+       Batched Pre-processing shared across multiple streams
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#processing">
+   Processing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#post-processing">
+   Post-processing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bin-elements">
+   Bin elements
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#element-video-inference">
+     Element
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       video_inference
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#element-object-detect">
+     Element
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       object_detect
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#element-object-classify">
+     Element
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       object_classify
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="gstreamer-bin-elements">
+<h1>③ GStreamer Bin Elements<a class="headerlink" href="#gstreamer-bin-elements" title="Permalink to this heading">#</a></h1>
+<p>DL Streamer uses GStreamer bin elements to simplify creation of a media analytics pipeline by providing most known scenarios in the form of built single elements, such as inference, detection, classification, tracking, etc.
+Internally such elements builds sub-pipeline using <em>low-level elements</em>.
+The diagram below shows high-level sub-pipeline inside DL Streamer bin elements.</p>
+<figure class="align-default" id="id1">
+<div class="graphviz"><img src="../_images/graphviz-e160988decf24946f8bba32bb52787891b34aac5.png" alt="digraph {
+  rankdir=&quot;LR&quot;
+  node[shape=box, style=&quot;rounded, filled&quot;, fillcolor=white]
+
+  tee[label=&quot;tee&quot;, fillcolor=gray95]
+  preproc[label=&quot;Pre-processing&quot;]
+  processing[label=&quot;Processing&quot;]
+  postproc[label=&quot;Post-processing&quot;]
+  aggregate[label=&quot;Aggregate&quot;]
+
+  tee -&gt; preproc -&gt; processing -&gt; postproc -&gt; aggregate
+  tee -&gt; aggregate
+}" class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-text">High level bin elements architecture</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The diagram shows two branches which are produced by <code class="docutils literal notranslate"><span class="pre">tee</span></code> element.
+The <em>upper branch</em> is used for data-processing.
+The <em>bottom branch</em> is used for preserving original frame.</p>
+<section id="pipelines-with-branches">
+<h2>Pipelines with branches<a class="headerlink" href="#pipelines-with-branches" title="Permalink to this heading">#</a></h2>
+<p>Pipeline with branches is a bit tricky to write. So, an auxilary element was introduced – <code class="docutils literal notranslate"><span class="pre">processbin</span></code>.
+Is simplifies writing pipelines shown on <cite>High level bin elements architecture</cite> graph.</p>
+<p>Here’s an example of the same pipeline without and with <code class="docutils literal notranslate"><span class="pre">processbin</span></code>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Without processbin</span>
+filesrc <span class="nv">location</span><span class="o">=</span><span class="nv">$FILE</span> ! decodebin ! <span class="se">\</span>
+tee <span class="nv">name</span><span class="o">=</span>t t. ! queue !  meta_aggregate <span class="nv">name</span><span class="o">=</span>mux ! fakesink <span class="se">\</span>
+t. ! videoscale ! videoconvert ! video/x-raw,format<span class="o">=</span>BGRP ! tensor_convert ! <span class="se">\</span>
+  openvino_tensor_inference <span class="nv">model</span><span class="o">=</span><span class="nv">$MODEL</span> <span class="nv">device</span><span class="o">=</span>CPU ! <span class="se">\</span>
+  queue ! tensor_postproc_detection <span class="nv">threshold</span><span class="o">=</span><span class="m">0</span>.5 ! mux.
+
+<span class="c1"># Using processbin</span>
+filesrc <span class="nv">location</span><span class="o">=</span><span class="nv">$FILE</span> ! decodebin ! <span class="se">\</span>
+processbin <span class="se">\</span>
+  <span class="nv">preprocess</span><span class="o">=</span><span class="s2">&quot;videoscale ! videoconvert ! video/x-raw,format=BGRP ! tensor_convert&quot;</span> <span class="se">\</span>
+  <span class="nv">process</span><span class="o">=</span><span class="s2">&quot;openvino_tensor_inference model=</span><span class="nv">$MODEL</span><span class="s2"> device=CPU&quot;</span> <span class="se">\</span>
+  <span class="nv">postprocess</span><span class="o">=</span><span class="s2">&quot;queue ! tensor_postproc_detection threshold=0.5&quot;</span> <span class="se">\</span>
+  <span class="nv">aggregate</span><span class="o">=</span><span class="s2">&quot;meta_aggregate&quot;</span> ! <span class="se">\</span>
+fakesink
+</pre></div>
+</div>
+<p>In some way, <code class="docutils literal notranslate"><span class="pre">processbin</span></code> flattens the pipeline, so it’s easier to write, read, and modify.
+Internally, it builds sub-pipeline wich is shown on <cite>High level bin elements architecture</cite> diagram.</p>
+</section>
+<section id="pre-processing">
+<h2>Pre-processing<a class="headerlink" href="#pre-processing" title="Permalink to this heading">#</a></h2>
+<p>Block <cite>Pre-processing</cite> on diagram <cite>High level bin elements architecture</cite> may contain one or multiple <em>low-level elements</em> to convert <code class="docutils literal notranslate"><span class="pre">video/x-raw</span></code> or <code class="docutils literal notranslate"><span class="pre">audio/x-raw</span></code> buffers
+into data format and layout required by <cite>processing element</cite>, according to caps negotiation with <cite>processing element</cite>.</p>
+<section id="video-pre-processing">
+<h3>Video Pre-processing<a class="headerlink" href="#video-pre-processing" title="Permalink to this heading">#</a></h3>
+<p>Typical video pre-processing operations include scaling, color conversion, normalization.</p>
+<section id="video-pre-processing-backends-for-inference">
+<h4>Video Pre-processing Backends for Inference<a class="headerlink" href="#video-pre-processing-backends-for-inference" title="Permalink to this heading">#</a></h4>
+<p>Pre-processing operations inserted into pipeline between decode and inference operations.
+By performance and data locality considerations, pre-processing designed to support different backend libraries and can run on CPU or GPU device depending on CPU or GPU device of inference and decode.
+Intel® Deep Learning Streamer (Intel® DL Streamer) has following pre-processing backends:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gst-opencv</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vaapi-opencl</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vaapi-tensors</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vaapi</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vaapi-surface-sharing</span></code></p></li>
+</ul>
+<p>Some of pre-processing backends follows schema <em>PRIMARY-SECONDARY</em>, where <em>PRIMARY</em> is used for as many operations as possible, and <em>SECONDARY</em> is used for all remaining operations if any:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gst</span></code>: GStreamer standard elements</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">opencv</span></code>: <em>low-level elements</em> based on OpenCV library</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vaapi</span></code>: GStreamer standard and Intel® DL Streamer <strong>low-level elements</strong> based on media GPU-acceleration interface VA-API</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">opencl</span></code>: <em>low-level elements</em> based on OpenCL library</p></li>
+</ul>
+<p>The following table summarizes default preprocessing backend depending on decode or inference device.
+Note that preprocessing elements communicate with decode element only by caps negotiation, and assume CPU decode if caps negotiated to <cite>memory:System</cite> and GPU decode if caps negotiated to <cite>memory:VASurface</cite>.
+You can override default pre-processing backend by setting property <cite>pre-process-backend</cite> in bin elements, however not all combinations of decode and inference devices and pre-processing backends are compatible,
+and overriding pre-processing backend may impact performance.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Decode device</p></th>
+<th class="head"><p>Inference device</p></th>
+<th class="head"><p>Default Pre-processing Backend</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CPU</p></td>
+<td><p>CPU</p></td>
+<td><p>gst-opencv</p></td>
+</tr>
+<tr class="row-odd"><td><p>CPU</p></td>
+<td><p>GPU</p></td>
+<td><p>gst-opencv</p></td>
+</tr>
+<tr class="row-even"><td><p>GPU</p></td>
+<td><p>CPU</p></td>
+<td><p>vaapi</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPU</p></td>
+<td><p>GPU</p></td>
+<td><p>vaapi-surface-sharing</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="video-pre-processing-elements">
+<h4>Video Pre-processing Elements<a class="headerlink" href="#video-pre-processing-elements" title="Permalink to this heading">#</a></h4>
+<p>Pre-processing performs differently in case of full-frame inference and per-ROI <em>(Region Of Interest)</em> inference. You can control this using property <code class="docutils literal notranslate"><span class="pre">inference-region</span></code> in bin elements. In can be set either to <code class="docutils literal notranslate"><span class="pre">full-frame</span></code> or <code class="docutils literal notranslate"><span class="pre">roi-list</span></code>.</p>
+<p>In case of full-frame inference, pre-processing is normal GStreamer pipeline of scaling, color conversion, and normalization elements executed on full frame.</p>
+<p>In case of per-ROI inference, element <code class="docutils literal notranslate"><span class="pre">roi_split</span></code> inserted before pre-processing elements.
+The <code class="docutils literal notranslate"><span class="pre">roi_split</span></code> iterates over all <code class="docutils literal notranslate"><span class="pre">GstVideoRegionOfInterestMeta</span></code> attached to <code class="docutils literal notranslate"><span class="pre">GstBuffer</span></code>, and produces as many <code class="docutils literal notranslate"><span class="pre">GstBuffer</span></code>’s as metadata found in original buffer.
+Every produced <code class="docutils literal notranslate"><span class="pre">GstBuffer</span></code> has single <code class="docutils literal notranslate"><span class="pre">GstVideoCropMeta</span></code> with rectangle (x,y,w,h) according to <code class="docutils literal notranslate"><span class="pre">GstVideoRegionOfInterestMeta</span></code> in original buffer.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">object-class</span></code> property is set in bin element, this property passed to <code class="docutils literal notranslate"><span class="pre">roi_split</span></code> element.
+As result <code class="docutils literal notranslate"><span class="pre">roi_split</span></code> may produce less buffers than number of <code class="docutils literal notranslate"><span class="pre">GstVideoRegionOfInterestMeta</span></code> in original buffer, skipping all <code class="docutils literal notranslate"><span class="pre">GstVideoRegionOfInterestMeta</span></code> with object class not matching to specified in <code class="docutils literal notranslate"><span class="pre">object-class</span></code> property.
+Effectively, all elements inserted after <code class="docutils literal notranslate"><span class="pre">roi_split</span></code> receive as many buffers per original buffer as number objects on frame require inference operation.</p>
+<p>The graph below high-level representation of per-ROI inference:</p>
+<figure class="align-default" id="id2">
+<div class="graphviz"><img src="../_images/graphviz-a197a846ee9475d5182e820a1fc0af4f0a04b847.png" alt="digraph {
+  rankdir=&quot;LR&quot;
+  node[shape=box, style=&quot;rounded, filled&quot;, fillcolor=white]
+
+  tee[label=&quot;tee&quot;, fillcolor=gray95]
+  preproc[label=&quot;Pre-processing&quot;]
+  infer[label=&quot;Inference&quot;]
+  postproc[label=&quot;Post-processing&quot;]
+  aggregate[label=&quot;meta_aggregate&quot;, fillcolor=lightskyblue1]
+  roisplit[label=&quot;roi_split&quot;, fillcolor=lightskyblue1]
+
+  tee -&gt; roisplit -&gt; preproc -&gt; infer -&gt; postproc -&gt; aggregate
+  tee -&gt; aggregate
+}" class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-text">Per-ROI inference</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="batched-pre-processing">
+<h3>Batched Pre-processing<a class="headerlink" href="#batched-pre-processing" title="Permalink to this heading">#</a></h3>
+<p>The following elements support batched pre-processing for better parallelization and performance:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">batch_create</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vaapi_batch_proc</span></code></p></li>
+</ol>
+<p>If <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> property specified in bin element (and passed to inference element), one of these elements negotiate caps with inference element on <code class="docutils literal notranslate"><span class="pre">other/tensors</span></code> media type having <strong>‘N’</strong> dimension in tensor shape greater than 1.</p>
+<p>Element <code class="docutils literal notranslate"><span class="pre">vaapi_batch_proc</span></code> accumulate internally <em>N</em> frames, then submit VA-API operation on <em>N</em> frames and output single buffer containing pre-processing result of all <em>N</em> frames.
+Element <code class="docutils literal notranslate"><span class="pre">batch_create</span></code> accumulates internally <em>N</em> frames (<code class="docutils literal notranslate"><span class="pre">GstBuffer</span></code>), then pushes them as single <code class="docutils literal notranslate"><span class="pre">GstBufferList</span></code> containing all <em>N</em> frames.</p>
+<p>Inference is performed in batched mode on buffer containing <em>N</em> frames.</p>
+<p>Element <code class="docutils literal notranslate"><span class="pre">batch_split</span></code> inserted after inference element and before post-processing element. This element splits batched frame with <em>N</em> inference results into <em>N</em> frames, so that post-processing element can work in normal mode.</p>
+<section id="batched-pre-processing-shared-across-multiple-streams">
+<h4>Batched Pre-processing shared across multiple streams<a class="headerlink" href="#batched-pre-processing-shared-across-multiple-streams" title="Permalink to this heading">#</a></h4>
+<p>If multiple (<em>M</em>&gt;1) streams run same or similar pipeline with inference on same NN models, specifing property <code class="docutils literal notranslate"><span class="pre">shared-instance-id</span></code> with identical string in all <em>M</em> streams may help to reduce latency in batched mode.
+In this case <em>M</em> instances of element <code class="docutils literal notranslate"><span class="pre">vaapi_batch_proc*</span></code> use single queue to accumulate <em>N</em> (=batch_size) frames from all <em>M</em> streams, so that batched frame may contain data from different streams.</p>
+<p>Information about original source of frames composed into batch (ex, timestamp, stream id, ROI id, object id, etc.) attached to buffer as <code class="docutils literal notranslate"><span class="pre">GstStructure</span></code>-based metadata <code class="docutils literal notranslate"><span class="pre">SourceIdentifierMeta</span></code> and passed downstream.
+So that element <code class="docutils literal notranslate"><span class="pre">batch_split</span></code> can correctly split batched inference result into <em>N</em> results and push each result into corresponding (one of <em>M</em>) stream.</p>
+</section>
+</section>
+</section>
+<section id="processing">
+<h2>Processing<a class="headerlink" href="#processing" title="Permalink to this heading">#</a></h2>
+<p>Block <cite>Processing</cite> on diagram <cite>High level bin elements architecture</cite> usually represended as single element.</p>
+<p>For inference this is an element that infer a result from trained neural network using some inference engine as backend.
+An inference element accepts input data and produces a inference result in form of <code class="docutils literal notranslate"><span class="pre">other/tensors</span></code>.</p>
+<p>Currently only one inference engine is supported - OpenVINO™. And the element, which uses it as inference backend, is named <code class="docutils literal notranslate"><span class="pre">openvino_tensor_inference</span></code>.
+More inference engines can be supported in the future.</p>
+<p>The inference elements sets proper/allowed tensors shape <em>(dims)</em> for input and output caps once NN is read.</p>
+</section>
+<section id="post-processing">
+<h2>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this heading">#</a></h2>
+<p>The <cite>Post-processing</cite> box on diagram <cite>High level bin elements architecture</cite> usually consist of single element.</p>
+<p>In case of inference a post-processing element is responsible for decoding output tensor and converting it into metadata (ex., bouding-boxes, confidences, classes, keypoins, etc.).
+Because different NN models may require different post-processing, there are multiple post-processing elements. In general, every post-processing element that work with tensors starts with <code class="docutils literal notranslate"><span class="pre">tensor_postproc_</span></code> prefix.</p>
+</section>
+<section id="bin-elements">
+<h2>Bin elements<a class="headerlink" href="#bin-elements" title="Permalink to this heading">#</a></h2>
+<p>DL Streamer provides variaty of bin elements to simplify creation of media analytics pipeline.
+Most of DL Streamer bin elements internally use auxilary element <code class="docutils literal notranslate"><span class="pre">processbin</span></code> to create a processing sub-pipeline.</p>
+<section id="element-video-inference">
+<h3>Element <code class="docutils literal notranslate"><span class="pre">video_inference</span></code><a class="headerlink" href="#element-video-inference" title="Permalink to this heading">#</a></h3>
+<p>This is generic inference element, it serves as base for <code class="docutils literal notranslate"><span class="pre">object_detect</span></code> and <code class="docutils literal notranslate"><span class="pre">object_classify</span></code> bin elements. However, it can also be used as is.</p>
+<p>It provides full backward compatibility in terms of element properties with <code class="docutils literal notranslate"><span class="pre">gvainference</span></code> element.</p>
+<p>Below are some of pipelines that the <code class="docutils literal notranslate"><span class="pre">video_inference</span></code> element builds internally based on various parameters, such as input memory type, pre-processing backend, inference device, inference region, etc.
+The elements <code class="docutils literal notranslate"><span class="pre">tee</span></code> and <code class="docutils literal notranslate"><span class="pre">aggregate</span></code> are omitted for simplicity, but in reality they are present in every pipeline.</p>
+<figure class="align-default" id="id3">
+<div class="graphviz"><img src="../_images/graphviz-61cf63ae4feb9f4950ebb6fa2ec1a72032dc3f12.png" alt="digraph cpu_cpu {
+  rankdir=&quot;LR&quot;
+  node[shape=box, style=&quot;rounded, filled&quot;, fillcolor=lightskyblue1]
+
+  subgraph cluster_pre {
+      style=&quot;rounded, dotted&quot;
+      label = &quot;Pre-processing stage&quot;;
+      node[fillcolor=gray95]
+      preproc_in[label=&quot;videoscale&quot;, fillcolor=gray95]
+      preproc_out[label=&quot;tensor_convert&quot;, fillcolor=lightskyblue1]
+      preproc_in -&gt; videoconvert -&gt; preproc_out;
+  }
+
+  infer[label=&quot;openvino_tensor_inference&quot;]
+  postproc[label=&lt;tensor_postproc_&lt;i&gt;xxx&lt;/i&gt;&gt;]
+
+  preproc_out -&gt; infer -&gt; postproc;
+}" class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-text">The <em>gst-opencv</em> pre-processing and full-frame inference on <em>CPU</em> or <em>GPU</em></span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id4">
+<div class="graphviz"><img src="../_images/graphviz-ca748f8c1b4ee878ba873de0fc86f692afe0c76d.png" alt="digraph gpu_cpu {
+  rankdir=&quot;LR&quot;
+  node[shape=box, style=&quot;rounded, filled&quot;, fillcolor=lightskyblue1]
+
+  subgraph cluster_pre {
+      style=&quot;rounded, dotted&quot;
+          label = &quot;Pre-processing stage&quot;;
+      node[fillcolor=gray95]
+      preproc_in[label=&quot;vaapipostproc&quot;, fillcolor=gray95]
+      preproc_out[label=&quot;tensor_convert&quot;, fillcolor=lightskyblue1]
+      preproc_in -&gt; videoconvert
+      videoconvert -&gt; preproc_out [label=&quot;system&quot;];
+  }
+
+  infer[label=&quot;openvino_tensor_inference&quot;]
+  postproc[label=&lt;tensor_postproc_&lt;i&gt;xxx&lt;/i&gt;&gt;]
+
+  preproc_out -&gt; infer -&gt; postproc;
+}" class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-text">The <em>vaapi</em> pre-processing and full-frame inference on <em>CPU</em></span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id5">
+<div class="graphviz"><img src="../_images/graphviz-a0640b2b9fdb7543210dec0673e9d4b79bad34d4.png" alt="digraph gpu_gpu {
+  rankdir=&quot;LR&quot;
+  node[shape=box, style=&quot;rounded, filled&quot;, fillcolor=lightskyblue1]
+
+  subgraph cluster_pre {
+      style=&quot;rounded, dotted&quot;
+      label = &quot;Pre-processing stage&quot;;
+      preproc_in[label=&quot;vaapipostproc&quot;, fillcolor=gray95]
+      vaapi_ocl[label=&quot;vaapi_to_opencl&quot;]
+      preproc_out[label=&quot;opencl_tensor_normalize&quot;]
+
+      preproc_in -&gt; vaapi_ocl;
+      vaapi_ocl -&gt; preproc_out [label=&quot;OpenCL&quot;];
+  }
+
+  infer[label=&quot;openvino_tensor_inference&quot;]
+  postproc[label=&lt;tensor_postproc_&lt;i&gt;xxx&lt;/i&gt;&gt;]
+
+  preproc_out -&gt; infer -&gt; postproc
+}" class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-text">The <em>vaapi-opencl</em> pre-processing and full-frame inference on <em>GPU</em></span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id6">
+<div class="graphviz"><img src="../_images/graphviz-0a6189794b54c93cd5b0115514e919ad2c3e3f8b.png" alt="digraph vasharing {
+  rankdir=&quot;LR&quot;
+  node[shape=box, style=&quot;rounded, filled&quot;, fillcolor=lightskyblue1]
+
+  subgraph cluster_pre {
+      style=&quot;rounded, dotted&quot;
+      label = &quot;Pre-processing stage&quot;;
+      preproc_out[label=&quot;vaapipostproc&quot;, fillcolor=gray95];
+  }
+
+  infer[label=&quot;openvino_tensor_inference&quot;]
+  postproc[label=&lt;tensor_postproc_&lt;i&gt;xxx&lt;/i&gt;&gt;]
+
+  preproc_out -&gt; infer -&gt; postproc
+}" class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-text">The <em>vaapi-surface-sharing</em> pre-processing and full-frame inference on <em>GPU</em></span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The <code class="docutils literal notranslate"><span class="pre">queue</span></code> element can be inserted after inference element to enable parallel inference execution if number of inference requests (<code class="docutils literal notranslate"><span class="pre">nireq</span></code>) is greater than one.</p>
+<figure class="align-default" id="id7">
+<div class="graphviz"><img src="../_images/graphviz-2167b881dd7aa8835acfd020803009a9afd7312f.png" alt="digraph queue {
+  rankdir=&quot;LR&quot;
+  node[shape=box, style=&quot;rounded, filled&quot;, fillcolor=lightskyblue1]
+
+  subgraph cluster_pre {
+      style=&quot;rounded, dotted&quot;
+          label = &quot;Pre-processing stage&quot;;
+      node[fillcolor=gray95]
+      preproc_in[label=&quot;vaapipostproc&quot;, fillcolor=gray95]
+      preproc_out[label=&quot;tensor_convert&quot;, fillcolor=lightskyblue1]
+      preproc_in -&gt; preproc_out [label=&quot;system&quot;];
+  }
+
+  q[label=&quot;queue&quot;, fillcolor=gray95]
+  infer[label=&quot;openvino_tensor_inference&quot;]
+  postproc[label=&lt;tensor_postproc_&lt;i&gt;xxx&lt;/i&gt;&gt;]
+
+  preproc_out -&gt; infer -&gt; q -&gt; postproc
+}" class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-text">The <code class="docutils literal notranslate"><span class="pre">queue</span></code> after inference</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="element-object-detect">
+<h3>Element <code class="docutils literal notranslate"><span class="pre">object_detect</span></code><a class="headerlink" href="#element-object-detect" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">object_detect</span></code> element is based on <code class="docutils literal notranslate"><span class="pre">video_inference</span></code> and sets post-processing element to <code class="docutils literal notranslate"><span class="pre">tensor_postproc_detection</span></code> by default.
+It also disables attaching raw tensor data as metadata by default.</p>
+</section>
+<section id="element-object-classify">
+<h3>Element <code class="docutils literal notranslate"><span class="pre">object_classify</span></code><a class="headerlink" href="#element-object-classify" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">object_classify</span></code> element is based on <code class="docutils literal notranslate"><span class="pre">video_inference</span></code> and sets <cite>inference-region</cite> property to <cite>roi-list</cite> by default.</p>
+</section>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="gstreamer_elements.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">③ GStreamer Elements</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="python_bindings.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">③ Python Bindings</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Intel Corporation<br/>
+  
+      &copy; Copyright 2022, Intel Corporation.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

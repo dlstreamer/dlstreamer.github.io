@@ -10,21 +10,20 @@ as a back-end for high efficiency-inference on Intel® CPU and accelerators
 (GPU, VPU, FPGA) and require CNN model to be converted from training
 framework format (e.g., TensorFlow or Caffe) into a format optimized for
 inference on the target device. The model format used by OpenVINO™ Toolkit
-consists of two files - .xml: A small file with a description of the network
-topology in XML language - .bin: Binary file (potentially big) with
-model weights Also such format can be called Intermediate
-Representation (IR) format.
+is termed called Intermediate Representation (IR) format and consists of two files:
+
+- xml: XML file with a description of the network topology
+- bin: Binary file (potentially big) with model weights
 
 You can either:
 
 #. Choose model(s) from the extensive set of pre-trained models available in
    `Open Model Zoo <https://github.com/openvinotoolkit/open_model_zoo>`__ (already in IR format)
+
 #. Use `Model Optimizer from OpenVINO™ Toolkit <https://software.intel.com/en-us/articles/OpenVINO-ModelOptimizer>`__ 
    tool for converting your model from training framework format (e.g., TensorFlow) into IR format
 
-When using a pre-trained model from Open Model Zoo, consider using the
-`Model Downloader <https://docs.openvino.ai/latest/omz_tools_downloader.html>`__
- tool to facilitate the model downloading process.
+When using a pre-trained model from Open Model Zoo, consider using the `Model Downloader <https://docs.openvino.ai/latest/omz_tools_downloader.html>`__ tool to facilitate the model downloading process.
 
 In the case of converting a custom model, you can optionally utilize the 
 `Post-Training Optimization Toolkit <https://docs.openvino.ai/latest/pot_README.html>`__
@@ -41,7 +40,7 @@ web-browser graphical interface
 
 * download pre-trained model 
 * convert a model from training framework format
-* dequantize into INT8 precision with accuracy checking 
+* quantize into INT8 precision with accuracy checking 
 * profile per-layer performance
 * tune hyper parameters for throughput vs latency tradeoff
 
@@ -72,7 +71,7 @@ element to one from the table below.**
 .. list-table::
    :widths: 25, 50, 25, 25
    :header-rows: 1
-   
+
    * - pre-process-backend
      - Description
      - Memory type in pipeline
@@ -92,7 +91,7 @@ element to one from the table below.**
        | DMABuf
      - Yes
    * - vaapi-surface-sharing
-     - Should be used in pipelines with GPU memory and GPU inference device. Doesn't perform mapping to the system memory. As a pre-processor, it performs bilinear image resize, crop, and sets color format to NV12.
+     - Should be used in pipelines with GPU memory and GPU inference device. Doesn't perform mapping to the system memory. As a pre-processor, it performs image resize, crop, and sets color format to NV12.
      - | VASurface
        | *and*
        | DMABuf
@@ -137,3 +136,8 @@ The following diagram illustrates overall workflow
 .. figure:: gst_va_developer_flow.png
    :alt: gst_va_developer_flow
 
+
+.. toctree::
+   :maxdepth: 2
+
+   yolov5_model_preparation

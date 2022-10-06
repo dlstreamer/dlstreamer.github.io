@@ -1,11 +1,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; Intel® DL Streamer  documentation</title>
+    <title>Index &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -20,7 +20,8 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -29,13 +30,15 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="_static/target-highlight.js"></script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -72,7 +75,7 @@
       
       
       
-      <h1 class="site-logo" id="site-title">Intel® DL Streamer  documentation</h1>
+      <h1 class="site-logo" id="site-title">Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -111,16 +114,6 @@
        Install Guide Ubuntu
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="get_started/install/install_guide_rhel.html">
-       Install Guide RHEL
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="get_started/install/install_guide_windows.html">
-       Install Guide Windows (Preview)
-      </a>
-     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -129,7 +122,7 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/README.md">
+    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">
      Samples
     </a>
    </li>
@@ -150,10 +143,22 @@
      Metadata
     </a>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="dev_guide/model_preparation.html">
      Model Preparation
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="dev_guide/yolov5_model_preparation.html">
+       Yolov5 Model Preparation Example
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="dev_guide/model_proc_file.html">
@@ -181,6 +186,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="dev_guide/profiling.html">
+     Profiling with Intel VTune™
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="dev_guide/converting_deepstream_to_dlstreamer.html">
      Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
     </a>
@@ -189,23 +199,6 @@
     <a class="reference internal" href="dev_guide/how_to_contribute.html">
      How to Contribute
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="dev_guide/coding_style.html">
-       Coding Style
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="dev_guide/preview_features/preview_features.html">
-     Preview Features
-    </a>
     <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
     <label for="toctree-checkbox-5">
      <i class="fas fa-chevron-down">
@@ -213,13 +206,8 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="dev_guide/preview_features/action_recognition.html">
-       Action Recognition
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="dev_guide/preview_features/segmentation.html">
-       Segmentation
+      <a class="reference internal" href="dev_guide/coding_style.html">
+       Coding Style
       </a>
      </li>
     </ul>
@@ -237,11 +225,6 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="elements/gvainference.html">
-     gvainference
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="elements/gvadetect.html">
      gvadetect
     </a>
@@ -249,6 +232,16 @@
    <li class="toctree-l2">
     <a class="reference internal" href="elements/gvaclassify.html">
      gvaclassify
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="elements/gvainference.html">
+     gvainference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="elements/gvaaudiodetect.html">
+     gvaaudiodetect
     </a>
    </li>
    <li class="toctree-l2">
@@ -272,16 +265,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="elements/gvaaudiodetect.html">
-     gvaaudiodetect
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="elements/gvafpscounter.html">
-     gvafpscounter
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="elements/gvapython.html">
      gvapython
     </a>
@@ -289,6 +272,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="elements/gvawatermark.html">
      gvawatermark
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="elements/gvafpscounter.html">
+     gvafpscounter
     </a>
    </li>
   </ul>
@@ -447,6 +435,117 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="architecture_2.0/architecture_2.0.html">
+   Architecture 2.0 [Preview]
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="architecture_2.0/migration_guide.html">
+     Migration to 2.0
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="architecture_2.0/cpp_interfaces.html">
+     ① Memory Interop and C++ abstract interfaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="architecture_2.0/cpp_elements.html">
+     ② C++ elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="architecture_2.0/gstreamer_elements.html">
+     ③ GStreamer Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="architecture_2.0/gstreamer_bins.html">
+     ③ GStreamer Bin Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="architecture_2.0/python_bindings.html">
+     ③ Python Bindings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="architecture_2.0/elements_list.html">
+     Elements 2.0 reference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="architecture_2.0/packaging.html">
+     Packaging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="architecture_2.0/samples_2.0.html">
+     Samples 2.0
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="architecture_2.0/api_ref/index.html">
+     API 2.0 Reference
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="architecture_2.0/api_ref/global.html">
+       Global Namespace
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="architecture_2.0/api_ref/namespace_dlstreamer.html">
+         namespace dlstreamer
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="architecture_2.0/api_ref/enum_GVALayout.html">
+         enum GVALayout
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="architecture_2.0/api_ref/enum_GVAPrecision.html">
+         enum GVAPrecision
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html">
+         struct GstGVAAudioEventMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="architecture_2.0/api_ref/struct__GstGVAJSONMeta.html">
+         struct _GstGVAJSONMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="architecture_2.0/api_ref/struct__GstGVATensorMeta.html">
+         struct _GstGVATensorMeta
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </div>
@@ -549,6 +648,7 @@ title="Fullscreen mode"
  | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
  | <a href="#I"><strong>I</strong></a>
+ | <a href="#K"><strong>K</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
@@ -560,6 +660,7 @@ title="Fullscreen mode"
  | <a href="#T"><strong>T</strong></a>
  | <a href="#U"><strong>U</strong></a>
  | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
  
 </div>
 <h2 id="_">_</h2>
@@ -620,14 +721,14 @@ title="Fullscreen mode"
     _GstGVAJSONMeta
 
       <ul>
-        <li><a href="api_ref/struct__GstGVAJSONMeta.html#index-0">struct</a>
+        <li><a href="api_ref/struct__GstGVAJSONMeta.html#index-0">struct</a>, <a href="architecture_2.0/api_ref/struct__GstGVAJSONMeta.html#index-0">[1]</a>
 </li>
       </ul></li>
       <li>
     _GstGVATensorMeta
 
       <ul>
-        <li><a href="api_ref/struct__GstGVATensorMeta.html#index-0">struct</a>
+        <li><a href="api_ref/struct__GstGVATensorMeta.html#index-0">struct</a>, <a href="architecture_2.0/api_ref/struct__GstGVATensorMeta.html#index-0">[1]</a>
 </li>
       </ul></li>
       <li>
@@ -643,6 +744,13 @@ title="Fullscreen mode"
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    AccessMode
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/enum_dlstreamer_AccessMode.html#index-0">enum</a>
+</li>
+      </ul></li>
       <li>
     add_event
 
@@ -680,6 +788,13 @@ title="Fullscreen mode"
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    Any
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/namespace_dlstreamer.html#index-1">typedef</a>
+</li>
+      </ul></li>
       <li>
     audio_info
 
@@ -747,6 +862,194 @@ title="Fullscreen mode"
     class
 
       <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_AffineTransformInfoMetadata.html#index-0">dlstreamer::AffineTransformInfoMetadata</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseContext.html#index-0">dlstreamer::BaseContext</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-0">dlstreamer::BaseDictionary</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseElement.html#index-0">dlstreamer::BaseElement</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-0">dlstreamer::BaseFrame</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseMemoryMapper.html#index-0">dlstreamer::BaseMemoryMapper</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseMetadata.html#index-0">dlstreamer::BaseMetadata</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseSink.html#index-0">dlstreamer::BaseSink</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseSource.html#index-0">dlstreamer::BaseSource</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-0">dlstreamer::BaseTensor</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-0">dlstreamer::BaseTransform</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransformInplace.html#index-0">dlstreamer::BaseTransformInplace</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BlockingQueue.html#index-0">dlstreamer::BlockingQueue</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_ClassificationMetadata.html#index-0">dlstreamer::ClassificationMetadata</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Context.html#index-0">dlstreamer::Context</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_CPUContext.html#index-0">dlstreamer::CPUContext</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_CPUFrameAlloc.html#index-0">dlstreamer::CPUFrameAlloc</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_CPUTensor.html#index-0">dlstreamer::CPUTensor</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_CPUTensorAlloc.html#index-0">dlstreamer::CPUTensorAlloc</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_DetectionMetadata.html#index-0">dlstreamer::DetectionMetadata</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-0">dlstreamer::Dictionary</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-0">dlstreamer::DictionaryProxy</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_DMAContext.html#index-0">dlstreamer::DMAContext</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_DMATensor.html#index-0">dlstreamer::DMATensor</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Element.html#index-0">dlstreamer::Element</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_FFmpegContext.html#index-0">dlstreamer::FFmpegContext</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_FFmpegFrame.html#index-0">dlstreamer::FFmpegFrame</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-0">dlstreamer::Frame</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_FramePtr.html#index-0">dlstreamer::FramePtr</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_GSTContext.html#index-0">dlstreamer::GSTContext</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_GSTContextQuery.html#index-0">dlstreamer::GSTContextQuery</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-0">dlstreamer::GSTDictionary</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_GSTFrame.html#index-0">dlstreamer::GSTFrame</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_GSTFrameBatch.html#index-0">dlstreamer::GSTFrameBatch</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_GSTMetadata.html#index-0">dlstreamer::GSTMetadata</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_GSTROIDictionary.html#index-0">dlstreamer::GSTROIDictionary</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_GSTROIMetadata.html#index-0">dlstreamer::GSTROIMetadata</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_GSTTensor.html#index-0">dlstreamer::GSTTensor</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_ImageLayout.html#index-0">dlstreamer::ImageLayout</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_InferenceResultMetadata.html#index-0">dlstreamer::InferenceResultMetadata</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_InferenceResultMetadata_TensorImpl.html#index-0">dlstreamer::InferenceResultMetadata::TensorImpl</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_LevelZeroContext.html#index-0">dlstreamer::LevelZeroContext</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapper.html#index-0">dlstreamer::MemoryMapper</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperAnyToGST.html#index-0">dlstreamer::MemoryMapperAnyToGST</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCache.html#index-0">dlstreamer::MemoryMapperCache</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperChain.html#index-0">dlstreamer::MemoryMapperChain</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCPUToOpenCV.html#index-0">dlstreamer::MemoryMapperCPUToOpenCV</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCPUToOpenVINO.html#index-0">dlstreamer::MemoryMapperCPUToOpenVINO</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperDMAToOpenCL.html#index-0">dlstreamer::MemoryMapperDMAToOpenCL</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperDMAToUSM.html#index-0">dlstreamer::MemoryMapperDMAToUSM</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperDMAToVAAPI.html#index-0">dlstreamer::MemoryMapperDMAToVAAPI</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperFFMPEGToVAAPI.html#index-0">dlstreamer::MemoryMapperFFMPEGToVAAPI</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperGSTToDMA.html#index-0">dlstreamer::MemoryMapperGSTToDMA</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperGSTToOpenCL.html#index-0">dlstreamer::MemoryMapperGSTToOpenCL</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperGSTToVAAPI.html#index-0">dlstreamer::MemoryMapperGSTToVAAPI</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenCLToCPU.html#index-0">dlstreamer::MemoryMapperOpenCLToCPU</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenCLToDMA.html#index-0">dlstreamer::MemoryMapperOpenCLToDMA</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenCLToOpenCVUMat.html#index-0">dlstreamer::MemoryMapperOpenCLToOpenCVUMat</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenCLToOpenVINO.html#index-0">dlstreamer::MemoryMapperOpenCLToOpenVINO</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenVINOToCPU.html#index-0">dlstreamer::MemoryMapperOpenVINOToCPU</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperSYCLUSMToCPU.html#index-0">dlstreamer::MemoryMapperSYCLUSMToCPU</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperUSMToDMA.html#index-0">dlstreamer::MemoryMapperUSMToDMA</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperVAAPIToDMA.html#index-0">dlstreamer::MemoryMapperVAAPIToDMA</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperVAAPIToOpenVINO.html#index-0">dlstreamer::MemoryMapperVAAPIToOpenVINO</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Metadata.html#index-0">dlstreamer::Metadata</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_ModelInfoMetadata.html#index-0">dlstreamer::ModelInfoMetadata</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_ObjectIdMetadata.html#index-0">dlstreamer::ObjectIdMetadata</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenCLContext.html#index-0">dlstreamer::OpenCLContext</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenCLTensor.html#index-0">dlstreamer::OpenCLTensor</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenCLTensorRefCounted.html#index-0">dlstreamer::OpenCLTensorRefCounted</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVContext.html#index-0">dlstreamer::OpenCVContext</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVTensor.html#index-0">dlstreamer::OpenCVTensor</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVUMatContext.html#index-0">dlstreamer::OpenCVUMatContext</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVUMatTensor.html#index-0">dlstreamer::OpenCVUMatTensor</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOContext.html#index-0">dlstreamer::OpenVINOContext</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOFrame.html#index-0">dlstreamer::OpenVINOFrame</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOTensor.html#index-0">dlstreamer::OpenVINOTensor</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOTensorBatch.html#index-0">dlstreamer::OpenVINOTensorBatch</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Pool.html#index-0">dlstreamer::Pool</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Sink.html#index-0">dlstreamer::Sink</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Source.html#index-0">dlstreamer::Source</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_SourceIdentifierMetadata.html#index-0">dlstreamer::SourceIdentifierMetadata</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_SYCLContext.html#index-0">dlstreamer::SYCLContext</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_SYCLUSMTensor.html#index-0">dlstreamer::SYCLUSMTensor</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-0">dlstreamer::Tensor</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_TensorPtr.html#index-0">dlstreamer::TensorPtr</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_TimestampMetadata.html#index-0">dlstreamer::TimestampMetadata</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-0">dlstreamer::Transform</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_TransformInplace.html#index-0">dlstreamer::TransformInplace</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_USMTensor.html#index-0">dlstreamer::USMTensor</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_VAAPIContext.html#index-0">dlstreamer::VAAPIContext</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_VAAPIFrame.html#index-0">dlstreamer::VAAPIFrame</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_VAAPIFrameAlloc.html#index-0">dlstreamer::VAAPIFrameAlloc</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_VAAPITensor.html#index-0">dlstreamer::VAAPITensor</a>
+</li>
         <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-0">gstgva::region_of_interest::RegionOfInterest</a>
 </li>
         <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-0">gstgva::tensor::Tensor</a>
@@ -778,6 +1081,20 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li>
+    context
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-6">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-3">[1]</a>
+</li>
+      </ul></li>
+      <li>
+    create_mapper
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/namespace_dlstreamer.html#index-2">function</a>
+</li>
+      </ul></li>
+      <li>
     CUSTOM
 
       <ul>
@@ -794,13 +1111,25 @@ title="Fullscreen mode"
     data
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-2">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-4">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-12">[2]</a>
+        <li><a href="api_ref/class_GVA_Tensor.html#index-2">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-4">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-12">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-2">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_CPUTensor.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVTensor.html#index-1">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOTensor.html#index-1">[6]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOTensorBatch.html#index-1">[7]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_SYCLUSMTensor.html#index-1">[8]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-4">[9]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_USMTensor.html#index-1">[10]</a>
 </li>
-        <li><a href="api_ref/struct__GstGVATensorMeta.html#index-2">variable</a>
+        <li><a href="api_ref/struct__GstGVATensorMeta.html#index-2">variable</a>, <a href="architecture_2.0/api_ref/struct__GstGVATensorMeta.html#index-2">[1]</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    DataType
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/enum_dlstreamer_DataType.html#index-0">enum</a>
+</li>
+      </ul></li>
+      <li>
+    derive_context
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseContext.html#index-4">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Context.html#index-5">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTContext.html#index-1">[2]</a>
+</li>
+      </ul></li>
       <li>
     detection
 
@@ -813,6 +1142,869 @@ title="Fullscreen mode"
 
       <ul>
         <li><a href="api_ref/class_GVA_Tensor.html#index-3">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-1">[1]</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/namespace_dlstreamer.html#index-0">namespace</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::AffineTransformInfoMetadata
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_AffineTransformInfoMetadata.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::AffineTransformInfoMetadata::key
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_AffineTransformInfoMetadata_key.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::AudioFormat
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_AudioFormat.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::AudioInfo
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_AudioInfo.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::BaseContext
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseContext.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::BaseContext::key
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_BaseContext_key.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::BaseDictionary
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::BaseElement
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseElement.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::BaseFrame
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::BaseMemoryMapper
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseMemoryMapper.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::BaseMetadata
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseMetadata.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::BaseSink
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseSink.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::BaseSource
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseSource.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::BaseTensor
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::BaseTransform
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::BaseTransformInplace
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransformInplace.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::BlockingQueue
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BlockingQueue.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::ClassificationMetadata
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_ClassificationMetadata.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::ClassificationMetadata::key
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_ClassificationMetadata_key.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::Context
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Context.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::CPUContext
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_CPUContext.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::CPUFrameAlloc
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_CPUFrameAlloc.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::CPUTensor
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_CPUTensor.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::CPUTensorAlloc
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_CPUTensorAlloc.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::detail
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/namespace_dlstreamer_detail.html#index-0">namespace</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::detail::fourcc
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_detail_fourcc.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::DetectionMetadata
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_DetectionMetadata.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::DetectionMetadata::key
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_DetectionMetadata_key.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::Dictionary
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::DictionaryProxy
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::DMAContext
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_DMAContext.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::DMATensor
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_DMATensor.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::Element
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Element.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::ElementDesc
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_ElementDesc.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::FFmpegContext
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_FFmpegContext.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::FFmpegContext::key
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_FFmpegContext_key.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::FFmpegFrame
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_FFmpegFrame.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::Frame
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::FrameInfo
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_FrameInfo.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::FramePtr
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_FramePtr.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::GSTContext
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_GSTContext.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::GSTContextQuery
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_GSTContextQuery.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::GSTDictionary
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::GstDLStreamerMemory
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_GstDLStreamerMemory.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::GSTFrame
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_GSTFrame.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::GSTFrameBatch
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_GSTFrameBatch.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::GSTMetadata
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_GSTMetadata.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::GSTROIDictionary
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_GSTROIDictionary.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::GSTROIMetadata
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_GSTROIMetadata.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::GSTTensor
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_GSTTensor.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::ImageInfo
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_ImageInfo.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::ImageLayout
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_ImageLayout.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::InferenceResultMetadata
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_InferenceResultMetadata.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::InferenceResultMetadata::key
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_InferenceResultMetadata_key.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::InferenceResultMetadata::TensorImpl
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_InferenceResultMetadata_TensorImpl.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::LevelZeroContext
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_LevelZeroContext.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::LevelZeroContext::key
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_LevelZeroContext_key.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapper
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapper.html#index-0">class</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    dlstreamer::MemoryMapperAnyToGST
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperAnyToGST.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapperCache
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCache.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapperChain
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperChain.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapperCPUToOpenCV
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCPUToOpenCV.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapperCPUToOpenVINO
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCPUToOpenVINO.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapperDMAToOpenCL
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperDMAToOpenCL.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapperDMAToUSM
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperDMAToUSM.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapperDMAToVAAPI
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperDMAToVAAPI.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapperFFMPEGToVAAPI
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperFFMPEGToVAAPI.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapperGSTToDMA
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperGSTToDMA.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapperGSTToOpenCL
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperGSTToOpenCL.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapperGSTToVAAPI
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperGSTToVAAPI.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapperOpenCLToCPU
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenCLToCPU.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapperOpenCLToDMA
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenCLToDMA.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapperOpenCLToOpenCVUMat
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenCLToOpenCVUMat.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapperOpenCLToOpenVINO
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenCLToOpenVINO.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapperOpenVINOToCPU
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenVINOToCPU.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapperSYCLUSMToCPU
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperSYCLUSMToCPU.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapperUSMToDMA
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperUSMToDMA.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapperVAAPIToDMA
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperVAAPIToDMA.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::MemoryMapperVAAPIToOpenVINO
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperVAAPIToOpenVINO.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::Metadata
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Metadata.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::ModelInfoMetadata
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_ModelInfoMetadata.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::ModelInfoMetadata::key
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_ModelInfoMetadata_key.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::ObjectIdMetadata
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_ObjectIdMetadata.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::ObjectIdMetadata::key
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_ObjectIdMetadata_key.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::OpenCLContext
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenCLContext.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::OpenCLContext::key
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_OpenCLContext_key.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::OpenCLTensor
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenCLTensor.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::OpenCLTensorRefCounted
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenCLTensorRefCounted.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::OpenCVContext
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVContext.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::OpenCVTensor
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVTensor.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::OpenCVUMatContext
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVUMatContext.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::OpenCVUMatTensor
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVUMatTensor.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::OpenCVUMatTensor::key
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_OpenCVUMatTensor_key.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::OpenVINOContext
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOContext.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::OpenVINOContext::key
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_OpenVINOContext_key.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::OpenVINOFrame
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOFrame.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::OpenVINOTensor
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOTensor.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::OpenVINOTensorBatch
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOTensorBatch.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::ParamDesc
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_ParamDesc.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::Pool
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Pool.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::Sink
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Sink.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::Source
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Source.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::SourceIdentifierMetadata
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_SourceIdentifierMetadata.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::SourceIdentifierMetadata::key
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_SourceIdentifierMetadata_key.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::SYCLContext
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_SYCLContext.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::SYCLContext::key
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_SYCLContext_key.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::SYCLUSMTensor
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_SYCLUSMTensor.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::Tensor
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::tensor
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/namespace_dlstreamer_tensor.html#index-0">namespace</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::tensor::key
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/namespace_dlstreamer_tensor_key.html#index-0">namespace</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::TensorInfo
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_TensorInfo.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::TensorPtr
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_TensorPtr.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::TimestampMetadata
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_TimestampMetadata.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::TimestampMetadata::key
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_TimestampMetadata_key.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::Transform
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::TransformInplace
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_TransformInplace.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::USMTensor
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_USMTensor.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::VAAPIContext
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_VAAPIContext.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::VAAPIContext::key
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_VAAPIContext_key.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::VAAPIFrame
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_VAAPIFrame.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::VAAPIFrameAlloc
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_VAAPIFrameAlloc.html#index-0">class</a>
+</li>
+      </ul></li>
+      <li>
+    dlstreamer::VAAPITensor
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_VAAPITensor.html#index-0">class</a>
 </li>
       </ul></li>
   </ul></td>
@@ -829,16 +2021,44 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li>
+    ElementFlags
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/enum_dlstreamer_ElementFlags.html#index-0">enum</a>
+</li>
+      </ul></li>
+      <li>
+    end_timestamp
+
+      <ul>
+        <li><a href="api_ref/struct_GstGVAAudioEventMeta.html#index-5">variable</a>, <a href="architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#index-5">[1]</a>
+</li>
+      </ul></li>
+      <li>
     enum
 
       <ul>
-        <li><a href="api_ref/enum_GVALayout.html#index-0">GVALayout</a>
+        <li><a href="architecture_2.0/api_ref/enum_dlstreamer_AccessMode.html#index-0">AccessMode</a>
 </li>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-0">GVAPrecision</a>
+        <li><a href="architecture_2.0/api_ref/enum_dlstreamer_DataType.html#index-0">DataType</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/enum_dlstreamer_ElementFlags.html#index-0">ElementFlags</a>
+</li>
+        <li><a href="api_ref/enum_GVALayout.html#index-0">GVALayout</a>, <a href="architecture_2.0/api_ref/enum_GVALayout.html#index-0">[1]</a>
+</li>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-0">GVAPrecision</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-0">[1]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/enum_dlstreamer_ImageFormat.html#index-0">ImageFormat</a>
 </li>
         <li><a href="api_ref/enum_GVA_Tensor_Layout.html#index-0">Layout</a>
 </li>
+        <li><a href="architecture_2.0/api_ref/enum_dlstreamer_MediaType.html#index-0">MediaType</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/enum_dlstreamer_MemoryType.html#index-0">MemoryType</a>
+</li>
         <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-0">Precision</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/enum_dlstreamer_ImageLayout_Value.html#index-0">Value</a>
 </li>
       </ul></li>
       <li>
@@ -861,51 +2081,51 @@ title="Fullscreen mode"
 </li>
         <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-5">FP64</a>
 </li>
-        <li><a href="api_ref/enum_GVALayout.html#index-1">GVA_LAYOUT_ANY</a>
+        <li><a href="api_ref/enum_GVALayout.html#index-1">GVA_LAYOUT_ANY</a>, <a href="architecture_2.0/api_ref/enum_GVALayout.html#index-1">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVALayout.html#index-4">GVA_LAYOUT_NC</a>
+        <li><a href="api_ref/enum_GVALayout.html#index-4">GVA_LAYOUT_NC</a>, <a href="architecture_2.0/api_ref/enum_GVALayout.html#index-4">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVALayout.html#index-2">GVA_LAYOUT_NCHW</a>
+        <li><a href="api_ref/enum_GVALayout.html#index-2">GVA_LAYOUT_NCHW</a>, <a href="architecture_2.0/api_ref/enum_GVALayout.html#index-2">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVALayout.html#index-3">GVA_LAYOUT_NHWC</a>
+        <li><a href="api_ref/enum_GVALayout.html#index-3">GVA_LAYOUT_NHWC</a>, <a href="architecture_2.0/api_ref/enum_GVALayout.html#index-3">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-4">GVA_PRECISION_BF16</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-4">GVA_PRECISION_BF16</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-4">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-17">GVA_PRECISION_BIN</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-17">GVA_PRECISION_BIN</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-17">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-18">GVA_PRECISION_BOOL</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-18">GVA_PRECISION_BOOL</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-18">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-19">GVA_PRECISION_CUSTOM</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-19">GVA_PRECISION_CUSTOM</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-19">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-3">GVA_PRECISION_FP16</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-3">GVA_PRECISION_FP16</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-3">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-2">GVA_PRECISION_FP32</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-2">GVA_PRECISION_FP32</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-2">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-5">GVA_PRECISION_FP64</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-5">GVA_PRECISION_FP64</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-5">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-7">GVA_PRECISION_I16</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-7">GVA_PRECISION_I16</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-7">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-13">GVA_PRECISION_I32</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-13">GVA_PRECISION_I32</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-13">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-10">GVA_PRECISION_I4</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-10">GVA_PRECISION_I4</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-10">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-15">GVA_PRECISION_I64</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-15">GVA_PRECISION_I64</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-15">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-11">GVA_PRECISION_I8</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-11">GVA_PRECISION_I8</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-11">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-6">GVA_PRECISION_Q78</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-6">GVA_PRECISION_Q78</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-6">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-12">GVA_PRECISION_U16</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-12">GVA_PRECISION_U16</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-12">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-14">GVA_PRECISION_U32</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-14">GVA_PRECISION_U32</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-14">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-8">GVA_PRECISION_U4</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-8">GVA_PRECISION_U4</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-8">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-16">GVA_PRECISION_U64</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-16">GVA_PRECISION_U64</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-16">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-9">GVA_PRECISION_U8</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-9">GVA_PRECISION_U8</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-9">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-1">GVA_PRECISION_UNSPECIFIED</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-1">GVA_PRECISION_UNSPECIFIED</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-1">[1]</a>
 </li>
         <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-7">I16</a>
 </li>
@@ -941,6 +2161,13 @@ title="Fullscreen mode"
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
+    event_type
+
+      <ul>
+        <li><a href="api_ref/struct_GstGVAAudioEventMeta.html#index-2">variable</a>, <a href="architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#index-2">[1]</a>
+</li>
+      </ul></li>
+      <li>
     events
 
       <ul>
@@ -964,21 +2191,21 @@ title="Fullscreen mode"
     find_tensor_meta
 
       <ul>
-        <li><a href="api_ref/global.html#index-20">function</a>, <a href="api_ref/global.html#index-24">[1]</a>
+        <li><a href="api_ref/global.html#index-8">function</a>, <a href="architecture_2.0/api_ref/global.html#index-8">[1]</a>
 </li>
       </ul></li>
       <li>
     find_tensor_meta_ext
 
       <ul>
-        <li><a href="api_ref/global.html#index-19">function</a>, <a href="api_ref/global.html#index-25">[1]</a>
+        <li><a href="api_ref/global.html#index-9">function</a>, <a href="architecture_2.0/api_ref/global.html#index-9">[1]</a>
 </li>
       </ul></li>
       <li>
     format
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-8">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-11">[1]</a>
+        <li><a href="api_ref/class_GVA_Tensor.html#index-8">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-11">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-2">[3]</a>
 </li>
       </ul></li>
       <li>
@@ -1040,7 +2267,13 @@ title="Fullscreen mode"
 </li>
         <li><a href="api_ref/class_GVA_AudioEvent.html#index-4">confidence</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-5">[1]</a>, <a href="api_ref/class_GVA_Tensor.html#index-10">[2]</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-4">[3]</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-8">[4]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-2">data</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-4">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-12">[2]</a>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-6">context</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-3">[1]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/namespace_dlstreamer.html#index-2">create_mapper</a>
+</li>
+        <li><a href="api_ref/class_GVA_Tensor.html#index-2">data</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-4">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-12">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-2">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_CPUTensor.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVTensor.html#index-1">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOTensor.html#index-1">[6]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOTensorBatch.html#index-1">[7]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_SYCLUSMTensor.html#index-1">[8]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-4">[9]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_USMTensor.html#index-1">[10]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseContext.html#index-4">derive_context</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Context.html#index-5">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTContext.html#index-1">[2]</a>
 </li>
         <li><a href="api_ref/class_GVA_AudioEvent.html#index-7">detection</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-9">[1]</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-7">[2]</a>
 </li>
@@ -1052,43 +2285,57 @@ title="Fullscreen mode"
 </li>
         <li><a href="api_ref/class_GVA_Tensor.html#index-12">fields</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-12">[1]</a>
 </li>
-        <li><a href="api_ref/global.html#index-20">find_tensor_meta</a>, <a href="api_ref/global.html#index-24">[1]</a>
+        <li><a href="api_ref/global.html#index-8">find_tensor_meta</a>, <a href="architecture_2.0/api_ref/global.html#index-8">[1]</a>
 </li>
-        <li><a href="api_ref/global.html#index-19">find_tensor_meta_ext</a>, <a href="api_ref/global.html#index-25">[1]</a>
+        <li><a href="api_ref/global.html#index-9">find_tensor_meta_ext</a>, <a href="architecture_2.0/api_ref/global.html#index-9">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-8">format</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-11">[1]</a>
+        <li><a href="api_ref/class_GVA_Tensor.html#index-8">format</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-11">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-2">[3]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Element.html#index-2">get_context</a>
 </li>
         <li><a href="api_ref/class_GVA_Tensor.html#index-16">get_double</a>
 </li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseSink.html#index-2">get_input_info</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-3">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Sink.html#index-1">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-3">[3]</a>
+</li>
         <li><a href="api_ref/class_GVA_Tensor.html#index-15">get_int</a>
 </li>
-        <li><a href="api_ref/global.html#index-11">get_json_message</a>, <a href="api_ref/global.html#index-15">[1]</a>
+        <li><a href="api_ref/global.html#index-3">get_json_message</a>, <a href="architecture_2.0/api_ref/global.html#index-3">[1]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseContext.html#index-3">get_mapper</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Context.html#index-4">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_FFmpegContext.html#index-2">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTContext.html#index-2">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_LevelZeroContext.html#index-2">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenCLContext.html#index-2">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVContext.html#index-1">[6]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVUMatContext.html#index-2">[7]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOContext.html#index-1">[8]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_SYCLContext.html#index-2">[9]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_VAAPIContext.html#index-2">[10]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseSource.html#index-2">get_output_info</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-4">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Source.html#index-1">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-4">[3]</a>
 </li>
         <li><a href="api_ref/class_GVA_Tensor.html#index-14">get_string</a>
 </li>
-        <li><a href="api_ref/global.html#index-4">gst_gva_audio_event_meta_add_param</a>, <a href="api_ref/global.html#index-8">[1]</a>
+        <li><a href="api_ref/global.html#index-2">gst_gva_json_meta_api_get_type</a>, <a href="architecture_2.0/api_ref/global.html#index-2">[1]</a>
 </li>
-        <li><a href="api_ref/global.html#index-2">gst_gva_buffer_add_audio_event_meta</a>, <a href="api_ref/global.html#index-6">[1]</a>
+        <li><a href="api_ref/global.html#index-1">gst_gva_json_meta_get_info</a>, <a href="architecture_2.0/api_ref/global.html#index-1">[1]</a>
 </li>
-        <li><a href="api_ref/global.html#index-3">gst_gva_buffer_add_audio_event_meta_id</a>, <a href="api_ref/global.html#index-7">[1]</a>
+        <li><a href="api_ref/global.html#index-7">gst_gva_tensor_meta_api_get_type</a>, <a href="architecture_2.0/api_ref/global.html#index-7">[1]</a>
 </li>
-        <li><a href="api_ref/global.html#index-1">gst_gva_buffer_get_audio_event_meta_id</a>, <a href="api_ref/global.html#index-5">[1]</a>
-</li>
-        <li><a href="api_ref/global.html#index-14">gst_gva_json_meta_api_get_type</a>, <a href="api_ref/global.html#index-9">[1]</a>
-</li>
-        <li><a href="api_ref/global.html#index-10">gst_gva_json_meta_get_info</a>, <a href="api_ref/global.html#index-13">[1]</a>
-</li>
-        <li><a href="api_ref/global.html#index-17">gst_gva_tensor_meta_api_get_type</a>, <a href="api_ref/global.html#index-23">[1]</a>
-</li>
-        <li><a href="api_ref/global.html#index-18">gst_gva_tensor_meta_get_info</a>, <a href="api_ref/global.html#index-22">[1]</a>
+        <li><a href="api_ref/global.html#index-6">gst_gva_tensor_meta_get_info</a>, <a href="architecture_2.0/api_ref/global.html#index-6">[1]</a>
 </li>
         <li><a href="api_ref/class_GVA_Tensor.html#index-27">gst_structure</a>
 </li>
-        <li><a href="api_ref/global.html#index-21">gva_get_tensor_data</a>
+        <li><a href="api_ref/global.html#index-5">gva_get_tensor_data</a>, <a href="architecture_2.0/api_ref/global.html#index-5">[1]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseContext.html#index-2">handle</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-3">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Context.html#index-3">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_FFmpegContext.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTContextQuery.html#index-1">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_LevelZeroContext.html#index-1">[6]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenCLContext.html#index-1">[7]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVUMatContext.html#index-1">[8]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOContext.html#index-2">[9]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_SYCLContext.html#index-1">[10]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-5">[11]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-6">[12]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_VAAPIContext.html#index-1">[13]</a>
 </li>
         <li><a href="api_ref/class_GVA_Tensor.html#index-13">has_field</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-24">[1]</a>
 </li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-5">info</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-1">[1]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Element.html#index-1">init</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseMemoryMapper.html#index-3">input_context</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapper.html#index-3">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCache.html#index-3">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperChain.html#index-3">[3]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_TensorInfo.html#index-5">is_contiguous</a>
+</li>
         <li><a href="api_ref/class_GVA_Tensor.html#index-26">is_detection</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-25">[1]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_TensorInfo.html#index-3">itemsize</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-7">keys</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-2">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-7">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-6">[3]</a>
 </li>
         <li><a href="api_ref/class_GVA_AudioEvent.html#index-3">label</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-4">[1]</a>, <a href="api_ref/class_GVA_Tensor.html#index-11">[2]</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-3">[3]</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-9">[4]</a>
 </li>
@@ -1100,21 +2347,41 @@ title="Fullscreen mode"
 </li>
         <li><a href="api_ref/class_GVA_Tensor.html#index-23">layout_as_string</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-21">[1]</a>
 </li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseMemoryMapper.html#index-1">map</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseMemoryMapper.html#index-2">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseMemoryMapper.html#index-5">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseMemoryMapper.html#index-6">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapper.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapper.html#index-2">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperAnyToGST.html#index-1">[6]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperAnyToGST.html#index-2">[7]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCPUToOpenCV.html#index-1">[8]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCPUToOpenVINO.html#index-1">[9]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCPUToOpenVINO.html#index-2">[10]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCache.html#index-1">[11]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCache.html#index-2">[12]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperChain.html#index-1">[13]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperChain.html#index-2">[14]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperDMAToOpenCL.html#index-1">[15]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperDMAToUSM.html#index-1">[16]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperDMAToVAAPI.html#index-1">[17]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperDMAToVAAPI.html#index-2">[18]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperFFMPEGToVAAPI.html#index-1">[19]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperGSTToDMA.html#index-1">[20]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperGSTToOpenCL.html#index-1">[21]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperGSTToVAAPI.html#index-1">[22]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenCLToCPU.html#index-1">[23]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenCLToDMA.html#index-1">[24]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenCLToOpenCVUMat.html#index-1">[25]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenCLToOpenVINO.html#index-1">[26]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenVINOToCPU.html#index-1">[27]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenVINOToCPU.html#index-2">[28]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperSYCLUSMToCPU.html#index-1">[29]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperUSMToDMA.html#index-1">[30]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperVAAPIToDMA.html#index-1">[31]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperVAAPIToDMA.html#index-2">[32]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperVAAPIToOpenVINO.html#index-1">[33]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-3">media_type</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-1">[1]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseContext.html#index-1">memory_type</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-5">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-1">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Context.html#index-2">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-3">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-2">[5]</a>
+</li>
         <li><a href="api_ref/class_GVA_AudioFrame.html#index-10">messages</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-10">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-8">[2]</a>
 </li>
         <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-10">meta</a>
 </li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-6">metadata</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-6">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-7">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTFrame.html#index-1">[3]</a>
+</li>
         <li><a href="api_ref/class_GVA_Tensor.html#index-7">model_name</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-6">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-9">name</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-5">[1]</a>
+        <li><a href="api_ref/class_GVA_Tensor.html#index-9">name</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-5">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-1">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-1">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-1">[5]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_TensorInfo.html#index-4">nbytes</a>
 </li>
         <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-3">normalized_rect</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-2">[1]</a>
 </li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-1">num_tensors</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-5">[1]</a>
+</li>
         <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-6">object_id</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-5">[1]</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-10">[2]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseMemoryMapper.html#index-4">output_context</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapper.html#index-4">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCache.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperChain.html#index-4">[3]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseContext.html#index-5">parent</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-7">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-7">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Context.html#index-6">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-8">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-7">[5]</a>
 </li>
         <li><a href="api_ref/class_GVA_Tensor.html#index-4">precision</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-2">[1]</a>
 </li>
         <li><a href="api_ref/class_GVA_Tensor.html#index-22">precision_as_string</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-22">[1]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-5">process</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-6">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-7">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-8">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransformInplace.html#index-2">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransformInplace.html#index-3">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-5">[6]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-6">[7]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-7">[8]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-8">[9]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_TransformInplace.html#index-2">[10]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_TransformInplace.html#index-3">[11]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Source.html#index-3">read</a>
 </li>
         <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-2">rect</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-1">[1]</a>
 </li>
@@ -1122,7 +2389,7 @@ title="Fullscreen mode"
 </li>
         <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-1">RegionOfInterest</a>
 </li>
-        <li><a href="api_ref/class_GVA_VideoFrame.html#index-6">regions</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-7">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-4">[2]</a>
+        <li><a href="api_ref/class_GVA_VideoFrame.html#index-6">regions</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-7">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-8">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-9">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTFrame.html#index-2">[5]</a>
 </li>
         <li><a href="api_ref/class_GVA_AudioFrame.html#index-14">remove_event</a>
 </li>
@@ -1134,29 +2401,51 @@ title="Fullscreen mode"
 </li>
         <li><a href="api_ref/class_GVA_AudioEvent.html#index-2">segment</a>
 </li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-4">set</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-5">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-4">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTROIDictionary.html#index-1">[4]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-5">set_array</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-6">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-5">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-5">[3]</a>
+</li>
         <li><a href="api_ref/class_GVA_Tensor.html#index-19">set_double</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransformInplace.html#index-1">set_info</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_TransformInplace.html#index-1">[1]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseSink.html#index-1">set_input_info</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-1">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Sink.html#index-2">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-1">[3]</a>
 </li>
         <li><a href="api_ref/class_GVA_Tensor.html#index-18">set_int</a>
 </li>
-        <li><a href="api_ref/global.html#index-12">set_json_message</a>, <a href="api_ref/global.html#index-16">[1]</a>
+        <li><a href="api_ref/global.html#index-4">set_json_message</a>, <a href="architecture_2.0/api_ref/global.html#index-4">[1]</a>
 </li>
         <li><a href="api_ref/class_GVA_AudioEvent.html#index-9">set_label</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-12">[1]</a>, <a href="api_ref/class_GVA_Tensor.html#index-21">[2]</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-23">[3]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-20">set_name</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-20">[1]</a>
+        <li><a href="api_ref/class_GVA_Tensor.html#index-20">set_name</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-20">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-6">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-7">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-6">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-7">[5]</a>
 </li>
         <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-13">set_object_id</a>
 </li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseSource.html#index-1">set_output_info</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-2">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Source.html#index-2">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-2">[3]</a>
+</li>
         <li><a href="api_ref/class_GVA_Tensor.html#index-17">set_string</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_TensorInfo.html#index-2">size</a>
 </li>
         <li><a href="api_ref/class_GVA_Tensor.html#index-1">Tensor</a>
 </li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-2">tensor</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-4">[1]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_TensorInfo.html#index-1">TensorInfo</a>
+</li>
         <li><a href="api_ref/class_GVA_AudioEvent.html#index-5">tensors</a>, <a href="api_ref/class_GVA_AudioFrame.html#index-8">[1]</a>, <a href="api_ref/class_GVA_AudioFrame.html#index-9">[2]</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-7">[3]</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-8">[4]</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-9">[5]</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-6">[6]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-5">[7]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-2">try_get</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-3">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-2">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-2">[3]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-3">try_get_array</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-4">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-3">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-3">[3]</a>
 </li>
         <li><a href="api_ref/class_GVA_VideoFrame.html#index-5">video_info</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-3">[1]</a>
 </li>
         <li><a href="api_ref/class_GVA_VideoFrame.html#index-4">video_meta</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-2">[1]</a>
 </li>
         <li><a href="api_ref/class_GVA_VideoFrame.html#index-1">VideoFrame</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-2">[1]</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-3">[2]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Sink.html#index-3">write</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1166,10 +2455,24 @@ title="Fullscreen mode"
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
+    get_context
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Element.html#index-2">function</a>
+</li>
+      </ul></li>
+      <li>
     get_double
 
       <ul>
         <li><a href="api_ref/class_GVA_Tensor.html#index-16">function</a>
+</li>
+      </ul></li>
+      <li>
+    get_input_info
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseSink.html#index-2">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-3">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Sink.html#index-1">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-3">[3]</a>
 </li>
       </ul></li>
       <li>
@@ -1183,7 +2486,21 @@ title="Fullscreen mode"
     get_json_message
 
       <ul>
-        <li><a href="api_ref/global.html#index-11">function</a>, <a href="api_ref/global.html#index-15">[1]</a>
+        <li><a href="api_ref/global.html#index-3">function</a>, <a href="architecture_2.0/api_ref/global.html#index-3">[1]</a>
+</li>
+      </ul></li>
+      <li>
+    get_mapper
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseContext.html#index-3">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Context.html#index-4">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_FFmpegContext.html#index-2">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTContext.html#index-2">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_LevelZeroContext.html#index-2">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenCLContext.html#index-2">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVContext.html#index-1">[6]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVUMatContext.html#index-2">[7]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOContext.html#index-1">[8]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_SYCLContext.html#index-2">[9]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_VAAPIContext.html#index-2">[10]</a>
+</li>
+      </ul></li>
+      <li>
+    get_output_info
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseSource.html#index-2">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-4">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Source.html#index-1">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-4">[3]</a>
 </li>
       </ul></li>
       <li>
@@ -1197,63 +2514,35 @@ title="Fullscreen mode"
     global
 
       <ul>
-        <li><a href="api_ref/global.html#index-0">namespace</a>
-</li>
-      </ul></li>
-      <li>
-    gst_gva_audio_event_meta_add_param
-
-      <ul>
-        <li><a href="api_ref/global.html#index-4">function</a>, <a href="api_ref/global.html#index-8">[1]</a>
-</li>
-      </ul></li>
-      <li>
-    gst_gva_buffer_add_audio_event_meta
-
-      <ul>
-        <li><a href="api_ref/global.html#index-2">function</a>, <a href="api_ref/global.html#index-6">[1]</a>
-</li>
-      </ul></li>
-      <li>
-    gst_gva_buffer_add_audio_event_meta_id
-
-      <ul>
-        <li><a href="api_ref/global.html#index-3">function</a>, <a href="api_ref/global.html#index-7">[1]</a>
-</li>
-      </ul></li>
-      <li>
-    gst_gva_buffer_get_audio_event_meta_id
-
-      <ul>
-        <li><a href="api_ref/global.html#index-1">function</a>, <a href="api_ref/global.html#index-5">[1]</a>
+        <li><a href="api_ref/global.html#index-0">namespace</a>, <a href="architecture_2.0/api_ref/global.html#index-0">[1]</a>
 </li>
       </ul></li>
       <li>
     gst_gva_json_meta_api_get_type
 
       <ul>
-        <li><a href="api_ref/global.html#index-14">function</a>, <a href="api_ref/global.html#index-9">[1]</a>
+        <li><a href="api_ref/global.html#index-2">function</a>, <a href="architecture_2.0/api_ref/global.html#index-2">[1]</a>
 </li>
       </ul></li>
       <li>
     gst_gva_json_meta_get_info
 
       <ul>
-        <li><a href="api_ref/global.html#index-10">function</a>, <a href="api_ref/global.html#index-13">[1]</a>
+        <li><a href="api_ref/global.html#index-1">function</a>, <a href="architecture_2.0/api_ref/global.html#index-1">[1]</a>
 </li>
       </ul></li>
       <li>
     gst_gva_tensor_meta_api_get_type
 
       <ul>
-        <li><a href="api_ref/global.html#index-17">function</a>, <a href="api_ref/global.html#index-23">[1]</a>
+        <li><a href="api_ref/global.html#index-7">function</a>, <a href="architecture_2.0/api_ref/global.html#index-7">[1]</a>
 </li>
       </ul></li>
       <li>
     gst_gva_tensor_meta_get_info
 
       <ul>
-        <li><a href="api_ref/global.html#index-18">function</a>, <a href="api_ref/global.html#index-22">[1]</a>
+        <li><a href="api_ref/global.html#index-6">function</a>, <a href="architecture_2.0/api_ref/global.html#index-6">[1]</a>
 </li>
       </ul></li>
       <li>
@@ -1330,7 +2619,7 @@ title="Fullscreen mode"
     GstGVAAudioEventMeta
 
       <ul>
-        <li><a href="api_ref/struct_GstGVAAudioEventMeta.html#index-0">struct</a>
+        <li><a href="api_ref/struct_GstGVAAudioEventMeta.html#index-0">struct</a>, <a href="architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#index-0">[1]</a>
 </li>
       </ul></li>
       <li>
@@ -1395,182 +2684,182 @@ title="Fullscreen mode"
     gva_get_tensor_data
 
       <ul>
-        <li><a href="api_ref/global.html#index-21">function</a>
+        <li><a href="api_ref/global.html#index-5">function</a>, <a href="architecture_2.0/api_ref/global.html#index-5">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_LAYOUT_ANY
 
       <ul>
-        <li><a href="api_ref/enum_GVALayout.html#index-1">enumvalue</a>
+        <li><a href="api_ref/enum_GVALayout.html#index-1">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVALayout.html#index-1">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_LAYOUT_NC
 
       <ul>
-        <li><a href="api_ref/enum_GVALayout.html#index-4">enumvalue</a>
+        <li><a href="api_ref/enum_GVALayout.html#index-4">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVALayout.html#index-4">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_LAYOUT_NCHW
 
       <ul>
-        <li><a href="api_ref/enum_GVALayout.html#index-2">enumvalue</a>
+        <li><a href="api_ref/enum_GVALayout.html#index-2">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVALayout.html#index-2">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_LAYOUT_NHWC
 
       <ul>
-        <li><a href="api_ref/enum_GVALayout.html#index-3">enumvalue</a>
+        <li><a href="api_ref/enum_GVALayout.html#index-3">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVALayout.html#index-3">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_PRECISION_BF16
 
       <ul>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-4">enumvalue</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-4">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-4">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_PRECISION_BIN
 
       <ul>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-17">enumvalue</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-17">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-17">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_PRECISION_BOOL
 
       <ul>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-18">enumvalue</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-18">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-18">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_PRECISION_CUSTOM
 
       <ul>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-19">enumvalue</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-19">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-19">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_PRECISION_FP16
 
       <ul>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-3">enumvalue</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-3">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-3">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_PRECISION_FP32
 
       <ul>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-2">enumvalue</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-2">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-2">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_PRECISION_FP64
 
       <ul>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-5">enumvalue</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-5">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-5">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_PRECISION_I16
 
       <ul>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-7">enumvalue</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-7">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-7">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_PRECISION_I32
 
       <ul>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-13">enumvalue</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-13">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-13">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_PRECISION_I4
 
       <ul>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-10">enumvalue</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-10">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-10">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_PRECISION_I64
 
       <ul>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-15">enumvalue</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-15">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-15">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_PRECISION_I8
 
       <ul>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-11">enumvalue</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-11">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-11">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_PRECISION_Q78
 
       <ul>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-6">enumvalue</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-6">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-6">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_PRECISION_U16
 
       <ul>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-12">enumvalue</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-12">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-12">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_PRECISION_U32
 
       <ul>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-14">enumvalue</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-14">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-14">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_PRECISION_U4
 
       <ul>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-8">enumvalue</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-8">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-8">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_PRECISION_U64
 
       <ul>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-16">enumvalue</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-16">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-16">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_PRECISION_U8
 
       <ul>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-9">enumvalue</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-9">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-9">[1]</a>
 </li>
       </ul></li>
       <li>
     GVA_PRECISION_UNSPECIFIED
 
       <ul>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-1">enumvalue</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-1">enumvalue</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-1">[1]</a>
 </li>
       </ul></li>
       <li>
     GVALayout
 
       <ul>
-        <li><a href="api_ref/enum_GVALayout.html#index-0">enum</a>
+        <li><a href="api_ref/enum_GVALayout.html#index-0">enum</a>, <a href="architecture_2.0/api_ref/enum_GVALayout.html#index-0">[1]</a>
 </li>
       </ul></li>
       <li>
     GVAPrecision
 
       <ul>
-        <li><a href="api_ref/enum_GVAPrecision.html#index-0">enum</a>
+        <li><a href="api_ref/enum_GVAPrecision.html#index-0">enum</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-0">[1]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1578,6 +2867,22 @@ title="Fullscreen mode"
 
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    handle
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseContext.html#index-2">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-3">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Context.html#index-3">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_FFmpegContext.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTContextQuery.html#index-1">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_LevelZeroContext.html#index-1">[6]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenCLContext.html#index-1">[7]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVUMatContext.html#index-1">[8]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOContext.html#index-2">[9]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_SYCLContext.html#index-1">[10]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-5">[11]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-6">[12]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_VAAPIContext.html#index-1">[13]</a>
+</li>
+      </ul></li>
+      <li>
+    handle_t
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Context.html#index-1">typedef</a>
+</li>
+      </ul></li>
+  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     has_field
@@ -1620,13 +2925,48 @@ title="Fullscreen mode"
         <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-15">enumvalue</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     I8
 
       <ul>
         <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-11">enumvalue</a>
+</li>
+      </ul></li>
+      <li>
+    id
+
+      <ul>
+        <li><a href="api_ref/struct_GstGVAAudioEventMeta.html#index-3">variable</a>, <a href="architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#index-3">[1]</a>
+</li>
+      </ul></li>
+      <li>
+    ImageFormat
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/enum_dlstreamer_ImageFormat.html#index-0">enum</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    info
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-5">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-1">[1]</a>
+</li>
+      </ul></li>
+      <li>
+    init
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Element.html#index-1">function</a>
+</li>
+      </ul></li>
+      <li>
+    input_context
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseMemoryMapper.html#index-3">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapper.html#index-3">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCache.html#index-3">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperChain.html#index-3">[3]</a>
 </li>
       </ul></li>
       <li>
@@ -1637,10 +2977,37 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li>
+    is_contiguous
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_TensorInfo.html#index-5">function</a>
+</li>
+      </ul></li>
+      <li>
     is_detection
 
       <ul>
         <li><a href="api_ref/class_GVA_Tensor.html#index-26">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-25">[1]</a>
+</li>
+      </ul></li>
+      <li>
+    itemsize
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_TensorInfo.html#index-3">function</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    keys
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-7">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-2">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-7">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-6">[3]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1700,10 +3067,47 @@ title="Fullscreen mode"
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
+    map
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseMemoryMapper.html#index-1">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseMemoryMapper.html#index-2">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseMemoryMapper.html#index-5">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseMemoryMapper.html#index-6">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapper.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapper.html#index-2">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperAnyToGST.html#index-1">[6]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperAnyToGST.html#index-2">[7]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCPUToOpenCV.html#index-1">[8]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCPUToOpenVINO.html#index-1">[9]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCPUToOpenVINO.html#index-2">[10]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCache.html#index-1">[11]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCache.html#index-2">[12]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperChain.html#index-1">[13]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperChain.html#index-2">[14]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperDMAToOpenCL.html#index-1">[15]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperDMAToUSM.html#index-1">[16]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperDMAToVAAPI.html#index-1">[17]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperDMAToVAAPI.html#index-2">[18]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperFFMPEGToVAAPI.html#index-1">[19]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperGSTToDMA.html#index-1">[20]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperGSTToOpenCL.html#index-1">[21]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperGSTToVAAPI.html#index-1">[22]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenCLToCPU.html#index-1">[23]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenCLToDMA.html#index-1">[24]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenCLToOpenCVUMat.html#index-1">[25]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenCLToOpenVINO.html#index-1">[26]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenVINOToCPU.html#index-1">[27]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenVINOToCPU.html#index-2">[28]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperSYCLUSMToCPU.html#index-1">[29]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperUSMToDMA.html#index-1">[30]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperVAAPIToDMA.html#index-1">[31]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperVAAPIToDMA.html#index-2">[32]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperVAAPIToOpenVINO.html#index-1">[33]</a>
+</li>
+      </ul></li>
+      <li>
+    media_type
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-3">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-1">[1]</a>
+</li>
+      </ul></li>
+      <li>
+    MediaType
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/enum_dlstreamer_MediaType.html#index-0">enum</a>
+</li>
+      </ul></li>
+      <li>
+    memory_type
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseContext.html#index-1">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-5">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-1">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Context.html#index-2">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-3">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-2">[5]</a>
+</li>
+      </ul></li>
+      <li>
+    MemoryType
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/enum_dlstreamer_MemoryType.html#index-0">enum</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
     message
 
       <ul>
-        <li><a href="api_ref/struct__GstGVAJSONMeta.html#index-2">variable</a>
+        <li><a href="api_ref/struct__GstGVAJSONMeta.html#index-2">variable</a>, <a href="architecture_2.0/api_ref/struct__GstGVAJSONMeta.html#index-2">[1]</a>
 </li>
       </ul></li>
       <li>
@@ -1713,15 +3117,20 @@ title="Fullscreen mode"
         <li><a href="api_ref/class_GVA_AudioFrame.html#index-10">function</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-10">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-8">[2]</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     meta
 
       <ul>
         <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-10">function</a>
 </li>
-        <li><a href="api_ref/struct__GstGVAJSONMeta.html#index-1">variable</a>, <a href="api_ref/struct__GstGVATensorMeta.html#index-1">[1]</a>
+        <li><a href="api_ref/struct_GstGVAAudioEventMeta.html#index-1">variable</a>, <a href="api_ref/struct__GstGVAJSONMeta.html#index-1">[1]</a>, <a href="api_ref/struct__GstGVATensorMeta.html#index-1">[2]</a>, <a href="architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#index-1">[3]</a>, <a href="architecture_2.0/api_ref/struct__GstGVAJSONMeta.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/struct__GstGVATensorMeta.html#index-1">[5]</a>
+</li>
+      </ul></li>
+      <li>
+    metadata
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-6">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-6">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-7">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTFrame.html#index-1">[3]</a>
 </li>
       </ul></li>
       <li>
@@ -1741,14 +3150,22 @@ title="Fullscreen mode"
     name
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-9">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-5">[1]</a>
+        <li><a href="api_ref/class_GVA_Tensor.html#index-9">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-5">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-1">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-1">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-1">[5]</a>
 </li>
       </ul></li>
       <li>
     namespace
 
       <ul>
-        <li><a href="api_ref/global.html#index-0">global</a>
+        <li><a href="architecture_2.0/api_ref/namespace_dlstreamer.html#index-0">dlstreamer</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/namespace_dlstreamer_detail.html#index-0">dlstreamer::detail</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/namespace_dlstreamer_tensor.html#index-0">dlstreamer::tensor</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/namespace_dlstreamer_tensor_key.html#index-0">dlstreamer::tensor::key</a>
+</li>
+        <li><a href="api_ref/global.html#index-0">global</a>, <a href="architecture_2.0/api_ref/global.html#index-0">[1]</a>
 </li>
         <li><a href="api_ref/namespace_gstgva.html#index-0">gstgva</a>
 </li>
@@ -1763,6 +3180,13 @@ title="Fullscreen mode"
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    nbytes
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_TensorInfo.html#index-4">function</a>
+</li>
+      </ul></li>
       <li>
     NC
 
@@ -1791,6 +3215,13 @@ title="Fullscreen mode"
         <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-3">function</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-2">[1]</a>
 </li>
       </ul></li>
+      <li>
+    num_tensors
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-1">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-5">[1]</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -1805,6 +3236,15 @@ title="Fullscreen mode"
 </li>
       </ul></li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    output_context
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseMemoryMapper.html#index-4">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapper.html#index-4">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCache.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperChain.html#index-4">[3]</a>
+</li>
+      </ul></li>
+  </ul></td>
 </tr></table>
 
 <h2 id="P">P</h2>
@@ -1815,6 +3255,20 @@ title="Fullscreen mode"
 
       <ul>
         <li><a href="api_ref/page_index.html#index-0">Intel® Deep Learning Streamer (Intel® DL Streamer) API reference</a>
+</li>
+      </ul></li>
+      <li>
+    params
+
+      <ul>
+        <li><a href="api_ref/struct_GstGVAAudioEventMeta.html#index-6">variable</a>, <a href="architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#index-6">[1]</a>
+</li>
+      </ul></li>
+      <li>
+    parent
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseContext.html#index-5">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-7">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-7">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Context.html#index-6">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-8">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-7">[5]</a>
 </li>
       </ul></li>
       <li>
@@ -1840,6 +3294,13 @@ title="Fullscreen mode"
         <li><a href="api_ref/class_GVA_Tensor.html#index-22">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-22">[1]</a>
 </li>
       </ul></li>
+      <li>
+    process
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-5">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-6">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-7">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-8">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransformInplace.html#index-2">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransformInplace.html#index-3">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-5">[6]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-6">[7]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-7">[8]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-8">[9]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_TransformInplace.html#index-2">[10]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_TransformInplace.html#index-3">[11]</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -1859,6 +3320,13 @@ title="Fullscreen mode"
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    read
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Source.html#index-3">function</a>
+</li>
+      </ul></li>
       <li>
     rect
 
@@ -1884,7 +3352,7 @@ title="Fullscreen mode"
     regions
 
       <ul>
-        <li><a href="api_ref/class_GVA_VideoFrame.html#index-6">function</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-7">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-4">[2]</a>
+        <li><a href="api_ref/class_GVA_VideoFrame.html#index-6">function</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-7">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-8">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-9">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTFrame.html#index-2">[5]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1931,10 +3399,38 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li>
+    set
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-4">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-5">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-4">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTROIDictionary.html#index-1">[4]</a>
+</li>
+      </ul></li>
+      <li>
+    set_array
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-5">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-6">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-5">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-5">[3]</a>
+</li>
+      </ul></li>
+      <li>
     set_double
 
       <ul>
         <li><a href="api_ref/class_GVA_Tensor.html#index-19">function</a>
+</li>
+      </ul></li>
+      <li>
+    set_info
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransformInplace.html#index-1">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_TransformInplace.html#index-1">[1]</a>
+</li>
+      </ul></li>
+      <li>
+    set_input_info
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseSink.html#index-1">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-1">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Sink.html#index-2">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-1">[3]</a>
 </li>
       </ul></li>
       <li>
@@ -1948,7 +3444,7 @@ title="Fullscreen mode"
     set_json_message
 
       <ul>
-        <li><a href="api_ref/global.html#index-12">function</a>, <a href="api_ref/global.html#index-16">[1]</a>
+        <li><a href="api_ref/global.html#index-4">function</a>, <a href="architecture_2.0/api_ref/global.html#index-4">[1]</a>
 </li>
       </ul></li>
       <li>
@@ -1962,16 +3458,21 @@ title="Fullscreen mode"
     set_name
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-20">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-20">[1]</a>
+        <li><a href="api_ref/class_GVA_Tensor.html#index-20">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-20">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-6">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-7">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-6">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-7">[5]</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     set_object_id
 
       <ul>
         <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-13">function</a>
+</li>
+      </ul></li>
+      <li>
+    set_output_info
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseSource.html#index-1">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-2">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Source.html#index-2">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-2">[3]</a>
 </li>
       </ul></li>
       <li>
@@ -1982,14 +3483,80 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li>
+    size
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_TensorInfo.html#index-2">function</a>
+</li>
+      </ul></li>
+      <li>
+    start_timestamp
+
+      <ul>
+        <li><a href="api_ref/struct_GstGVAAudioEventMeta.html#index-4">variable</a>, <a href="architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#index-4">[1]</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
     struct
 
       <ul>
-        <li><a href="api_ref/struct__GstGVAJSONMeta.html#index-0">_GstGVAJSONMeta</a>
+        <li><a href="api_ref/struct__GstGVAJSONMeta.html#index-0">_GstGVAJSONMeta</a>, <a href="architecture_2.0/api_ref/struct__GstGVAJSONMeta.html#index-0">[1]</a>
 </li>
-        <li><a href="api_ref/struct__GstGVATensorMeta.html#index-0">_GstGVATensorMeta</a>
+        <li><a href="api_ref/struct__GstGVATensorMeta.html#index-0">_GstGVATensorMeta</a>, <a href="architecture_2.0/api_ref/struct__GstGVATensorMeta.html#index-0">[1]</a>
 </li>
-        <li><a href="api_ref/struct_GstGVAAudioEventMeta.html#index-0">GstGVAAudioEventMeta</a>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_AffineTransformInfoMetadata_key.html#index-0">dlstreamer::AffineTransformInfoMetadata::key</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_AudioFormat.html#index-0">dlstreamer::AudioFormat</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_AudioInfo.html#index-0">dlstreamer::AudioInfo</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_BaseContext_key.html#index-0">dlstreamer::BaseContext::key</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_ClassificationMetadata_key.html#index-0">dlstreamer::ClassificationMetadata::key</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_detail_fourcc.html#index-0">dlstreamer::detail::fourcc</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_DetectionMetadata_key.html#index-0">dlstreamer::DetectionMetadata::key</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_ElementDesc.html#index-0">dlstreamer::ElementDesc</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_FFmpegContext_key.html#index-0">dlstreamer::FFmpegContext::key</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_FrameInfo.html#index-0">dlstreamer::FrameInfo</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_GstDLStreamerMemory.html#index-0">dlstreamer::GstDLStreamerMemory</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_ImageInfo.html#index-0">dlstreamer::ImageInfo</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_InferenceResultMetadata_key.html#index-0">dlstreamer::InferenceResultMetadata::key</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_LevelZeroContext_key.html#index-0">dlstreamer::LevelZeroContext::key</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_ModelInfoMetadata_key.html#index-0">dlstreamer::ModelInfoMetadata::key</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_ObjectIdMetadata_key.html#index-0">dlstreamer::ObjectIdMetadata::key</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_OpenCLContext_key.html#index-0">dlstreamer::OpenCLContext::key</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_OpenCVUMatTensor_key.html#index-0">dlstreamer::OpenCVUMatTensor::key</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_OpenVINOContext_key.html#index-0">dlstreamer::OpenVINOContext::key</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_ParamDesc.html#index-0">dlstreamer::ParamDesc</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_SourceIdentifierMetadata_key.html#index-0">dlstreamer::SourceIdentifierMetadata::key</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_SYCLContext_key.html#index-0">dlstreamer::SYCLContext::key</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_TensorInfo.html#index-0">dlstreamer::TensorInfo</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_TimestampMetadata_key.html#index-0">dlstreamer::TimestampMetadata::key</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_VAAPIContext_key.html#index-0">dlstreamer::VAAPIContext::key</a>
+</li>
+        <li><a href="api_ref/struct_GstGVAAudioEventMeta.html#index-0">GstGVAAudioEventMeta</a>, <a href="architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#index-0">[1]</a>
 </li>
         <li><a href="api_ref/struct_GVA_Rect.html#index-0">GVA::Rect</a>
 </li>
@@ -2009,13 +3576,50 @@ title="Fullscreen mode"
         <li><a href="api_ref/class_GVA_Tensor.html#index-1">function</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    tensor
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-2">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-4">[1]</a>
+</li>
+      </ul></li>
+      <li>
+    TensorInfo
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/struct_dlstreamer_TensorInfo.html#index-1">function</a>
+</li>
+      </ul></li>
       <li>
     tensors
 
       <ul>
         <li><a href="api_ref/class_GVA_AudioEvent.html#index-5">function</a>, <a href="api_ref/class_GVA_AudioFrame.html#index-8">[1]</a>, <a href="api_ref/class_GVA_AudioFrame.html#index-9">[2]</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-7">[3]</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-8">[4]</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-9">[5]</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-6">[6]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-5">[7]</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    try_get
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-2">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-3">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-2">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-2">[3]</a>
+</li>
+      </ul></li>
+      <li>
+    try_get_array
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-3">function</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-4">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-3">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-3">[3]</a>
+</li>
+      </ul></li>
+      <li>
+    typedef
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/namespace_dlstreamer.html#index-1">Any</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Context.html#index-1">handle_t</a>
 </li>
       </ul></li>
   </ul></td>
@@ -2075,16 +3679,35 @@ title="Fullscreen mode"
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
+    Value
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/enum_dlstreamer_ImageLayout_Value.html#index-0">enum</a>
+</li>
+      </ul></li>
+      <li>
     variable
 
       <ul>
-        <li><a href="api_ref/struct__GstGVATensorMeta.html#index-2">data</a>
+        <li><a href="api_ref/struct__GstGVATensorMeta.html#index-2">data</a>, <a href="architecture_2.0/api_ref/struct__GstGVATensorMeta.html#index-2">[1]</a>
 </li>
-        <li><a href="api_ref/struct__GstGVAJSONMeta.html#index-2">message</a>
+        <li><a href="api_ref/struct_GstGVAAudioEventMeta.html#index-5">end_timestamp</a>, <a href="architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#index-5">[1]</a>
 </li>
-        <li><a href="api_ref/struct__GstGVAJSONMeta.html#index-1">meta</a>, <a href="api_ref/struct__GstGVATensorMeta.html#index-1">[1]</a>
+        <li><a href="api_ref/struct_GstGVAAudioEventMeta.html#index-2">event_type</a>, <a href="architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#index-2">[1]</a>
+</li>
+        <li><a href="api_ref/struct_GstGVAAudioEventMeta.html#index-3">id</a>, <a href="architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#index-3">[1]</a>
+</li>
+        <li><a href="api_ref/struct__GstGVAJSONMeta.html#index-2">message</a>, <a href="architecture_2.0/api_ref/struct__GstGVAJSONMeta.html#index-2">[1]</a>
+</li>
+        <li><a href="api_ref/struct_GstGVAAudioEventMeta.html#index-1">meta</a>, <a href="api_ref/struct__GstGVAJSONMeta.html#index-1">[1]</a>, <a href="api_ref/struct__GstGVATensorMeta.html#index-1">[2]</a>, <a href="architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#index-1">[3]</a>, <a href="architecture_2.0/api_ref/struct__GstGVAJSONMeta.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/struct__GstGVATensorMeta.html#index-1">[5]</a>
+</li>
+        <li><a href="api_ref/struct_GstGVAAudioEventMeta.html#index-6">params</a>, <a href="architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#index-6">[1]</a>
+</li>
+        <li><a href="api_ref/struct_GstGVAAudioEventMeta.html#index-4">start_timestamp</a>, <a href="architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#index-4">[1]</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     video_info
 
@@ -2092,8 +3715,6 @@ title="Fullscreen mode"
         <li><a href="api_ref/class_GVA_VideoFrame.html#index-5">function</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-3">[1]</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     video_meta
 
@@ -2106,6 +3727,19 @@ title="Fullscreen mode"
 
       <ul>
         <li><a href="api_ref/class_GVA_VideoFrame.html#index-1">function</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-2">[1]</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-3">[2]</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    write
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_dlstreamer_Sink.html#index-3">function</a>
 </li>
       </ul></li>
   </ul></td>

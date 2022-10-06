@@ -1,12 +1,12 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
 
-    <title>Global Namespace &#8212; Intel® DL Streamer  documentation</title>
+    <title>Global Namespace &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +21,8 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/doxyrest-pygments.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -30,15 +31,17 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/target-highlight.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="namespace GVA" href="namespace_GVA.html" />
     <link rel="prev" title="Intel® Deep Learning Streamer (Intel® DL Streamer) API reference" href="page_index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -75,7 +78,7 @@
       
       
       
-      <h1 class="site-logo" id="site-title">Intel® DL Streamer  documentation</h1>
+      <h1 class="site-logo" id="site-title">Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -114,16 +117,6 @@
        Install Guide Ubuntu
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../get_started/install/install_guide_rhel.html">
-       Install Guide RHEL
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../get_started/install/install_guide_windows.html">
-       Install Guide Windows (Preview)
-      </a>
-     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -132,7 +125,7 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/README.md">
+    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">
      Samples
     </a>
    </li>
@@ -153,10 +146,22 @@
      Metadata
     </a>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../dev_guide/model_preparation.html">
      Model Preparation
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../dev_guide/yolov5_model_preparation.html">
+       Yolov5 Model Preparation Example
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../dev_guide/model_proc_file.html">
@@ -184,6 +189,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/profiling.html">
+     Profiling with Intel VTune™
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../dev_guide/converting_deepstream_to_dlstreamer.html">
      Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
     </a>
@@ -192,23 +202,6 @@
     <a class="reference internal" href="../dev_guide/how_to_contribute.html">
      How to Contribute
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../dev_guide/coding_style.html">
-       Coding Style
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../dev_guide/preview_features/preview_features.html">
-     Preview Features
-    </a>
     <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
     <label for="toctree-checkbox-5">
      <i class="fas fa-chevron-down">
@@ -216,13 +209,8 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../dev_guide/preview_features/action_recognition.html">
-       Action Recognition
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../dev_guide/preview_features/segmentation.html">
-       Segmentation
+      <a class="reference internal" href="../dev_guide/coding_style.html">
+       Coding Style
       </a>
      </li>
     </ul>
@@ -240,11 +228,6 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvainference.html">
-     gvainference
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvadetect.html">
      gvadetect
     </a>
@@ -252,6 +235,16 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvaclassify.html">
      gvaclassify
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvainference.html">
+     gvainference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvaaudiodetect.html">
+     gvaaudiodetect
     </a>
    </li>
    <li class="toctree-l2">
@@ -275,16 +268,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvaaudiodetect.html">
-     gvaaudiodetect
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvafpscounter.html">
-     gvafpscounter
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvapython.html">
      gvapython
     </a>
@@ -292,6 +275,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../elements/gvawatermark.html">
      gvawatermark
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../elements/gvafpscounter.html">
+     gvafpscounter
     </a>
    </li>
   </ul>
@@ -444,6 +432,117 @@
        </i>
       </label>
       <ul class="simple">
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../architecture_2.0/architecture_2.0.html">
+   Architecture 2.0 [Preview]
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/migration_guide.html">
+     Migration to 2.0
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/cpp_interfaces.html">
+     ① Memory Interop and C++ abstract interfaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/cpp_elements.html">
+     ② C++ elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/gstreamer_elements.html">
+     ③ GStreamer Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/gstreamer_bins.html">
+     ③ GStreamer Bin Elements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/python_bindings.html">
+     ③ Python Bindings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/elements_list.html">
+     Elements 2.0 reference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/packaging.html">
+     Packaging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/samples_2.0.html">
+     Samples 2.0
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../architecture_2.0/api_ref/index.html">
+     API 2.0 Reference
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../architecture_2.0/api_ref/global.html">
+       Global Namespace
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/namespace_dlstreamer.html">
+         namespace dlstreamer
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVALayout.html">
+         enum GVALayout
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html">
+         enum GVAPrecision
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html">
+         struct GstGVAAudioEventMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVAJSONMeta.html">
+         struct _GstGVAJSONMeta
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html">
+         struct _GstGVATensorMeta
+        </a>
+       </li>
       </ul>
      </li>
     </ul>
@@ -646,11 +745,11 @@ title="Print to PDF"
               <div>
                 
   <span class="target" id="global"></span><section id="global-namespace">
-<span id="index-0"></span><h1>Global Namespace<a class="headerlink" href="#global-namespace" title="Permalink to this headline">#</a></h1>
+<span id="index-0"></span><h1>Global Namespace<a class="headerlink" href="#global-namespace" title="Permalink to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="c1">// namespaces</span>
 
 <span class="k">namespace</span> <a class="reference internal" href="namespace_GVA.html#doxid-namespace-g-v-a"><span class="std std-ref">GVA</span></a><span></span><span class="p">;</span>
@@ -661,171 +760,69 @@ title="Print to PDF"
 
 <span class="c1">// typedefs</span>
 
-<span class="k">typedef</span> <span class="n">typedefG_BEGIN_DECLS</span> <span class="k">struct</span> <a class="reference internal" href="struct__GstGVAJSONMeta.html#doxid-struct-gst-g-v-a-j-s-o-n-meta"><span class="std std-ref">_GstGVAJSONMeta</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-gva-json-meta-8h-1a64a17a6fb82826c3a7159e71c9449a54"><span></span><span class="n">GstGVAJSONMeta</span></span><span></span><span class="p">;</span>
-<span class="k">typedef</span> <span class="k">struct</span> <a class="reference internal" href="struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-gva-tensor-meta-8h-1a038ecf5fdabb0acf1f2053800ba16d62"><span></span><span class="n">GstGVATensorMeta</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">typedefG_BEGIN_DECLS</span> <span class="k">struct</span> <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVAJSONMeta.html#doxid-struct-gst-g-v-a-j-s-o-n-meta"><span class="std std-ref">_GstGVAJSONMeta</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-gva-json-meta-8h-1a64a17a6fb82826c3a7159e71c9449a54"><span></span><span class="n">GstGVAJSONMeta</span></span><span></span><span class="p">;</span>
+<span class="k">typedef</span> <span class="k">struct</span> <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-gva-tensor-meta-8h-1a038ecf5fdabb0acf1f2053800ba16d62"><span></span><span class="n">GstGVATensorMeta</span></span><span></span><span class="p">;</span>
 
 <span class="c1">// enums</span>
 
-<span class="k">enum</span> <a class="reference internal" href="enum_GVALayout.html#doxid-gva-tensor-meta-8h-1a2d0113c46cec570b215b893571ab14ed"><span class="std std-ref">GVALayout</span></a><span></span><span class="p">;</span>
-<span class="k">enum</span> <a class="reference internal" href="enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ce"><span class="std std-ref">GVAPrecision</span></a><span></span><span class="p">;</span>
+<span class="k">enum</span> <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVALayout.html#doxid-gva-tensor-meta-8h-1a2d0113c46cec570b215b893571ab14ed"><span class="std std-ref">GVALayout</span></a><span></span><span class="p">;</span>
+<span class="k">enum</span> <a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html#doxid-gva-tensor-meta-8h-1ac26bbefa1eda84e0a4b888d51d2795ce"><span class="std std-ref">GVAPrecision</span></a><span></span><span class="p">;</span>
 
 <span class="c1">// structs</span>
 
-<span class="k">struct</span> <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="p">;</span>
-<span class="k">struct</span> <a class="reference internal" href="struct__GstGVAJSONMeta.html#doxid-struct-gst-g-v-a-j-s-o-n-meta"><span class="std std-ref">_GstGVAJSONMeta</span></a><span></span><span class="p">;</span>
-<span class="k">struct</span> <a class="reference internal" href="struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a><span></span><span class="p">;</span>
+<span class="k">struct</span> <a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="p">;</span>
+<span class="k">struct</span> <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVAJSONMeta.html#doxid-struct-gst-g-v-a-j-s-o-n-meta"><span class="std std-ref">_GstGVAJSONMeta</span></a><span></span><span class="p">;</span>
+<span class="k">struct</span> <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a><span></span><span class="p">;</span>
 
 <span class="c1">// global functions</span>
-
-<span class="n">GstStructure</span><span class="o">*</span> <span class="doxyrest-code-target target" id="doxid-gva-audio-event-meta-8c-1ad70cb8cbce41685958c327888e1b1a4d"><span></span><span class="n">gst_gva_audio_event_meta_get_param</span></span><span></span><span class="p">(</span>
-    <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <span class="n">meta</span><span class="p">,</span>
-    <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">name</span>
-<span class="p">);</span>
-
-<span class="n">GType</span> <span class="doxyrest-code-target target" id="doxid-gva-audio-event-meta-8c-1abbda3842d56b2d1be936c56fc10b5fe4"><span></span><span class="n">gst_gva_audio_event_meta_api_get_type</span></span><span></span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-
-<span class="n">gboolean</span> <span class="doxyrest-code-target target" id="doxid-gva-audio-event-meta-8c-1ac3edcac99d84da6208508aef600bf8de"><span></span><span class="n">gst_gva_audio_event_meta_init</span></span><span></span><span class="p">(</span>
-    <span class="n">GstMeta</span><span class="o">*</span> <span class="n">meta</span><span class="p">,</span>
-    <span class="n">gpointer</span> <span class="n">params</span><span class="p">,</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span>
-<span class="p">);</span>
-
-<span class="kt">void</span> <span class="doxyrest-code-target target" id="doxid-gva-audio-event-meta-8c-1a7e78b3e6974d41be88c53a07ca3158b8"><span></span><span class="n">gst_gva_audio_event_meta_free</span></span><span></span><span class="p">(</span><span class="n">GstMeta</span><span class="o">*</span> <span class="n">meta</span><span class="p">,</span> <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">);</span>
-
-<span class="n">gboolean</span> <span class="doxyrest-code-target target" id="doxid-gva-audio-event-meta-8c-1ac216ad36ff31f31bd0a1015c330462bc"><span></span><span class="n">gst_gva_audio_event_meta_transform</span></span><span></span><span class="p">(</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">dest_buf</span><span class="p">,</span>
-    <span class="n">GstMeta</span><span class="o">*</span> <span class="n">src_meta</span><span class="p">,</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">src_buf</span><span class="p">,</span>
-    <span class="n">GQuark</span> <span class="n">type</span><span class="p">,</span>
-    <span class="n">gpointer</span> <span class="n">data</span>
-<span class="p">);</span>
-
-<span class="k">const</span> <span class="n">GstMetaInfo</span><span class="o">*</span> <span class="doxyrest-code-target target" id="doxid-gva-audio-event-meta-8c-1ada019174d6ba549dd03bd53b456149f1"><span></span><span class="n">gst_gva_audio_event_meta_get_info</span></span><span></span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-
-<a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <a class="reference internal" href="#doxid-gva-audio-event-meta-8c-1a28911a7b18dd81195a62f99bfce3a677"><span class="std std-ref">gst_gva_buffer_get_audio_event_meta_id</span></a><span></span><span class="p">(</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span>
-    <span class="n">gint</span> <span class="n">id</span>
-<span class="p">);</span>
-
-<a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <a class="reference internal" href="#doxid-gva-audio-event-meta-8c-1a4afcfba36998cd584614490ecf310f75"><span class="std std-ref">gst_gva_buffer_add_audio_event_meta</span></a><span></span><span class="p">(</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span>
-    <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">event_type</span><span class="p">,</span>
-    <span class="n">gulong</span> <span class="n">start_timestamp</span><span class="p">,</span>
-    <span class="n">gulong</span> <span class="n">end_timestamp</span>
-<span class="p">);</span>
-
-<a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <a class="reference internal" href="#doxid-gva-audio-event-meta-8c-1a37a9125b4ca9dfddfabb5a75a0fd1672"><span class="std std-ref">gst_gva_buffer_add_audio_event_meta_id</span></a><span></span><span class="p">(</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span>
-    <span class="n">GQuark</span> <span class="n">event_type</span><span class="p">,</span>
-    <span class="n">gulong</span> <span class="n">start_timestamp</span><span class="p">,</span>
-    <span class="n">gulong</span> <span class="n">end_timestamp</span>
-<span class="p">);</span>
-
-<span class="kt">void</span> <a class="reference internal" href="#doxid-gva-audio-event-meta-8c-1a9c7f911c4a75090131a66a0e3c929ca0"><span class="std std-ref">gst_gva_audio_event_meta_add_param</span></a><span></span><span class="p">(</span>
-    <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <span class="n">meta</span><span class="p">,</span>
-    <span class="n">GstStructure</span><span class="o">*</span> <span class="n">structure</span>
-<span class="p">);</span>
 
 <span class="n">GType</span> <span class="doxyrest-code-target target" id="doxid-gva-audio-event-meta-8h-1abbda3842d56b2d1be936c56fc10b5fe4"><span></span><span class="n">gst_gva_audio_event_meta_api_get_type</span></span><span></span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 <span class="k">const</span> <span class="n">GstMetaInfo</span><span class="o">*</span> <span class="doxyrest-code-target target" id="doxid-gva-audio-event-meta-8h-1ada019174d6ba549dd03bd53b456149f1"><span></span><span class="n">gst_gva_audio_event_meta_get_info</span></span><span></span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
-<a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <a class="reference internal" href="#doxid-gva-audio-event-meta-8h-1a28911a7b18dd81195a62f99bfce3a677"><span class="std std-ref">gst_gva_buffer_get_audio_event_meta_id</span></a><span></span><span class="p">(</span>
+<a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <span class="doxyrest-code-target target" id="doxid-gva-audio-event-meta-8h-1a28911a7b18dd81195a62f99bfce3a677"><span></span><span class="n">gst_gva_buffer_get_audio_event_meta_id</span></span><span></span><span class="p">(</span>
     <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span>
     <span class="n">gint</span> <span class="n">id</span>
 <span class="p">);</span>
 
-<a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <a class="reference internal" href="#doxid-gva-audio-event-meta-8h-1a4afcfba36998cd584614490ecf310f75"><span class="std std-ref">gst_gva_buffer_add_audio_event_meta</span></a><span></span><span class="p">(</span>
+<a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <span class="doxyrest-code-target target" id="doxid-gva-audio-event-meta-8h-1a4afcfba36998cd584614490ecf310f75"><span></span><span class="n">gst_gva_buffer_add_audio_event_meta</span></span><span></span><span class="p">(</span>
     <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span>
     <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">event_type</span><span class="p">,</span>
     <span class="n">gulong</span> <span class="n">start_timestamp</span><span class="p">,</span>
     <span class="n">gulong</span> <span class="n">end_timestamp</span>
 <span class="p">);</span>
 
-<a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <a class="reference internal" href="#doxid-gva-audio-event-meta-8h-1a37a9125b4ca9dfddfabb5a75a0fd1672"><span class="std std-ref">gst_gva_buffer_add_audio_event_meta_id</span></a><span></span><span class="p">(</span>
+<a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <span class="doxyrest-code-target target" id="doxid-gva-audio-event-meta-8h-1a37a9125b4ca9dfddfabb5a75a0fd1672"><span></span><span class="n">gst_gva_buffer_add_audio_event_meta_id</span></span><span></span><span class="p">(</span>
     <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span>
     <span class="n">GQuark</span> <span class="n">event_type</span><span class="p">,</span>
     <span class="n">gulong</span> <span class="n">start_timestamp</span><span class="p">,</span>
     <span class="n">gulong</span> <span class="n">end_timestamp</span>
 <span class="p">);</span>
 
-<span class="kt">void</span> <a class="reference internal" href="#doxid-gva-audio-event-meta-8h-1ab2ac8cd76f8f0a52f344f80921903f20"><span class="std std-ref">gst_gva_audio_event_meta_add_param</span></a><span></span><span class="p">(</span>
-    <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <span class="n">meta</span><span class="p">,</span>
+<span class="kt">void</span> <span class="doxyrest-code-target target" id="doxid-gva-audio-event-meta-8h-1ab2ac8cd76f8f0a52f344f80921903f20"><span></span><span class="n">gst_gva_audio_event_meta_add_param</span></span><span></span><span class="p">(</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <span class="n">meta</span><span class="p">,</span>
     <span class="n">GstStructure</span><span class="o">*</span> <span class="n">s</span>
 <span class="p">);</span>
 
 <span class="n">GstStructure</span><span class="o">*</span> <span class="doxyrest-code-target target" id="doxid-gva-audio-event-meta-8h-1ad70cb8cbce41685958c327888e1b1a4d"><span></span><span class="n">gst_gva_audio_event_meta_get_param</span></span><span></span><span class="p">(</span>
-    <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <span class="n">meta</span><span class="p">,</span>
+    <a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <span class="n">meta</span><span class="p">,</span>
     <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">name</span>
 <span class="p">);</span>
 
-<span class="n">GType</span> <a class="reference internal" href="#doxid-gva-json-meta-8c-1a4136c51ca9905bc6da7a3536ca957899"><span class="std std-ref">gst_gva_json_meta_api_get_type</span></a><span></span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="k">const</span> <span class="n">GstMetaInfo</span><span class="o">*</span> <a class="reference internal" href="../architecture_2.0/api_ref/global.html#doxid-gva-json-meta-8h-1aa3e2cbd81b77b33be3a69a11c190cb57"><span class="std std-ref">gst_gva_json_meta_get_info</span></a><span></span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="n">GType</span> <a class="reference internal" href="../architecture_2.0/api_ref/global.html#doxid-gva-json-meta-8h-1a4136c51ca9905bc6da7a3536ca957899"><span class="std std-ref">gst_gva_json_meta_api_get_type</span></a><span></span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="n">gchar</span><span class="o">*</span> <a class="reference internal" href="../architecture_2.0/api_ref/global.html#doxid-gva-json-meta-8h-1aa545ce5192458c944e25cd7a420ba6c1"><span class="std std-ref">get_json_message</span></a><span></span><span class="p">(</span><a class="reference internal" href="../architecture_2.0/api_ref/global.html#doxid-gva-json-meta-8h-1a64a17a6fb82826c3a7159e71c9449a54"><span class="std std-ref">GstGVAJSONMeta</span></a><span></span><span class="o">*</span> <span class="n">meta</span><span class="p">);</span>
+<span class="kt">void</span> <a class="reference internal" href="../architecture_2.0/api_ref/global.html#doxid-gva-json-meta-8h-1a0ea9b77e35bd236b9d3e842764a970ae"><span class="std std-ref">set_json_message</span></a><span></span><span class="p">(</span><a class="reference internal" href="../architecture_2.0/api_ref/global.html#doxid-gva-json-meta-8h-1a64a17a6fb82826c3a7159e71c9449a54"><span class="std std-ref">GstGVAJSONMeta</span></a><span></span><span class="o">*</span> <span class="n">meta</span><span class="p">,</span> <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">message</span><span class="p">);</span>
+<span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <a class="reference internal" href="../architecture_2.0/api_ref/global.html#doxid-gva-tensor-meta-8h-1a10f40dae431beeca931a84d6e803df03"><span class="std std-ref">gva_get_tensor_data</span></a><span></span><span class="p">(</span><span class="n">GstStructure</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="n">gsize</span><span class="o">*</span> <span class="n">nbytes</span><span class="p">);</span>
+<span class="k">const</span> <span class="n">GstMetaInfo</span><span class="o">*</span> <a class="reference internal" href="../architecture_2.0/api_ref/global.html#doxid-gva-tensor-meta-8h-1a09753594569dbadb68669cdddf5bdad1"><span class="std std-ref">gst_gva_tensor_meta_get_info</span></a><span></span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="n">GType</span> <a class="reference internal" href="../architecture_2.0/api_ref/global.html#doxid-gva-tensor-meta-8h-1ac5b45e42b95ae7bb4bd51711551fd3c1"><span class="std std-ref">gst_gva_tensor_meta_api_get_type</span></a><span></span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
-<span class="n">gboolean</span> <span class="doxyrest-code-target target" id="doxid-gva-json-meta-8c-1a15450269dc84568905117f7bb9ee2b80"><span></span><span class="n">gst_gva_json_meta_init</span></span><span></span><span class="p">(</span>
-    <span class="n">GstMeta</span><span class="o">*</span> <span class="n">meta</span><span class="p">,</span>
-    <span class="n">gpointer</span> <span class="n">params</span><span class="p">,</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span>
-<span class="p">);</span>
-
-<span class="n">gboolean</span> <span class="doxyrest-code-target target" id="doxid-gva-json-meta-8c-1a229484118975a4fa918faca21b83acf8"><span></span><span class="n">gst_gva_json_meta_transform</span></span><span></span><span class="p">(</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">dest_buf</span><span class="p">,</span>
-    <span class="n">GstMeta</span><span class="o">*</span> <span class="n">src_meta</span><span class="p">,</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">src_buf</span><span class="p">,</span>
-    <span class="n">GQuark</span> <span class="n">type</span><span class="p">,</span>
-    <span class="n">gpointer</span> <span class="n">data</span>
-<span class="p">);</span>
-
-<span class="kt">void</span> <span class="doxyrest-code-target target" id="doxid-gva-json-meta-8c-1a7ef440f1c180aae031b2171deb15b42a"><span></span><span class="n">gst_gva_json_meta_free</span></span><span></span><span class="p">(</span><span class="n">GstMeta</span><span class="o">*</span> <span class="n">meta</span><span class="p">,</span> <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">);</span>
-<span class="k">const</span> <span class="n">GstMetaInfo</span><span class="o">*</span> <a class="reference internal" href="#doxid-gva-json-meta-8c-1aa3e2cbd81b77b33be3a69a11c190cb57"><span class="std std-ref">gst_gva_json_meta_get_info</span></a><span></span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-<span class="n">gchar</span><span class="o">*</span> <a class="reference internal" href="#doxid-gva-json-meta-8c-1aa545ce5192458c944e25cd7a420ba6c1"><span class="std std-ref">get_json_message</span></a><span></span><span class="p">(</span><a class="reference internal" href="#doxid-gva-json-meta-8h-1a64a17a6fb82826c3a7159e71c9449a54"><span class="std std-ref">GstGVAJSONMeta</span></a><span></span><span class="o">*</span> <span class="n">meta</span><span class="p">);</span>
-<span class="kt">void</span> <a class="reference internal" href="#doxid-gva-json-meta-8c-1a0ea9b77e35bd236b9d3e842764a970ae"><span class="std std-ref">set_json_message</span></a><span></span><span class="p">(</span><a class="reference internal" href="#doxid-gva-json-meta-8h-1a64a17a6fb82826c3a7159e71c9449a54"><span class="std std-ref">GstGVAJSONMeta</span></a><span></span><span class="o">*</span> <span class="n">meta</span><span class="p">,</span> <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">message</span><span class="p">);</span>
-<span class="k">const</span> <span class="n">GstMetaInfo</span><span class="o">*</span> <a class="reference internal" href="#doxid-gva-json-meta-8h-1aa3e2cbd81b77b33be3a69a11c190cb57"><span class="std std-ref">gst_gva_json_meta_get_info</span></a><span></span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-<span class="n">GType</span> <a class="reference internal" href="#doxid-gva-json-meta-8h-1a4136c51ca9905bc6da7a3536ca957899"><span class="std std-ref">gst_gva_json_meta_api_get_type</span></a><span></span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-<span class="n">gchar</span><span class="o">*</span> <a class="reference internal" href="#doxid-gva-json-meta-8h-1aa545ce5192458c944e25cd7a420ba6c1"><span class="std std-ref">get_json_message</span></a><span></span><span class="p">(</span><a class="reference internal" href="#doxid-gva-json-meta-8h-1a64a17a6fb82826c3a7159e71c9449a54"><span class="std std-ref">GstGVAJSONMeta</span></a><span></span><span class="o">*</span> <span class="n">meta</span><span class="p">);</span>
-<span class="kt">void</span> <a class="reference internal" href="#doxid-gva-json-meta-8h-1a0ea9b77e35bd236b9d3e842764a970ae"><span class="std std-ref">set_json_message</span></a><span></span><span class="p">(</span><a class="reference internal" href="#doxid-gva-json-meta-8h-1a64a17a6fb82826c3a7159e71c9449a54"><span class="std std-ref">GstGVAJSONMeta</span></a><span></span><span class="o">*</span> <span class="n">meta</span><span class="p">,</span> <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">message</span><span class="p">);</span>
-<span class="n">GType</span> <a class="reference internal" href="#doxid-gva-tensor-meta-8c-1ac5b45e42b95ae7bb4bd51711551fd3c1"><span class="std std-ref">gst_gva_tensor_meta_api_get_type</span></a><span></span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-
-<span class="n">gboolean</span> <span class="doxyrest-code-target target" id="doxid-gva-tensor-meta-8c-1a8d86b44f1d962f92c55fb7e74ccdffe8"><span></span><span class="n">gst_gva_tensor_meta_init</span></span><span></span><span class="p">(</span>
-    <span class="n">GstMeta</span><span class="o">*</span> <span class="n">meta</span><span class="p">,</span>
-    <span class="n">gpointer</span> <span class="n">params</span><span class="p">,</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span>
-<span class="p">);</span>
-
-<span class="kt">void</span> <span class="doxyrest-code-target target" id="doxid-gva-tensor-meta-8c-1a8eebc1eb6413bbfe7b2b8040f56f0ecc"><span></span><span class="n">gst_gva_tensor_meta_free</span></span><span></span><span class="p">(</span><span class="n">GstMeta</span><span class="o">*</span> <span class="n">meta</span><span class="p">,</span> <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">);</span>
-
-<span class="n">gboolean</span> <span class="doxyrest-code-target target" id="doxid-gva-tensor-meta-8c-1a35296d4491e0b12b6f8d5a4e25673fac"><span></span><span class="n">gst_gva_tensor_meta_transform</span></span><span></span><span class="p">(</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">dest_buf</span><span class="p">,</span>
-    <span class="n">GstMeta</span><span class="o">*</span> <span class="n">src_meta</span><span class="p">,</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">src_buf</span><span class="p">,</span>
-    <span class="n">GQuark</span> <span class="n">type</span><span class="p">,</span>
-    <span class="n">gpointer</span> <span class="n">data</span>
-<span class="p">);</span>
-
-<span class="k">const</span> <span class="n">GstMetaInfo</span><span class="o">*</span> <a class="reference internal" href="#doxid-gva-tensor-meta-8c-1a09753594569dbadb68669cdddf5bdad1"><span class="std std-ref">gst_gva_tensor_meta_get_info</span></a><span></span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-
-<a class="reference internal" href="#doxid-gva-tensor-meta-8h-1a038ecf5fdabb0acf1f2053800ba16d62"><span class="std std-ref">GstGVATensorMeta</span></a><span></span><span class="o">*</span> <a class="reference internal" href="#doxid-gva-tensor-meta-8c-1a9ffad4d93dc268c876678f6565a4745a"><span class="std std-ref">find_tensor_meta_ext</span></a><span></span><span class="p">(</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span>
-    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">model_name</span><span class="p">,</span>
-    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">output_layer</span><span class="p">,</span>
-    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">element_id</span>
-<span class="p">);</span>
-
-<a class="reference internal" href="#doxid-gva-tensor-meta-8h-1a038ecf5fdabb0acf1f2053800ba16d62"><span class="std std-ref">GstGVATensorMeta</span></a><span></span><span class="o">*</span> <a class="reference internal" href="#doxid-gva-tensor-meta-8c-1a8c412ce7685600f250c77914b95bdb1f"><span class="std std-ref">find_tensor_meta</span></a><span></span><span class="p">(</span>
+<a class="reference internal" href="../architecture_2.0/api_ref/global.html#doxid-gva-tensor-meta-8h-1a038ecf5fdabb0acf1f2053800ba16d62"><span class="std std-ref">GstGVATensorMeta</span></a><span></span><span class="o">*</span> <a class="reference internal" href="../architecture_2.0/api_ref/global.html#doxid-gva-tensor-meta-8h-1a8c412ce7685600f250c77914b95bdb1f"><span class="std std-ref">find_tensor_meta</span></a><span></span><span class="p">(</span>
     <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span>
     <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">model_name</span><span class="p">,</span>
     <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">output_layer</span>
 <span class="p">);</span>
 
-<span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1a10f40dae431beeca931a84d6e803df03"><span class="std std-ref">gva_get_tensor_data</span></a><span></span><span class="p">(</span><span class="n">GstStructure</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="n">gsize</span><span class="o">*</span> <span class="n">nbytes</span><span class="p">);</span>
-<span class="k">const</span> <span class="n">GstMetaInfo</span><span class="o">*</span> <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1a09753594569dbadb68669cdddf5bdad1"><span class="std std-ref">gst_gva_tensor_meta_get_info</span></a><span></span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-<span class="n">GType</span> <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1ac5b45e42b95ae7bb4bd51711551fd3c1"><span class="std std-ref">gst_gva_tensor_meta_api_get_type</span></a><span></span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-
-<a class="reference internal" href="#doxid-gva-tensor-meta-8h-1a038ecf5fdabb0acf1f2053800ba16d62"><span class="std std-ref">GstGVATensorMeta</span></a><span></span><span class="o">*</span> <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1a8c412ce7685600f250c77914b95bdb1f"><span class="std std-ref">find_tensor_meta</span></a><span></span><span class="p">(</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span>
-    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">model_name</span><span class="p">,</span>
-    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">output_layer</span>
-<span class="p">);</span>
-
-<a class="reference internal" href="#doxid-gva-tensor-meta-8h-1a038ecf5fdabb0acf1f2053800ba16d62"><span class="std std-ref">GstGVATensorMeta</span></a><span></span><span class="o">*</span> <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1a9ffad4d93dc268c876678f6565a4745a"><span class="std std-ref">find_tensor_meta_ext</span></a><span></span><span class="p">(</span>
+<a class="reference internal" href="../architecture_2.0/api_ref/global.html#doxid-gva-tensor-meta-8h-1a038ecf5fdabb0acf1f2053800ba16d62"><span class="std std-ref">GstGVATensorMeta</span></a><span></span><span class="o">*</span> <a class="reference internal" href="../architecture_2.0/api_ref/global.html#doxid-gva-tensor-meta-8h-1a9ffad4d93dc268c876678f6565a4745a"><span class="std std-ref">find_tensor_meta_ext</span></a><span></span><span class="p">(</span>
     <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span>
     <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">model_name</span><span class="p">,</span>
     <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">output_layer</span><span class="p">,</span>
@@ -833,85 +830,21 @@ title="Print to PDF"
 <span class="p">);</span></pre>
 </section>
 <section id="detailed-documentation">
-<span id="details-global"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this headline">#</a></h2>
+<span id="details-global"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this heading">#</a></h2>
 <section id="global-functions">
-<h3>Global Functions<a class="headerlink" href="#global-functions" title="Permalink to this headline">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-audio-event-meta-8c-1a28911a7b18dd81195a62f99bfce3a677"><span id="index-1"></span><a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <span class="n">gst_gva_buffer_get_audio_event_meta_id</span><span class="p">(</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span>
-    <span class="n">gint</span> <span class="n">id</span>
-<span class="p">)</span></pre>
-<p>gst_gva_buffer_get_audio_event_meta_id: &#64;buffer: a #GstBuffer &#64;id: a metadata id</p>
-<p>Find the <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a> on &#64;buffer with the given &#64;id.</p>
-<p>Buffers can contain multiple <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a> metadata items if multiple events detected in frame.</p>
-<p>Returns: (transfer none): the <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a> with &#64;id or NULL when there is no such metadata on &#64;buffer.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-audio-event-meta-8c-1a4afcfba36998cd584614490ecf310f75"><span id="index-2"></span><a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <span class="n">gst_gva_buffer_add_audio_event_meta</span><span class="p">(</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span>
-    <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">event_type</span><span class="p">,</span>
-    <span class="n">gulong</span> <span class="n">start_timestamp</span><span class="p">,</span>
-    <span class="n">gulong</span> <span class="n">end_timestamp</span>
-<span class="p">)</span></pre>
-<p>gst_gva_buffer_add_audio_event_meta: &#64;buffer: a #GstBuffer &#64;event_type: GQuark describing the semantic of the AudioEvent (f.i. a Sound, a Speech, Silence) &#64;start_timestamp: start time stamp of the segment &#64;end_timestamp: end time stamp of the segment</p>
-<p>Attaches <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a> metadata to &#64;buffer with the given parameters.</p>
-<p>Returns: (transfer none): the <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a> on &#64;buffer.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-audio-event-meta-8c-1a37a9125b4ca9dfddfabb5a75a0fd1672"><span id="index-3"></span><a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <span class="n">gst_gva_buffer_add_audio_event_meta_id</span><span class="p">(</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span>
-    <span class="n">GQuark</span> <span class="n">event_type</span><span class="p">,</span>
-    <span class="n">gulong</span> <span class="n">start_timestamp</span><span class="p">,</span>
-    <span class="n">gulong</span> <span class="n">end_timestamp</span>
-<span class="p">)</span></pre>
-<p>gst_gva_buffer_add_audio_event_meta_id: &#64;buffer: a #GstBuffer &#64;event_type: GQuark describing the semantic of the AudioEvent (f.i. a Sound, a Speech, Silence) &#64;start_timestamp: start time stamp of the segment &#64;end_timestamp: end time stamp of the segment</p>
-<p>Attaches <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a> metadata to &#64;buffer with the given parameters.</p>
-<p>Returns: (transfer none): the <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a> on &#64;buffer.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-audio-event-meta-8c-1a9c7f911c4a75090131a66a0e3c929ca0"><span id="index-4"></span><span></span><span class="kt">void</span> <span class="n">gst_gva_audio_event_meta_add_param</span><span class="p">(</span>
-    <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <span class="n">meta</span><span class="p">,</span>
-    <span class="n">GstStructure</span><span class="o">*</span> <span class="n">structure</span>
-<span class="p">)</span></pre>
-<p>gst_gva_audio_event_meta_add_param: &#64;meta: a <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a> &#64;structure: (transfer full): a #GstStructure</p>
-<p>Attach element-specific parameters to &#64;meta meant to be used by downstream elements which may handle this event. The name of &#64;structure is used to identify the element these parameters are meant for.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-audio-event-meta-8h-1a28911a7b18dd81195a62f99bfce3a677"><span id="index-5"></span><a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <span class="n">gst_gva_buffer_get_audio_event_meta_id</span><span class="p">(</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span>
-    <span class="n">gint</span> <span class="n">id</span>
-<span class="p">)</span></pre>
-<p>gst_gva_buffer_get_audio_event_meta_id: &#64;buffer: a #GstBuffer &#64;id: a metadata id</p>
-<p>Find the <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a> on &#64;buffer with the given &#64;id.</p>
-<p>Buffers can contain multiple <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a> metadata items if multiple events detected in frame.</p>
-<p>Returns: (transfer none): the <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a> with &#64;id or NULL when there is no such metadata on &#64;buffer.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-audio-event-meta-8h-1a4afcfba36998cd584614490ecf310f75"><span id="index-6"></span><a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <span class="n">gst_gva_buffer_add_audio_event_meta</span><span class="p">(</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span>
-    <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">event_type</span><span class="p">,</span>
-    <span class="n">gulong</span> <span class="n">start_timestamp</span><span class="p">,</span>
-    <span class="n">gulong</span> <span class="n">end_timestamp</span>
-<span class="p">)</span></pre>
-<p>gst_gva_buffer_add_audio_event_meta: &#64;buffer: a #GstBuffer &#64;event_type: GQuark describing the semantic of the AudioEvent (f.i. a Sound, a Speech, Silence) &#64;start_timestamp: start time stamp of the segment &#64;end_timestamp: end time stamp of the segment</p>
-<p>Attaches <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a> metadata to &#64;buffer with the given parameters.</p>
-<p>Returns: (transfer none): the <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a> on &#64;buffer.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-audio-event-meta-8h-1a37a9125b4ca9dfddfabb5a75a0fd1672"><span id="index-7"></span><a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <span class="n">gst_gva_buffer_add_audio_event_meta_id</span><span class="p">(</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span>
-    <span class="n">GQuark</span> <span class="n">event_type</span><span class="p">,</span>
-    <span class="n">gulong</span> <span class="n">start_timestamp</span><span class="p">,</span>
-    <span class="n">gulong</span> <span class="n">end_timestamp</span>
-<span class="p">)</span></pre>
-<p>gst_gva_buffer_add_audio_event_meta_id: &#64;buffer: a #GstBuffer &#64;event_type: GQuark describing the semantic of the AudioEvent (f.i. a Sound, a Speech, Silence) &#64;start_timestamp: start time stamp of the segment &#64;end_timestamp: end time stamp of the segment</p>
-<p>Attaches <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a> metadata to &#64;buffer with the given parameters.</p>
-<p>Returns: (transfer none): the <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a> on &#64;buffer.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-audio-event-meta-8h-1ab2ac8cd76f8f0a52f344f80921903f20"><span id="index-8"></span><span></span><span class="kt">void</span> <span class="n">gst_gva_audio_event_meta_add_param</span><span class="p">(</span>
-    <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a><span></span><span class="o">*</span> <span class="n">meta</span><span class="p">,</span>
-    <span class="n">GstStructure</span><span class="o">*</span> <span class="n">s</span>
-<span class="p">)</span></pre>
-<p>gst_gva_audio_event_meta_add_param: &#64;meta: a <a class="reference internal" href="struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta"><span class="std std-ref">GstGVAAudioEventMeta</span></a> &#64;structure: (transfer full): a #GstStructure</p>
-<p>Attach element-specific parameters to &#64;meta meant to be used by downstream elements which may handle this event. The name of &#64;structure is used to identify the element these parameters are meant for.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-json-meta-8c-1a4136c51ca9905bc6da7a3536ca957899"><span id="index-9"></span><span></span><span class="n">GType</span> <span class="n">gst_gva_json_meta_api_get_type</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span></pre>
+<h3>Global Functions<a class="headerlink" href="#global-functions" title="Permalink to this heading">#</a></h3>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-json-meta-8h-1aa3e2cbd81b77b33be3a69a11c190cb57"><span id="index-1"></span><span></span><span class="k">const</span> <span class="n">GstMetaInfo</span><span class="o">*</span> <span class="n">gst_gva_json_meta_get_info</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span></pre>
+<p>This function registers, if needed, and returns GstMetaInfo for <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVAJSONMeta.html#doxid-struct-gst-g-v-a-j-s-o-n-meta"><span class="std std-ref">_GstGVAJSONMeta</span></a>.</p>
+<p class="rubric">Returns:</p>
+<p>const GstMetaInfo* for registered type</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-json-meta-8h-1a4136c51ca9905bc6da7a3536ca957899"><span id="index-2"></span><span></span><span class="n">GType</span> <span class="n">gst_gva_json_meta_api_get_type</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span></pre>
 <p>This function registers, if needed, and returns a GType for api “GstGVAJSONMetaAPI” and associate it with GVA_JSON_META_TAG tag.</p>
 <p class="rubric">Returns:</p>
 <p>GType type</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-json-meta-8c-1aa3e2cbd81b77b33be3a69a11c190cb57"><span id="index-10"></span><span></span><span class="k">const</span> <span class="n">GstMetaInfo</span><span class="o">*</span> <span class="n">gst_gva_json_meta_get_info</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span></pre>
-<p>This function registers, if needed, and returns GstMetaInfo for <a class="reference internal" href="struct__GstGVAJSONMeta.html#doxid-struct-gst-g-v-a-j-s-o-n-meta"><span class="std std-ref">_GstGVAJSONMeta</span></a>.</p>
-<p class="rubric">Returns:</p>
-<p>const GstMetaInfo* for registered type</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-json-meta-8c-1aa545ce5192458c944e25cd7a420ba6c1"><span id="index-11"></span><span></span><span class="n">gchar</span><span class="o">*</span> <span class="n">get_json_message</span><span class="p">(</span><a class="reference internal" href="#doxid-gva-json-meta-8h-1a64a17a6fb82826c3a7159e71c9449a54"><span class="std std-ref">GstGVAJSONMeta</span></a><span></span><span class="o">*</span> <span class="n">meta</span><span class="p">)</span></pre>
-<p>This function returns message field of <a class="reference internal" href="struct__GstGVAJSONMeta.html#doxid-struct-gst-g-v-a-j-s-o-n-meta"><span class="std std-ref">_GstGVAJSONMeta</span></a>.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-json-meta-8h-1aa545ce5192458c944e25cd7a420ba6c1"><span id="index-3"></span><span></span><span class="n">gchar</span><span class="o">*</span> <span class="n">get_json_message</span><span class="p">(</span><a class="reference internal" href="../architecture_2.0/api_ref/global.html#doxid-gva-json-meta-8h-1a64a17a6fb82826c3a7159e71c9449a54"><span class="std std-ref">GstGVAJSONMeta</span></a><span></span><span class="o">*</span> <span class="n">meta</span><span class="p">)</span></pre>
+<p>This function returns message field of <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVAJSONMeta.html#doxid-struct-gst-g-v-a-j-s-o-n-meta"><span class="std std-ref">_GstGVAJSONMeta</span></a>.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
+<table class="table">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -924,10 +857,10 @@ title="Print to PDF"
 </table>
 <p class="rubric">Returns:</p>
 <p>C-style string with message</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-json-meta-8c-1a0ea9b77e35bd236b9d3e842764a970ae"><span id="index-12"></span><span></span><span class="kt">void</span> <span class="n">set_json_message</span><span class="p">(</span><a class="reference internal" href="#doxid-gva-json-meta-8h-1a64a17a6fb82826c3a7159e71c9449a54"><span class="std std-ref">GstGVAJSONMeta</span></a><span></span><span class="o">*</span> <span class="n">meta</span><span class="p">,</span> <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">message</span><span class="p">)</span></pre>
-<p>This function sets message field of <a class="reference internal" href="struct__GstGVAJSONMeta.html#doxid-struct-gst-g-v-a-j-s-o-n-meta"><span class="std std-ref">_GstGVAJSONMeta</span></a>.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-json-meta-8h-1a0ea9b77e35bd236b9d3e842764a970ae"><span id="index-4"></span><span></span><span class="kt">void</span> <span class="n">set_json_message</span><span class="p">(</span><a class="reference internal" href="../architecture_2.0/api_ref/global.html#doxid-gva-json-meta-8h-1a64a17a6fb82826c3a7159e71c9449a54"><span class="std std-ref">GstGVAJSONMeta</span></a><span></span><span class="o">*</span> <span class="n">meta</span><span class="p">,</span> <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">message</span><span class="p">)</span></pre>
+<p>This function sets message field of <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVAJSONMeta.html#doxid-struct-gst-g-v-a-j-s-o-n-meta"><span class="std std-ref">_GstGVAJSONMeta</span></a>.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
+<table class="table">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -943,117 +876,10 @@ title="Print to PDF"
 </table>
 <p class="rubric">Returns:</p>
 <p>void</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-json-meta-8h-1aa3e2cbd81b77b33be3a69a11c190cb57"><span id="index-13"></span><span></span><span class="k">const</span> <span class="n">GstMetaInfo</span><span class="o">*</span> <span class="n">gst_gva_json_meta_get_info</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span></pre>
-<p>This function registers, if needed, and returns GstMetaInfo for <a class="reference internal" href="struct__GstGVAJSONMeta.html#doxid-struct-gst-g-v-a-j-s-o-n-meta"><span class="std std-ref">_GstGVAJSONMeta</span></a>.</p>
-<p class="rubric">Returns:</p>
-<p>const GstMetaInfo* for registered type</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-json-meta-8h-1a4136c51ca9905bc6da7a3536ca957899"><span id="index-14"></span><span></span><span class="n">GType</span> <span class="n">gst_gva_json_meta_api_get_type</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span></pre>
-<p>This function registers, if needed, and returns a GType for api “GstGVAJSONMetaAPI” and associate it with GVA_JSON_META_TAG tag.</p>
-<p class="rubric">Returns:</p>
-<p>GType type</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-json-meta-8h-1aa545ce5192458c944e25cd7a420ba6c1"><span id="index-15"></span><span></span><span class="n">gchar</span><span class="o">*</span> <span class="n">get_json_message</span><span class="p">(</span><a class="reference internal" href="#doxid-gva-json-meta-8h-1a64a17a6fb82826c3a7159e71c9449a54"><span class="std std-ref">GstGVAJSONMeta</span></a><span></span><span class="o">*</span> <span class="n">meta</span><span class="p">)</span></pre>
-<p>This function returns message field of <a class="reference internal" href="struct__GstGVAJSONMeta.html#doxid-struct-gst-g-v-a-j-s-o-n-meta"><span class="std std-ref">_GstGVAJSONMeta</span></a>.</p>
-<p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>meta</p></td>
-<td><p>_GstGVAJSONMeta* to retrieve message of</p></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Returns:</p>
-<p>C-style string with message</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-json-meta-8h-1a0ea9b77e35bd236b9d3e842764a970ae"><span id="index-16"></span><span></span><span class="kt">void</span> <span class="n">set_json_message</span><span class="p">(</span><a class="reference internal" href="#doxid-gva-json-meta-8h-1a64a17a6fb82826c3a7159e71c9449a54"><span class="std std-ref">GstGVAJSONMeta</span></a><span></span><span class="o">*</span> <span class="n">meta</span><span class="p">,</span> <span class="k">const</span> <span class="n">gchar</span><span class="o">*</span> <span class="n">message</span><span class="p">)</span></pre>
-<p>This function sets message field of <a class="reference internal" href="struct__GstGVAJSONMeta.html#doxid-struct-gst-g-v-a-j-s-o-n-meta"><span class="std std-ref">_GstGVAJSONMeta</span></a>.</p>
-<p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>meta</p></td>
-<td><p>_GstGVAJSONMeta* to set message</p></td>
-</tr>
-<tr class="row-even"><td><p>message</p></td>
-<td><p>message</p></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Returns:</p>
-<p>void</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-tensor-meta-8c-1ac5b45e42b95ae7bb4bd51711551fd3c1"><span id="index-17"></span><span></span><span class="n">GType</span> <span class="n">gst_gva_tensor_meta_api_get_type</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span></pre>
-<p>This function registers, if needed, and returns a GType for api “GstGVATensorMetaAPI” and associate it with GVA_TENSOR_META_TAG tag.</p>
-<p class="rubric">Returns:</p>
-<p>GType type</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-tensor-meta-8c-1a09753594569dbadb68669cdddf5bdad1"><span id="index-18"></span><span></span><span class="k">const</span> <span class="n">GstMetaInfo</span><span class="o">*</span> <span class="n">gst_gva_tensor_meta_get_info</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span></pre>
-<p>This function registers, if needed, and returns GstMetaInfo for <a class="reference internal" href="struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a>.</p>
-<p class="rubric">Returns:</p>
-<p>GstMetaInfo* for registered type</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-tensor-meta-8c-1a9ffad4d93dc268c876678f6565a4745a"><span id="index-19"></span><a class="reference internal" href="#doxid-gva-tensor-meta-8h-1a038ecf5fdabb0acf1f2053800ba16d62"><span class="std std-ref">GstGVATensorMeta</span></a><span></span><span class="o">*</span> <span class="n">find_tensor_meta_ext</span><span class="p">(</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span>
-    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">model_name</span><span class="p">,</span>
-    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">output_layer</span><span class="p">,</span>
-    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">element_id</span>
-<span class="p">)</span></pre>
-<p>This function searches for first <a class="reference internal" href="struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance that satisfies passed parameters.</p>
-<p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>buffer</p></td>
-<td><p>GstBuffer* that is searched for metadata</p></td>
-</tr>
-<tr class="row-even"><td><p>model_name</p></td>
-<td><p>substring that should be in <a class="reference internal" href="struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance’s model_name</p></td>
-</tr>
-<tr class="row-odd"><td><p>output_layer</p></td>
-<td><p>substring that should be in <a class="reference internal" href="struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance’s layer_name</p></td>
-</tr>
-<tr class="row-even"><td><p>element_id</p></td>
-<td><p>element_id substring that should be in <a class="reference internal" href="struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance’s element_id</p></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Returns:</p>
-<p>GstGVATensorMeta* for found instance or NULL if none are found</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-tensor-meta-8c-1a8c412ce7685600f250c77914b95bdb1f"><span id="index-20"></span><a class="reference internal" href="#doxid-gva-tensor-meta-8h-1a038ecf5fdabb0acf1f2053800ba16d62"><span class="std std-ref">GstGVATensorMeta</span></a><span></span><span class="o">*</span> <span class="n">find_tensor_meta</span><span class="p">(</span>
-    <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span>
-    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">model_name</span><span class="p">,</span>
-    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">output_layer</span>
-<span class="p">)</span></pre>
-<p>This function searches for first <a class="reference internal" href="struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance that satisfies passed parameters.</p>
-<p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>buffer</p></td>
-<td><p>GstBuffer* that is searched for metadata</p></td>
-</tr>
-<tr class="row-even"><td><p>model_name</p></td>
-<td><p>substring that should be in <a class="reference internal" href="struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance’s model_name</p></td>
-</tr>
-<tr class="row-odd"><td><p>output_layer</p></td>
-<td><p>substring that should be in <a class="reference internal" href="struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance’s layer_name</p></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Returns:</p>
-<p>GstGVATensorMeta* for found instance or NULL if none are found</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-tensor-meta-8h-1a10f40dae431beeca931a84d6e803df03"><span id="index-21"></span><span></span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">gva_get_tensor_data</span><span class="p">(</span><span class="n">GstStructure</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="n">gsize</span><span class="o">*</span> <span class="n">nbytes</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-tensor-meta-8h-1a10f40dae431beeca931a84d6e803df03"><span id="index-5"></span><span></span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">gva_get_tensor_data</span><span class="p">(</span><span class="n">GstStructure</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="n">gsize</span><span class="o">*</span> <span class="n">nbytes</span><span class="p">)</span></pre>
 <p>This function returns a pointer to the fixed array of tensor bytes.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
+<table class="table">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -1069,22 +895,22 @@ title="Print to PDF"
 </table>
 <p class="rubric">Returns:</p>
 <p>void* to tensor data as bytes, NULL if s has no “data_buffer” field</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-tensor-meta-8h-1a09753594569dbadb68669cdddf5bdad1"><span id="index-22"></span><span></span><span class="k">const</span> <span class="n">GstMetaInfo</span><span class="o">*</span> <span class="n">gst_gva_tensor_meta_get_info</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span></pre>
-<p>This function registers, if needed, and returns GstMetaInfo for <a class="reference internal" href="struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a>.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-tensor-meta-8h-1a09753594569dbadb68669cdddf5bdad1"><span id="index-6"></span><span></span><span class="k">const</span> <span class="n">GstMetaInfo</span><span class="o">*</span> <span class="n">gst_gva_tensor_meta_get_info</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span></pre>
+<p>This function registers, if needed, and returns GstMetaInfo for <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a>.</p>
 <p class="rubric">Returns:</p>
 <p>GstMetaInfo* for registered type</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-tensor-meta-8h-1ac5b45e42b95ae7bb4bd51711551fd3c1"><span id="index-23"></span><span></span><span class="n">GType</span> <span class="n">gst_gva_tensor_meta_api_get_type</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-tensor-meta-8h-1ac5b45e42b95ae7bb4bd51711551fd3c1"><span id="index-7"></span><span></span><span class="n">GType</span> <span class="n">gst_gva_tensor_meta_api_get_type</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span></pre>
 <p>This function registers, if needed, and returns a GType for api “GstGVATensorMetaAPI” and associate it with GVA_TENSOR_META_TAG tag.</p>
 <p class="rubric">Returns:</p>
 <p>GType type</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-tensor-meta-8h-1a8c412ce7685600f250c77914b95bdb1f"><span id="index-24"></span><a class="reference internal" href="#doxid-gva-tensor-meta-8h-1a038ecf5fdabb0acf1f2053800ba16d62"><span class="std std-ref">GstGVATensorMeta</span></a><span></span><span class="o">*</span> <span class="n">find_tensor_meta</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-tensor-meta-8h-1a8c412ce7685600f250c77914b95bdb1f"><span id="index-8"></span><a class="reference internal" href="../architecture_2.0/api_ref/global.html#doxid-gva-tensor-meta-8h-1a038ecf5fdabb0acf1f2053800ba16d62"><span class="std std-ref">GstGVATensorMeta</span></a><span></span><span class="o">*</span> <span class="n">find_tensor_meta</span><span class="p">(</span>
     <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span>
     <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">model_name</span><span class="p">,</span>
     <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">output_layer</span>
 <span class="p">)</span></pre>
-<p>This function searches for first <a class="reference internal" href="struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance that satisfies passed parameters.</p>
+<p>This function searches for first <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance that satisfies passed parameters.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
+<table class="table">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -1094,24 +920,24 @@ title="Print to PDF"
 <td><p>GstBuffer* that is searched for metadata</p></td>
 </tr>
 <tr class="row-even"><td><p>model_name</p></td>
-<td><p>substring that should be in <a class="reference internal" href="struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance’s model_name</p></td>
+<td><p>substring that should be in <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance’s model_name</p></td>
 </tr>
 <tr class="row-odd"><td><p>output_layer</p></td>
-<td><p>substring that should be in <a class="reference internal" href="struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance’s layer_name</p></td>
+<td><p>substring that should be in <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance’s layer_name</p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Returns:</p>
 <p>GstGVATensorMeta* for found instance or NULL if none are found</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-tensor-meta-8h-1a9ffad4d93dc268c876678f6565a4745a"><span id="index-25"></span><a class="reference internal" href="#doxid-gva-tensor-meta-8h-1a038ecf5fdabb0acf1f2053800ba16d62"><span class="std std-ref">GstGVATensorMeta</span></a><span></span><span class="o">*</span> <span class="n">find_tensor_meta_ext</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-tensor-meta-8h-1a9ffad4d93dc268c876678f6565a4745a"><span id="index-9"></span><a class="reference internal" href="../architecture_2.0/api_ref/global.html#doxid-gva-tensor-meta-8h-1a038ecf5fdabb0acf1f2053800ba16d62"><span class="std std-ref">GstGVATensorMeta</span></a><span></span><span class="o">*</span> <span class="n">find_tensor_meta_ext</span><span class="p">(</span>
     <span class="n">GstBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span>
     <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">model_name</span><span class="p">,</span>
     <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">output_layer</span><span class="p">,</span>
     <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">element_id</span>
 <span class="p">)</span></pre>
-<p>This function searches for first <a class="reference internal" href="struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance that satisfies passed parameters.</p>
+<p>This function searches for first <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance that satisfies passed parameters.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given table">
+<table class="table">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -1121,13 +947,13 @@ title="Print to PDF"
 <td><p>GstBuffer* that is searched for metadata</p></td>
 </tr>
 <tr class="row-even"><td><p>model_name</p></td>
-<td><p>substring that should be in <a class="reference internal" href="struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance’s model_name</p></td>
+<td><p>substring that should be in <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance’s model_name</p></td>
 </tr>
 <tr class="row-odd"><td><p>output_layer</p></td>
-<td><p>substring that should be in <a class="reference internal" href="struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance’s layer_name</p></td>
+<td><p>substring that should be in <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance’s layer_name</p></td>
 </tr>
 <tr class="row-even"><td><p>element_id</p></td>
-<td><p>element_id substring that should be in <a class="reference internal" href="struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance’s element_id</p></td>
+<td><p>element_id substring that should be in <a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html#doxid-struct-gst-g-v-a-tensor-meta"><span class="std std-ref">_GstGVATensorMeta</span></a> instance’s element_id</p></td>
 </tr>
 </tbody>
 </table>

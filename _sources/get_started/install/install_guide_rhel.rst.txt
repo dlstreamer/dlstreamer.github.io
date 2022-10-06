@@ -133,7 +133,7 @@ Next Steps
 ----------
 
 * :doc:`../tutorial`
-* `Samples overview <https://github.com/dlstreamer/dlstreamer/blob/master/samples/README.md>`__
+* `Samples overview <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md>`__
 
 ::
 

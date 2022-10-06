@@ -10,12 +10,12 @@ install it locally and configure your IDE to format your code with it.
 Install clang formatter
 -----------------------
 
-If you are using Ubuntu 18.04 it is quite simple:
+If you are using Ubuntu it is quite simple:
 
 .. code:: sh
 
-   sudo apt install -y clang-format-7
-   sudo ln -s /usr/bin/clang-format-7 /usr/bin/clang-format
+   sudo apt install -y clang-format-12
+   sudo ln -s /usr/bin/clang-format-12 /usr/bin/clang-format
 
 If you are using different distro you can find an appropriate repository
 here ``https://apt.llvm.org/``. And install the newest version:

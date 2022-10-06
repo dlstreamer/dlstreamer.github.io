@@ -4,7 +4,7 @@ Install Guide Windows (Preview)
 Building Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework from the source code provided in this
 repository may be performed either on host system or as a Docker image.
 
-Option 1: Compile Intel DL Streamer Pipeline Framework from sources on host system
+Option 1: Compile Intel® DL Streamer Pipeline Framework from sources on host system
 ----------------------------------------------------------------------------------
 
 .. note::
@@ -66,10 +66,10 @@ Install pkg-config using one of the options:
 
        set PATH=%PATH%;C:\msys64\mingw64\bin
 
-Install GStreamer 1.18.4 runtime and development packages:
+Install GStreamer 1.20.3 runtime and development packages:
 
-* https://gstreamer.freedesktop.org/data/pkg/windows/1.18.4/msvc/gstreamer-1.0-msvc-x86_64-1.18.4.msi
-* https://gstreamer.freedesktop.org/data/pkg/windows/1.18.4/msvc/gstreamer-1.0-devel-msvc-x86_64-1.18.4.msi
+* https://gstreamer.freedesktop.org/data/pkg/windows/1.20.3/msvc/gstreamer-1.0-msvc-x86_64-1.20.3.msi
+* https://gstreamer.freedesktop.org/data/pkg/windows/1.20.3/msvc/gstreamer-1.0-devel-msvc-x86_64-1.20.3.msi
 
 .. note::
    If you want to use web camera as a video source then mark '*Gstreamer 1.0 plugins for capture*' for installation
@@ -241,7 +241,7 @@ Next Steps
 ----------
 
 * :doc:`../tutorial`
-* `Samples overview <https://github.com/dlstreamer/dlstreamer/blob/master/samples/README.md>`__
+* `Samples overview <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md>`__
 
 -----
 
