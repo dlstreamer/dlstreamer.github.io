@@ -284,7 +284,7 @@ Install GStreamer and other build dependencies:
 
 .. code:: sh
 
-   sudo apt-get install -y --no-install-recommends intel-dlstreamer-gst cmake build-essential libpython3-dev python-gi-dev libopencv-dev
+   sudo apt-get install -y --no-install-recommends intel-dlstreamer-gst cmake build-essential libpython3-dev python-gi-dev libopencv-dev libva-dev
 
 Step 4: Install Python dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
