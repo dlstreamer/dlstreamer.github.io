@@ -2,12 +2,9 @@ Install Guide Ubuntu
 ====================
 
 The easiest way to install Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework is installing :ref:`from APT repository <1>`.
-If you prefer containerized development or runtime
-environment based on Docker, the Intel® DL Streamer Pipeline Framework is also available in
-`devel <https://hub.docker.com/r/intel/dlstreamer/dlstreamer:devel>`__
-or
-`runtime <https://hub.docker.com/r/intel/dlstreamer/dlstreamer:latest>`__
-Docker image containers.
+If you prefer containerized environment based on Docker, the Intel® DL Streamer Pipeline Framework is also :ref:`available <2>`
+on `DockerHub <https://hub.docker.com/r/intel/dlstreamer>`__:
+``docker pull intel/dlstreamer:devel`` for development docker image or ``docker pull intel/dlstreamer:latest`` for runtime docker image.
 
 Alternatively, you can build Intel® DL Streamer Pipeline Framework from the source code
 provided in `repository <https://github.com/dlstreamer/dlstreamer>`__, either building directly on host system, or
@@ -32,14 +29,8 @@ links in the first column of the table.
      - Any Linux OS as host system
      - Recommended for containerized environment and when host OS is not supported by the Pipeline Framework installer
    * - :ref:`Compile Intel® DL Streamer Pipeline Framework from sources on host system <3>`
-     - Ubuntu 20.04, Ubuntu 22.04
+     - Ubuntu 20.04
      - If you want to build Pipeline Framework from source code on host system
-
-Refer to :doc:`Windows Install Guide<install_guide_windows>` for Windows
-installation.
-
-Refer to :doc:`Red Hat Enterprise Linux (RHEL) 8 Install Guide<install_guide_rhel>` for RHEL8
-installation.
 
 .. _1:
 
@@ -169,7 +160,7 @@ Pull and run the Pipeline Framework container for development:
       -v /tmp/.X11-unix \
       -e DISPLAY=$DISPLAY \
       -v /dev/bus/usb \
-      --rm dlstreamer/dlstreamer:devel /bin/bash
+      --rm intel/dlstreamer:devel /bin/bash
 
 For deployment, you can download the Pipeline Framework runtime container
 with reduced size comparing to development container. Please note
@@ -183,7 +174,7 @@ that this container does not have the Pipeline Framework samples:
       -v /tmp/.X11-unix \
       -e DISPLAY=$DISPLAY \
       -v /dev/bus/usb \
-      --rm dlstreamer/dlstreamer:latest /bin/bash
+      --rm intel/dlstreamer:latest /bin/bash
 
 Inside Docker container for development, you can find the Pipeline Framework
 samples in folder

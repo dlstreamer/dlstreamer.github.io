@@ -951,12 +951,9 @@ title="Print to PDF"
   <section id="install-guide-ubuntu">
 <h1>Install Guide Ubuntu<a class="headerlink" href="#install-guide-ubuntu" title="Permalink to this heading">#</a></h1>
 <p>The easiest way to install Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework is installing <a class="reference internal" href="#id1"><span class="std std-ref">from APT repository</span></a>.
-If you prefer containerized development or runtime
-environment based on Docker, the Intel® DL Streamer Pipeline Framework is also available in
-<a class="reference external" href="https://hub.docker.com/r/intel/dlstreamer/dlstreamer:devel">devel</a>
-or
-<a class="reference external" href="https://hub.docker.com/r/intel/dlstreamer/dlstreamer:latest">runtime</a>
-Docker image containers.</p>
+If you prefer containerized environment based on Docker, the Intel® DL Streamer Pipeline Framework is also <a class="reference internal" href="#id2"><span class="std std-ref">available</span></a>
+on <a class="reference external" href="https://hub.docker.com/r/intel/dlstreamer">DockerHub</a>:
+<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">intel/dlstreamer:devel</span></code> for development docker image or <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">intel/dlstreamer:latest</span></code> for runtime docker image.</p>
 <p>Alternatively, you can build Intel® DL Streamer Pipeline Framework from the source code
 provided in <a class="reference external" href="https://github.com/dlstreamer/dlstreamer">repository</a>, either building directly on host system, or
 as a Docker image.</p>
@@ -980,15 +977,11 @@ links in the first column of the table.</p>
 <td><p>Recommended for containerized environment and when host OS is not supported by the Pipeline Framework installer</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#id3"><span class="std std-ref">Compile Intel® DL Streamer Pipeline Framework from sources on host system</span></a></p></td>
-<td><p>Ubuntu 20.04, Ubuntu 22.04</p></td>
+<td><p>Ubuntu 20.04</p></td>
 <td><p>If you want to build Pipeline Framework from source code on host system</p></td>
 </tr>
 </tbody>
 </table>
-<p>Refer to <a class="reference internal" href="install_guide_windows.html"><span class="doc">Windows Install Guide</span></a> for Windows
-installation.</p>
-<p>Refer to <a class="reference internal" href="install_guide_rhel.html"><span class="doc">Red Hat Enterprise Linux (RHEL) 8 Install Guide</span></a> for RHEL8
-installation.</p>
 <section id="option-1-install-intel-dl-streamer-pipeline-framework-from-apt-repository">
 <span id="id1"></span><h2>Option #1: Install Intel® DL Streamer Pipeline Framework from APT repository<a class="headerlink" href="#option-1-install-intel-dl-streamer-pipeline-framework-from-apt-repository" title="Permalink to this heading">#</a></h2>
 <section id="step-1-install-intel-dl-streamer-and-openvino-toolkit">
@@ -1102,7 +1095,7 @@ setfacl -m user:1000:r ~/.Xauthority
    -v /tmp/.X11-unix <span class="se">\</span>
    -e <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span> <span class="se">\</span>
    -v /dev/bus/usb <span class="se">\</span>
-   --rm dlstreamer/dlstreamer:devel /bin/bash
+   --rm intel/dlstreamer:devel /bin/bash
 </pre></div>
 </div>
 <p>For deployment, you can download the Pipeline Framework runtime container
@@ -1114,7 +1107,7 @@ that this container does not have the Pipeline Framework samples:</p>
    -v /tmp/.X11-unix <span class="se">\</span>
    -e <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span> <span class="se">\</span>
    -v /dev/bus/usb <span class="se">\</span>
-   --rm dlstreamer/dlstreamer:latest /bin/bash
+   --rm intel/dlstreamer:latest /bin/bash
 </pre></div>
 </div>
 <p>Inside Docker container for development, you can find the Pipeline Framework

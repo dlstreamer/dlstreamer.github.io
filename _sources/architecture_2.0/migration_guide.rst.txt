@@ -103,20 +103,20 @@ The following table lists deprecated properties (not supported in 2.0) and new p
    :header-rows: 1
 
    * - Element(s)
-     - Deprecated property
-     - New property (and element)
+     - Deprecated property (supported in 1.0 only)
+     - New property / element(s)
      - New property supported by both 1.0 and 2.0?
    * - gvainference, gvadetect, gvaclassify
-     - labels=`LABELS_FILE.txt`
-     - labels-file=`LABELS_FILE.txt`
+     - labels=LABELS_FILE.txt
+     - labels-file=LABELS_FILE.txt
      - Yes
    * - gvainference, gvadetect, gvaclassify
-     - cpu-throughput-streams=`N`
-     - ie-config=CPU_THROUGHPUT_STREAMS=`N`
+     - cpu-throughput-streams=N
+     - ie-config=CPU_THROUGHPUT_STREAMS=N
      - Yes
    * - gvainference, gvadetect, gvaclassify
-     - gpu-throughput-streams=`N`
-     - ie-config=GPU_THROUGHPUT_STREAMS=`N`
+     - gpu-throughput-streams=N
+     - ie-config=GPU_THROUGHPUT_STREAMS=N
      - Yes
    * - gvainference, gvadetect, gvaclassify
      - pre-process-config=VAAPI_FAST_SCALE_LOAD_FACTOR=1
