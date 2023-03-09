@@ -331,7 +331,7 @@ converter can be applied.
        * *labels* - an array of strings representing labels or a path to a file with labels where each label is on a new line.
      - `emotions-recognition-retail-0003 <https://docs.openvino.ai/latest/omz_models_model_emotions_recognition_retail_0003.html#outputs>`__
      
-       `license-plate-recognition-barrier-0001 <https://docs.openvino.ai/latest/omz_models_model_license_plate_recognition_barrier_0001.html#outputs>`__
+       `license-plate-recognition-barrier-0007 <https://docs.openvino.ai/latest/omz_models_model_license_plate_recognition_barrier_0007.html#outputs>`__
        
        `person-attributes-recognition-crossroad-0230 <https://docs.openvino.ai/latest/omz_models_model_person_attributes_recognition_crossroad_0230.html#outputs>`__
    * - `keypoints_hrnet <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/single-human-pose-estimation-0001.json>`__

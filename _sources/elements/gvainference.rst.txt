@@ -127,6 +127,6 @@ Runs deep learning inference using any model with an RGB or BGR input.
                           flags: readable, writable
                           Unsigned Integer. Range: 0 - 4294967295 Default: 0
     scale-method        : Scale method to use in pre-preprocessing before inference. Only default and scale-method=fast (VAAPI based) supported in this element
-                          flags: writable
+                          flags: readable, writable
                           String. Default: null Write only
 

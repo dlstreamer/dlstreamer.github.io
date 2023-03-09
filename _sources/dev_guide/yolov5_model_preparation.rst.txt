@@ -97,8 +97,11 @@ As explained in `Model Files Format section <model_preparation_essentials>`__,  
 
 This model did not require any custom pre/post-processing. For post-processing, a converter named ``yolo_v5`` has been implemented that handles the transformation of the results from raw output
 ``InferenceEngine::Blob`` to required representation that contains confidence and bounding box center coordinates and dimensions.
-A model-proc file has been included for yolov5 at `yolo-v5.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v5.json>`__
+A model-proc file has been included for yolov5 at `yolo-v5.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v5.json>`__.
 
+..
+
+    Note: The above model proc has been tested with yolov5s with input size of 416 and 460, for other yolov5 variants changes may be required, see `How to Create Model Proc <../dev_guide/how_to_create_model_proc_file>`__ for more details on settings like ``bbox_number_on_cell``, ``cells_number`` etc.
 
 5. Running a GStreamer pipeline
 --------------------------------

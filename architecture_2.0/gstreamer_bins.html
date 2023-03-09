@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>③ GStreamer Bin Elements &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,17 +31,17 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="③ Python Bindings" href="python_bindings.html" />
     <link rel="prev" title="③ GStreamer Elements" href="gstreamer_elements.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -117,11 +117,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../get_started/tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../get_started/flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -186,6 +196,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../dev_guide/object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -479,8 +494,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -887,10 +907,10 @@ title="Print to PDF"
               <div>
                 
   <section id="gstreamer-bin-elements">
-<h1>③ GStreamer Bin Elements<a class="headerlink" href="#gstreamer-bin-elements" title="Permalink to this heading">#</a></h1>
-<p>DL Streamer uses GStreamer bin elements to simplify creation of a media analytics pipeline by providing most known scenarios in the form of built single elements, such as inference, detection, classification, tracking, etc.
+<h1>③ GStreamer Bin Elements<a class="headerlink" href="#gstreamer-bin-elements" title="Permalink to this headline">#</a></h1>
+<p>Intel® DL Streamer uses GStreamer bin elements to simplify creation of a media analytics pipeline by providing most known scenarios in the form of built single elements, such as inference, detection, classification, tracking, etc.
 Internally such elements builds sub-pipeline using <em>low-level elements</em>.
-The diagram below shows high-level sub-pipeline inside DL Streamer bin elements.</p>
+The diagram below shows high-level sub-pipeline inside Intel® DL Streamer bin elements.</p>
 <figure class="align-default" id="id1">
 <div class="graphviz"><img src="../_images/graphviz-e160988decf24946f8bba32bb52787891b34aac5.png" alt="digraph {
   rankdir=&quot;LR&quot;
@@ -913,24 +933,24 @@ The diagram below shows high-level sub-pipeline inside DL Streamer bin elements.
 The <em>upper branch</em> is used for data-processing.
 The <em>bottom branch</em> is used for preserving original frame.</p>
 <section id="pipelines-with-branches">
-<h2>Pipelines with branches<a class="headerlink" href="#pipelines-with-branches" title="Permalink to this heading">#</a></h2>
+<h2>Pipelines with branches<a class="headerlink" href="#pipelines-with-branches" title="Permalink to this headline">#</a></h2>
 <p>Pipeline with branches is a bit tricky to write. So, an auxilary element was introduced – <code class="docutils literal notranslate"><span class="pre">processbin</span></code>.
 Is simplifies writing pipelines shown on <cite>High level bin elements architecture</cite> graph.</p>
 <p>Here’s an example of the same pipeline without and with <code class="docutils literal notranslate"><span class="pre">processbin</span></code>:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Without processbin</span>
-filesrc <span class="nv">location</span><span class="o">=</span><span class="nv">$FILE</span> ! decodebin ! <span class="se">\</span>
-tee <span class="nv">name</span><span class="o">=</span>t t. ! queue !  meta_aggregate <span class="nv">name</span><span class="o">=</span>mux ! fakesink <span class="se">\</span>
-t. ! videoscale ! videoconvert ! video/x-raw,format<span class="o">=</span>BGRP ! tensor_convert ! <span class="se">\</span>
-  openvino_tensor_inference <span class="nv">model</span><span class="o">=</span><span class="nv">$MODEL</span> <span class="nv">device</span><span class="o">=</span>CPU ! <span class="se">\</span>
-  queue ! tensor_postproc_detection <span class="nv">threshold</span><span class="o">=</span><span class="m">0</span>.5 ! mux.
+filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span><span class="nv">$FILE</span><span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+tee<span class="w"> </span><span class="nv">name</span><span class="o">=</span>t<span class="w"> </span>t.<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w">  </span>meta_aggregate<span class="w"> </span><span class="nv">name</span><span class="o">=</span>mux<span class="w"> </span>!<span class="w"> </span>fakesink<span class="w"> </span><span class="se">\</span>
+t.<span class="w"> </span>!<span class="w"> </span>videoscale<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span>video/x-raw,format<span class="o">=</span>BGRP<span class="w"> </span>!<span class="w"> </span>tensor_convert<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>openvino_tensor_inference<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="nv">$MODEL</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>CPU<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>queue<span class="w"> </span>!<span class="w"> </span>tensor_postproc_detection<span class="w"> </span><span class="nv">threshold</span><span class="o">=</span><span class="m">0</span>.5<span class="w"> </span>!<span class="w"> </span>mux.
 
 <span class="c1"># Using processbin</span>
-filesrc <span class="nv">location</span><span class="o">=</span><span class="nv">$FILE</span> ! decodebin ! <span class="se">\</span>
-processbin <span class="se">\</span>
-  <span class="nv">preprocess</span><span class="o">=</span><span class="s2">&quot;videoscale ! videoconvert ! video/x-raw,format=BGRP ! tensor_convert&quot;</span> <span class="se">\</span>
-  <span class="nv">process</span><span class="o">=</span><span class="s2">&quot;openvino_tensor_inference model=</span><span class="nv">$MODEL</span><span class="s2"> device=CPU&quot;</span> <span class="se">\</span>
-  <span class="nv">postprocess</span><span class="o">=</span><span class="s2">&quot;queue ! tensor_postproc_detection threshold=0.5&quot;</span> <span class="se">\</span>
-  <span class="nv">aggregate</span><span class="o">=</span><span class="s2">&quot;meta_aggregate&quot;</span> ! <span class="se">\</span>
+filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span><span class="nv">$FILE</span><span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+processbin<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nv">preprocess</span><span class="o">=</span><span class="s2">&quot;videoscale ! videoconvert ! video/x-raw,format=BGRP ! tensor_convert&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nv">process</span><span class="o">=</span><span class="s2">&quot;openvino_tensor_inference model=</span><span class="nv">$MODEL</span><span class="s2"> device=CPU&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nv">postprocess</span><span class="o">=</span><span class="s2">&quot;queue ! tensor_postproc_detection threshold=0.5&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nv">aggregate</span><span class="o">=</span><span class="s2">&quot;meta_aggregate&quot;</span><span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 fakesink
 </pre></div>
 </div>
@@ -938,14 +958,14 @@ fakesink
 Internally, it builds sub-pipeline wich is shown on <cite>High level bin elements architecture</cite> diagram.</p>
 </section>
 <section id="pre-processing">
-<h2>Pre-processing<a class="headerlink" href="#pre-processing" title="Permalink to this heading">#</a></h2>
+<h2>Pre-processing<a class="headerlink" href="#pre-processing" title="Permalink to this headline">#</a></h2>
 <p>Block <cite>Pre-processing</cite> on diagram <cite>High level bin elements architecture</cite> may contain one or multiple <em>low-level elements</em> to convert <code class="docutils literal notranslate"><span class="pre">video/x-raw</span></code> or <code class="docutils literal notranslate"><span class="pre">audio/x-raw</span></code> buffers
 into data format and layout required by <cite>processing element</cite>, according to caps negotiation with <cite>processing element</cite>.</p>
 <section id="video-pre-processing">
-<h3>Video Pre-processing<a class="headerlink" href="#video-pre-processing" title="Permalink to this heading">#</a></h3>
+<h3>Video Pre-processing<a class="headerlink" href="#video-pre-processing" title="Permalink to this headline">#</a></h3>
 <p>Typical video pre-processing operations include scaling, color conversion, normalization.</p>
 <section id="video-pre-processing-backends-for-inference">
-<h4>Video Pre-processing Backends for Inference<a class="headerlink" href="#video-pre-processing-backends-for-inference" title="Permalink to this heading">#</a></h4>
+<h4>Video Pre-processing Backends for Inference<a class="headerlink" href="#video-pre-processing-backends-for-inference" title="Permalink to this headline">#</a></h4>
 <p>Pre-processing operations inserted into pipeline between decode and inference operations.
 By performance and data locality considerations, pre-processing designed to support different backend libraries and can run on CPU or GPU device depending on CPU or GPU device of inference and decode.
 Intel® Deep Learning Streamer (Intel® DL Streamer) has following pre-processing backends:</p>
@@ -995,7 +1015,7 @@ and overriding pre-processing backend may impact performance.</p>
 </table>
 </section>
 <section id="video-pre-processing-elements">
-<h4>Video Pre-processing Elements<a class="headerlink" href="#video-pre-processing-elements" title="Permalink to this heading">#</a></h4>
+<h4>Video Pre-processing Elements<a class="headerlink" href="#video-pre-processing-elements" title="Permalink to this headline">#</a></h4>
 <p>Pre-processing performs differently in case of full-frame inference and per-ROI <em>(Region Of Interest)</em> inference. You can control this using property <code class="docutils literal notranslate"><span class="pre">inference-region</span></code> in bin elements. In can be set either to <code class="docutils literal notranslate"><span class="pre">full-frame</span></code> or <code class="docutils literal notranslate"><span class="pre">roi-list</span></code>.</p>
 <p>In case of full-frame inference, pre-processing is normal GStreamer pipeline of scaling, color conversion, and normalization elements executed on full frame.</p>
 <p>In case of per-ROI inference, element <code class="docutils literal notranslate"><span class="pre">roi_split</span></code> inserted before pre-processing elements.
@@ -1027,7 +1047,7 @@ Effectively, all elements inserted after <code class="docutils literal notransla
 </section>
 </section>
 <section id="batched-pre-processing">
-<h3>Batched Pre-processing<a class="headerlink" href="#batched-pre-processing" title="Permalink to this heading">#</a></h3>
+<h3>Batched Pre-processing<a class="headerlink" href="#batched-pre-processing" title="Permalink to this headline">#</a></h3>
 <p>The following elements support batched pre-processing for better parallelization and performance:</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">batch_create</span></code></p></li>
@@ -1039,7 +1059,7 @@ Element <code class="docutils literal notranslate"><span class="pre">batch_creat
 <p>Inference is performed in batched mode on buffer containing <em>N</em> frames.</p>
 <p>Element <code class="docutils literal notranslate"><span class="pre">batch_split</span></code> inserted after inference element and before post-processing element. This element splits batched frame with <em>N</em> inference results into <em>N</em> frames, so that post-processing element can work in normal mode.</p>
 <section id="batched-pre-processing-shared-across-multiple-streams">
-<h4>Batched Pre-processing shared across multiple streams<a class="headerlink" href="#batched-pre-processing-shared-across-multiple-streams" title="Permalink to this heading">#</a></h4>
+<h4>Batched Pre-processing shared across multiple streams<a class="headerlink" href="#batched-pre-processing-shared-across-multiple-streams" title="Permalink to this headline">#</a></h4>
 <p>If multiple (<em>M</em>&gt;1) streams run same or similar pipeline with inference on same NN models, specifing property <code class="docutils literal notranslate"><span class="pre">shared-instance-id</span></code> with identical string in all <em>M</em> streams may help to reduce latency in batched mode.
 In this case <em>M</em> instances of element <code class="docutils literal notranslate"><span class="pre">vaapi_batch_proc*</span></code> use single queue to accumulate <em>N</em> (=batch_size) frames from all <em>M</em> streams, so that batched frame may contain data from different streams.</p>
 <p>Information about original source of frames composed into batch (ex, timestamp, stream id, ROI id, object id, etc.) attached to buffer as <code class="docutils literal notranslate"><span class="pre">GstStructure</span></code>-based metadata <code class="docutils literal notranslate"><span class="pre">SourceIdentifierMeta</span></code> and passed downstream.
@@ -1048,7 +1068,7 @@ So that element <code class="docutils literal notranslate"><span class="pre">bat
 </section>
 </section>
 <section id="processing">
-<h2>Processing<a class="headerlink" href="#processing" title="Permalink to this heading">#</a></h2>
+<h2>Processing<a class="headerlink" href="#processing" title="Permalink to this headline">#</a></h2>
 <p>Block <cite>Processing</cite> on diagram <cite>High level bin elements architecture</cite> usually represended as single element.</p>
 <p>For inference this is an element that infer a result from trained neural network using some inference engine as backend.
 An inference element accepts input data and produces a inference result in form of <code class="docutils literal notranslate"><span class="pre">other/tensors</span></code>.</p>
@@ -1057,17 +1077,17 @@ More inference engines can be supported in the future.</p>
 <p>The inference elements sets proper/allowed tensors shape <em>(dims)</em> for input and output caps once NN is read.</p>
 </section>
 <section id="post-processing">
-<h2>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this heading">#</a></h2>
+<h2>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">#</a></h2>
 <p>The <cite>Post-processing</cite> box on diagram <cite>High level bin elements architecture</cite> usually consist of single element.</p>
 <p>In case of inference a post-processing element is responsible for decoding output tensor and converting it into metadata (ex., bouding-boxes, confidences, classes, keypoins, etc.).
 Because different NN models may require different post-processing, there are multiple post-processing elements. In general, every post-processing element that work with tensors starts with <code class="docutils literal notranslate"><span class="pre">tensor_postproc_</span></code> prefix.</p>
 </section>
 <section id="bin-elements">
-<h2>Bin elements<a class="headerlink" href="#bin-elements" title="Permalink to this heading">#</a></h2>
-<p>DL Streamer provides variaty of bin elements to simplify creation of media analytics pipeline.
-Most of DL Streamer bin elements internally use auxilary element <code class="docutils literal notranslate"><span class="pre">processbin</span></code> to create a processing sub-pipeline.</p>
+<h2>Bin elements<a class="headerlink" href="#bin-elements" title="Permalink to this headline">#</a></h2>
+<p>Intel® DL Streamer provides variaty of bin elements to simplify creation of media analytics pipeline.
+Most of Intel® DL Streamer bin elements internally use auxilary element <code class="docutils literal notranslate"><span class="pre">processbin</span></code> to create a processing sub-pipeline.</p>
 <section id="element-video-inference">
-<h3>Element <code class="docutils literal notranslate"><span class="pre">video_inference</span></code><a class="headerlink" href="#element-video-inference" title="Permalink to this heading">#</a></h3>
+<h3>Element <code class="docutils literal notranslate"><span class="pre">video_inference</span></code><a class="headerlink" href="#element-video-inference" title="Permalink to this headline">#</a></h3>
 <p>This is generic inference element, it serves as base for <code class="docutils literal notranslate"><span class="pre">object_detect</span></code> and <code class="docutils literal notranslate"><span class="pre">object_classify</span></code> bin elements. However, it can also be used as is.</p>
 <p>It provides full backward compatibility in terms of element properties with <code class="docutils literal notranslate"><span class="pre">gvainference</span></code> element.</p>
 <p>Below are some of pipelines that the <code class="docutils literal notranslate"><span class="pre">video_inference</span></code> element builds internally based on various parameters, such as input memory type, pre-processing backend, inference device, inference region, etc.
@@ -1191,12 +1211,12 @@ The elements <code class="docutils literal notranslate"><span class="pre">tee</s
 </figure>
 </section>
 <section id="element-object-detect">
-<h3>Element <code class="docutils literal notranslate"><span class="pre">object_detect</span></code><a class="headerlink" href="#element-object-detect" title="Permalink to this heading">#</a></h3>
+<h3>Element <code class="docutils literal notranslate"><span class="pre">object_detect</span></code><a class="headerlink" href="#element-object-detect" title="Permalink to this headline">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">object_detect</span></code> element is based on <code class="docutils literal notranslate"><span class="pre">video_inference</span></code> and sets post-processing element to <code class="docutils literal notranslate"><span class="pre">tensor_postproc_detection</span></code> by default.
 It also disables attaching raw tensor data as metadata by default.</p>
 </section>
 <section id="element-object-classify">
-<h3>Element <code class="docutils literal notranslate"><span class="pre">object_classify</span></code><a class="headerlink" href="#element-object-classify" title="Permalink to this heading">#</a></h3>
+<h3>Element <code class="docutils literal notranslate"><span class="pre">object_classify</span></code><a class="headerlink" href="#element-object-classify" title="Permalink to this headline">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">object_classify</span></code> element is based on <code class="docutils literal notranslate"><span class="pre">video_inference</span></code> and sets <cite>inference-region</cite> property to <cite>roi-list</cite> by default.</p>
 </section>
 </section>

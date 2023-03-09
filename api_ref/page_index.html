@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Intel® Deep Learning Streamer (Intel® DL Streamer) API reference &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,17 +31,17 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Global Namespace" href="global.html" />
     <link rel="prev" title="API Reference" href="api_reference.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -117,11 +117,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../get_started/tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../get_started/flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -186,6 +196,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../dev_guide/object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -479,8 +494,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../architecture_2.0/elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -795,10 +815,10 @@ title="Print to PDF"
               <div>
                 
   <section id="intel-deep-learning-streamer-intel-dl-streamer-api-reference">
-<span id="doxid-indexpage"></span><span id="index-0"></span><h1>Intel® Deep Learning Streamer (Intel® DL Streamer) API reference<a class="headerlink" href="#intel-deep-learning-streamer-intel-dl-streamer-api-reference" title="Permalink to this heading">#</a></h1>
+<span id="doxid-indexpage"></span><span id="index-0"></span><h1>Intel® Deep Learning Streamer (Intel® DL Streamer) API reference<a class="headerlink" href="#intel-deep-learning-streamer-intel-dl-streamer-api-reference" title="Permalink to this headline">#</a></h1>
 </section>
 <section id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h1>
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h1>
 <p>This documentation describes Intel® DL Streamer metadata API (Application Programming Interface) that allows you to access and to control inference results obtained from Intel® DL Streamer plugin elements, such as <strong>gvainference</strong>, <strong>gvadetect</strong>, <strong>gvaclassify</strong>. In Intel® DL Streamer, all inference results (both raw and interpreted) are passing through GStreamer pipeline being attached to GstBuffer objects as GStreamer metadata.</p>
 <p>For better developer experience we provide Intel® DL Streamer API (C++ and Python versions) which simplifies any job you want to perform on inference results, like consuming and further reusing, additional custom post-processing, and more. Also, most of the times, Intel® DL Streamer API allows you to abstract from internal inference results as GStreamer metadata.</p>
 <p>In Intel® DL Streamer API, most of the job is done by these classes: <a class="reference internal" href="class_GVA_VideoFrame.html#doxid-class-g-v-a-1-1-video-frame"><span class="std std-ref">GVA::VideoFrame</span></a>, <a class="reference internal" href="class_GVA_RegionOfInterest.html#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">GVA::RegionOfInterest</span></a> &amp; <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">GVA::Tensor</span></a> (C++ version is referenced here, but Python version is available as well). Take a look at schematic picture below, which represents how these classes relate.</p>
@@ -809,7 +829,7 @@ title="Print to PDF"
 <p>Any modification you perform using Intel® DL Streamer API will affect underlying metadata as though you modified it directly. For example, you can add <a class="reference internal" href="class_GVA_RegionOfInterest.html#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">GVA::RegionOfInterest</span></a> or <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">GVA::Tensor</span></a> objects to <a class="reference internal" href="class_GVA_VideoFrame.html#doxid-class-g-v-a-1-1-video-frame"><span class="std std-ref">GVA::VideoFrame</span></a>, and real GStreamer metadata instances will be added to GstBuffer of current <a class="reference internal" href="class_GVA_VideoFrame.html#doxid-class-g-v-a-1-1-video-frame"><span class="std std-ref">GVA::VideoFrame</span></a>. It means, the objects you added will behave as if they were produced by <a class="reference internal" href="namespace_GVA.html#doxid-namespace-g-v-a"><span class="std std-ref">GVA</span></a> elements mentioned above. You will be able to reach these objects futher by pipeline using both internal metadata representation and Intel® DL Streamer API. Also, any Intel® DL Streamer elements that rely on inference results will employ objects you added. For example, <strong>gvawatermark</strong> will render on screen these objects (for example, it will draw bounding box for added <a class="reference internal" href="class_GVA_RegionOfInterest.html#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">GVA::RegionOfInterest</span></a>).</p>
 </section>
 <section id="inference-results-flow">
-<h1>Inference results flow<a class="headerlink" href="#inference-results-flow" title="Permalink to this heading">#</a></h1>
+<h1>Inference results flow<a class="headerlink" href="#inference-results-flow" title="Permalink to this headline">#</a></h1>
 <p>Video analytics pipeline is a GStreamer pipeline with one or several Intel® DL Streamer elements for inference and additional actions (publishing, rendering, etc.) if needed. Take a look at this pipeline:</p>
 <pre class="highlight literal-block"><span></span><span class="n">INPUT</span><span class="o">=</span><span class="n">video</span><span class="p">.</span><span class="n">mp4</span>
 <span class="n">MODEL1</span><span class="o">=</span><span class="n">face</span><span class="o">-</span><span class="n">detection</span><span class="o">-</span><span class="n">adas</span><span class="o">-</span><span class="mo">0001</span>
@@ -831,12 +851,12 @@ title="Print to PDF"
 <p>The whole point of Intel® DL Streamer API is to allow you to access any object we described above in any point of pipeline. You can read it, modify it, add your own tensors and regions of interest, and so on. Thus, you can add custom post-processing for any deep learning model in case Intel® DL Streamer inference elements don’t support it. There is a handy <strong>gvainference</strong> element, which adds raw inference result (output layer blob) in <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">GVA::Tensor</span></a>, so you can do custom post-processing on it.</p>
 </section>
 <section id="print-inference-results-example">
-<h1>Print inference results example<a class="headerlink" href="#print-inference-results-example" title="Permalink to this heading">#</a></h1>
+<h1>Print inference results example<a class="headerlink" href="#print-inference-results-example" title="Permalink to this headline">#</a></h1>
 <p>Here we provide a few code snippets, which print some of inference results obtained from video analytics pipeline. They are different ways to achieve the same thing. To get thorough understanding of how to create an application which takes advantage of Intel® DL Streamer API, make sure to check out the rest of this document.</p>
 <section id="access-inference-results-with-low-level-c-code">
-<h2>1. Access inference results with low-level C code<a class="headerlink" href="#access-inference-results-with-low-level-c-code" title="Permalink to this heading">#</a></h2>
+<h2>1. Access inference results with low-level C code<a class="headerlink" href="#access-inference-results-with-low-level-c-code" title="Permalink to this headline">#</a></h2>
 <p>This is not recommended way of dealing with inference results obtained from video analytics pipeline and should be avoided unless some specific considerations exist</p>
-<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;gst/video/video.h&gt; // contains GstVideoRegionOfInterestMeta</span><span class="cp"></span>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;gst/video/video.h&gt; // contains GstVideoRegionOfInterestMeta</span>
 
 <span class="kt">void</span> <span class="nf">PrintMeta</span><span class="p">(</span><span class="n">GstBuffer</span> <span class="o">*</span><span class="n">buffer</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">gpointer</span> <span class="n">state</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
@@ -865,9 +885,9 @@ title="Print to PDF"
 <span class="p">}</span></pre>
 </section>
 <section id="access-inference-results-with-c-api">
-<h2>2. Access inference results with C++ API<a class="headerlink" href="#access-inference-results-with-c-api" title="Permalink to this heading">#</a></h2>
+<h2>2. Access inference results with C++ API<a class="headerlink" href="#access-inference-results-with-c-api" title="Permalink to this headline">#</a></h2>
 <p>This is recommended way of dealing with inference results obtained from video analytics pipeline from C++ application</p>
-<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;video_frame.h&quot; // contains GVA::VideoFrame, GVA::RegionOfInterest and GVA::Tensor</span><span class="cp"></span>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;video_frame.h&quot; // contains GVA::VideoFrame, GVA::RegionOfInterest and GVA::Tensor</span>
 
 <span class="kt">void</span> <span class="nf">PrintMeta</span><span class="p">(</span><span class="n">GstBuffer</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="n">GstCaps</span> <span class="o">*</span><span class="n">caps</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// simple function to display some tensor information</span>
     <a class="reference internal" href="class_GVA_VideoFrame.html#doxid-class-g-v-a-1-1-video-frame"><span class="std std-ref">GVA::VideoFrame</span></a><span></span> <span class="n">video_frame</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">caps</span><span class="p">);</span>
@@ -887,7 +907,7 @@ title="Print to PDF"
 <span class="p">}</span></pre>
 </section>
 <section id="access-inference-results-with-python-api">
-<h2>3. Access inference results with Python API<a class="headerlink" href="#access-inference-results-with-python-api" title="Permalink to this heading">#</a></h2>
+<h2>3. Access inference results with Python API<a class="headerlink" href="#access-inference-results-with-python-api" title="Permalink to this headline">#</a></h2>
 <p>This is recommended way of dealing with inference results obtained from video analytics pipeline from Python code (via Python application or via <code class="docutils literal notranslate"><span class="pre">gvapython</span></code> element in pipeline)</p>
 <pre class="highlight literal-block"><span></span><span class="n">import</span> <span class="n">gi</span>
 <span class="n">gi</span><span class="p">.</span><span class="n">require_version</span><span class="p">(</span><span class="sc">&#39;Gst&#39;</span><span class="p">,</span> <span class="sc">&#39;1.0&#39;</span><span class="p">)</span>
@@ -909,7 +929,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="custom-post-processing-tutorial">
-<h1>Custom post-processing tutorial<a class="headerlink" href="#custom-post-processing-tutorial" title="Permalink to this heading">#</a></h1>
+<h1>Custom post-processing tutorial<a class="headerlink" href="#custom-post-processing-tutorial" title="Permalink to this headline">#</a></h1>
 <p>There are several ways how you can access inference results provided by Intel® DL Streamer elements in GStreamer pipeline using Intel® DL Streamer API:</p>
 <ol class="arabic simple">
 <li><p>Create <strong>C++/Python</strong> application, which sets up callback on buffer passing through any Intel® DL Streamer element and runs video analytics pipeline. In the body of this callback GstBuffer and, hence, Intel® DL Streamer API will be available</p></li>

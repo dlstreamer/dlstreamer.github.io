@@ -2,9 +2,9 @@
 ③ GStreamer Bin Elements
 ======================
 
-DL Streamer uses GStreamer bin elements to simplify creation of a media analytics pipeline by providing most known scenarios in the form of built single elements, such as inference, detection, classification, tracking, etc.
+Intel® DL Streamer uses GStreamer bin elements to simplify creation of a media analytics pipeline by providing most known scenarios in the form of built single elements, such as inference, detection, classification, tracking, etc.
 Internally such elements builds sub-pipeline using *low-level elements*.
-The diagram below shows high-level sub-pipeline inside DL Streamer bin elements.  
+The diagram below shows high-level sub-pipeline inside Intel® DL Streamer bin elements.  
 
 .. graphviz::
   :caption: High level bin elements architecture
@@ -287,8 +287,8 @@ Because different NN models may require different post-processing, there are mul
 Bin elements
 ------------
 
-DL Streamer provides variaty of bin elements to simplify creation of media analytics pipeline.
-Most of DL Streamer bin elements internally use auxilary element ``processbin`` to create a processing sub-pipeline.
+Intel® DL Streamer provides variaty of bin elements to simplify creation of media analytics pipeline.
+Most of Intel® DL Streamer bin elements internally use auxilary element ``processbin`` to create a processing sub-pipeline.
 
 Element ``video_inference``
 ===========================

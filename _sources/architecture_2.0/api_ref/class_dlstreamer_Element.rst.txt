@@ -39,6 +39,8 @@ Detailed Documentation
 
 Base class for all elements (:ref:`Source <doxid-classdlstreamer_1_1_source>`, :ref:`Transform <doxid-classdlstreamer_1_1_transform>`, :ref:`TransformInplace <doxid-classdlstreamer_1_1_transform_inplace>` and :ref:`Sink <doxid-classdlstreamer_1_1_sink>`)
 
+The caller is responsible for thread safety.
+
 Methods
 -------
 

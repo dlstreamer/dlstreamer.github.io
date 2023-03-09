@@ -73,7 +73,9 @@ lists mapping from old to new names
    * - gvatrack
      - object_track
    * - gvawatermark
-     - meta_overlay (WIP)
+     - meta_overlay
+   * - gvametaaggregate
+     - meta_aggregate (WIP)
    * - ...
      - ...
 
@@ -122,11 +124,15 @@ The following table lists deprecated properties (not supported in 2.0) and new p
      - pre-process-config=VAAPI_FAST_SCALE_LOAD_FACTOR=1
      - scale-method=fast
      - Yes
+   * - gvatrack
+     - tracking-type=
+     - object_track generate-objects= adjust-objects= spatial-feature=
+     - Yes
+   * - gvatrack
+     - device=GPU
+     - object_track device=GPU
+     - No
    * - gvawatermark
      - device=GPU
-     - vaapipostproc ! opencv_meta_overlay attach-label-mask=true ! sycl_meta_overlay ! vaapipostproc
-     - No
-   * - gvatrack
-     - device=GPU tracking-type=zero-term
-     - vaapipostproc ! object_track spatial-feature=sliced-histogram device=GPU ! vaapipostproc
+     - meta_overlay device=GPU
      - No

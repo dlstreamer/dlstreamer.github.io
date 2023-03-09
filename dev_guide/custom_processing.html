@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Custom Processing &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,17 +31,17 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Object Tracking" href="object_tracking.html" />
     <link rel="prev" title="Python Bindings" href="python_bindings.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -117,11 +117,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../get_started/tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../get_started/flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -186,6 +196,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -479,8 +494,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../architecture_2.0/elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -761,7 +781,7 @@ title="Print to PDF"
               <div>
                 
   <section id="custom-processing">
-<h1>Custom Processing<a class="headerlink" href="#custom-processing" title="Permalink to this heading">#</a></h1>
+<h1>Custom Processing<a class="headerlink" href="#custom-processing" title="Permalink to this headline">#</a></h1>
 <p>The DL model inference in general works with tensor data on input and
 output. The tensor is abstract N-dimension array, in GStreamer inference
 plugins it stored under frame <a class="reference internal" href="metadata.html"><span class="doc">Metadata</span></a> using flexible
@@ -786,7 +806,7 @@ application:</p>
 </ol>
 <p>Next sections talk about these options in more details.</p>
 <section id="consume-tensor-data-and-parse-convert-it-on-application-side">
-<h2>1. Consume tensor data and parse/convert it on application side<a class="headerlink" href="#consume-tensor-data-and-parse-convert-it-on-application-side" title="Permalink to this heading">#</a></h2>
+<h2>1. Consume tensor data and parse/convert it on application side<a class="headerlink" href="#consume-tensor-data-and-parse-convert-it-on-application-side" title="Permalink to this headline">#</a></h2>
 <p>This option works in most use cases except</p>
 <ul class="simple">
 <li><p>Converted/parsed data required by downstream element (example, object detection-&gt;classification chain)</p></li>
@@ -801,7 +821,7 @@ application:</p>
 <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/cpp/draw_face_attributes/main.cpp">draw_face_attributes</a></p>
 </section>
 <section id="set-c-python-callback-in-the-middle-of-gstreamer-pipeline">
-<h2>2. Set C/Python callback in the middle of GStreamer pipeline<a class="headerlink" href="#set-c-python-callback-in-the-middle-of-gstreamer-pipeline" title="Permalink to this heading">#</a></h2>
+<h2>2. Set C/Python callback in the middle of GStreamer pipeline<a class="headerlink" href="#set-c-python-callback-in-the-middle-of-gstreamer-pipeline" title="Permalink to this headline">#</a></h2>
 <p>Similar to 1, pad probe callback could be set in the middle of pipeline.</p>
 <p>Note that GstBuffer on source pad (output pad) of all inference elements
 guaranteed to be writable (gst_buffer_is_writable returns true) so
@@ -817,7 +837,7 @@ frame for further object classification by downstream element
 gvaclassify.</p>
 </section>
 <section id="insert-gvapython-element-and-provide-python-callback-function">
-<h2>3. Insert gvapython element and provide Python callback function<a class="headerlink" href="#insert-gvapython-element-and-provide-python-callback-function" title="Permalink to this heading">#</a></h2>
+<h2>3. Insert gvapython element and provide Python callback function<a class="headerlink" href="#insert-gvapython-element-and-provide-python-callback-function" title="Permalink to this headline">#</a></h2>
 <p>The advantage of this option is applicability for any application type
 including gst-launch utility.</p>
 <p>The <a class="reference internal" href="../elements/gvapython.html"><span class="doc">gvapython element</span></a> takes reference to user provided
@@ -826,7 +846,7 @@ Python script with function to be called on every frame processing.</p>
 <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/gst_launch/gvapython/face_detection_and_classification">sample</a></p>
 </section>
 <section id="insert-new-gstreamer-element-implemented-on-c-c">
-<h2>4. Insert new GStreamer element implemented on C/C++<a class="headerlink" href="#insert-new-gstreamer-element-implemented-on-c-c" title="Permalink to this heading">#</a></h2>
+<h2>4. Insert new GStreamer element implemented on C/C++<a class="headerlink" href="#insert-new-gstreamer-element-implemented-on-c-c" title="Permalink to this headline">#</a></h2>
 <p>Please refer to GStreamer documentation and samples how to implement new
 GStreamer element and register GStreamer plugin.</p>
 <p>If frame processing function implemented in C++, it can utilize
@@ -834,7 +854,7 @@ GStreamer element and register GStreamer plugin.</p>
 helper class</p>
 </section>
 <section id="modify-source-code-of-post-processors-for-gvadetect-gvaclassify-elements">
-<h2>5. Modify source code of post-processors for gvadetect/gvaclassify elements<a class="headerlink" href="#modify-source-code-of-post-processors-for-gvadetect-gvaclassify-elements" title="Permalink to this heading">#</a></h2>
+<h2>5. Modify source code of post-processors for gvadetect/gvaclassify elements<a class="headerlink" href="#modify-source-code-of-post-processors-for-gvadetect-gvaclassify-elements" title="Permalink to this headline">#</a></h2>
 <p>You can add new or modify any suitable existing
 <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/gst/inference_elements/common/post_processor/blob_to_meta_converter.cpp">post-processor</a>
 for gvadetect/gvaclassify elements.</p>

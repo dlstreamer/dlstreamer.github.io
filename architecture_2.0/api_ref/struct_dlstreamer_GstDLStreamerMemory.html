@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>struct dlstreamer::GstDLStreamerMemory &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,17 +31,17 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="struct dlstreamer::ImageInfo" href="struct_dlstreamer_ImageInfo.html" />
     <link rel="prev" title="struct dlstreamer::FrameInfo" href="struct_dlstreamer_FrameInfo.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -117,11 +117,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../get_started/install/uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../get_started/tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../get_started/flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -186,6 +196,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../dev_guide/object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_guide/gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -479,8 +494,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -684,10 +704,10 @@ title="Print to PDF"
               <div>
                 
   <section id="struct-dlstreamer-gstdlstreamermemory">
-<span id="doxid-structdlstreamer-1-1-gst-d-l-streamer-memory"></span><span id="index-0"></span><h1>struct dlstreamer::GstDLStreamerMemory<a class="headerlink" href="#struct-dlstreamer-gstdlstreamermemory" title="Permalink to this heading">#</a></h1>
+<span id="doxid-structdlstreamer-1-1-gst-d-l-streamer-memory"></span><span id="index-0"></span><h1>struct dlstreamer::GstDLStreamerMemory<a class="headerlink" href="#struct-dlstreamer-gstdlstreamermemory" title="Permalink to this headline">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;allocator.h&gt;</span><span class="cp"></span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;allocator.h&gt;</span>
 
 <span class="k">struct</span> <span class="n">GstDLStreamerMemory</span> <span class="p">{</span>
     <span class="c1">// fields</span>

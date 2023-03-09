@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>② C++ elements &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,17 +31,17 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="③ GStreamer Elements" href="gstreamer_elements.html" />
     <link rel="prev" title="① Memory Interop and C++ abstract interfaces" href="cpp_interfaces.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -117,11 +117,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../get_started/tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../get_started/flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -186,6 +196,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../dev_guide/object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -479,8 +494,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -731,7 +751,7 @@ title="Print to PDF"
               <div>
                 
   <section id="c-elements">
-<h1>② C++ elements<a class="headerlink" href="#c-elements" title="Permalink to this heading">#</a></h1>
+<h1>② C++ elements<a class="headerlink" href="#c-elements" title="Permalink to this headline">#</a></h1>
 <p>Intel® DL Streamer C++ interface allows to develop new functional blocks (source, transform and sink elements) with minimal effort.
 The interface does not use any of GStreamer types, so elements/blocks written in this interface can be used in both
 GStreamer-based and non-GStreamer applications.</p>
@@ -785,7 +805,7 @@ GStreamer-based and non-GStreamer applications.</p>
 <p>Many examples how to create C++ elements can be found on github repository in
 <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/src">folder src</a> and sub-folders.</p>
 <section id="element-description">
-<h2>Element description<a class="headerlink" href="#element-description" title="Permalink to this heading">#</a></h2>
+<h2>Element description<a class="headerlink" href="#element-description" title="Permalink to this headline">#</a></h2>
 <p>The <a class="reference external" href="api_ref/struct_dlstreamer_ElementDesc">ElementDesc</a> structure is used to describe an element
 input/output capabilities and supported parameters, and provide instance creation function.
 The most important are the following fields:</p>
@@ -819,7 +839,7 @@ The most important are the following fields:</p>
 </div>
 </section>
 <section id="how-to-create-instance-of-c-element">
-<h2>How to create instance of C++ element<a class="headerlink" href="#how-to-create-instance-of-c-element" title="Permalink to this heading">#</a></h2>
+<h2>How to create instance of C++ element<a class="headerlink" href="#how-to-create-instance-of-c-element" title="Permalink to this headline">#</a></h2>
 <p>Instance of C++ element can be created using functions <code class="docutils literal notranslate"><span class="pre">create_source</span></code>, <code class="docutils literal notranslate"><span class="pre">create_transform</span></code>, <code class="docutils literal notranslate"><span class="pre">create_sink</span></code>.
 These functions take pointer to <code class="docutils literal notranslate"><span class="pre">ElementDesc</span></code>, initialization parameters (as <code class="docutils literal notranslate"><span class="pre">std::map</span></code>) and optional context
 pointer as <a class="reference external" href="api_ref/namespace_dlstreamer">parameters</a>:</p>

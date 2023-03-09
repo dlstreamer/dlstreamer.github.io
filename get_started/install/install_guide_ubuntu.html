@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Install Guide Ubuntu &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,17 +31,17 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Tutorial" href="../tutorial.html" />
+    <link rel="next" title="Uninstall Guide Ubuntu" href="uninstall_guide_ubuntu.html" />
     <link rel="prev" title="Install Guide" href="install_guide_index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -117,11 +117,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -186,6 +196,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../dev_guide/object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_guide/gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -479,8 +494,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../../architecture_2.0/pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../../architecture_2.0/elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -687,26 +707,26 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#available-intel-dl-streamer-pipeline-framework-apt-packages">
+     Available Intel® DL Streamer Pipeline Framework APT packages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-1-install-intel-dl-streamer-and-openvino-toolkit">
      Step 1: Install Intel® DL Streamer and OpenVINO™ toolkit
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-2-optional-install-mqtt-and-kafka-clients-for-element-gvametapublish">
-     Step 2: (Optional) Install MQTT and Kafka clients for element
+    <a class="reference internal nav-link" href="#step-2-install-mqtt-and-kafka-clients-for-element-gvametapublish">
+     Step 2: Install MQTT and Kafka clients for element
      <cite>
       gvametapublish
      </cite>
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-3-optional-install-features-based-on-dpc">
-     Step 3: (Optional) Install features based on DPC++
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#available-intel-dl-streamer-pipeline-framework-apt-packages">
-     Available Intel® DL Streamer Pipeline Framework APT packages
+    <a class="reference internal nav-link" href="#step-3-install-features-based-on-dpc">
+     Step 3: Install features based on DPC++
     </a>
    </li>
   </ul>
@@ -732,13 +752,13 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-4-run-intel-dl-streamer-pipeline-framework-container-with-intel-oneapi-dpc-c-compiler-optional">
-     Step 4: Run Intel® DL Streamer Pipeline Framework container with Intel® oneAPI DPC++/C++ Compiler [OPTIONAL]
+    <a class="reference internal nav-link" href="#step-4-run-intel-dl-streamer-pipeline-framework-container-with-intel-oneapi-dpc-c-compiler">
+     Step 4: Run Intel® DL Streamer Pipeline Framework container with Intel® oneAPI DPC++/C++ Compiler
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#intel-graphics-compute-runtime-for-oneapi-level-zero-and-opencl-driver-configuration-on-ubuntu-20-04">
-     Intel® Graphics Compute Runtime for oneAPI Level Zero and OpenCL™ Driver configuration on Ubuntu* 20.04
+    <a class="reference internal nav-link" href="#intel-graphics-compute-runtime-for-oneapi-level-zero-and-opencl-driver-configuration-on-ubuntu-22-04">
+     Intel® Graphics Compute Runtime for oneAPI Level Zero and OpenCL™ Driver configuration on Ubuntu* 22.04
     </a>
    </li>
   </ul>
@@ -769,23 +789,23 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-5-install-opencl-optional">
-     Step 5: Install OpenCL™ [OPTIONAL]
+    <a class="reference internal nav-link" href="#step-5-install-opencl">
+     Step 5: Install OpenCL™
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-6-install-message-brokers-optional">
-     Step 6: Install message brokers [OPTIONAL]
+    <a class="reference internal nav-link" href="#step-6-install-message-brokers">
+     Step 6: Install message brokers
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-7-install-intel-oneapi-dpc-c-compiler-optional">
-     Step 7: Install Intel® oneAPI DPC++/C++ Compiler [OPTIONAL]
+    <a class="reference internal nav-link" href="#step-7-install-intel-oneapi-dpc-c-compiler">
+     Step 7: Install Intel® oneAPI DPC++/C++ Compiler
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-8-install-va-api-dependencies-optional">
-     Step 8: Install VA-API dependencies [OPTIONAL]
+    <a class="reference internal nav-link" href="#step-8-install-va-api-dependencies">
+     Step 8: Install VA-API dependencies
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -825,26 +845,26 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#available-intel-dl-streamer-pipeline-framework-apt-packages">
+     Available Intel® DL Streamer Pipeline Framework APT packages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-1-install-intel-dl-streamer-and-openvino-toolkit">
      Step 1: Install Intel® DL Streamer and OpenVINO™ toolkit
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-2-optional-install-mqtt-and-kafka-clients-for-element-gvametapublish">
-     Step 2: (Optional) Install MQTT and Kafka clients for element
+    <a class="reference internal nav-link" href="#step-2-install-mqtt-and-kafka-clients-for-element-gvametapublish">
+     Step 2: Install MQTT and Kafka clients for element
      <cite>
       gvametapublish
      </cite>
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-3-optional-install-features-based-on-dpc">
-     Step 3: (Optional) Install features based on DPC++
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#available-intel-dl-streamer-pipeline-framework-apt-packages">
-     Available Intel® DL Streamer Pipeline Framework APT packages
+    <a class="reference internal nav-link" href="#step-3-install-features-based-on-dpc">
+     Step 3: Install features based on DPC++
     </a>
    </li>
   </ul>
@@ -870,13 +890,13 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-4-run-intel-dl-streamer-pipeline-framework-container-with-intel-oneapi-dpc-c-compiler-optional">
-     Step 4: Run Intel® DL Streamer Pipeline Framework container with Intel® oneAPI DPC++/C++ Compiler [OPTIONAL]
+    <a class="reference internal nav-link" href="#step-4-run-intel-dl-streamer-pipeline-framework-container-with-intel-oneapi-dpc-c-compiler">
+     Step 4: Run Intel® DL Streamer Pipeline Framework container with Intel® oneAPI DPC++/C++ Compiler
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#intel-graphics-compute-runtime-for-oneapi-level-zero-and-opencl-driver-configuration-on-ubuntu-20-04">
-     Intel® Graphics Compute Runtime for oneAPI Level Zero and OpenCL™ Driver configuration on Ubuntu* 20.04
+    <a class="reference internal nav-link" href="#intel-graphics-compute-runtime-for-oneapi-level-zero-and-opencl-driver-configuration-on-ubuntu-22-04">
+     Intel® Graphics Compute Runtime for oneAPI Level Zero and OpenCL™ Driver configuration on Ubuntu* 22.04
     </a>
    </li>
   </ul>
@@ -907,23 +927,23 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-5-install-opencl-optional">
-     Step 5: Install OpenCL™ [OPTIONAL]
+    <a class="reference internal nav-link" href="#step-5-install-opencl">
+     Step 5: Install OpenCL™
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-6-install-message-brokers-optional">
-     Step 6: Install message brokers [OPTIONAL]
+    <a class="reference internal nav-link" href="#step-6-install-message-brokers">
+     Step 6: Install message brokers
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-7-install-intel-oneapi-dpc-c-compiler-optional">
-     Step 7: Install Intel® oneAPI DPC++/C++ Compiler [OPTIONAL]
+    <a class="reference internal nav-link" href="#step-7-install-intel-oneapi-dpc-c-compiler">
+     Step 7: Install Intel® oneAPI DPC++/C++ Compiler
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-8-install-va-api-dependencies-optional">
-     Step 8: Install VA-API dependencies [OPTIONAL]
+    <a class="reference internal nav-link" href="#step-8-install-va-api-dependencies">
+     Step 8: Install VA-API dependencies
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -949,10 +969,10 @@ title="Print to PDF"
               <div>
                 
   <section id="install-guide-ubuntu">
-<h1>Install Guide Ubuntu<a class="headerlink" href="#install-guide-ubuntu" title="Permalink to this heading">#</a></h1>
+<h1>Install Guide Ubuntu<a class="headerlink" href="#install-guide-ubuntu" title="Permalink to this headline">#</a></h1>
 <p>The easiest way to install Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework is installing <a class="reference internal" href="#id1"><span class="std std-ref">from APT repository</span></a>.
-If you prefer containerized environment based on Docker, the Intel® DL Streamer Pipeline Framework is also <a class="reference internal" href="#id2"><span class="std std-ref">available</span></a>
-on <a class="reference external" href="https://hub.docker.com/r/intel/dlstreamer">DockerHub</a>:
+If you prefer containerized environment based on Docker, the Intel® DL Streamer Pipeline Framework is also <a class="reference internal" href="#id2"><span class="std std-ref">available</span></a></p>
+<p>on <a class="reference external" href="https://hub.docker.com/r/intel/dlstreamer">DockerHub</a>:
 <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">intel/dlstreamer:devel</span></code> for development docker image or <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">intel/dlstreamer:latest</span></code> for runtime docker image.</p>
 <p>Alternatively, you can build Intel® DL Streamer Pipeline Framework from the source code
 provided in <a class="reference external" href="https://github.com/dlstreamer/dlstreamer">repository</a>, either building directly on host system, or
@@ -969,7 +989,7 @@ links in the first column of the table.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference internal" href="#id1"><span class="std std-ref">Install Intel® DL Streamer Pipeline Framework from APT repository</span></a></p></td>
-<td><p>Ubuntu 20.04</p></td>
+<td><p>Ubuntu 22.04</p></td>
 <td><p>-</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#id2"><span class="std std-ref">Pull and run Intel® DL Streamer Pipeline Framework Docker image</span></a></p></td>
@@ -977,64 +997,15 @@ links in the first column of the table.</p>
 <td><p>Recommended for containerized environment and when host OS is not supported by the Pipeline Framework installer</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#id3"><span class="std std-ref">Compile Intel® DL Streamer Pipeline Framework from sources on host system</span></a></p></td>
-<td><p>Ubuntu 20.04</p></td>
+<td><p>Ubuntu 22.04</p></td>
 <td><p>If you want to build Pipeline Framework from source code on host system</p></td>
 </tr>
 </tbody>
 </table>
 <section id="option-1-install-intel-dl-streamer-pipeline-framework-from-apt-repository">
-<span id="id1"></span><h2>Option #1: Install Intel® DL Streamer Pipeline Framework from APT repository<a class="headerlink" href="#option-1-install-intel-dl-streamer-pipeline-framework-from-apt-repository" title="Permalink to this heading">#</a></h2>
-<section id="step-1-install-intel-dl-streamer-and-openvino-toolkit">
-<h3>Step 1: Install Intel® DL Streamer and OpenVINO™ toolkit<a class="headerlink" href="#step-1-install-intel-dl-streamer-and-openvino-toolkit" title="Permalink to this heading">#</a></h3>
-<p>Install Intel® DL Streamer via <code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span></code> and OpenVINO™ toolkit via script <code class="docutils literal notranslate"><span class="pre">install_openvino.sh</span></code></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install dependencies</span>
-sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install curl gpg-agent software-properties-common
-
-<span class="c1"># Register Intel® Graphics APT repository https://dgpu-docs.intel.com/releases_legacy/index.html</span>
-curl -sSL https://repositories.intel.com/graphics/intel-graphics.key <span class="p">|</span> sudo apt-key add -
-<span class="nb">echo</span> <span class="s2">&quot;deb [arch=amd64] https://repositories.intel.com/graphics/ubuntu `. /etc/os-release &amp;&amp; echo </span><span class="si">${</span><span class="nv">UBUNTU_CODENAME</span><span class="si">}</span><span class="s2">-legacy` main&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/intel-graphics-legacy.list
-
-<span class="c1"># Register OpenVINO™ toolkit APT repository</span>
-curl https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB <span class="p">|</span> sudo apt-key add -
-<span class="nb">echo</span> <span class="s2">&quot;deb https://apt.repos.intel.com/openvino/2022 `. /etc/os-release &amp;&amp; echo </span><span class="si">${</span><span class="nv">UBUNTU_CODENAME</span><span class="si">}</span><span class="s2">` main&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/intel-openvino-2022.list
-
-<span class="c1"># Install Intel® DL Streamer</span>
-sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install intel-dlstreamer-dev
-
-<span class="c1"># Install OpenVINO™ toolkit (if not installed)</span>
-sudo -E /opt/intel/dlstreamer/install_dependencies/install_openvino.sh
-
-<span class="c1"># Setup OpenVINO™ and Intel® DL Streamer environment</span>
-<span class="nb">source</span> /opt/intel/openvino_2022/setupvars.sh
-<span class="nb">source</span> /opt/intel/dlstreamer/setupvars.sh
-</pre></div>
-</div>
-</section>
-<section id="step-2-optional-install-mqtt-and-kafka-clients-for-element-gvametapublish">
-<h3>Step 2: (Optional) Install MQTT and Kafka clients for element <cite>gvametapublish</cite><a class="headerlink" href="#step-2-optional-install-mqtt-and-kafka-clients-for-element-gvametapublish" title="Permalink to this heading">#</a></h3>
-<p>In order to enable all <cite>gvametapublish</cite> backends install required dependencies with scripts:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo -E /opt/intel/dlstreamer/install_dependencies/install_mqtt_client.sh
-sudo -E /opt/intel/dlstreamer/install_dependencies/install_kafka_client.sh
-</pre></div>
-</div>
-</section>
-<section id="step-3-optional-install-features-based-on-dpc">
-<h3>Step 3: (Optional) Install features based on DPC++<a class="headerlink" href="#step-3-optional-install-features-based-on-dpc" title="Permalink to this heading">#</a></h3>
-<p>To install Intel® oneAPI DPC++/C++ Compiler runtime package and Intel® DL Streamer features based on DPC++:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Register Intel® oneAPI APT repository</span>
-sudo add-apt-repository <span class="s2">&quot;deb https://apt.repos.intel.com/oneapi all main&quot;</span>
-
-<span class="c1"># Install</span>
-sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install intel-level-zero-gpu level-zero intel-dlstreamer-dpcpp
-</pre></div>
-</div>
-<p>You can additionally install full Intel® oneAPI DPC++/C++ Compiler (previous command installs runtime only):</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get install intel-oneapi-compiler-dpcpp-cpp
-</pre></div>
-</div>
-</section>
+<span id="id1"></span><h2>Option #1: Install Intel® DL Streamer Pipeline Framework from APT repository<a class="headerlink" href="#option-1-install-intel-dl-streamer-pipeline-framework-from-apt-repository" title="Permalink to this headline">#</a></h2>
 <section id="available-intel-dl-streamer-pipeline-framework-apt-packages">
-<h3>Available Intel® DL Streamer Pipeline Framework APT packages<a class="headerlink" href="#available-intel-dl-streamer-pipeline-framework-apt-packages" title="Permalink to this heading">#</a></h3>
+<h3>Available Intel® DL Streamer Pipeline Framework APT packages<a class="headerlink" href="#available-intel-dl-streamer-pipeline-framework-apt-packages" title="Permalink to this headline">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Package name</p></th>
@@ -1069,45 +1040,127 @@ sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install intel
 </tbody>
 </table>
 </section>
+<section id="step-1-install-intel-dl-streamer-and-openvino-toolkit">
+<h3>Step 1: Install Intel® DL Streamer and OpenVINO™ toolkit<a class="headerlink" href="#step-1-install-intel-dl-streamer-and-openvino-toolkit" title="Permalink to this headline">#</a></h3>
+<p>Install dependencies and register additional APT repositories.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install dependencies</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>curl<span class="w"> </span>gpg<span class="w"> </span>software-properties-common
+
+<span class="c1"># Register OpenVINO™ toolkit APT repository</span>
+curl<span class="w"> </span>-fsSL<span class="w"> </span>https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>--output<span class="w"> </span>/usr/share/keyrings/intel-sw-products.gpg
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=amd64 signed-by=/usr/share/keyrings/intel-sw-products.gpg] https://apt.repos.intel.com/openvino/2022 `. /etc/os-release &amp;&amp; echo </span><span class="si">${</span><span class="nv">UBUNTU_CODENAME</span><span class="si">}</span><span class="s2">` main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/intel-openvino-2022.list
+
+<span class="c1"># Download Intel® Graphics APT repository key</span>
+curl<span class="w"> </span>-fsSL<span class="w"> </span>https://repositories.intel.com/graphics/intel-graphics.key<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>--output<span class="w"> </span>/usr/share/keyrings/intel-graphics.gpg
+</pre></div>
+</div>
+<p>For Intel® Graphics APT repository please use <strong>only one</strong> of following (more information <a class="reference external" href="https://dgpu-docs.intel.com/installation-guides/index.html">https://dgpu-docs.intel.com/installation-guides/index.html</a>):</p>
+<ul>
+<li><p>For Intel® Arc GPUs:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Register Intel® Graphics APT repository</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/graphics/ubuntu `. /etc/os-release &amp;&amp; echo </span><span class="si">${</span><span class="nv">UBUNTU_CODENAME</span><span class="si">}</span><span class="s2">` arc&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/intel-graphics.list
+</pre></div>
+</div>
+</li>
+<li><p>For Intel® Data Center GPU Flex Series:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Register Intel® Graphics APT repository</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/graphics/ubuntu `. /etc/os-release &amp;&amp; echo </span><span class="si">${</span><span class="nv">UBUNTU_CODENAME</span><span class="si">}</span><span class="s2">` flex&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/intel-graphics.list
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>for Ubuntu 20.04 the APT repository is slightly different:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/graphics/ubuntu `. /etc/os-release &amp;&amp; echo </span><span class="si">${</span><span class="nv">UBUNTU_CODENAME</span><span class="si">}</span><span class="s2">` main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/intel-graphics.list
+</pre></div>
+</div>
+</div>
+<p>Install Intel® DL Streamer via <code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span></code> and OpenVINO™ via script <code class="docutils literal notranslate"><span class="pre">install_openvino.sh</span></code>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install Intel® DL Streamer</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>intel-dlstreamer-dev
+
+<span class="c1"># Install OpenVINO™ toolkit (if not installed)</span>
+sudo<span class="w"> </span>-E<span class="w"> </span>/opt/intel/dlstreamer/install_dependencies/install_openvino.sh
+</pre></div>
+</div>
+<p>Configure the environment after installing Intel® DL Streamer and OpenVINO™:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup OpenVINO™ and Intel® DL Streamer environment</span>
+<span class="nb">source</span><span class="w"> </span>/opt/intel/openvino_2022/setupvars.sh
+<span class="nb">source</span><span class="w"> </span>/opt/intel/dlstreamer/setupvars.sh
+</pre></div>
+</div>
+</section>
+<section id="step-2-install-mqtt-and-kafka-clients-for-element-gvametapublish">
+<h3>Step 2: Install MQTT and Kafka clients for element <cite>gvametapublish</cite><a class="headerlink" href="#step-2-install-mqtt-and-kafka-clients-for-element-gvametapublish" title="Permalink to this headline">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Optional step</p>
+</div>
+<p>In order to enable all <cite>gvametapublish</cite> backends install required dependencies with scripts:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>-E<span class="w"> </span>/opt/intel/dlstreamer/install_dependencies/install_mqtt_client.sh
+sudo<span class="w"> </span>-E<span class="w"> </span>/opt/intel/dlstreamer/install_dependencies/install_kafka_client.sh
+</pre></div>
+</div>
+</section>
+<section id="step-3-install-features-based-on-dpc">
+<h3>Step 3: Install features based on DPC++<a class="headerlink" href="#step-3-install-features-based-on-dpc" title="Permalink to this headline">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Optional step</p>
+</div>
+<p>To install Intel® oneAPI DPC++/C++ Compiler runtime package and Intel® DL Streamer features based on DPC++:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Register Intel® oneAPI APT repository</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [signed-by=/usr/share/keyrings/intel-sw-products.gpg] https://apt.repos.intel.com/oneapi all main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/intel-oneapi.list
+
+<span class="c1"># Install</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>intel-level-zero-gpu<span class="w"> </span>level-zero<span class="w"> </span>intel-dlstreamer-dpcpp
+</pre></div>
+</div>
+<p>You can additionally install full Intel® oneAPI DPC++/C++ Compiler (previous command installs runtime only):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>intel-oneapi-compiler-dpcpp-cpp
+</pre></div>
+</div>
+</section>
 </section>
 <section id="option-2-pull-and-run-intel-dl-streamer-pipeline-framework-docker-image">
-<span id="id2"></span><h2>Option #2: Pull and run Intel® DL Streamer Pipeline Framework Docker image<a class="headerlink" href="#option-2-pull-and-run-intel-dl-streamer-pipeline-framework-docker-image" title="Permalink to this heading">#</a></h2>
+<span id="id2"></span><h2>Option #2: Pull and run Intel® DL Streamer Pipeline Framework Docker image<a class="headerlink" href="#option-2-pull-and-run-intel-dl-streamer-pipeline-framework-docker-image" title="Permalink to this headline">#</a></h2>
 <section id="step-1-install-docker">
-<h3>Step 1: Install Docker<a class="headerlink" href="#step-1-install-docker" title="Permalink to this heading">#</a></h3>
+<h3>Step 1: Install Docker<a class="headerlink" href="#step-1-install-docker" title="Permalink to this headline">#</a></h3>
 <p><a class="reference external" href="https://docs.docker.com/get-docker/">Get Docker</a> for your host OS</p>
 </section>
 <section id="step-2-allow-connection-to-x-server">
-<h3>Step 2: Allow connection to X server<a class="headerlink" href="#step-2-allow-connection-to-x-server" title="Permalink to this heading">#</a></h3>
+<h3>Step 2: Allow connection to X server<a class="headerlink" href="#step-2-allow-connection-to-x-server" title="Permalink to this headline">#</a></h3>
 <p>Some Pipeline Framework samples use display. Hence, first run the following
 commands to allow connection from Docker container to X server on
 host:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>xhost local:root
-setfacl -m user:1000:r ~/.Xauthority
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>xhost<span class="w"> </span>local:root
+setfacl<span class="w"> </span>-m<span class="w"> </span>user:1000:r<span class="w"> </span>~/.Xauthority
 </pre></div>
 </div>
 </section>
 <section id="step-3-run-intel-dl-streamer-pipeline-framework-container">
-<h3>Step 3: Run Intel® DL Streamer Pipeline Framework container<a class="headerlink" href="#step-3-run-intel-dl-streamer-pipeline-framework-container" title="Permalink to this heading">#</a></h3>
+<h3>Step 3: Run Intel® DL Streamer Pipeline Framework container<a class="headerlink" href="#step-3-run-intel-dl-streamer-pipeline-framework-container" title="Permalink to this headline">#</a></h3>
 <p>Pull and run the Pipeline Framework container for development:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker run -it --privileged --net<span class="o">=</span>host <span class="se">\</span>
-   --device /dev/dri <span class="se">\</span>
-   -v ~/.Xauthority:/home/dlstreamer/.Xauthority <span class="se">\</span>
-   -v /tmp/.X11-unix <span class="se">\</span>
-   -e <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span> <span class="se">\</span>
-   -v /dev/bus/usb <span class="se">\</span>
-   --rm intel/dlstreamer:devel /bin/bash
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--privileged<span class="w"> </span>--net<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--device<span class="w"> </span>/dev/dri<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-v<span class="w"> </span>~/.Xauthority:/home/dlstreamer/.Xauthority<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-v<span class="w"> </span>/tmp/.X11-unix<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-v<span class="w"> </span>/dev/bus/usb<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--rm<span class="w"> </span>intel/dlstreamer:devel<span class="w"> </span>/bin/bash
 </pre></div>
 </div>
 <p>For deployment, you can download the Pipeline Framework runtime container
 with reduced size comparing to development container. Please note
 that this container does not have the Pipeline Framework samples:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker run -it --privileged --net<span class="o">=</span>host <span class="se">\</span>
-   --device /dev/dri <span class="se">\</span>
-   -v ~/.Xauthority:/home/dlstreamer/.Xauthority <span class="se">\</span>
-   -v /tmp/.X11-unix <span class="se">\</span>
-   -e <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span> <span class="se">\</span>
-   -v /dev/bus/usb <span class="se">\</span>
-   --rm intel/dlstreamer:latest /bin/bash
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--privileged<span class="w"> </span>--net<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--device<span class="w"> </span>/dev/dri<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-v<span class="w"> </span>~/.Xauthority:/home/dlstreamer/.Xauthority<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-v<span class="w"> </span>/tmp/.X11-unix<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-v<span class="w"> </span>/dev/bus/usb<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--rm<span class="w"> </span>intel/dlstreamer:latest<span class="w"> </span>/bin/bash
 </pre></div>
 </div>
 <p>Inside Docker container for development, you can find the Pipeline Framework
@@ -1117,58 +1170,62 @@ samples in folder
 <code class="docutils literal notranslate"><span class="pre">download_models.sh</span></code> (located in <code class="docutils literal notranslate"><span class="pre">samples</span></code> folder) to download
 the models required for samples.</p>
 </section>
-<section id="step-4-run-intel-dl-streamer-pipeline-framework-container-with-intel-oneapi-dpc-c-compiler-optional">
-<h3>Step 4: Run Intel® DL Streamer Pipeline Framework container with Intel® oneAPI DPC++/C++ Compiler [OPTIONAL]<a class="headerlink" href="#step-4-run-intel-dl-streamer-pipeline-framework-container-with-intel-oneapi-dpc-c-compiler-optional" title="Permalink to this heading">#</a></h3>
+<section id="step-4-run-intel-dl-streamer-pipeline-framework-container-with-intel-oneapi-dpc-c-compiler">
+<h3>Step 4: Run Intel® DL Streamer Pipeline Framework container with Intel® oneAPI DPC++/C++ Compiler<a class="headerlink" href="#step-4-run-intel-dl-streamer-pipeline-framework-container-with-intel-oneapi-dpc-c-compiler" title="Permalink to this headline">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Optional step</p>
+</div>
 <p>To enable execution of <code class="docutils literal notranslate"><span class="pre">gvawatermark</span></code> and <code class="docutils literal notranslate"><span class="pre">gvatrack</span></code>
 elements on GPU you should download container with Intel® oneAPI DPC++/C++ Compiler.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker run -it --privileged --net<span class="o">=</span>host <span class="se">\</span>
-   --device /dev/dri <span class="se">\</span>
-   -v ~/.Xauthority:/home/dlstreamer/.Xauthority <span class="se">\</span>
-   -v /tmp/.X11-unix <span class="se">\</span>
-   -e <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span> <span class="se">\</span>
-   -v /dev/bus/usb <span class="se">\</span>
-   --rm dlstreamer/dlstreamer:dpcpp /bin/bash
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--privileged<span class="w"> </span>--net<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--device<span class="w"> </span>/dev/dri<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-v<span class="w"> </span>~/.Xauthority:/home/dlstreamer/.Xauthority<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-v<span class="w"> </span>/tmp/.X11-unix<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-v<span class="w"> </span>/dev/bus/usb<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--rm<span class="w"> </span>dlstreamer/dlstreamer:dpcpp<span class="w"> </span>/bin/bash
 </pre></div>
 </div>
 </section>
-<section id="intel-graphics-compute-runtime-for-oneapi-level-zero-and-opencl-driver-configuration-on-ubuntu-20-04">
-<span id="gpu-ubuntu20"></span><h3>Intel® Graphics Compute Runtime for oneAPI Level Zero and OpenCL™ Driver configuration on Ubuntu* 20.04<a class="headerlink" href="#intel-graphics-compute-runtime-for-oneapi-level-zero-and-opencl-driver-configuration-on-ubuntu-20-04" title="Permalink to this heading">#</a></h3>
+<section id="intel-graphics-compute-runtime-for-oneapi-level-zero-and-opencl-driver-configuration-on-ubuntu-22-04">
+<span id="gpu-ubuntu22"></span><h3>Intel® Graphics Compute Runtime for oneAPI Level Zero and OpenCL™ Driver configuration on Ubuntu* 22.04<a class="headerlink" href="#intel-graphics-compute-runtime-for-oneapi-level-zero-and-opencl-driver-configuration-on-ubuntu-22-04" title="Permalink to this headline">#</a></h3>
 <p>Intel® Graphics Compute Runtime for oneAPI Level Zero and OpenCL™ Driver components are required to use a GPU device.
-The driver is installed in the Intel® DL Streamer Pipeline Framework Docker image but you need to activate it in the container for a non-root user if you have Ubuntu 20.04 on your host.</p>
+The driver is installed in the Intel® DL Streamer Pipeline Framework Docker image but you need to activate it in the container for a non-root user if you have Ubuntu 22.04 on your host.</p>
 <p>To access GPU capabilities, you need to have correct permissions on the host and Docker container.
 Run the following command to list the group assigned ownership of the render nodes on your host:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>stat -c <span class="s2">&quot;group_name=%G group_id=%g&quot;</span> /dev/dri/render*
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;group_name=%G group_id=%g&quot;</span><span class="w"> </span>/dev/dri/render*
 </pre></div>
 </div>
 <p>Intel® DL Streamer Pipeline Framework Docker images do not contain a render group for <cite>dlstreamer</cite> non-root user because the render group does not have a strict group ID, unlike the video group.
 To run container as non-root with access to a GPU device, specify the render group ID from your host:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker run -it --device /dev/dri --group-add<span class="o">=</span>&lt;render_group_id_on_host&gt; &lt;other_args&gt; &lt;image_name&gt;
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--device<span class="w"> </span>/dev/dri<span class="w"> </span>--group-add<span class="o">=</span>&lt;render_group_id_on_host&gt;<span class="w"> </span>&lt;other_args&gt;<span class="w"> </span>&lt;image_name&gt;
 </pre></div>
 </div>
 <p>For example, get the render group ID on your host:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker run -it --device /dev/dri --group-add<span class="o">=</span><span class="k">$(</span>stat -c <span class="s2">&quot;%g&quot;</span> /dev/dri/render*<span class="k">)</span> &lt;other_args&gt; &lt;image_name&gt;
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--device<span class="w"> </span>/dev/dri<span class="w"> </span>--group-add<span class="o">=</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%g&quot;</span><span class="w"> </span>/dev/dri/render*<span class="k">)</span><span class="w"> </span>&lt;other_args&gt;<span class="w"> </span>&lt;image_name&gt;
 </pre></div>
 </div>
 <p>Now you can use the container with GPU access under the non-root user.</p>
 </section>
 </section>
 <section id="option-3-compile-intel-dl-streamer-pipeline-framework-from-sources-on-host-system">
-<span id="id3"></span><h2>Option #3: Compile Intel® DL Streamer Pipeline Framework from sources on host system<a class="headerlink" href="#option-3-compile-intel-dl-streamer-pipeline-framework-from-sources-on-host-system" title="Permalink to this heading">#</a></h2>
+<span id="id3"></span><h2>Option #3: Compile Intel® DL Streamer Pipeline Framework from sources on host system<a class="headerlink" href="#option-3-compile-intel-dl-streamer-pipeline-framework-from-sources-on-host-system" title="Permalink to this headline">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>These instructions are verified on Ubuntu 20.04</p>
+<p>These instructions are verified on Ubuntu 22.04</p>
 </div>
 <section id="step-1-clone-this-repository">
-<h3>Step 1: Clone this repository<a class="headerlink" href="#step-1-clone-this-repository" title="Permalink to this heading">#</a></h3>
+<h3>Step 1: Clone this repository<a class="headerlink" href="#step-1-clone-this-repository" title="Permalink to this headline">#</a></h3>
 <p>First, clone this repository into folder <code class="docutils literal notranslate"><span class="pre">~/intel/dlstreamer_gst</span></code>:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/intel
-git clone https://github.com/dlstreamer/dlstreamer.git ~/intel/dlstreamer_gst
-<span class="nb">cd</span> ~/intel/dlstreamer_gst
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/intel
+git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/dlstreamer/dlstreamer.git<span class="w"> </span>~/intel/dlstreamer_gst
+<span class="nb">cd</span><span class="w"> </span>~/intel/dlstreamer_gst
 </pre></div>
 </div>
 </section>
 <section id="step-2-install-intel-distribution-of-openvino-toolkit">
-<h3>Step 2: Install Intel® Distribution of OpenVINO™ Toolkit<a class="headerlink" href="#step-2-install-intel-distribution-of-openvino-toolkit" title="Permalink to this heading">#</a></h3>
+<h3>Step 2: Install Intel® Distribution of OpenVINO™ Toolkit<a class="headerlink" href="#step-2-install-intel-distribution-of-openvino-toolkit" title="Permalink to this headline">#</a></h3>
 <p><a class="reference external" href="https://www.intel.com/content/www/us/en/developer/tools/openvino-toolkit/download.html">Download OpenVINO™ Toolkit package here</a> by selecting:</p>
 <ul class="simple">
 <li><p>Environment: <strong>Runtime</strong></p></li>
@@ -1176,29 +1233,36 @@ git clone https://github.com/dlstreamer/dlstreamer.git ~/intel/dlstreamer_gst
 <li><p>Version: <strong>Latest</strong></p></li>
 <li><p>Distribution: <strong>OpenVINO™ Archives</strong></p></li>
 </ul>
-<p><a class="reference external" href="https://docs.openvino.ai/2022.2/openvino_docs_install_guides_installing_openvino_from_archive_linux.html#doxid-openvino-docs-install-guides-installing-openvino-from-archive-linux">Follow OpenVINO™ Toolkit instruction guide here</a> to install your own OpenVINO™ from the archive on Linux.</p>
+<p><a class="reference external" href="https://docs.openvino.ai/2022.3/openvino_docs_install_guides_installing_openvino_apt.html#doxid-openvino-docs-install-guides-installing-openvino-apt">Follow OpenVINO™ Toolkit instruction guide here</a> to install your own OpenVINO™ from the apt package on Linux.</p>
 <p>After successful OpenVINO™ Toolkit package installation, run the
 following commands to install OpenVINO™ Toolkit dependencies and enable
 OpenVINO™ Toolkit development environment:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo -E /opt/intel/openvino_2022/install_dependencies/install_openvino_dependencies.sh
-<span class="nb">source</span> /opt/intel/openvino_2022/setupvars.sh
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>-E<span class="w"> </span>/opt/intel/openvino_2022/install_dependencies/install_openvino_dependencies.sh
+<span class="nb">source</span><span class="w"> </span>/opt/intel/openvino_2022/setupvars.sh
 </pre></div>
 </div>
 <p>Install Open Model Zoo tools:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --upgrade pip
-python3 -m pip install openvino-dev<span class="o">[</span>onnx<span class="o">]</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>openvino-dev<span class="o">[</span>onnx<span class="o">]</span>
 </pre></div>
 </div>
 </section>
 <section id="step-3-install-intel-dl-streamer-pipeline-framework-dependencies">
-<h3>Step 3: Install Intel® DL Streamer Pipeline Framework dependencies<a class="headerlink" href="#step-3-install-intel-dl-streamer-pipeline-framework-dependencies" title="Permalink to this heading">#</a></h3>
+<h3>Step 3: Install Intel® DL Streamer Pipeline Framework dependencies<a class="headerlink" href="#step-3-install-intel-dl-streamer-pipeline-framework-dependencies" title="Permalink to this headline">#</a></h3>
 <p>Install GStreamer and other build dependencies:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get install -y --no-install-recommends intel-dlstreamer-gst cmake build-essential libpython3-dev python-gi-dev libopencv-dev libva-dev
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install dependencies</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>curl<span class="w"> </span>gpg<span class="w"> </span>software-properties-common
+
+<span class="c1"># Register OpenVINO™ toolkit APT repository to install intel-dlstreamer-gst</span>
+curl<span class="w"> </span>-fsSL<span class="w"> </span>https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>--output<span class="w"> </span>/usr/share/keyrings/intel-sw-products.gpg
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=amd64 signed-by=/usr/share/keyrings/intel-sw-products.gpg] https://apt.repos.intel.com/openvino/2022 `. /etc/os-release &amp;&amp; echo </span><span class="si">${</span><span class="nv">UBUNTU_CODENAME</span><span class="si">}</span><span class="s2">` main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/intel-openvino-2022.list
+
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--no-install-recommends<span class="w"> </span>intel-dlstreamer-gst<span class="w"> </span>cmake<span class="w"> </span>build-essential<span class="w"> </span>libpython3-dev<span class="w"> </span>python-gi-dev<span class="w"> </span>libopencv-dev<span class="w"> </span>libva-dev
 </pre></div>
 </div>
 </section>
 <section id="step-4-install-python-dependencies">
-<h3>Step 4: Install Python dependencies<a class="headerlink" href="#step-4-install-python-dependencies" title="Permalink to this heading">#</a></h3>
+<h3>Step 4: Install Python dependencies<a class="headerlink" href="#step-4-install-python-dependencies" title="Permalink to this headline">#</a></h3>
 <p>If you intend to use Python elements or samples, you need to install the
 necessary dependencies using the following commands:</p>
 <ul>
@@ -1208,51 +1272,80 @@ install all the dependencies globally):</p>
 <li><p>Install the <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code> tool to create isolated Python
 environments</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># you can install it within the global python interpreter</span>
-python3 -m pip install virtualenv
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>virtualenv
 <span class="c1"># or you can install it as a user package</span>
-python3 -m pip install --user virtualenv
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>virtualenv
 </pre></div>
 </div>
 </li>
 <li><p>Create a virtual environment and activate it</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/intel/dlstreamer_gst
-virtualenv -p /usr/bin/python3 .env3 --system-site-packages
-<span class="nb">source</span> .env3/bin/activate
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/intel/dlstreamer_gst
+virtualenv<span class="w"> </span>-p<span class="w"> </span>/usr/bin/python3<span class="w"> </span>.env3<span class="w"> </span>--system-site-packages
+<span class="nb">source</span><span class="w"> </span>.env3/bin/activate
 </pre></div>
 </div>
 </li>
 </ul>
 </li>
 <li><p>Install Python requirements:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/intel/dlstreamer_gst
-python3 -m pip install --upgrade pip
-python3 -m pip install -r requirements.txt
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/intel/dlstreamer_gst
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </pre></div>
 </div>
 </li>
 </ul>
 </section>
-<section id="step-5-install-opencl-optional">
-<span id="install-opencl"></span><h3>Step 5: Install OpenCL™ [OPTIONAL]<a class="headerlink" href="#step-5-install-opencl-optional" title="Permalink to this heading">#</a></h3>
+<section id="step-5-install-opencl">
+<span id="install-opencl"></span><h3>Step 5: Install OpenCL™<a class="headerlink" href="#step-5-install-opencl" title="Permalink to this headline">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Optional step</p>
+</div>
+<p>Register Intel® Graphics APT repository key by:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download Intel® Graphics APT repository key</span>
+curl<span class="w"> </span>-fsSL<span class="w"> </span>https://repositories.intel.com/graphics/intel-graphics.key<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>--output<span class="w"> </span>/usr/share/keyrings/intel-graphics.gpg
+</pre></div>
+</div>
+<p>Then use <strong>only one</strong> of following (more information <a class="reference external" href="https://dgpu-docs.intel.com/installation-guides/index.html">https://dgpu-docs.intel.com/installation-guides/index.html</a>):</p>
+<ul>
+<li><p>For Intel® Arc GPUs:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/graphics/ubuntu `. /etc/os-release &amp;&amp; echo </span><span class="si">${</span><span class="nv">UBUNTU_CODENAME</span><span class="si">}</span><span class="s2">` arc&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/intel-graphics.list
+</pre></div>
+</div>
+</li>
+<li><p>For Intel® Data Center GPU Flex Series:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/graphics/ubuntu `. /etc/os-release &amp;&amp; echo </span><span class="si">${</span><span class="nv">UBUNTU_CODENAME</span><span class="si">}</span><span class="s2">` flex&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/intel-graphics.list
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>for Ubuntu 20.04 the APT repository is slightly different:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/graphics/ubuntu `. /etc/os-release &amp;&amp; echo </span><span class="si">${</span><span class="nv">UBUNTU_CODENAME</span><span class="si">}</span><span class="s2">` main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/intel-graphics.list
+</pre></div>
+</div>
+</div>
 <p>Run the following commands to install OpenCL™ driver:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Register Intel® Graphics APT repository:</span>
-curl -sSL https://repositories.intel.com/graphics/intel-graphics.key <span class="p">|</span> sudo apt-key add - <span class="o">&amp;&amp;</span> <span class="se">\</span>
-sudo apt-add-repository <span class="s1">&#39;deb [arch=amd64] https://repositories.intel.com/graphics/ubuntu ${UBUNTU_CODENAME}-legacy main&#39;</span>
-
-<span class="c1"># Install</span>
-sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install -y intel-opencl-icd ocl-icd-opencl-dev opencl-clhpp-headers
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>intel-opencl-icd<span class="w"> </span>ocl-icd-opencl-dev<span class="w"> </span>opencl-clhpp-headers
 </pre></div>
 </div>
 </section>
-<section id="step-6-install-message-brokers-optional">
-<h3>Step 6: Install message brokers [OPTIONAL]<a class="headerlink" href="#step-6-install-message-brokers-optional" title="Permalink to this heading">#</a></h3>
+<section id="step-6-install-message-brokers">
+<h3>Step 6: Install message brokers<a class="headerlink" href="#step-6-install-message-brokers" title="Permalink to this headline">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Optional step</p>
+</div>
 <p>Installation of message brokers will enable capability of
 <code class="docutils literal notranslate"><span class="pre">gvametapublish</span></code> element to publish inference results to Kafka or
 MQTT. Note that <code class="docutils literal notranslate"><span class="pre">gvametapublish</span></code> element will be able to publish
 inference results to file even if you skip this step.</p>
 <p>Run following script to install the message brokers:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/intel/dlstreamer_gst/scripts/
-sudo ./install_metapublish_dependencies.sh
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/intel/dlstreamer_gst/scripts/
+sudo<span class="w"> </span>./install_metapublish_dependencies.sh
 </pre></div>
 </div>
 <p>In order to enable one of these message brokers in Pipeline Framework,
@@ -1261,30 +1354,38 @@ enable MQTT please pass <code class="docutils literal notranslate"><span class="
 cmake. To enable Kafka please pass <code class="docutils literal notranslate"><span class="pre">-DENABLE_RDKAFKA_INSTALLATION=ON</span></code>
 option to cmake.</p>
 </section>
-<section id="step-7-install-intel-oneapi-dpc-c-compiler-optional">
-<h3>Step 7: Install Intel® oneAPI DPC++/C++ Compiler [OPTIONAL]<a class="headerlink" href="#step-7-install-intel-oneapi-dpc-c-compiler-optional" title="Permalink to this heading">#</a></h3>
+<section id="step-7-install-intel-oneapi-dpc-c-compiler">
+<h3>Step 7: Install Intel® oneAPI DPC++/C++ Compiler<a class="headerlink" href="#step-7-install-intel-oneapi-dpc-c-compiler" title="Permalink to this headline">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Optional step</p>
+</div>
 <p><a class="reference internal" href="#install-opencl"><span class="std std-ref">OpenCL™ driver installation</span></a> is required before continuing.</p>
 <p>Intel® oneAPI DPC++ Compiler will enable execution of <code class="docutils literal notranslate"><span class="pre">gvawatermark</span></code>
 and <code class="docutils literal notranslate"><span class="pre">gvatrack</span></code> elements on GPU.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Register Intel® oneAPI APT repository</span>
-curl -sSL https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB <span class="p">|</span> sudo apt-key add - <span class="o">&amp;&amp;</span> <span class="se">\</span>
-sudo add-apt-repository <span class="s2">&quot;deb https://apt.repos.intel.com/oneapi all main&quot;</span>
+curl<span class="w"> </span>-fsSL<span class="w"> </span>https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>--output<span class="w"> </span>/usr/share/keyrings/intel-sw-products.gpg
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [signed-by=/usr/share/keyrings/intel-sw-products.gpg] https://apt.repos.intel.com/oneapi all main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/intel-oneapi.list
 
 <span class="c1"># Install Intel® oneAPI DPC++/C++ Compiler</span>
-sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install -y intel-oneapi-compiler-dpcpp-cpp intel-level-zero-gpu level-zero-dev
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>intel-oneapi-compiler-dpcpp-cpp<span class="w"> </span>intel-level-zero-gpu<span class="w"> </span>level-zero-dev
 
 <span class="c1"># Set up environment</span>
-<span class="nb">source</span> /opt/intel/oneapi/compiler/latest/env/vars.sh
+<span class="nb">source</span><span class="w"> </span>/opt/intel/oneapi/compiler/latest/env/vars.sh
 </pre></div>
 </div>
 </section>
-<section id="step-8-install-va-api-dependencies-optional">
-<h3>Step 8: Install VA-API dependencies [OPTIONAL]<a class="headerlink" href="#step-8-install-va-api-dependencies-optional" title="Permalink to this heading">#</a></h3>
+<section id="step-8-install-va-api-dependencies">
+<h3>Step 8: Install VA-API dependencies<a class="headerlink" href="#step-8-install-va-api-dependencies" title="Permalink to this headline">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Optional step</p>
+</div>
 <p><a class="reference internal" href="#install-opencl"><span class="std std-ref">OpenCL™ driver installation</span></a> is required before continuing.</p>
 <p>To enable VA-API preprocessing of Pipeline Framework’s inference
 elements run the following commands:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get install -y intel-dlstreamer-gst-vaapi libva-dev vainfo intel-media-va-driver-non-free
-<span class="nb">export</span> <span class="nv">LIBVA_DRIVER_NAME</span><span class="o">=</span>iHD
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>intel-dlstreamer-gst-vaapi<span class="w"> </span>libva-dev<span class="w"> </span>vainfo<span class="w"> </span>intel-media-va-driver-non-free
+<span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVER_NAME</span><span class="o">=</span>iHD
 <span class="c1"># Check installation</span>
 vainfo
 </pre></div>
@@ -1293,8 +1394,8 @@ vainfo
 found. If no errors occur, please proceed further to the next step.</p>
 <p>If you receive error message like the one below, please reboot your
 machine and try again.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>libva info: va_openDriver<span class="o">()</span> returns -1
-vaInitialize failed with error code -1 <span class="o">(</span>unknown libva error<span class="o">)</span>, <span class="nb">exit</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>libva<span class="w"> </span>info:<span class="w"> </span>va_openDriver<span class="o">()</span><span class="w"> </span>returns<span class="w"> </span>-1
+vaInitialize<span class="w"> </span>failed<span class="w"> </span>with<span class="w"> </span>error<span class="w"> </span>code<span class="w"> </span>-1<span class="w"> </span><span class="o">(</span>unknown<span class="w"> </span>libva<span class="w"> </span>error<span class="o">)</span>,<span class="w"> </span><span class="nb">exit</span>
 </pre></div>
 </div>
 <p>If you receive any other errors, please retry installation process. If
@@ -1304,26 +1405,25 @@ support on GitHub
 <p>Additionally, pass <code class="docutils literal notranslate"><span class="pre">-DENABLE_VAAPI=ON</span></code> option to cmake in configuration step.</p>
 </section>
 <section id="step-9-build-intel-dl-streamer-pipeline-framework">
-<h3>Step 9: Build Intel® DL Streamer Pipeline Framework<a class="headerlink" href="#step-9-build-intel-dl-streamer-pipeline-framework" title="Permalink to this heading">#</a></h3>
+<h3>Step 9: Build Intel® DL Streamer Pipeline Framework<a class="headerlink" href="#step-9-build-intel-dl-streamer-pipeline-framework" title="Permalink to this headline">#</a></h3>
 <p>With all dependencies installed, proceed to build Pipeline Framework:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># OpenVINO™ Toolkit environment</span>
-<span class="nb">source</span> /opt/intel/openvino_2022/setupvars.sh
+<span class="nb">source</span><span class="w"> </span>/opt/intel/openvino_2022/setupvars.sh
 <span class="c1"># GStreamer environment</span>
-<span class="nb">source</span> /opt/intel/dlstreamer/gstreamer/setupvars.sh
+<span class="nb">source</span><span class="w"> </span>/opt/intel/dlstreamer/gstreamer/setupvars.sh
 <span class="c1"># Intel® oneAPI DPC++/C++ Compiler environment (if installed)</span>
 <span class="c1"># source /opt/intel/oneapi/compiler/latest/env/vars.sh</span>
 
 <span class="c1"># cmake</span>
-mkdir ~/intel/dlstreamer_gst/build
-<span class="nb">cd</span> ~/intel/dlstreamer_gst/build
-cmake -DCMAKE_INSTALL_PREFIX<span class="o">=</span>/opt/intel/dlstreamer  ..
+mkdir<span class="w"> </span>~/intel/dlstreamer_gst/build
+<span class="nb">cd</span><span class="w"> </span>~/intel/dlstreamer_gst/build
+cmake<span class="w"> </span>..
 
 <span class="c1"># make</span>
-make -j
-sudo make install
+make<span class="w"> </span>-j
 
 <span class="c1"># Setup Intel® DL Streamer Pipeline Framework environment</span>
-<span class="nb">source</span> ~/intel/dlstreamer_gst/scripts/setup_env.sh
+<span class="nb">source</span><span class="w"> </span>~/intel/dlstreamer_gst/scripts/setup_env.sh
 </pre></div>
 </div>
 <p>Intel® DL Streamer Pipeline Framework is now ready to use!</p>
@@ -1347,7 +1447,7 @@ Also, you can create an issue on GitHub
 </section>
 </section>
 <section id="next-steps">
-<h2>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this heading">#</a></h2>
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../tutorial.html"><span class="doc">Tutorial</span></a></p></li>
 <li><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">Samples overview</a></p></li>
@@ -1374,10 +1474,10 @@ Also, you can create an issue on GitHub
             <p class="prev-next-title">Install Guide</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../tutorial.html" title="next page">
+    <a class='right-next' id="next-link" href="uninstall_guide_ubuntu.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tutorial</p>
+        <p class="prev-next-title">Uninstall Guide Ubuntu</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

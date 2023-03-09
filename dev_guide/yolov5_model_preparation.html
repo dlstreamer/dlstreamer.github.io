@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Yolov5 Model Preparation Example &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,17 +31,17 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Model-proc File" href="model_proc_file.html" />
     <link rel="prev" title="Model Preparation" href="model_preparation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -117,11 +117,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../get_started/tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../get_started/flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -186,6 +196,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -479,8 +494,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../architecture_2.0/elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -785,62 +805,62 @@ title="Print to PDF"
               <div>
                 
   <section id="yolov5-model-preparation-example">
-<h1>Yolov5 Model Preparation Example<a class="headerlink" href="#yolov5-model-preparation-example" title="Permalink to this heading">#</a></h1>
+<h1>Yolov5 Model Preparation Example<a class="headerlink" href="#yolov5-model-preparation-example" title="Permalink to this headline">#</a></h1>
 <p>This page demonstrates preparation of a custom model, specifically <strong>yolov5s</strong> from <a class="reference external" href="https://github.com/ultralytics/yolov5">ultralytics/yolov5 GitHub repository</a>.
 The conversion follows Pytorch -&gt; ONNX -&gt; OpenVINO™ IR format.</p>
 <section id="setup">
-<h2>1. Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
+<h2>1. Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
 <p>Clone YOLOv5 repository</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/ultralytics/yolov5
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5
 </pre></div>
 </div>
 <p>Set up the environment</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install -r requirements.txt
-pip install onnx
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+pip<span class="w"> </span>install<span class="w"> </span>onnx
 </pre></div>
 </div>
 <p>Download Pytorch weights</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget https://github.com/ultralytics/yolov5/releases/download/v3.0/yolov5s.pt
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://github.com/ultralytics/yolov5/releases/download/v3.0/yolov5s.pt
 </pre></div>
 </div>
 </section>
 <section id="pytorch-to-onnx-conversion">
-<h2>2. Pytorch to ONNX Conversion<a class="headerlink" href="#pytorch-to-onnx-conversion" title="Permalink to this heading">#</a></h2>
+<h2>2. Pytorch to ONNX Conversion<a class="headerlink" href="#pytorch-to-onnx-conversion" title="Permalink to this headline">#</a></h2>
 <blockquote>
 <div><p>Note: An image size of 416 is selected in this example, one could set other sizes</p>
 </div></blockquote>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python3 export.py  --weights yolov5s.pt  --imgsz <span class="m">416</span> --batch <span class="m">1</span> --include onnx
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>export.py<span class="w">  </span>--weights<span class="w"> </span>yolov5s.pt<span class="w">  </span>--imgsz<span class="w"> </span><span class="m">416</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">1</span><span class="w"> </span>--include<span class="w"> </span>onnx
 </pre></div>
 </div>
 <p>The output should resemble</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>export: <span class="nv">data</span><span class="o">=</span>data/coco128.yaml, <span class="nv">weights</span><span class="o">=[</span><span class="s1">&#39;yolov5s.pt&#39;</span><span class="o">]</span>, <span class="nv">imgsz</span><span class="o">=[</span><span class="m">416</span><span class="o">]</span>, <span class="nv">batch_size</span><span class="o">=</span><span class="m">1</span>, <span class="nv">device</span><span class="o">=</span>cpu, <span class="nv">half</span><span class="o">=</span>False, <span class="nv">inplace</span><span class="o">=</span>False, <span class="nv">train</span><span class="o">=</span>False, <span class="nv">optimize</span><span class="o">=</span>False, <span class="nv">int8</span><span class="o">=</span>False, <span class="nv">dynamic</span><span class="o">=</span>False, <span class="nv">simplify</span><span class="o">=</span>False, <span class="nv">opset</span><span class="o">=</span><span class="m">12</span>, <span class="nv">verbose</span><span class="o">=</span>False, <span class="nv">workspace</span><span class="o">=</span><span class="m">4</span>, <span class="nv">nms</span><span class="o">=</span>False, <span class="nv">agnostic_nms</span><span class="o">=</span>False, <span class="nv">topk_per_class</span><span class="o">=</span><span class="m">100</span>, <span class="nv">topk_all</span><span class="o">=</span><span class="m">100</span>, <span class="nv">iou_thres</span><span class="o">=</span><span class="m">0</span>.45, <span class="nv">conf_thres</span><span class="o">=</span><span class="m">0</span>.25, <span class="nv">include</span><span class="o">=[</span><span class="s1">&#39;onnx&#39;</span><span class="o">]</span>
-YOLOv5 🚀 v6.1-207-g5774a15 Python-3.8.10 torch-1.11.0+cu102 CPU
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>export:<span class="w"> </span><span class="nv">data</span><span class="o">=</span>data/coco128.yaml,<span class="w"> </span><span class="nv">weights</span><span class="o">=[</span><span class="s1">&#39;yolov5s.pt&#39;</span><span class="o">]</span>,<span class="w"> </span><span class="nv">imgsz</span><span class="o">=[</span><span class="m">416</span><span class="o">]</span>,<span class="w"> </span><span class="nv">batch_size</span><span class="o">=</span><span class="m">1</span>,<span class="w"> </span><span class="nv">device</span><span class="o">=</span>cpu,<span class="w"> </span><span class="nv">half</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">inplace</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">train</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">optimize</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">int8</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">dynamic</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">simplify</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">opset</span><span class="o">=</span><span class="m">12</span>,<span class="w"> </span><span class="nv">verbose</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">workspace</span><span class="o">=</span><span class="m">4</span>,<span class="w"> </span><span class="nv">nms</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">agnostic_nms</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">topk_per_class</span><span class="o">=</span><span class="m">100</span>,<span class="w"> </span><span class="nv">topk_all</span><span class="o">=</span><span class="m">100</span>,<span class="w"> </span><span class="nv">iou_thres</span><span class="o">=</span><span class="m">0</span>.45,<span class="w"> </span><span class="nv">conf_thres</span><span class="o">=</span><span class="m">0</span>.25,<span class="w"> </span><span class="nv">include</span><span class="o">=[</span><span class="s1">&#39;onnx&#39;</span><span class="o">]</span>
+YOLOv5<span class="w"> </span>🚀<span class="w"> </span>v6.1-207-g5774a15<span class="w"> </span>Python-3.8.10<span class="w"> </span>torch-1.11.0+cu102<span class="w"> </span>CPU
 
-Fusing layers...
-YOLOv5s summary: <span class="m">232</span> layers, <span class="m">7459581</span> parameters, <span class="m">0</span> gradients
+Fusing<span class="w"> </span>layers...
+YOLOv5s<span class="w"> </span>summary:<span class="w"> </span><span class="m">232</span><span class="w"> </span>layers,<span class="w"> </span><span class="m">7459581</span><span class="w"> </span>parameters,<span class="w"> </span><span class="m">0</span><span class="w"> </span>gradients
 
-PyTorch: starting from yolov5s.pt.1 with output shape <span class="o">(</span><span class="m">1</span>, <span class="m">10647</span>, <span class="m">85</span><span class="o">)</span> <span class="o">(</span><span class="m">14</span>.5 MB<span class="o">)</span>
+PyTorch:<span class="w"> </span>starting<span class="w"> </span>from<span class="w"> </span>yolov5s.pt.1<span class="w"> </span>with<span class="w"> </span>output<span class="w"> </span>shape<span class="w"> </span><span class="o">(</span><span class="m">1</span>,<span class="w"> </span><span class="m">10647</span>,<span class="w"> </span><span class="m">85</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">14</span>.5<span class="w"> </span>MB<span class="o">)</span>
 
-ONNX: starting <span class="nb">export</span> with onnx <span class="m">1</span>.11.0...
-ONNX: <span class="nb">export</span> success, saved as yolov5s.pt.onnx <span class="o">(</span><span class="m">28</span>.7 MB<span class="o">)</span>
+ONNX:<span class="w"> </span>starting<span class="w"> </span><span class="nb">export</span><span class="w"> </span>with<span class="w"> </span>onnx<span class="w"> </span><span class="m">1</span>.11.0...
+ONNX:<span class="w"> </span><span class="nb">export</span><span class="w"> </span>success,<span class="w"> </span>saved<span class="w"> </span>as<span class="w"> </span>yolov5s.pt.onnx<span class="w"> </span><span class="o">(</span><span class="m">28</span>.7<span class="w"> </span>MB<span class="o">)</span>
 
-Export <span class="nb">complete</span> <span class="o">(</span><span class="m">1</span>.57s<span class="o">)</span>
-Results saved to /home/vidyasiv/yolov5
-Detect:          python detect.py --weights yolov5s.pt.onnx
-PyTorch Hub:     <span class="nv">model</span> <span class="o">=</span> torch.hub.load<span class="o">(</span><span class="s1">&#39;ultralytics/yolov5&#39;</span>, <span class="s1">&#39;custom&#39;</span>, <span class="s1">&#39;yolov5s.pt.onnx&#39;</span><span class="o">)</span>
-Validate:        python val.py --weights yolov5s.pt.onnx
-Visualize:       https://netron.app
+Export<span class="w"> </span><span class="nb">complete</span><span class="w"> </span><span class="o">(</span><span class="m">1</span>.57s<span class="o">)</span>
+Results<span class="w"> </span>saved<span class="w"> </span>to<span class="w"> </span>/home/vidyasiv/yolov5
+Detect:<span class="w">          </span>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt.onnx
+PyTorch<span class="w"> </span>Hub:<span class="w">     </span><span class="nv">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>torch.hub.load<span class="o">(</span><span class="s1">&#39;ultralytics/yolov5&#39;</span>,<span class="w"> </span><span class="s1">&#39;custom&#39;</span>,<span class="w"> </span><span class="s1">&#39;yolov5s.pt.onnx&#39;</span><span class="o">)</span>
+Validate:<span class="w">        </span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt.onnx
+Visualize:<span class="w">       </span>https://netron.app
 </pre></div>
 </div>
 </section>
 <section id="onnx-to-ir-conversion">
-<h2>3. ONNX to IR Conversion<a class="headerlink" href="#onnx-to-ir-conversion" title="Permalink to this heading">#</a></h2>
+<h2>3. ONNX to IR Conversion<a class="headerlink" href="#onnx-to-ir-conversion" title="Permalink to this headline">#</a></h2>
 <p>During conversion to IR format with the model optimizer, specify <code class="docutils literal notranslate"><span class="pre">--output</span></code> with the names of the final output convolution layers in the ONNX file as shown below.</p>
 <figure class="align-default">
 <img alt="yolov5s_network" src="../_images/yolov5s_network.png" />
 </figure>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mo  --input_model yolov5s.onnx --model_name yolov5s --scale <span class="m">255</span> --reverse_input_channels --output Conv_198,Conv_217,Conv_236 --data_type FP16 --output_dir yolov5/FP16
-mo  --input_model yolov5s.onnx --model_name yolov5s --scale <span class="m">255</span> --reverse_input_channels --output Conv_198,Conv_217,Conv_236 --data_type FP32 --output_dir yolov5/FP32
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mo<span class="w">  </span>--input_model<span class="w"> </span>yolov5s.onnx<span class="w"> </span>--model_name<span class="w"> </span>yolov5s<span class="w"> </span>--scale<span class="w"> </span><span class="m">255</span><span class="w"> </span>--reverse_input_channels<span class="w"> </span>--output<span class="w"> </span>Conv_198,Conv_217,Conv_236<span class="w"> </span>--data_type<span class="w"> </span>FP16<span class="w"> </span>--output_dir<span class="w"> </span>yolov5/FP16
+mo<span class="w">  </span>--input_model<span class="w"> </span>yolov5s.onnx<span class="w"> </span>--model_name<span class="w"> </span>yolov5s<span class="w"> </span>--scale<span class="w"> </span><span class="m">255</span><span class="w"> </span>--reverse_input_channels<span class="w"> </span>--output<span class="w"> </span>Conv_198,Conv_217,Conv_236<span class="w"> </span>--data_type<span class="w"> </span>FP32<span class="w"> </span>--output_dir<span class="w"> </span>yolov5/FP32
 </pre></div>
 </div>
 <blockquote>
@@ -849,37 +869,40 @@ mo  --input_model yolov5s.onnx --model_name yolov5s --scale <span class="m">255<
 <p>For more details on Model Optimizer, see <a class="reference external" href="https://software.intel.com/en-us/articles/OpenVINO-ModelOptimizer">Model Optimizer from OpenVINO™ Toolkit</a>
 As explained in <a class="reference external" href="model_preparation_essentials">Model Files Format section</a>,  the model layout will be as shown below:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>yolov5
-├── FP16
-│   ├── yolov5s.bin
-│   ├── yolov5s.mapping
-│   └── yolov5s.xml
-└── FP32
-    ├── yolov5s.bin
-    ├── yolov5s.mapping
-    └── yolov5s.xml
+├──<span class="w"> </span>FP16
+│<span class="w">   </span>├──<span class="w"> </span>yolov5s.bin
+│<span class="w">   </span>├──<span class="w"> </span>yolov5s.mapping
+│<span class="w">   </span>└──<span class="w"> </span>yolov5s.xml
+└──<span class="w"> </span>FP32
+<span class="w">    </span>├──<span class="w"> </span>yolov5s.bin
+<span class="w">    </span>├──<span class="w"> </span>yolov5s.mapping
+<span class="w">    </span>└──<span class="w"> </span>yolov5s.xml
 </pre></div>
 </div>
 </section>
 <section id="model-pre-post-processing">
-<h2>4. Model Pre/Post Processing<a class="headerlink" href="#model-pre-post-processing" title="Permalink to this heading">#</a></h2>
+<h2>4. Model Pre/Post Processing<a class="headerlink" href="#model-pre-post-processing" title="Permalink to this headline">#</a></h2>
 <p>This model did not require any custom pre/post-processing. For post-processing, a converter named <code class="docutils literal notranslate"><span class="pre">yolo_v5</span></code> has been implemented that handles the transformation of the results from raw output
 <code class="docutils literal notranslate"><span class="pre">InferenceEngine::Blob</span></code> to required representation that contains confidence and bounding box center coordinates and dimensions.
-A model-proc file has been included for yolov5 at <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v5.json">yolo-v5.json</a></p>
+A model-proc file has been included for yolov5 at <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v5.json">yolo-v5.json</a>.</p>
+<blockquote>
+<div><p>Note: The above model proc has been tested with yolov5s with input size of 416 and 460, for other yolov5 variants changes may be required, see <a class="reference external" href="../dev_guide/how_to_create_model_proc_file">How to Create Model Proc</a> for more details on settings like <code class="docutils literal notranslate"><span class="pre">bbox_number_on_cell</span></code>, <code class="docutils literal notranslate"><span class="pre">cells_number</span></code> etc.</p>
+</div></blockquote>
 </section>
 <section id="running-a-gstreamer-pipeline">
-<h2>5. Running a GStreamer pipeline<a class="headerlink" href="#running-a-gstreamer-pipeline" title="Permalink to this heading">#</a></h2>
+<h2>5. Running a GStreamer pipeline<a class="headerlink" href="#running-a-gstreamer-pipeline" title="Permalink to this headline">#</a></h2>
 <p>As covered in <a class="reference external" href="model_preparation_essentials">Model Files Format section</a>, you will have to set <code class="docutils literal notranslate"><span class="pre">model</span></code>, <code class="docutils literal notranslate"><span class="pre">model-proc</span></code> properties for the gvadetect element</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gvadetect <span class="nv">model</span><span class="o">=</span>MODEL1_FILE_PATH.xml model-proc<span class="o">=</span>MODEL1_FILE_PATH.json !
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span>MODEL1_FILE_PATH.xml<span class="w"> </span>model-proc<span class="o">=</span>MODEL1_FILE_PATH.json<span class="w"> </span>!
 </pre></div>
 </div>
 <p>For batch sizes &gt; 1, there is no additional preparation needed, one can run by setting <code class="docutils literal notranslate"><span class="pre">batch_size</span></code></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gvadetect <span class="nv">model</span><span class="o">=</span>MODEL1_FILE_PATH.xml model-proc<span class="o">=</span>MODEL1_FILE_PATH.json batch-size<span class="o">=</span><span class="m">2</span>!
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span>MODEL1_FILE_PATH.xml<span class="w"> </span>model-proc<span class="o">=</span>MODEL1_FILE_PATH.json<span class="w"> </span>batch-size<span class="o">=</span><span class="m">2</span>!
 </pre></div>
 </div>
 </section>
 </section>
 <section id="references">
-<h1>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h1>
+<h1>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h1>
 <ol class="arabic simple">
 <li><p><a class="reference external" href="https://github.com/violet17/yolov5_demo">https://github.com/violet17/yolov5_demo</a></p></li>
 </ol>

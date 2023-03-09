@@ -19,11 +19,12 @@ class dlstreamer::GSTMetadata
 	public:
 		// construction
 	
-		:target:`GSTMetadata<doxid-classdlstreamer_1_1_g_s_t_metadata_1af4b3e81009657dbd5441ca57f40912ae>`(GstBuffer* buf);
+		:target:`GSTMetadata<doxid-classdlstreamer_1_1_g_s_t_metadata_1a1c550ff4d37346fc41569e04f7c1e517>`(GstBuffer* buf, const GstVideoInfo* video_info = nullptr);
 		:target:`GSTMetadata<doxid-classdlstreamer_1_1_g_s_t_metadata_1a77f98732cf48919341d189d43ec3844f>`(GstBufferList* buffer_list);
 
 		// methods
 	
+		:ref:`DictionaryPtr<doxid-namespacedlstreamer_1ab94d4f1fc850dbd9c71343191460d20a>` :target:`find_metadata<doxid-classdlstreamer_1_1_g_s_t_metadata_1ac2dcf499b9fb8b13709016b28d51ce90>`(std::string_view meta_name);
 		virtual void :target:`clear<doxid-classdlstreamer_1_1_g_s_t_metadata_1a3ca48910277c8ac8ea24a9de1e9d4179>`();
 		virtual :ref:`iterator<doxid-classdlstreamer_1_1_metadata_1acc5d5f5b8001e3c473d8b2d33a6e9df6>` :target:`begin<doxid-classdlstreamer_1_1_g_s_t_metadata_1a1ff9fa69065ed5aeb081e32319bcb414>`();
 		virtual :ref:`iterator<doxid-classdlstreamer_1_1_metadata_1acc5d5f5b8001e3c473d8b2d33a6e9df6>` :target:`end<doxid-classdlstreamer_1_1_g_s_t_metadata_1a8411cf5dfdb1c42ae3ff9450a638a6b1>`();

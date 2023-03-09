@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>class dlstreamer::MemoryMapperGSTToVAAPI &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,17 +31,17 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="class dlstreamer::MemoryMapperOpenCLToCPU" href="class_dlstreamer_MemoryMapperOpenCLToCPU.html" />
     <link rel="prev" title="class dlstreamer::MemoryMapperGSTToOpenCL" href="class_dlstreamer_MemoryMapperGSTToOpenCL.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -117,11 +117,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../get_started/install/uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../get_started/tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../get_started/flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -186,6 +196,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../dev_guide/object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_guide/gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -479,8 +494,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -759,12 +779,12 @@ title="Print to PDF"
               <div>
                 
   <section id="class-dlstreamer-memorymappergsttovaapi">
-<span id="doxid-classdlstreamer-1-1-memory-mapper-g-s-t-to-v-a-a-p-i"></span><span id="index-0"></span><h1>class dlstreamer::MemoryMapperGSTToVAAPI<a class="headerlink" href="#class-dlstreamer-memorymappergsttovaapi" title="Permalink to this heading">#</a></h1>
+<span id="doxid-classdlstreamer-1-1-memory-mapper-g-s-t-to-v-a-a-p-i"></span><span id="index-0"></span><h1>class dlstreamer::MemoryMapperGSTToVAAPI<a class="headerlink" href="#class-dlstreamer-memorymappergsttovaapi" title="Permalink to this headline">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;gst_to_vaapi.h&gt;</span><span class="cp"></span>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;gst_to_vaapi.h&gt;</span>
 
 <span class="k">class</span> <span class="nl">MemoryMapperGSTToVAAPI</span><span class="p">:</span> <span class="k">public</span> <a class="reference internal" href="class_dlstreamer_BaseMemoryMapper.html#doxid-classdlstreamer-1-1-base-memory-mapper"><span class="std std-ref">dlstreamer::BaseMemoryMapper</span></a><span></span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
@@ -778,7 +798,7 @@ title="Print to PDF"
     <span class="p">);</span>
 <span class="p">};</span></pre>
 <section id="inherited-members">
-<h3>Inherited Members<a class="headerlink" href="#inherited-members" title="Permalink to this heading">#</a></h3>
+<h3>Inherited Members<a class="headerlink" href="#inherited-members" title="Permalink to this headline">#</a></h3>
 <pre class="highlight doxyrest-overview-inherited-code-block literal-block"><span></span><span class="k">public</span><span class="o">:</span>
     <span class="c1">// methods</span>
 
@@ -795,16 +815,16 @@ title="Print to PDF"
 </section>
 </section>
 <section id="detailed-documentation">
-<span id="details-classdlstreamer-1-1-memory-mapper-g-s-t-to-v-a-a-p-i"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this heading">#</a></h2>
+<span id="details-classdlstreamer-1-1-memory-mapper-g-s-t-to-v-a-a-p-i"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this headline">#</a></h2>
 <section id="methods">
-<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h3>
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-classdlstreamer-1-1-memory-mapper-g-s-t-to-v-a-a-p-i-1a295390a1040abbb1052efbe2dc580f89"><span id="index-1"></span><span></span><span class="k">virtual</span> <a class="reference internal" href="class_dlstreamer_TensorPtr.html#doxid-classdlstreamer-1-1-tensor-ptr"><span class="std std-ref">TensorPtr</span></a><span></span> <span class="n">map</span><span class="p">(</span><a class="reference internal" href="class_dlstreamer_TensorPtr.html#doxid-classdlstreamer-1-1-tensor-ptr"><span class="std std-ref">TensorPtr</span></a><span></span> <span class="n">src</span><span class="p">,</span> <a class="reference internal" href="enum_dlstreamer_AccessMode.html#doxid-namespacedlstreamer-1a688aea01f1e852531b035128bbea9e10"><span class="std std-ref">AccessMode</span></a><span></span> <span class="n">mode</span><span class="p">)</span></pre>
 <p>Map tensor into another context. The function returns mapped tensor, so that the parent() on output tensor returns original tensor and context() on output tensor returns <a class="reference internal" href="class_dlstreamer_BaseMemoryMapper.html#doxid-classdlstreamer-1-1-base-memory-mapper-1ae933baf67de5c90f16aa7ce7594c18cb"><span class="std std-ref">input_context()</span></a>.</p>
 <p class="rubric">Parameters:</p>
 <table class="table">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>src</p></td>

@@ -1,8 +1,8 @@
 
 .. Links
 .. _GstVideoRegionOfInterestMeta: https://gstreamer.freedesktop.org/documentation/video/gstvideometa.html?gi-language=c#GstVideoRegionOfInterestMeta
-.. _GstGVATensorMeta: https://github.com/dlstreamer/dlstreamer/blob/master/gst-libs/gst/videoanalytics/metadata/gva_tensor_meta.h
-.. _GstGVAJSONMeta: https://github.com/dlstreamer/dlstreamer/blob/master/gst-libs/gst/videoanalytics/metadata/gva_json_meta.h
+.. _GstGVATensorMeta: https://github.com/dlstreamer/dlstreamer/blob/master/include/dlstreamer/gst/metadata/gva_tensor_meta.h
+.. _GstGVAJSONMeta: https://github.com/dlstreamer/dlstreamer/blob/master/include/dlstreamer/gst/metadata/gva_json_meta.h
 
 Metadata
 ========

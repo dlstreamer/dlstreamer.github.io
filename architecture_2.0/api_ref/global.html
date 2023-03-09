@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Global Namespace &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,17 +31,17 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="namespace dlstreamer" href="namespace_dlstreamer.html" />
     <link rel="prev" title="API 2.0 Reference" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -117,11 +117,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../get_started/install/uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../get_started/tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../get_started/flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -186,6 +196,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../dev_guide/object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_guide/gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -479,8 +494,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -745,15 +765,16 @@ title="Print to PDF"
               <div>
                 
   <span class="target" id="global"></span><section id="global-namespace">
-<span id="index-0"></span><h1>Global Namespace<a class="headerlink" href="#global-namespace" title="Permalink to this heading">#</a></h1>
+<span id="index-0"></span><h1>Global Namespace<a class="headerlink" href="#global-namespace" title="Permalink to this headline">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="c1">// namespaces</span>
 
 <span class="k">namespace</span> <a class="reference internal" href="namespace_dlstreamer.html#doxid-namespacedlstreamer"><span class="std std-ref">dlstreamer</span></a><span></span><span class="p">;</span>
     <span class="k">namespace</span> <a class="reference internal" href="namespace_dlstreamer_detail.html#doxid-namespacedlstreamer-1-1detail"><span class="std std-ref">dlstreamer::detail</span></a><span></span><span class="p">;</span>
+    <span class="k">namespace</span> <a class="reference internal" href="namespace_dlstreamer_param.html#doxid-namespacedlstreamer-1-1param"><span class="std std-ref">dlstreamer::param</span></a><span></span><span class="p">;</span>
     <span class="k">namespace</span> <a class="reference internal" href="namespace_dlstreamer_tensor.html#doxid-namespacedlstreamer-1-1tensor"><span class="std std-ref">dlstreamer::tensor</span></a><span></span><span class="p">;</span>
         <span class="k">namespace</span> <a class="reference internal" href="namespace_dlstreamer_tensor_key.html#doxid-namespacedlstreamer-1-1tensor-1-1key"><span class="std std-ref">dlstreamer::tensor::key</span></a><span></span><span class="p">;</span>
 
@@ -844,9 +865,9 @@ title="Print to PDF"
 <span class="p">);</span></pre>
 </section>
 <section id="detailed-documentation">
-<span id="details-global"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this heading">#</a></h2>
+<span id="details-global"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this headline">#</a></h2>
 <section id="global-functions">
-<h3>Global Functions<a class="headerlink" href="#global-functions" title="Permalink to this heading">#</a></h3>
+<h3>Global Functions<a class="headerlink" href="#global-functions" title="Permalink to this headline">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-json-meta-8h-1aa3e2cbd81b77b33be3a69a11c190cb57"><span id="index-1"></span><span></span><span class="k">const</span> <span class="n">GstMetaInfo</span><span class="o">*</span> <span class="n">gst_gva_json_meta_get_info</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span></pre>
 <p>This function registers, if needed, and returns GstMetaInfo for <a class="reference internal" href="struct__GstGVAJSONMeta.html#doxid-struct-gst-g-v-a-j-s-o-n-meta"><span class="std std-ref">_GstGVAJSONMeta</span></a>.</p>
 <p class="rubric">Returns:</p>
@@ -860,8 +881,8 @@ title="Print to PDF"
 <p class="rubric">Parameters:</p>
 <table class="table">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>meta</p></td>
@@ -876,8 +897,8 @@ title="Print to PDF"
 <p class="rubric">Parameters:</p>
 <table class="table">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>meta</p></td>
@@ -895,8 +916,8 @@ title="Print to PDF"
 <p class="rubric">Parameters:</p>
 <table class="table">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>s</p></td>
@@ -926,8 +947,8 @@ title="Print to PDF"
 <p class="rubric">Parameters:</p>
 <table class="table">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>buffer</p></td>
@@ -953,8 +974,8 @@ title="Print to PDF"
 <p class="rubric">Parameters:</p>
 <table class="table">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>buffer</p></td>

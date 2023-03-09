@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Migration to 2.0 &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,17 +31,17 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="① Memory Interop and C++ abstract interfaces" href="cpp_interfaces.html" />
     <link rel="prev" title="Architecture 2.0 [Preview]" href="architecture_2.0.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -117,11 +117,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../get_started/tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../get_started/flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -186,6 +196,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../dev_guide/object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -479,8 +494,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -741,7 +761,7 @@ title="Print to PDF"
               <div>
                 
   <section id="migration-to-2-0">
-<h1>Migration to 2.0<a class="headerlink" href="#migration-to-2-0" title="Permalink to this heading">#</a></h1>
+<h1>Migration to 2.0<a class="headerlink" href="#migration-to-2-0" title="Permalink to this headline">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Architecture 2.0 currently available in preview mode as transition not completed yet. There is no strict backward
@@ -749,7 +769,7 @@ compatibility in preview mode (some changes/renamings may occur). It could be us
 it’s not recommended for production usage yet.</p>
 </div>
 <section id="multiple-ways-to-program-media-analytics-pipeline">
-<h2>Multiple ways to program media analytics pipeline<a class="headerlink" href="#multiple-ways-to-program-media-analytics-pipeline" title="Permalink to this heading">#</a></h2>
+<h2>Multiple ways to program media analytics pipeline<a class="headerlink" href="#multiple-ways-to-program-media-analytics-pipeline" title="Permalink to this headline">#</a></h2>
 <p>Starting release 2022.2, Intel® DL Streamer offers multiple ways to program media analytics pipeline.
 The following table summarizes major differences between programming models</p>
 <table class="table">
@@ -803,7 +823,7 @@ in ~100 C++ lines <a class="reference external" href="https://github.com/dlstrea
 <p>See <a class="reference external" href="samples_2.0">Samples 2.0</a> for table with all samples.</p>
 </section>
 <section id="backward-compatibility-between-1-0-and-2-0">
-<h2>Backward compatibility between 1.0 and 2.0<a class="headerlink" href="#backward-compatibility-between-1-0-and-2-0" title="Permalink to this heading">#</a></h2>
+<h2>Backward compatibility between 1.0 and 2.0<a class="headerlink" href="#backward-compatibility-between-1-0-and-2-0" title="Permalink to this headline">#</a></h2>
 <p>Intel® DL Streamer sets the goal of backward compatible transition from GStreamer gva* 1.0 elements to architecture 2.0
 bin-elements, including all elements and all properties except deprecated properties. After transition is completed, all
 existent application and pipeline are expected to continue working without any changes or with minor changes replacing
@@ -830,9 +850,12 @@ lists mapping from old to new names</p>
 <td><p>object_track</p></td>
 </tr>
 <tr class="row-even"><td><p>gvawatermark</p></td>
-<td><p>meta_overlay (WIP)</p></td>
+<td><p>meta_overlay</p></td>
 </tr>
-<tr class="row-odd"><td><p>…</p></td>
+<tr class="row-odd"><td><p>gvametaaggregate</p></td>
+<td><p>meta_aggregate (WIP)</p></td>
+</tr>
+<tr class="row-even"><td><p>…</p></td>
 <td><p>…</p></td>
 </tr>
 </tbody>
@@ -851,7 +874,7 @@ allow to switch back to gva* elements and architecture 1.0 (for significant time
 </div>
 </section>
 <section id="deprecated-properties-not-available-in-2-0">
-<h2>Deprecated properties not available in 2.0<a class="headerlink" href="#deprecated-properties-not-available-in-2-0" title="Permalink to this heading">#</a></h2>
+<h2>Deprecated properties not available in 2.0<a class="headerlink" href="#deprecated-properties-not-available-in-2-0" title="Permalink to this headline">#</a></h2>
 <p>The following table lists deprecated properties (not supported in 2.0) and new property/value to set this parameter
 (supported in 2.0, and 1.0 as well for some properties).</p>
 <table class="table">
@@ -883,14 +906,19 @@ allow to switch back to gva* elements and architecture 1.0 (for significant time
 <td><p>scale-method=fast</p></td>
 <td><p>Yes</p></td>
 </tr>
-<tr class="row-even"><td><p>gvawatermark</p></td>
-<td><p>device=GPU</p></td>
-<td><p>vaapipostproc ! opencv_meta_overlay attach-label-mask=true ! sycl_meta_overlay ! vaapipostproc</p></td>
-<td><p>No</p></td>
+<tr class="row-even"><td><p>gvatrack</p></td>
+<td><p>tracking-type=</p></td>
+<td><p>object_track generate-objects= adjust-objects= spatial-feature=</p></td>
+<td><p>Yes</p></td>
 </tr>
 <tr class="row-odd"><td><p>gvatrack</p></td>
-<td><p>device=GPU tracking-type=zero-term</p></td>
-<td><p>vaapipostproc ! object_track spatial-feature=sliced-histogram device=GPU ! vaapipostproc</p></td>
+<td><p>device=GPU</p></td>
+<td><p>object_track device=GPU</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>gvawatermark</p></td>
+<td><p>device=GPU</p></td>
+<td><p>meta_overlay device=GPU</p></td>
 <td><p>No</p></td>
 </tr>
 </tbody>

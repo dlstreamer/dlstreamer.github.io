@@ -359,11 +359,11 @@ In the above pipeline:
    according to model-proc:
 
    -  *object-class* tells *gvalcassify* which ROIs to classify.
-   -  *object-class=vehicle* classifies ROIs with ‘vehicle’ attribute only.
+   -  *object-class=vehicle* classifies ROIs with 'vehicle' attribute only.
 
 4. *gvawatermark* displays the ROIs and their attributes.
 
-See `model-proc <https://github.com/dlstreamer/dlstreamer/tree/master/samples/model_proc>`__
+See `model-proc <https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/model_proc>`__
 for the model-procs and its input and output specifications.
 
 .. _object-tracking:
@@ -491,7 +491,7 @@ In the above pipeline:
 - *filepath=${OUTFILE}* is a JSON file to which the inference results are published.
 
 For publishing the results to MQTT or Kafka, please refer to the
-`metapublish samples <https://github.com/dlstreamer/dlstreamer/tree/master/samples/gst_launch/metapublish>`__.
+`metapublish samples <https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/gst_launch/metapublish>`__.
 
 You have completed this tutorial. Now, start creating your video
 analytics pipeline with Intel® DL Streamer Pipeline Framework!

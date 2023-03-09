@@ -82,8 +82,8 @@ Then, run container:
    dlstreamer:<tag>
 
 .. note::
-   | If your host OS is Ubuntu 20 add ``--group-add=$(stat -c "%g" /dev/dri/render*)`` argument for ``docker run`` in order to setup access to GPU from container.
-   | Refer to :ref:`this guide <gpu-ubuntu20>` for more details.
+   | If your host OS is Ubuntu 22 add ``--group-add=$(stat -c "%g" /dev/dri/render*)`` argument for ``docker run`` in order to setup access to GPU from container.
+   | Refer to :ref:`this guide <gpu-ubuntu22>` for more details.
 
 Here is the additional information and the meaning of some options in
 the Docker run command:

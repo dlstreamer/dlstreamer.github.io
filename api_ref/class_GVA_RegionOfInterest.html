@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>class GVA::RegionOfInterest &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,17 +31,17 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="class GVA::Tensor" href="class_GVA_Tensor.html" />
     <link rel="prev" title="class GVA::AudioFrame" href="class_GVA_AudioFrame.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -117,11 +117,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../get_started/tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../get_started/flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -186,6 +196,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../dev_guide/object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -479,8 +494,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../architecture_2.0/elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -755,13 +775,13 @@ title="Print to PDF"
               <div>
                 
   <section id="class-gva-regionofinterest">
-<span id="doxid-class-g-v-a-1-1-region-of-interest"></span><span id="index-0"></span><h1>class GVA::RegionOfInterest<a class="headerlink" href="#class-gva-regionofinterest" title="Permalink to this heading">#</a></h1>
+<span id="doxid-class-g-v-a-1-1-region-of-interest"></span><span id="index-0"></span><h1>class GVA::RegionOfInterest<a class="headerlink" href="#class-gva-regionofinterest" title="Permalink to this headline">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
 <p>This class represents region of interest - object describing detection result (bounding box) and containing multiple <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> objects (inference results) attached by multiple models. For example, it can be region of interest with detected face and recognized age and sex of a person. It can be produced by a pipeline with gvadetect with detection model and two gvaclassify elements with two classification models. Such <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> will have bounding box coordinates filled and will have 3 <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> objects attached - 1 <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> object with detection result and 2 <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> objects with classification results coming from 2 classifications. <a class="reference internal" href="#details-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">More…</span></a></p>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;region_of_interest.h&gt;</span><span class="cp"></span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;region_of_interest.h&gt;</span>
 
 <span class="k">class</span> <span class="n">RegionOfInterest</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
@@ -787,17 +807,17 @@ title="Print to PDF"
 <span class="p">};</span></pre>
 </section>
 <section id="detailed-documentation">
-<span id="details-class-g-v-a-1-1-region-of-interest"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this heading">#</a></h2>
+<span id="details-class-g-v-a-1-1-region-of-interest"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this headline">#</a></h2>
 <p>This class represents region of interest - object describing detection result (bounding box) and containing multiple <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> objects (inference results) attached by multiple models. For example, it can be region of interest with detected face and recognized age and sex of a person. It can be produced by a pipeline with gvadetect with detection model and two gvaclassify elements with two classification models. Such <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> will have bounding box coordinates filled and will have 3 <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> objects attached - 1 <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> object with detection result and 2 <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> objects with classification results coming from 2 classifications.</p>
 <section id="construction">
-<h3>Construction<a class="headerlink" href="#construction" title="Permalink to this heading">#</a></h3>
+<h3>Construction<a class="headerlink" href="#construction" title="Permalink to this headline">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1a68e47be95f3d19b9537fa1b6db230ab9"><span id="index-1"></span><span></span><span class="n">RegionOfInterest</span><span class="p">(</span><span class="n">GstVideoRegionOfInterestMeta</span><span class="o">*</span> <span class="n">meta</span><span class="p">)</span></pre>
 <p>Construct <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> instance from GstVideoRegionOfInterestMeta. After this, <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> will obtain all tensors (detection &amp; inference results) from GstVideoRegionOfInterestMeta.</p>
 <p class="rubric">Parameters:</p>
 <table class="table">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>meta</p></td>
@@ -807,7 +827,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="methods">
-<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h3>
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1a2556d1b0a7aa98d36eea9979f8c316bc"><span id="index-2"></span><a class="reference internal" href="struct_GVA_Rect.html#doxid-struct-g-v-a-1-1-rect"><span class="std std-ref">Rect</span></a><span></span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span> <span class="n">rect</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Get bounding box of the <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> as pixel coordinates in original image.</p>
 <p class="rubric">Returns:</p>
@@ -837,8 +857,8 @@ title="Print to PDF"
 <p class="rubric">Parameters:</p>
 <table class="table">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>name</p></td>
@@ -865,8 +885,8 @@ title="Print to PDF"
 <p class="rubric">Parameters:</p>
 <table class="table">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>label</p></td>
@@ -879,8 +899,8 @@ title="Print to PDF"
 <p class="rubric">Parameters:</p>
 <table class="table">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>id</p></td>

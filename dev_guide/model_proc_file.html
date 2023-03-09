@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Model-proc File &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,17 +31,17 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="How to Create Model-proc File" href="how_to_create_model_proc_file.html" />
     <link rel="prev" title="Yolov5 Model Preparation Example" href="yolov5_model_preparation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -117,11 +117,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../get_started/tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../get_started/flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -186,6 +196,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -479,8 +494,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../architecture_2.0/elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -823,9 +843,9 @@ title="Print to PDF"
               <div>
                 
   <section id="model-proc-file">
-<h1>Model-proc File<a class="headerlink" href="#model-proc-file" title="Permalink to this heading">#</a></h1>
+<h1>Model-proc File<a class="headerlink" href="#model-proc-file" title="Permalink to this headline">#</a></h1>
 <section id="contents">
-<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this heading">#</a></h2>
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#overview"><span class="std std-ref">Overview</span></a></p></li>
 <li><p><a class="reference internal" href="#input-preproc"><span class="std std-ref">Pre-processing description input_preproc</span></a></p>
@@ -843,7 +863,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="overview">
-<span id="id1"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<span id="id1"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
 <p>A model-proc file is a regular JSON file with pre- and post-processing
 configuration.</p>
 <p>As an example implementation, see the model-proc file for the emotions
@@ -857,24 +877,24 @@ listed in <code class="docutils literal notranslate"><span class="pre">&quot;lab
 <p>See the <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/model_proc">samples/gstreamer/model_proc</a>
 for examples of .json files using various models from <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo">Open Model Zoo</a> and some
 public models.</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;json_schema_version&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2.2.0&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;output_postproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">      </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;attribute_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;emotion&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;label&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;method&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">          </span><span class="s2">&quot;neutral&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="s2">&quot;happy&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="s2">&quot;sad&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="s2">&quot;surprise&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="s2">&quot;anger&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">]</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">]</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;json_schema_version&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2.2.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="s2">&quot;output_postproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;attribute_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;emotion&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;label&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;method&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">&quot;neutral&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;happy&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;sad&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;surprise&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;anger&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>This file has specific fields:</p>
@@ -885,9 +905,9 @@ public models.</p>
 </ul>
 </section>
 <section id="pre-processing-description-input-preproc">
-<span id="input-preproc"></span><h2>Pre-processing description (<code class="docutils literal notranslate"><span class="pre">input_preproc</span></code>)<a class="headerlink" href="#pre-processing-description-input-preproc" title="Permalink to this heading">#</a></h2>
+<span id="input-preproc"></span><h2>Pre-processing description (<code class="docutils literal notranslate"><span class="pre">input_preproc</span></code>)<a class="headerlink" href="#pre-processing-description-input-preproc" title="Permalink to this headline">#</a></h2>
 <section id="pre-processing-configuration">
-<span id="input-preproc-configuration"></span><h3>Pre-processing configuration<a class="headerlink" href="#pre-processing-configuration" title="Permalink to this heading">#</a></h3>
+<span id="input-preproc-configuration"></span><h3>Pre-processing configuration<a class="headerlink" href="#pre-processing-configuration" title="Permalink to this headline">#</a></h3>
 <p>Pre-processing is described by the <code class="docutils literal notranslate"><span class="pre">input_preproc</span></code> key.
 <code class="docutils literal notranslate"><span class="pre">input_preproc</span></code> value should contain an array of JSON objects with
 pre-processing configuration. Each object describes operations for one
@@ -1027,47 +1047,47 @@ layers in the IR model using the appropriate model optimizer parameters.</p>
 </div>
 </section>
 <section id="example">
-<span id="input-preproc-example"></span><h3>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h3>
+<span id="input-preproc-example"></span><h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h3>
 <p>Example of what <code class="docutils literal notranslate"><span class="pre">input_preproc</span></code> and its parameters can look like are
 in the code snippet below.</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">...</span><span class="w"></span>
-<span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;seq_ind&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sequence_index&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;image_info&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;image_info&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;params&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;scale&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;input&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;precision&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;FP32&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;image&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;params&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;resize&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;aspect-ratio&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;color_space&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;BGR&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;range&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;mean&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">0.485</span><span class="p">,</span><span class="w"> </span><span class="mf">0.456</span><span class="p">,</span><span class="w"> </span><span class="mf">0.406</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;std&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">0.229</span><span class="p">,</span><span class="w"> </span><span class="mf">0.224</span><span class="p">,</span><span class="w"> </span><span class="mf">0.225</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;padding&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;stride_x&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;stride_y&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">],</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
+<span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;seq_ind&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sequence_index&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;image_info&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;image_info&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;params&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;scale&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1.0</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;input&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;precision&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;FP32&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;image&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;params&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;resize&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;aspect-ratio&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;color_space&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;BGR&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;range&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="p">],</span>
+<span class="w">            </span><span class="s2">&quot;mean&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">0.485</span><span class="p">,</span><span class="w"> </span><span class="mf">0.456</span><span class="p">,</span><span class="w"> </span><span class="mf">0.406</span><span class="w"> </span><span class="p">],</span>
+<span class="w">            </span><span class="s2">&quot;std&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">0.229</span><span class="p">,</span><span class="w"> </span><span class="mf">0.224</span><span class="p">,</span><span class="w"> </span><span class="mf">0.225</span><span class="w"> </span><span class="p">],</span>
+<span class="w">            </span><span class="s2">&quot;padding&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;stride_x&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;stride_y&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">],</span><span class="w"> </span><span class="p">...</span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="post-processing-description-output-postproc">
-<span id="output-postproc"></span><h2>Post-processing description (<code class="docutils literal notranslate"><span class="pre">output_postproc</span></code>)<a class="headerlink" href="#post-processing-description-output-postproc" title="Permalink to this heading">#</a></h2>
+<span id="output-postproc"></span><h2>Post-processing description (<code class="docutils literal notranslate"><span class="pre">output_postproc</span></code>)<a class="headerlink" href="#post-processing-description-output-postproc" title="Permalink to this headline">#</a></h2>
 <section id="post-processing-configuration">
-<span id="output-postproc-configuration"></span><h3>Post-processing configuration<a class="headerlink" href="#post-processing-configuration" title="Permalink to this heading">#</a></h3>
+<span id="output-postproc-configuration"></span><h3>Post-processing configuration<a class="headerlink" href="#post-processing-configuration" title="Permalink to this headline">#</a></h3>
 <p>Post-processing is described in the similar to pre-processing fashion by
 the <code class="docutils literal notranslate"><span class="pre">output_postproc</span></code> key. The key should contain an array of JSON
 objects with post-processing configuration. Each object describes
@@ -1199,7 +1219,7 @@ converter can be applied.</p>
 </ul>
 </td>
 <td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_emotions_recognition_retail_0003.html#outputs">emotions-recognition-retail-0003</a></p>
-<p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_license_plate_recognition_barrier_0001.html#outputs">license-plate-recognition-barrier-0001</a></p>
+<p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_license_plate_recognition_barrier_0007.html#outputs">license-plate-recognition-barrier-0007</a></p>
 <p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_attributes_recognition_crossroad_0230.html#outputs">person-attributes-recognition-crossroad-0230</a></p>
 </td>
 </tr>
@@ -1247,100 +1267,100 @@ converter can be applied.</p>
 </table>
 </section>
 <section id="output-postproc-example">
-<span id="id2"></span><h3>Example<a class="headerlink" href="#output-postproc-example" title="Permalink to this heading">#</a></h3>
+<span id="id2"></span><h3>Example<a class="headerlink" href="#output-postproc-example" title="Permalink to this headline">#</a></h3>
 <p>See an example of what <code class="docutils literal notranslate"><span class="pre">output_postproc</span></code> and its parameters can look in the code snippet below.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This configuration cannot be used for any model.</p>
 </div>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">...</span><span class="w"></span>
-<span class="s2">&quot;output_postproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">   </span><span class="p">{</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;raw_data_copy&quot;</span><span class="w"></span>
-<span class="w">   </span><span class="p">},</span><span class="w"></span>
-<span class="w">   </span><span class="p">{</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;detection_output&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">           </span><span class="s2">&quot;background&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;face&quot;</span><span class="w"></span>
-<span class="w">       </span><span class="p">]</span><span class="w"></span>
-<span class="w">   </span><span class="p">},</span><span class="w"></span>
-<span class="w">   </span><span class="p">{</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;yolo_v2&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;classes&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;do_cls_softmax&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;output_sigmoid_activation&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;anchors&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">           </span><span class="mf">1.08</span><span class="p">,</span><span class="w"> </span><span class="mf">1.19</span><span class="p">,</span><span class="w"> </span><span class="mf">3.42</span><span class="p">,</span><span class="w"> </span><span class="mf">4.41</span><span class="p">,</span><span class="w"> </span><span class="mf">6.63</span><span class="p">,</span><span class="w"> </span><span class="mf">11.38</span><span class="p">,</span><span class="w"> </span><span class="mf">9.42</span><span class="p">,</span><span class="w"> </span><span class="mf">5.11</span><span class="p">,</span><span class="w"> </span><span class="mf">16.62</span><span class="p">,</span><span class="w"> </span><span class="mf">10.52</span><span class="w"></span>
-<span class="w">       </span><span class="p">],</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;iou_threshold&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;bbox_number_on_cell&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;cells_number&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">13</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">           </span><span class="s2">&quot;aeroplane&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;bicycle&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;bird&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;boat&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;bottle&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;bus&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;car&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">           </span><span class="p">...</span><span class="w"></span>
-<span class="w">           </span><span class="s2">&quot;pottedplant&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;sheep&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;sofa&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;train&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tvmonitor&quot;</span><span class="w"></span>
-<span class="w">       </span><span class="p">]</span><span class="w"></span>
-<span class="w">   </span><span class="p">},</span><span class="w"></span>
-<span class="w">   </span><span class="p">{</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;text_scale&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">100.0</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;text_precision&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;age_conv3&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;attribute_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;age&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">   </span><span class="p">},</span><span class="w"></span>
-<span class="w">   </span><span class="p">{</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;label&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">           </span><span class="s2">&quot;Female&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Male&quot;</span><span class="w"></span>
-<span class="w">       </span><span class="p">],</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;method&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;prob&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;attribute_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;gender&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">   </span><span class="p">},</span><span class="w"></span>
-<span class="w">   </span><span class="p">{</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;label&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/opt/data/color_labels.txt&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;method&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;color&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;attribute_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;color&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">   </span><span class="p">},</span><span class="w"></span>
-<span class="w">   </span><span class="p">{</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;keypoints_hrnet&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;point_names&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">           </span><span class="s2">&quot;nose&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ear_l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ear_r&quot;</span><span class="w"></span>
-<span class="w">       </span><span class="p">],</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;point_connections&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">           </span><span class="s2">&quot;nose&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;nose&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ear_l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ear_r&quot;</span><span class="w"></span>
-<span class="w">       </span><span class="p">]</span><span class="w"></span>
-<span class="w">   </span><span class="p">},</span><span class="w"></span>
-<span class="w">   </span><span class="p">{</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;keypoints_openpose&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;point_names&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">           </span><span class="s2">&quot;nose&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ear_l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ear_r&quot;</span><span class="w"></span>
-<span class="w">       </span><span class="p">],</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;point_connections&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">           </span><span class="s2">&quot;nose&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;nose&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ear_l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ear_r&quot;</span><span class="w"></span>
-<span class="w">       </span><span class="p">]</span><span class="w"></span>
-<span class="w">   </span><span class="p">},</span><span class="w"></span>
-<span class="w">   </span><span class="p">{</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;output&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;audio_labels&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">           </span><span class="p">{</span><span class="w"></span>
-<span class="w">               </span><span class="s2">&quot;index&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">               </span><span class="s2">&quot;label&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Dog&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">               </span><span class="s2">&quot;threshold&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
-<span class="w">           </span><span class="p">},</span><span class="w"></span>
-<span class="w">           </span><span class="p">...</span><span class="w"></span>
-<span class="w">           </span><span class="p">{</span><span class="w"></span>
-<span class="w">               </span><span class="s2">&quot;index&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">52</span><span class="p">,</span><span class="w"></span>
-<span class="w">               </span><span class="s2">&quot;label&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Speech&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">               </span><span class="s2">&quot;threshold&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
-<span class="w">           </span><span class="p">}</span><span class="w"></span>
-<span class="w">       </span><span class="p">]</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
-<span class="p">]</span><span class="w"></span>
-<span class="p">...</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
+<span class="s2">&quot;output_postproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">       </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;raw_data_copy&quot;</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">       </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;detection_output&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">           </span><span class="s2">&quot;background&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;face&quot;</span>
+<span class="w">       </span><span class="p">]</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">       </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;yolo_v2&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="s2">&quot;classes&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span>
+<span class="w">       </span><span class="s2">&quot;do_cls_softmax&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">       </span><span class="s2">&quot;output_sigmoid_activation&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">       </span><span class="s2">&quot;anchors&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">           </span><span class="mf">1.08</span><span class="p">,</span><span class="w"> </span><span class="mf">1.19</span><span class="p">,</span><span class="w"> </span><span class="mf">3.42</span><span class="p">,</span><span class="w"> </span><span class="mf">4.41</span><span class="p">,</span><span class="w"> </span><span class="mf">6.63</span><span class="p">,</span><span class="w"> </span><span class="mf">11.38</span><span class="p">,</span><span class="w"> </span><span class="mf">9.42</span><span class="p">,</span><span class="w"> </span><span class="mf">5.11</span><span class="p">,</span><span class="w"> </span><span class="mf">16.62</span><span class="p">,</span><span class="w"> </span><span class="mf">10.52</span>
+<span class="w">       </span><span class="p">],</span>
+<span class="w">       </span><span class="s2">&quot;iou_threshold&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">       </span><span class="s2">&quot;bbox_number_on_cell&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span>
+<span class="w">       </span><span class="s2">&quot;cells_number&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">13</span><span class="p">,</span>
+<span class="w">       </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">           </span><span class="s2">&quot;aeroplane&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;bicycle&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;bird&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;boat&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;bottle&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;bus&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;car&quot;</span><span class="p">,</span>
+<span class="w">           </span><span class="p">...</span>
+<span class="w">           </span><span class="s2">&quot;pottedplant&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;sheep&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;sofa&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;train&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tvmonitor&quot;</span>
+<span class="w">       </span><span class="p">]</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">       </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="s2">&quot;text_scale&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">100.0</span><span class="p">,</span>
+<span class="w">       </span><span class="s2">&quot;text_precision&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">       </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;age_conv3&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="s2">&quot;attribute_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;age&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">       </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;label&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">           </span><span class="s2">&quot;Female&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Male&quot;</span>
+<span class="w">       </span><span class="p">],</span>
+<span class="w">       </span><span class="s2">&quot;method&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span>
+<span class="w">       </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;prob&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="s2">&quot;attribute_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;gender&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">       </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;label&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/opt/data/color_labels.txt&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="s2">&quot;method&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span>
+<span class="w">       </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;color&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="s2">&quot;attribute_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;color&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">       </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;keypoints_hrnet&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="s2">&quot;point_names&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">           </span><span class="s2">&quot;nose&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ear_l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ear_r&quot;</span>
+<span class="w">       </span><span class="p">],</span>
+<span class="w">       </span><span class="s2">&quot;point_connections&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">           </span><span class="s2">&quot;nose&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;nose&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ear_l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ear_r&quot;</span>
+<span class="w">       </span><span class="p">]</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">       </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;keypoints_openpose&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="s2">&quot;point_names&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">           </span><span class="s2">&quot;nose&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ear_l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ear_r&quot;</span>
+<span class="w">       </span><span class="p">],</span>
+<span class="w">       </span><span class="s2">&quot;point_connections&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">           </span><span class="s2">&quot;nose&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;nose&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ear_l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eye_r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ear_r&quot;</span>
+<span class="w">       </span><span class="p">]</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">       </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;output&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;audio_labels&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">           </span><span class="p">{</span>
+<span class="w">               </span><span class="s2">&quot;index&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">               </span><span class="s2">&quot;label&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Dog&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="s2">&quot;threshold&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="w">           </span><span class="p">},</span>
+<span class="w">           </span><span class="p">...</span>
+<span class="w">           </span><span class="p">{</span>
+<span class="w">               </span><span class="s2">&quot;index&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">52</span><span class="p">,</span>
+<span class="w">               </span><span class="s2">&quot;label&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Speech&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="s2">&quot;threshold&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="w">           </span><span class="p">}</span>
+<span class="w">       </span><span class="p">]</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">]</span>
+<span class="p">...</span>
 </pre></div>
 </div>
 </section>

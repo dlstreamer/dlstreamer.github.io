@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>class dlstreamer::GSTROIDictionary &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,17 +31,17 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="class dlstreamer::GSTROIMetadata" href="class_dlstreamer_GSTROIMetadata.html" />
     <link rel="prev" title="class dlstreamer::GSTMetadata" href="class_dlstreamer_GSTMetadata.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -117,11 +117,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../get_started/install/uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../get_started/tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../get_started/flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -186,6 +196,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../dev_guide/object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_guide/gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -479,8 +494,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -759,28 +779,40 @@ title="Print to PDF"
               <div>
                 
   <section id="class-dlstreamer-gstroidictionary">
-<span id="doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary"></span><span id="index-0"></span><h1>class dlstreamer::GSTROIDictionary<a class="headerlink" href="#class-dlstreamer-gstroidictionary" title="Permalink to this heading">#</a></h1>
+<span id="doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary"></span><span id="index-0"></span><h1>class dlstreamer::GSTROIDictionary<a class="headerlink" href="#class-dlstreamer-gstroidictionary" title="Permalink to this headline">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;metadata.h&gt;</span><span class="cp"></span>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;dictionary.h&gt;</span>
 
-<span class="k">class</span> <span class="nl">GSTROIDictionary</span><span class="p">:</span> <span class="k">public</span> <a class="reference internal" href="class_dlstreamer_BaseDictionary.html#doxid-classdlstreamer-1-1-base-dictionary"><span class="std std-ref">dlstreamer::BaseDictionary</span></a><span></span> <span class="p">{</span>
+<span class="k">class</span> <span class="nl">GSTROIDictionary</span><span class="p">:</span> <span class="k">public</span> <a class="reference internal" href="class_dlstreamer_Dictionary.html#doxid-classdlstreamer-1-1-dictionary"><span class="std std-ref">dlstreamer::Dictionary</span></a><span></span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
+    <span class="c1">// typedefs</span>
+
+    <span class="k">typedef</span> <a class="reference internal" href="struct_dlstreamer_DetectionMetadata_key.html#doxid-structdlstreamer-1-1-detection-metadata-1-1key"><span class="std std-ref">DetectionMetadata::key</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary-1aa43846b15af6d34f12f2f709cbcd0ad1"><span></span><span class="n">key</span></span><span></span><span class="p">;</span>
+
     <span class="c1">// construction</span>
 
-    <span class="doxyrest-code-target target" id="doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary-1ab59a1284c3da5400e29981cea9ca5325"><span></span><span class="n">GSTROIDictionary</span></span><span></span><span class="p">(</span>
+    <span class="doxyrest-code-target target" id="doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary-1a0457dbaaab9402d0aee160b9226f536a"><span></span><span class="n">GSTROIDictionary</span></span><span></span><span class="p">(</span>
         <span class="n">GstVideoRegionOfInterestMeta</span><span class="o">*</span> <span class="n">roi</span><span class="p">,</span>
-        <span class="k">const</span> <span class="n">GstVideoInfo</span><span class="o">*</span> <span class="n">video_info</span>
+        <span class="kt">int</span> <span class="n">width</span><span class="p">,</span>
+        <span class="kt">int</span> <span class="n">height</span><span class="p">,</span>
+        <span class="n">GstStructure</span><span class="o">*</span> <span class="n">structure</span>
     <span class="p">);</span>
 
     <span class="c1">// methods</span>
 
-    <span class="k">virtual</span> <span class="kt">void</span> <a class="reference internal" href="#doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary-1aa9b7b3cc3ec46b3808fb68d5e0a07f16"><span class="std std-ref">set</span></a><span></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">key</span><span class="p">,</span> <a class="reference internal" href="namespace_dlstreamer.html#doxid-namespacedlstreamer-1ab7893a9ae168d5251d6a85330aea0bc4"><span class="std std-ref">Any</span></a><span></span> <span class="n">value</span><span class="p">);</span>
+    <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <a class="reference internal" href="#doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary-1ab718385b9b2e8971154c130b03603fc4"><span class="std std-ref">name</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <a class="reference internal" href="#doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary-1a3b72c5b978a08209afa8d73d6eb62394"><span class="std std-ref">keys</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">optional</span><span class="o">&lt;</span><a class="reference internal" href="namespace_dlstreamer.html#doxid-namespacedlstreamer-1ab7893a9ae168d5251d6a85330aea0bc4"><span class="std std-ref">Any</span></a><span></span><span class="o">&gt;</span> <a class="reference internal" href="#doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary-1a4b211f580ed3310bed576d04f51b94db"><span class="std std-ref">try_get</span></a><span></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">key</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <a class="reference internal" href="#doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary-1a13cdecde5bd15c44086dd45bda57b108"><span class="std std-ref">set</span></a><span></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">key</span><span class="p">,</span> <a class="reference internal" href="namespace_dlstreamer.html#doxid-namespacedlstreamer-1ab7893a9ae168d5251d6a85330aea0bc4"><span class="std std-ref">Any</span></a><span></span> <span class="n">value</span><span class="p">);</span>
+    <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span><span class="p">,</span> <span class="kt">size_t</span><span class="o">&gt;</span> <a class="reference internal" href="#doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary-1a002a35fdc2f22a76b3de32b115001a87"><span class="std std-ref">try_get_array</span></a><span></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">key</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <a class="reference internal" href="#doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary-1afd4d504b64a7b8d297c20f2842720740"><span class="std std-ref">set_array</span></a><span></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">key</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">nbytes</span><span class="p">);</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <a class="reference internal" href="#doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary-1ab3588dd3ed0d2d92ee378e67b23cfecd"><span class="std std-ref">set_name</span></a><span></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">);</span>
 <span class="p">};</span></pre>
 <section id="inherited-members">
-<h3>Inherited Members<a class="headerlink" href="#inherited-members" title="Permalink to this heading">#</a></h3>
+<h3>Inherited Members<a class="headerlink" href="#inherited-members" title="Permalink to this headline">#</a></h3>
 <pre class="highlight doxyrest-overview-inherited-code-block literal-block"><span></span><span class="k">public</span><span class="o">:</span>
     <span class="c1">// methods</span>
 
@@ -799,29 +831,38 @@ title="Print to PDF"
     <span class="n">T</span> <a class="reference internal" href="class_dlstreamer_Dictionary.html#doxid-classdlstreamer-1-1-dictionary-1a96b9134b9349c562f9a25a6065a03676"><span class="std std-ref">get</span></a><span></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">key</span><span class="p">,</span> <span class="n">T</span> <span class="n">default_value</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="n">T</span><span class="o">&gt;</span>
-    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <a class="reference internal" href="class_dlstreamer_Dictionary.html#doxid-classdlstreamer-1-1-dictionary-1a2552c3e81c18df3561e82de0b51ac353"><span class="std std-ref">get_array</span></a><span></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">key</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <a class="reference internal" href="class_dlstreamer_BaseDictionary.html#doxid-classdlstreamer-1-1-base-dictionary-1ad0a6d1bf50ce0ec64375ac2c4b2833ff"><span class="std std-ref">name</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-    <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">optional</span><span class="o">&lt;</span><a class="reference internal" href="namespace_dlstreamer.html#doxid-namespacedlstreamer-1ab7893a9ae168d5251d6a85330aea0bc4"><span class="std std-ref">Any</span></a><span></span><span class="o">&gt;</span> <a class="reference internal" href="class_dlstreamer_BaseDictionary.html#doxid-classdlstreamer-1-1-base-dictionary-1aed85979e7f763345e41b9fda90b72b00"><span class="std std-ref">try_get</span></a><span></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">key</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-    <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span><span class="p">,</span> <span class="kt">size_t</span><span class="o">&gt;</span> <a class="reference internal" href="class_dlstreamer_BaseDictionary.html#doxid-classdlstreamer-1-1-base-dictionary-1ad642ffcbac470fde8282ef3a2c591b3d"><span class="std std-ref">try_get_array</span></a><span></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">key</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-    <span class="k">virtual</span> <span class="kt">void</span> <a class="reference internal" href="class_dlstreamer_BaseDictionary.html#doxid-classdlstreamer-1-1-base-dictionary-1a74275609cd028e015713dc488deb375c"><span class="std std-ref">set</span></a><span></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">key</span><span class="p">,</span> <a class="reference internal" href="namespace_dlstreamer.html#doxid-namespacedlstreamer-1ab7893a9ae168d5251d6a85330aea0bc4"><span class="std std-ref">Any</span></a><span></span> <span class="n">value</span><span class="p">);</span>
-    <span class="k">virtual</span> <span class="kt">void</span> <a class="reference internal" href="class_dlstreamer_BaseDictionary.html#doxid-classdlstreamer-1-1-base-dictionary-1a2ef54d2556db7420470ccd09bb2ee668"><span class="std std-ref">set_array</span></a><span></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">key</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">nbytes</span><span class="p">);</span>
-    <span class="k">virtual</span> <span class="kt">void</span> <a class="reference internal" href="class_dlstreamer_BaseDictionary.html#doxid-classdlstreamer-1-1-base-dictionary-1a2fdf3b21dce1562f16efc6821006cce2"><span class="std std-ref">set_name</span></a><span></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">);</span>
-    <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <a class="reference internal" href="class_dlstreamer_BaseDictionary.html#doxid-classdlstreamer-1-1-base-dictionary-1a7ead8d11cd747fbb22c852534aaea03a"><span class="std std-ref">keys</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-    <span class="kt">bool</span> <a class="reference internal" href="class_dlstreamer_BaseDictionary.html#doxid-classdlstreamer-1-1-base-dictionary-1ac430fd0de3552c65ea47c55d4ad4f8b7"><span class="std std-ref">operator &lt;</span></a><span></span> <span class="p">(</span><span class="k">const</span> <a class="reference internal" href="class_dlstreamer_BaseDictionary.html#doxid-classdlstreamer-1-1-base-dictionary"><span class="std std-ref">BaseDictionary</span></a><span></span><span class="o">&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span></pre>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <a class="reference internal" href="class_dlstreamer_Dictionary.html#doxid-classdlstreamer-1-1-dictionary-1a2552c3e81c18df3561e82de0b51ac353"><span class="std std-ref">get_array</span></a><span></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">key</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span></pre>
 </section>
 </section>
 <section id="detailed-documentation">
-<span id="details-classdlstreamer-1-1-g-s-t-r-o-i-dictionary"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this heading">#</a></h2>
+<span id="details-classdlstreamer-1-1-g-s-t-r-o-i-dictionary"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this headline">#</a></h2>
 <section id="methods">
-<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h3>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary-1aa9b7b3cc3ec46b3808fb68d5e0a07f16"><span id="index-1"></span><span></span><span class="k">virtual</span> <span class="kt">void</span> <span class="n">set</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">key</span><span class="p">,</span> <a class="reference internal" href="namespace_dlstreamer.html#doxid-namespacedlstreamer-1ab7893a9ae168d5251d6a85330aea0bc4"><span class="std std-ref">Any</span></a><span></span> <span class="n">value</span><span class="p">)</span></pre>
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">#</a></h3>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary-1ab718385b9b2e8971154c130b03603fc4"><span id="index-1"></span><span></span><span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">()</span> <span class="k">const</span></pre>
+<p>Returns dictionary name. Utility function find_metadata uses it to find metadata by specified name.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary-1a3b72c5b978a08209afa8d73d6eb62394"><span id="index-2"></span><span></span><span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">keys</span><span class="p">()</span> <span class="k">const</span></pre>
+<p>Returns a vector of all the available keys in the dictionary.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary-1a4b211f580ed3310bed576d04f51b94db"><span id="index-3"></span><span></span><span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">optional</span><span class="o">&lt;</span><a class="reference internal" href="namespace_dlstreamer.html#doxid-namespacedlstreamer-1ab7893a9ae168d5251d6a85330aea0bc4"><span class="std std-ref">Any</span></a><span></span><span class="o">&gt;</span> <span class="n">try_get</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">key</span><span class="p">)</span> <span class="k">const</span></pre>
+<p>Returns dictionary element by key. If no handle with the specified key, returns empty std::optional.</p>
+<p class="rubric">Parameters:</p>
+<table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>key</p></td>
+<td><p>the key of the dictionary element to find</p></td>
+</tr>
+</tbody>
+</table>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary-1a13cdecde5bd15c44086dd45bda57b108"><span id="index-4"></span><span></span><span class="k">virtual</span> <span class="kt">void</span> <span class="n">set</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">key</span><span class="p">,</span> <a class="reference internal" href="namespace_dlstreamer.html#doxid-namespacedlstreamer-1ab7893a9ae168d5251d6a85330aea0bc4"><span class="std std-ref">Any</span></a><span></span> <span class="n">value</span><span class="p">)</span></pre>
 <p>Adds element into the dictionary. If the dictionary already contains an element with specified key, the existing value will be overwritten.</p>
 <p class="rubric">Parameters:</p>
 <table class="table">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>key</p></td>
@@ -829,6 +870,54 @@ title="Print to PDF"
 </tr>
 <tr class="row-even"><td><p>value</p></td>
 <td><p>the value of the element to add</p></td>
+</tr>
+</tbody>
+</table>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary-1a002a35fdc2f22a76b3de32b115001a87"><span id="index-5"></span><span></span><span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span><span class="p">,</span> <span class="kt">size_t</span><span class="o">&gt;</span> <span class="n">try_get_array</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">key</span><span class="p">)</span> <span class="k">const</span></pre>
+<p>Returns memory buffer stored in dictionary. The first element of returned std::pair is pointer to memory buffer, second element is buffer size in bytes. If no buffer with the specified key, returns {nullptr,0}.</p>
+<p class="rubric">Parameters:</p>
+<table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>key</p></td>
+<td><p>the key of the memory buffer to find</p></td>
+</tr>
+</tbody>
+</table>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary-1afd4d504b64a7b8d297c20f2842720740"><span id="index-6"></span><span></span><span class="k">virtual</span> <span class="kt">void</span> <span class="n">set_array</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">key</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">nbytes</span><span class="p">)</span></pre>
+<p>Allocates memory buffer and copies data from buffer specified in function parameters, and adds memory buffer to the dictionary. If the dictionary already contains an buffer with specified key, the existing buffer will be overwritten.</p>
+<p class="rubric">Parameters:</p>
+<table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>key</p></td>
+<td><p>the key of the memory buffer to add</p></td>
+</tr>
+<tr class="row-even"><td><p>data</p></td>
+<td><p>pointer to the memory buffer to add</p></td>
+</tr>
+<tr class="row-odd"><td><p>nbytes</p></td>
+<td><p>size (in bytes) of the memory buffer to add</p></td>
+</tr>
+</tbody>
+</table>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-classdlstreamer-1-1-g-s-t-r-o-i-dictionary-1ab3588dd3ed0d2d92ee378e67b23cfecd"><span id="index-7"></span><span></span><span class="k">virtual</span> <span class="kt">void</span> <span class="n">set_name</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">)</span></pre>
+<p>Sets name of dictionary. The existing name will be overwritten.</p>
+<p class="rubric">Parameters:</p>
+<table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>dictionary name</p></td>
 </tr>
 </tbody>
 </table>

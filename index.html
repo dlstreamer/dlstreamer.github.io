@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Intel® Deep Learning Streamer &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,16 +31,16 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Get Started" href="get_started/get_started_index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -116,11 +116,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="get_started/install/uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="get_started/tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="get_started/flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -185,6 +195,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="dev_guide/object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dev_guide/gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -478,8 +493,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="architecture_2.0/pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="architecture_2.0/elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -730,7 +750,7 @@ title="Print to PDF"
               <div>
                 
   <section id="intel-deep-learning-streamer">
-<h1>Intel® Deep Learning Streamer<a class="headerlink" href="#intel-deep-learning-streamer" title="Permalink to this heading">#</a></h1>
+<h1>Intel® Deep Learning Streamer<a class="headerlink" href="#intel-deep-learning-streamer" title="Permalink to this headline">#</a></h1>
 <p><strong>Intel® Deep Learning Streamer (Intel® DL Streamer)</strong> is an open-source streaming media analytics framework, based on GStreamer* multimedia framework, for creating complex media analytics pipelines for the Cloud or at the Edge, and it includes:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer">Intel® DL Streamer Pipeline Framework</a> for designing, creating, building, and running media analytics pipelines. It includes C++ and Python APIs.</p></li>
@@ -769,16 +789,16 @@ title="Print to PDF"
 <p><strong>Intel® DL Streamer</strong> is already used by many partners and customers leading solutions, including <a class="reference external" href="https://01.org/openvisualcloud">Open Visual Cloud</a> Media Analytics services, <a class="reference external" href="https://azure.microsoft.com/en-us/products/video-analyzer">Microsoft Azure Video Analyzer</a>, <a class="reference external" href="https://www.rd.ntt/e/sic/overview/">NTT Software Innovation Center</a>, <a class="reference external" href="https://www.aividtechvision.com/">AIVID TECHVISION</a>, <a class="reference external" href="https://www.videonetics.com/">Videonetics Technology Pvt. Limited</a>, and others.</p>
 </section>
 <section id="testimonials">
-<h1>Testimonials<a class="headerlink" href="#testimonials" title="Permalink to this heading">#</a></h1>
+<h1>Testimonials<a class="headerlink" href="#testimonials" title="Permalink to this headline">#</a></h1>
 <table class="table">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><img alt="_images/NTT_Logo.png" src="_images/NTT_Logo.png" />
 </td>
-<td><p>“Intel® DL Streamer (OpenVINO™) is an easy-to-use and extensible application framework, which provides a well-organized set of classes and methods. In particular, DL Streamer allows us to add user-defined post processing with gvapython elements. This feature will help us develop AI-based video analytics applications for NTT’s businesses, addressing various customer demands responsively.”</p>
+<td><p>“Intel® DL Streamer (OpenVINO™) is an easy-to-use and extensible application framework, which provides a well-organized set of classes and methods. In particular, Intel® DL Streamer allows us to add user-defined post processing with gvapython elements. This feature will help us develop AI-based video analytics applications for NTT’s businesses, addressing various customer demands responsively.”</p>
 <p>— Takeharu Eda, Senior Research Engineer, NTT Software Innovation Center</p>
 </td>
 </tr>

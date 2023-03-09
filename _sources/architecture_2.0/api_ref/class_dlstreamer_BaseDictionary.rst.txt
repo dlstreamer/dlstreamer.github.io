@@ -39,10 +39,6 @@ Overview
 		bool :target:`operator <<doxid-classdlstreamer_1_1_base_dictionary_1ac430fd0de3552c65ea47c55d4ad4f8b7>` (const BaseDictionary& r) const;
 	};
 
-	// direct descendants
-
-	class :ref:`GSTROIDictionary<doxid-classdlstreamer_1_1_g_s_t_r_o_i_dictionary>`;
-
 Inherited Members
 -----------------
 

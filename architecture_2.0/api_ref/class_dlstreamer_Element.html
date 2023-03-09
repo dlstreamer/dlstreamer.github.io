@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>class dlstreamer::Element &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,17 +31,17 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="class dlstreamer::FFmpegContext" href="class_dlstreamer_FFmpegContext.html" />
     <link rel="prev" title="class dlstreamer::DictionaryProxy" href="class_dlstreamer_DictionaryProxy.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -117,11 +117,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../get_started/install/uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../get_started/tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../get_started/flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -186,6 +196,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../dev_guide/object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_guide/gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -479,8 +494,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -745,13 +765,13 @@ title="Print to PDF"
               <div>
                 
   <section id="class-dlstreamer-element">
-<span id="doxid-classdlstreamer-1-1-element"></span><span id="index-0"></span><h1>class dlstreamer::Element<a class="headerlink" href="#class-dlstreamer-element" title="Permalink to this heading">#</a></h1>
+<span id="doxid-classdlstreamer-1-1-element"></span><span id="index-0"></span><h1>class dlstreamer::Element<a class="headerlink" href="#class-dlstreamer-element" title="Permalink to this headline">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
 <p>Base class for all elements (<a class="reference internal" href="class_dlstreamer_Source.html#doxid-classdlstreamer-1-1-source"><span class="std std-ref">Source</span></a>, <a class="reference internal" href="class_dlstreamer_Transform.html#doxid-classdlstreamer-1-1-transform"><span class="std std-ref">Transform</span></a>, <a class="reference internal" href="class_dlstreamer_TransformInplace.html#doxid-classdlstreamer-1-1-transform-inplace"><span class="std std-ref">TransformInplace</span></a> and <a class="reference internal" href="class_dlstreamer_Sink.html#doxid-classdlstreamer-1-1-sink"><span class="std std-ref">Sink</span></a>) <a class="reference internal" href="#details-classdlstreamer-1-1-element"><span class="std std-ref">More…</span></a></p>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;element.h&gt;</span><span class="cp"></span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;element.h&gt;</span>
 
 <span class="k">class</span> <span class="n">Element</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
@@ -769,10 +789,11 @@ title="Print to PDF"
 <span class="k">class</span> <a class="reference internal" href="class_dlstreamer_TransformInplace.html#doxid-classdlstreamer-1-1-transform-inplace"><span class="std std-ref">TransformInplace</span></a><span></span><span class="p">;</span></pre>
 </section>
 <section id="detailed-documentation">
-<span id="details-classdlstreamer-1-1-element"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this heading">#</a></h2>
+<span id="details-classdlstreamer-1-1-element"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this headline">#</a></h2>
 <p>Base class for all elements (<a class="reference internal" href="class_dlstreamer_Source.html#doxid-classdlstreamer-1-1-source"><span class="std std-ref">Source</span></a>, <a class="reference internal" href="class_dlstreamer_Transform.html#doxid-classdlstreamer-1-1-transform"><span class="std std-ref">Transform</span></a>, <a class="reference internal" href="class_dlstreamer_TransformInplace.html#doxid-classdlstreamer-1-1-transform-inplace"><span class="std std-ref">TransformInplace</span></a> and <a class="reference internal" href="class_dlstreamer_Sink.html#doxid-classdlstreamer-1-1-sink"><span class="std std-ref">Sink</span></a>)</p>
+<p>The caller is responsible for thread safety.</p>
 <section id="methods">
-<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h3>
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-classdlstreamer-1-1-element-1ae3c10fbab46b7f5cce7054fdec95b89f"><span id="index-1"></span><span></span><span class="k">virtual</span> <span class="kt">bool</span> <span class="n">init</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span></pre>
 <p>Initialize element according to input/output information. Function returns false in initialization failed.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-classdlstreamer-1-1-element-1a64ab5ab3ed4c77ebce22d3874525783a"><span id="index-2"></span><span></span><span class="k">virtual</span> <a class="reference internal" href="namespace_dlstreamer.html#doxid-namespacedlstreamer-1a2eba287f35b2698b87aa6f560299ffe8"><span class="std std-ref">ContextPtr</span></a><span></span> <span class="n">get_context</span><span class="p">(</span><a class="reference internal" href="enum_dlstreamer_MemoryType.html#doxid-namespacedlstreamer-1adf13505dedb784c9027f629e8e97f1db"><span class="std std-ref">MemoryType</span></a><span></span> <span class="n">memory_type</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span></pre>
@@ -780,8 +801,8 @@ title="Print to PDF"
 <p class="rubric">Parameters:</p>
 <table class="table">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>memory_type</p></td>

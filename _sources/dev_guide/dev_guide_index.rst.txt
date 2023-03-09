@@ -11,6 +11,7 @@ Developer Guide
    python_bindings
    custom_processing
    object_tracking
+   gpu_device_selection
    profiling
    converting_deepstream_to_dlstreamer
    how_to_contribute

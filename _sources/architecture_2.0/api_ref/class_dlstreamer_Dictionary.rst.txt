@@ -45,6 +45,7 @@ Overview
 	class :ref:`BaseDictionary<doxid-classdlstreamer_1_1_base_dictionary>`;
 	class :ref:`DictionaryProxy<doxid-classdlstreamer_1_1_dictionary_proxy>`;
 	class :ref:`GSTDictionary<doxid-classdlstreamer_1_1_g_s_t_dictionary>`;
+	class :ref:`GSTROIDictionary<doxid-classdlstreamer_1_1_g_s_t_r_o_i_dictionary>`;
 .. _details-classdlstreamer_1_1_dictionary:
 
 Detailed Documentation

@@ -17,7 +17,7 @@ Packages typically install two .so files named `libgstdlstreamer_XYZ.so` and `li
 of framework the elements based on. The first .so file contains all C++ elements, the second is tiny .so file with
 GStreamer wrappers and registered as GStreamer plug-in.
 
-The following Debian packages are currently distributed in scope of DL Streamer Architecture 2.0.
+The following Debian packages are currently distributed in scope of Intel® DL Streamer Architecture 2.0.
 
 .. list-table::
    :header-rows: 1

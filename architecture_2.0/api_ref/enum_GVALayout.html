@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>enum GVALayout &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,17 +31,17 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="enum GVAPrecision" href="enum_GVAPrecision.html" />
     <link rel="prev" title="class dlstreamer::VAAPITensor" href="class_dlstreamer_VAAPITensor.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -117,11 +117,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../get_started/install/uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../get_started/tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../get_started/flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -186,6 +196,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../dev_guide/object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_guide/gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -479,8 +494,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -745,11 +765,11 @@ title="Print to PDF"
               <div>
                 
   <section id="enum-gvalayout">
-<span id="doxid-gva-tensor-meta-8h-1a2d0113c46cec570b215b893571ab14ed"></span><span id="index-0"></span><h1>enum GVALayout<a class="headerlink" href="#enum-gvalayout" title="Permalink to this heading">#</a></h1>
+<span id="doxid-gva-tensor-meta-8h-1a2d0113c46cec570b215b893571ab14ed"></span><span id="index-0"></span><h1>enum GVALayout<a class="headerlink" href="#enum-gvalayout" title="Permalink to this headline">#</a></h1>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
 <p>This enum describes model layer layout. <a class="reference internal" href="#details-gva-tensor-meta-8h-1a2d0113c46cec570b215b893571ab14ed"><span class="std std-ref">More…</span></a></p>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;gva_tensor_meta.h&gt;</span><span class="cp"></span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;gva_tensor_meta.h&gt;</span>
 
 <span class="k">enum</span> <span class="n">GVALayout</span> <span class="p">{</span>
     <a class="reference internal" href="#doxid-gva-tensor-meta-8h-1a2d0113c46cec570b215b893571ab14edaea9dad2ce8b344d5394be5d8174916e5"><span class="std std-ref">GVA_LAYOUT_ANY</span></a><span></span>  <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
@@ -759,10 +779,10 @@ title="Print to PDF"
 <span class="p">};</span></pre>
 </section>
 <section id="detailed-documentation">
-<span id="details-gva-tensor-meta-8h-1a2d0113c46cec570b215b893571ab14ed"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this heading">#</a></h2>
+<span id="details-gva-tensor-meta-8h-1a2d0113c46cec570b215b893571ab14ed"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this headline">#</a></h2>
 <p>This enum describes model layer layout.</p>
 <section id="enum-values">
-<h3>Enum Values<a class="headerlink" href="#enum-values" title="Permalink to this heading">#</a></h3>
+<h3>Enum Values<a class="headerlink" href="#enum-values" title="Permalink to this headline">#</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-tensor-meta-8h-1a2d0113c46cec570b215b893571ab14edaea9dad2ce8b344d5394be5d8174916e5"><span id="index-1"></span><span></span><span class="n">GVA_LAYOUT_ANY</span></pre>
 <p>unspecified layout</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-gva-tensor-meta-8h-1a2d0113c46cec570b215b893571ab14eda7fb1135aad3612cccafb433dc0f2abd9"><span id="index-2"></span><span></span><span class="n">GVA_LAYOUT_NCHW</span></pre>

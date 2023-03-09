@@ -28,6 +28,7 @@ Overview
 
 	namespace :ref:`dlstreamer<doxid-namespacedlstreamer>`;
 		namespace :ref:`dlstreamer::detail<doxid-namespacedlstreamer_1_1detail>`;
+		namespace :ref:`dlstreamer::param<doxid-namespacedlstreamer_1_1param>`;
 		namespace :ref:`dlstreamer::tensor<doxid-namespacedlstreamer_1_1tensor>`;
 			namespace :ref:`dlstreamer::tensor::key<doxid-namespacedlstreamer_1_1tensor_1_1key>`;
 

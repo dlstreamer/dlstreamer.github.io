@@ -50,6 +50,7 @@ The following diagram visualizes Architecture 2.0 sub-components ①, ② and �
    gstreamer_elements
    gstreamer_bins
    python_bindings
+   pytorch_inference
    elements_list
    packaging
    samples_2.0

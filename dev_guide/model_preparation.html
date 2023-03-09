@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Model Preparation &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,17 +31,17 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Yolov5 Model Preparation Example" href="yolov5_model_preparation.html" />
     <link rel="prev" title="Metadata" href="metadata.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -117,11 +117,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../get_started/tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../get_started/flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -186,6 +196,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -479,8 +494,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../architecture_2.0/elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -751,9 +771,9 @@ title="Print to PDF"
               <div>
                 
   <section id="model-preparation">
-<h1>Model Preparation<a class="headerlink" href="#model-preparation" title="Permalink to this heading">#</a></h1>
+<h1>Model Preparation<a class="headerlink" href="#model-preparation" title="Permalink to this headline">#</a></h1>
 <section id="model-files-format-used-by-openvino-toolkit">
-<h2>1. Model files format used by OpenVINO™ Toolkit<a class="headerlink" href="#model-files-format-used-by-openvino-toolkit" title="Permalink to this heading">#</a></h2>
+<h2>1. Model files format used by OpenVINO™ Toolkit<a class="headerlink" href="#model-files-format-used-by-openvino-toolkit" title="Permalink to this headline">#</a></h2>
 <p>Video Analytics GStreamer plugins utilize
 <a class="reference external" href="https://software.intel.com/en-us/openvino-toolkit">Intel® Distribution of OpenVINO™ Toolkit</a>
 as a back-end for high efficiency-inference on Intel® CPU and accelerators
@@ -793,7 +813,7 @@ web-browser graphical interface</p>
 </ul>
 </section>
 <section id="model-pre-and-post-processing-specification-file">
-<h2>2. Model pre- and post-processing specification file<a class="headerlink" href="#model-pre-and-post-processing-specification-file" title="Permalink to this heading">#</a></h2>
+<h2>2. Model pre- and post-processing specification file<a class="headerlink" href="#model-pre-and-post-processing-specification-file" title="Permalink to this headline">#</a></h2>
 <p>Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework plugins are capable of
 optionally performing certain pre- and post-processing operations before/after inference.</p>
 <p>Pre- and post-processing are configured with the “model-proc”
@@ -812,10 +832,10 @@ element to one from the table below.</strong></p>
 (VASurface and DMABuf).</p>
 <table class="table">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 40%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>pre-process-backend</p></th>
@@ -866,24 +886,24 @@ meta data.</p>
 Streamer, <a class="reference external" href="custom_processing">Custom Processing</a> can be used.</p>
 </section>
 <section id="specify-model-files-in-gstreamer-elements">
-<h2>3. Specify model files in GStreamer elements<a class="headerlink" href="#specify-model-files-in-gstreamer-elements" title="Permalink to this heading">#</a></h2>
+<h2>3. Specify model files in GStreamer elements<a class="headerlink" href="#specify-model-files-in-gstreamer-elements" title="Permalink to this headline">#</a></h2>
 <p>The .xml model file path specified in mandatory property ‘model’ of
 GStreamer inference elements gvainference/gvadetect/gvaclassify. For
 example pipeline with object detection (gvadetect) and classification
 (gvaclassify)</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gvadetect <span class="nv">model</span><span class="o">=</span>MODEL1_FILE_PATH.xml ! gvaclassify <span class="nv">model</span><span class="o">=</span>MODEL1_FILE_PATH.xml
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span>MODEL1_FILE_PATH.xml<span class="w"> </span>!<span class="w"> </span>gvaclassify<span class="w"> </span><span class="nv">model</span><span class="o">=</span>MODEL1_FILE_PATH.xml
 </pre></div>
 </div>
 <p>The .bin file expected to be located under same folder as .xml file,
 same filename but different extension .bin.</p>
 <p>Pipeline example including gvadetect and gvaclassify with
 pre-processing/post-processing rules may look like</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gvadetect <span class="nv">model</span><span class="o">=</span>MODEL1_FILE_PATH.xml model-proc<span class="o">=</span>MODEL1_FILE_PATH.json ! gvaclassify <span class="nv">model</span><span class="o">=</span>MODEL2_FILE_PATH.xml model-proc<span class="o">=</span>MODEL2_FILE_PATH.json
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span>MODEL1_FILE_PATH.xml<span class="w"> </span>model-proc<span class="o">=</span>MODEL1_FILE_PATH.json<span class="w"> </span>!<span class="w"> </span>gvaclassify<span class="w"> </span><span class="nv">model</span><span class="o">=</span>MODEL2_FILE_PATH.xml<span class="w"> </span>model-proc<span class="o">=</span>MODEL2_FILE_PATH.json
 </pre></div>
 </div>
 </section>
 <section id="workflow-diagram">
-<h2>4. Workflow diagram<a class="headerlink" href="#workflow-diagram" title="Permalink to this heading">#</a></h2>
+<h2>4. Workflow diagram<a class="headerlink" href="#workflow-diagram" title="Permalink to this headline">#</a></h2>
 <p>The following diagram illustrates overall workflow</p>
 <figure class="align-default">
 <img alt="gst_va_developer_flow" src="../_images/gst_va_developer_flow.png" />

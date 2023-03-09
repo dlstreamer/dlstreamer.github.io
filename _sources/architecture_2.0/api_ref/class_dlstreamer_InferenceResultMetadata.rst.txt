@@ -39,6 +39,7 @@ class dlstreamer::InferenceResultMetadata
 		std::string :target:`layer_name<doxid-classdlstreamer_1_1_inference_result_metadata_1a13b716e37fbc19f7ac41a270eeff9b8b>`() const;
 		std::string :target:`format<doxid-classdlstreamer_1_1_inference_result_metadata_1ad6ad0bf3b6a1fe8472df10f5a0cae529>`() const;
 		void :target:`set_model_name<doxid-classdlstreamer_1_1_inference_result_metadata_1ac6d8b5cf29c177c308179b8987030cfc>`(const std::string& model_name);
+		void :target:`set_layer_name<doxid-classdlstreamer_1_1_inference_result_metadata_1a536b1f1383f06cbc4d5686cbf636c7a3>`(const std::string& layer_name);
 	
 		void :target:`init_tensor_data<doxid-classdlstreamer_1_1_inference_result_metadata_1a695b67299a3b8a1537b559286757a23f>`(
 			const :ref:`Tensor<doxid-classdlstreamer_1_1_tensor>`& tensor,

@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Developer Guide &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,17 +31,17 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Metadata" href="metadata.html" />
-    <link rel="prev" title="Tutorial" href="../get_started/tutorial.html" />
+    <link rel="prev" title="Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series" href="../get_started/flex_series/quick_start_guide.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -117,11 +117,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../get_started/tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../get_started/flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -186,6 +196,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -479,8 +494,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../architecture_2.0/elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -684,7 +704,7 @@ title="Print to PDF"
               <div>
                 
   <section id="developer-guide">
-<h1>Developer Guide<a class="headerlink" href="#developer-guide" title="Permalink to this heading">#</a></h1>
+<h1>Developer Guide<a class="headerlink" href="#developer-guide" title="Permalink to this headline">#</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="metadata.html">Metadata</a></li>
@@ -733,6 +753,11 @@ title="Print to PDF"
 <li class="toctree-l2"><a class="reference internal" href="object_tracking.html#performance-considerations">Performance considerations</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="gpu_device_selection.html">GPU device selection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpu_device_selection.html#media-vaapi-based-elements">1. Media (VAAPI based) elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpu_device_selection.html#inference-openvino-based-elements">2. Inference (OpenVINO™ based) elements</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="profiling.html">Profiling with Intel VTune™</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="profiling.html#install-vtune">1. Install VTune™</a></li>
 <li class="toctree-l2"><a class="reference internal" href="profiling.html#configure-vtune-target-platform">2. Configure VTune™ target platform.</a></li>
@@ -763,11 +788,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../get_started/tutorial.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../get_started/flex_series/quick_start_guide.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Tutorial</p>
+            <p class="prev-next-title">Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="metadata.html" title="next page">

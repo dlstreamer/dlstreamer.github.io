@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Metadata &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,17 +31,17 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Model Preparation" href="model_preparation.html" />
     <link rel="prev" title="Developer Guide" href="dev_guide_index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -117,11 +117,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../get_started/tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../get_started/flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -186,6 +196,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -479,8 +494,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../architecture_2.0/elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -684,13 +704,13 @@ title="Print to PDF"
               <div>
                 
   <section id="metadata">
-<h1>Metadata<a class="headerlink" href="#metadata" title="Permalink to this heading">#</a></h1>
+<h1>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">#</a></h1>
 <p>Inference plugins utilize standard GStreamer metadata <a class="reference external" href="https://gstreamer.freedesktop.org/documentation/video/gstvideometa.html?gi-language=c#GstVideoRegionOfInterestMeta">GstVideoRegionOfInterestMeta</a>
 for object detection and classification use cases (elements <strong>gvadetect</strong>, <strong>gvaclassify</strong>), and define two custom metadata types</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/gst-libs/gst/videoanalytics/metadata/gva_tensor_meta.h">GstGVATensorMeta</a> for output of <strong>gvainference</strong> element performing generic inference
+<li><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/include/dlstreamer/gst/metadata/gva_tensor_meta.h">GstGVATensorMeta</a> for output of <strong>gvainference</strong> element performing generic inference
 on any model with image-compatible input layer and any format of output layer(s)</p></li>
-<li><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/gst-libs/gst/videoanalytics/metadata/gva_json_meta.h">GstGVAJSONMeta</a> for output of <strong>gvametaconvert</strong> element performing
+<li><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/include/dlstreamer/gst/metadata/gva_json_meta.h">GstGVAJSONMeta</a> for output of <strong>gvametaconvert</strong> element performing
 conversion of <strong>GstVideoRegionOfInterestMeta</strong> into JSON format</p></li>
 </ul>
 <p>The <strong>gvadetect</strong> element supports only object detection models and
@@ -722,12 +742,12 @@ tensor dimensions, data precision, etc.</p>
 <span class="nv">MODEL2</span><span class="o">=</span>age-gender-recognition-retail-0013
 <span class="nv">MODEL3</span><span class="o">=</span>emotions-recognition-retail-0003
 
-gst-launch-1.0 --gst-plugin-path <span class="si">${</span><span class="nv">GST_PLUGIN_PATH</span><span class="si">}</span> <span class="se">\</span>
-    filesrc <span class="nv">location</span><span class="o">=</span><span class="si">${</span><span class="nv">INPUT</span><span class="si">}</span> ! decodebin ! video/x-raw ! videoconvert ! <span class="se">\</span>
-    gvadetect   <span class="nv">model</span><span class="o">=</span><span class="k">$(</span>MODEL_PATH <span class="nv">$MODEL1</span><span class="k">)</span> ! queue ! <span class="se">\</span>
-    gvaclassify <span class="nv">model</span><span class="o">=</span><span class="k">$(</span>MODEL_PATH <span class="nv">$MODEL2</span><span class="k">)</span> model-proc<span class="o">=</span><span class="k">$(</span>PROC_PATH <span class="nv">$MODEL2</span><span class="k">)</span> ! queue ! <span class="se">\</span>
-    gvaclassify <span class="nv">model</span><span class="o">=</span><span class="k">$(</span>MODEL_PATH <span class="nv">$MODEL3</span><span class="k">)</span> model-proc<span class="o">=</span><span class="k">$(</span>PROC_PATH <span class="nv">$MODEL3</span><span class="k">)</span> ! queue ! <span class="se">\</span>
-    gvawatermark ! videoconvert ! fpsdisplaysink <span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
+gst-launch-1.0<span class="w"> </span>--gst-plugin-path<span class="w"> </span><span class="si">${</span><span class="nv">GST_PLUGIN_PATH</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span><span class="si">${</span><span class="nv">INPUT</span><span class="si">}</span><span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span>video/x-raw<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>gvadetect<span class="w">   </span><span class="nv">model</span><span class="o">=</span><span class="k">$(</span>MODEL_PATH<span class="w"> </span><span class="nv">$MODEL1</span><span class="k">)</span><span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>gvaclassify<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="k">$(</span>MODEL_PATH<span class="w"> </span><span class="nv">$MODEL2</span><span class="k">)</span><span class="w"> </span>model-proc<span class="o">=</span><span class="k">$(</span>PROC_PATH<span class="w"> </span><span class="nv">$MODEL2</span><span class="k">)</span><span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>gvaclassify<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="k">$(</span>MODEL_PATH<span class="w"> </span><span class="nv">$MODEL3</span><span class="k">)</span><span class="w"> </span>model-proc<span class="o">=</span><span class="k">$(</span>PROC_PATH<span class="w"> </span><span class="nv">$MODEL3</span><span class="k">)</span><span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>gvawatermark<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span>fpsdisplaysink<span class="w"> </span><span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
 </pre></div>
 </div>
 <p>If the gvadetect element detected three faces, it will attach three metadata
@@ -739,47 +759,47 @@ each containing four GstStructure in <code class="docutils literal notranslate">
 age, gender, emotions.</p>
 <p>“C” application can iterate objects and inference results using
 GStreamer API similar to the code snippet below</p>
-<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gst/video/video.h&gt;</span><span class="cp"></span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gst/video/video.h&gt;</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">print_meta</span><span class="p">(</span><span class="n">GstBuffer</span><span class="w"> </span><span class="o">*</span><span class="n">buffer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">gpointer</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">GstMeta</span><span class="w"> </span><span class="o">*</span><span class="n">meta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">meta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gst_buffer_iterate_meta</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">state</span><span class="p">))</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">meta</span><span class="o">-&gt;</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">api</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">GST_VIDEO_REGION_OF_INTEREST_META_API_TYPE</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="n">GstVideoRegionOfInterestMeta</span><span class="w"> </span><span class="o">*</span><span class="n">roi_meta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">GstVideoRegionOfInterestMeta</span><span class="o">*</span><span class="p">)</span><span class="n">meta</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Object bounding box %d,%d,%d,%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">roi_meta</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">roi_meta</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">roi_meta</span><span class="o">-&gt;</span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">roi_meta</span><span class="o">-&gt;</span><span class="n">h</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">GList</span><span class="w"> </span><span class="o">*</span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">roi_meta</span><span class="o">-&gt;</span><span class="n">params</span><span class="p">;</span><span class="w"> </span><span class="n">l</span><span class="p">;</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g_list_next</span><span class="p">(</span><span class="n">l</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">GstStructure</span><span class="w"> </span><span class="o">*</span><span class="n">structure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">GstStructure</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">l</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;  Attribute %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">gst_structure_get_name</span><span class="p">(</span><span class="n">structure</span><span class="p">));</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">gst_structure_has_field</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;label&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;    label=%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">gst_structure_get_string</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;label&quot;</span><span class="p">));</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">gst_structure_has_field</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;confidence&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="kt">double</span><span class="w"> </span><span class="n">confidence</span><span class="p">;</span><span class="w"></span>
-<span class="w">                </span><span class="n">gst_structure_get_double</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;confidence&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">confidence</span><span class="p">);</span><span class="w"></span>
-<span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;    confidence=%.2f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">confidence</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print_meta</span><span class="p">(</span><span class="n">GstBuffer</span><span class="w"> </span><span class="o">*</span><span class="n">buffer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">gpointer</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="w">    </span><span class="n">GstMeta</span><span class="w"> </span><span class="o">*</span><span class="n">meta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">meta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gst_buffer_iterate_meta</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">state</span><span class="p">))</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">meta</span><span class="o">-&gt;</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">api</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">GST_VIDEO_REGION_OF_INTEREST_META_API_TYPE</span><span class="p">)</span>
+<span class="w">            </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">        </span><span class="n">GstVideoRegionOfInterestMeta</span><span class="w"> </span><span class="o">*</span><span class="n">roi_meta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">GstVideoRegionOfInterestMeta</span><span class="o">*</span><span class="p">)</span><span class="n">meta</span><span class="p">;</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Object bounding box %d,%d,%d,%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">roi_meta</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">roi_meta</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">roi_meta</span><span class="o">-&gt;</span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">roi_meta</span><span class="o">-&gt;</span><span class="n">h</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">GList</span><span class="w"> </span><span class="o">*</span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">roi_meta</span><span class="o">-&gt;</span><span class="n">params</span><span class="p">;</span><span class="w"> </span><span class="n">l</span><span class="p">;</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g_list_next</span><span class="p">(</span><span class="n">l</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">GstStructure</span><span class="w"> </span><span class="o">*</span><span class="n">structure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">GstStructure</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">l</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">;</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;  Attribute %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">gst_structure_get_name</span><span class="p">(</span><span class="n">structure</span><span class="p">));</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">gst_structure_has_field</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;label&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;    label=%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">gst_structure_get_string</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;label&quot;</span><span class="p">));</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">gst_structure_has_field</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;confidence&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kt">double</span><span class="w"> </span><span class="n">confidence</span><span class="p">;</span>
+<span class="w">                </span><span class="n">gst_structure_get_double</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;confidence&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">confidence</span><span class="p">);</span>
+<span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;    confidence=%.2f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">confidence</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>C++ application can access metadata much simpler utilizing C++ interface</p>
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;gst/videoanalytics/video_frame.h&quot;</span><span class="cp"></span>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;gst/videoanalytics/video_frame.h&quot;</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">PrintMeta</span><span class="p">(</span><span class="n">GstBuffer</span><span class="w"> </span><span class="o">*</span><span class="n">buffer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">GVA</span><span class="o">::</span><span class="n">VideoFrame</span><span class="w"> </span><span class="n">video_frame</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">GVA</span><span class="o">::</span><span class="n">RegionOfInterest</span><span class="w"> </span><span class="o">&amp;</span><span class="n">roi</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">video_frame</span><span class="p">.</span><span class="n">regions</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">rect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">roi</span><span class="p">.</span><span class="n">rect</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Object bounding box &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rect</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rect</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rect</span><span class="p">.</span><span class="n">w</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rect</span><span class="p">.</span><span class="n">h</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">GVA</span><span class="o">::</span><span class="n">Tensor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tensor</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">roi</span><span class="p">.</span><span class="n">tensors</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;  Attribute &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">tensor</span><span class="p">.</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;    label=&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">tensor</span><span class="p">.</span><span class="n">label</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;    model=&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">tensor</span><span class="p">.</span><span class="n">model_name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">PrintMeta</span><span class="p">(</span><span class="n">GstBuffer</span><span class="w"> </span><span class="o">*</span><span class="n">buffer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">GVA</span><span class="o">::</span><span class="n">VideoFrame</span><span class="w"> </span><span class="n">video_frame</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">GVA</span><span class="o">::</span><span class="n">RegionOfInterest</span><span class="w"> </span><span class="o">&amp;</span><span class="n">roi</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">video_frame</span><span class="p">.</span><span class="n">regions</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">rect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">roi</span><span class="p">.</span><span class="n">rect</span><span class="p">();</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Object bounding box &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rect</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rect</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rect</span><span class="p">.</span><span class="n">w</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rect</span><span class="p">.</span><span class="n">h</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">GVA</span><span class="o">::</span><span class="n">Tensor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tensor</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">roi</span><span class="p">.</span><span class="n">tensors</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;  Attribute &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">tensor</span><span class="p">.</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;    label=&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">tensor</span><span class="p">.</span><span class="n">label</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;    model=&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">tensor</span><span class="p">.</span><span class="n">model_name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>The following table summarizes the input and output of various elements</p>

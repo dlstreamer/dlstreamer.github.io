@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Tutorial &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,17 +31,17 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Developer Guide" href="../dev_guide/dev_guide_index.html" />
-    <link rel="prev" title="Install Guide Ubuntu" href="install/install_guide_ubuntu.html" />
+    <link rel="next" title="Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series" href="flex_series/quick_start_guide.html" />
+    <link rel="prev" title="Uninstall Guide Ubuntu" href="install/uninstall_guide_ubuntu.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -117,11 +117,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="install/uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -186,6 +196,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../dev_guide/object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_guide/gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -479,8 +494,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../architecture_2.0/elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -915,7 +935,7 @@ title="Print to PDF"
               <div>
                 
   <section id="tutorial">
-<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this heading">#</a></h1>
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">#</a></h1>
 <p>In this tutorial, you will learn how to build video analytics pipelines
 using Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework.</p>
 <ul class="simple">
@@ -928,7 +948,7 @@ using Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework.</
 <li><p><a class="reference internal" href="#result-publishing"><span class="std std-ref">Exercise 4 - Publish the inference results to a `.json` file</span></a></p></li>
 </ul>
 <section id="about-gstreamer">
-<h2>About GStreamer<a class="headerlink" href="#about-gstreamer" title="Permalink to this heading">#</a></h2>
+<h2>About GStreamer<a class="headerlink" href="#about-gstreamer" title="Permalink to this headline">#</a></h2>
 <p>In this section we introduce basic GStreamer* concepts that you will
 use in the rest of the tutorial. If you are already familiar with
 GStreamer feel free to skip ahead to the next section - <a class="reference external" href="#introduction-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework">Introduction to
@@ -941,7 +961,7 @@ the GStreamer command line tool gst-launch-1.0. For more information and
 examples please refer to the online documentation for
 <a class="reference external" href="https://gstreamer.freedesktop.org/documentation/tools/gst-launch.html?gi-language=c">gst-launch-1.0</a>.</p>
 <section id="pipelines">
-<h3>Pipelines<a class="headerlink" href="#pipelines" title="Permalink to this heading">#</a></h3>
+<h3>Pipelines<a class="headerlink" href="#pipelines" title="Permalink to this headline">#</a></h3>
 <p>The command line tool <strong>gst-launch-1.0</strong> enables developers to describe
 a media analytics pipeline as a series of connected elements. The list of
 elements, their configuration properties, and their connections are all
@@ -954,7 +974,7 @@ messaging, and state changes.</p>
 <p>Example: gst-launch-1.0 videotestsrc ! ximagesink</p>
 </section>
 <section id="elements">
-<h3>Elements<a class="headerlink" href="#elements" title="Permalink to this heading">#</a></h3>
+<h3>Elements<a class="headerlink" href="#elements" title="Permalink to this headline">#</a></h3>
 <p>An
 <a class="reference external" href="https://gstreamer.freedesktop.org/documentation/application-development/basics/elements.html?gi-language=c">element</a>
 is the fundamental building block of a pipeline. Elements perform
@@ -985,7 +1005,7 @@ produce raw video frames suitable for image transformation and
 inferencing.</p>
 </section>
 <section id="properties">
-<h3>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h3>
+<h3>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">#</a></h3>
 <p>Elements are configured using key-value pairs called properties. As an
 example, the filesrc element has a property named location which
 specifies the file path for input.</p>
@@ -996,7 +1016,7 @@ the valid range of values for each property.</p>
 </section>
 </section>
 <section id="introduction-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework">
-<h2>Introduction to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework<a class="headerlink" href="#introduction-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework" title="Permalink to this heading">#</a></h2>
+<h2>Introduction to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework<a class="headerlink" href="#introduction-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework" title="Permalink to this headline">#</a></h2>
 <p>Intel® DL Streamer Pipeline Framework is an easy way to construct media analytics
 pipelines using Intel® Distribution of OpenVINO™ toolkit. It leverages
 the open source media framework GStreamer to provide optimized media
@@ -1070,12 +1090,12 @@ results, as shown in this tutorial, you can publish them to MQTT, Kafka
 or a file using <em>gvametaconvert</em> and <em>gvametapublish</em> of Intel® DL Streamer.</p>
 </section>
 <section id="tutorial-setup">
-<h2>Tutorial Setup<a class="headerlink" href="#tutorial-setup" title="Permalink to this heading">#</a></h2>
+<h2>Tutorial Setup<a class="headerlink" href="#tutorial-setup" title="Permalink to this headline">#</a></h2>
 <ol class="arabic">
 <li><p>Install Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework by following the <a class="reference internal" href="install/install_guide_ubuntu.html"><span class="doc">Install-Guide</span></a>.</p></li>
 <li><p>Set the environment variables:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/intel/openvino_2022/setupvars.sh
-<span class="nb">source</span> /opt/intel/dlstreamer/setupvars.sh
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>/opt/intel/openvino_2022/setupvars.sh
+<span class="nb">source</span><span class="w"> </span>/opt/intel/dlstreamer/setupvars.sh
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1085,17 +1105,17 @@ or a file using <em>gvametaconvert</em> and <em>gvametapublish</em> of Intel® D
 </div>
 </li>
 <li><p>Download the models from <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo">Open Model Zoo</a></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --upgrade pip
-python3 -m pip install openvino-dev<span class="o">[</span>onnx<span class="o">]</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>openvino-dev<span class="o">[</span>onnx<span class="o">]</span>
 /opt/intel/dlstreamer/samples/download_models.sh
 </pre></div>
 </div>
 </li>
 <li><p>Export the <em>model</em> and <em>model_proc</em> files for detection and classification:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">DETECTION_MODEL</span><span class="o">=</span><span class="si">${</span><span class="nv">MODELS_PATH</span><span class="si">}</span>/intel/person-vehicle-bike-detection-2004/FP32/person-vehicle-bike-detection-2004.xml
-<span class="nb">export</span> <span class="nv">DETECTION_MODEL_PROC</span><span class="o">=</span>/opt/intel/dlstreamer/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-2004.json
-<span class="nb">export</span> <span class="nv">VEHICLE_CLASSIFICATION_MODEL</span><span class="o">=</span><span class="si">${</span><span class="nv">MODELS_PATH</span><span class="si">}</span>/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml
-<span class="nb">export</span> <span class="nv">VEHICLE_CLASSIFICATION_MODEL_PROC</span><span class="o">=</span>/opt/intel/dlstreamer/samples/gstreamer/model_proc/intel/vehicle-attributes-recognition-barrier-0039.json
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">DETECTION_MODEL</span><span class="o">=</span><span class="si">${</span><span class="nv">MODELS_PATH</span><span class="si">}</span>/intel/person-vehicle-bike-detection-2004/FP32/person-vehicle-bike-detection-2004.xml
+<span class="nb">export</span><span class="w"> </span><span class="nv">DETECTION_MODEL_PROC</span><span class="o">=</span>/opt/intel/dlstreamer/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-2004.json
+<span class="nb">export</span><span class="w"> </span><span class="nv">VEHICLE_CLASSIFICATION_MODEL</span><span class="o">=</span><span class="si">${</span><span class="nv">MODELS_PATH</span><span class="si">}</span>/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml
+<span class="nb">export</span><span class="w"> </span><span class="nv">VEHICLE_CLASSIFICATION_MODEL_PROC</span><span class="o">=</span>/opt/intel/dlstreamer/samples/gstreamer/model_proc/intel/vehicle-attributes-recognition-barrier-0039.json
 </pre></div>
 </div>
 <p>If you want to use your own models, you need to first convert them in
@@ -1113,14 +1133,14 @@ cars, or pedestrians can be used with the exercise.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># This tutorial uses ~/path/to/video as the video path</span>
 <span class="c1"># and FILENAME as the placeholder for a video file name.</span>
 <span class="c1"># Change this information to fit your setup.</span>
-<span class="nb">export</span> <span class="nv">VIDEO_EXAMPLE</span><span class="o">=</span>~/path/to/video/FILENAME
+<span class="nb">export</span><span class="w"> </span><span class="nv">VIDEO_EXAMPLE</span><span class="o">=</span>~/path/to/video/FILENAME
 </pre></div>
 </div>
 </li>
 </ol>
 </section>
 <section id="exercise-1-build-object-detection-pipeline">
-<span id="object-detection"></span><h2>Exercise 1 - Build object detection pipeline<a class="headerlink" href="#exercise-1-build-object-detection-pipeline" title="Permalink to this heading">#</a></h2>
+<span id="object-detection"></span><h2>Exercise 1 - Build object detection pipeline<a class="headerlink" href="#exercise-1-build-object-detection-pipeline" title="Permalink to this headline">#</a></h2>
 <p>This exercise helps you create a GStreamer pipeline that will perform
 object detection using <em>gvadetect</em> element and Intermediate
 Representation (IR) formatted object detection model. It provides two
@@ -1132,16 +1152,16 @@ and an RTSP URI.</p>
 <li><p>gvawatermark</p></li>
 </ul>
 <section id="pipeline">
-<h3>Pipeline<a class="headerlink" href="#pipeline" title="Permalink to this heading">#</a></h3>
+<h3>Pipeline<a class="headerlink" href="#pipeline" title="Permalink to this headline">#</a></h3>
 <p>We will create a pipeline to detect people and vehicles in a video. The
 pipeline will accept a video file input, decode it and run vehicle
 detection. It will overlay the bounding boxes for detected vehicles on
 the video frame and render the video to local device.</p>
 <p>Run the below pipeline at the command prompt and review the output:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0 <span class="se">\</span>
-filesrc <span class="nv">location</span><span class="o">=</span><span class="si">${</span><span class="nv">VIDEO_EXAMPLE</span><span class="si">}</span> ! decodebin ! <span class="se">\</span>
-gvadetect <span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL</span><span class="si">}</span> <span class="nv">model_proc</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL_PROC</span><span class="si">}</span> <span class="nv">device</span><span class="o">=</span>CPU ! queue ! <span class="se">\</span>
-gvawatermark ! videoconvert ! fpsdisplaysink video-sink<span class="o">=</span>xvimagesink <span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0<span class="w"> </span><span class="se">\</span>
+filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span><span class="si">${</span><span class="nv">VIDEO_EXAMPLE</span><span class="si">}</span><span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL</span><span class="si">}</span><span class="w"> </span><span class="nv">model_proc</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL_PROC</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>CPU<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvawatermark<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span>fpsdisplaysink<span class="w"> </span>video-sink<span class="o">=</span>xvimagesink<span class="w"> </span><span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
 </pre></div>
 </div>
 <p><strong>Expected output</strong>: You will see your video overlayed by bounding boxes
@@ -1155,7 +1175,7 @@ exercise, use one or both add-ons to this exercise to select different
 video sources. If the add-ons don’t suit you, jump ahead to start
 <a class="reference external" href="#object-classification">Exercise 2</a>.</p>
 <section id="pipeline-with-a-web-camera-video-stream-input-first-optional-add-on-to-exercise-1">
-<h4>Pipeline with a Web Camera Video Stream Input (First optional add-on to Exercise 1)<a class="headerlink" href="#pipeline-with-a-web-camera-video-stream-input-first-optional-add-on-to-exercise-1" title="Permalink to this heading">#</a></h4>
+<h4>Pipeline with a Web Camera Video Stream Input (First optional add-on to Exercise 1)<a class="headerlink" href="#pipeline-with-a-web-camera-video-stream-input-first-optional-add-on-to-exercise-1" title="Permalink to this headline">#</a></h4>
 <p>GStreamer supports connected video devices, like web cameras, which
 means you use a web camera to perform real-time inference.</p>
 <p>In order to use web camera as an input, we will replace the <em>filesrc</em>
@@ -1167,15 +1187,15 @@ the pipeline. The web camera stream is usually in the <em>/dev/</em>
 directory.</p>
 <p>Object detection pipeline using Web camera:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change &lt;path-to-device&gt; below to your web camera device path</span>
-gst-launch-1.0 <span class="se">\</span>
-v4l2src <span class="nv">device</span><span class="o">=</span>&lt;path-to-device&gt; ! decodebin ! <span class="se">\</span>
-gvadetect <span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL</span><span class="si">}</span> <span class="nv">model_proc</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL_PROC</span><span class="si">}</span> <span class="nv">device</span><span class="o">=</span>CPU ! queue ! <span class="se">\</span>
-gvawatermark ! videoconvert ! fpsdisplaysink video-sink<span class="o">=</span>xvimagesink <span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
+gst-launch-1.0<span class="w"> </span><span class="se">\</span>
+v4l2src<span class="w"> </span><span class="nv">device</span><span class="o">=</span>&lt;path-to-device&gt;<span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL</span><span class="si">}</span><span class="w"> </span><span class="nv">model_proc</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL_PROC</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>CPU<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvawatermark<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span>fpsdisplaysink<span class="w"> </span>video-sink<span class="o">=</span>xvimagesink<span class="w"> </span><span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
 </pre></div>
 </div>
 </section>
 <section id="pipeline-with-an-rtsp-input-second-optional-add-on-to-exercise-1">
-<h4>Pipeline with an RTSP Input (Second optional add-on to Exercise 1)<a class="headerlink" href="#pipeline-with-an-rtsp-input-second-optional-add-on-to-exercise-1" title="Permalink to this heading">#</a></h4>
+<h4>Pipeline with an RTSP Input (Second optional add-on to Exercise 1)<a class="headerlink" href="#pipeline-with-an-rtsp-input-second-optional-add-on-to-exercise-1" title="Permalink to this headline">#</a></h4>
 <p>In order to use RTSP source as an input, we will replace the <em>filesrc</em>
 element in the object detection pipeline with
 <a class="reference external" href="https://gstreamer.freedesktop.org/documentation/playback/urisourcebin.html?gi-language=c">`urisourcebin`</a>
@@ -1183,17 +1203,17 @@ to access URIs. Before running the below updated pipeline, replace ‘&lt;RTSP_u
 with your RTSP URI and verify it before running the command.</p>
 <p>Object detection pipeline using RTSP URI:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change &lt;RTSP_uri&gt; below to your RTSP URL</span>
-gst-launch-1.0 <span class="se">\</span>
-urisourcebin <span class="nv">uri</span><span class="o">=</span>&lt;RTSP_uri&gt; ! decodebin ! <span class="se">\</span>
-gvadetect <span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL</span><span class="si">}</span> <span class="nv">model_proc</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL_PROC</span><span class="si">}</span> <span class="nv">device</span><span class="o">=</span>CPU ! queue ! <span class="se">\</span>
-gvawatermark ! videoconvert ! fpsdisplaysink video-sink<span class="o">=</span>xvimagesink <span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
+gst-launch-1.0<span class="w"> </span><span class="se">\</span>
+urisourcebin<span class="w"> </span><span class="nv">uri</span><span class="o">=</span>&lt;RTSP_uri&gt;<span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL</span><span class="si">}</span><span class="w"> </span><span class="nv">model_proc</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL_PROC</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>CPU<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvawatermark<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span>fpsdisplaysink<span class="w"> </span>video-sink<span class="o">=</span>xvimagesink<span class="w"> </span><span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
 </pre></div>
 </div>
 </section>
 </section>
 </section>
 <section id="exercise-2-build-object-classification-pipeline">
-<span id="object-classification"></span><h2>Exercise 2: Build object classification pipeline<a class="headerlink" href="#exercise-2-build-object-classification-pipeline" title="Permalink to this heading">#</a></h2>
+<span id="object-classification"></span><h2>Exercise 2: Build object classification pipeline<a class="headerlink" href="#exercise-2-build-object-classification-pipeline" title="Permalink to this headline">#</a></h2>
 <p>This exercise helps you create a GStreamer pipeline that will perform
 object classification on the Regions of Interest (ROIs) detected by <em>gvadetect</em> using
 <em>gvaclassify</em> element and Intermediate Representation (IR) formatted
@@ -1205,16 +1225,16 @@ object classification model.</p>
 <li><p>gvawatermark</p></li>
 </ul>
 <section id="pipeline-1">
-<span id="id1"></span><h3>Pipeline<a class="headerlink" href="#pipeline-1" title="Permalink to this heading">#</a></h3>
+<span id="id1"></span><h3>Pipeline<a class="headerlink" href="#pipeline-1" title="Permalink to this headline">#</a></h3>
 <p>We will create a pipeline to detect people and vehicles in a video and
 classify the detected people and vehicle to provide additional
 attributes.</p>
 <p>Run the below pipeline at the command prompt and review the output:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0 <span class="se">\</span>
-filesrc <span class="nv">location</span><span class="o">=</span><span class="si">${</span><span class="nv">VIDEO_EXAMPLE</span><span class="si">}</span> ! decodebin ! <span class="se">\</span>
-gvadetect <span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL</span><span class="si">}</span> <span class="nv">model_proc</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL_PROC</span><span class="si">}</span> <span class="nv">device</span><span class="o">=</span>CPU ! queue ! <span class="se">\</span>
-gvaclassify <span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">VEHICLE_CLASSIFICATION_MODEL</span><span class="si">}</span> model-proc<span class="o">=</span><span class="si">${</span><span class="nv">VEHICLE_CLASSIFICATION_MODEL_PROC</span><span class="si">}</span> <span class="nv">device</span><span class="o">=</span>CPU object-class<span class="o">=</span>vehicle ! queue ! <span class="se">\</span>
-gvawatermark ! videoconvert ! fpsdisplaysink video-sink<span class="o">=</span>xvimagesink <span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0<span class="w"> </span><span class="se">\</span>
+filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span><span class="si">${</span><span class="nv">VIDEO_EXAMPLE</span><span class="si">}</span><span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL</span><span class="si">}</span><span class="w"> </span><span class="nv">model_proc</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL_PROC</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>CPU<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvaclassify<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">VEHICLE_CLASSIFICATION_MODEL</span><span class="si">}</span><span class="w"> </span>model-proc<span class="o">=</span><span class="si">${</span><span class="nv">VEHICLE_CLASSIFICATION_MODEL_PROC</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>CPU<span class="w"> </span>object-class<span class="o">=</span>vehicle<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvawatermark<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span>fpsdisplaysink<span class="w"> </span>video-sink<span class="o">=</span>xvimagesink<span class="w"> </span><span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
 </pre></div>
 </div>
 <p><strong>Expected output</strong>: Persons, vehicles, and bikes are bound by colored
@@ -1235,12 +1255,12 @@ according to model-proc:</p>
 </li>
 <li><p><em>gvawatermark</em> displays the ROIs and their attributes.</p></li>
 </ol>
-<p>See <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/model_proc">model-proc</a>
+<p>See <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/model_proc">model-proc</a>
 for the model-procs and its input and output specifications.</p>
 </section>
 </section>
 <section id="exercise-3-use-object-tracking-to-improve-performance">
-<span id="object-tracking"></span><h2>Exercise 3: Use object tracking to improve performance<a class="headerlink" href="#exercise-3-use-object-tracking-to-improve-performance" title="Permalink to this heading">#</a></h2>
+<span id="object-tracking"></span><h2>Exercise 3: Use object tracking to improve performance<a class="headerlink" href="#exercise-3-use-object-tracking-to-improve-performance" title="Permalink to this headline">#</a></h2>
 <p>This exercise helps you create a GStreamer pipeline that will use object
 tracking for reducing the frequency of object detection and
 classification, thereby increasing the throughput, using <em>gvatrack</em>.</p>
@@ -1252,7 +1272,7 @@ classification, thereby increasing the throughput, using <em>gvatrack</em>.</p>
 <li><p>gvawatermark</p></li>
 </ul>
 <section id="pipeline-2">
-<span id="id2"></span><h3>Pipeline<a class="headerlink" href="#pipeline-2" title="Permalink to this heading">#</a></h3>
+<span id="id2"></span><h3>Pipeline<a class="headerlink" href="#pipeline-2" title="Permalink to this headline">#</a></h3>
 <p>We will use the same pipeline as in exercise 2, for detecting and
 classifying vehicle and people. We will add <em>gvatrack</em> element after
 <em>gvadetect</em> and before <em>gvaclassify</em> to track objects. <em>gvatrack</em>
@@ -1260,12 +1280,12 @@ will assign object IDs and provide updated ROIs in between detections.
 We will also specify parameters of <em>gvadetect</em> and <em>gvaclassify</em>
 elements to reduce frequency of detection and classification.</p>
 <p>Run the below pipeline at the command prompt and review the output:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0 <span class="se">\</span>
-filesrc <span class="nv">location</span><span class="o">=</span><span class="si">${</span><span class="nv">VIDEO_EXAMPLE</span><span class="si">}</span> ! decodebin ! <span class="se">\</span>
-gvadetect <span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL</span><span class="si">}</span> <span class="nv">model_proc</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL_PROC</span><span class="si">}</span> <span class="nv">device</span><span class="o">=</span>CPU inference-interval<span class="o">=</span><span class="m">10</span> ! queue ! <span class="se">\</span>
-gvatrack tracking-type<span class="o">=</span>short-term-imageless ! queue ! <span class="se">\</span>
-gvaclassify <span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">VEHICLE_CLASSIFICATION_MODEL</span><span class="si">}</span> model-proc<span class="o">=</span><span class="si">${</span><span class="nv">VEHICLE_CLASSIFICATION_MODEL_PROC</span><span class="si">}</span> <span class="nv">device</span><span class="o">=</span>CPU object-class<span class="o">=</span>vehicle reclassify-interval<span class="o">=</span><span class="m">10</span> ! queue ! <span class="se">\</span>
-gvawatermark ! videoconvert ! fpsdisplaysink video-sink<span class="o">=</span>xvimagesink <span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0<span class="w"> </span><span class="se">\</span>
+filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span><span class="si">${</span><span class="nv">VIDEO_EXAMPLE</span><span class="si">}</span><span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL</span><span class="si">}</span><span class="w"> </span><span class="nv">model_proc</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL_PROC</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>CPU<span class="w"> </span>inference-interval<span class="o">=</span><span class="m">10</span><span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvatrack<span class="w"> </span>tracking-type<span class="o">=</span>short-term-imageless<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvaclassify<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">VEHICLE_CLASSIFICATION_MODEL</span><span class="si">}</span><span class="w"> </span>model-proc<span class="o">=</span><span class="si">${</span><span class="nv">VEHICLE_CLASSIFICATION_MODEL_PROC</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>CPU<span class="w"> </span>object-class<span class="o">=</span>vehicle<span class="w"> </span>reclassify-interval<span class="o">=</span><span class="m">10</span><span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvawatermark<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span>fpsdisplaysink<span class="w"> </span>video-sink<span class="o">=</span>xvimagesink<span class="w"> </span><span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
 </pre></div>
 </div>
 <p><strong>Expected output</strong>: Persons, vehicles, and bikes are bound by colored
@@ -1296,7 +1316,7 @@ you how to publish your results to a <em>.json</em>.</p>
 </section>
 </section>
 <section id="exercise-4-publish-inference-results">
-<span id="result-publishing"></span><h2>Exercise 4: Publish Inference Results<a class="headerlink" href="#exercise-4-publish-inference-results" title="Permalink to this heading">#</a></h2>
+<span id="result-publishing"></span><h2>Exercise 4: Publish Inference Results<a class="headerlink" href="#exercise-4-publish-inference-results" title="Permalink to this headline">#</a></h2>
 <p>This exercise extends the pipeline to publish your detection and
 classification results to a <em>.json</em> file from a GStreamer pipeline.</p>
 <p>This exercise uses the following Pipeline Framework elements:</p>
@@ -1307,27 +1327,27 @@ classification results to a <em>.json</em> file from a GStreamer pipeline.</p>
 <li><p>gvametapublish</p></li>
 </ul>
 <section id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h3>
 <p>One additional setup step is required for this exercise, to export the
 output file path:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replace &lt;path-to-FILENAME&gt; with path to your file before running the below command.</span>
-<span class="nb">export</span> <span class="nv">OUTFILE</span><span class="o">=</span>&lt;path-to-FILENAME&gt;
+<span class="nb">export</span><span class="w"> </span><span class="nv">OUTFILE</span><span class="o">=</span>&lt;path-to-FILENAME&gt;
 </pre></div>
 </div>
 </section>
 <section id="pipeline-3">
-<span id="id3"></span><h3>Pipeline<a class="headerlink" href="#pipeline-3" title="Permalink to this heading">#</a></h3>
+<span id="id3"></span><h3>Pipeline<a class="headerlink" href="#pipeline-3" title="Permalink to this headline">#</a></h3>
 <p>We will use the same pipeline as in exercise 2 for detecting and
 classifying vehicle and people. However, instead of overlaying the
 results and rendering them to a screen, we will send them to a file in
 JSON format.</p>
 <p>Run the below pipeline at the command prompt and review the output:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0 <span class="se">\</span>
-filesrc <span class="nv">location</span><span class="o">=</span><span class="si">${</span><span class="nv">VIDEO_EXAMPLE</span><span class="si">}</span> ! decodebin ! <span class="se">\</span>
-gvadetect <span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL</span><span class="si">}</span> <span class="nv">model_proc</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL_PROC</span><span class="si">}</span> <span class="nv">device</span><span class="o">=</span>CPU ! queue ! <span class="se">\</span>
-gvaclassify <span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">VEHICLE_CLASSIFICATION_MODEL</span><span class="si">}</span> model-proc<span class="o">=</span><span class="si">${</span><span class="nv">VEHICLE_CLASSIFICATION_MODEL_PROC</span><span class="si">}</span> <span class="nv">device</span><span class="o">=</span>CPU object-class<span class="o">=</span>vehicle ! queue ! <span class="se">\</span>
-gvametaconvert <span class="nv">format</span><span class="o">=</span>json ! <span class="se">\</span>
-gvametapublish <span class="nv">method</span><span class="o">=</span>file file-path<span class="o">=</span><span class="si">${</span><span class="nv">OUTFILE</span><span class="si">}</span> ! <span class="se">\</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0<span class="w"> </span><span class="se">\</span>
+filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span><span class="si">${</span><span class="nv">VIDEO_EXAMPLE</span><span class="si">}</span><span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL</span><span class="si">}</span><span class="w"> </span><span class="nv">model_proc</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL_PROC</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>CPU<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvaclassify<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">VEHICLE_CLASSIFICATION_MODEL</span><span class="si">}</span><span class="w"> </span>model-proc<span class="o">=</span><span class="si">${</span><span class="nv">VEHICLE_CLASSIFICATION_MODEL_PROC</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>CPU<span class="w"> </span>object-class<span class="o">=</span>vehicle<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvametaconvert<span class="w"> </span><span class="nv">format</span><span class="o">=</span>json<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvametapublish<span class="w"> </span><span class="nv">method</span><span class="o">=</span>file<span class="w"> </span>file-path<span class="o">=</span><span class="si">${</span><span class="nv">OUTFILE</span><span class="si">}</span><span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 fakesink
 </pre></div>
 </div>
@@ -1341,13 +1361,13 @@ inference results is available. Review the JSON file.</p>
 <li><p><em>filepath=${OUTFILE}</em> is a JSON file to which the inference results are published.</p></li>
 </ul>
 <p>For publishing the results to MQTT or Kafka, please refer to the
-<a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gst_launch/metapublish">metapublish samples</a>.</p>
+<a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/gst_launch/metapublish">metapublish samples</a>.</p>
 <p>You have completed this tutorial. Now, start creating your video
 analytics pipeline with Intel® DL Streamer Pipeline Framework!</p>
 </section>
 </section>
 <section id="next-steps">
-<h2>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this heading">#</a></h2>
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">Samples overview</a></p></li>
 <li><p><a class="reference internal" href="../elements/elements.html"><span class="doc">Elements</span></a></p></li>
@@ -1368,17 +1388,17 @@ analytics pipeline with Intel® DL Streamer Pipeline Framework!</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="install/install_guide_ubuntu.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="install/uninstall_guide_ubuntu.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Install Guide Ubuntu</p>
+            <p class="prev-next-title">Uninstall Guide Ubuntu</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../dev_guide/dev_guide_index.html" title="next page">
+    <a class='right-next' id="next-link" href="flex_series/quick_start_guide.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Developer Guide</p>
+        <p class="prev-next-title">Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

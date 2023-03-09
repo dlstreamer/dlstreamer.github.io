@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Install Guide Windows (Preview) &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,15 +31,15 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -115,11 +115,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -184,6 +194,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../dev_guide/object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_guide/gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -477,8 +492,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../../architecture_2.0/pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../../architecture_2.0/elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -837,17 +857,17 @@ title="Print to PDF"
               <div>
                 
   <section id="install-guide-windows-preview">
-<h1>Install Guide Windows (Preview)<a class="headerlink" href="#install-guide-windows-preview" title="Permalink to this heading">#</a></h1>
+<h1>Install Guide Windows (Preview)<a class="headerlink" href="#install-guide-windows-preview" title="Permalink to this headline">#</a></h1>
 <p>Building Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework from the source code provided in this
 repository may be performed either on host system or as a Docker image.</p>
 <section id="option-1-compile-intel-dl-streamer-pipeline-framework-from-sources-on-host-system">
-<h2>Option 1: Compile Intel® DL Streamer Pipeline Framework from sources on host system<a class="headerlink" href="#option-1-compile-intel-dl-streamer-pipeline-framework-from-sources-on-host-system" title="Permalink to this heading">#</a></h2>
+<h2>Option 1: Compile Intel® DL Streamer Pipeline Framework from sources on host system<a class="headerlink" href="#option-1-compile-intel-dl-streamer-pipeline-framework-from-sources-on-host-system" title="Permalink to this headline">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>These instructions are verified on Windows 10 Version 1909 and Windows 11 Version 10.0.22000.</p>
 </div>
 <section id="step-1-clone-this-repository">
-<h3>Step 1: Clone this repository<a class="headerlink" href="#step-1-clone-this-repository" title="Permalink to this heading">#</a></h3>
+<h3>Step 1: Clone this repository<a class="headerlink" href="#step-1-clone-this-repository" title="Permalink to this headline">#</a></h3>
 <p>First, clone this repository into folder
 <code class="docutils literal notranslate"><span class="pre">%USERPROFILE%\intel\dlstreamer_gst</span></code>:</p>
 <div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">md</span> <span class="nv">%USERPROFILE%</span>\intel
@@ -857,7 +877,7 @@ git clone https://github.com/dlstreamer/dlstreamer.git <span class="nv">%USERPRO
 </div>
 </section>
 <section id="step-2-install-dependencies">
-<h3>Step 2: Install dependencies<a class="headerlink" href="#step-2-install-dependencies" title="Permalink to this heading">#</a></h3>
+<h3>Step 2: Install dependencies<a class="headerlink" href="#step-2-install-dependencies" title="Permalink to this headline">#</a></h3>
 <p>Install Python 3.7 for Windows: <a class="reference external" href="https://www.python.org/ftp/python/3.7.9/python-3.7.9-amd64.exe">https://www.python.org/ftp/python/3.7.9/python-3.7.9-amd64.exe</a></p>
 <p>Install CMake 3.19 for Windows: <a class="reference external" href="https://github.com/Kitware/CMake/releases/download/v3.19.4/cmake-3.19.4-win64-x64.msi">https://github.com/Kitware/CMake/releases/download/v3.19.4/cmake-3.19.4-win64-x64.msi</a></p>
 <p>Install Visual Studio 2019* with C++ build tools:
@@ -915,7 +935,7 @@ pacman -S mingw-w64-x86_64-pkg-config
 </div>
 </section>
 <section id="step-3-download-and-install-intel-distribution-of-openvino-toolkit">
-<h3>Step 3: Download and install Intel® Distribution of OpenVINO™ Toolkit<a class="headerlink" href="#step-3-download-and-install-intel-distribution-of-openvino-toolkit" title="Permalink to this heading">#</a></h3>
+<h3>Step 3: Download and install Intel® Distribution of OpenVINO™ Toolkit<a class="headerlink" href="#step-3-download-and-install-intel-distribution-of-openvino-toolkit" title="Permalink to this headline">#</a></h3>
 <p>Please register to download the latest version of <a class="reference external" href="https://software.seek.intel.com/openvino-toolkit">OpenVINO™ Toolkit for
 Windows*</a>.</p>
 <p>For the installation recommended to follow the <a class="reference external" href="https://docs.openvino.ai/latest/openvino_docs_install_guides_installing_openvino_windows.html">OpenVINO™ Toolkit
@@ -936,7 +956,7 @@ pip install openvino-dev[onnx]
 </div>
 </section>
 <section id="step-4-build-intel-dl-streamer-pipeline-framework">
-<h3>Step 4: Build Intel® DL Streamer Pipeline Framework<a class="headerlink" href="#step-4-build-intel-dl-streamer-pipeline-framework" title="Permalink to this heading">#</a></h3>
+<h3>Step 4: Build Intel® DL Streamer Pipeline Framework<a class="headerlink" href="#step-4-build-intel-dl-streamer-pipeline-framework" title="Permalink to this headline">#</a></h3>
 <p>With all dependencies installed, proceed to build Pipeline Framework:</p>
 <div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="p">@</span><span class="c1">REM OpenVINO™ Toolkit environment</span>
 <span class="s2">&quot;C:\Program Files (x86)\Intel\openvino_2022\setupvars.bat&quot;</span>
@@ -970,9 +990,9 @@ Variables” settings.</p>
 </section>
 </section>
 <section id="option-2-compile-intel-dl-streamer-pipeline-framework-as-docker-image">
-<h2>Option 2: Compile Intel® DL Streamer Pipeline Framework as Docker image<a class="headerlink" href="#option-2-compile-intel-dl-streamer-pipeline-framework-as-docker-image" title="Permalink to this heading">#</a></h2>
+<h2>Option 2: Compile Intel® DL Streamer Pipeline Framework as Docker image<a class="headerlink" href="#option-2-compile-intel-dl-streamer-pipeline-framework-as-docker-image" title="Permalink to this headline">#</a></h2>
 <section id="step-1-install-docker-desktop-if-not-installed">
-<h3>Step 1: Install Docker Desktop (if not installed)<a class="headerlink" href="#step-1-install-docker-desktop-if-not-installed" title="Permalink to this heading">#</a></h3>
+<h3>Step 1: Install Docker Desktop (if not installed)<a class="headerlink" href="#step-1-install-docker-desktop-if-not-installed" title="Permalink to this headline">#</a></h3>
 <p>Refer to <a class="reference external" href="https://docs.docker.com/install/">Docker installation
 documentation</a></p>
 <div class="admonition note">
@@ -983,7 +1003,7 @@ from the Docker Desktop menu in the system tray.</p>
 </div>
 </section>
 <section id="step-2-clone-this-repository">
-<h3>Step 2: Clone this repository<a class="headerlink" href="#step-2-clone-this-repository" title="Permalink to this heading">#</a></h3>
+<h3>Step 2: Clone this repository<a class="headerlink" href="#step-2-clone-this-repository" title="Permalink to this headline">#</a></h3>
 <p>Clone this repository into folder
 <code class="docutils literal notranslate"><span class="pre">%USERPROFILE%\intel\dlstreamer_gst</span></code>:</p>
 <div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">md</span> <span class="nv">%USERPROFILE%</span>\intel
@@ -993,7 +1013,7 @@ git clone https://github.com/dlstreamer/dlstreamer.git <span class="nv">%USERPRO
 </div>
 </section>
 <section id="step-3-build-docker-image">
-<h3>Step 3: Build Docker image<a class="headerlink" href="#step-3-build-docker-image" title="Permalink to this heading">#</a></h3>
+<h3>Step 3: Build Docker image<a class="headerlink" href="#step-3-build-docker-image" title="Permalink to this headline">#</a></h3>
 <p>Run the following command to build Docker image:</p>
 <div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">cd</span> <span class="nv">%USERPROFILE%</span>\intel\dlstreamer_gst\docker\source\windows
 <span class="p">@</span><span class="c1">REM provide a link to the OpenVINO™ Toolkit development package as a first argument (by default link to 2022.1 package)</span>
@@ -1025,7 +1045,7 @@ description. If the image is absent in your output, please repeat all
 the steps above.</p>
 </section>
 <section id="step-4-run-docker-image">
-<h3>Step 4: Run Docker image<a class="headerlink" href="#step-4-run-docker-image" title="Permalink to this heading">#</a></h3>
+<h3>Step 4: Run Docker image<a class="headerlink" href="#step-4-run-docker-image" title="Permalink to this headline">#</a></h3>
 <p>Run container:</p>
 <div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>docker run -it <span class="se">^</span>
 <span class="se">-</span>v <span class="nv">%USERPROFILE%</span>\intel\dl_streamer\models:C:\intel\dl_streamer\models <span class="se">^</span>
@@ -1045,7 +1065,7 @@ and OpenVINO™ Toolkit and open PowerShell* in <code class="docutils literal no
 </section>
 </section>
 <section id="limitations">
-<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">#</a></h2>
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">gvatrack</span></code> and <code class="docutils literal notranslate"><span class="pre">gvapython</span></code> elements are not available</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">gvametapublish</span></code> works only with filesystem and console output</p></li>
@@ -1057,7 +1077,7 @@ for requirements to run inference on GPU in Docker</p></li>
 </ul>
 </section>
 <section id="next-steps">
-<h2>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this heading">#</a></h2>
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../tutorial.html"><span class="doc">Tutorial</span></a></p></li>
 <li><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">Samples overview</a></p></li>

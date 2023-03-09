@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>How to Create Model-proc File &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
     
@@ -31,17 +31,17 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../_static/target-highlight.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Python Bindings" href="python_bindings.html" />
     <link rel="prev" title="Model-proc File" href="model_proc_file.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
@@ -117,11 +117,21 @@
        Install Guide Ubuntu
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">
+       Uninstall Guide Ubuntu
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../get_started/tutorial.html">
      Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../get_started/flex_series/quick_start_guide.html">
+     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
     </a>
    </li>
    <li class="toctree-l2">
@@ -186,6 +196,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="object_tracking.html">
      Object Tracking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gpu_device_selection.html">
+     GPU device selection
     </a>
    </li>
    <li class="toctree-l2">
@@ -479,8 +494,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../architecture_2.0/pytorch_inference.html">
+     PyTorch tensor inference [Preview]
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../architecture_2.0/elements_list.html">
-     Elements 2.0 reference
+     Elements 2.0
     </a>
    </li>
    <li class="toctree-l2">
@@ -933,13 +953,13 @@ title="Print to PDF"
               <div>
                 
   <section id="how-to-create-model-proc-file">
-<h1>How to Create Model-proc File<a class="headerlink" href="#how-to-create-model-proc-file" title="Permalink to this heading">#</a></h1>
+<h1>How to Create Model-proc File<a class="headerlink" href="#how-to-create-model-proc-file" title="Permalink to this headline">#</a></h1>
 <p>In this tutorial you will learn how to create model-proc file for your
 own CNN model that can be processed by Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework.</p>
 <p>Please refer to the <a class="reference internal" href="model_proc_file.html"><span class="doc">model-proc documentation</span></a>
 before going through this tutorial.</p>
 <section id="content">
-<h2>Content<a class="headerlink" href="#content" title="Permalink to this heading">#</a></h2>
+<h2>Content<a class="headerlink" href="#content" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="#theory">Theory</a></p>
 <ul>
@@ -959,9 +979,9 @@ post-processing</span></a></p></li>
 </ul>
 </section>
 <section id="theory">
-<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this heading">#</a></h2>
+<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">#</a></h2>
 <section id="when-do-you-need-to-specify-model-proc-file">
-<span id="id1"></span><h3>When do you need to specify model-proc file?<a class="headerlink" href="#when-do-you-need-to-specify-model-proc-file" title="Permalink to this heading">#</a></h3>
+<span id="id1"></span><h3>When do you need to specify model-proc file?<a class="headerlink" href="#when-do-you-need-to-specify-model-proc-file" title="Permalink to this headline">#</a></h3>
 <p>To answer this question, you need to answer the following:</p>
 <ol class="arabic simple">
 <li><p>Does the model have one input layer?</p></li>
@@ -981,9 +1001,9 @@ field <em>“output_postproc”</em>. How to do this is described in the section
 </section>
 </section>
 <section id="how-to-define-pre-processing">
-<span id="id2"></span><h2>How to define pre-processing<a class="headerlink" href="#how-to-define-pre-processing" title="Permalink to this heading">#</a></h2>
+<span id="id2"></span><h2>How to define pre-processing<a class="headerlink" href="#how-to-define-pre-processing" title="Permalink to this headline">#</a></h2>
 <section id="model-has-several-input-layers">
-<h3>Model has several input layers<a class="headerlink" href="#model-has-several-input-layers" title="Permalink to this heading">#</a></h3>
+<h3>Model has several input layers<a class="headerlink" href="#model-has-several-input-layers" title="Permalink to this headline">#</a></h3>
 <p>The general case when the model has 2 or more input layers is <strong>not
 supported</strong> by Pipeline Framework, however, there is an <strong>exception</strong>:</p>
 <ol class="arabic">
@@ -1011,18 +1031,18 @@ supported</strong> by Pipeline Framework, however, there is an <strong>exception
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_faster_rcnn_resnet50_coco.html#converted_model">Faster-RCNN</a></p></td>
-<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/faster-rcnn-coco.json">faster-rcnn-coco.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-image-info.json">preproc-image-info.json</a></p></td>
 <td><p>image_info</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_license_plate_recognition_barrier_0001.html">license-plate-recognition-barrier-0001</a></p></td>
-<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/license-plate-recognition-barrier-0001.json">license-plate-recognition-barrier-0001.json</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_license_plate_recognition_barrier_0007.html">license-plate-recognition-barrier-0007</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/license-plate-recognition-barrier-0007.json">license-plate-recognition-barrier-0007.json</a></p></td>
 <td><p>sequence_index</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="model-requires-more-advance-image-pre-processing-algorithm-then-resize-without-aspect-ratio-preservation">
-<h3>Model requires more advance image pre-processing algorithm then resize without aspect-ratio preservation<a class="headerlink" href="#model-requires-more-advance-image-pre-processing-algorithm-then-resize-without-aspect-ratio-preservation" title="Permalink to this heading">#</a></h3>
+<h3>Model requires more advance image pre-processing algorithm then resize without aspect-ratio preservation<a class="headerlink" href="#model-requires-more-advance-image-pre-processing-algorithm-then-resize-without-aspect-ratio-preservation" title="Permalink to this headline">#</a></h3>
 <p>In the simplest case, one resize is enough for the model inference to be successful.
 However, if the goal is to get the highest possible accuracy, this may not be enough.</p>
 <p><em>OpenCV pre-process-backend</em> supports follow operations:</p>
@@ -1041,11 +1061,11 @@ However, if the goal is to get the highest possible accuracy, this may not be en
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/models/master/vision/classification/mobilenet">MobileNet</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/models/tree/main/vision/classification/mobilenet">MobileNet</a></p></td>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/onnx/mobilenetv2-7.json">mobilenetv2-7.json</a></p></td>
 <td><p>normalization</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/onnx/models/master/vision/classification/mobilenet">single-human-pose-estimation-0001</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_single_human_pose_estimation_0001.html">single-human-pose-estimation-0001</a></p></td>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/single-human-pose-estimation-0001.json">single-human-pose-estimation-0001.json</a></p></td>
 <td><p>padding</p></td>
 </tr>
@@ -1055,9 +1075,9 @@ However, if the goal is to get the highest possible accuracy, this may not be en
 </section>
 </section>
 <section id="how-to-define-post-processing">
-<span id="id3"></span><h2>How to define post-processing<a class="headerlink" href="#how-to-define-post-processing" title="Permalink to this heading">#</a></h2>
+<span id="id3"></span><h2>How to define post-processing<a class="headerlink" href="#how-to-define-post-processing" title="Permalink to this headline">#</a></h2>
 <section id="model-has-several-output-layers">
-<h3>Model has several output layers<a class="headerlink" href="#model-has-several-output-layers" title="Permalink to this heading">#</a></h3>
+<h3>Model has several output layers<a class="headerlink" href="#model-has-several-output-layers" title="Permalink to this headline">#</a></h3>
 <p>If the model has several output layers, each of them should have a
 converter in <em>“output_postproc”</em> for separate processing. Example:</p>
 <table class="table">
@@ -1093,7 +1113,7 @@ the case when the converter expects the same number of outputs as the model has.
 </div>
 </section>
 <section id="output-blob-s-shape-is-not-appropriate-for-default-converter">
-<h3>Output blob’s shape is not appropriate for default converter<a class="headerlink" href="#output-blob-s-shape-is-not-appropriate-for-default-converter" title="Permalink to this heading">#</a></h3>
+<h3>Output blob’s shape is not appropriate for default converter<a class="headerlink" href="#output-blob-s-shape-is-not-appropriate-for-default-converter" title="Permalink to this headline">#</a></h3>
 <p>In this case in <em>“output_postproc”</em> it’s necessary to list the
 description of converters for each of the output layer (or list of
 layers) that requires processing, with an explicit indication of the
@@ -1106,7 +1126,7 @@ For more information, see <a class="reference internal" href="custom_processing.
 </div>
 </section>
 <section id="need-to-have-labels-information">
-<h3>Need to have <em>labels</em> information<a class="headerlink" href="#need-to-have-labels-information" title="Permalink to this heading">#</a></h3>
+<h3>Need to have <em>labels</em> information<a class="headerlink" href="#need-to-have-labels-information" title="Permalink to this headline">#</a></h3>
 <p>The information about labels can be provided in two ways:</p>
 <ul class="simple">
 <li><p>via <em>labels</em> property of inference elements</p></li>
@@ -1131,7 +1151,7 @@ and specify <em>“labels”</em> field as a list or a path to labels file.</p>
 <tbody>
 <tr class="row-even"><td><p>ImageNet</p></td>
 <td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_resnet_18_pytorch.html">resnet-18-pytorch</a></p></td>
-<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/resnet-18-pytorch.json">resnet-18-pytorch.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>COCO</p></td>
 <td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v2_tf.html">YOLOv2</a></p></td>
@@ -1146,22 +1166,22 @@ and specify <em>“labels”</em> field as a list or a path to labels file.</p>
 </section>
 </section>
 <section id="practice">
-<h2>Practice<a class="headerlink" href="#practice" title="Permalink to this heading">#</a></h2>
+<h2>Practice<a class="headerlink" href="#practice" title="Permalink to this headline">#</a></h2>
 <section id="build-model-proc-for-classification-model-with-advance-pre-processing">
-<span id="id4"></span><h3>Build model-proc for classification model with advance pre-processing<a class="headerlink" href="#build-model-proc-for-classification-model-with-advance-pre-processing" title="Permalink to this heading">#</a></h3>
+<span id="id4"></span><h3>Build model-proc for classification model with advance pre-processing<a class="headerlink" href="#build-model-proc-for-classification-model-with-advance-pre-processing" title="Permalink to this headline">#</a></h3>
 <p>In this section, we will learn how to build a model-proc file for a
 model <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/squeezenet1.1#squeezenet11">SqueezeNet v1.1</a>.
 Let’s start with an empty template:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// squeezenet1.1.json</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;json_schema_version&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2.2.0&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;output_postproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// squeezenet1.1.json</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;json_schema_version&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2.2.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="s2">&quot;output_postproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <section id="defining-input-preproc">
-<h4>Defining “input_preproc”<a class="headerlink" href="#defining-input-preproc" title="Permalink to this heading">#</a></h4>
+<h4>Defining “input_preproc”<a class="headerlink" href="#defining-input-preproc" title="Permalink to this headline">#</a></h4>
 <p>This model is trained on the ImageNet dataset.
 The standard pre-processing when training models on this
 dataset is <em>resize with aspect-ratio</em> preservation.
@@ -1185,13 +1205,13 @@ of the model. There is our file
 <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/public/squeezenet1.1/accuracy-check.yml">squeezenet1.1/accuracy-check.yml</a>.
 It shows that the converted model (<em>- framework: sdk</em>) requires only
 resize and crop.</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;image&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// &lt;input value=&quot;data&quot;/&gt; field in the end of .xml (&lt;meta_data&gt; section)</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;params&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;resize&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;aspect-ratio&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">]</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;image&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// &lt;input value=&quot;data&quot;/&gt; field in the end of .xml (&lt;meta_data&gt; section)</span>
+<span class="w">    </span><span class="s2">&quot;params&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;resize&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;aspect-ratio&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 <p>So, <em>“input_preproc”</em> is defined.</p>
@@ -1199,18 +1219,18 @@ resize and crop.</p>
 <p class="admonition-title">Note</p>
 <p>For ONNX model <em>“input_preproc”</em> most likely would be the following:</p>
 </div>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;image&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;precision&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;FP32&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// because onnx model usually requires pixels in [0, 1] range</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;params&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;color_space&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;resize&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;aspect-ratio&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;range&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">],</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;mean&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.485</span><span class="p">,</span><span class="w"> </span><span class="mf">0.456</span><span class="p">,</span><span class="w"> </span><span class="mf">0.406</span><span class="p">],</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;std&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.229</span><span class="p">,</span><span class="w"> </span><span class="mf">0.224</span><span class="p">,</span><span class="w"> </span><span class="mf">0.225</span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">]</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;image&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;precision&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;FP32&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// because onnx model usually requires pixels in [0, 1] range</span>
+<span class="w">    </span><span class="s2">&quot;params&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;color_space&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;resize&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;aspect-ratio&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;range&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">],</span>
+<span class="w">        </span><span class="s2">&quot;mean&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.485</span><span class="p">,</span><span class="w"> </span><span class="mf">0.456</span><span class="p">,</span><span class="w"> </span><span class="mf">0.406</span><span class="p">],</span>
+<span class="w">        </span><span class="s2">&quot;std&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.229</span><span class="p">,</span><span class="w"> </span><span class="mf">0.224</span><span class="p">,</span><span class="w"> </span><span class="mf">0.225</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1223,7 +1243,7 @@ However, this may affect the accuracy of the model inference.</p>
 </div>
 </section>
 <section id="defining-output-postproc">
-<h4>Defining “output_postproc”<a class="headerlink" href="#defining-output-postproc" title="Permalink to this heading">#</a></h4>
+<h4>Defining “output_postproc”<a class="headerlink" href="#defining-output-postproc" title="Permalink to this headline">#</a></h4>
 <p>This model has a single output layer (<em>&lt;output value=”[‘prob’]”/&gt;</em>
 field in the end of .xml ( section)), so field <em>“layer_name”: “prob”</em>
 is optional. For this model <em>label</em> with <em>max</em> method is suitable
@@ -1238,83 +1258,83 @@ field to the model-proc file.</p>
 <p class="admonition-title">Note</p>
 <p>Because of ImageNet’s model contains 1000 labels, part of them are omitted</p>
 </div>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;output_postproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;prob&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// (optional)</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;label&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;method&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;tench, Tinca tinca&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;goldfish, Carassius auratus&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;tiger shark, Galeocerdo cuvieri&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;hammerhead, hammerhead shark&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="p">...,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;earthstar&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;hen-of-the-woods, hen of the woods, Polyporus frondosus, Grifola frondosa&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;bolete&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;ear, spike, capitulum&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;toilet tissue, toilet paper, bathroom tissue&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">]</span><span class="w"></span>
-<span class="p">]</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;output_postproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;prob&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// (optional)</span>
+<span class="w">    </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;label&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;method&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;tench, Tinca tinca&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;goldfish, Carassius auratus&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;tiger shark, Galeocerdo cuvieri&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;hammerhead, hammerhead shark&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="p">...,</span>
+<span class="w">        </span><span class="s2">&quot;earthstar&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;hen-of-the-woods, hen of the woods, Polyporus frondosus, Grifola frondosa&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;bolete&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;ear, spike, capitulum&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;toilet tissue, toilet paper, bathroom tissue&quot;</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </section>
 <section id="result">
-<h4>Result<a class="headerlink" href="#result" title="Permalink to this heading">#</a></h4>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// squeezenet1.1.json</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;json_schema_version&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2.2.0&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;image&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;params&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;resize&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;aspect-ratio&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;output_postproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;label&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;method&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;tench, Tinca tinca&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;goldfish, Carassius auratus&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;tiger shark, Galeocerdo cuvieri&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;hammerhead, hammerhead shark&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="p">...,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;earthstar&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;hen-of-the-woods, hen of the woods, Polyporus frondosus, Grifola frondosa&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;bolete&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;ear, spike, capitulum&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;toilet tissue, toilet paper, bathroom tissue&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">]</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<h4>Result<a class="headerlink" href="#result" title="Permalink to this headline">#</a></h4>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// squeezenet1.1.json</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;json_schema_version&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2.2.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;image&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;params&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;resize&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;aspect-ratio&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="s2">&quot;output_postproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;label&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;method&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;tench, Tinca tinca&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;goldfish, Carassius auratus&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;tiger shark, Galeocerdo cuvieri&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;hammerhead, hammerhead shark&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="p">...,</span>
+<span class="w">            </span><span class="s2">&quot;earthstar&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;hen-of-the-woods, hen of the woods, Polyporus frondosus, Grifola frondosa&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;bolete&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;ear, spike, capitulum&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;toilet tissue, toilet paper, bathroom tissue&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="build-model-proc-for-detection-model-with-advance-post-processing">
-<span id="id5"></span><h3>Build model-proc for detection model with advance post-processing<a class="headerlink" href="#build-model-proc-for-detection-model-with-advance-post-processing" title="Permalink to this heading">#</a></h3>
+<span id="id5"></span><h3>Build model-proc for detection model with advance post-processing<a class="headerlink" href="#build-model-proc-for-detection-model-with-advance-post-processing" title="Permalink to this headline">#</a></h3>
 <p>In this section, we will learn how to build a model-proc file for a model
 <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/yolo-v4-tiny-tf#yolo-v4-tiny-tf">YOLO v4 Tiny</a>.
 Let’s start with an empty template:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// squeezenet1.1.json</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;json_schema_version&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2.2.0&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;output_postproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// squeezenet1.1.json</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;json_schema_version&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2.2.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="s2">&quot;output_postproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <section id="how-to-model-proc-ex2-input-preproc">
-<span id="id6"></span><h4>Defining “input_preproc”<a class="headerlink" href="#how-to-model-proc-ex2-input-preproc" title="Permalink to this heading">#</a></h4>
+<span id="id6"></span><h4>Defining “input_preproc”<a class="headerlink" href="#how-to-model-proc-ex2-input-preproc" title="Permalink to this headline">#</a></h4>
 <p>The selected model has one input layer and it does not require a special pre-processing algorithm -
 resize without aspect-ratio preservation is enough. Therefore, we can leave
 this field empty: <em>“input_preproc”: []</em>. However, you are free to
 experiment and configure pre-processing as you wish.</p>
 </section>
 <section id="how-to-model-proc-ex2-output-postproc">
-<span id="id7"></span><h4>Defining “output_postproc”<a class="headerlink" href="#how-to-model-proc-ex2-output-postproc" title="Permalink to this heading">#</a></h4>
+<span id="id7"></span><h4>Defining “output_postproc”<a class="headerlink" href="#how-to-model-proc-ex2-output-postproc" title="Permalink to this headline">#</a></h4>
 <p>To begin with, we will determine which layers are the output ones.
 Let’s turn to the description of
 <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/yolo-v4-tiny-tf#converted-model-1">Output of converted
@@ -1398,32 +1418,32 @@ result in your task.</p>
 <p>Thus, we have defined all the fields necessary for the <em>yolo_v3</em> converter.</p>
 </section>
 <section id="how-to-model-proc-ex2-result">
-<span id="id8"></span><h4>Result<a class="headerlink" href="#how-to-model-proc-ex2-result" title="Permalink to this heading">#</a></h4>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// yolo-v4-tiny-tf.json</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;json_schema_version&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2.2.0&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;output_postproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;layer_names&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;conv2d_20/BiasAdd/Add&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;conv2d_17/BiasAdd/Add&quot;</span><span class="p">],</span><span class="w"> </span><span class="c1">// optional</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;yolo_v3&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;anchors&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">23.0</span><span class="p">,</span><span class="w"> </span><span class="mf">27.0</span><span class="p">,</span><span class="w"> </span><span class="mf">37.0</span><span class="p">,</span><span class="w"> </span><span class="mf">58.0</span><span class="p">,</span><span class="w"> </span><span class="mf">81.0</span><span class="p">,</span><span class="w"> </span><span class="mf">82.0</span><span class="p">,</span><span class="w"> </span><span class="mf">135.0</span><span class="p">,</span><span class="w"> </span><span class="mf">169.0</span><span class="p">,</span><span class="w"> </span><span class="mf">344.0</span><span class="p">,</span><span class="w"> </span><span class="mf">319.0</span><span class="p">],</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;masks&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">],</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;bbox_number_on_cell&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;cells_number&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">13</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;do_cls_softmax&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;output_sigmoid_activation&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;iou_threshold&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;classes&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">80</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;person&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;bicycle&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;car&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;motorbike&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;aeroplane&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;bus&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="p">...,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;teddy bear&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;hair drier&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;toothbrush&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">]</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">]</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span id="id8"></span><h4>Result<a class="headerlink" href="#how-to-model-proc-ex2-result" title="Permalink to this headline">#</a></h4>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// yolo-v4-tiny-tf.json</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;json_schema_version&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2.2.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="s2">&quot;output_postproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;layer_names&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;conv2d_20/BiasAdd/Add&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;conv2d_17/BiasAdd/Add&quot;</span><span class="p">],</span><span class="w"> </span><span class="c1">// optional</span>
+<span class="w">            </span><span class="s2">&quot;converter&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;yolo_v3&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;anchors&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">23.0</span><span class="p">,</span><span class="w"> </span><span class="mf">27.0</span><span class="p">,</span><span class="w"> </span><span class="mf">37.0</span><span class="p">,</span><span class="w"> </span><span class="mf">58.0</span><span class="p">,</span><span class="w"> </span><span class="mf">81.0</span><span class="p">,</span><span class="w"> </span><span class="mf">82.0</span><span class="p">,</span><span class="w"> </span><span class="mf">135.0</span><span class="p">,</span><span class="w"> </span><span class="mf">169.0</span><span class="p">,</span><span class="w"> </span><span class="mf">344.0</span><span class="p">,</span><span class="w"> </span><span class="mf">319.0</span><span class="p">],</span>
+<span class="w">            </span><span class="s2">&quot;masks&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">],</span>
+<span class="w">            </span><span class="s2">&quot;bbox_number_on_cell&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;cells_number&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">13</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;do_cls_softmax&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;output_sigmoid_activation&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;iou_threshold&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;classes&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">80</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;labels&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;person&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;bicycle&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;car&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;motorbike&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;aeroplane&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;bus&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="p">...,</span>
+<span class="w">                </span><span class="s2">&quot;teddy bear&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;hair drier&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;toothbrush&quot;</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
