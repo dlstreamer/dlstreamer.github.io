@@ -1,0 +1,604 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Latency Tracer &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/doxyrest-pygments.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/target-highlight.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'dev_guide/latency_tracer';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Elements" href="../elements/elements.html" />
+    <link rel="prev" title="Coding Style" href="coding_style.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../get_started/get_started_index.html">Get Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../get_started/hardware_requirements.html">Hardware Requirements</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../get_started/install/install_guide_index.html">Install Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../get_started/install/install_guide_ubuntu.html">Install Guide Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">Uninstall Guide Ubuntu</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../get_started/tutorial.html">Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_started/flex_series/quick_start_guide.html">Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">Samples</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="dev_guide_index.html">Developer Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Metadata</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="model_preparation.html">Model Preparation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="yolov5_model_preparation.html">Yolov5 Model Preparation Example</a></li>
+
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="model_proc_file.html">Model-proc File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_create_model_proc_file.html">How to Create Model-proc File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_bindings.html">Python Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_processing.html">Custom Processing</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="object_tracking.html">Object Tracking</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="deepsort_implementation.html">DeepSORT tracking support</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gpu_device_selection.html">GPU device selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiling.html">Profiling with Intel VTune™</a></li>
+<li class="toctree-l2"><a class="reference internal" href="converting_deepstream_to_dlstreamer.html">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="how_to_contribute.html">How to Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="coding_style.html">Coding Style</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Latency Tracer</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../elements/elements.html">Elements</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvadetect.html">gvadetect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvaclassify.html">gvaclassify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvainference.html">gvainference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvaaudiodetect.html">gvaaudiodetect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvatrack.html">gvatrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvametaconvert.html">gvametaconvert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvametapublish.html">gvametapublish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvametaaggregate.html">gvametaaggregate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvapython.html">gvapython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvawatermark.html">gvawatermark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvafpscounter.html">gvafpscounter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/python_object_association.html">python_object_association</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../supported_models.html">Supported Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_ref/api_reference.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api_ref/page_index.html">Intel® Deep Learning Streamer (Intel® DL Streamer) API reference</a></li>
+
+
+
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api_ref/global.html">Global Namespace</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/namespace_gstgva.html">namespace gstgva</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api_ref/namespace_gstgva_region_of_interest.html">namespace gstgva::region_of_interest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_ref/namespace_gstgva_tensor.html">namespace gstgva::tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_ref/namespace_gstgva_video_frame.html">namespace gstgva::video_frame</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api_ref/enum_GVALayout.html">enum GVALayout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api_ref/enum_GVAPrecision.html">enum GVAPrecision</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../architecture_2.0/architecture_2.0.html">Architecture 2.0 [Preview]</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/migration_guide.html">Migration to 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/cpp_interfaces.html">① Memory Interop and C++ abstract interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/cpp_elements.html">② C++ elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/gstreamer_elements.html">③ GStreamer Elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/gstreamer_bins.html">③ GStreamer Bin Elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/python_bindings.html">③ Python Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/pytorch_inference.html">PyTorch tensor inference [Preview]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/elements_list.html">Elements 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/packaging.html">Packaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/samples_2.0.html">Samples 2.0</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../architecture_2.0/api_ref/index.html">API 2.0 Reference</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../architecture_2.0/api_ref/global.html">Global Namespace</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/namespace_GVA.html">namespace GVA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/namespace_dlstreamer.html">namespace dlstreamer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/enum_GVALayout.html">enum GVALayout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html">enum GVAPrecision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/dev_guide/latency_tracer.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Latency Tracer</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline">Pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-output">Sample Output</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-flags">Settings Flags</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-latency-flag">Pipeline latency flag</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Sample Output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#element-latency-flag">Element latency flag</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Sample Output</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-interval">Settings interval</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-interval-example">Setting interval example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Sample Output</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="latency-tracer">
+<h1>Latency Tracer<a class="headerlink" href="#latency-tracer" title="Permalink to this heading">#</a></h1>
+<p>In this tutorial you will learn how to use latency_tracer to find element and pipeline frame latency. The time displayed in the logs has precision in the order of milliseconds.
+- element latency: Time that a buffer takes to travel from source pad of the previous element to source pad of the current element.
+- pipeline latency: Time that a buffer takes to travel from source pad of the source element to source pad of the element before sink element. This also provides latency and fps of full pipeline.</p>
+<section id="pipeline">
+<h2>Pipeline<a class="headerlink" href="#pipeline" title="Permalink to this heading">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">GST_DEBUG</span><span class="o">=</span><span class="s2">&quot;GST_TRACER:7&quot;</span><span class="w"> </span><span class="nv">GST_TRACERS</span><span class="o">=</span><span class="s2">&quot;latency_tracer&quot;</span><span class="w"> </span>gst-launch-1.0<span class="w"> </span>videotestsrc<span class="w"> </span>num-buffers<span class="o">=</span><span class="m">500</span><span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w">  </span>!<span class="w"> </span>avenc_h263p<span class="w"> </span>!<span class="w"> </span>fakesink
+</pre></div>
+</div>
+</section>
+<section id="sample-output">
+<h2>Sample Output<a class="headerlink" href="#sample-output" title="Permalink to this heading">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="m">0</span>:00:03.014774818<span class="w"> </span><span class="m">79459</span><span class="w"> </span>0x55736c57a060<span class="w"> </span>TRACE<span class="w">             </span>GST_TRACER<span class="w"> </span>:0::<span class="w"> </span>latency_tracer_element_interval,<span class="w"> </span><span class="nv">name</span><span class="o">=(</span>string<span class="o">)</span>avenc_h263p0,<span class="w"> </span><span class="nv">interval</span><span class="o">=(</span>double<span class="o">)</span><span class="m">1000</span>.015783,<span class="w"> </span><span class="nv">avg</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.259879,<span class="w"> </span><span class="nv">min</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.206307,<span class="w"> </span><span class="nv">max</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.587317<span class="p">;</span>
+<span class="m">0</span>:00:03.014782371<span class="w"> </span><span class="m">79459</span><span class="w"> </span>0x55736c57a060<span class="w"> </span>TRACE<span class="w">             </span>GST_TRACER<span class="w"> </span>:0::<span class="w"> </span>latency_tracer_pipeline,<span class="w"> </span><span class="nv">frame_latency</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.240226,<span class="w"> </span><span class="nv">avg</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.255766,<span class="w"> </span><span class="nv">min</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.205778,<span class="w"> </span><span class="nv">max</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.588363,<span class="w"> </span><span class="nv">latency</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.340871,<span class="w"> </span><span class="nv">fps</span><span class="o">=(</span>double<span class="o">)</span><span class="m">2933</span>.657880,<span class="w"> </span><span class="nv">frame_num</span><span class="o">=(</span>uint<span class="o">)</span><span class="m">8801</span><span class="p">;</span>
+<span class="m">0</span>:00:03.014861287<span class="w"> </span><span class="m">79459</span><span class="w"> </span>0x55736c57a060<span class="w"> </span>TRACE<span class="w">             </span>GST_TRACER<span class="w"> </span>:0::<span class="w"> </span>latency_tracer_element,<span class="w"> </span><span class="nv">name</span><span class="o">=(</span>string<span class="o">)</span>videoconvert0,<span class="w"> </span><span class="nv">frame_latency</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.000578,<span class="w"> </span><span class="nv">avg</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.000571,<span class="w"> </span><span class="nv">min</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.000423,<span class="w"> </span><span class="nv">max</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.009837,<span class="w"> </span><span class="nv">frame_num</span><span class="o">=(</span>uint<span class="o">)</span><span class="m">8802</span>,<span class="w"> </span><span class="nv">is_bin</span><span class="o">=(</span>boolean<span class="o">)</span><span class="m">0</span><span class="p">;</span>
+<span class="m">0</span>:00:03.014865552<span class="w"> </span><span class="m">79459</span><span class="w"> </span>0x55736c57a060<span class="w"> </span>TRACE<span class="w">             </span>GST_TRACER<span class="w"> </span>:0::<span class="w"> </span>latency_tracer_element_interval,<span class="w"> </span><span class="nv">name</span><span class="o">=(</span>string<span class="o">)</span>videoconvert0,<span class="w"> </span><span class="nv">interval</span><span class="o">=(</span>double<span class="o">)</span><span class="m">1000</span>.019802,<span class="w"> </span><span class="nv">avg</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.000578,<span class="w"> </span><span class="nv">min</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.000423,<span class="w"> </span><span class="nv">max</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.006638<span class="p">;</span>
+<span class="m">0</span>:00:03.015110029<span class="w"> </span><span class="m">79459</span><span class="w"> </span>0x55736c57a060<span class="w"> </span>TRACE<span class="w">             </span>GST_TRACER<span class="w"> </span>:0::<span class="w"> </span>latency_tracer_element,<span class="w"> </span><span class="nv">name</span><span class="o">=(</span>string<span class="o">)</span>avenc_h263p0,<span class="w"> </span><span class="nv">frame_latency</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.248802,<span class="w"> </span><span class="nv">avg</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.255194,<span class="w"> </span><span class="nv">min</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.205306,<span class="w"> </span><span class="nv">max</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.587317,<span class="w"> </span><span class="nv">frame_num</span><span class="o">=(</span>uint<span class="o">)</span><span class="m">8802</span>,<span class="w"> </span><span class="nv">is_bin</span><span class="o">=(</span>boolean<span class="o">)</span><span class="m">0</span><span class="p">;</span>
+<span class="m">0</span>:00:03.015115274<span class="w"> </span><span class="m">79459</span><span class="w"> </span>0x55736c57a060<span class="w"> </span>TRACE<span class="w">             </span>GST_TRACER<span class="w"> </span>:0::<span class="w"> </span>latency_tracer_pipeline,<span class="w"> </span><span class="nv">frame_latency</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.249380,<span class="w"> </span><span class="nv">avg</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.255765,<span class="w"> </span><span class="nv">min</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.205778,<span class="w"> </span><span class="nv">max</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.588363,<span class="w"> </span><span class="nv">latency</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.340871,<span class="w"> </span><span class="nv">fps</span><span class="o">=(</span>double<span class="o">)</span><span class="m">2933</span>.658362,<span class="w"> </span><span class="nv">frame_num</span><span class="o">=(</span>uint<span class="o">)</span><span class="m">8802</span><span class="p">;</span>
+<span class="m">0</span>:00:03.015119796<span class="w"> </span><span class="m">79459</span><span class="w"> </span>0x55736c57a060<span class="w"> </span>TRACE<span class="w">             </span>GST_TRACER<span class="w"> </span>:0::<span class="w"> </span>latency_tracer_pipeline_interval,<span class="w"> </span><span class="nv">interval</span><span class="o">=(</span>double<span class="o">)</span><span class="m">1000</span>.020829,<span class="w"> </span><span class="nv">avg</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.260457,<span class="w"> </span><span class="nv">min</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.206755,<span class="w"> </span><span class="nv">max</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.588363,<span class="w"> </span><span class="nv">latency</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.347350,<span class="w"> </span><span class="nv">fps</span><span class="o">=(</span>double<span class="o">)</span><span class="m">2878</span>.940035<span class="p">;</span>
+</pre></div>
+</div>
+<p>By default latency_tracer calculates latency for both pipeline and elements, you have option to select only pipeline or elements latency using flags.</p>
+<section id="settings-flags">
+<h3>Settings Flags<a class="headerlink" href="#settings-flags" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="pipeline-latency-flag">
+<h2>Pipeline latency flag<a class="headerlink" href="#pipeline-latency-flag" title="Permalink to this heading">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">GST_DEBUG</span><span class="o">=</span><span class="s2">&quot;GST_TRACER:7&quot;</span><span class="w"> </span><span class="nv">GST_TRACERS</span><span class="o">=</span><span class="s2">&quot;latency_tracer(flags=pipeline)&quot;</span><span class="w"> </span>gst-launch-1.0<span class="w"> </span>videotestsrc<span class="w"> </span>num-buffers<span class="o">=</span><span class="m">500</span><span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w">  </span>!<span class="w"> </span>avenc_h263p<span class="w"> </span>!<span class="w"> </span>fakesink
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h2>Sample Output<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="m">0</span>:00:03.015115274<span class="w"> </span><span class="m">79459</span><span class="w"> </span>0x55736c57a060<span class="w"> </span>TRACE<span class="w">             </span>GST_TRACER<span class="w"> </span>:0::<span class="w"> </span>latency_tracer_pipeline,<span class="w"> </span><span class="nv">frame_latency</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.249380,<span class="w"> </span><span class="nv">avg</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.255765,<span class="w"> </span><span class="nv">min</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.205778,<span class="w"> </span><span class="nv">max</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.588363,<span class="w"> </span><span class="nv">latency</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.340871,<span class="w"> </span><span class="nv">fps</span><span class="o">=(</span>double<span class="o">)</span><span class="m">2933</span>.658362,<span class="w"> </span><span class="nv">frame_num</span><span class="o">=(</span>uint<span class="o">)</span><span class="m">8802</span><span class="p">;</span>
+<span class="m">0</span>:00:03.015119796<span class="w"> </span><span class="m">79459</span><span class="w"> </span>0x55736c57a060<span class="w"> </span>TRACE<span class="w">             </span>GST_TRACER<span class="w"> </span>:0::<span class="w"> </span>latency_tracer_pipeline_interval,<span class="w"> </span><span class="nv">interval</span><span class="o">=(</span>double<span class="o">)</span><span class="m">1000</span>.020829,<span class="w"> </span><span class="nv">avg</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.260457,<span class="w"> </span><span class="nv">min</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.206755,<span class="w"> </span><span class="nv">max</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.588363,<span class="w"> </span><span class="nv">latency</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.347350,<span class="w"> </span><span class="nv">fps</span><span class="o">=(</span>double<span class="o">)</span><span class="m">2878</span>.940035<span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="element-latency-flag">
+<h2>Element latency flag<a class="headerlink" href="#element-latency-flag" title="Permalink to this heading">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">GST_DEBUG</span><span class="o">=</span><span class="s2">&quot;GST_TRACER:7&quot;</span><span class="w"> </span><span class="nv">GST_TRACERS</span><span class="o">=</span><span class="s2">&quot;latency_tracer(flags=element)&quot;</span><span class="w"> </span>gst-launch-1.0<span class="w"> </span>videotestsrc<span class="w"> </span>num-buffers<span class="o">=</span><span class="m">500</span><span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w">  </span>!<span class="w"> </span>avenc_h263p<span class="w"> </span>!<span class="w"> </span>fakesink
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2>Sample Output<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="m">0</span>:00:03.014774818<span class="w"> </span><span class="m">79459</span><span class="w"> </span>0x55736c57a060<span class="w"> </span>TRACE<span class="w">             </span>GST_TRACER<span class="w"> </span>:0::<span class="w"> </span>latency_tracer_element_interval,<span class="w"> </span><span class="nv">name</span><span class="o">=(</span>string<span class="o">)</span>avenc_h263p0,<span class="w"> </span><span class="nv">interval</span><span class="o">=(</span>double<span class="o">)</span><span class="m">1000</span>.015783,<span class="w"> </span><span class="nv">avg</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.259879,<span class="w"> </span><span class="nv">min</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.206307,<span class="w"> </span><span class="nv">max</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.587317<span class="p">;</span>
+<span class="m">0</span>:00:03.014861287<span class="w"> </span><span class="m">79459</span><span class="w"> </span>0x55736c57a060<span class="w"> </span>TRACE<span class="w">             </span>GST_TRACER<span class="w"> </span>:0::<span class="w"> </span>latency_tracer_element,<span class="w"> </span><span class="nv">name</span><span class="o">=(</span>string<span class="o">)</span>videoconvert0,<span class="w"> </span><span class="nv">frame_latency</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.000578,<span class="w"> </span><span class="nv">avg</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.000571,<span class="w"> </span><span class="nv">min</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.000423,<span class="w"> </span><span class="nv">max</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.009837,<span class="w"> </span><span class="nv">frame_num</span><span class="o">=(</span>uint<span class="o">)</span><span class="m">8802</span>,<span class="w"> </span><span class="nv">is_bin</span><span class="o">=(</span>boolean<span class="o">)</span><span class="m">0</span><span class="p">;</span>
+<span class="m">0</span>:00:03.014865552<span class="w"> </span><span class="m">79459</span><span class="w"> </span>0x55736c57a060<span class="w"> </span>TRACE<span class="w">             </span>GST_TRACER<span class="w"> </span>:0::<span class="w"> </span>latency_tracer_element_interval,<span class="w"> </span><span class="nv">name</span><span class="o">=(</span>string<span class="o">)</span>videoconvert0,<span class="w"> </span><span class="nv">interval</span><span class="o">=(</span>double<span class="o">)</span><span class="m">1000</span>.019802,<span class="w"> </span><span class="nv">avg</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.000578,<span class="w"> </span><span class="nv">min</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.000423,<span class="w"> </span><span class="nv">max</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.006638<span class="p">;</span>
+<span class="m">0</span>:00:03.015110029<span class="w"> </span><span class="m">79459</span><span class="w"> </span>0x55736c57a060<span class="w"> </span>TRACE<span class="w">             </span>GST_TRACER<span class="w"> </span>:0::<span class="w"> </span>latency_tracer_element,<span class="w"> </span><span class="nv">name</span><span class="o">=(</span>string<span class="o">)</span>avenc_h263p0,<span class="w"> </span><span class="nv">frame_latency</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.248802,<span class="w"> </span><span class="nv">avg</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.255194,<span class="w"> </span><span class="nv">min</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.205306,<span class="w"> </span><span class="nv">max</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.587317,<span class="w"> </span><span class="nv">frame_num</span><span class="o">=(</span>uint<span class="o">)</span><span class="m">8802</span>,<span class="w"> </span><span class="nv">is_bin</span><span class="o">=(</span>boolean<span class="o">)</span><span class="m">0</span><span class="p">;</span>
+</pre></div>
+</div>
+<section id="settings-interval">
+<h3>Settings interval<a class="headerlink" href="#settings-interval" title="Permalink to this heading">#</a></h3>
+<p>Interval value can be set, the value must be set in milliseconds, default=1000</p>
+</section>
+</section>
+<section id="setting-interval-example">
+<h2>Setting interval example<a class="headerlink" href="#setting-interval-example" title="Permalink to this heading">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">GST_DEBUG</span><span class="o">=</span><span class="s2">&quot;GST_TRACER:7&quot;</span><span class="w"> </span><span class="nv">GST_TRACERS</span><span class="o">=</span><span class="s2">&quot;latency_tracer(flags=pipeline,interval=100)&quot;</span><span class="w"> </span>gst-launch-1.0<span class="w"> </span>videotestsrc<span class="w"> </span>num-buffers<span class="o">=</span><span class="m">500</span><span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w">  </span>!<span class="w"> </span>avenc_h263p<span class="w"> </span>!<span class="w"> </span>fakesink
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>Sample Output<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="m">0</span>:00:00.116094526<span class="w"> </span><span class="m">79468</span><span class="w"> </span>0x556002934460<span class="w"> </span>TRACE<span class="w">             </span>GST_TRACER<span class="w"> </span>:0::<span class="w"> </span>latency_tracer_pipeline_interval,<span class="w"> </span><span class="nv">interval</span><span class="o">=(</span>double<span class="o">)</span><span class="m">100</span>.219905,<span class="w"> </span><span class="nv">avg</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.256772,<span class="w"> </span><span class="nv">min</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.236046,<span class="w"> </span><span class="nv">max</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.386057,<span class="w"> </span><span class="nv">latency</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.345586,<span class="w"> </span><span class="nv">fps</span><span class="o">=(</span>double<span class="o">)</span><span class="m">2893</span>.636748<span class="p">;</span>
+<span class="m">0</span>:00:00.116443843<span class="w"> </span><span class="m">79468</span><span class="w"> </span>0x556002934460<span class="w"> </span>TRACE<span class="w">             </span>GST_TRACER<span class="w"> </span>:0::<span class="w"> </span>latency_tracer_pipeline,<span class="w"> </span><span class="nv">frame_latency</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.248532,<span class="w"> </span><span class="nv">avg</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.256743,<span class="w"> </span><span class="nv">min</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.236046,<span class="w"> </span><span class="nv">max</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.386057,<span class="w"> </span><span class="nv">latency</span><span class="o">=(</span>double<span class="o">)</span><span class="m">0</span>.345622,<span class="w"> </span><span class="nv">fps</span><span class="o">=(</span>double<span class="o">)</span><span class="m">2893</span>.338508,<span class="w"> </span><span class="nv">frame_num</span><span class="o">=(</span>uint<span class="o">)</span><span class="m">291</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="coding_style.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Coding Style</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../elements/elements.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Elements</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline">Pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-output">Sample Output</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-flags">Settings Flags</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-latency-flag">Pipeline latency flag</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Sample Output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#element-latency-flag">Element latency flag</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Sample Output</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-interval">Settings interval</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-interval-example">Setting interval example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Sample Output</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Intel Corporation
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Intel Corporation.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,2136 +1,619 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Elements 2.0 &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/doxyrest-pygments.css" />
-    
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script src="../_static/target-highlight.js"></script>
-    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'architecture_2.0/elements_list';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Packaging" href="packaging.html" />
     <link rel="prev" title="PyTorch tensor inference [Preview]" href="pytorch_inference.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-    <div class="container-fluid" id="banner"></div>
-
     
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../get_started/get_started_index.html">
-   Get Started
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../get_started/hardware_requirements.html">
-     Hardware Requirements
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../get_started/install/install_guide_index.html">
-     Install Guide
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-    <label for="toctree-checkbox-2">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../get_started/install/install_guide_ubuntu.html">
-       Install Guide Ubuntu
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">
-       Uninstall Guide Ubuntu
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../get_started/tutorial.html">
-     Tutorial
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../get_started/flex_series/quick_start_guide.html">
-     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">
-     Samples
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../dev_guide/dev_guide_index.html">
-   Developer Guide
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../dev_guide/metadata.html">
-     Metadata
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../dev_guide/model_preparation.html">
-     Model Preparation
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../dev_guide/yolov5_model_preparation.html">
-       Yolov5 Model Preparation Example
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../dev_guide/model_proc_file.html">
-     Model-proc File
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../dev_guide/how_to_create_model_proc_file.html">
-     How to Create Model-proc File
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../dev_guide/python_bindings.html">
-     Python Bindings
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../dev_guide/custom_processing.html">
-     Custom Processing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../dev_guide/object_tracking.html">
-     Object Tracking
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../dev_guide/gpu_device_selection.html">
-     GPU device selection
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../dev_guide/profiling.html">
-     Profiling with Intel VTune™
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../dev_guide/converting_deepstream_to_dlstreamer.html">
-     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../dev_guide/how_to_contribute.html">
-     How to Contribute
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-    <label for="toctree-checkbox-5">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../dev_guide/coding_style.html">
-       Coding Style
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../elements/elements.html">
-   Elements
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvadetect.html">
-     gvadetect
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvaclassify.html">
-     gvaclassify
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvainference.html">
-     gvainference
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvaaudiodetect.html">
-     gvaaudiodetect
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvatrack.html">
-     gvatrack
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvametaconvert.html">
-     gvametaconvert
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvametapublish.html">
-     gvametapublish
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvametaaggregate.html">
-     gvametaaggregate
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvapython.html">
-     gvapython
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvawatermark.html">
-     gvawatermark
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../elements/gvafpscounter.html">
-     gvafpscounter
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../supported_models.html">
-   Supported Models
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../api_ref/api_reference.html">
-   API Reference
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../api_ref/page_index.html">
-     Intel® Deep Learning Streamer (Intel® DL Streamer) API reference
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../api_ref/global.html">
-     Global Namespace
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-    <label for="toctree-checkbox-8">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../api_ref/namespace_GVA.html">
-       namespace GVA
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-      <label for="toctree-checkbox-9">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../api_ref/struct_GVA_Rect.html">
-         template struct GVA::Rect
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../api_ref/struct_GVA_Segment.html">
-         template struct GVA::Segment
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../api_ref/class_GVA_AudioEvent.html">
-         class GVA::AudioEvent
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../api_ref/class_GVA_AudioFrame.html">
-         class GVA::AudioFrame
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../api_ref/class_GVA_RegionOfInterest.html">
-         class GVA::RegionOfInterest
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../api_ref/class_GVA_Tensor.html">
-         class GVA::Tensor
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../api_ref/class_GVA_VideoFrame.html">
-         class GVA::VideoFrame
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../api_ref/namespace_gstgva.html">
-       namespace gstgva
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-      <label for="toctree-checkbox-10">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../api_ref/namespace_gstgva_region_of_interest.html">
-         namespace gstgva::region_of_interest
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../api_ref/namespace_gstgva_tensor.html">
-         namespace gstgva::tensor
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../api_ref/namespace_gstgva_video_frame.html">
-         namespace gstgva::video_frame
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../api_ref/enum_GVALayout.html">
-       enum GVALayout
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../api_ref/enum_GVAPrecision.html">
-       enum GVAPrecision
-      </a>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../api_ref/struct_GstGVAAudioEventMeta.html">
-       struct GstGVAAudioEventMeta
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-      <label for="toctree-checkbox-11">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul class="simple">
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../api_ref/struct__GstGVAJSONMeta.html">
-       struct _GstGVAJSONMeta
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-      <label for="toctree-checkbox-12">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul class="simple">
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../api_ref/struct__GstGVATensorMeta.html">
-       struct _GstGVATensorMeta
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-      <label for="toctree-checkbox-13">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul class="simple">
-      </ul>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="architecture_2.0.html">
-   Architecture 2.0 [Preview]
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-  <label for="toctree-checkbox-14">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="migration_guide.html">
-     Migration to 2.0
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="cpp_interfaces.html">
-     ① Memory Interop and C++ abstract interfaces
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="cpp_elements.html">
-     ② C++ elements
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="gstreamer_elements.html">
-     ③ GStreamer Elements
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="gstreamer_bins.html">
-     ③ GStreamer Bin Elements
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="python_bindings.html">
-     ③ Python Bindings
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="pytorch_inference.html">
-     PyTorch tensor inference [Preview]
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Elements 2.0
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="packaging.html">
-     Packaging
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="samples_2.0.html">
-     Samples 2.0
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="api_ref/index.html">
-     API 2.0 Reference
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-    <label for="toctree-checkbox-15">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="api_ref/global.html">
-       Global Namespace
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-      <label for="toctree-checkbox-16">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api_ref/namespace_dlstreamer.html">
-         namespace dlstreamer
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api_ref/enum_GVALayout.html">
-         enum GVALayout
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api_ref/enum_GVAPrecision.html">
-         enum GVAPrecision
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api_ref/struct_GstGVAAudioEventMeta.html">
-         struct GstGVAAudioEventMeta
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api_ref/struct__GstGVAJSONMeta.html">
-         struct _GstGVAJSONMeta
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api_ref/struct__GstGVATensorMeta.html">
-         struct _GstGVATensorMeta
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../get_started/get_started_index.html">Get Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../get_started/hardware_requirements.html">Hardware Requirements</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../get_started/install/install_guide_index.html">Install Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../get_started/install/install_guide_ubuntu.html">Install Guide Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">Uninstall Guide Ubuntu</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../get_started/tutorial.html">Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_started/flex_series/quick_start_guide.html">Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">Samples</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../dev_guide/dev_guide_index.html">Developer Guide</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/metadata.html">Metadata</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dev_guide/model_preparation.html">Model Preparation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dev_guide/yolov5_model_preparation.html">Yolov5 Model Preparation Example</a></li>
+
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/model_proc_file.html">Model-proc File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/how_to_create_model_proc_file.html">How to Create Model-proc File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/python_bindings.html">Python Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/custom_processing.html">Custom Processing</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dev_guide/object_tracking.html">Object Tracking</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dev_guide/deepsort_implementation.html">DeepSORT tracking support</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/gpu_device_selection.html">GPU device selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/profiling.html">Profiling with Intel VTune™</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/converting_deepstream_to_dlstreamer.html">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dev_guide/how_to_contribute.html">How to Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dev_guide/coding_style.html">Coding Style</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/latency_tracer.html">Latency Tracer</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../elements/elements.html">Elements</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvadetect.html">gvadetect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvaclassify.html">gvaclassify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvainference.html">gvainference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvaaudiodetect.html">gvaaudiodetect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvatrack.html">gvatrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvametaconvert.html">gvametaconvert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvametapublish.html">gvametapublish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvametaaggregate.html">gvametaaggregate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvapython.html">gvapython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvawatermark.html">gvawatermark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvafpscounter.html">gvafpscounter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/python_object_association.html">python_object_association</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../supported_models.html">Supported Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_ref/api_reference.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api_ref/page_index.html">Intel® Deep Learning Streamer (Intel® DL Streamer) API reference</a></li>
+
+
+
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api_ref/global.html">Global Namespace</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/namespace_gstgva.html">namespace gstgva</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api_ref/namespace_gstgva_region_of_interest.html">namespace gstgva::region_of_interest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_ref/namespace_gstgva_tensor.html">namespace gstgva::tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_ref/namespace_gstgva_video_frame.html">namespace gstgva::video_frame</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api_ref/enum_GVALayout.html">enum GVALayout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api_ref/enum_GVAPrecision.html">enum GVAPrecision</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="architecture_2.0.html">Architecture 2.0 [Preview]</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="migration_guide.html">Migration to 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp_interfaces.html">① Memory Interop and C++ abstract interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp_elements.html">② C++ elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstreamer_elements.html">③ GStreamer Elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gstreamer_bins.html">③ GStreamer Bin Elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_bindings.html">③ Python Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytorch_inference.html">PyTorch tensor inference [Preview]</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Elements 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging.html">Packaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples_2.0.html">Samples 2.0</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api_ref/index.html">API 2.0 Reference</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="api_ref/global.html">Global Namespace</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_ref/namespace_GVA.html">namespace GVA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_ref/namespace_dlstreamer.html">namespace dlstreamer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_ref/enum_GVALayout.html">enum GVALayout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_ref/enum_GVAPrecision.html">enum GVAPrecision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_ref/struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/architecture_2.0/elements_list.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
 
-          
 
 
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/architecture_2.0/elements_list.rst.txt"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.rst</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#meta-overlay">
-   meta_overlay
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#capabilities">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#properties">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#object-classify">
-   object_classify
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#object-detect">
-   object_detect
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#object-track">
-   object_track
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#processbin">
-   processbin
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#video-inference">
-   video_inference
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#batch-create">
-   batch_create
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id12">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#batch-split">
-   batch_split
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id13">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id14">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#capsrelax">
-   capsrelax
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id15">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id16">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gvadrop">
-   gvadrop
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id17">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id18">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#meta-aggregate">
-   meta_aggregate
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id19">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id20">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#meta-smooth">
-   meta_smooth
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id21">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id22">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#roi-split">
-   roi_split
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id23">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id24">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#video-frames-buffer">
-   video_frames_buffer
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id25">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id26">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#rate-adjust">
-   rate_adjust
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id27">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id28">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensor-convert">
-   tensor_convert
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id29">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id30">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensor-histogram">
-   tensor_histogram
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id31">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id32">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensor-postproc-add-params">
-   tensor_postproc_add_params
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id33">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id34">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensor-postproc-detection">
-   tensor_postproc_detection
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id35">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id36">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensor-postproc-label">
-   tensor_postproc_label
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id37">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id38">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensor-postproc-text">
-   tensor_postproc_text
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id39">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id40">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensor-postproc-yolo">
-   tensor_postproc_yolo
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id41">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id42">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensor-sliding-window">
-   tensor_sliding_window
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id43">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id44">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#openvino-tensor-inference">
-   openvino_tensor_inference
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id45">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id46">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#openvino-video-inference">
-   openvino_video_inference
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id47">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id48">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opencv-cropscale">
-   opencv_cropscale
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id49">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id50">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opencv-find-contours">
-   opencv_find_contours
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id51">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id52">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opencv-meta-overlay">
-   opencv_meta_overlay
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id53">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id54">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opencv-object-association">
-   opencv_object_association
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id55">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id56">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opencv-remove-background">
-   opencv_remove_background
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id57">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id58">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opencv-tensor-normalize">
-   opencv_tensor_normalize
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id59">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id60">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opencv-warp-affine">
-   opencv_warp_affine
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id61">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id62">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensor-postproc-human-pose">
-   tensor_postproc_human_pose
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id63">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id64">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vaapi-batch-proc">
-   vaapi_batch_proc
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id65">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id66">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vaapi-sync">
-   vaapi_sync
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id67">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id68">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opencl-tensor-normalize">
-   opencl_tensor_normalize
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id69">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id70">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vaapi-to-opencl">
-   vaapi_to_opencl
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id71">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id72">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sycl-meta-overlay">
-   sycl_meta_overlay
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id73">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id74">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sycl-tensor-histogram">
-   sycl_tensor_histogram
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id75">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id76">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inference-openvino">
-   inference_openvino
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id77">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id78">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pytorch-tensor-inference">
-   pytorch_tensor_inference
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id79">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id80">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Elements 2.0</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#meta-overlay">
-   meta_overlay
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#capabilities">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#properties">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#object-classify">
-   object_classify
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#object-detect">
-   object_detect
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#object-track">
-   object_track
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#processbin">
-   processbin
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#video-inference">
-   video_inference
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#batch-create">
-   batch_create
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id12">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#batch-split">
-   batch_split
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id13">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id14">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#capsrelax">
-   capsrelax
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id15">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id16">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gvadrop">
-   gvadrop
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id17">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id18">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#meta-aggregate">
-   meta_aggregate
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id19">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id20">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#meta-smooth">
-   meta_smooth
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id21">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id22">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#roi-split">
-   roi_split
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id23">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id24">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#video-frames-buffer">
-   video_frames_buffer
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id25">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id26">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#rate-adjust">
-   rate_adjust
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id27">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id28">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensor-convert">
-   tensor_convert
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id29">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id30">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensor-histogram">
-   tensor_histogram
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id31">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id32">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensor-postproc-add-params">
-   tensor_postproc_add_params
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id33">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id34">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensor-postproc-detection">
-   tensor_postproc_detection
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id35">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id36">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensor-postproc-label">
-   tensor_postproc_label
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id37">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id38">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensor-postproc-text">
-   tensor_postproc_text
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id39">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id40">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensor-postproc-yolo">
-   tensor_postproc_yolo
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id41">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id42">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensor-sliding-window">
-   tensor_sliding_window
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id43">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id44">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#openvino-tensor-inference">
-   openvino_tensor_inference
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id45">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id46">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#openvino-video-inference">
-   openvino_video_inference
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id47">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id48">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opencv-cropscale">
-   opencv_cropscale
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id49">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id50">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opencv-find-contours">
-   opencv_find_contours
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id51">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id52">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opencv-meta-overlay">
-   opencv_meta_overlay
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id53">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id54">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opencv-object-association">
-   opencv_object_association
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id55">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id56">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opencv-remove-background">
-   opencv_remove_background
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id57">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id58">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opencv-tensor-normalize">
-   opencv_tensor_normalize
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id59">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id60">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opencv-warp-affine">
-   opencv_warp_affine
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id61">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id62">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensor-postproc-human-pose">
-   tensor_postproc_human_pose
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id63">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id64">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vaapi-batch-proc">
-   vaapi_batch_proc
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id65">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id66">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vaapi-sync">
-   vaapi_sync
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id67">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id68">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opencl-tensor-normalize">
-   opencl_tensor_normalize
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id69">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id70">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vaapi-to-opencl">
-   vaapi_to_opencl
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id71">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id72">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sycl-meta-overlay">
-   sycl_meta_overlay
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id73">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id74">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sycl-tensor-histogram">
-   sycl_tensor_histogram
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id75">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id76">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inference-openvino">
-   inference_openvino
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id77">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id78">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pytorch-tensor-inference">
-   pytorch_tensor_inference
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id79">
-     Capabilities
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id80">
-     Properties
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Elements 2.0</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meta-overlay">meta_overlay</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capabilities">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-classify">object_classify</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-detect">object_detect</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-track">object_track</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processbin">processbin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video-inference">video_inference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-create">batch_create</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-split">batch_split</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#capsrelax">capsrelax</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gvadrop">gvadrop</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meta-aggregate">meta_aggregate</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meta-smooth">meta_smooth</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roi-split">roi_split</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video-frames-buffer">video_frames_buffer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rate-adjust">rate_adjust</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-convert">tensor_convert</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-histogram">tensor_histogram</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-postproc-add-params">tensor_postproc_add_params</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-postproc-detection">tensor_postproc_detection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-postproc-label">tensor_postproc_label</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id37">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id38">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-postproc-text">tensor_postproc_text</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id39">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id40">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-postproc-yolo">tensor_postproc_yolo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id41">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id42">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-sliding-window">tensor_sliding_window</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id43">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id44">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openvino-tensor-inference">openvino_tensor_inference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id45">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id46">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openvino-video-inference">openvino_video_inference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id47">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id48">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opencv-cropscale">opencv_cropscale</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id49">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id50">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opencv-find-contours">opencv_find_contours</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id51">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id52">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opencv-meta-overlay">opencv_meta_overlay</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id53">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id54">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opencv-object-association">opencv_object_association</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id55">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id56">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opencv-remove-background">opencv_remove_background</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id57">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id58">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opencv-tensor-normalize">opencv_tensor_normalize</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id59">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id60">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opencv-warp-affine">opencv_warp_affine</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id61">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id62">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-postproc-human-pose">tensor_postproc_human_pose</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id63">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id64">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vaapi-batch-proc">vaapi_batch_proc</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id65">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id66">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vaapi-sync">vaapi_sync</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id67">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id68">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opencl-tensor-normalize">opencl_tensor_normalize</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id69">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id70">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vaapi-to-opencl">vaapi_to_opencl</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id71">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id72">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sycl-meta-overlay">sycl_meta_overlay</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id73">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id74">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sycl-tensor-histogram">sycl_tensor_histogram</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id75">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id76">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inference-openvino">inference_openvino</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id77">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id78">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-tensor-inference">pytorch_tensor_inference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id79">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id80">Properties</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section id="elements-2-0">
-<h1>Elements 2.0<a class="headerlink" href="#elements-2-0" title="Permalink to this headline">#</a></h1>
+<h1>Elements 2.0<a class="headerlink" href="#elements-2-0" title="Permalink to this heading">#</a></h1>
 <section id="meta-overlay">
-<h2>meta_overlay<a class="headerlink" href="#meta-overlay" title="Permalink to this headline">#</a></h2>
+<h2>meta_overlay<a class="headerlink" href="#meta-overlay" title="Permalink to this heading">#</a></h2>
 <p>Overlays the metadata on the video frame to visualize the inference results.</p>
 <section id="capabilities">
-<h3>Capabilities<a class="headerlink" href="#capabilities" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#capabilities" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -2159,7 +642,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="properties">
-<h3>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -2247,10 +730,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="object-classify">
-<h2>object_classify<a class="headerlink" href="#object-classify" title="Permalink to this headline">#</a></h2>
+<h2>object_classify<a class="headerlink" href="#object-classify" title="Permalink to this heading">#</a></h2>
 <p>Performs object classification. Accepts the ROI or full frame as an input and outputs classification results with metadata.</p>
 <section id="id1">
-<h3>Capabilities<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -2279,7 +762,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id2">
-<h3>Properties<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -2463,10 +946,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="object-detect">
-<h2>object_detect<a class="headerlink" href="#object-detect" title="Permalink to this headline">#</a></h2>
+<h2>object_detect<a class="headerlink" href="#object-detect" title="Permalink to this heading">#</a></h2>
 <p>Performs inference-based object detection</p>
 <section id="id3">
-<h3>Capabilities<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -2495,7 +978,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id4">
-<h3>Properties<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -2668,10 +1151,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="object-track">
-<h2>object_track<a class="headerlink" href="#object-track" title="Permalink to this headline">#</a></h2>
+<h2>object_track<a class="headerlink" href="#object-track" title="Permalink to this heading">#</a></h2>
 <p>Assigns unique ID to detected objects</p>
 <section id="id5">
-<h3>Capabilities<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -2700,7 +1183,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id6">
-<h3>Properties<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -2907,10 +1390,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="processbin">
-<h2>processbin<a class="headerlink" href="#processbin" title="Permalink to this headline">#</a></h2>
+<h2>processbin<a class="headerlink" href="#processbin" title="Permalink to this heading">#</a></h2>
 <p>Bin element for processing pipelines using branching: tee name=t t. ! &lt;preprocess&gt; ! &lt;process&gt; ! &lt;postprocess&gt; ! &lt;aggregate&gt;  t. ! aggregate</p>
 <section id="id7">
-<h3>Capabilities<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -2929,7 +1412,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id8">
-<h3>Properties<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -3012,10 +1495,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="video-inference">
-<h2>video_inference<a class="headerlink" href="#video-inference" title="Permalink to this headline">#</a></h2>
+<h2>video_inference<a class="headerlink" href="#video-inference" title="Permalink to this heading">#</a></h2>
 <p>Runs Deep Learning inference on any model with RGB-like input</p>
 <section id="id9">
-<h3>Capabilities<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -3044,7 +1527,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id10">
-<h3>Properties<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -3217,10 +1700,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="batch-create">
-<h2>batch_create<a class="headerlink" href="#batch-create" title="Permalink to this headline">#</a></h2>
+<h2>batch_create<a class="headerlink" href="#batch-create" title="Permalink to this heading">#</a></h2>
 <p>Accumulate multiple buffers into single buffer with multiple GstMemory</p>
 <section id="id11">
-<h3>Capabilities<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SRC template: src</p></td>
@@ -3239,7 +1722,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id12">
-<h3>Properties<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -3272,10 +1755,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="batch-split">
-<h2>batch_split<a class="headerlink" href="#batch-split" title="Permalink to this headline">#</a></h2>
+<h2>batch_split<a class="headerlink" href="#batch-split" title="Permalink to this heading">#</a></h2>
 <p>Split input tensor (remove batch dimension from tensor shape)</p>
 <section id="id13">
-<h3>Capabilities<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SRC template: src</p></td>
@@ -3294,7 +1777,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id14">
-<h3>Properties<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -3322,10 +1805,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="capsrelax">
-<h2>capsrelax<a class="headerlink" href="#capsrelax" title="Permalink to this headline">#</a></h2>
+<h2>capsrelax<a class="headerlink" href="#capsrelax" title="Permalink to this heading">#</a></h2>
 <p>Pass data without modification, relaxes formats</p>
 <section id="id15">
-<h3>Capabilities<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -3344,7 +1827,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id16">
-<h3>Properties<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -3372,10 +1855,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="gvadrop">
-<h2>gvadrop<a class="headerlink" href="#gvadrop" title="Permalink to this headline">#</a></h2>
+<h2>gvadrop<a class="headerlink" href="#gvadrop" title="Permalink to this heading">#</a></h2>
 <p>Pass / drop custom number of frames in pipeline</p>
 <section id="id17">
-<h3>Capabilities<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id17" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -3394,7 +1877,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id18">
-<h3>Properties<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id18" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -3437,10 +1920,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="meta-aggregate">
-<h2>meta_aggregate<a class="headerlink" href="#meta-aggregate" title="Permalink to this headline">#</a></h2>
-<p>Muxes video streams with tensor’s ROI into into single stream</p>
+<h2>meta_aggregate<a class="headerlink" href="#meta-aggregate" title="Permalink to this heading">#</a></h2>
+<p>Muxes video streams with tensor’s ROI into single stream</p>
 <section id="id19">
-<h3>Capabilities<a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id19" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: meta_%u</p></td>
@@ -3481,7 +1964,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id20">
-<h3>Properties<a class="headerlink" href="#id20" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id20" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -3534,10 +2017,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="meta-smooth">
-<h2>meta_smooth<a class="headerlink" href="#meta-smooth" title="Permalink to this headline">#</a></h2>
+<h2>meta_smooth<a class="headerlink" href="#meta-smooth" title="Permalink to this heading">#</a></h2>
 <p>smooth metadata</p>
 <section id="id21">
-<h3>Capabilities<a class="headerlink" href="#id21" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id21" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SRC template: src</p></td>
@@ -3556,7 +2039,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id22">
-<h3>Properties<a class="headerlink" href="#id22" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id22" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -3584,10 +2067,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="roi-split">
-<h2>roi_split<a class="headerlink" href="#roi-split" title="Permalink to this headline">#</a></h2>
+<h2>roi_split<a class="headerlink" href="#roi-split" title="Permalink to this heading">#</a></h2>
 <p>Split buffer with multiple GstVideoRegionOfInterestMeta into multiple buffers</p>
 <section id="id23">
-<h3>Capabilities<a class="headerlink" href="#id23" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id23" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SRC template: src</p></td>
@@ -3606,7 +2089,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id24">
-<h3>Properties<a class="headerlink" href="#id24" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id24" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -3639,10 +2122,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="video-frames-buffer">
-<h2>video_frames_buffer<a class="headerlink" href="#video-frames-buffer" title="Permalink to this headline">#</a></h2>
+<h2>video_frames_buffer<a class="headerlink" href="#video-frames-buffer" title="Permalink to this heading">#</a></h2>
 <p>Buffer and optionally repeat compressed video frames</p>
 <section id="id25">
-<h3>Capabilities<a class="headerlink" href="#id25" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id25" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SRC template: src</p></td>
@@ -3661,7 +2144,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id26">
-<h3>Properties<a class="headerlink" href="#id26" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id26" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -3699,10 +2182,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="rate-adjust">
-<h2>rate_adjust<a class="headerlink" href="#rate-adjust" title="Permalink to this headline">#</a></h2>
+<h2>rate_adjust<a class="headerlink" href="#rate-adjust" title="Permalink to this heading">#</a></h2>
 <p>Adjust frame rate. Output frame rate is input rate multiplied by (numerator/denominator)</p>
 <section id="id27">
-<h3>Capabilities<a class="headerlink" href="#id27" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id27" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -3721,7 +2204,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id28">
-<h3>Properties<a class="headerlink" href="#id28" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id28" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -3754,10 +2237,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="tensor-convert">
-<h2>tensor_convert<a class="headerlink" href="#tensor-convert" title="Permalink to this headline">#</a></h2>
+<h2>tensor_convert<a class="headerlink" href="#tensor-convert" title="Permalink to this heading">#</a></h2>
 <p>Convert (zero-copy if possible) between video/audio and tensors media type</p>
 <section id="id29">
-<h3>Capabilities<a class="headerlink" href="#id29" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id29" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -3820,7 +2303,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id30">
-<h3>Properties<a class="headerlink" href="#id30" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id30" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -3848,10 +2331,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="tensor-histogram">
-<h2>tensor_histogram<a class="headerlink" href="#tensor-histogram" title="Permalink to this headline">#</a></h2>
+<h2>tensor_histogram<a class="headerlink" href="#tensor-histogram" title="Permalink to this heading">#</a></h2>
 <p>Calculates histogram on tensors of UInt8 data type and NHWC layout</p>
 <section id="id31">
-<h3>Capabilities<a class="headerlink" href="#id31" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id31" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -3890,7 +2373,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id32">
-<h3>Properties<a class="headerlink" href="#id32" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id32" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -3953,10 +2436,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="tensor-postproc-add-params">
-<h2>tensor_postproc_add_params<a class="headerlink" href="#tensor-postproc-add-params" title="Permalink to this headline">#</a></h2>
+<h2>tensor_postproc_add_params<a class="headerlink" href="#tensor-postproc-add-params" title="Permalink to this heading">#</a></h2>
 <p>Post-processing to only add properties/parameters to metadata</p>
 <section id="id33">
-<h3>Capabilities<a class="headerlink" href="#id33" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id33" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -3985,7 +2468,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id34">
-<h3>Properties<a class="headerlink" href="#id34" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id34" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -4023,10 +2506,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="tensor-postproc-detection">
-<h2>tensor_postproc_detection<a class="headerlink" href="#tensor-postproc-detection" title="Permalink to this headline">#</a></h2>
+<h2>tensor_postproc_detection<a class="headerlink" href="#tensor-postproc-detection" title="Permalink to this heading">#</a></h2>
 <p>Post-processing of object detection inference to extract bounding box coordinates, confidence, label, mask</p>
 <section id="id35">
-<h3>Capabilities<a class="headerlink" href="#id35" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id35" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -4055,7 +2538,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id36">
-<h3>Properties<a class="headerlink" href="#id36" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id36" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -4143,10 +2626,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="tensor-postproc-label">
-<h2>tensor_postproc_label<a class="headerlink" href="#tensor-postproc-label" title="Permalink to this headline">#</a></h2>
+<h2>tensor_postproc_label<a class="headerlink" href="#tensor-postproc-label" title="Permalink to this heading">#</a></h2>
 <p>Post-processing of classification inference to extract object classes</p>
 <section id="id37">
-<h3>Capabilities<a class="headerlink" href="#id37" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id37" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -4175,7 +2658,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id38">
-<h3>Properties<a class="headerlink" href="#id38" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id38" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -4238,10 +2721,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="tensor-postproc-text">
-<h2>tensor_postproc_text<a class="headerlink" href="#tensor-postproc-text" title="Permalink to this headline">#</a></h2>
+<h2>tensor_postproc_text<a class="headerlink" href="#tensor-postproc-text" title="Permalink to this heading">#</a></h2>
 <p>Post-processing to convert tensor data into text</p>
 <section id="id39">
-<h3>Capabilities<a class="headerlink" href="#id39" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id39" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -4270,7 +2753,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id40">
-<h3>Properties<a class="headerlink" href="#id40" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id40" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -4318,10 +2801,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="tensor-postproc-yolo">
-<h2>tensor_postproc_yolo<a class="headerlink" href="#tensor-postproc-yolo" title="Permalink to this headline">#</a></h2>
+<h2>tensor_postproc_yolo<a class="headerlink" href="#tensor-postproc-yolo" title="Permalink to this heading">#</a></h2>
 <p>Post-processing of YOLO models to extract bounding box list</p>
 <section id="id41">
-<h3>Capabilities<a class="headerlink" href="#id41" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id41" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -4350,7 +2833,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id42">
-<h3>Properties<a class="headerlink" href="#id42" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id42" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -4453,10 +2936,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="tensor-sliding-window">
-<h2>tensor_sliding_window<a class="headerlink" href="#tensor-sliding-window" title="Permalink to this headline">#</a></h2>
+<h2>tensor_sliding_window<a class="headerlink" href="#tensor-sliding-window" title="Permalink to this heading">#</a></h2>
 <p>Sliding aggregation of input tensors</p>
 <section id="id43">
-<h3>Capabilities<a class="headerlink" href="#id43" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id43" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -4485,7 +2968,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id44">
-<h3>Properties<a class="headerlink" href="#id44" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id44" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -4513,10 +2996,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="openvino-tensor-inference">
-<h2>openvino_tensor_inference<a class="headerlink" href="#openvino-tensor-inference" title="Permalink to this headline">#</a></h2>
+<h2>openvino_tensor_inference<a class="headerlink" href="#openvino-tensor-inference" title="Permalink to this heading">#</a></h2>
 <p>Inference on OpenVINO™ toolkit backend</p>
 <section id="id45">
-<h3>Capabilities<a class="headerlink" href="#id45" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id45" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -4546,7 +3029,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id46">
-<h3>Properties<a class="headerlink" href="#id46" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id46" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -4604,10 +3087,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="openvino-video-inference">
-<h2>openvino_video_inference<a class="headerlink" href="#openvino-video-inference" title="Permalink to this headline">#</a></h2>
+<h2>openvino_video_inference<a class="headerlink" href="#openvino-video-inference" title="Permalink to this heading">#</a></h2>
 <p>Inference on OpenVINO™ toolkit backend</p>
 <section id="id47">
-<h3>Capabilities<a class="headerlink" href="#id47" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id47" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -4640,7 +3123,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id48">
-<h3>Properties<a class="headerlink" href="#id48" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id48" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -4698,10 +3181,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="opencv-cropscale">
-<h2>opencv_cropscale<a class="headerlink" href="#opencv-cropscale" title="Permalink to this headline">#</a></h2>
+<h2>opencv_cropscale<a class="headerlink" href="#opencv-cropscale" title="Permalink to this heading">#</a></h2>
 <p>Fused video crop and scale on OpenCV backend. Crop operation supports GstVideoCropMeta if attached to input buffer</p>
 <section id="id49">
-<h3>Capabilities<a class="headerlink" href="#id49" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id49" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -4768,7 +3251,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id50">
-<h3>Properties<a class="headerlink" href="#id50" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id50" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -4801,10 +3284,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="opencv-find-contours">
-<h2>opencv_find_contours<a class="headerlink" href="#opencv-find-contours" title="Permalink to this headline">#</a></h2>
+<h2>opencv_find_contours<a class="headerlink" href="#opencv-find-contours" title="Permalink to this heading">#</a></h2>
 <p>Find contour points of given mask using opencv</p>
 <section id="id51">
-<h3>Capabilities<a class="headerlink" href="#id51" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id51" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -4823,7 +3306,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id52">
-<h3>Properties<a class="headerlink" href="#id52" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id52" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -4866,10 +3349,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="opencv-meta-overlay">
-<h2>opencv_meta_overlay<a class="headerlink" href="#opencv-meta-overlay" title="Permalink to this headline">#</a></h2>
+<h2>opencv_meta_overlay<a class="headerlink" href="#opencv-meta-overlay" title="Permalink to this heading">#</a></h2>
 <p>Visualize inference results using OpenCV</p>
 <section id="id53">
-<h3>Capabilities<a class="headerlink" href="#id53" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id53" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -4936,7 +3419,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id54">
-<h3>Properties<a class="headerlink" href="#id54" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id54" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -4984,10 +3467,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="opencv-object-association">
-<h2>opencv_object_association<a class="headerlink" href="#opencv-object-association" title="Permalink to this headline">#</a></h2>
+<h2>opencv_object_association<a class="headerlink" href="#opencv-object-association" title="Permalink to this heading">#</a></h2>
 <p>Assigns unique ID to ROI objects based on objects trajectory and (optionally) feature vector obtained from ROI metadata</p>
 <section id="id55">
-<h3>Capabilities<a class="headerlink" href="#id55" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id55" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -5006,7 +3489,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id56">
-<h3>Properties<a class="headerlink" href="#id56" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id56" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -5081,10 +3564,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="opencv-remove-background">
-<h2>opencv_remove_background<a class="headerlink" href="#opencv-remove-background" title="Permalink to this headline">#</a></h2>
+<h2>opencv_remove_background<a class="headerlink" href="#opencv-remove-background" title="Permalink to this heading">#</a></h2>
 <p>Remove background using mask</p>
 <section id="id57">
-<h3>Capabilities<a class="headerlink" href="#id57" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id57" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -5151,7 +3634,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id58">
-<h3>Properties<a class="headerlink" href="#id58" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id58" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -5189,10 +3672,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="opencv-tensor-normalize">
-<h2>opencv_tensor_normalize<a class="headerlink" href="#opencv-tensor-normalize" title="Permalink to this headline">#</a></h2>
+<h2>opencv_tensor_normalize<a class="headerlink" href="#opencv-tensor-normalize" title="Permalink to this heading">#</a></h2>
 <p>Convert U8 tensor to F32 tensor with normalization</p>
 <section id="id59">
-<h3>Capabilities<a class="headerlink" href="#id59" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id59" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -5231,7 +3714,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id60">
-<h3>Properties<a class="headerlink" href="#id60" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id60" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -5274,10 +3757,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="opencv-warp-affine">
-<h2>opencv_warp_affine<a class="headerlink" href="#opencv-warp-affine" title="Permalink to this headline">#</a></h2>
+<h2>opencv_warp_affine<a class="headerlink" href="#opencv-warp-affine" title="Permalink to this heading">#</a></h2>
 <p>Rotation using cv::warpAffine</p>
 <section id="id61">
-<h3>Capabilities<a class="headerlink" href="#id61" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id61" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -5344,7 +3827,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id62">
-<h3>Properties<a class="headerlink" href="#id62" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id62" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -5382,10 +3865,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="tensor-postproc-human-pose">
-<h2>tensor_postproc_human_pose<a class="headerlink" href="#tensor-postproc-human-pose" title="Permalink to this headline">#</a></h2>
+<h2>tensor_postproc_human_pose<a class="headerlink" href="#tensor-postproc-human-pose" title="Permalink to this heading">#</a></h2>
 <p>Post-processing to extract key points from human pose estimation model output</p>
 <section id="id63">
-<h3>Capabilities<a class="headerlink" href="#id63" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id63" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -5414,7 +3897,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id64">
-<h3>Properties<a class="headerlink" href="#id64" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id64" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -5452,10 +3935,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="vaapi-batch-proc">
-<h2>vaapi_batch_proc<a class="headerlink" href="#vaapi-batch-proc" title="Permalink to this headline">#</a></h2>
+<h2>vaapi_batch_proc<a class="headerlink" href="#vaapi-batch-proc" title="Permalink to this heading">#</a></h2>
 <p>Batched pre-processing with VAAPI memory as input and output</p>
 <section id="id65">
-<h3>Capabilities<a class="headerlink" href="#id65" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id65" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -5484,7 +3967,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id66">
-<h3>Properties<a class="headerlink" href="#id66" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id66" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -5527,10 +4010,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="vaapi-sync">
-<h2>vaapi_sync<a class="headerlink" href="#vaapi-sync" title="Permalink to this headline">#</a></h2>
+<h2>vaapi_sync<a class="headerlink" href="#vaapi-sync" title="Permalink to this heading">#</a></h2>
 <p>Synchronize VAAPI surfaces (call vaSyncSurface)</p>
 <section id="id67">
-<h3>Capabilities<a class="headerlink" href="#id67" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id67" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -5559,7 +4042,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id68">
-<h3>Properties<a class="headerlink" href="#id68" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id68" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -5592,10 +4075,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="opencl-tensor-normalize">
-<h2>opencl_tensor_normalize<a class="headerlink" href="#opencl-tensor-normalize" title="Permalink to this headline">#</a></h2>
+<h2>opencl_tensor_normalize<a class="headerlink" href="#opencl-tensor-normalize" title="Permalink to this heading">#</a></h2>
 <p>Convert U8 tensor to U8 or F32 tensor with normalization</p>
 <section id="id69">
-<h3>Capabilities<a class="headerlink" href="#id69" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id69" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -5624,7 +4107,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id70">
-<h3>Properties<a class="headerlink" href="#id70" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id70" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -5657,10 +4140,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="vaapi-to-opencl">
-<h2>vaapi_to_opencl<a class="headerlink" href="#vaapi-to-opencl" title="Permalink to this headline">#</a></h2>
+<h2>vaapi_to_opencl<a class="headerlink" href="#vaapi-to-opencl" title="Permalink to this heading">#</a></h2>
 <p>Convert memory:VASurface to memory:OpenCL</p>
 <section id="id71">
-<h3>Capabilities<a class="headerlink" href="#id71" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id71" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -5690,7 +4173,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id72">
-<h3>Properties<a class="headerlink" href="#id72" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id72" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -5718,10 +4201,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="sycl-meta-overlay">
-<h2>sycl_meta_overlay<a class="headerlink" href="#sycl-meta-overlay" title="Permalink to this headline">#</a></h2>
+<h2>sycl_meta_overlay<a class="headerlink" href="#sycl-meta-overlay" title="Permalink to this heading">#</a></h2>
 <p>Visualize inference results using DPC++/SYCL backend</p>
 <section id="id73">
-<h3>Capabilities<a class="headerlink" href="#id73" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id73" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -5768,7 +4251,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id74">
-<h3>Properties<a class="headerlink" href="#id74" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id74" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -5801,10 +4284,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="sycl-tensor-histogram">
-<h2>sycl_tensor_histogram<a class="headerlink" href="#sycl-tensor-histogram" title="Permalink to this headline">#</a></h2>
+<h2>sycl_tensor_histogram<a class="headerlink" href="#sycl-tensor-histogram" title="Permalink to this heading">#</a></h2>
 <p>Calculates histogram on tensors of UInt8 data type and NHWC layout</p>
 <section id="id75">
-<h3>Capabilities<a class="headerlink" href="#id75" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id75" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
@@ -5849,7 +4332,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id76">
-<h3>Properties<a class="headerlink" href="#id76" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id76" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -5912,10 +4395,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="inference-openvino">
-<h2>inference_openvino<a class="headerlink" href="#inference-openvino" title="Permalink to this headline">#</a></h2>
+<h2>inference_openvino<a class="headerlink" href="#inference-openvino" title="Permalink to this heading">#</a></h2>
 <p>OpenVINO™ toolkit inference element</p>
 <section id="id77">
-<h3>Capabilities<a class="headerlink" href="#id77" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id77" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SRC template: src</p></td>
@@ -5944,7 +4427,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id78">
-<h3>Properties<a class="headerlink" href="#id78" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id78" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -5987,10 +4470,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="pytorch-tensor-inference">
-<h2>pytorch_tensor_inference<a class="headerlink" href="#pytorch-tensor-inference" title="Permalink to this headline">#</a></h2>
+<h2>pytorch_tensor_inference<a class="headerlink" href="#pytorch-tensor-inference" title="Permalink to this heading">#</a></h2>
 <p>PyTorch inference element</p>
 <section id="id79">
-<h3>Capabilities<a class="headerlink" href="#id79" title="Permalink to this headline">#</a></h3>
+<h3>Capabilities<a class="headerlink" href="#id79" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SRC template: src</p></td>
@@ -6019,7 +4502,7 @@ title="Print to PDF"
 </table>
 </section>
 <section id="id80">
-<h3>Properties<a class="headerlink" href="#id80" title="Permalink to this headline">#</a></h3>
+<h3>Properties<a class="headerlink" href="#id80" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -6064,50 +4547,305 @@ title="Print to PDF"
 </section>
 
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="pytorch_inference.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">PyTorch tensor inference [Preview]</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pytorch_inference.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">PyTorch tensor inference [Preview]</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="packaging.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="packaging.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Packaging</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meta-overlay">meta_overlay</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capabilities">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-classify">object_classify</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-detect">object_detect</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-track">object_track</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processbin">processbin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video-inference">video_inference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-create">batch_create</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-split">batch_split</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#capsrelax">capsrelax</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gvadrop">gvadrop</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meta-aggregate">meta_aggregate</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meta-smooth">meta_smooth</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roi-split">roi_split</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video-frames-buffer">video_frames_buffer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rate-adjust">rate_adjust</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-convert">tensor_convert</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-histogram">tensor_histogram</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-postproc-add-params">tensor_postproc_add_params</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-postproc-detection">tensor_postproc_detection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-postproc-label">tensor_postproc_label</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id37">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id38">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-postproc-text">tensor_postproc_text</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id39">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id40">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-postproc-yolo">tensor_postproc_yolo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id41">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id42">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-sliding-window">tensor_sliding_window</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id43">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id44">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openvino-tensor-inference">openvino_tensor_inference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id45">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id46">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openvino-video-inference">openvino_video_inference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id47">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id48">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opencv-cropscale">opencv_cropscale</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id49">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id50">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opencv-find-contours">opencv_find_contours</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id51">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id52">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opencv-meta-overlay">opencv_meta_overlay</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id53">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id54">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opencv-object-association">opencv_object_association</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id55">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id56">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opencv-remove-background">opencv_remove_background</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id57">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id58">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opencv-tensor-normalize">opencv_tensor_normalize</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id59">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id60">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opencv-warp-affine">opencv_warp_affine</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id61">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id62">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-postproc-human-pose">tensor_postproc_human_pose</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id63">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id64">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vaapi-batch-proc">vaapi_batch_proc</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id65">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id66">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vaapi-sync">vaapi_sync</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id67">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id68">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opencl-tensor-normalize">opencl_tensor_normalize</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id69">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id70">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vaapi-to-opencl">vaapi_to_opencl</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id71">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id72">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sycl-meta-overlay">sycl_meta_overlay</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id73">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id74">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sycl-tensor-histogram">sycl_tensor_histogram</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id75">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id76">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inference-openvino">inference_openvino</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id77">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id78">Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-tensor-inference">pytorch_tensor_inference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id79">Capabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id80">Properties</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Intel Corporation<br/>
-  
-      &copy; Copyright 2022, Intel Corporation.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Intel Corporation
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Intel Corporation.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

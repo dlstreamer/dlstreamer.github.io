@@ -1,0 +1,112 @@
+.. index:: pair: class; dlstreamer::DetectionMetadata
+.. _doxid-classdlstreamer_1_1_detection_metadata:
+
+class dlstreamer::DetectionMetadata
+===================================
+
+.. toctree::
+	:hidden:
+
+	struct_dlstreamer_DetectionMetadata_key.rst
+
+
+
+
+.. ref-code-block:: cpp
+	:class: doxyrest-overview-code-block
+
+	#include <image_metadata.h>
+	
+	class DetectionMetadata: public :ref:`dlstreamer::InferenceResultMetadata<doxid-classdlstreamer_1_1_inference_result_metadata>` {
+	public:
+		// structs
+	
+		struct :ref:`key<doxid-structdlstreamer_1_1_detection_metadata_1_1key>`;
+
+		// fields
+	
+		static constexpr auto :target:`name<doxid-classdlstreamer_1_1_detection_metadata_1a7c36471350d26268dd5d52089bf18e21>` = "detection";
+
+		// methods
+	
+		double :target:`x_min<doxid-classdlstreamer_1_1_detection_metadata_1aff9060459b9c38a76871dc0cd560334a>`() const;
+		double :target:`y_min<doxid-classdlstreamer_1_1_detection_metadata_1a6684173ee0da6f0843d59b0f3d49621d>`() const;
+		double :target:`x_max<doxid-classdlstreamer_1_1_detection_metadata_1a1924444d9cac0104904178734b7a91bb>`() const;
+		double :target:`y_max<doxid-classdlstreamer_1_1_detection_metadata_1a266fee70c5c57d747975c93e1a31568f>`() const;
+		double :target:`confidence<doxid-classdlstreamer_1_1_detection_metadata_1a45846da71eea77488d393ff481e0c1e5>`() const;
+		int :target:`id<doxid-classdlstreamer_1_1_detection_metadata_1a4235a0c1088ba501ddddd4824fabd5a3>`() const;
+		int :target:`parent_id<doxid-classdlstreamer_1_1_detection_metadata_1abfd7ad65dd453323abbab81190c70fdc>`() const;
+		int :target:`label_id<doxid-classdlstreamer_1_1_detection_metadata_1aff059e08269a67f9c0471e7bd8270ec2>`() const;
+		std::string :target:`label<doxid-classdlstreamer_1_1_detection_metadata_1a79bed86e11c17f96f2da758cb8237ae2>`() const;
+	
+		void :target:`init<doxid-classdlstreamer_1_1_detection_metadata_1afa5f736b6d8fe4b1c10cecd6c172a9ba>`(
+			double x_min,
+			double y_min,
+			double x_max,
+			double y_max,
+			double confidence = 0.0,
+			int label_id = -1,
+			std::string_view label = {}
+		);
+	};
+
+Inherited Members
+-----------------
+
+.. ref-code-block:: cpp
+	:class: doxyrest-overview-inherited-code-block
+
+	public:
+		// structs
+	
+		struct :ref:`key<doxid-structdlstreamer_1_1_inference_result_metadata_1_1key>`;
+
+		// classes
+	
+		class :ref:`TensorImpl<doxid-classdlstreamer_1_1_inference_result_metadata_1_1_tensor_impl>`;
+
+		// fields
+	
+		static constexpr auto :ref:`name<doxid-classdlstreamer_1_1_inference_result_metadata_1a6988a2594d8380520af3d18b05f29380>` = "tensor";
+
+		// methods
+	
+		virtual std::string :ref:`name<doxid-classdlstreamer_1_1_dictionary_1a0b3ae50e8e01b3e63aebc5ae55735931>`() const = 0;
+		virtual std::vector<std::string> :ref:`keys<doxid-classdlstreamer_1_1_dictionary_1a3bf8b56e3372c43db14063c1d0fa783c>`() const = 0;
+		virtual std::optional<:ref:`Any<doxid-namespacedlstreamer_1ab7893a9ae168d5251d6a85330aea0bc4>`> :ref:`try_get<doxid-classdlstreamer_1_1_dictionary_1a91ef8bc0807e8f27a4cd08eac5e073ae>`(std::string_view key) const = 0;
+		virtual std::pair<const void*, size_t> :ref:`try_get_array<doxid-classdlstreamer_1_1_dictionary_1a8038122a2247af7d49c0538983fb4587>`(std::string_view key) const = 0;
+		virtual void :ref:`set<doxid-classdlstreamer_1_1_dictionary_1a07d06ea3a8f9905f2db71171792608a3>`(std::string_view key, :ref:`Any<doxid-namespacedlstreamer_1ab7893a9ae168d5251d6a85330aea0bc4>` value) = 0;
+		virtual void :ref:`set_array<doxid-classdlstreamer_1_1_dictionary_1ac2cea5376a4fa4033d1e606b619c3176>`(std::string_view key, const void* data, size_t nbytes) = 0;
+		virtual void :ref:`set_name<doxid-classdlstreamer_1_1_dictionary_1a53e8ef5840d033ad145f2955f8cf181d>`(std::string const& name) = 0;
+	
+		template <typename T>
+		T :ref:`get<doxid-classdlstreamer_1_1_dictionary_1a1d6204f7da82bed3fe5762f3f52513bb>`(std::string_view key) const;
+	
+		template <typename T>
+		T :ref:`get<doxid-classdlstreamer_1_1_dictionary_1a96b9134b9349c562f9a25a6065a03676>`(std::string_view key, T default_value) const;
+	
+		template <class T>
+		const std::vector<T> :ref:`get_array<doxid-classdlstreamer_1_1_dictionary_1a2552c3e81c18df3561e82de0b51ac353>`(std::string_view key) const;
+	
+		virtual std::string :ref:`name<doxid-classdlstreamer_1_1_dictionary_proxy_1a670a72a7d0512af14ee10d60dbe3990c>`() const;
+		virtual std::optional<:ref:`Any<doxid-namespacedlstreamer_1ab7893a9ae168d5251d6a85330aea0bc4>`> :ref:`try_get<doxid-classdlstreamer_1_1_dictionary_proxy_1ab375d4cbf3454fbf1b539427cbc268ee>`(std::string_view key) const;
+		virtual std::pair<const void*, size_t> :ref:`try_get_array<doxid-classdlstreamer_1_1_dictionary_proxy_1a897fcbf39ec1defe3c7de223ca134651>`(std::string_view key) const;
+		virtual void :ref:`set<doxid-classdlstreamer_1_1_dictionary_proxy_1adc60ae59b4a7bf180b5ac5db1436b8c2>`(std::string_view key, :ref:`Any<doxid-namespacedlstreamer_1ab7893a9ae168d5251d6a85330aea0bc4>` value);
+		virtual void :ref:`set_array<doxid-classdlstreamer_1_1_dictionary_proxy_1a4cac5b25e3649aff74ad7cfc5cb088c1>`(std::string_view key, const void* data, size_t nbytes);
+		virtual void :ref:`set_name<doxid-classdlstreamer_1_1_dictionary_proxy_1ac017bbf1843ea5f0dcec9b92d7534163>`(std::string const& name);
+		virtual std::vector<std::string> :ref:`keys<doxid-classdlstreamer_1_1_dictionary_proxy_1a3e9f02c866a60314b76d664b2c687982>`() const;
+		:ref:`TensorPtr<doxid-classdlstreamer_1_1_tensor_ptr>` :ref:`tensor<doxid-classdlstreamer_1_1_inference_result_metadata_1ae267450b37829526d7e74724eae1e3a7>`() const;
+		std::string :ref:`model_name<doxid-classdlstreamer_1_1_inference_result_metadata_1aea37f1cf421c89790912b42d73330252>`() const;
+		std::string :ref:`layer_name<doxid-classdlstreamer_1_1_inference_result_metadata_1a13b716e37fbc19f7ac41a270eeff9b8b>`() const;
+		std::string :ref:`format<doxid-classdlstreamer_1_1_inference_result_metadata_1ad6ad0bf3b6a1fe8472df10f5a0cae529>`() const;
+		void :ref:`set_model_name<doxid-classdlstreamer_1_1_inference_result_metadata_1ac6d8b5cf29c177c308179b8987030cfc>`(const std::string& model_name);
+		void :ref:`set_layer_name<doxid-classdlstreamer_1_1_inference_result_metadata_1a536b1f1383f06cbc4d5686cbf636c7a3>`(const std::string& layer_name);
+	
+		void :ref:`init_tensor_data<doxid-classdlstreamer_1_1_inference_result_metadata_1a695b67299a3b8a1537b559286757a23f>`(
+			const :ref:`Tensor<doxid-classdlstreamer_1_1_tensor>`& tensor,
+			const std::string& layer_name = "",
+			const std::string& format = ""
+		);
+	
+		:ref:`DictionaryProxy<doxid-classdlstreamer_1_1_inference_result_metadata_1ae158807e1849bb907b83e364f985534d>`(:ref:`DictionaryPtr<doxid-namespacedlstreamer_1ab94d4f1fc850dbd9c71343191460d20a>` dict);
+

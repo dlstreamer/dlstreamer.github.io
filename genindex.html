@@ -1,659 +1,349 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Index &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="_static/doxyrest-pygments.css" />
-    
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script src="_static/target-highlight.js"></script>
-    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-    <div class="container-fluid" id="banner"></div>
-
     
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="get_started/get_started_index.html">
-   Get Started
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="get_started/hardware_requirements.html">
-     Hardware Requirements
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="get_started/install/install_guide_index.html">
-     Install Guide
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-    <label for="toctree-checkbox-2">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="get_started/install/install_guide_ubuntu.html">
-       Install Guide Ubuntu
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="get_started/install/uninstall_guide_ubuntu.html">
-       Uninstall Guide Ubuntu
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="get_started/tutorial.html">
-     Tutorial
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="get_started/flex_series/quick_start_guide.html">
-     Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">
-     Samples
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="dev_guide/dev_guide_index.html">
-   Developer Guide
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="dev_guide/metadata.html">
-     Metadata
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="dev_guide/model_preparation.html">
-     Model Preparation
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="dev_guide/yolov5_model_preparation.html">
-       Yolov5 Model Preparation Example
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="dev_guide/model_proc_file.html">
-     Model-proc File
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="dev_guide/how_to_create_model_proc_file.html">
-     How to Create Model-proc File
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="dev_guide/python_bindings.html">
-     Python Bindings
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="dev_guide/custom_processing.html">
-     Custom Processing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="dev_guide/object_tracking.html">
-     Object Tracking
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="dev_guide/gpu_device_selection.html">
-     GPU device selection
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="dev_guide/profiling.html">
-     Profiling with Intel VTune™
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="dev_guide/converting_deepstream_to_dlstreamer.html">
-     Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="dev_guide/how_to_contribute.html">
-     How to Contribute
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-    <label for="toctree-checkbox-5">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="dev_guide/coding_style.html">
-       Coding Style
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="elements/elements.html">
-   Elements
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="elements/gvadetect.html">
-     gvadetect
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="elements/gvaclassify.html">
-     gvaclassify
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="elements/gvainference.html">
-     gvainference
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="elements/gvaaudiodetect.html">
-     gvaaudiodetect
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="elements/gvatrack.html">
-     gvatrack
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="elements/gvametaconvert.html">
-     gvametaconvert
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="elements/gvametapublish.html">
-     gvametapublish
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="elements/gvametaaggregate.html">
-     gvametaaggregate
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="elements/gvapython.html">
-     gvapython
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="elements/gvawatermark.html">
-     gvawatermark
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="elements/gvafpscounter.html">
-     gvafpscounter
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="supported_models.html">
-   Supported Models
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="api_ref/api_reference.html">
-   API Reference
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="api_ref/page_index.html">
-     Intel® Deep Learning Streamer (Intel® DL Streamer) API reference
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="api_ref/global.html">
-     Global Namespace
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-    <label for="toctree-checkbox-8">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="api_ref/namespace_GVA.html">
-       namespace GVA
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-      <label for="toctree-checkbox-9">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api_ref/struct_GVA_Rect.html">
-         template struct GVA::Rect
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api_ref/struct_GVA_Segment.html">
-         template struct GVA::Segment
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api_ref/class_GVA_AudioEvent.html">
-         class GVA::AudioEvent
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api_ref/class_GVA_AudioFrame.html">
-         class GVA::AudioFrame
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api_ref/class_GVA_RegionOfInterest.html">
-         class GVA::RegionOfInterest
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api_ref/class_GVA_Tensor.html">
-         class GVA::Tensor
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api_ref/class_GVA_VideoFrame.html">
-         class GVA::VideoFrame
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="api_ref/namespace_gstgva.html">
-       namespace gstgva
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-      <label for="toctree-checkbox-10">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api_ref/namespace_gstgva_region_of_interest.html">
-         namespace gstgva::region_of_interest
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api_ref/namespace_gstgva_tensor.html">
-         namespace gstgva::tensor
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api_ref/namespace_gstgva_video_frame.html">
-         namespace gstgva::video_frame
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="api_ref/enum_GVALayout.html">
-       enum GVALayout
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="api_ref/enum_GVAPrecision.html">
-       enum GVAPrecision
-      </a>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="api_ref/struct_GstGVAAudioEventMeta.html">
-       struct GstGVAAudioEventMeta
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-      <label for="toctree-checkbox-11">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul class="simple">
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="api_ref/struct__GstGVAJSONMeta.html">
-       struct _GstGVAJSONMeta
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-      <label for="toctree-checkbox-12">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul class="simple">
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="api_ref/struct__GstGVATensorMeta.html">
-       struct _GstGVATensorMeta
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-      <label for="toctree-checkbox-13">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul class="simple">
-      </ul>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="architecture_2.0/architecture_2.0.html">
-   Architecture 2.0 [Preview]
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-  <label for="toctree-checkbox-14">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="architecture_2.0/migration_guide.html">
-     Migration to 2.0
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="architecture_2.0/cpp_interfaces.html">
-     ① Memory Interop and C++ abstract interfaces
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="architecture_2.0/cpp_elements.html">
-     ② C++ elements
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="architecture_2.0/gstreamer_elements.html">
-     ③ GStreamer Elements
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="architecture_2.0/gstreamer_bins.html">
-     ③ GStreamer Bin Elements
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="architecture_2.0/python_bindings.html">
-     ③ Python Bindings
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="architecture_2.0/pytorch_inference.html">
-     PyTorch tensor inference [Preview]
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="architecture_2.0/elements_list.html">
-     Elements 2.0
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="architecture_2.0/packaging.html">
-     Packaging
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="architecture_2.0/samples_2.0.html">
-     Samples 2.0
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="architecture_2.0/api_ref/index.html">
-     API 2.0 Reference
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-    <label for="toctree-checkbox-15">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="architecture_2.0/api_ref/global.html">
-       Global Namespace
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-      <label for="toctree-checkbox-16">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="architecture_2.0/api_ref/namespace_dlstreamer.html">
-         namespace dlstreamer
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="architecture_2.0/api_ref/enum_GVALayout.html">
-         enum GVALayout
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="architecture_2.0/api_ref/enum_GVAPrecision.html">
-         enum GVAPrecision
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html">
-         struct GstGVAAudioEventMeta
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="architecture_2.0/api_ref/struct__GstGVAJSONMeta.html">
-         struct _GstGVAJSONMeta
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="architecture_2.0/api_ref/struct__GstGVATensorMeta.html">
-         struct _GstGVATensorMeta
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="get_started/get_started_index.html">Get Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="get_started/hardware_requirements.html">Hardware Requirements</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="get_started/install/install_guide_index.html">Install Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="get_started/install/install_guide_ubuntu.html">Install Guide Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get_started/install/uninstall_guide_ubuntu.html">Uninstall Guide Ubuntu</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="get_started/tutorial.html">Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_started/flex_series/quick_start_guide.html">Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">Samples</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="dev_guide/dev_guide_index.html">Developer Guide</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="dev_guide/metadata.html">Metadata</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="dev_guide/model_preparation.html">Model Preparation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="dev_guide/yolov5_model_preparation.html">Yolov5 Model Preparation Example</a></li>
+
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dev_guide/model_proc_file.html">Model-proc File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_guide/how_to_create_model_proc_file.html">How to Create Model-proc File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_guide/python_bindings.html">Python Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_guide/custom_processing.html">Custom Processing</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="dev_guide/object_tracking.html">Object Tracking</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="dev_guide/deepsort_implementation.html">DeepSORT tracking support</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dev_guide/gpu_device_selection.html">GPU device selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_guide/profiling.html">Profiling with Intel VTune™</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_guide/converting_deepstream_to_dlstreamer.html">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="dev_guide/how_to_contribute.html">How to Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="dev_guide/coding_style.html">Coding Style</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dev_guide/latency_tracer.html">Latency Tracer</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="elements/elements.html">Elements</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="elements/gvadetect.html">gvadetect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/gvaclassify.html">gvaclassify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/gvainference.html">gvainference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/gvaaudiodetect.html">gvaaudiodetect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/gvatrack.html">gvatrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/gvametaconvert.html">gvametaconvert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/gvametapublish.html">gvametapublish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/gvametaaggregate.html">gvametaaggregate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/gvapython.html">gvapython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/gvawatermark.html">gvawatermark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/gvafpscounter.html">gvafpscounter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/python_object_association.html">python_object_association</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="supported_models.html">Supported Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_ref/api_reference.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_ref/page_index.html">Intel® Deep Learning Streamer (Intel® DL Streamer) API reference</a></li>
+
+
+
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="api_ref/global.html">Global Namespace</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="api_ref/namespace_gstgva.html">namespace gstgva</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_ref/namespace_gstgva_region_of_interest.html">namespace gstgva::region_of_interest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_ref/namespace_gstgva_tensor.html">namespace gstgva::tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_ref/namespace_gstgva_video_frame.html">namespace gstgva::video_frame</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api_ref/enum_GVALayout.html">enum GVALayout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_ref/enum_GVAPrecision.html">enum GVAPrecision</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="api_ref/struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="architecture_2.0/architecture_2.0.html">Architecture 2.0 [Preview]</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture_2.0/migration_guide.html">Migration to 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture_2.0/cpp_interfaces.html">① Memory Interop and C++ abstract interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture_2.0/cpp_elements.html">② C++ elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture_2.0/gstreamer_elements.html">③ GStreamer Elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture_2.0/gstreamer_bins.html">③ GStreamer Bin Elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture_2.0/python_bindings.html">③ Python Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture_2.0/pytorch_inference.html">PyTorch tensor inference [Preview]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture_2.0/elements_list.html">Elements 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture_2.0/packaging.html">Packaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture_2.0/samples_2.0.html">Samples 2.0</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="architecture_2.0/api_ref/index.html">API 2.0 Reference</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="architecture_2.0/api_ref/global.html">Global Namespace</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="architecture_2.0/api_ref/namespace_GVA.html">namespace GVA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="architecture_2.0/api_ref/namespace_dlstreamer.html">namespace dlstreamer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="architecture_2.0/api_ref/enum_GVALayout.html">enum GVALayout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="architecture_2.0/api_ref/enum_GVAPrecision.html">enum GVAPrecision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="architecture_2.0/api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="architecture_2.0/api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-</div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1></h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                    </div>
-                </div>
-            </div>
-            <main id="main-content" role="main">
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
 
 <h1 id="index">Index</h1>
 
@@ -704,7 +394,7 @@ title="Fullscreen mode"
     __init__
 
       <ul>
-        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-11">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-26">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-1">[2]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-12">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-26">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-1">[2]</a>
 </li>
       </ul></li>
       <li>
@@ -755,7 +445,7 @@ title="Fullscreen mode"
     _meta
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-10">function</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-14">[1]</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-10">function</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-14">[1]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -775,35 +465,35 @@ title="Fullscreen mode"
     add_event
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioFrame.html#index-11">function</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-11">function</a>
 </li>
       </ul></li>
       <li>
     add_message
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioFrame.html#index-13">function</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-13">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-9">[2]</a>
+        <li><a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-9">function</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-13">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-13">[2]</a>
 </li>
       </ul></li>
       <li>
     add_region
 
       <ul>
-        <li><a href="api_ref/class_GVA_VideoFrame.html#index-11">function</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-6">[1]</a>
+        <li><a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-6">function</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-11">[1]</a>
 </li>
       </ul></li>
       <li>
     add_tensor
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-6">function</a>, <a href="api_ref/class_GVA_AudioFrame.html#index-12">[1]</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-8">[2]</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-12">[3]</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-9">[4]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-7">[5]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-10">function</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-7">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-6">[2]</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-12">[3]</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-8">[4]</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-12">[5]</a>
 </li>
       </ul></li>
       <li>
     ANY
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Layout.html#index-1">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Layout.html#index-1">enumvalue</a>
 </li>
       </ul></li>
   </ul></td>
@@ -819,28 +509,28 @@ title="Fullscreen mode"
     audio_info
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioFrame.html#index-5">function</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-5">function</a>
 </li>
       </ul></li>
       <li>
     audio_meta
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioFrame.html#index-4">function</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-4">function</a>
 </li>
       </ul></li>
       <li>
     AudioEvent
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-1">function</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-1">function</a>
 </li>
       </ul></li>
       <li>
     AudioFrame
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioFrame.html#index-1">function</a>, <a href="api_ref/class_GVA_AudioFrame.html#index-2">[1]</a>, <a href="api_ref/class_GVA_AudioFrame.html#index-3">[2]</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-1">function</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-2">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-3">[2]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -853,14 +543,14 @@ title="Fullscreen mode"
     BF16
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-4">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-4">enumvalue</a>
 </li>
       </ul></li>
       <li>
     BIN
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-17">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-17">enumvalue</a>
 </li>
       </ul></li>
   </ul></td>
@@ -869,7 +559,7 @@ title="Fullscreen mode"
     BOOL
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-18">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-18">enumvalue</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1080,15 +770,15 @@ title="Fullscreen mode"
 </li>
         <li><a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-0">gstgva::video_frame::VideoFrame</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-0">GVA::AudioEvent</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-0">GVA::AudioEvent</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioFrame.html#index-0">GVA::AudioFrame</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-0">GVA::AudioFrame</a>
 </li>
-        <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-0">GVA::RegionOfInterest</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-0">GVA::RegionOfInterest</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-0">GVA::Tensor</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-0">GVA::Tensor</a>
 </li>
-        <li><a href="api_ref/class_GVA_VideoFrame.html#index-0">GVA::VideoFrame</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-0">GVA::VideoFrame</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1097,7 +787,7 @@ title="Fullscreen mode"
     confidence
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-4">function</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-5">[1]</a>, <a href="api_ref/class_GVA_Tensor.html#index-10">[2]</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-4">[3]</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-8">[4]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-4">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-8">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-5">[3]</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-10">[4]</a>
 </li>
       </ul></li>
       <li>
@@ -1118,7 +808,7 @@ title="Fullscreen mode"
     CUSTOM
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-19">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-19">enumvalue</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1131,7 +821,7 @@ title="Fullscreen mode"
     data
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-2">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-4">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-12">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-2">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_CPUTensor.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVTensor.html#index-1">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOTensor.html#index-1">[6]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOTensorBatch.html#index-1">[7]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_SYCLUSMTensor.html#index-1">[8]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-4">[9]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_USMTensor.html#index-1">[10]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-4">function</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-12">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-2">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-2">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_CPUTensor.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVTensor.html#index-1">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOTensor.html#index-1">[6]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOTensorBatch.html#index-1">[7]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_SYCLUSMTensor.html#index-1">[8]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-4">[9]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_USMTensor.html#index-1">[10]</a>
 </li>
         <li><a href="api_ref/struct__GstGVATensorMeta.html#index-2">variable</a>, <a href="architecture_2.0/api_ref/struct__GstGVATensorMeta.html#index-2">[1]</a>
 </li>
@@ -1154,14 +844,14 @@ title="Fullscreen mode"
     detection
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-7">function</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-9">[1]</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-7">[2]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-8">function</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-7">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-9">[2]</a>
 </li>
       </ul></li>
       <li>
     dims
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-3">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-1">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-1">function</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-3">[1]</a>
 </li>
       </ul></li>
       <li>
@@ -2044,7 +1734,7 @@ title="Fullscreen mode"
     element_id
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-24">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-19">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-19">function</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-24">[1]</a>
 </li>
       </ul></li>
       <li>
@@ -2077,13 +1767,13 @@ title="Fullscreen mode"
 </li>
         <li><a href="architecture_2.0/api_ref/enum_dlstreamer_ImageFormat.html#index-0">ImageFormat</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Layout.html#index-0">Layout</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Layout.html#index-0">Layout</a>
 </li>
         <li><a href="architecture_2.0/api_ref/enum_dlstreamer_MediaType.html#index-0">MediaType</a>
 </li>
         <li><a href="architecture_2.0/api_ref/enum_dlstreamer_MemoryType.html#index-0">MemoryType</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-0">Precision</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-0">Precision</a>
 </li>
         <li><a href="architecture_2.0/api_ref/enum_dlstreamer_ImageLayout_Value.html#index-0">Value</a>
 </li>
@@ -2092,21 +1782,21 @@ title="Fullscreen mode"
     enumvalue
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Layout.html#index-1">ANY</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Layout.html#index-1">ANY</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-4">BF16</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-4">BF16</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-17">BIN</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-17">BIN</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-18">BOOL</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-18">BOOL</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-19">CUSTOM</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-19">CUSTOM</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-3">FP16</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-3">FP16</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-2">FP32</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-2">FP32</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-5">FP64</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-5">FP64</a>
 </li>
         <li><a href="api_ref/enum_GVALayout.html#index-1">GVA_LAYOUT_ANY</a>, <a href="architecture_2.0/api_ref/enum_GVALayout.html#index-1">[1]</a>
 </li>
@@ -2154,35 +1844,35 @@ title="Fullscreen mode"
 </li>
         <li><a href="api_ref/enum_GVAPrecision.html#index-1">GVA_PRECISION_UNSPECIFIED</a>, <a href="architecture_2.0/api_ref/enum_GVAPrecision.html#index-1">[1]</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-7">I16</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-7">I16</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-13">I32</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-13">I32</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-10">I4</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-10">I4</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-15">I64</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-15">I64</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-11">I8</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-11">I8</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Layout.html#index-4">NC</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Layout.html#index-4">NC</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Layout.html#index-2">NCHW</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Layout.html#index-2">NCHW</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Layout.html#index-3">NHWC</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Layout.html#index-3">NHWC</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-6">Q78</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-6">Q78</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-12">U16</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-12">U16</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-14">U32</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-14">U32</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-8">U4</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-8">U4</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-16">U64</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-16">U64</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-9">U8</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-9">U8</a>
 </li>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-1">UNSPECIFIED</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-1">UNSPECIFIED</a>
 </li>
       </ul></li>
   </ul></td>
@@ -2198,7 +1888,7 @@ title="Fullscreen mode"
     events
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioFrame.html#index-6">function</a>, <a href="api_ref/class_GVA_AudioFrame.html#index-7">[1]</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-6">function</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-7">[1]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -2211,7 +1901,7 @@ title="Fullscreen mode"
     fields
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-12">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-12">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-12">function</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-12">[1]</a>
 </li>
       </ul></li>
       <li>
@@ -2232,28 +1922,28 @@ title="Fullscreen mode"
     format
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-8">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-11">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-2">[3]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-11">function</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-8">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-2">[3]</a>
 </li>
       </ul></li>
       <li>
     FP16
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-3">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-3">enumvalue</a>
 </li>
       </ul></li>
       <li>
     FP32
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-2">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-2">enumvalue</a>
 </li>
       </ul></li>
       <li>
     FP64
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-5">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-5">enumvalue</a>
 </li>
       </ul></li>
       <li>
@@ -2264,7 +1954,7 @@ title="Fullscreen mode"
 </li>
         <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-13">__getitem__</a>
 </li>
-        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-11">__init__</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-26">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-1">[2]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-12">__init__</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-26">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-1">[2]</a>
 </li>
         <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-15">__iter__</a>
 </li>
@@ -2274,57 +1964,57 @@ title="Fullscreen mode"
 </li>
         <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-27">__setitem__</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-10">_meta</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-14">[1]</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-10">_meta</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-14">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioFrame.html#index-11">add_event</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-11">add_event</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioFrame.html#index-13">add_message</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-13">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-9">[2]</a>
+        <li><a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-9">add_message</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-13">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-13">[2]</a>
 </li>
-        <li><a href="api_ref/class_GVA_VideoFrame.html#index-11">add_region</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-6">[1]</a>
+        <li><a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-6">add_region</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-11">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-6">add_tensor</a>, <a href="api_ref/class_GVA_AudioFrame.html#index-12">[1]</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-8">[2]</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-12">[3]</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-9">[4]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-7">[5]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-10">add_tensor</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-7">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-6">[2]</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-12">[3]</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-8">[4]</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-12">[5]</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioFrame.html#index-5">audio_info</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-5">audio_info</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioFrame.html#index-4">audio_meta</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-4">audio_meta</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-1">AudioEvent</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-1">AudioEvent</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioFrame.html#index-1">AudioFrame</a>, <a href="api_ref/class_GVA_AudioFrame.html#index-2">[1]</a>, <a href="api_ref/class_GVA_AudioFrame.html#index-3">[2]</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-1">AudioFrame</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-2">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-3">[2]</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-4">confidence</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-5">[1]</a>, <a href="api_ref/class_GVA_Tensor.html#index-10">[2]</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-4">[3]</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-8">[4]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-4">confidence</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-8">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-5">[3]</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-10">[4]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-6">context</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-3">[1]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/namespace_dlstreamer.html#index-2">create_mapper</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-2">data</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-4">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-12">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-2">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_CPUTensor.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVTensor.html#index-1">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOTensor.html#index-1">[6]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOTensorBatch.html#index-1">[7]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_SYCLUSMTensor.html#index-1">[8]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-4">[9]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_USMTensor.html#index-1">[10]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-4">data</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-12">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-2">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-2">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_CPUTensor.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVTensor.html#index-1">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOTensor.html#index-1">[6]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOTensorBatch.html#index-1">[7]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_SYCLUSMTensor.html#index-1">[8]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-4">[9]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_USMTensor.html#index-1">[10]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseContext.html#index-4">derive_context</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Context.html#index-5">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTContext.html#index-1">[2]</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-7">detection</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-9">[1]</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-7">[2]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-8">detection</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-7">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-9">[2]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-3">dims</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-1">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-1">dims</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-3">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-24">element_id</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-19">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-19">element_id</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-24">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioFrame.html#index-6">events</a>, <a href="api_ref/class_GVA_AudioFrame.html#index-7">[1]</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-6">events</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-7">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-12">fields</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-12">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-12">fields</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-12">[1]</a>
 </li>
         <li><a href="api_ref/global.html#index-8">find_tensor_meta</a>, <a href="architecture_2.0/api_ref/global.html#index-8">[1]</a>
 </li>
         <li><a href="api_ref/global.html#index-9">find_tensor_meta_ext</a>, <a href="architecture_2.0/api_ref/global.html#index-9">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-8">format</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-11">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-2">[3]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-11">format</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-8">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-2">[3]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_Element.html#index-2">get_context</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-16">get_double</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-16">get_double</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseSink.html#index-2">get_input_info</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-3">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Sink.html#index-1">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-3">[3]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-15">get_int</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-15">get_int</a>
 </li>
         <li><a href="api_ref/global.html#index-3">get_json_message</a>, <a href="architecture_2.0/api_ref/global.html#index-3">[1]</a>
 </li>
@@ -2332,7 +2022,7 @@ title="Fullscreen mode"
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseSource.html#index-2">get_output_info</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-4">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Source.html#index-1">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-4">[3]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-14">get_string</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-14">get_string</a>
 </li>
         <li><a href="api_ref/global.html#index-2">gst_gva_json_meta_api_get_type</a>, <a href="architecture_2.0/api_ref/global.html#index-2">[1]</a>
 </li>
@@ -2342,13 +2032,13 @@ title="Fullscreen mode"
 </li>
         <li><a href="api_ref/global.html#index-6">gst_gva_tensor_meta_get_info</a>, <a href="architecture_2.0/api_ref/global.html#index-6">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-27">gst_structure</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-27">gst_structure</a>
 </li>
         <li><a href="api_ref/global.html#index-5">gva_get_tensor_data</a>, <a href="architecture_2.0/api_ref/global.html#index-5">[1]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseContext.html#index-2">handle</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-3">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Context.html#index-3">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_FFmpegContext.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTContextQuery.html#index-1">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_LevelZeroContext.html#index-1">[6]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenCLContext.html#index-1">[7]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenCVUMatContext.html#index-1">[8]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_OpenVINOContext.html#index-2">[9]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_SYCLContext.html#index-1">[10]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-5">[11]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-6">[12]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_VAAPIContext.html#index-1">[13]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-13">has_field</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-24">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-24">has_field</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-13">[1]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-5">info</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-1">[1]</a>
 </li>
@@ -2358,21 +2048,21 @@ title="Fullscreen mode"
 </li>
         <li><a href="architecture_2.0/api_ref/struct_dlstreamer_TensorInfo.html#index-5">is_contiguous</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-26">is_detection</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-25">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-25">is_detection</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-26">[1]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/struct_dlstreamer_TensorInfo.html#index-3">itemsize</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-7">keys</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-2">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-7">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-6">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTROIDictionary.html#index-2">[4]</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-3">label</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-4">[1]</a>, <a href="api_ref/class_GVA_Tensor.html#index-11">[2]</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-3">[3]</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-9">[4]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-3">label</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-9">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-3">[2]</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-4">[3]</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-11">[4]</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-8">label_id</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-10">[1]</a>, <a href="api_ref/class_GVA_Tensor.html#index-25">[2]</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-8">[3]</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-18">[4]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-9">label_id</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-18">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-8">[2]</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-10">[3]</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-25">[4]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-6">layer_name</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-7">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-7">layer_name</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-6">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-5">layout</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-3">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-3">layout</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-5">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-23">layout_as_string</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-21">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-21">layout_as_string</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-23">[1]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseMemoryMapper.html#index-1">map</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseMemoryMapper.html#index-2">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseMemoryMapper.html#index-5">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseMemoryMapper.html#index-6">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapper.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapper.html#index-2">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperAnyToGST.html#index-1">[6]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperAnyToGST.html#index-2">[7]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCPUToOpenCV.html#index-1">[8]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCPUToOpenVINO.html#index-1">[9]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCPUToOpenVINO.html#index-2">[10]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCache.html#index-1">[11]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCache.html#index-2">[12]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperChain.html#index-1">[13]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperChain.html#index-2">[14]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperDMAToOpenCL.html#index-1">[15]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperDMAToUSM.html#index-1">[16]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperDMAToVAAPI.html#index-1">[17]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperDMAToVAAPI.html#index-2">[18]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperFFMPEGToVAAPI.html#index-1">[19]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperGSTToDMA.html#index-1">[20]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperGSTToOpenCL.html#index-1">[21]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperGSTToVAAPI.html#index-1">[22]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenCLToCPU.html#index-1">[23]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenCLToDMA.html#index-1">[24]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenCLToOpenCVUMat.html#index-1">[25]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenCLToOpenVINO.html#index-1">[26]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenVINOToCPU.html#index-1">[27]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperOpenVINOToCPU.html#index-2">[28]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperSYCLUSMToCPU.html#index-1">[29]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperUSMToDMA.html#index-1">[30]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperVAAPIToDMA.html#index-1">[31]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperVAAPIToDMA.html#index-2">[32]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperVAAPIToOpenVINO.html#index-1">[33]</a>
 </li>
@@ -2380,97 +2070,97 @@ title="Fullscreen mode"
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseContext.html#index-1">memory_type</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-5">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-1">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Context.html#index-2">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-3">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-2">[5]</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioFrame.html#index-10">messages</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-10">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-8">[2]</a>
+        <li><a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-8">messages</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-10">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-10">[2]</a>
 </li>
-        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-10">meta</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-11">meta</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-6">metadata</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-6">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-7">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTFrame.html#index-1">[3]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-7">model_name</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-6">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-6">model_name</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-7">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-9">name</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-5">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-1">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-1">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-1">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTROIDictionary.html#index-1">[6]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-5">name</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-9">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-1">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-1">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-1">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTROIDictionary.html#index-1">[6]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/struct_dlstreamer_TensorInfo.html#index-4">nbytes</a>
 </li>
-        <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-3">normalized_rect</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-2">[1]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-2">normalized_rect</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-3">[1]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-1">num_tensors</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-5">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-6">object_id</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-5">[1]</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-10">[2]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-5">object_id</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-10">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-6">[2]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseMemoryMapper.html#index-4">output_context</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapper.html#index-4">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperCache.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_MemoryMapperChain.html#index-4">[3]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseContext.html#index-5">parent</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-7">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTensor.html#index-7">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Context.html#index-6">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-8">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Tensor.html#index-7">[5]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-4">precision</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-2">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-2">precision</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-4">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-22">precision_as_string</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-22">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-22">precision_as_string</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-22">[1]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-5">process</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-6">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-7">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-8">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransformInplace.html#index-2">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransformInplace.html#index-3">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-5">[6]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-6">[7]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-7">[8]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-8">[9]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_TransformInplace.html#index-2">[10]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_TransformInplace.html#index-3">[11]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_Source.html#index-3">read</a>
 </li>
-        <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-2">rect</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-1">[1]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-1">rect</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-2">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-11">region_id</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-12">[1]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-13">region_id</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-11">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-1">RegionOfInterest</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-1">RegionOfInterest</a>
 </li>
-        <li><a href="api_ref/class_GVA_VideoFrame.html#index-6">regions</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-7">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-8">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-9">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTFrame.html#index-2">[5]</a>
+        <li><a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-4">regions</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-6">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-7">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-8">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-9">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTFrame.html#index-2">[5]</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioFrame.html#index-14">remove_event</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-14">remove_event</a>
 </li>
         <li><a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-10">remove_message</a>
 </li>
-        <li><a href="api_ref/class_GVA_VideoFrame.html#index-14">remove_region</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-11">[1]</a>
+        <li><a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-11">remove_region</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-14">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioFrame.html#index-15">remove_tensor</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-15">[1]</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-15">remove_tensor</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-15">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-2">segment</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-2">segment</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-4">set</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-5">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-4">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTROIDictionary.html#index-4">[4]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-5">set_array</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-6">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-5">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-5">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTROIDictionary.html#index-6">[4]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-19">set_double</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-19">set_double</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransformInplace.html#index-1">set_info</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_TransformInplace.html#index-1">[1]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseSink.html#index-1">set_input_info</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-1">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Sink.html#index-2">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-1">[3]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-18">set_int</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-18">set_int</a>
 </li>
         <li><a href="api_ref/global.html#index-4">set_json_message</a>, <a href="architecture_2.0/api_ref/global.html#index-4">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-9">set_label</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-12">[1]</a>, <a href="api_ref/class_GVA_Tensor.html#index-21">[2]</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-23">[3]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-23">set_label</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-9">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-12">[2]</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-21">[3]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-20">set_name</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-20">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-6">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-7">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-6">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-7">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTROIDictionary.html#index-7">[6]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-20">set_name</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-20">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-6">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-7">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-6">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-7">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTROIDictionary.html#index-7">[6]</a>
 </li>
-        <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-13">set_object_id</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-6">set_object_id</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-13">[1]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseSource.html#index-1">set_output_info</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-2">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Source.html#index-2">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-2">[3]</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-17">set_string</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-17">set_string</a>
 </li>
         <li><a href="architecture_2.0/api_ref/struct_dlstreamer_TensorInfo.html#index-2">size</a>
 </li>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-1">Tensor</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-1">Tensor</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-2">tensor</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-4">[1]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/struct_dlstreamer_TensorInfo.html#index-1">TensorInfo</a>
 </li>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-5">tensors</a>, <a href="api_ref/class_GVA_AudioFrame.html#index-8">[1]</a>, <a href="api_ref/class_GVA_AudioFrame.html#index-9">[2]</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-7">[3]</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-8">[4]</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-9">[5]</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-6">[6]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-5">[7]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-7">tensors</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-5">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-5">[2]</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-8">[3]</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-9">[4]</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-7">[5]</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-8">[6]</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-9">[7]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-2">try_get</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-3">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-2">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-2">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTROIDictionary.html#index-3">[4]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-3">try_get_array</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-4">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-3">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-3">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTROIDictionary.html#index-5">[4]</a>
 </li>
-        <li><a href="api_ref/class_GVA_VideoFrame.html#index-5">video_info</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-3">[1]</a>
+        <li><a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-3">video_info</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-5">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_VideoFrame.html#index-4">video_meta</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-2">[1]</a>
+        <li><a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-2">video_meta</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-4">[1]</a>
 </li>
-        <li><a href="api_ref/class_GVA_VideoFrame.html#index-1">VideoFrame</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-2">[1]</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-3">[2]</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-1">VideoFrame</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-2">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-3">[2]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_Sink.html#index-3">write</a>
 </li>
@@ -2492,7 +2182,7 @@ title="Fullscreen mode"
     get_double
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-16">function</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-16">function</a>
 </li>
       </ul></li>
       <li>
@@ -2506,7 +2196,7 @@ title="Fullscreen mode"
     get_int
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-15">function</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-15">function</a>
 </li>
       </ul></li>
       <li>
@@ -2534,7 +2224,7 @@ title="Fullscreen mode"
     get_string
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-14">function</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-14">function</a>
 </li>
       </ul></li>
       <li>
@@ -2576,7 +2266,7 @@ title="Fullscreen mode"
     gst_structure
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-27">function</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-27">function</a>
 </li>
       </ul></li>
       <li>
@@ -2653,35 +2343,35 @@ title="Fullscreen mode"
     GVA
 
       <ul>
-        <li><a href="api_ref/namespace_GVA.html#index-0">namespace</a>
+        <li><a href="architecture_2.0/api_ref/namespace_GVA.html#index-0">namespace</a>
 </li>
       </ul></li>
       <li>
     GVA::AudioEvent
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-0">class</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-0">class</a>
 </li>
       </ul></li>
       <li>
     GVA::AudioFrame
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioFrame.html#index-0">class</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-0">class</a>
 </li>
       </ul></li>
       <li>
     GVA::Rect
 
       <ul>
-        <li><a href="api_ref/struct_GVA_Rect.html#index-0">struct</a>
+        <li><a href="architecture_2.0/api_ref/struct_GVA_Rect.html#index-0">struct</a>
 </li>
       </ul></li>
       <li>
     GVA::RegionOfInterest
 
       <ul>
-        <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-0">class</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-0">class</a>
 </li>
       </ul></li>
   </ul></td>
@@ -2690,21 +2380,21 @@ title="Fullscreen mode"
     GVA::Segment
 
       <ul>
-        <li><a href="api_ref/struct_GVA_Segment.html#index-0">struct</a>
+        <li><a href="architecture_2.0/api_ref/struct_GVA_Segment.html#index-0">struct</a>
 </li>
       </ul></li>
       <li>
     GVA::Tensor
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-0">class</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-0">class</a>
 </li>
       </ul></li>
       <li>
     GVA::VideoFrame
 
       <ul>
-        <li><a href="api_ref/class_GVA_VideoFrame.html#index-0">class</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-0">class</a>
 </li>
       </ul></li>
       <li>
@@ -2915,7 +2605,7 @@ title="Fullscreen mode"
     has_field
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-13">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-24">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-24">function</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-13">[1]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -2928,35 +2618,35 @@ title="Fullscreen mode"
     I16
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-7">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-7">enumvalue</a>
 </li>
       </ul></li>
       <li>
     I32
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-13">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-13">enumvalue</a>
 </li>
       </ul></li>
       <li>
     I4
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-10">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-10">enumvalue</a>
 </li>
       </ul></li>
       <li>
     I64
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-15">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-15">enumvalue</a>
 </li>
       </ul></li>
       <li>
     I8
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-11">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-11">enumvalue</a>
 </li>
       </ul></li>
       <li>
@@ -3014,7 +2704,7 @@ title="Fullscreen mode"
     is_detection
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-26">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-25">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-25">function</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-26">[1]</a>
 </li>
       </ul></li>
       <li>
@@ -3047,21 +2737,21 @@ title="Fullscreen mode"
     label
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-3">function</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-4">[1]</a>, <a href="api_ref/class_GVA_Tensor.html#index-11">[2]</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-3">[3]</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-9">[4]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-3">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-9">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-3">[2]</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-4">[3]</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-11">[4]</a>
 </li>
       </ul></li>
       <li>
     label_id
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-8">function</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-10">[1]</a>, <a href="api_ref/class_GVA_Tensor.html#index-25">[2]</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-8">[3]</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-18">[4]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-9">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-18">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-8">[2]</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-10">[3]</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-25">[4]</a>
 </li>
       </ul></li>
       <li>
     layer_name
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-6">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-7">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-7">function</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-6">[1]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -3070,21 +2760,21 @@ title="Fullscreen mode"
     Layout
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Layout.html#index-0">enum</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Layout.html#index-0">enum</a>
 </li>
       </ul></li>
       <li>
     layout
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-5">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-3">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-3">function</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-5">[1]</a>
 </li>
       </ul></li>
       <li>
     layout_as_string
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-23">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-21">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-21">function</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-23">[1]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -3141,14 +2831,14 @@ title="Fullscreen mode"
     messages
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioFrame.html#index-10">function</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-10">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-8">[2]</a>
+        <li><a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-8">function</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-10">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-10">[2]</a>
 </li>
       </ul></li>
       <li>
     meta
 
       <ul>
-        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-10">function</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-11">function</a>
 </li>
         <li><a href="api_ref/struct_GstGVAAudioEventMeta.html#index-1">variable</a>, <a href="api_ref/struct__GstGVAJSONMeta.html#index-1">[1]</a>, <a href="api_ref/struct__GstGVATensorMeta.html#index-1">[2]</a>, <a href="architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#index-1">[3]</a>, <a href="architecture_2.0/api_ref/struct__GstGVAJSONMeta.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/struct__GstGVATensorMeta.html#index-1">[5]</a>
 </li>
@@ -3164,7 +2854,7 @@ title="Fullscreen mode"
     model_name
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-7">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-6">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-6">function</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-7">[1]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -3177,7 +2867,7 @@ title="Fullscreen mode"
     name
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-9">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-5">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-1">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-1">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-1">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTROIDictionary.html#index-1">[6]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-5">function</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-9">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-1">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-1">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-1">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-1">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTROIDictionary.html#index-1">[6]</a>
 </li>
       </ul></li>
       <li>
@@ -3204,7 +2894,7 @@ title="Fullscreen mode"
 </li>
         <li><a href="api_ref/namespace_gstgva_video_frame.html#index-0">gstgva::video_frame</a>
 </li>
-        <li><a href="api_ref/namespace_GVA.html#index-0">GVA</a>
+        <li><a href="architecture_2.0/api_ref/namespace_GVA.html#index-0">GVA</a>
 </li>
       </ul></li>
   </ul></td>
@@ -3220,28 +2910,28 @@ title="Fullscreen mode"
     NC
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Layout.html#index-4">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Layout.html#index-4">enumvalue</a>
 </li>
       </ul></li>
       <li>
     NCHW
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Layout.html#index-2">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Layout.html#index-2">enumvalue</a>
 </li>
       </ul></li>
       <li>
     NHWC
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Layout.html#index-3">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Layout.html#index-3">enumvalue</a>
 </li>
       </ul></li>
       <li>
     normalized_rect
 
       <ul>
-        <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-3">function</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-2">[1]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-2">function</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-3">[1]</a>
 </li>
       </ul></li>
       <li>
@@ -3261,7 +2951,7 @@ title="Fullscreen mode"
     object_id
 
       <ul>
-        <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-6">function</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-5">[1]</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-10">[2]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-5">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-10">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-6">[2]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -3304,7 +2994,7 @@ title="Fullscreen mode"
     Precision
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-0">enum</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-0">enum</a>
 </li>
       </ul></li>
   </ul></td>
@@ -3313,14 +3003,14 @@ title="Fullscreen mode"
     precision
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-4">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-2">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-2">function</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-4">[1]</a>
 </li>
       </ul></li>
       <li>
     precision_as_string
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-22">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-22">[1]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-22">function</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-22">[1]</a>
 </li>
       </ul></li>
       <li>
@@ -3340,7 +3030,7 @@ title="Fullscreen mode"
     Q78
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-6">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-6">enumvalue</a>
 </li>
       </ul></li>
   </ul></td>
@@ -3360,28 +3050,28 @@ title="Fullscreen mode"
     rect
 
       <ul>
-        <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-2">function</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-1">[1]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-1">function</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-2">[1]</a>
 </li>
       </ul></li>
       <li>
     region_id
 
       <ul>
-        <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-11">function</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-12">[1]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-13">function</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-11">[1]</a>
 </li>
       </ul></li>
       <li>
     RegionOfInterest
 
       <ul>
-        <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-1">function</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-1">function</a>
 </li>
       </ul></li>
       <li>
     regions
 
       <ul>
-        <li><a href="api_ref/class_GVA_VideoFrame.html#index-6">function</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-7">[1]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-4">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-8">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-9">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTFrame.html#index-2">[5]</a>
+        <li><a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-4">function</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-6">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-7">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-8">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-9">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTFrame.html#index-2">[5]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -3390,7 +3080,7 @@ title="Fullscreen mode"
     remove_event
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioFrame.html#index-14">function</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-14">function</a>
 </li>
       </ul></li>
       <li>
@@ -3404,14 +3094,14 @@ title="Fullscreen mode"
     remove_region
 
       <ul>
-        <li><a href="api_ref/class_GVA_VideoFrame.html#index-14">function</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-11">[1]</a>
+        <li><a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-11">function</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-14">[1]</a>
 </li>
       </ul></li>
       <li>
     remove_tensor
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioFrame.html#index-15">function</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-15">[1]</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-15">function</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-15">[1]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -3424,7 +3114,7 @@ title="Fullscreen mode"
     segment
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-2">function</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-2">function</a>
 </li>
       </ul></li>
       <li>
@@ -3445,7 +3135,7 @@ title="Fullscreen mode"
     set_double
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-19">function</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-19">function</a>
 </li>
       </ul></li>
       <li>
@@ -3466,7 +3156,7 @@ title="Fullscreen mode"
     set_int
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-18">function</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-18">function</a>
 </li>
       </ul></li>
       <li>
@@ -3480,21 +3170,21 @@ title="Fullscreen mode"
     set_label
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-9">function</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-12">[1]</a>, <a href="api_ref/class_GVA_Tensor.html#index-21">[2]</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-23">[3]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-23">function</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-9">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-12">[2]</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-21">[3]</a>
 </li>
       </ul></li>
       <li>
     set_name
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-20">function</a>, <a href="api_ref/class_gstgva_tensor_Tensor.html#index-20">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-6">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-7">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-6">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-7">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTROIDictionary.html#index-7">[6]</a>
+        <li><a href="api_ref/class_gstgva_tensor_Tensor.html#index-20">function</a>, <a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-20">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseDictionary.html#index-6">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Dictionary.html#index-7">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_DictionaryProxy.html#index-6">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTDictionary.html#index-7">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTROIDictionary.html#index-7">[6]</a>
 </li>
       </ul></li>
       <li>
     set_object_id
 
       <ul>
-        <li><a href="api_ref/class_GVA_RegionOfInterest.html#index-13">function</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-6">function</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-13">[1]</a>
 </li>
       </ul></li>
       <li>
@@ -3508,7 +3198,7 @@ title="Fullscreen mode"
     set_string
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-17">function</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-17">function</a>
 </li>
       </ul></li>
       <li>
@@ -3587,9 +3277,9 @@ title="Fullscreen mode"
 </li>
         <li><a href="api_ref/struct_GstGVAAudioEventMeta.html#index-0">GstGVAAudioEventMeta</a>, <a href="architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#index-0">[1]</a>
 </li>
-        <li><a href="api_ref/struct_GVA_Rect.html#index-0">GVA::Rect</a>
+        <li><a href="architecture_2.0/api_ref/struct_GVA_Rect.html#index-0">GVA::Rect</a>
 </li>
-        <li><a href="api_ref/struct_GVA_Segment.html#index-0">GVA::Segment</a>
+        <li><a href="architecture_2.0/api_ref/struct_GVA_Segment.html#index-0">GVA::Segment</a>
 </li>
       </ul></li>
   </ul></td>
@@ -3602,7 +3292,7 @@ title="Fullscreen mode"
     Tensor
 
       <ul>
-        <li><a href="api_ref/class_GVA_Tensor.html#index-1">function</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_Tensor.html#index-1">function</a>
 </li>
       </ul></li>
       <li>
@@ -3623,7 +3313,7 @@ title="Fullscreen mode"
     tensors
 
       <ul>
-        <li><a href="api_ref/class_GVA_AudioEvent.html#index-5">function</a>, <a href="api_ref/class_GVA_AudioFrame.html#index-8">[1]</a>, <a href="api_ref/class_GVA_AudioFrame.html#index-9">[2]</a>, <a href="api_ref/class_GVA_RegionOfInterest.html#index-7">[3]</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-8">[4]</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-9">[5]</a>, <a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-6">[6]</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-5">[7]</a>
+        <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-7">function</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-5">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-5">[2]</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-8">[3]</a>, <a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-9">[4]</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-7">[5]</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-8">[6]</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-9">[7]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -3661,21 +3351,21 @@ title="Fullscreen mode"
     U16
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-12">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-12">enumvalue</a>
 </li>
       </ul></li>
       <li>
     U32
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-14">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-14">enumvalue</a>
 </li>
       </ul></li>
       <li>
     U4
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-8">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-8">enumvalue</a>
 </li>
       </ul></li>
   </ul></td>
@@ -3684,21 +3374,21 @@ title="Fullscreen mode"
     U64
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-16">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-16">enumvalue</a>
 </li>
       </ul></li>
       <li>
     U8
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-9">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-9">enumvalue</a>
 </li>
       </ul></li>
       <li>
     UNSPECIFIED
 
       <ul>
-        <li><a href="api_ref/enum_GVA_Tensor_Precision.html#index-1">enumvalue</a>
+        <li><a href="architecture_2.0/api_ref/enum_GVA_Tensor_Precision.html#index-1">enumvalue</a>
 </li>
       </ul></li>
   </ul></td>
@@ -3741,21 +3431,21 @@ title="Fullscreen mode"
     video_info
 
       <ul>
-        <li><a href="api_ref/class_GVA_VideoFrame.html#index-5">function</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-3">[1]</a>
+        <li><a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-3">function</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-5">[1]</a>
 </li>
       </ul></li>
       <li>
     video_meta
 
       <ul>
-        <li><a href="api_ref/class_GVA_VideoFrame.html#index-4">function</a>, <a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-2">[1]</a>
+        <li><a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-2">function</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-4">[1]</a>
 </li>
       </ul></li>
       <li>
     VideoFrame
 
       <ul>
-        <li><a href="api_ref/class_GVA_VideoFrame.html#index-1">function</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-2">[1]</a>, <a href="api_ref/class_GVA_VideoFrame.html#index-3">[2]</a>
+        <li><a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-1">function</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-2">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-3">[2]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -3776,36 +3466,69 @@ title="Fullscreen mode"
 
 
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Intel Corporation<br/>
-  
-      &copy; Copyright 2022, Intel Corporation.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Intel Corporation
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Intel Corporation.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
