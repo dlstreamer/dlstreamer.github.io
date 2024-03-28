@@ -89,19 +89,6 @@ Models Table
       - action_recognition_demo
     * - 4
       - Classification
-      - `alexnet <https://docs.openvino.ai/latest/omz_models_model_alexnet.html>`__
-      - public
-      - caffe, openvino
-      - 1.5
-      - openvino
-      - CPU, GPU
-      - 
-      - 
-      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
-      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 5
-      - Classification
       - `anti-spoof-mn3 <https://docs.openvino.ai/latest/omz_models_model_anti_spoof_mn3.html>`__
       - public
       - onnx, openvino
@@ -113,20 +100,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/anti-spoof-mn3.json>`__
       - interactive_face_detection_demo
-    * - 6
-      - Classification
-      - `densenet-121 <https://docs.openvino.ai/latest/omz_models_model_densenet_121.html>`__
-      - public
-      - caffe, openvino
-      - 5.724
-      - openvino
-      - CPU, GPU
-      - 
-      - 
-      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
-      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 7
+    * - 5
       - Classification
       - `densenet-121-tf <https://docs.openvino.ai/latest/omz_models_model_densenet_121_tf.html>`__
       - public
@@ -138,8 +112,8 @@ Models Table
       - CPU
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 8
+      - classification_benchmark_demo
+    * - 6
       - Classification
       - `dla-34 <https://docs.openvino.ai/latest/omz_models_model_dla_34.html>`__
       - public
@@ -151,8 +125,8 @@ Models Table
       - 
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 9
+      - classification_benchmark_demo
+    * - 7
       - Classification
       - `efficientnet-b0 <https://docs.openvino.ai/latest/omz_models_model_efficientnet_b0.html>`__
       - public
@@ -164,8 +138,8 @@ Models Table
       - CPU
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 10
+      - classification_benchmark_demo
+    * - 8
       - Classification
       - `efficientnet-b0-pytorch <https://docs.openvino.ai/latest/omz_models_model_efficientnet_b0_pytorch.html>`__
       - public
@@ -177,8 +151,8 @@ Models Table
       - 
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 11
+      - classification_benchmark_demo
+    * - 9
       - Classification
       - `efficientnet-b0_INT8 <https://github.com/dlstreamer/pipeline-zoo-models/tree/main/storage/efficientnet-b0_INT8>`__
       - dlstreamer
@@ -191,9 +165,9 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/pipeline-zoo-models/tree/main/storage/efficientnet-b0_INT8>`__
       - 
-    * - 12
+    * - 10
       - Classification
-      - `emotion-ferplus-8 <https://github.com/onnx/models/blob/main/vision/body_analysis/emotion_ferplus/README.md>`__
+      - `emotion-ferplus-8 <https://github.com/onnx/models/tree/main/validated/vision/body_analysis/emotion_ferplus>`__
       - public
       - onnx
       - 
@@ -204,20 +178,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/onnx/emotion-ferplus-8.json>`__
       - 
-    * - 13
-      - Classification
-      - `googlenet-v1 <https://docs.openvino.ai/latest/omz_models_model_googlenet_v1.html>`__
-      - public
-      - caffe, openvino
-      - 3.266
-      - openvino
-      - CPU, GPU
-      - 
-      - 
-      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
-      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 14
+    * - 11
       - Classification
       - `googlenet-v1-tf <https://docs.openvino.ai/latest/omz_models_model_googlenet_v1_tf.html>`__
       - public
@@ -229,21 +190,8 @@ Models Table
       - CPU
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 15
-      - Classification
-      - `googlenet-v2 <https://docs.openvino.ai/latest/omz_models_model_googlenet_v2.html>`__
-      - public
-      - caffe, openvino
-      - 4.058
-      - openvino
-      - CPU, GPU
-      - 
-      - 
-      - `imagenet_2015.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2015.txt>`__
-      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 16
+      - classification_benchmark_demo
+    * - 12
       - Classification
       - `googlenet-v2-tf <https://docs.openvino.ai/latest/omz_models_model_googlenet_v2_tf.html>`__
       - public
@@ -255,8 +203,8 @@ Models Table
       - CPU
       - `imagenet_2012_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012_bkgr.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 17
+      - classification_benchmark_demo
+    * - 13
       - Classification
       - `googlenet-v3 <https://docs.openvino.ai/latest/omz_models_model_googlenet_v3.html>`__
       - public
@@ -268,8 +216,8 @@ Models Table
       - CPU
       - `imagenet_2012_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012_bkgr.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 18
+      - classification_benchmark_demo
+    * - 14
       - Classification
       - `googlenet-v3-pytorch <https://docs.openvino.ai/latest/omz_models_model_googlenet_v3_pytorch.html>`__
       - public
@@ -281,8 +229,8 @@ Models Table
       - 
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 19
+      - classification_benchmark_demo
+    * - 15
       - Classification
       - `googlenet-v4-tf <https://docs.openvino.ai/latest/omz_models_model_googlenet_v4_tf.html>`__
       - public
@@ -294,8 +242,8 @@ Models Table
       - CPU
       - `imagenet_2012_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012_bkgr.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 20
+      - classification_benchmark_demo
+    * - 16
       - Classification
       - `hbonet-0.25 <https://docs.openvino.ai/latest/omz_models_model_hbonet_0_25.html>`__
       - public
@@ -307,8 +255,8 @@ Models Table
       - 
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 21
+      - classification_benchmark_demo
+    * - 17
       - Classification
       - `hbonet-1.0 <https://docs.openvino.ai/latest/omz_models_model_hbonet_1_0.html>`__
       - public
@@ -320,8 +268,8 @@ Models Table
       - 
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 22
+      - classification_benchmark_demo
+    * - 18
       - Classification
       - `inception-resnet-v2-tf <https://docs.openvino.ai/latest/omz_models_model_inception_resnet_v2_tf.html>`__
       - public
@@ -333,8 +281,8 @@ Models Table
       - CPU
       - `imagenet_2012_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012_bkgr.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 23
+      - classification_benchmark_demo
+    * - 19
       - Classification
       - `mixnet-l <https://docs.openvino.ai/latest/omz_models_model_mixnet_l.html>`__
       - public
@@ -346,8 +294,8 @@ Models Table
       - CPU
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 24
+      - classification_benchmark_demo
+    * - 20
       - Classification
       - `mobilenet-v1-0.25-128 <https://docs.openvino.ai/latest/omz_models_model_mobilenet_v1_0_25_128.html>`__
       - public
@@ -359,21 +307,8 @@ Models Table
       - CPU
       - `imagenet_2012_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012_bkgr.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 25
-      - Classification
-      - `mobilenet-v1-1.0-224 <https://docs.openvino.ai/latest/omz_models_model_mobilenet_v1_1_0_224.html>`__
-      - public
-      - caffe, openvino
-      - 1.148
-      - openvino
-      - CPU, GPU
-      - 
-      - 
-      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
-      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 26
+      - classification_benchmark_demo
+    * - 21
       - Classification
       - `mobilenet-v1-1.0-224-tf <https://docs.openvino.ai/latest/omz_models_model_mobilenet_v1_1_0_224_tf.html>`__
       - public
@@ -385,21 +320,8 @@ Models Table
       - CPU
       - `imagenet_2012_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012_bkgr.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 27
-      - Classification
-      - `mobilenet-v2 <https://docs.openvino.ai/latest/omz_models_model_mobilenet_v2.html>`__
-      - public
-      - caffe, openvino
-      - 0.876
-      - openvino
-      - CPU, GPU
-      - 
-      - 
-      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
-      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 28
+      - classification_benchmark_demo
+    * - 22
       - Classification
       - `mobilenet-v2-1.0-224 <https://docs.openvino.ai/latest/omz_models_model_mobilenet_v2_1_0_224.html>`__
       - public
@@ -411,8 +333,8 @@ Models Table
       - CPU
       - `imagenet_2012_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012_bkgr.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 29
+      - classification_benchmark_demo
+    * - 23
       - Classification
       - `mobilenet-v2-1.4-224 <https://docs.openvino.ai/latest/omz_models_model_mobilenet_v2_1_4_224.html>`__
       - public
@@ -424,8 +346,8 @@ Models Table
       - CPU
       - `imagenet_2012_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012_bkgr.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 30
+      - classification_benchmark_demo
+    * - 24
       - Classification
       - `mobilenet-v2-pytorch <https://docs.openvino.ai/latest/omz_models_model_mobilenet_v2_pytorch.html>`__
       - public
@@ -437,8 +359,8 @@ Models Table
       - 
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 31
+      - classification_benchmark_demo
+    * - 25
       - Classification
       - `mobilenet-v3-large-1.0-224-tf <https://docs.openvino.ai/latest/omz_models_model_mobilenet_v3_large_1_0_224_tf.html>`__
       - public
@@ -450,8 +372,8 @@ Models Table
       - CPU
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 32
+      - classification_benchmark_demo
+    * - 26
       - Classification
       - `mobilenet-v3-small-1.0-224-tf <https://docs.openvino.ai/latest/omz_models_model_mobilenet_v3_small_1_0_224_tf.html>`__
       - public
@@ -463,10 +385,10 @@ Models Table
       - CPU
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 33
+      - classification_benchmark_demo
+    * - 27
       - Classification
-      - `mobilenetv2-7 <https://github.com/onnx/models/tree/main/vision/classification/mobilenet/model>`__
+      - `mobilenetv2-7 <https://github.com/onnx/models/tree/main/validated/vision/classification/mobilenet>`__
       - public
       - onnx
       - 
@@ -477,7 +399,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/onnx/mobilenetv2-7.json>`__
       - 
-    * - 34
+    * - 28
       - Classification
       - `nfnet-f0 <https://docs.openvino.ai/latest/omz_models_model_nfnet_f0.html>`__
       - public
@@ -489,21 +411,8 @@ Models Table
       - 
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 35
-      - Classification
-      - `octave-resnet-26-0.25 <https://docs.openvino.ai/latest/omz_models_model_octave_resnet_26_0_25.html>`__
-      - public
-      - mxnet, openvino
-      - 3.768
-      - openvino
-      - CPU, GPU
-      - 
-      - 
-      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
-      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 36
+      - classification_benchmark_demo
+    * - 29
       - Classification
       - `open-closed-eye-0001 <https://docs.openvino.ai/latest/omz_models_model_open_closed_eye_0001.html>`__
       - public
@@ -516,7 +425,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/open-closed-eye-0001.json>`__
       - gaze_estimation_demo
-    * - 37
+    * - 30
       - Classification
       - `regnetx-3.2gf <https://docs.openvino.ai/latest/omz_models_model_regnetx_3_2gf.html>`__
       - public
@@ -528,8 +437,8 @@ Models Table
       - 
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 38
+      - classification_benchmark_demo
+    * - 31
       - Classification
       - `repvgg-a0 <https://docs.openvino.ai/latest/omz_models_model_repvgg_a0.html>`__
       - public
@@ -541,8 +450,8 @@ Models Table
       - 
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 39
+      - classification_benchmark_demo
+    * - 32
       - Classification
       - `repvgg-b1 <https://docs.openvino.ai/latest/omz_models_model_repvgg_b1.html>`__
       - public
@@ -554,8 +463,8 @@ Models Table
       - 
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 40
+      - classification_benchmark_demo
+    * - 33
       - Classification
       - `repvgg-b3 <https://docs.openvino.ai/latest/omz_models_model_repvgg_b3.html>`__
       - public
@@ -567,8 +476,8 @@ Models Table
       - 
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 41
+      - classification_benchmark_demo
+    * - 34
       - Classification
       - `resnest-50-pytorch <https://docs.openvino.ai/latest/omz_models_model_resnest_50_pytorch.html>`__
       - public
@@ -580,8 +489,8 @@ Models Table
       - 
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 42
+      - classification_benchmark_demo
+    * - 35
       - Classification
       - `resnet-18-pytorch <https://docs.openvino.ai/latest/omz_models_model_resnet_18_pytorch.html>`__
       - public
@@ -593,8 +502,8 @@ Models Table
       - 
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 43
+      - classification_benchmark_demo
+    * - 36
       - Classification
       - `resnet-34-pytorch <https://docs.openvino.ai/latest/omz_models_model_resnet_34_pytorch.html>`__
       - public
@@ -606,8 +515,8 @@ Models Table
       - 
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 44
+      - classification_benchmark_demo
+    * - 37
       - Classification
       - `resnet-50-pytorch <https://docs.openvino.ai/latest/omz_models_model_resnet_50_pytorch.html>`__
       - public
@@ -619,8 +528,8 @@ Models Table
       - 
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 45
+      - classification_benchmark_demo
+    * - 38
       - Classification
       - `resnet-50-tf <https://docs.openvino.ai/latest/omz_models_model_resnet_50_tf.html>`__
       - public
@@ -632,8 +541,8 @@ Models Table
       - CPU
       - `imagenet_2012_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012_bkgr.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 46
+      - classification_benchmark_demo
+    * - 39
       - Classification
       - `resnet-50-tf_INT8 <https://github.com/dlstreamer/pipeline-zoo-models/tree/main/storage/resnet-50-tf_INT8>`__
       - dlstreamer
@@ -646,7 +555,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/pipeline-zoo-models/tree/main/storage/resnet-50-tf_INT8>`__
       - 
-    * - 47
+    * - 40
       - Classification
       - `resnet18-xnor-binary-onnx-0001 <https://docs.openvino.ai/latest/omz_models_model_resnet18_xnor_binary_onnx_0001.html>`__
       - openvino
@@ -658,8 +567,8 @@ Models Table
       - 
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/resnet18-xnor-binary-onnx-0001.json>`__
-      - classification_demo
-    * - 48
+      - classification_benchmark_demo
+    * - 41
       - Classification
       - `resnet50-binary-0001 <https://docs.openvino.ai/latest/omz_models_model_resnet50_binary_0001.html>`__
       - openvino
@@ -671,8 +580,8 @@ Models Table
       - 
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/resnet50-binary-0001.json>`__
-      - classification_demo
-    * - 49
+      - classification_benchmark_demo
+    * - 42
       - Classification
       - `rexnet-v1-x1.0 <https://docs.openvino.ai/latest/omz_models_model_rexnet_v1_x1_0.html>`__
       - public
@@ -684,60 +593,8 @@ Models Table
       - 
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 50
-      - Classification
-      - `se-inception <https://docs.openvino.ai/latest/omz_models_model_se_inception.html>`__
-      - public
-      - caffe, openvino
-      - 4.091
-      - openvino
-      - CPU, GPU
-      - 
-      - 
-      - `imagenet_2015.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2015.txt>`__
-      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 51
-      - Classification
-      - `se-resnet-50 <https://docs.openvino.ai/latest/omz_models_model_se_resnet_50.html>`__
-      - public
-      - caffe, openvino
-      - 7.775
-      - openvino
-      - CPU, GPU
-      - 
-      - 
-      - `imagenet_2015.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2015.txt>`__
-      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 52
-      - Classification
-      - `se-resnext-50 <https://docs.openvino.ai/latest/omz_models_model_se_resnext_50.html>`__
-      - public
-      - caffe, openvino
-      - 8.533
-      - openvino
-      - CPU, GPU
-      - 
-      - 
-      - `imagenet_2015.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2015.txt>`__
-      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 53
-      - Classification
-      - `shufflenet-v2-x0.5 <https://docs.openvino.ai/latest/omz_models_model_shufflenet_v2_x0_5.html>`__
-      - public
-      - caffe, openvino
-      - 0.08465
-      - openvino
-      - CPU, GPU
-      - 
-      - 
-      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
-      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 54
+      - classification_benchmark_demo
+    * - 43
       - Classification
       - `shufflenet-v2-x1.0 <https://docs.openvino.ai/latest/omz_models_model_shufflenet_v2_x1_0.html>`__
       - public
@@ -749,34 +606,8 @@ Models Table
       - 
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 55
-      - Classification
-      - `squeezenet1.0 <https://docs.openvino.ai/latest/omz_models_model_squeezenet1_0.html>`__
-      - public
-      - caffe, openvino
-      - 1.737
-      - openvino
-      - CPU, GPU
-      - 
-      - 
-      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
-      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 56
-      - Classification
-      - `squeezenet1.1 <https://docs.openvino.ai/latest/omz_models_model_squeezenet1_1.html>`__
-      - public
-      - caffe, openvino
-      - 0.785
-      - openvino
-      - CPU, GPU
-      - 
-      - 
-      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
-      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 57
+      - classification_benchmark_demo
+    * - 44
       - Classification
       - `swin-tiny-patch4-window7-224 <https://docs.openvino.ai/latest/omz_models_model_swin_tiny_patch4_window7_224.html>`__
       - public
@@ -788,34 +619,8 @@ Models Table
       - 
       - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 58
-      - Classification
-      - `vgg16 <https://docs.openvino.ai/latest/omz_models_model_vgg16.html>`__
-      - public
-      - caffe, openvino
-      - 30.974
-      - openvino
-      - CPU, GPU
-      - 
-      - 
-      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
-      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 59
-      - Classification
-      - `vgg19 <https://docs.openvino.ai/latest/omz_models_model_vgg19.html>`__
-      - public
-      - caffe, openvino
-      - 39.3
-      - openvino
-      - CPU, GPU
-      - 
-      - 
-      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
-      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
-      - classification_demo
-    * - 60
+      - classification_benchmark_demo
+    * - 45
       - Detection
       - `efficientdet-d0-tf <https://docs.openvino.ai/latest/omz_models_model_efficientdet_d0_tf.html>`__
       - public
@@ -828,7 +633,7 @@ Models Table
       - `coco_91cl.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_91cl.txt>`__
       -
       - pedestrian_tracker_demo
-    * - 61
+    * - 46
       - Detection
       - `efficientdet-d1-tf <https://docs.openvino.ai/latest/omz_models_model_efficientdet_d1_tf.html>`__
       - public
@@ -841,7 +646,7 @@ Models Table
       - `coco_91cl.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_91cl.txt>`__
       -
       - pedestrian_tracker_demo
-    * - 62
+    * - 47
       - Detection
       - `face-detection-0200 <https://docs.openvino.ai/latest/omz_models_model_face_detection_0200.html>`__
       - openvino
@@ -854,7 +659,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-0200.json>`__
       - object_detection_demo
-    * - 63
+    * - 48
       - Detection
       - `face-detection-0202 <https://docs.openvino.ai/latest/omz_models_model_face_detection_0202.html>`__
       - openvino
@@ -867,7 +672,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-0202.json>`__
       - object_detection_demo
-    * - 64
+    * - 49
       - Detection
       - `face-detection-0204 <https://docs.openvino.ai/latest/omz_models_model_face_detection_0204.html>`__
       - openvino
@@ -880,7 +685,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-0204.json>`__
       - object_detection_demo
-    * - 65
+    * - 50
       - Detection
       - `face-detection-0205 <https://docs.openvino.ai/latest/omz_models_model_face_detection_0205.html>`__
       - openvino
@@ -893,7 +698,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-0205.json>`__
       - object_detection_demo
-    * - 66
+    * - 51
       - Detection
       - `face-detection-0206 <https://docs.openvino.ai/latest/omz_models_model_face_detection_0206.html>`__
       - openvino
@@ -906,7 +711,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-0206.json>`__
       - object_detection_demo
-    * - 67
+    * - 52
       - Detection
       - `face-detection-adas-0001 <https://docs.openvino.ai/latest/omz_models_model_face_detection_adas_0001.html>`__
       - openvino
@@ -918,8 +723,8 @@ Models Table
       - 
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-adas-0001.json>`__
-      - interactive_face_detection_demo
-    * - 68
+      - face_recognition_demo
+    * - 53
       - Detection
       - `face-detection-retail-0004 <https://docs.openvino.ai/latest/omz_models_model_face_detection_retail_0004.html>`__
       - openvino
@@ -931,8 +736,8 @@ Models Table
       - 
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-retail-0004.json>`__
-      - interactive_face_detection_demo
-    * - 69
+      - face_recognition_demo
+    * - 54
       - Detection
       - `face-detection-retail-0005 <https://docs.openvino.ai/latest/omz_models_model_face_detection_retail_0005.html>`__
       - openvino
@@ -944,21 +749,8 @@ Models Table
       - 
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-retail-0005.json>`__
-      - interactive_face_detection_demo
-    * - 70
-      - Detection
-      - `face-detection-retail-0044 <https://docs.openvino.ai/latest/omz_models_model_face_detection_retail_0044.html>`__
-      - public
-      - caffe, openvino
-      - 1.067
-      - openvino
-      - CPU
-      - 
-      - 
-      -
-      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-retail-0044.json>`__
-      - interactive_face_detection_demo
-    * - 71
+      - face_recognition_demo
+    * - 55
       - Detection
       - `faster_rcnn_inception_resnet_v2_atrous_coco <https://docs.openvino.ai/latest/omz_models_model_faster_rcnn_inception_resnet_v2_atrous_coco.html>`__
       - public
@@ -971,7 +763,7 @@ Models Table
       - `coco_91cl_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_91cl_bkgr.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-image-info.json>`__
       - object_detection_demo
-    * - 72
+    * - 56
       - Detection
       - `faster_rcnn_resnet50_coco <https://docs.openvino.ai/latest/omz_models_model_faster_rcnn_resnet50_coco.html>`__
       - public
@@ -984,7 +776,7 @@ Models Table
       - `coco_91cl_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_91cl_bkgr.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-image-info.json>`__
       - object_detection_demo
-    * - 73
+    * - 57
       - Detection
       - `horizontal-text-detection-0001 <https://docs.openvino.ai/latest/omz_models_model_horizontal_text_detection_0001.html>`__
       - openvino
@@ -997,7 +789,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/horizontal-text-detection-0001.json>`__
       - text_detection_demo
-    * - 74
+    * - 58
       - Detection
       - `horizontal-text-detection-0002 <https://github.com/dlstreamer/pipeline-zoo-models/tree/main/storage/horizontal-text-detection-0002>`__
       - dlstreamer
@@ -1010,20 +802,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/pipeline-zoo-models/tree/main/storage/horizontal-text-detection-0002>`__
       - 
-    * - 75
-      - Detection
-      - `mobilenet-ssd <https://docs.openvino.ai/latest/omz_models_model_mobilenet_ssd.html>`__
-      - public
-      - caffe, openvino
-      - 2.316
-      - openvino
-      - CPU, GPU
-      - 
-      - 
-      - `voc_20cl_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/voc_20cl_bkgr.txt>`__
-      -
-      - single_human_pose_estimation_demo
-    * - 76
+    * - 59
       - Detection
       - `mobilenet-yolo-v4-syg <https://docs.openvino.ai/latest/omz_models_model_mobilenet_yolo_v4_syg.html>`__
       - public
@@ -1036,7 +815,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/mobilenet-yolo-v4-syg.json>`__
       - object_detection_demo
-    * - 77
+    * - 60
       - Detection
       - `pedestrian-and-vehicle-detector-adas-0001 <https://docs.openvino.ai/latest/omz_models_model_pedestrian_and_vehicle_detector_adas_0001.html>`__
       - openvino
@@ -1048,8 +827,8 @@ Models Table
       - 
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/pedestrian-and-vehicle-detector-adas-0001.json>`__
-      - single_human_pose_estimation_demo
-    * - 78
+      - pedestrian_tracker_demo
+    * - 61
       - Detection
       - `pedestrian-detection-adas-0002 <https://docs.openvino.ai/latest/omz_models_model_pedestrian_detection_adas_0002.html>`__
       - openvino
@@ -1061,21 +840,8 @@ Models Table
       - 
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/pedestrian-detection-adas-0002.json>`__
-      - single_human_pose_estimation_demo
-    * - 79
-      - Detection
-      - `pelee-coco <https://docs.openvino.ai/latest/omz_models_model_pelee_coco.html>`__
-      - public
-      - caffe, openvino
-      - 1
-      - openvino
-      - CPU, GPU
-      - 
-      - 
-      - `coco_80cl_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_80cl_bkgr.txt>`__
-      -
       - pedestrian_tracker_demo
-    * - 80
+    * - 62
       - Detection
       - `person-detection-0200 <https://docs.openvino.ai/latest/omz_models_model_person_detection_0200.html>`__
       - openvino
@@ -1088,7 +854,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-detection-0200.json>`__
       - pedestrian_tracker_demo
-    * - 81
+    * - 63
       - Detection
       - `person-detection-0201 <https://docs.openvino.ai/latest/omz_models_model_person_detection_0201.html>`__
       - openvino
@@ -1101,7 +867,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-detection-0201.json>`__
       - pedestrian_tracker_demo
-    * - 82
+    * - 64
       - Detection
       - `person-detection-0202 <https://docs.openvino.ai/latest/omz_models_model_person_detection_0202.html>`__
       - openvino
@@ -1114,7 +880,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-detection-0202.json>`__
       - pedestrian_tracker_demo
-    * - 83
+    * - 65
       - Detection
       - `person-detection-0203 <https://docs.openvino.ai/latest/omz_models_model_person_detection_0203.html>`__
       - openvino
@@ -1127,7 +893,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-detection-0203.json>`__
       - pedestrian_tracker_demo
-    * - 84
+    * - 66
       - Detection
       - `person-detection-asl-0001 <https://docs.openvino.ai/latest/omz_models_model_person_detection_asl_0001.html>`__
       - openvino
@@ -1139,8 +905,8 @@ Models Table
       - 
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-detection-0203.json>`__
-      - gesture_recognition_demo
-    * - 85
+      - pedestrian_tracker_demo
+    * - 67
       - Detection
       - `person-detection-retail-0013 <https://docs.openvino.ai/latest/omz_models_model_person_detection_retail_0013.html>`__
       - openvino
@@ -1152,8 +918,8 @@ Models Table
       - 
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-detection-retail-0013.json>`__
-      - multi_camera_multi_target_tracking_demo
-    * - 86
+      - pedestrian_tracker_demo
+    * - 68
       - Detection
       - `person-vehicle-bike-detection-2000 <https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_2000.html>`__
       - openvino
@@ -1166,7 +932,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-2000.json>`__
       - pedestrian_tracker_demo
-    * - 87
+    * - 69
       - Detection
       - `person-vehicle-bike-detection-2001 <https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_2001.html>`__
       - openvino
@@ -1179,7 +945,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-2001.json>`__
       - pedestrian_tracker_demo
-    * - 88
+    * - 70
       - Detection
       - `person-vehicle-bike-detection-2002 <https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_2002.html>`__
       - openvino
@@ -1192,7 +958,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-2002.json>`__
       - pedestrian_tracker_demo
-    * - 89
+    * - 71
       - Detection
       - `person-vehicle-bike-detection-2003 <https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_2003.html>`__
       - openvino
@@ -1205,7 +971,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-2003.json>`__
       - pedestrian_tracker_demo
-    * - 90
+    * - 72
       - Detection
       - `person-vehicle-bike-detection-2004 <https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_2004.html>`__
       - openvino
@@ -1218,7 +984,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-2004.json>`__
       - pedestrian_tracker_demo
-    * - 91
+    * - 73
       - Detection
       - `person-vehicle-bike-detection-crossroad-0078 <https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_crossroad_0078.html>`__
       - openvino
@@ -1231,7 +997,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-crossroad-0078.json>`__
       - crossroad_camera_demo
-    * - 92
+    * - 74
       - Detection
       - `person-vehicle-bike-detection-crossroad-1016 <https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_crossroad_1016.html>`__
       - openvino
@@ -1244,7 +1010,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-crossroad-1016.json>`__
       - crossroad_camera_demo
-    * - 93
+    * - 75
       - Detection
       - `person-vehicle-bike-detection-crossroad-yolov3-1020 <https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_crossroad_yolov3_1020.html>`__
       - openvino
@@ -1256,8 +1022,8 @@ Models Table
       - 
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-crossroad-yolov3-1020.json>`__
-      - crossroad_camera_demo
-    * - 94
+      - multi_channel_object_detection_demo_yolov3
+    * - 76
       - Detection
       - `product-detection-0001 <https://docs.openvino.ai/latest/omz_models_model_product_detection_0001.html>`__
       - openvino
@@ -1270,7 +1036,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/product-detection-0001.json>`__
       - object_detection_demo
-    * - 95
+    * - 77
       - Detection
       - `retinanet-tf <https://docs.openvino.ai/latest/omz_models_model_retinanet_tf.html>`__
       - public
@@ -1283,7 +1049,7 @@ Models Table
       - `coco_80cl.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_80cl.txt>`__
       -
       - pedestrian_tracker_demo
-    * - 96
+    * - 78
       - Detection
       - `rfcn-resnet101-coco-tf <https://docs.openvino.ai/latest/omz_models_model_rfcn_resnet101_coco_tf.html>`__
       - public
@@ -1296,33 +1062,7 @@ Models Table
       - `coco_91cl_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_91cl_bkgr.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-image-info.json>`__
       - pedestrian_tracker_demo
-    * - 97
-      - Detection
-      - `ssd300 <https://docs.openvino.ai/latest/omz_models_model_ssd300.html>`__
-      - public
-      - caffe, openvino
-      - 62.815
-      - openvino
-      - CPU, GPU
-      - 
-      - 
-      - `voc_20cl_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/voc_20cl_bkgr.txt>`__
-      -
-      - single_human_pose_estimation_demo
-    * - 98
-      - Detection
-      - `ssd512 <https://docs.openvino.ai/latest/omz_models_model_ssd512.html>`__
-      - public
-      - caffe, openvino
-      - 180.611
-      - openvino
-      - CPU, GPU
-      - 
-      - 
-      - `voc_20cl_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/voc_20cl_bkgr.txt>`__
-      -
-      - single_human_pose_estimation_demo
-    * - 99
+    * - 79
       - Detection
       - `ssd_mobilenet_v1_coco <https://docs.openvino.ai/latest/omz_models_model_ssd_mobilenet_v1_coco.html>`__
       - public
@@ -1334,8 +1074,8 @@ Models Table
       - CPU
       - `coco_91cl_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_91cl_bkgr.txt>`__
       -
-      - single_human_pose_estimation_demo
-    * - 100
+      - pedestrian_tracker_demo
+    * - 80
       - Detection
       - `ssd_mobilenet_v1_coco_INT8 <https://github.com/dlstreamer/pipeline-zoo-models/tree/main/storage/ssd_mobilenet_v1_coco_INT8>`__
       - dlstreamer
@@ -1348,7 +1088,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/pipeline-zoo-models/tree/main/storage/ssd_mobilenet_v1_coco_INT8>`__
       - 
-    * - 101
+    * - 81
       - Detection
       - `ssd_mobilenet_v1_fpn_coco <https://docs.openvino.ai/latest/omz_models_model_ssd_mobilenet_v1_fpn_coco.html>`__
       - public
@@ -1360,8 +1100,8 @@ Models Table
       - CPU
       - `coco_91cl_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_91cl_bkgr.txt>`__
       -
-      - single_human_pose_estimation_demo
-    * - 102
+      - pedestrian_tracker_demo
+    * - 82
       - Detection
       - `ssdlite_mobilenet_v2 <https://docs.openvino.ai/latest/omz_models_model_ssdlite_mobilenet_v2.html>`__
       - public
@@ -1373,8 +1113,8 @@ Models Table
       - CPU
       - `coco_91cl_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_91cl_bkgr.txt>`__
       -
-      - single_human_pose_estimation_demo
-    * - 103
+      - pedestrian_tracker_demo
+    * - 83
       - Detection
       - `ssdlite_mobilenet_v2_INT8 <https://github.com/dlstreamer/pipeline-zoo-models/tree/main/storage/ssdlite_mobilenet_v2_INT8>`__
       - dlstreamer
@@ -1387,7 +1127,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/pipeline-zoo-models/tree/main/storage/ssdlite_mobilenet_v2_INT8>`__
       - 
-    * - 104
+    * - 84
       - Detection
       - `torchvision.models.detection. ssdlite320_mobilenet_v3_large <https://pytorch.org/vision/main/models/generated/torchvision.models.detection.ssdlite320_mobilenet_v3_large.html>`__
       - torchvision
@@ -1400,7 +1140,7 @@ Models Table
       - `coco_80cl.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_80cl.txt>`__
       -
       - 
-    * - 105
+    * - 85
       - Detection
       - `vehicle-detection-0200 <https://docs.openvino.ai/latest/omz_models_model_vehicle_detection_0200.html>`__
       - openvino
@@ -1413,7 +1153,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/vehicle-detection-0200.json>`__
       - object_detection_demo
-    * - 106
+    * - 86
       - Detection
       - `vehicle-detection-0201 <https://docs.openvino.ai/latest/omz_models_model_vehicle_detection_0201.html>`__
       - openvino
@@ -1426,7 +1166,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/vehicle-detection-0201.json>`__
       - object_detection_demo
-    * - 107
+    * - 87
       - Detection
       - `vehicle-detection-0202 <https://docs.openvino.ai/latest/omz_models_model_vehicle_detection_0202.html>`__
       - openvino
@@ -1439,7 +1179,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/vehicle-detection-0202.json>`__
       - object_detection_demo
-    * - 108
+    * - 88
       - Detection
       - `vehicle-detection-adas-0002 <https://docs.openvino.ai/latest/omz_models_model_vehicle_detection_adas_0002.html>`__
       - openvino
@@ -1452,7 +1192,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/vehicle-detection-adas-0002.json>`__
       - pedestrian_tracker_demo
-    * - 109
+    * - 89
       - Detection
       - `vehicle-license-plate-detection-barrier-0106 <https://docs.openvino.ai/latest/omz_models_model_vehicle_license_plate_detection_barrier_0106.html>`__
       - openvino
@@ -1464,8 +1204,8 @@ Models Table
       - 
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/vehicle-license-plate-detection-barrier-0106.json>`__
-      - object_detection_demo
-    * - 110
+      - security_barrier_camera_demo
+    * - 90
       - Detection
       - `vehicle-license-plate-detection-barrier-0123 <https://docs.openvino.ai/latest/omz_models_model_vehicle_license_plate_detection_barrier_0123.html>`__
       - public
@@ -1477,8 +1217,8 @@ Models Table
       - CPU
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/vehicle-license-plate-detection-barrier-0123.json>`__
-      - object_detection_demo
-    * - 111
+      - security_barrier_camera_demo
+    * - 91
       - Detection
       - `yolo-v3-tf <https://docs.openvino.ai/latest/omz_models_model_yolo_v3_tf.html>`__
       - public
@@ -1490,8 +1230,8 @@ Models Table
       - CPU
       - `coco_80cl.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_80cl.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v3-tf.json>`__
-      - pedestrian_tracker_demo
-    * - 112
+      - multi_channel_object_detection_demo_yolov3
+    * - 92
       - Detection
       - `yolo-v3-tiny-tf <https://docs.openvino.ai/latest/omz_models_model_yolo_v3_tiny_tf.html>`__
       - public
@@ -1503,8 +1243,8 @@ Models Table
       - CPU
       - `coco_80cl.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_80cl.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v3-tiny-tf.json>`__
-      - pedestrian_tracker_demo
-    * - 113
+      - multi_channel_object_detection_demo_yolov3
+    * - 93
       - Detection
       - `yolo-v4-tf <https://docs.openvino.ai/latest/omz_models_model_yolo_v4_tf.html>`__
       - public
@@ -1517,7 +1257,7 @@ Models Table
       - `coco_80cl.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_80cl.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v4-tf.json>`__
       - object_detection_demo
-    * - 114
+    * - 94
       - Detection
       - `yolo-v4-tf_INT8 <https://github.com/dlstreamer/pipeline-zoo-models/tree/main/storage/yolo-v4-tf_INT8>`__
       - dlstreamer
@@ -1530,7 +1270,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/pipeline-zoo-models/tree/main/storage/yolo-v4-tf_INT8>`__
       - 
-    * - 115
+    * - 95
       - Detection
       - `yolo-v4-tiny-tf <https://docs.openvino.ai/latest/omz_models_model_yolo_v4_tiny_tf.html>`__
       - public
@@ -1543,7 +1283,7 @@ Models Table
       - `coco_80cl.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_80cl.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v4-tiny-tf.json>`__
       - object_detection_demo
-    * - 116
+    * - 96
       - Detection
       - `yolov5m <https://github.com/ultralytics/yolov5/releases/tag/v7.0>`__
       - public
@@ -1556,7 +1296,7 @@ Models Table
       - `coco_80cl.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_80cl.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v5.json>`__
       - 
-    * - 117
+    * - 97
       - Detection
       - `yolov5s <https://github.com/ultralytics/yolov5/releases/tag/v7.0>`__
       - public
@@ -1569,7 +1309,7 @@ Models Table
       - `coco_80cl.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_80cl.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v5.json>`__
       - 
-    * - 118
+    * - 98
       - Detection
       - `yolov5s-416 <https://github.com/dlstreamer/pipeline-zoo-models/tree/main/storage/yolov5s-416>`__
       - dlstreamer
@@ -1582,7 +1322,7 @@ Models Table
       - `coco_80cl.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_80cl.txt>`__
       - `model-proc <https://github.com/dlstreamer/pipeline-zoo-models/tree/main/storage/yolov5s-416>`__
       - 
-    * - 119
+    * - 99
       - Detection
       - `yolov5s-416_INT8 <https://github.com/dlstreamer/pipeline-zoo-models/tree/main/storage/yolov5s-416_INT8>`__
       - dlstreamer
@@ -1595,7 +1335,7 @@ Models Table
       - `coco_80cl.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_80cl.txt>`__
       - `model-proc <https://github.com/dlstreamer/pipeline-zoo-models/tree/main/storage/yolov5s-416_INT8>`__
       - 
-    * - 120
+    * - 100
       - Head Pose Estimation
       - `head-pose-estimation-adas-0001 <https://docs.openvino.ai/latest/omz_models_model_head_pose_estimation_adas_0001.html>`__
       - openvino
@@ -1607,8 +1347,8 @@ Models Table
       - 
       -
       -
-      - interactive_face_detection_demo
-    * - 121
+      - gaze_estimation_demo
+    * - 101
       - Human Pose Estimation
       - `human-pose-estimation-0001 <https://docs.openvino.ai/latest/omz_models_model_human_pose_estimation_0001.html>`__
       - openvino
@@ -1621,7 +1361,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/human-pose-estimation-0001.json>`__
       - human_pose_estimation_demo
-    * - 122
+    * - 102
       - Human Pose Estimation
       - `single-human-pose-estimation-0001 <https://docs.openvino.ai/latest/omz_models_model_single_human_pose_estimation_0001.html>`__
       - public
@@ -1634,7 +1374,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/single-human-pose-estimation-0001.json>`__
       - single_human_pose_estimation_demo
-    * - 123
+    * - 103
       - Instance Segmentation
       - `instance-segmentation-person-0007 <https://docs.openvino.ai/latest/omz_models_model_instance_segmentation_person_0007.html>`__
       - openvino
@@ -1646,8 +1386,8 @@ Models Table
       - 
       -
       -
-      - instance_segmentation_demo
-    * - 124
+      - background_subtraction_demo
+    * - 104
       - Instance Segmentation
       - `instance-segmentation-security-0002 <https://docs.openvino.ai/latest/omz_models_model_instance_segmentation_security_0002.html>`__
       - openvino
@@ -1659,8 +1399,8 @@ Models Table
       - 
       - `coco_80cl.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_80cl.txt>`__
       -
-      - multi_camera_multi_target_tracking_demo
-    * - 125
+      - background_subtraction_demo
+    * - 105
       - Instance Segmentation
       - `instance-segmentation-security-0091 <https://docs.openvino.ai/latest/omz_models_model_instance_segmentation_security_0091.html>`__
       - openvino
@@ -1672,8 +1412,8 @@ Models Table
       - 
       - `coco_80cl.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_80cl.txt>`__
       -
-      - multi_camera_multi_target_tracking_demo
-    * - 126
+      - background_subtraction_demo
+    * - 106
       - Instance Segmentation
       - `instance-segmentation-security-0228 <https://docs.openvino.ai/latest/omz_models_model_instance_segmentation_security_0228.html>`__
       - openvino
@@ -1685,8 +1425,8 @@ Models Table
       - 
       - `coco_80cl.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_80cl.txt>`__
       -
-      - multi_camera_multi_target_tracking_demo
-    * - 127
+      - background_subtraction_demo
+    * - 107
       - Instance Segmentation
       - `instance-segmentation-security-1039 <https://docs.openvino.ai/latest/omz_models_model_instance_segmentation_security_1039.html>`__
       - openvino
@@ -1698,8 +1438,8 @@ Models Table
       - 
       - `coco_80cl.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_80cl.txt>`__
       -
-      - multi_camera_multi_target_tracking_demo
-    * - 128
+      - background_subtraction_demo
+    * - 108
       - Instance Segmentation
       - `instance-segmentation-security-1040 <https://docs.openvino.ai/latest/omz_models_model_instance_segmentation_security_1040.html>`__
       - openvino
@@ -1711,8 +1451,8 @@ Models Table
       - 
       - `coco_80cl.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_80cl.txt>`__
       -
-      - multi_camera_multi_target_tracking_demo
-    * - 129
+      - background_subtraction_demo
+    * - 109
       - Object Attributes
       - `age-gender-recognition-retail-0013 <https://docs.openvino.ai/latest/omz_models_model_age_gender_recognition_retail_0013.html>`__
       - openvino
@@ -1725,7 +1465,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/age-gender-recognition-retail-0013.json>`__
       - interactive_face_detection_demo
-    * - 130
+    * - 110
       - Object Attributes
       - `emotions-recognition-retail-0003 <https://docs.openvino.ai/latest/omz_models_model_emotions_recognition_retail_0003.html>`__
       - openvino
@@ -1738,7 +1478,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/emotions-recognition-retail-0003.json>`__
       - interactive_face_detection_demo
-    * - 131
+    * - 111
       - Object Attributes
       - `facial-landmarks-35-adas-0002 <https://docs.openvino.ai/latest/omz_models_model_facial_landmarks_35_adas_0002.html>`__
       - openvino
@@ -1750,8 +1490,8 @@ Models Table
       - 
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/facial-landmarks-35-adas-0002.json>`__
-      - interactive_face_detection_demo
-    * - 132
+      - gaze_estimation_demo
+    * - 112
       - Object Attributes
       - `facial-landmarks-98-detection-0001 <https://docs.openvino.ai/latest/omz_models_model_facial_landmarks_98_detection_0001.html>`__
       - openvino
@@ -1764,7 +1504,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/facial-landmarks-98-detection-0001.json>`__
       - gaze_estimation_demo
-    * - 133
+    * - 113
       - Object Attributes
       - `landmarks-regression-retail-0009 <https://docs.openvino.ai/latest/omz_models_model_landmarks_regression_retail_0009.html>`__
       - openvino
@@ -1777,7 +1517,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/landmarks-regression-retail-0009.json>`__
       - face_recognition_demo
-    * - 134
+    * - 114
       - Object Attributes
       - `person-attributes-recognition-crossroad-0230 <https://docs.openvino.ai/latest/omz_models_model_person_attributes_recognition_crossroad_0230.html>`__
       - openvino
@@ -1790,7 +1530,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-attributes-recognition-crossroad-0230.json>`__
       - crossroad_camera_demo
-    * - 135
+    * - 115
       - Object Attributes
       - `person-attributes-recognition-crossroad-0234 <https://docs.openvino.ai/latest/omz_models_model_person_attributes_recognition_crossroad_0234.html>`__
       - openvino
@@ -1803,7 +1543,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-attributes-recognition-crossroad-0234.json>`__
       - crossroad_camera_demo
-    * - 136
+    * - 116
       - Object Attributes
       - `person-attributes-recognition-crossroad-0238 <https://docs.openvino.ai/latest/omz_models_model_person_attributes_recognition_crossroad_0238.html>`__
       - openvino
@@ -1816,7 +1556,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-attributes-recognition-crossroad-0238.json>`__
       - crossroad_camera_demo
-    * - 137
+    * - 117
       - Object Attributes
       - `vehicle-attributes-recognition-barrier-0039 <https://docs.openvino.ai/latest/omz_models_model_vehicle_attributes_recognition_barrier_0039.html>`__
       - openvino
@@ -1829,7 +1569,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/vehicle-attributes-recognition-barrier-0039.json>`__
       - security_barrier_camera_demo
-    * - 138
+    * - 118
       - Object Attributes
       - `vehicle-attributes-recognition-barrier-0042 <https://docs.openvino.ai/latest/omz_models_model_vehicle_attributes_recognition_barrier_0042.html>`__
       - openvino
@@ -1842,7 +1582,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/vehicle-attributes-recognition-barrier-0042.json>`__
       - security_barrier_camera_demo
-    * - 139
+    * - 119
       - Optical Character Recognition
       - `license-plate-recognition-barrier-0007 <https://docs.openvino.ai/latest/omz_models_model_license_plate_recognition_barrier_0007.html>`__
       - public
@@ -1855,7 +1595,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/license-plate-recognition-barrier-0007.json>`__
       - security_barrier_camera_demo
-    * - 140
+    * - 120
       - Optical Character Recognition
       - `text-recognition-0012-mod <https://github.com/dlstreamer/pipeline-zoo-models/tree/main/storage/text-recognition-0012-mod>`__
       - dlstreamer
@@ -1868,7 +1608,7 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/pipeline-zoo-models/tree/main/storage/text-recognition-0012-mod>`__
       - 
-    * - 141
+    * - 121
       - Sound Classification
       - `aclnet <https://docs.openvino.ai/latest/omz_models_model_aclnet.html>`__
       - public
@@ -1881,6 +1621,266 @@ Models Table
       -
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/aclnet.json>`__
       - sound_classification_demo
+    * - 122
+      - ~?
+      - `alexnet <>`__
+      - 
+      - openvino
+      - 
+      - openvino
+      - ?
+      - 
+      - 
+      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
+      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
+      - 
+    * - 123
+      - ~?
+      - `densenet-121 <>`__
+      - 
+      - openvino
+      - 
+      - openvino
+      - ?
+      - 
+      - 
+      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
+      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
+      - 
+    * - 124
+      - ~?
+      - `face-detection-retail-0044 <>`__
+      - 
+      - openvino
+      - 
+      - openvino
+      - ?
+      - 
+      - 
+      -
+      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-retail-0044.json>`__
+      - 
+    * - 125
+      - ~?
+      - `googlenet-v1 <>`__
+      - 
+      - openvino
+      - 
+      - openvino
+      - ?
+      - 
+      - 
+      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
+      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
+      - 
+    * - 126
+      - ~?
+      - `googlenet-v2 <>`__
+      - 
+      - openvino
+      - 
+      - openvino
+      - ?
+      - 
+      - 
+      - `imagenet_2015.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2015.txt>`__
+      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
+      - 
+    * - 127
+      - ~?
+      - `mobilenet-ssd <>`__
+      - 
+      - openvino
+      - 
+      - openvino
+      - ?
+      - 
+      - 
+      - `voc_20cl_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/voc_20cl_bkgr.txt>`__
+      -
+      - 
+    * - 128
+      - ~?
+      - `mobilenet-v1-1.0-224 <>`__
+      - 
+      - openvino
+      - 
+      - openvino
+      - ?
+      - 
+      - 
+      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
+      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
+      - 
+    * - 129
+      - ~?
+      - `mobilenet-v2 <>`__
+      - 
+      - openvino
+      - 
+      - openvino
+      - ?
+      - 
+      - 
+      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
+      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
+      - 
+    * - 130
+      - ~?
+      - `octave-resnet-26-0.25 <>`__
+      - 
+      - openvino
+      - 
+      - openvino
+      - ?
+      - 
+      - 
+      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
+      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
+      - 
+    * - 131
+      - ~?
+      - `pelee-coco <>`__
+      - 
+      - openvino
+      - 
+      - openvino
+      - ?
+      - 
+      - 
+      - `coco_80cl_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_80cl_bkgr.txt>`__
+      -
+      - 
+    * - 132
+      - ~?
+      - `se-inception <>`__
+      - 
+      - openvino
+      - 
+      - openvino
+      - ?
+      - 
+      - 
+      - `imagenet_2015.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2015.txt>`__
+      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
+      - 
+    * - 133
+      - ~?
+      - `se-resnet-50 <>`__
+      - 
+      - openvino
+      - 
+      - openvino
+      - ?
+      - 
+      - 
+      - `imagenet_2015.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2015.txt>`__
+      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
+      - 
+    * - 134
+      - ~?
+      - `se-resnext-50 <>`__
+      - 
+      - openvino
+      - 
+      - openvino
+      - ?
+      - 
+      - 
+      - `imagenet_2015.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2015.txt>`__
+      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
+      - 
+    * - 135
+      - ~?
+      - `shufflenet-v2-x0.5 <>`__
+      - 
+      - openvino
+      - 
+      - openvino
+      - ?
+      - 
+      - 
+      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
+      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
+      - 
+    * - 136
+      - ~?
+      - `squeezenet1.0 <>`__
+      - 
+      - openvino
+      - 
+      - openvino
+      - ?
+      - 
+      - 
+      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
+      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
+      - 
+    * - 137
+      - ~?
+      - `squeezenet1.1 <>`__
+      - 
+      - openvino
+      - 
+      - openvino
+      - ?
+      - 
+      - 
+      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
+      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
+      - 
+    * - 138
+      - ~?
+      - `ssd300 <>`__
+      - 
+      - openvino
+      - 
+      - openvino
+      - ?
+      - 
+      - 
+      - `voc_20cl_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/voc_20cl_bkgr.txt>`__
+      -
+      - 
+    * - 139
+      - ~?
+      - `ssd512 <>`__
+      - 
+      - openvino
+      - 
+      - openvino
+      - ?
+      - 
+      - 
+      - `voc_20cl_bkgr.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/voc_20cl_bkgr.txt>`__
+      -
+      - 
+    * - 140
+      - ~?
+      - `vgg16 <>`__
+      - 
+      - openvino
+      - 
+      - openvino
+      - ?
+      - 
+      - 
+      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
+      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
+      - 
+    * - 141
+      - ~?
+      - `vgg19 <>`__
+      - 
+      - openvino
+      - 
+      - openvino
+      - ?
+      - 
+      - 
+      - `imagenet_2012.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/imagenet_2012.txt>`__
+      - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
+      - 
 
 Legal Information
 ----------------

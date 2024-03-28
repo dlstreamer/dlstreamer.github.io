@@ -173,7 +173,7 @@ Tutorial Setup
 
    .. code:: sh
 
-      source /opt/intel/openvino_2023/setupvars.sh
+      source /opt/intel/openvino_2024/setupvars.sh
       source /opt/intel/dlstreamer/setupvars.sh
 
    .. note::

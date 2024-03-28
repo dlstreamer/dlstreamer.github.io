@@ -35,6 +35,7 @@ Overview
 	
 		static :ref:`VAAPIContextPtr<doxid-namespacedlstreamer_1ab6f31ebb8968060d413d39a9c754c07d>` :target:`create<doxid-classdlstreamer_1_1_v_a_a_p_i_context_1aa25debed6f7235c59a6c1a510e47a910>`(const :ref:`ContextPtr<doxid-namespacedlstreamer_1a2eba287f35b2698b87aa6f560299ffe8>`& another_context);
 		VADisplay :target:`va_display<doxid-classdlstreamer_1_1_v_a_a_p_i_context_1a558dddd36faa2cc93e3a2ad7f5f0396c>`();
+		int :target:`get_current_tile_id<doxid-classdlstreamer_1_1_v_a_a_p_i_context_1a753215dfef2bb5ceb5124c51cf4d0d77>`() const;
 		bool :target:`is_valid<doxid-classdlstreamer_1_1_v_a_a_p_i_context_1a49bfb7140ef511df31ee459091c8f5ce>`();
 		virtual std::vector<std::string> :target:`keys<doxid-classdlstreamer_1_1_v_a_a_p_i_context_1aecb199248191e743ecb69d236c50429f>`() const;
 		virtual void* :ref:`handle<doxid-classdlstreamer_1_1_v_a_a_p_i_context_1a3cedd1a112021fb5e9962dc0a871303d>`(std::string_view key) const;

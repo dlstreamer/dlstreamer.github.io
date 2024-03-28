@@ -116,7 +116,7 @@ In the table below you can find examples of model-proc files that use some of th
      - Model-proc
      - Operation
 
-   * - `MobileNet <https://github.com/onnx/models/tree/main/vision/classification/mobilenet>`__
+   * - `MobileNet https://github.com/onnx/models/blob/main/validated/vision/classification/mobilenet`__
      - `mobilenetv2-7.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/onnx/mobilenetv2-7.json>`__
      - normalization
 
@@ -218,7 +218,7 @@ Build model-proc for classification model with advance pre-processing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In this section, we will learn how to build a model-proc file for a
-model `SqueezeNet v1.1 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/squeezenet1.1>`__.
+model `SqueezeNet v1.1 <https://docs.openvino.ai/2023.3/omz_models_model_squeezenet1_1.html>`__.
 Let's start with an empty template:
 
 .. code:: javascript
@@ -253,10 +253,7 @@ If you are in doubt about which pre-processing is necessary, then
 contact the creator of the model. If the model is represented by OMZ,
 refer to the documentation. A config file for the Accuracy Checker tool
 can also help. Usually, it is located in the folder with the description
-of the model. There is our file
-`squeezenet1.1/accuracy-check.yml <https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/public/squeezenet1.1/accuracy-check.yml>`__.
-It shows that the converted model (*- framework: sdk*) requires only
-resize and crop.
+of the model.
 
 .. code:: javascript
 

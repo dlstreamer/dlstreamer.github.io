@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -35,9 +35,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/doxyrest-pygments.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -121,9 +121,11 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
+  
   
   
   
@@ -351,6 +353,7 @@
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -360,6 +363,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -436,7 +440,7 @@ More details about ITT instrumentation in OpenVINO™ toolkit can be found on
 <h2>3. Source OpenVINO™ toolkit and Intel® DL Streamer environment variables<a class="headerlink" href="#source-openvino-toolkit-and-intel-dl-streamer-environment-variables" title="Permalink to this heading">#</a></h2>
 <p>On target system source OpenVINO™ toolkit and DLStreamer environment variables as usual</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># OpenVINO™ toolkit environment</span>
-<span class="nb">source</span><span class="w"> </span>/opt/intel/openvino_2023/setupvars.sh
+<span class="nb">source</span><span class="w"> </span>/opt/intel/openvino_2024/setupvars.sh
 
 <span class="c1"># Intel® DL Streamer environment</span>
 <span class="nb">source</span><span class="w"> </span>/opt/intel/dlstreamer/setupvars.sh
@@ -476,7 +480,7 @@ More details about ITT instrumentation in OpenVINO™ toolkit can be found on
 <span class="nv">command</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
 
 <span class="c1"># OpenVINO™ Toolkit environment</span>
-<span class="nb">source</span><span class="w"> </span>/opt/intel/openvino_2023/setupvars.sh
+<span class="nb">source</span><span class="w"> </span>/opt/intel/openvino_2024/setupvars.sh
 
 <span class="c1"># Intel® DL Streamer environment</span>
 <span class="nb">source</span><span class="w"> </span>/opt/intel/dlstreamer/setupvars.sh
@@ -490,9 +494,9 @@ ls<span class="w"> </span>-la<span class="w"> </span><span class="nv">$VTUNE_RES
 </div>
 </div></blockquote>
 </li>
-<li><p>On Analysis Type tab set check-box “Analyze user tasks, events and counters”</p></li>
+<li><p>Select “Configure Analysis” and selects “Hotspots” or Accelerators analysis</p></li>
 </ol>
-<img alt="https://docs.openvino.ai/2021.4/_images/vtune_option.png" src="https://docs.openvino.ai/2021.4/_images/vtune_option.png" />
+<img alt="https://www.intel.com/content/www/us/en/docs/vtune-profiler/user-guide/2024-0/getting-started.html" src="https://www.intel.com/content/www/us/en/docs/vtune-profiler/user-guide/2024-0/getting-started.html" />
 <ol class="arabic simple" start="7">
 <li><p>Press start button to execute your pipeline and collect performance snapshot.</p></li>
 </ol>
@@ -522,7 +526,7 @@ ls<span class="w"> </span>-la<span class="w"> </span><span class="nv">$VTUNE_RES
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="gpu_device_selection.html"
@@ -583,6 +587,7 @@ By Intel Corporation
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023, Intel Corporation.
@@ -609,8 +614,8 @@ By Intel Corporation
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

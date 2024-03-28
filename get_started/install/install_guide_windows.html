@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -35,9 +35,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/doxyrest-pygments.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -119,9 +119,11 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../index.html">
+  
   
   
   
@@ -349,6 +351,7 @@
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -358,6 +361,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -505,13 +509,13 @@ Guide</a>.</p>
 following commands to install OpenVINO™ Toolkit dependencies and enable
 OpenVINO™ Toolkit development environment:</p>
 <div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="p">@</span><span class="c1">REM Install OpenCV</span>
-powershell.exe -ExecutionPolicy Bypass -File <span class="s2">&quot;C:\Program Files (x86)\Intel\openvino_2023\extras\scripts\download_opencv.ps1&quot;</span>
+powershell.exe -ExecutionPolicy Bypass -File <span class="s2">&quot;C:\Program Files (x86)\Intel\openvino_2024\extras\scripts\download_opencv.ps1&quot;</span>
 
 <span class="p">@</span><span class="c1">REM Install Open Model Zoo tools</span>
 pip install openvino-dev[onnx]
 
 <span class="p">@</span><span class="c1">REM Setup environment</span>
-<span class="s2">&quot;C:\Program Files (x86)\Intel\openvino_2023\setupvars.bat&quot;</span>
+<span class="s2">&quot;C:\Program Files (x86)\Intel\openvino_2024\setupvars.bat&quot;</span>
 </pre></div>
 </div>
 </section>
@@ -519,7 +523,7 @@ pip install openvino-dev[onnx]
 <h3>Step 4: Build Intel® DL Streamer Pipeline Framework<a class="headerlink" href="#step-4-build-intel-dl-streamer-pipeline-framework" title="Permalink to this heading">#</a></h3>
 <p>With all dependencies installed, proceed to build Pipeline Framework:</p>
 <div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="p">@</span><span class="c1">REM OpenVINO™ Toolkit environment</span>
-<span class="s2">&quot;C:\Program Files (x86)\Intel\openvino_2023\setupvars.bat&quot;</span>
+<span class="s2">&quot;C:\Program Files (x86)\Intel\openvino_2024\setupvars.bat&quot;</span>
 
 <span class="p">@</span><span class="c1">REM cmake</span>
 <span class="k">md</span> <span class="nv">%USERPROFILE%</span>\intel\dlstreamer_gst\build
@@ -658,7 +662,7 @@ for requirements to run inference on GPU in Docker</p></li>
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
 </div>
                 </footer>
@@ -712,6 +716,7 @@ By Intel Corporation
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023, Intel Corporation.
@@ -738,8 +743,8 @@ By Intel Corporation
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -31,7 +31,7 @@ On target system source OpenVINO™ toolkit and DLStreamer environment variables
 .. code:: shell
 
     # OpenVINO™ toolkit environment
-    source /opt/intel/openvino_2023/setupvars.sh
+    source /opt/intel/openvino_2024/setupvars.sh
     
     # Intel® DL Streamer environment
     source /opt/intel/dlstreamer/setupvars.sh
@@ -73,7 +73,7 @@ And additionally set GST_TRACERS environment variable to profile all GStreamer e
         command="$@"
 
         # OpenVINO™ Toolkit environment
-        source /opt/intel/openvino_2023/setupvars.sh
+        source /opt/intel/openvino_2024/setupvars.sh
     
         # Intel® DL Streamer environment
         source /opt/intel/dlstreamer/setupvars.sh
@@ -84,9 +84,9 @@ And additionally set GST_TRACERS environment variable to profile all GStreamer e
         # Postfix script
         ls -la $VTUNE_RESULT_DIR
 
-6. On Analysis Type tab set check-box "Analyze user tasks, events and counters"
+6. Select "Configure Analysis" and selects "Hotspots" or Accelerators analysis
 
-.. image:: https://docs.openvino.ai/2021.4/_images/vtune_option.png
+.. image:: https://www.intel.com/content/www/us/en/docs/vtune-profiler/user-guide/2024-0/getting-started.html
 
 7. Press start button to execute your pipeline and collect performance snapshot.
 

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -35,9 +35,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/doxyrest-pygments.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -121,9 +121,11 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
+  
   
   
   
@@ -351,6 +353,7 @@
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -360,6 +363,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -542,7 +546,7 @@ However, if the goal is to get the highest possible accuracy, this may not be en
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/models/tree/main/vision/classification/mobilenet">MobileNet</a></p></td>
+<tr class="row-even"><td><p><a href="#id9"><span class="problematic" id="id10">`MobileNet https://github.com/onnx/models/blob/main/validated/vision/classification/mobilenet`__</span></a></p></td>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/onnx/mobilenetv2-7.json">mobilenetv2-7.json</a></p></td>
 <td><p>normalization</p></td>
 </tr>
@@ -651,7 +655,7 @@ and specify <em>“labels”</em> field as a list or a path to labels file.</p>
 <section id="build-model-proc-for-classification-model-with-advance-pre-processing">
 <span id="id4"></span><h3>Build model-proc for classification model with advance pre-processing<a class="headerlink" href="#build-model-proc-for-classification-model-with-advance-pre-processing" title="Permalink to this heading">#</a></h3>
 <p>In this section, we will learn how to build a model-proc file for a
-model <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/squeezenet1.1">SqueezeNet v1.1</a>.
+model <a class="reference external" href="https://docs.openvino.ai/2023.3/omz_models_model_squeezenet1_1.html">SqueezeNet v1.1</a>.
 Let’s start with an empty template:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// squeezenet1.1.json</span>
 <span class="p">{</span>
@@ -682,10 +686,7 @@ pre-processing operation.</p>
 contact the creator of the model. If the model is represented by OMZ,
 refer to the documentation. A config file for the Accuracy Checker tool
 can also help. Usually, it is located in the folder with the description
-of the model. There is our file
-<a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/public/squeezenet1.1/accuracy-check.yml">squeezenet1.1/accuracy-check.yml</a>.
-It shows that the converted model (<em>- framework: sdk</em>) requires only
-resize and crop.</p>
+of the model.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;input_preproc&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="s2">&quot;format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;image&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="s2">&quot;layer_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// &lt;input value=&quot;data&quot;/&gt; field in the end of .xml (&lt;meta_data&gt; section)</span>
@@ -940,7 +941,7 @@ result in your task.</p>
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="model_proc_file.html"
@@ -1027,6 +1028,7 @@ By Intel Corporation
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023, Intel Corporation.
@@ -1053,8 +1055,8 @@ By Intel Corporation
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

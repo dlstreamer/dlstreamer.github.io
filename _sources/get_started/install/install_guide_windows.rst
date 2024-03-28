@@ -99,13 +99,13 @@ OpenVINO™ Toolkit development environment:
 .. code:: bat
 
    @REM Install OpenCV
-   powershell.exe -ExecutionPolicy Bypass -File "C:\Program Files (x86)\Intel\openvino_2023\extras\scripts\download_opencv.ps1"
+   powershell.exe -ExecutionPolicy Bypass -File "C:\Program Files (x86)\Intel\openvino_2024\extras\scripts\download_opencv.ps1"
 
    @REM Install Open Model Zoo tools
    pip install openvino-dev[onnx]
 
    @REM Setup environment
-   "C:\Program Files (x86)\Intel\openvino_2023\setupvars.bat"
+   "C:\Program Files (x86)\Intel\openvino_2024\setupvars.bat"
 
 Step 4: Build Intel® DL Streamer Pipeline Framework
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -115,7 +115,7 @@ With all dependencies installed, proceed to build Pipeline Framework:
 .. code:: bat
 
    @REM OpenVINO™ Toolkit environment
-   "C:\Program Files (x86)\Intel\openvino_2023\setupvars.bat"
+   "C:\Program Files (x86)\Intel\openvino_2024\setupvars.bat"
 
    @REM cmake
    md %USERPROFILE%\intel\dlstreamer_gst\build
