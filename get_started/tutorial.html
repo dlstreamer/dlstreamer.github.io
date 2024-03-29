@@ -607,9 +607,13 @@ or a file using <em>gvametaconvert</em> and <em>gvametapublish</em> of Intel® D
 </li>
 <li><p>Download the models from <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo">Open Model Zoo</a></p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
-python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>openvino-dev<span class="o">[</span>onnx<span class="o">]</span>
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>openvino-dev<span class="o">[</span>onnx,tensorflow,pytorch<span class="o">]</span>
 /opt/intel/dlstreamer/samples/download_models.sh
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure your environment variable $PATH includes ‘$HOME/.local/bin’ .</p>
 </div>
 </li>
 <li><p>Export the <em>model</em> and <em>model_proc</em> files for detection and classification:</p>
@@ -979,7 +983,7 @@ By Intel Corporation
 
   <p class="copyright">
     
-      © Copyright 2023, Intel Corporation.
+      © Copyright 2024, Intel Corporation.
       <br/>
     
   </p>

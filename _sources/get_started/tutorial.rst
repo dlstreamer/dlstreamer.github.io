@@ -185,9 +185,11 @@ Tutorial Setup
    .. code:: sh
 
       python3 -m pip install --upgrade pip
-      python3 -m pip install openvino-dev[onnx]
+      python3 -m pip install openvino-dev[onnx,tensorflow,pytorch]
       /opt/intel/dlstreamer/samples/download_models.sh
 
+   .. note::
+      Make sure your environment variable $PATH includes '$HOME/.local/bin' .
 
 #. Export the *model* and *model_proc* files for detection and classification:
 

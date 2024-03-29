@@ -21,13 +21,13 @@ links in the first column of the table.
      - Notes
 
    * - :ref:`Install Intel® DL Streamer Pipeline Framework pre-built Debian packages <1>`
-     - Ubuntu 22.04 (kernel 6.2+ for GPU, kernel 6.6+ for NPU)
+     - Ubuntu 22.04 (kernel 6.6+ for NPU)
      - \-
    * - :ref:`Create Docker image from Intel® DL Streamer Pipeline Framework Docker file and run it <2>`
      - Any Linux OS as host system
      - Recommended for containerized environment and when host OS is not supported by the Pipeline Framework installer
    * - :ref:`Compile Intel® DL Streamer Pipeline Framework from sources on host system <3>`
-     - Ubuntu 22.04 (kernel 6.2+ for GPU, kernel 6.6+ for NPU)
+     - Ubuntu 22.04 (kernel 6.6+ for NPU)
      - If you want to build Pipeline Framework from source code on host system
 
 .. _1:
@@ -66,12 +66,12 @@ Available Debian packages
 Step 1: Install prerequisites
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Install dependencies and register additional APT repositories.
+A. Install dependencies and register additional APT repositories.
 
 ..  code:: sh
 
    # Install dependencies
-   sudo apt-get update && sudo apt-get install curl wget gpg software-properties-common
+   sudo apt-get update && sudo apt-get install curl wget gpg software-properties-common jq
 
    # Register Intel® oneAPI APT repository
    curl -fsSL https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB | sudo gpg --dearmor --output /usr/share/keyrings/intel-sw-products.gpg
@@ -81,33 +81,39 @@ Install dependencies and register additional APT repositories.
    curl -fsSL https://repositories.intel.com/graphics/intel-graphics.key | sudo gpg --dearmor --output /usr/share/keyrings/intel-graphics.gpg
 
 
-For Intel® Graphics APT repository please use **only one** of following (more information https://dgpu-docs.intel.com/driver/installation.html):
+B. For Intel® Graphics APT repository please use **only one** of following (more information https://dgpu-docs.intel.com/driver/installation.html):
 
 -  For Intel® Data Center GPU Flex Series and Intel® Data Center GPU Max Series:
    
    ..  code:: sh
    
      # Register Intel® Graphics APT repository
-     echo "deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/gpu/ubuntu jammy/production/2328 unified" | sudo tee /etc/apt/sources.list.d/intel-graphics.list
+     echo "deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/gpu/ubuntu jammy/production/2350 unified" | sudo tee /etc/apt/sources.list.d/intel-graphics.list
 
--  For Intel® Arc™ GPUs:
+-  For Intel® Client and Arc™ GPUs:
    
    ..  code:: sh
    
      # Register Intel® Graphics APT repository
      echo "deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/gpu/ubuntu jammy client" | sudo tee /etc/apt/sources.list.d/intel-graphics.list
 
+-  Run below commands for both above options:
 
-For Intel® Core™ Ultra processors please install NPU drivers as described in https://github.com/intel/linux-npu-driver (requires Ubuntu 22.04 with kernel version 6.6+).
+   ..  code:: sh
+   
+     sudo apt install -y linux-headers-$(uname -r) flex bison intel-fw-gpu intel-i915-dkms xpu-smi
+     sudo reboot
 
-Install Intel® oneAPI DPC++/C++ Compiler runtime package and Intel® DL Streamer features based on DPC++:
+B. For Intel® Core™ Ultra processors please install NPU drivers as described in https://github.com/intel/linux-npu-driver (requires Ubuntu 22.04 with kernel version 6.6+).
+
+C. Install Intel® oneAPI DPC++/C++ Compiler runtime package and Intel® DL Streamer features based on DPC++:
 
 .. code:: sh
 
    # Install
    sudo apt-get update && sudo apt-get install intel-level-zero-gpu level-zero
 
-You can additionally install full Intel® oneAPI DPC++/C++ Compiler (previous command installs runtime only):
+C. [optional] You can additionally install full Intel® oneAPI DPC++/C++ Compiler (previous command installs runtime only):
 
 .. code:: sh
 
@@ -157,6 +163,18 @@ In order to enable all `gvametapublish` backends install required dependencies w
    sudo -E /opt/intel/dlstreamer/install_dependencies/install_mqtt_client.sh
    sudo -E /opt/intel/dlstreamer/install_dependencies/install_kafka_client.sh
 
+When using Media, GPU or NPU devices as non-root user, please configure:
+
+.. code:: sh
+   
+   sudo usermod -a -G video <username>	
+   sudo usermod -a -G render <username>
+   
+Next Steps:
+^^^^^^^^^^^
+
+You are ready to use Intel® DL Streamer. For furhter instructions please go to:
+   :doc:`../tutorial`
 
 .. _2:
 
@@ -167,6 +185,8 @@ Step 1: Install Docker
 ^^^^^^^^^^^^^^^^^^^^^^
 
 `Get Docker <https://docs.docker.com/get-docker/>`__ for your host OS
+ To prevent file permission issues please follow 'Manage Docker as a non-root user' section steps 
+ described here <https://docs.docker.com/engine/install/linux-postinstall/>
 
 Step 2: Allow connection to X server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -181,6 +201,10 @@ commands to allow connection from Docker container to X server on host:
 
 Step 3: Download the Intel® DL Streamer Dockerfile
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code:: sh
+
+   # Install dependencies
+   sudo apt-get update && sudo apt-get install curl wget gpg software-properties-common jq
 
 .. code:: sh
 
@@ -236,6 +260,12 @@ For example, get the render group ID on your host:
 
 Now you can use the container with GPU access under the non-root user.
 
+Next Steps:
+^^^^^^^^^^^
+
+You are ready to use Intel® DL Streamer. For furhter instructions please go to:
+   :doc:`../tutorial`
+
 .. _3:
 
 Option #3: Compile Intel® DL Streamer Pipeline Framework from sources on host system
@@ -281,6 +311,9 @@ Install Open Model Zoo tools:
    python3 -m pip install --upgrade pip
    python3 -m pip install openvino-dev[onnx,tensorflow,pytorch]
 
+.. note::
+   Make sure your environment variable $PATH includes '$HOME/.local/bin' .
+
 Step 3: Install Intel® DL Streamer Pipeline Framework dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -289,7 +322,7 @@ Install build dependencies:
 .. code:: sh
 
    # Install dependencies
-   sudo apt-get update && sudo apt-get install curl wget gpg software-properties-common cmake build-essential libpython3-dev python-gi-dev libopencv-dev
+   sudo apt-get update && sudo apt-get install curl wget gpg software-properties-common cmake build-essential libpython3-dev python-gi-dev libopencv-dev jq
 
 Download pre-built Debian packages for GStreamer from `GitHub Release page <https://github.com/dlstreamer/dlstreamer/releases>`. 
 You can manually download all packages from the release page or try to use following command. 
@@ -360,9 +393,9 @@ Then use **only one** of following (more information https://dgpu-docs.intel.com
    ..  code:: sh
    
      # Register Intel® Graphics APT repository
-     echo "deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/gpu/ubuntu jammy/production/2328 unified" | sudo tee /etc/apt/sources.list.d/intel-graphics.list
+     echo "deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/gpu/ubuntu jammy/production/2350 unified" | sudo tee /etc/apt/sources.list.d/intel-graphics.list
 
--  For Intel® Arc™ GPUs:
+-  For Intel® Client and Arc™ GPUs:
    
    ..  code:: sh
    
@@ -440,6 +473,11 @@ elements run the following commands:
 
    sudo apt-get install -y intel-dlstreamer-gst-vaapi libva-dev vainfo intel-media-va-driver-non-free
    export LIBVA_DRIVER_NAME=iHD
+   
+   # When using Media, GPU or NPU devices as non-root user, please configure:
+   sudo usermod -a -G video <username>	
+   sudo usermod -a -G render <username>	
+
    # Check installation
    vainfo
 
@@ -474,7 +512,7 @@ If you don't have proper kernel, one can use https://kernel.ubuntu.com/mainline/
 steps from here: https://wiki.ubuntu.com/Kernel/MainlineBuilds.
 
 Step 10: Build Intel® DL Streamer Pipeline Framework
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 With all dependencies installed, proceed to build Pipeline Framework:
 
