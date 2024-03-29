@@ -106,6 +106,7 @@ B. For Intel® Graphics APT repository please use **only one** of following (mor
 
 B. For Intel® Core™ Ultra processors please install NPU drivers as described in https://github.com/intel/linux-npu-driver (requires Ubuntu 22.04 with kernel version 6.6+).
 
+
 C. Install Intel® oneAPI DPC++/C++ Compiler runtime package and Intel® DL Streamer features based on DPC++:
 
 .. code:: sh
@@ -163,6 +164,9 @@ In order to enable all `gvametapublish` backends install required dependencies w
    sudo -E /opt/intel/dlstreamer/install_dependencies/install_mqtt_client.sh
    sudo -E /opt/intel/dlstreamer/install_dependencies/install_kafka_client.sh
 
+Next Steps:
+^^^^^^^^^^^
+
 When using Media, GPU or NPU devices as non-root user, please configure:
 
 .. code:: sh
@@ -170,11 +174,7 @@ When using Media, GPU or NPU devices as non-root user, please configure:
    sudo usermod -a -G video <username>	
    sudo usermod -a -G render <username>
    
-Next Steps:
-^^^^^^^^^^^
-
-You are ready to use Intel® DL Streamer. For furhter instructions please go to:
-   :doc:`../tutorial`
+You are ready to use Intel® DL Streamer. For further instructions please go to: :doc:`../tutorial`
 
 .. _2:
 
@@ -263,8 +263,7 @@ Now you can use the container with GPU access under the non-root user.
 Next Steps:
 ^^^^^^^^^^^
 
-You are ready to use Intel® DL Streamer. For furhter instructions please go to:
-   :doc:`../tutorial`
+You are ready to use Intel® DL Streamer. For further instructions please go to: :doc:`../tutorial`
 
 .. _3:
 
