@@ -141,3 +141,4 @@ The following diagram illustrates overall workflow
    :maxdepth: 2
 
    yolov5_model_preparation
+   yolov_model_preparation

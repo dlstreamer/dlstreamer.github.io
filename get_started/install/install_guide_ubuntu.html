@@ -422,7 +422,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-install-message-brokers">Step 6: Install message brokers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-install-intel-oneapi-dpc-c-compiler">Step 7: Install Intel® oneAPI DPC++/C++ Compiler</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-install-va-api-dependencies">Step 8: Install VA-API dependencies</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-install-intel-vpu-drivers">Step 9: Install Intel® VPU drivers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-install-intel-npu-drivers">Step 9: Install Intel® NPU drivers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-10-build-intel-dl-streamer-pipeline-framework">Step 10: Build Intel® DL Streamer Pipeline Framework</a></li>
 </ul>
 </li>
@@ -881,8 +881,8 @@ If it’s not resolved even after re-installation, please submit an issue for su
 <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/issues">here</a>.</p>
 <p>Additionally, pass <code class="docutils literal notranslate"><span class="pre">-DENABLE_VAAPI=ON</span></code> option to cmake in configuration step.</p>
 </section>
-<section id="step-9-install-intel-vpu-drivers">
-<h3>Step 9: Install Intel® VPU drivers<a class="headerlink" href="#step-9-install-intel-vpu-drivers" title="Permalink to this heading">#</a></h3>
+<section id="step-9-install-intel-npu-drivers">
+<h3>Step 9: Install Intel® NPU drivers<a class="headerlink" href="#step-9-install-intel-npu-drivers" title="Permalink to this heading">#</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Optional step for Intel® Core™ Ultra processors</p>
@@ -892,6 +892,18 @@ Please note Ubuntu 22.04 with Linux kernel 6.6+ and intel_vpu.ko module enabled 
 <p>If you don’t have proper kernel, one can use <a class="reference external" href="https://kernel.ubuntu.com/mainline/v6.7.10">https://kernel.ubuntu.com/mainline/v6.7.10</a>
 (kernel version Intel® DL Streamer was validated with), following Linux kernel installation
 steps from here: <a class="reference external" href="https://wiki.ubuntu.com/Kernel/MainlineBuilds">https://wiki.ubuntu.com/Kernel/MainlineBuilds</a>.</p>
+<p>NOTE: The following error can be reported when running Intel® DL Streamer with an older version of NPU driver:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Setting<span class="w"> </span>pipeline<span class="w"> </span>to<span class="w"> </span>PLAYING<span class="w"> </span>...
+New<span class="w"> </span>clock:<span class="w"> </span>GstSystemClock
+Caught<span class="w"> </span>SIGSEGV
+Spinning.
+</pre></div>
+</div>
+<p>In such case, please use the following setting as a temporary workaround:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">ZE_ENABLE_ALT_DRIVERS</span><span class="o">=</span>libze_intel_vpu.so
+</pre></div>
+</div>
+<p>The issue should be fixed with newer versions of Intel® NPU drivers and Intel® OpenVINO™ NPU plugins.</p>
 </section>
 <section id="step-10-build-intel-dl-streamer-pipeline-framework">
 <h3>Step 10: Build Intel® DL Streamer Pipeline Framework<a class="headerlink" href="#step-10-build-intel-dl-streamer-pipeline-framework" title="Permalink to this heading">#</a></h3>
@@ -1023,7 +1035,7 @@ Also, you can create an issue on GitHub
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-install-message-brokers">Step 6: Install message brokers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-install-intel-oneapi-dpc-c-compiler">Step 7: Install Intel® oneAPI DPC++/C++ Compiler</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-install-va-api-dependencies">Step 8: Install VA-API dependencies</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-install-intel-vpu-drivers">Step 9: Install Intel® VPU drivers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-install-intel-npu-drivers">Step 9: Install Intel® NPU drivers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-10-build-intel-dl-streamer-pipeline-framework">Step 10: Build Intel® DL Streamer Pipeline Framework</a></li>
 </ul>
 </li>

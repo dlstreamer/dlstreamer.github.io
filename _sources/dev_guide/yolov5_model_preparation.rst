@@ -1,6 +1,10 @@
 Yolov5 Model Preparation Example
 ================================
 
+.. warning::
+
+    This page is deprecated - modification of Yolo_v5 output layers is no longer necessary.
+
 This page demonstrates preparation of a custom model, specifically **yolov5s** from `ultralytics/yolov5 GitHub repository <https://github.com/ultralytics/yolov5>`__.
 The conversion follows Pytorch -> ONNX -> OpenVINO™ IR format.
 

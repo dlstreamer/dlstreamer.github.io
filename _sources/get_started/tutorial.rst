@@ -7,6 +7,7 @@ using Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework.
 -  `About GStreamer <#about-gstreamer>`__
 -  `Introduction to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework <#introduction-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework>`__
 -  `Tutorial Setup <#tutorial-setup>`__
+-  `Tutorial Setup for Docker <#tutorial-setup-for-docker>`__
 -  :ref:`Exercise 1 - Build object detection pipeline<object_detection>`
 -  :ref:`Exercise 2 - Build object classification pipeline<object-classification>`
 -  :ref:`Exercise 3 - Use object tracking to improve performance<object-tracking>`
@@ -166,6 +167,8 @@ or a file using *gvametaconvert* and *gvametapublish* of Intel® DL Streamer.
 
 Tutorial Setup
 --------------
+If you chose Option 2 with Docker in Install Guide you can follow instruction below, but be aware you will need to download models every time in Docker container.
+To avoid this you can follow Tutorial Setup for Docker to download models on host and mount them inside Docker container.
 
 #. Install Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework by following the :doc:`Install-Guide <install/install_guide_ubuntu>`.
 
@@ -175,6 +178,7 @@ Tutorial Setup
 
       source /opt/intel/openvino_2024/setupvars.sh
       source /opt/intel/dlstreamer/setupvars.sh
+      source /opt/intel/dlstreamer/gstreamer/setupvars.sh
 
    .. note::
       You must set the environment variables each time you open a new shell unless you added the variables to the ``.bashrc`` file. See
@@ -191,6 +195,82 @@ Tutorial Setup
    .. note::
       Make sure your environment variable $PATH includes '$HOME/.local/bin' .
 
+#. Export the *model* and *model_proc* files for detection and classification:
+
+   .. code:: sh
+
+      export DETECTION_MODEL=${MODELS_PATH}/intel/person-vehicle-bike-detection-2004/FP32/person-vehicle-bike-detection-2004.xml
+      export DETECTION_MODEL_PROC=/opt/intel/dlstreamer/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-2004.json
+      export VEHICLE_CLASSIFICATION_MODEL=${MODELS_PATH}/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml
+      export VEHICLE_CLASSIFICATION_MODEL_PROC=/opt/intel/dlstreamer/samples/gstreamer/model_proc/intel/vehicle-attributes-recognition-barrier-0039.json
+
+
+   If you want to use your own models, you need to first convert them in
+   the IR (Intermediate Representation) format. For detailed
+   instructions to convert models, `look
+   here <https://docs.openvino.ai/latest/openvino_docs_MO_DG_prepare_model_convert_model_tf_specific_Convert_YOLO_From_Tensorflow.html>`__
+
+#. Export the video file path:
+
+   You may download a sample video from the
+   `here <https://github.com/intel-iot-devkit/sample-videos/raw/master/person-bicycle-car-detection.mp4>`__.
+   If you provide your own video file as an input, please make sure that
+   it is in h264 or mp4 format. You can also download and use freely
+   licensed content from the websites such as Pexels\*. Any video with
+   cars, or pedestrians can be used with the exercise.
+
+   .. code:: sh
+
+      # This tutorial uses ~/path/to/video as the video path
+      # and FILENAME as the placeholder for a video file name.
+      # Change this information to fit your setup.
+      export VIDEO_EXAMPLE=~/path/to/video/FILENAME
+
+.. _object_detection:
+
+Tutorial Setup for Docker
+-------------------------
+
+#. Install pip,onnx and tensorflow:
+
+   .. code:: sh
+
+      sudo apt-get install python3-pip
+      python3 -m pip install openvino-dev[onnx,tensorflow,pytorch]
+
+#. Clone DLStreamer repository:
+
+   .. code:: sh
+
+      mkdir -p ~/intel
+      git clone --recursive https://github.com/dlstreamer/dlstreamer.git ~/intel/dlstreamer_gst
+
+#. Export MODELS_PATH where models will be dowloaded, for example export MODELS_PATH=/home/user/models
+
+#. Add /home/user/.local/bin to PATH:  export PATH="$PATH:/home/user/.local/bin"
+
+#. Download models:
+
+   .. code:: sh
+
+      cd ~/intel/dlstreamer_gst/samples 
+      ./download_models.sh
+
+#. Mount models using -v or --volume parameter in docker run command:
+
+   .. code:: sh
+
+      docker run -v /path/to/models/on/host:/home/dlstreamer/intel/dl_streamer/models <other args>
+
+      docker run -v /home/user/models:/home/dlstreamer/intel/dl_streamer/models  <other args>
+
+      docker run -it --device /dev/dri --group-add=$(stat -c "%g" /dev/dri/render*) -v /home/user/models:/home/dlstreamer/intel/dl_streamer/models dlstreamer:latest 
+   For NPU devices:
+
+   .. code:: sh
+
+      docker run -it --device /dev/dri --device /dev/accel/accel0 --group-add=$(stat -c "%g" /dev/dri/render*) -v /home/user/models:/home/dlstreamer/intel/dl_streamer/models dlstreamer:latest
+      
 #. Export the *model* and *model_proc* files for detection and classification:
 
    .. code:: sh

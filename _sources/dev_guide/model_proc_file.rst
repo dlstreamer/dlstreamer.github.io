@@ -133,7 +133,8 @@ should be described in a key-value format. Valid keys for
      - [ 0.0, 1.0 ]
      - Normalize input image values to be in the specified range.
      - | opencv,
-       | vaapi
+       | vaapi-surface-sharing
+       | ie
    * - params
      - mean
      - [ 0.485, 0.456, 0.406 ]

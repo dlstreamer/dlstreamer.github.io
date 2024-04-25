@@ -25,5 +25,6 @@ Enum lists supported memory types. Memory type CPU may work with any CPU-accessi
 	    :target:`OpenVINO<doxid-namespacedlstreamer_1adf13505dedb784c9027f629e8e97f1dba7109a5940b811c36ea2e9aa2cee0527f>`   = 0x8000,
 	    :target:`PyTorch<doxid-namespacedlstreamer_1adf13505dedb784c9027f629e8e97f1dba95b88f180e9eb5678e0f9ebac2cbe643>`    = 0x10000,
 	    :target:`TensorFlow<doxid-namespacedlstreamer_1adf13505dedb784c9027f629e8e97f1dba074dd699710da0ec1eb45f13b31788e3>` = 0x20000,
+	    :target:`VA<doxid-namespacedlstreamer_1adf13505dedb784c9027f629e8e97f1dba3a11129c3467b1bcf46522b8e2ab3328>`         = 0x40000,
 	};
 

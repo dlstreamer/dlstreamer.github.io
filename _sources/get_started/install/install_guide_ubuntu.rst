@@ -497,7 +497,7 @@ If it's not resolved even after re-installation, please submit an issue for supp
 
 Additionally, pass ``-DENABLE_VAAPI=ON`` option to cmake in configuration step.
 
-Step 9: Install Intel® VPU drivers
+Step 9: Install Intel® NPU drivers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note::
@@ -509,6 +509,23 @@ Please note Ubuntu 22.04 with Linux kernel 6.6+ and intel_vpu.ko module enabled 
 If you don't have proper kernel, one can use https://kernel.ubuntu.com/mainline/v6.7.10 
 (kernel version Intel® DL Streamer was validated with), following Linux kernel installation 
 steps from here: https://wiki.ubuntu.com/Kernel/MainlineBuilds.
+
+NOTE: The following error can be reported when running Intel® DL Streamer with an older version of NPU driver:
+
+.. code:: sh
+
+   Setting pipeline to PLAYING ...
+   New clock: GstSystemClock
+   Caught SIGSEGV
+   Spinning. 
+
+In such case, please use the following setting as a temporary workaround:
+
+.. code:: sh
+
+   export ZE_ENABLE_ALT_DRIVERS=libze_intel_vpu.so
+
+The issue should be fixed with newer versions of Intel® NPU drivers and Intel® OpenVINO™ NPU plugins.
 
 Step 10: Build Intel® DL Streamer Pipeline Framework
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
