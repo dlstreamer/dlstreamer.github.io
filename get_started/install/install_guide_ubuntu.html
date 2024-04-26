@@ -646,7 +646,17 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"
 </section>
 <section id="step-5-run-intel-dl-streamer-pipeline-framework-container">
 <h3>Step 5: Run Intel® DL Streamer Pipeline Framework container<a class="headerlink" href="#step-5-run-intel-dl-streamer-pipeline-framework-container" title="Permalink to this heading">#</a></h3>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--privileged<span class="w"> </span>--net<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--net<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--device<span class="o">=</span>/dev/dri<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-v<span class="w"> </span>~/.Xauthority:/home/dlstreamer/.Xauthority<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-v<span class="w"> </span>/tmp/.X11-unix<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-v<span class="w"> </span>/dev/bus/usb<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--rm<span class="w"> </span>dlstreamer<span class="w"> </span>/bin/bash
+</pre></div>
+</div>
+<p>For NPU devices use command below. Remmember about manual setting of permissions access (go to User acess to the device in <a class="github reference external" href="https://github.com/intel/linux-npu-driver/releases">intel/linux-npu-driver</a>):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--net<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>--device<span class="o">=</span>/dev/dri<span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>--device<span class="o">=</span>/dev/accel<span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>-v<span class="w"> </span>~/.Xauthority:/home/dlstreamer/.Xauthority<span class="w"> </span><span class="se">\</span>

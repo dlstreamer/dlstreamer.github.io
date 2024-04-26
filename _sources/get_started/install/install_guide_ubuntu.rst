@@ -223,7 +223,19 @@ Step 5: Run Intel® DL Streamer Pipeline Framework container
 
 .. code:: sh
 
-   docker run -it --privileged --net=host \
+   docker run -it --net=host \
+      --device=/dev/dri \
+      -v ~/.Xauthority:/home/dlstreamer/.Xauthority \
+      -v /tmp/.X11-unix \
+      -e DISPLAY=$DISPLAY \
+      -v /dev/bus/usb \
+      --rm dlstreamer /bin/bash
+
+For NPU devices use command below. Remmember about manual setting of permissions access (go to User acess to the device in https://github.com/intel/linux-npu-driver/releases):
+
+.. code:: sh
+
+   docker run -it --net=host \
       --device=/dev/dri \
       --device=/dev/accel \
       -v ~/.Xauthority:/home/dlstreamer/.Xauthority \
