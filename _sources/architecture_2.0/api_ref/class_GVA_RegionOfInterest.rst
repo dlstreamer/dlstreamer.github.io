@@ -28,9 +28,14 @@ This class represents region of interest - object describing detection result (b
 	
 		:ref:`Rect<doxid-struct_g_v_a_1_1_rect>`<uint32_t> :ref:`rect<doxid-class_g_v_a_1_1_region_of_interest_1a2556d1b0a7aa98d36eea9979f8c316bc>`() const;
 		:ref:`Rect<doxid-struct_g_v_a_1_1_rect>`<double> :ref:`normalized_rect<doxid-class_g_v_a_1_1_region_of_interest_1a72d3986623d95742855be5e0c46ae544>`();
+		double :ref:`radius<doxid-class_g_v_a_1_1_region_of_interest_1a9b01fe79fef84488cf9e2a7ca7348771>`() const;
 		std::string :ref:`label<doxid-class_g_v_a_1_1_region_of_interest_1a1e70434428a6b20dbd35be7837761ffa>`() const;
 		double :ref:`confidence<doxid-class_g_v_a_1_1_region_of_interest_1acfaa4092998146914af651a094edad6c>`() const;
 		int32_t :ref:`object_id<doxid-class_g_v_a_1_1_region_of_interest_1a4846b8816a96a08286ec25fa2a61356f>`() const;
+		size_t :ref:`mask_width<doxid-class_g_v_a_1_1_region_of_interest_1aa7fb3d2106058cd691c854179745fed6>`();
+		size_t :ref:`mask_height<doxid-class_g_v_a_1_1_region_of_interest_1a6b84d619305e6d04537f20ffbfb9d09b>`();
+		std::vector<float> :ref:`mask<doxid-class_g_v_a_1_1_region_of_interest_1a7dda3a8e7dfa730c3aad5becf5f77f75>`();
+		bool :ref:`has_mask<doxid-class_g_v_a_1_1_region_of_interest_1a169264aae739a853516ec85efdbc1b87>`();
 		std::vector<:ref:`Tensor<doxid-class_g_v_a_1_1_tensor>`> :ref:`tensors<doxid-class_g_v_a_1_1_region_of_interest_1a383150acbf54733342df8aaaab6f650c>`() const;
 		:ref:`Tensor<doxid-class_g_v_a_1_1_tensor>` :ref:`add_tensor<doxid-class_g_v_a_1_1_region_of_interest_1aba2238d0ce000d31ae00a4ca495cca88>`(const std::string& name);
 		:ref:`Tensor<doxid-class_g_v_a_1_1_tensor>` :ref:`detection<doxid-class_g_v_a_1_1_region_of_interest_1aa3360d1e9ffd9f4921905cfc756d2f4a>`();
@@ -107,6 +112,22 @@ Get bounding box of the :ref:`RegionOfInterest <doxid-class_g_v_a_1_1_region_of_
 
 Bounding box coordinates of the :ref:`RegionOfInterest <doxid-class_g_v_a_1_1_region_of_interest>`
 
+.. index:: pair: function; radius
+.. _doxid-class_g_v_a_1_1_region_of_interest_1a9b01fe79fef84488cf9e2a7ca7348771:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	double radius() const
+
+Get :ref:`RegionOfInterest <doxid-class_g_v_a_1_1_region_of_interest>` bounding box radius.
+
+
+
+.. rubric:: Returns:
+
+Bounding box radius of the :ref:`RegionOfInterest <doxid-class_g_v_a_1_1_region_of_interest>`
+
 .. index:: pair: function; label
 .. _doxid-class_g_v_a_1_1_region_of_interest_1a1e70434428a6b20dbd35be7837761ffa:
 
@@ -154,6 +175,70 @@ Get unique id of the :ref:`RegionOfInterest <doxid-class_g_v_a_1_1_region_of_int
 .. rubric:: Returns:
 
 Unique id, or zero value if not found
+
+.. index:: pair: function; mask_width
+.. _doxid-class_g_v_a_1_1_region_of_interest_1aa7fb3d2106058cd691c854179745fed6:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	size_t mask_width()
+
+Get the width of the mask of the :ref:`RegionOfInterest <doxid-class_g_v_a_1_1_region_of_interest>`. Element added by gvadetect if a mask is detected.
+
+
+
+.. rubric:: Returns:
+
+Mask width, or zero value if not found
+
+.. index:: pair: function; mask_height
+.. _doxid-class_g_v_a_1_1_region_of_interest_1a6b84d619305e6d04537f20ffbfb9d09b:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	size_t mask_height()
+
+Get the height of the mask of the :ref:`RegionOfInterest <doxid-class_g_v_a_1_1_region_of_interest>`. Element added by gvadetect if a mask is detected.
+
+
+
+.. rubric:: Returns:
+
+Mask height, or zero value if not found
+
+.. index:: pair: function; mask
+.. _doxid-class_g_v_a_1_1_region_of_interest_1a7dda3a8e7dfa730c3aad5becf5f77f75:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	std::vector<float> mask()
+
+Get the mask of the :ref:`RegionOfInterest <doxid-class_g_v_a_1_1_region_of_interest>`. Element added by gvadetect if a mask is detected.
+
+
+
+.. rubric:: Returns:
+
+Vector with mask values, or empty vector if not found
+
+.. index:: pair: function; has_mask
+.. _doxid-class_g_v_a_1_1_region_of_interest_1a169264aae739a853516ec85efdbc1b87:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	bool has_mask()
+
+Check whether :ref:`RegionOfInterest <doxid-class_g_v_a_1_1_region_of_interest>` has a mask defined.
+
+
+
+.. rubric:: Returns:
+
+True if :ref:`RegionOfInterest <doxid-class_g_v_a_1_1_region_of_interest>` has a mask, or false if it does not
 
 .. index:: pair: function; tensors
 .. _doxid-class_g_v_a_1_1_region_of_interest_1a383150acbf54733342df8aaaab6f650c:

@@ -9,7 +9,7 @@ If you installed via apt package just simple uninstall with apt
 
 .. code:: sh
 
-    sudo dpkg-query -l | awk '/^ii/ && /intel-dlstreamer/ {print $2}' | xargs apt-get remove -y --purge
+    sudo dpkg-query -l | awk '/^ii/ && /intel-dlstreamer/ {print $2}' | sudo xargs apt-get remove -y --purge
 
 
 Option #2: Intel® DL Streamer Pipeline Framework Docker image

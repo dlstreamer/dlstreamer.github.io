@@ -78,7 +78,7 @@ A. Install dependencies and register additional APT repositories.
    echo "deb [signed-by=/usr/share/keyrings/intel-sw-products.gpg] https://apt.repos.intel.com/oneapi all main" | sudo tee /etc/apt/sources.list.d/intel-oneapi.list
 
    # Download Intel® Graphics APT repository key
-   curl -fsSL https://repositories.intel.com/graphics/intel-graphics.key | sudo gpg --dearmor --output /usr/share/keyrings/intel-graphics.gpg
+   wget -qO - https://repositories.intel.com/gpu/intel-graphics.key | sudo gpg --yes --dearmor --output /usr/share/keyrings/intel-graphics.gpg
 
 
 B. For Intel® Graphics APT repository please use **only one** of following (more information https://dgpu-docs.intel.com/driver/installation.html):
@@ -97,24 +97,18 @@ B. For Intel® Graphics APT repository please use **only one** of following (mor
      # Register Intel® Graphics APT repository
      echo "deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/gpu/ubuntu jammy client" | sudo tee /etc/apt/sources.list.d/intel-graphics.list
 
--  Run below commands for both above options:
 
-   ..  code:: sh
-   
-     sudo apt install -y linux-headers-$(uname -r) flex bison intel-fw-gpu intel-i915-dkms xpu-smi
-     sudo reboot
-
-B. For Intel® Core™ Ultra processors please install NPU drivers as described in https://github.com/intel/linux-npu-driver (requires Ubuntu 22.04 with kernel version 6.6+).
+C. For Intel® Core™ Ultra processors please install NPU drivers as described in https://github.com/intel/linux-npu-driver (requires Ubuntu 22.04 with kernel version 6.6+).
 
 
-C. Install Intel® oneAPI DPC++/C++ Compiler runtime package and Intel® DL Streamer features based on DPC++:
+D. Install Intel® oneAPI DPC++/C++ Compiler runtime package and Intel® DL Streamer features based on DPC++:
 
 .. code:: sh
 
    # Install
    sudo apt-get update && sudo apt-get install intel-level-zero-gpu level-zero
 
-C. [optional] You can additionally install full Intel® oneAPI DPC++/C++ Compiler (previous command installs runtime only):
+E. [optional] You can additionally install full Intel® oneAPI DPC++/C++ Compiler (previous command installs runtime only):
 
 .. code:: sh
 
@@ -394,7 +388,7 @@ Register Intel® Graphics APT repository key by:
 .. code:: sh
 
    # Download Intel® Graphics APT repository key
-   curl -fsSL https://repositories.intel.com/graphics/intel-graphics.key | sudo gpg --dearmor --output /usr/share/keyrings/intel-graphics.gpg
+   wget -qO - https://repositories.intel.com/gpu/intel-graphics.key | sudo gpg --yes --dearmor --output /usr/share/keyrings/intel-graphics.gpg
 
 
 Then use **only one** of following (more information https://dgpu-docs.intel.com/driver/installation.html):

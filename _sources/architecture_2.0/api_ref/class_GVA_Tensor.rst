@@ -56,6 +56,7 @@ This class represents tensor - map-like storage for inference result information
 	
 		int :ref:`get_int<doxid-class_g_v_a_1_1_tensor_1aa060cfe8ed40e586905868c0905b11e1>`(const std::string& field_name, int32_t default_value = 0) const;
 		double :ref:`get_double<doxid-class_g_v_a_1_1_tensor_1ad06d2883a852b8713b7993f349616ee0>`(const std::string& field_name, double default_value = 0) const;
+		std::vector<float> :ref:`get_float_vector<doxid-class_g_v_a_1_1_tensor_1a447334bf81b617a41ef716ea6edd0b25>`(const std::string& field_name) const;
 		void :ref:`set_string<doxid-class_g_v_a_1_1_tensor_1a1cd955d556f2fd16df47d28e95b7b423>`(const std::string& field_name, const std::string& value);
 		void :ref:`set_int<doxid-class_g_v_a_1_1_tensor_1a6bf5b624608bed60ea5b7edc5dddf61d>`(const std::string& field_name, int value);
 		void :ref:`set_double<doxid-class_g_v_a_1_1_tensor_1a899c7cd7ef6428a13a76f29a3869c730>`(const std::string& field_name, double value);
@@ -421,6 +422,34 @@ Get double contained in value stored at field_name.
 .. rubric:: Returns:
 
 double value stored at field_name if field_name is found and contains an double, default_value otherwise
+
+.. index:: pair: function; get_float_vector
+.. _doxid-class_g_v_a_1_1_tensor_1a447334bf81b617a41ef716ea6edd0b25:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	std::vector<float> get_float_vector(const std::string& field_name) const
+
+Get float vector contained in value stored at field_name.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+	:widths: 20 80
+
+	*
+		- field_name
+
+		- field name
+
+
+
+.. rubric:: Returns:
+
+float vector stored at field_name if field_name is found and contains an float array, empty vector otherwise
 
 .. index:: pair: function; set_string
 .. _doxid-class_g_v_a_1_1_tensor_1a1cd955d556f2fd16df47d28e95b7b423:

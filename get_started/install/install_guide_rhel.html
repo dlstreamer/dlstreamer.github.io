@@ -462,7 +462,7 @@ setfacl<span class="w"> </span>-m<span class="w"> </span>user:1000:r<span class=
 </pre></div>
 </div>
 <p>Then, run container:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--privileged<span class="w"> </span>--net<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--net<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
 -v<span class="w"> </span>~/.Xauthority:/home/dlstreamer/.Xauthority<span class="w"> </span><span class="se">\</span>
 -v<span class="w"> </span>/tmp/.X11-unix:/tmp/.X11-unix<span class="w"> </span><span class="se">\</span>
 -e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
@@ -488,7 +488,6 @@ dlstreamer:&lt;tag&gt;
 <p>Here is the additional information and the meaning of some options in
 the Docker run command:</p>
 <ul class="simple">
-<li><p>Option <code class="docutils literal notranslate"><span class="pre">--privileged</span></code> is required for Docker container to access the host system’s GPU.</p></li>
 <li><p>Option <code class="docutils literal notranslate"><span class="pre">--net=host</span></code> provides host network access to container. It is needed for correct
 interaction with X server.</p></li>
 <li><p>Files <code class="docutils literal notranslate"><span class="pre">~/.Xauthority</span></code> and <code class="docutils literal notranslate"><span class="pre">/tmp/.X11-unix</span></code> mapped to the container are needed to ensure

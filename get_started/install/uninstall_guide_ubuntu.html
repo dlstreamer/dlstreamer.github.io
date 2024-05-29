@@ -420,7 +420,7 @@ document.write(`
 <section id="option-1-uninstall-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework-from-apt-repository">
 <h2>Option #1: Uninstall Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework from APT repository<a class="headerlink" href="#option-1-uninstall-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework-from-apt-repository" title="Permalink to this heading">#</a></h2>
 <p>If you installed via apt package just simple uninstall with apt</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dpkg-query<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;/^ii/ &amp;&amp; /intel-dlstreamer/ {print $2}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>apt-get<span class="w"> </span>remove<span class="w"> </span>-y<span class="w"> </span>--purge
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dpkg-query<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;/^ii/ &amp;&amp; /intel-dlstreamer/ {print $2}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>xargs<span class="w"> </span>apt-get<span class="w"> </span>remove<span class="w"> </span>-y<span class="w"> </span>--purge
 </pre></div>
 </div>
 </section>

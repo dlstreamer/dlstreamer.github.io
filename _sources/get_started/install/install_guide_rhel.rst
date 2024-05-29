@@ -66,7 +66,7 @@ Then, run container:
 
 .. code:: sh
 
-   docker run -it --privileged --net=host \
+   docker run -it --net=host \
    -v ~/.Xauthority:/home/dlstreamer/.Xauthority \
    -v /tmp/.X11-unix:/tmp/.X11-unix \
    -e DISPLAY=$DISPLAY \
@@ -88,7 +88,6 @@ Then, run container:
 Here is the additional information and the meaning of some options in
 the Docker run command:
 
-- Option ``--privileged`` is required for Docker container to access the host system’s GPU.
 - Option ``--net=host`` provides host network access to container. It is needed for correct
   interaction with X server.
 - Files ``~/.Xauthority`` and ``/tmp/.X11-unix`` mapped to the container are needed to ensure

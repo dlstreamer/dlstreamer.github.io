@@ -177,7 +177,6 @@ To avoid this you can follow Tutorial Setup for Docker to download models on hos
    .. code:: sh
 
       source /opt/intel/openvino_2024/setupvars.sh
-      source /opt/intel/dlstreamer/setupvars.sh
       source /opt/intel/dlstreamer/gstreamer/setupvars.sh
 
    .. note::
