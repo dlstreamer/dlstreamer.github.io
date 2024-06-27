@@ -13,6 +13,7 @@ Developer Guide
    custom_processing
    object_tracking
    gpu_device_selection
+   performance_guide
    profiling
    converting_deepstream_to_dlstreamer
    how_to_contribute

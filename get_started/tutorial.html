@@ -155,8 +155,6 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../dev_guide/dev_guide_index.html">Developer Guide</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../dev_guide/metadata.html">Metadata</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../dev_guide/model_preparation.html">Model Preparation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../dev_guide/yolov5_model_preparation.html">Yolov5 Model Preparation Example</a></li>
-
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/yolo_model_preparation.html">Yolo Models Preparation</a></li>
 </ul>
 </li>
@@ -170,6 +168,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../dev_guide/gpu_device_selection.html">GPU device selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/performance_guide.html">Performance Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev_guide/profiling.html">Profiling with Intel VTune™</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev_guide/converting_deepstream_to_dlstreamer.html">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../dev_guide/how_to_contribute.html">How to Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -448,7 +447,7 @@ using Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework.</
 <li><p><a class="reference external" href="#introduction-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework">Introduction to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></p></li>
 <li><p><a class="reference external" href="#tutorial-setup">Tutorial Setup</a></p></li>
 <li><p><a class="reference external" href="#tutorial-setup-for-docker">Tutorial Setup for Docker</a></p></li>
-<li><p><span class="xref std std-ref">Exercise 1 - Build object detection pipeline</span></p></li>
+<li><p><a class="reference internal" href="#object-detection"><span class="std std-ref">Exercise 1 - Build object detection pipeline</span></a></p></li>
 <li><p><a class="reference internal" href="#object-classification"><span class="std std-ref">Exercise 2 - Build object classification pipeline</span></a></p></li>
 <li><p><a class="reference internal" href="#object-tracking"><span class="std std-ref">Exercise 3 - Use object tracking to improve performance</span></a></p></li>
 <li><p><a class="reference internal" href="#result-publishing"><span class="std std-ref">Exercise 4 - Publish the inference results to a `.json` file</span></a></p></li>
@@ -614,7 +613,7 @@ To avoid this you can follow Tutorial Setup for Docker to download models on hos
 <li><p>Download the models from <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo">Open Model Zoo</a></p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
 python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>openvino-dev<span class="o">[</span>onnx,tensorflow,pytorch<span class="o">]</span>
-/opt/intel/dlstreamer/samples/download_models.sh
+/opt/intel/dlstreamer/samples/download_omz_models.sh
 </pre></div>
 </div>
 <div class="admonition note">
@@ -651,7 +650,7 @@ cars, or pedestrians can be used with the exercise.</p>
 </ol>
 </section>
 <section id="tutorial-setup-for-docker">
-<span id="object-detection"></span><h2>Tutorial Setup for Docker<a class="headerlink" href="#tutorial-setup-for-docker" title="Permalink to this heading">#</a></h2>
+<span id="id1"></span><h2>Tutorial Setup for Docker<a class="headerlink" href="#tutorial-setup-for-docker" title="Permalink to this heading">#</a></h2>
 <ol class="arabic">
 <li><p>Install pip,onnx and tensorflow:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-pip
@@ -677,7 +676,7 @@ git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="
 </li>
 <li><p>Download models:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/intel/dlstreamer_gst/samples
-./download_models.sh
+./download_omz_models.sh
 </pre></div>
 </div>
 </li>
@@ -687,11 +686,11 @@ Make sure your mounting parameter is specified as <code class="docutils literal 
 </pre></div>
 </div>
 <p>To run the Docker image on a GPU device:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--device<span class="w"> </span>/dev/dri<span class="w"> </span>--group-add<span class="o">=</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%g&quot;</span><span class="w"> </span>/dev/dri/render*<span class="k">)</span><span class="w"> </span>-v<span class="w"> </span>/home/<span class="nv">$USER</span>/models:/home/dlstreamer/intel/dl_streamer/models<span class="w"> </span>dlstreamer:latest
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--device<span class="w"> </span>/dev/dri<span class="w"> </span>--group-add<span class="o">=</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%g&quot;</span><span class="w"> </span>/dev/dri/render*<span class="k">)</span><span class="w"> </span>-v<span class="w"> </span>/home/<span class="nv">$USER</span>/models:/home/dlstreamer/intel/dl_streamer/models<span class="w"> </span>intel/dlstreamer:latest
 </pre></div>
 </div>
 <p>To run the Docker image on an NPU device:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--device<span class="w"> </span>/dev/dri<span class="w"> </span>--device<span class="w"> </span>/dev/accel/accel0<span class="w"> </span>--group-add<span class="o">=</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%g&quot;</span><span class="w"> </span>/dev/dri/render*<span class="k">)</span><span class="w"> </span>-v<span class="w"> </span>/home/<span class="nv">$USER</span>/models:/home/dlstreamer/intel/dl_streamer/models<span class="w"> </span>dlstreamer:latest
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--device<span class="w"> </span>/dev/dri<span class="w"> </span>--device<span class="w"> </span>/dev/accel/accel0<span class="w"> </span>--group-add<span class="o">=</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%g&quot;</span><span class="w"> </span>/dev/dri/render*<span class="k">)</span><span class="w"> </span>-v<span class="w"> </span>/home/<span class="nv">$USER</span>/models:/home/dlstreamer/intel/dl_streamer/models<span class="w"> </span>intel/dlstreamer:latest
 </pre></div>
 </div>
 </li>
@@ -724,7 +723,7 @@ cars, or pedestrians can be used with the exercise.</p>
 </ol>
 </section>
 <section id="exercise-1-build-object-detection-pipeline">
-<span id="id1"></span><h2>Exercise 1 - Build object detection pipeline<a class="headerlink" href="#exercise-1-build-object-detection-pipeline" title="Permalink to this heading">#</a></h2>
+<span id="object-detection"></span><h2>Exercise 1 - Build object detection pipeline<a class="headerlink" href="#exercise-1-build-object-detection-pipeline" title="Permalink to this heading">#</a></h2>
 <p>This exercise helps you create a GStreamer pipeline that will perform
 object detection using <em>gvadetect</em> element and Intermediate
 Representation (IR) formatted object detection model. It provides two

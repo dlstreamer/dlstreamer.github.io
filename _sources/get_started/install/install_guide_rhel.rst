@@ -100,7 +100,7 @@ the Docker run command:
 
 
 Inside Docker image you can find Pipeline Framework samples at the Entrypoint.
-Before using the samples, run the script ``download_models.sh`` (located
+Before using the samples, run the script ``download_omz_models.sh`` (located
 in ``samples`` folder) to download the models required for samples.
 
 .. note::

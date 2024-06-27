@@ -74,10 +74,10 @@ omz_downloader --name person-vehicle-bike-detection-crossroad-1016
 ## Step 5(a): Run Object Detection Pipeline and Display Results
 
 ``` bash
-gst-launch-1.0 filesrc location=pexels_1721294.mp4 ! decodebin ! video/x-raw\(memory:VASurface\) ! \
+gst-launch-1.0 filesrc location=pexels_1721294.mp4 ! decodebin ! video/x-raw\(memory:VAMemory\) ! \
                gvadetect model=./intel/person-vehicle-bike-detection-crossroad-1016/FP16-INT8/person-vehicle-bike-detection-crossroad-1016.xml \
                          model-proc=/opt/intel/dlstreamer/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-crossroad-1016.json \
-                         pre-process-backend=vaapi-surface-sharing \
+                         pre-process-backend=va-surface-sharing \
                          device=GPU ! \
                          meta_overlay device=GPU ! \
                videoconvert ! ximagesink
@@ -86,14 +86,14 @@ gst-launch-1.0 filesrc location=pexels_1721294.mp4 ! decodebin ! video/x-raw\(me
 ## Step 5(b): Run Object Detection Pipeline and Save Results
 
 ``` bash
-gst-launch-1.0 filesrc location=pexels_1721294.mp4 ! decodebin ! video/x-raw\(memory:VASurface\) ! \
+gst-launch-1.0 filesrc location=pexels_1721294.mp4 ! decodebin ! video/x-raw\(memory:VAMemory\) ! \
                gvadetect model=./intel/person-vehicle-bike-detection-crossroad-1016/FP16-INT8/person-vehicle-bike-detection-crossroad-1016.xml \
                          model-proc=/opt/intel/dlstreamer/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-crossroad-1016.json \
-                         pre-process-backend=vaapi-surface-sharing \
+                         pre-process-backend=va-surface-sharing \
                          device=GPU ! \
                meta_overlay device=GPU ! \
                gvametaconvert json-indent=4 ! gvametapublish file-path=detection_results.json ! \
-               vaapih264enc ! h264parse ! mp4mux ! filesink location=detection_output.mp4
+               vah264enc ! h264parse ! mp4mux ! filesink location=detection_output.mp4
 ```
 
 ------------------------------------------------------------------------

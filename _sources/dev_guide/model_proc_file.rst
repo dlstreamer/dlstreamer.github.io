@@ -117,8 +117,8 @@ should be described in a key-value format. Valid keys for
        | aspect-ratio
      - Resize an image.
      - | opencv,
-       | vaapi,
-       | vaapi-surface-sharing
+       | va,
+       | va-surface-sharing
    * - params
      - color_space
      - | RGB,
@@ -126,27 +126,27 @@ should be described in a key-value format. Valid keys for
        | GRAYSCALE
      - Convert image to targeted color space.
      - | opencv, 
-       | vaapi,
-       | vaapi-surface-sharing (BGR only)
+       | va,
+       | va-surface-sharing (BGR only)
    * - params
      - range
      - [ 0.0, 1.0 ]
      - Normalize input image values to be in the specified range.
      - | opencv,
-       | vaapi-surface-sharing
+       | va-surface-sharing
        | ie
    * - params
      - mean
      - [ 0.485, 0.456, 0.406 ]
      - JSON arrays of doubles. Size of arrays should be equal to the number of channels of the input image.
      - | opencv,
-       | vaapi
+       | va
    * - params
      - std
      - [ 0.229, 0.224, 0.225 ]
      - JSON arrays of doubles. Size of arrays should be equal to the number of channels of the input image.
      - | opencv,
-       | vaapi
+       | va
    * - params
      - padding
      - | {
@@ -155,8 +155,8 @@ should be described in a key-value format. Valid keys for
        | }
      - A JSON object with stride in pixels from image boundaries (also can be set with *stride_x* and *stride_y*)
      - | opencv,
-       | vaapi,
-       | vaapi-surface-sharing
+       | va,
+       | va-surface-sharing
 
 
 .. note:: 

@@ -29,5 +29,5 @@ template class dlstreamer::Pool
 		// methods
 	
 		T :target:`get_or_create<doxid-classdlstreamer_1_1_pool_1afad57716e5e45bba5508441ca63ba888>`();
-		size_t :target:`size<doxid-classdlstreamer_1_1_pool_1ac7067b6520b7e46b5f8365c445c170dd>`() const;
+		size_t :target:`size<doxid-classdlstreamer_1_1_pool_1afa9835715baef47255b91e37b6e1caec>`();
 	};

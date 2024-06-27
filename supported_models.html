@@ -155,8 +155,6 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="dev_guide/dev_guide_index.html">Developer Guide</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="dev_guide/metadata.html">Metadata</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="dev_guide/model_preparation.html">Model Preparation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="dev_guide/yolov5_model_preparation.html">Yolov5 Model Preparation Example</a></li>
-
 <li class="toctree-l3"><a class="reference internal" href="dev_guide/yolo_model_preparation.html">Yolo Models Preparation</a></li>
 </ul>
 </li>
@@ -170,6 +168,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="dev_guide/gpu_device_selection.html">GPU device selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_guide/performance_guide.html">Performance Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dev_guide/profiling.html">Profiling with Intel VTune™</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dev_guide/converting_deepstream_to_dlstreamer.html">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="dev_guide/how_to_contribute.html">How to Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -479,22 +478,30 @@ but some of them come from other sources.</p>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>7</p></td>
+<td><p>Emotion Recognition</p></td>
+<td><p><a class="reference external" href="https://github.com/av-savchenko/face-emotion-recognition/tree/main">enet_b0_8_va_mtl</a></p></td>
+<td></td>
+<td></td>
+<td><p>not required</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
 <td><p>Instance Segmentation</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/mask_rcnn_inception_resnet_v2_atrous_coco">mask_rcnn_inception_resnet_v2_atrous_coco</a></p></td>
 <td></td>
 <td></td>
-<td></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/model_proc/public/mask-rcnn.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/mask_rcnn_demo/cpp">mask_rcnn_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>8</p></td>
+<tr class="row-even"><td><p>9</p></td>
 <td><p>Instance Segmentation</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/mask_rcnn_resnet50_atrous_coco">mask_rcnn_resnet50_atrous_coco</a></p></td>
 <td></td>
 <td></td>
-<td></td>
+<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/model_proc/public/mask-rcnn.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/mask_rcnn_demo/cpp">mask_rcnn_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>9</p></td>
+<tr class="row-odd"><td><p>10</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/efficientnet-v2-b0">efficientnet-v2-b0</a></p></td>
 <td></td>
@@ -502,7 +509,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>10</p></td>
+<tr class="row-even"><td><p>11</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/efficientnet-v2-s">efficientnet-v2-s</a></p></td>
 <td></td>
@@ -510,7 +517,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>11</p></td>
+<tr class="row-odd"><td><p>12</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://geti.intel.com/">GETI_Detection</a></p></td>
 <td></td>
@@ -518,7 +525,7 @@ but some of them come from other sources.</p>
 <td><p>not required</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>12</p></td>
+<tr class="row-even"><td><p>13</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://geti.intel.com/">GETI_Detection_Oriented</a></p></td>
 <td></td>
@@ -526,7 +533,7 @@ but some of them come from other sources.</p>
 <td><p>not required</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>13</p></td>
+<tr class="row-odd"><td><p>14</p></td>
 <td><p>Segmentation</p></td>
 <td><p><a class="reference external" href="https://geti.intel.com/">GETI_Instance_Segmentation</a></p></td>
 <td></td>
@@ -534,7 +541,7 @@ but some of them come from other sources.</p>
 <td><p>not required</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>14</p></td>
+<tr class="row-even"><td><p>15</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://geti.intel.com/">GETI_Classification_Single_Label</a></p></td>
 <td></td>
@@ -542,7 +549,7 @@ but some of them come from other sources.</p>
 <td><p>not required</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>15</p></td>
+<tr class="row-odd"><td><p>16</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://geti.intel.com/">GETI_Classification_Multi_Label</a></p></td>
 <td></td>
@@ -550,7 +557,7 @@ but some of them come from other sources.</p>
 <td><p>not required</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>16</p></td>
+<tr class="row-even"><td><p>17</p></td>
 <td><p>Sound Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/aclnet">aclnet</a></p></td>
 <td><p>1.42</p></td>
@@ -558,7 +565,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/aclnet.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/sound_classification_demo/python">sound_classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>17</p></td>
+<tr class="row-odd"><td><p>18</p></td>
 <td><p>Action Recognition</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/action-recognition-0001">action-recognition-0001</a></p></td>
 <td></td>
@@ -566,7 +573,7 @@ but some of them come from other sources.</p>
 <td></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/action_recognition_demo/python">action_recognition_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>18</p></td>
+<tr class="row-even"><td><p>19</p></td>
 <td><p>Object Attributes</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/age-gender-recognition-retail-0013">age-gender-recognition-retail-0013</a></p></td>
 <td></td>
@@ -574,7 +581,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/age-gender-recognition-retail-0013.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/interactive_face_detection_demo/cpp_gapi">interactive_face_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>19</p></td>
+<tr class="row-odd"><td><p>20</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/anti-spoof-mn3">anti-spoof-mn3</a></p></td>
 <td></td>
@@ -582,7 +589,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/anti-spoof-mn3.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/interactive_face_detection_demo/cpp_gapi">interactive_face_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>20</p></td>
+<tr class="row-even"><td><p>21</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/densenet-121-tf">densenet-121-tf</a></p></td>
 <td></td>
@@ -590,7 +597,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>21</p></td>
+<tr class="row-odd"><td><p>22</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/dla-34">dla-34</a></p></td>
 <td><p>6.1368</p></td>
@@ -598,7 +605,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>22</p></td>
+<tr class="row-even"><td><p>23</p></td>
 <td><p>Action Recognition</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/driver-action-recognition-adas-0002">driver-action-recognition-adas-0002</a></p></td>
 <td></td>
@@ -606,7 +613,7 @@ but some of them come from other sources.</p>
 <td></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/action_recognition_demo/python">action_recognition_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>23</p></td>
+<tr class="row-odd"><td><p>24</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/efficientdet-d0-tf">efficientdet-d0-tf</a></p></td>
 <td><p>2.54</p></td>
@@ -614,7 +621,7 @@ but some of them come from other sources.</p>
 <td></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>24</p></td>
+<tr class="row-even"><td><p>25</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/efficientdet-d1-tf">efficientdet-d1-tf</a></p></td>
 <td><p>6.1</p></td>
@@ -622,7 +629,7 @@ but some of them come from other sources.</p>
 <td></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>25</p></td>
+<tr class="row-odd"><td><p>26</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/efficientnet-b0">efficientnet-b0</a></p></td>
 <td><p>0.819</p></td>
@@ -630,7 +637,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>26</p></td>
+<tr class="row-even"><td><p>27</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/efficientnet-b0-pytorch">efficientnet-b0-pytorch</a></p></td>
 <td><p>0.819</p></td>
@@ -638,7 +645,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>27</p></td>
+<tr class="row-odd"><td><p>28</p></td>
 <td><p>Object Attributes</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/emotions-recognition-retail-0003">emotions-recognition-retail-0003</a></p></td>
 <td></td>
@@ -646,7 +653,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/emotions-recognition-retail-0003.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/interactive_face_detection_demo/cpp_gapi">interactive_face_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>28</p></td>
+<tr class="row-even"><td><p>29</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/face-detection-0200">face-detection-0200</a></p></td>
 <td></td>
@@ -654,7 +661,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-0200.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>29</p></td>
+<tr class="row-odd"><td><p>30</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/face-detection-0202">face-detection-0202</a></p></td>
 <td></td>
@@ -662,7 +669,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-0202.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>30</p></td>
+<tr class="row-even"><td><p>31</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/face-detection-0204">face-detection-0204</a></p></td>
 <td></td>
@@ -670,7 +677,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-0204.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>31</p></td>
+<tr class="row-odd"><td><p>32</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/face-detection-0205">face-detection-0205</a></p></td>
 <td></td>
@@ -678,7 +685,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-0205.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>32</p></td>
+<tr class="row-even"><td><p>33</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/face-detection-0206">face-detection-0206</a></p></td>
 <td></td>
@@ -686,7 +693,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-0206.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>33</p></td>
+<tr class="row-odd"><td><p>34</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/face-detection-adas-0001">face-detection-adas-0001</a></p></td>
 <td></td>
@@ -694,7 +701,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-adas-0001.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>34</p></td>
+<tr class="row-even"><td><p>35</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/face-detection-retail-0004">face-detection-retail-0004</a></p></td>
 <td></td>
@@ -702,7 +709,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-retail-0004.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>35</p></td>
+<tr class="row-odd"><td><p>36</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/face-detection-retail-0005">face-detection-retail-0005</a></p></td>
 <td></td>
@@ -710,7 +717,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-retail-0005.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>36</p></td>
+<tr class="row-even"><td><p>37</p></td>
 <td><p>Object Attributes</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/facial-landmarks-35-adas-0002">facial-landmarks-35-adas-0002</a></p></td>
 <td></td>
@@ -718,7 +725,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/facial-landmarks-35-adas-0002.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/gaze_estimation_demo/cpp_gapi">gaze_estimation_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>37</p></td>
+<tr class="row-odd"><td><p>38</p></td>
 <td><p>Object Attributes</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/facial-landmarks-98-detection-0001">facial-landmarks-98-detection-0001</a></p></td>
 <td></td>
@@ -726,7 +733,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/facial-landmarks-98-detection-0001.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/gaze_estimation_demo/cpp">gaze_estimation_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>38</p></td>
+<tr class="row-even"><td><p>39</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/faster_rcnn_inception_resnet_v2_atrous_coco">faster_rcnn_inception_resnet_v2_atrous_coco</a></p></td>
 <td></td>
@@ -734,7 +741,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-image-info.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>39</p></td>
+<tr class="row-odd"><td><p>40</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/faster_rcnn_resnet50_coco">faster_rcnn_resnet50_coco</a></p></td>
 <td></td>
@@ -742,7 +749,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-image-info.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>40</p></td>
+<tr class="row-even"><td><p>41</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/googlenet-v1-tf">googlenet-v1-tf</a></p></td>
 <td><p>3.016</p></td>
@@ -750,7 +757,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>41</p></td>
+<tr class="row-odd"><td><p>42</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/googlenet-v2-tf">googlenet-v2-tf</a></p></td>
 <td><p>4.058</p></td>
@@ -758,7 +765,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>42</p></td>
+<tr class="row-even"><td><p>43</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/googlenet-v3">googlenet-v3</a></p></td>
 <td><p>11.469</p></td>
@@ -766,7 +773,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>43</p></td>
+<tr class="row-odd"><td><p>44</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/googlenet-v3-pytorch">googlenet-v3-pytorch</a></p></td>
 <td><p>11.469</p></td>
@@ -774,7 +781,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>44</p></td>
+<tr class="row-even"><td><p>45</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/googlenet-v4-tf">googlenet-v4-tf</a></p></td>
 <td><p>24.584</p></td>
@@ -782,7 +789,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>45</p></td>
+<tr class="row-odd"><td><p>46</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/hbonet-0.25">hbonet-0.25</a></p></td>
 <td><p>0.037</p></td>
@@ -790,7 +797,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>46</p></td>
+<tr class="row-even"><td><p>47</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/hbonet-1.0">hbonet-1.0</a></p></td>
 <td><p>0.305</p></td>
@@ -798,7 +805,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>47</p></td>
+<tr class="row-odd"><td><p>48</p></td>
 <td><p>Head Pose Estimation</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/head-pose-estimation-adas-0001">head-pose-estimation-adas-0001</a></p></td>
 <td></td>
@@ -806,7 +813,7 @@ but some of them come from other sources.</p>
 <td></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/gaze_estimation_demo/cpp_gapi">gaze_estimation_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>48</p></td>
+<tr class="row-even"><td><p>49</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/horizontal-text-detection-0001">horizontal-text-detection-0001</a></p></td>
 <td></td>
@@ -814,7 +821,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/horizontal-text-detection-0001.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/text_detection_demo/cpp">text_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>49</p></td>
+<tr class="row-odd"><td><p>50</p></td>
 <td><p>Human Pose Estimation</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/human-pose-estimation-0001">human-pose-estimation-0001</a></p></td>
 <td></td>
@@ -822,7 +829,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/human-pose-estimation-0001.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/multi_channel_human_pose_estimation_demo/cpp">multi_channel_human_pose_estimation_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>50</p></td>
+<tr class="row-even"><td><p>51</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/inception-resnet-v2-tf">inception-resnet-v2-tf</a></p></td>
 <td></td>
@@ -830,7 +837,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>51</p></td>
+<tr class="row-odd"><td><p>52</p></td>
 <td><p>Instance Segmentation</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/instance-segmentation-person-0007">instance-segmentation-person-0007</a></p></td>
 <td></td>
@@ -838,7 +845,7 @@ but some of them come from other sources.</p>
 <td></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/background_subtraction_demo/cpp_gapi">background_subtraction_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>52</p></td>
+<tr class="row-even"><td><p>53</p></td>
 <td><p>Instance Segmentation</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/instance-segmentation-security-0002">instance-segmentation-security-0002</a></p></td>
 <td></td>
@@ -846,7 +853,7 @@ but some of them come from other sources.</p>
 <td></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/background_subtraction_demo/cpp_gapi">background_subtraction_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>53</p></td>
+<tr class="row-odd"><td><p>54</p></td>
 <td><p>Instance Segmentation</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/instance-segmentation-security-0091">instance-segmentation-security-0091</a></p></td>
 <td></td>
@@ -854,7 +861,7 @@ but some of them come from other sources.</p>
 <td></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/background_subtraction_demo/cpp_gapi">background_subtraction_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>54</p></td>
+<tr class="row-even"><td><p>55</p></td>
 <td><p>Instance Segmentation</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/instance-segmentation-security-0228">instance-segmentation-security-0228</a></p></td>
 <td></td>
@@ -862,7 +869,7 @@ but some of them come from other sources.</p>
 <td></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/background_subtraction_demo/cpp_gapi">background_subtraction_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>55</p></td>
+<tr class="row-odd"><td><p>56</p></td>
 <td><p>Instance Segmentation</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/instance-segmentation-security-1039">instance-segmentation-security-1039</a></p></td>
 <td></td>
@@ -870,7 +877,7 @@ but some of them come from other sources.</p>
 <td></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/background_subtraction_demo/cpp_gapi">background_subtraction_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>56</p></td>
+<tr class="row-even"><td><p>57</p></td>
 <td><p>Instance Segmentation</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/instance-segmentation-security-1040">instance-segmentation-security-1040</a></p></td>
 <td></td>
@@ -878,7 +885,7 @@ but some of them come from other sources.</p>
 <td></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/background_subtraction_demo/cpp_gapi">background_subtraction_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>57</p></td>
+<tr class="row-odd"><td><p>58</p></td>
 <td><p>Object Attributes</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/landmarks-regression-retail-0009">landmarks-regression-retail-0009</a></p></td>
 <td></td>
@@ -886,7 +893,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/landmarks-regression-retail-0009.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/face_recognition_demo/python">face_recognition_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>58</p></td>
+<tr class="row-even"><td><p>59</p></td>
 <td><p>Optical Character Recognition</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/license-plate-recognition-barrier-0007">license-plate-recognition-barrier-0007</a></p></td>
 <td></td>
@@ -894,7 +901,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/license-plate-recognition-barrier-0007.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/security_barrier_camera_demo/cpp">security_barrier_camera_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>59</p></td>
+<tr class="row-odd"><td><p>60</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/mixnet-l">mixnet-l</a></p></td>
 <td><p>0.565</p></td>
@@ -902,7 +909,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>60</p></td>
+<tr class="row-even"><td><p>61</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/mobilenet-v1-0.25-128">mobilenet-v1-0.25-128</a></p></td>
 <td></td>
@@ -910,7 +917,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>61</p></td>
+<tr class="row-odd"><td><p>62</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/mobilenet-v1-1.0-224-tf">mobilenet-v1-1.0-224-tf</a></p></td>
 <td></td>
@@ -918,7 +925,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>62</p></td>
+<tr class="row-even"><td><p>63</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/mobilenet-v2-1.0-224">mobilenet-v2-1.0-224</a></p></td>
 <td></td>
@@ -926,7 +933,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>63</p></td>
+<tr class="row-odd"><td><p>64</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/mobilenet-v2-1.4-224">mobilenet-v2-1.4-224</a></p></td>
 <td></td>
@@ -934,7 +941,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>64</p></td>
+<tr class="row-even"><td><p>65</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/mobilenet-v2-pytorch">mobilenet-v2-pytorch</a></p></td>
 <td><p>0.615</p></td>
@@ -942,7 +949,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>65</p></td>
+<tr class="row-odd"><td><p>66</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/mobilenet-v3-large-1.0-224-tf">mobilenet-v3-large-1.0-224-tf</a></p></td>
 <td></td>
@@ -950,7 +957,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>66</p></td>
+<tr class="row-even"><td><p>67</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/mobilenet-v3-small-1.0-224-tf">mobilenet-v3-small-1.0-224-tf</a></p></td>
 <td></td>
@@ -958,7 +965,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>67</p></td>
+<tr class="row-odd"><td><p>68</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/mobilenet-yolo-v4-syg">mobilenet-yolo-v4-syg</a></p></td>
 <td><p>65.984</p></td>
@@ -966,7 +973,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/mobilenet-yolo-v4-syg.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>68</p></td>
+<tr class="row-even"><td><p>69</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/nfnet-f0">nfnet-f0</a></p></td>
 <td><p>24.8053</p></td>
@@ -974,7 +981,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>69</p></td>
+<tr class="row-odd"><td><p>70</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/open-closed-eye-0001">open-closed-eye-0001</a></p></td>
 <td></td>
@@ -982,7 +989,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/open-closed-eye-0001.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/gaze_estimation_demo/cpp_gapi">gaze_estimation_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>70</p></td>
+<tr class="row-even"><td><p>71</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/pedestrian-and-vehicle-detector-adas-0001">pedestrian-and-vehicle-detector-adas-0001</a></p></td>
 <td></td>
@@ -990,7 +997,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/pedestrian-and-vehicle-detector-adas-0001.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>71</p></td>
+<tr class="row-odd"><td><p>72</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/pedestrian-detection-adas-0002">pedestrian-detection-adas-0002</a></p></td>
 <td></td>
@@ -998,7 +1005,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/pedestrian-detection-adas-0002.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>72</p></td>
+<tr class="row-even"><td><p>73</p></td>
 <td><p>Object Attributes</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/person-attributes-recognition-crossroad-0230">person-attributes-recognition-crossroad-0230</a></p></td>
 <td></td>
@@ -1006,7 +1013,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-attributes-recognition-crossroad-0230.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/crossroad_camera_demo/cpp">crossroad_camera_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>73</p></td>
+<tr class="row-odd"><td><p>74</p></td>
 <td><p>Object Attributes</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/person-attributes-recognition-crossroad-0234">person-attributes-recognition-crossroad-0234</a></p></td>
 <td></td>
@@ -1014,7 +1021,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-attributes-recognition-crossroad-0234.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/crossroad_camera_demo/cpp">crossroad_camera_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>74</p></td>
+<tr class="row-even"><td><p>75</p></td>
 <td><p>Object Attributes</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/person-attributes-recognition-crossroad-0238">person-attributes-recognition-crossroad-0238</a></p></td>
 <td></td>
@@ -1022,7 +1029,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-attributes-recognition-crossroad-0238.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/crossroad_camera_demo/cpp">crossroad_camera_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>75</p></td>
+<tr class="row-odd"><td><p>76</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/person-detection-0200">person-detection-0200</a></p></td>
 <td></td>
@@ -1030,7 +1037,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-detection-0200.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>76</p></td>
+<tr class="row-even"><td><p>77</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/person-detection-0201">person-detection-0201</a></p></td>
 <td></td>
@@ -1038,7 +1045,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-detection-0201.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>77</p></td>
+<tr class="row-odd"><td><p>78</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/person-detection-0202">person-detection-0202</a></p></td>
 <td></td>
@@ -1046,7 +1053,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-detection-0202.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>78</p></td>
+<tr class="row-even"><td><p>79</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/person-detection-0203">person-detection-0203</a></p></td>
 <td></td>
@@ -1054,7 +1061,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-detection-0203.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>79</p></td>
+<tr class="row-odd"><td><p>80</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/person-detection-asl-0001">person-detection-asl-0001</a></p></td>
 <td></td>
@@ -1062,7 +1069,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-detection-0203.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>80</p></td>
+<tr class="row-even"><td><p>81</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/person-detection-retail-0013">person-detection-retail-0013</a></p></td>
 <td></td>
@@ -1070,7 +1077,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-detection-retail-0013.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>81</p></td>
+<tr class="row-odd"><td><p>82</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/person-vehicle-bike-detection-2000">person-vehicle-bike-detection-2000</a></p></td>
 <td></td>
@@ -1078,7 +1085,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-2000.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>82</p></td>
+<tr class="row-even"><td><p>83</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/person-vehicle-bike-detection-2001">person-vehicle-bike-detection-2001</a></p></td>
 <td></td>
@@ -1086,7 +1093,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-2001.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>83</p></td>
+<tr class="row-odd"><td><p>84</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/person-vehicle-bike-detection-2002">person-vehicle-bike-detection-2002</a></p></td>
 <td></td>
@@ -1094,7 +1101,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-2002.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>84</p></td>
+<tr class="row-even"><td><p>85</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/person-vehicle-bike-detection-2003">person-vehicle-bike-detection-2003</a></p></td>
 <td></td>
@@ -1102,7 +1109,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-2003.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>85</p></td>
+<tr class="row-odd"><td><p>86</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/person-vehicle-bike-detection-2004">person-vehicle-bike-detection-2004</a></p></td>
 <td></td>
@@ -1110,7 +1117,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-2004.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>86</p></td>
+<tr class="row-even"><td><p>87</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/person-vehicle-bike-detection-crossroad-0078">person-vehicle-bike-detection-crossroad-0078</a></p></td>
 <td></td>
@@ -1118,7 +1125,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-crossroad-0078.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>87</p></td>
+<tr class="row-odd"><td><p>88</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/person-vehicle-bike-detection-crossroad-1016">person-vehicle-bike-detection-crossroad-1016</a></p></td>
 <td></td>
@@ -1126,7 +1133,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-crossroad-1016.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>88</p></td>
+<tr class="row-even"><td><p>89</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/person-vehicle-bike-detection-crossroad-yolov3-1020">person-vehicle-bike-detection-crossroad-yolov3-1020</a></p></td>
 <td></td>
@@ -1134,7 +1141,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-crossroad-yolov3-1020.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>89</p></td>
+<tr class="row-odd"><td><p>90</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/product-detection-0001">product-detection-0001</a></p></td>
 <td></td>
@@ -1142,7 +1149,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/product-detection-0001.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>90</p></td>
+<tr class="row-even"><td><p>91</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/regnetx-3.2gf">regnetx-3.2gf</a></p></td>
 <td><p>6.3893</p></td>
@@ -1150,7 +1157,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>91</p></td>
+<tr class="row-odd"><td><p>92</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/repvgg-a0">repvgg-a0</a></p></td>
 <td><p>2.7286</p></td>
@@ -1158,7 +1165,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>92</p></td>
+<tr class="row-even"><td><p>93</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/repvgg-b1">repvgg-b1</a></p></td>
 <td><p>23.6472</p></td>
@@ -1166,7 +1173,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>93</p></td>
+<tr class="row-odd"><td><p>94</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/repvgg-b3">repvgg-b3</a></p></td>
 <td><p>52.4407</p></td>
@@ -1174,7 +1181,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>94</p></td>
+<tr class="row-even"><td><p>95</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/resnest-50-pytorch">resnest-50-pytorch</a></p></td>
 <td><p>10.8148</p></td>
@@ -1182,7 +1189,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>95</p></td>
+<tr class="row-odd"><td><p>96</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/resnet-18-pytorch">resnet-18-pytorch</a></p></td>
 <td><p>3.637</p></td>
@@ -1190,7 +1197,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>96</p></td>
+<tr class="row-even"><td><p>97</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/resnet-34-pytorch">resnet-34-pytorch</a></p></td>
 <td><p>7.3409</p></td>
@@ -1198,7 +1205,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>97</p></td>
+<tr class="row-odd"><td><p>98</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/resnet-50-pytorch">resnet-50-pytorch</a></p></td>
 <td><p>8.216</p></td>
@@ -1206,7 +1213,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>98</p></td>
+<tr class="row-even"><td><p>99</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/resnet-50-tf">resnet-50-tf</a></p></td>
 <td><p>8.2164</p></td>
@@ -1214,7 +1221,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>99</p></td>
+<tr class="row-odd"><td><p>100</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/resnet18-xnor-binary-onnx-0001">resnet18-xnor-binary-onnx-0001</a></p></td>
 <td></td>
@@ -1222,7 +1229,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/resnet18-xnor-binary-onnx-0001.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>100</p></td>
+<tr class="row-even"><td><p>101</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/resnet50-binary-0001">resnet50-binary-0001</a></p></td>
 <td></td>
@@ -1230,7 +1237,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/resnet50-binary-0001.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>101</p></td>
+<tr class="row-odd"><td><p>102</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/retinanet-tf">retinanet-tf</a></p></td>
 <td></td>
@@ -1238,7 +1245,7 @@ but some of them come from other sources.</p>
 <td></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>102</p></td>
+<tr class="row-even"><td><p>103</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/rexnet-v1-x1.0">rexnet-v1-x1.0</a></p></td>
 <td><p>0.8325</p></td>
@@ -1246,7 +1253,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>103</p></td>
+<tr class="row-odd"><td><p>104</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/rfcn-resnet101-coco-tf">rfcn-resnet101-coco-tf</a></p></td>
 <td></td>
@@ -1254,7 +1261,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-image-info.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>104</p></td>
+<tr class="row-even"><td><p>105</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/shufflenet-v2-x1.0">shufflenet-v2-x1.0</a></p></td>
 <td><p>0.2957</p></td>
@@ -1262,7 +1269,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>105</p></td>
+<tr class="row-odd"><td><p>106</p></td>
 <td><p>Human Pose Estimation</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/single-human-pose-estimation-0001">single-human-pose-estimation-0001</a></p></td>
 <td></td>
@@ -1270,7 +1277,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/single-human-pose-estimation-0001.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/single_human_pose_estimation_demo/python">single_human_pose_estimation_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>106</p></td>
+<tr class="row-even"><td><p>107</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/ssd_mobilenet_v1_coco">ssd_mobilenet_v1_coco</a></p></td>
 <td><p>2.494</p></td>
@@ -1278,7 +1285,7 @@ but some of them come from other sources.</p>
 <td></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>107</p></td>
+<tr class="row-odd"><td><p>108</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/ssd_mobilenet_v1_fpn_coco">ssd_mobilenet_v1_fpn_coco</a></p></td>
 <td><p>123.309</p></td>
@@ -1286,7 +1293,7 @@ but some of them come from other sources.</p>
 <td></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>108</p></td>
+<tr class="row-even"><td><p>109</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/ssdlite_mobilenet_v2">ssdlite_mobilenet_v2</a></p></td>
 <td><p>1.525</p></td>
@@ -1294,7 +1301,7 @@ but some of them come from other sources.</p>
 <td></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>109</p></td>
+<tr class="row-odd"><td><p>110</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/swin-tiny-patch4-window7-224">swin-tiny-patch4-window7-224</a></p></td>
 <td></td>
@@ -1302,7 +1309,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/classification_demo/python">classification_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>110</p></td>
+<tr class="row-even"><td><p>111</p></td>
 <td><p>Object Attributes</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/vehicle-attributes-recognition-barrier-0039">vehicle-attributes-recognition-barrier-0039</a></p></td>
 <td></td>
@@ -1310,7 +1317,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/vehicle-attributes-recognition-barrier-0039.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/security_barrier_camera_demo/cpp">security_barrier_camera_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>111</p></td>
+<tr class="row-odd"><td><p>112</p></td>
 <td><p>Object Attributes</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/vehicle-attributes-recognition-barrier-0042">vehicle-attributes-recognition-barrier-0042</a></p></td>
 <td></td>
@@ -1318,7 +1325,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/vehicle-attributes-recognition-barrier-0042.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/security_barrier_camera_demo/cpp">security_barrier_camera_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>112</p></td>
+<tr class="row-even"><td><p>113</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/vehicle-detection-0200">vehicle-detection-0200</a></p></td>
 <td></td>
@@ -1326,7 +1333,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/vehicle-detection-0200.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>113</p></td>
+<tr class="row-odd"><td><p>114</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/vehicle-detection-0201">vehicle-detection-0201</a></p></td>
 <td></td>
@@ -1334,7 +1341,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/vehicle-detection-0201.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>114</p></td>
+<tr class="row-even"><td><p>115</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/vehicle-detection-0202">vehicle-detection-0202</a></p></td>
 <td></td>
@@ -1342,7 +1349,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/vehicle-detection-0202.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>115</p></td>
+<tr class="row-odd"><td><p>116</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/vehicle-detection-adas-0002">vehicle-detection-adas-0002</a></p></td>
 <td></td>
@@ -1350,7 +1357,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/vehicle-detection-adas-0002.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>116</p></td>
+<tr class="row-even"><td><p>117</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/vehicle-license-plate-detection-barrier-0106">vehicle-license-plate-detection-barrier-0106</a></p></td>
 <td></td>
@@ -1358,7 +1365,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/vehicle-license-plate-detection-barrier-0106.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/security_barrier_camera_demo/cpp">security_barrier_camera_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>117</p></td>
+<tr class="row-odd"><td><p>118</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/vehicle-license-plate-detection-barrier-0123">vehicle-license-plate-detection-barrier-0123</a></p></td>
 <td></td>
@@ -1366,7 +1373,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/vehicle-license-plate-detection-barrier-0123.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/security_barrier_camera_demo/cpp">security_barrier_camera_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>118</p></td>
+<tr class="row-even"><td><p>119</p></td>
 <td><p>Action Recognition</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/intel/weld-porosity-detection-0001">weld-porosity-detection-0001</a></p></td>
 <td></td>
@@ -1374,7 +1381,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/weld-porosity-detection-0001.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/action_recognition_demo/python">action_recognition_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>119</p></td>
+<tr class="row-odd"><td><p>120</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/yolo-v3-tf">yolo-v3-tf</a></p></td>
 <td><p>65.984</p></td>
@@ -1382,7 +1389,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v3-tf.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>120</p></td>
+<tr class="row-even"><td><p>121</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/yolo-v3-tiny-tf">yolo-v3-tiny-tf</a></p></td>
 <td><p>5.582</p></td>
@@ -1390,7 +1397,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v3-tiny-tf.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>121</p></td>
+<tr class="row-odd"><td><p>122</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/yolo-v4-tf">yolo-v4-tf</a></p></td>
 <td><p>129.5567</p></td>
@@ -1398,7 +1405,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v4-tf.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>122</p></td>
+<tr class="row-even"><td><p>123</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//models/public/yolo-v4-tiny-tf">yolo-v4-tiny-tf</a></p></td>
 <td><p>6.9289</p></td>
@@ -1406,7 +1413,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v4-tiny-tf.json">model-proc</a></p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master//demos/object_detection_demo/cpp">object_detection_demo</a></p></td>
 </tr>
-<tr class="row-even"><td><p>123</p></td>
+<tr class="row-odd"><td><p>124</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/onnx/models/tree/main/validated/vision/classification/mobilenet">mobilenetv2-7</a></p></td>
 <td></td>
@@ -1414,7 +1421,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/onnx/mobilenetv2-7.json">model-proc</a></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>124</p></td>
+<tr class="row-even"><td><p>125</p></td>
 <td><p>Classification</p></td>
 <td><p><a class="reference external" href="https://github.com/onnx/models/tree/main/validated/vision/body_analysis/emotion_ferplus">emotion-ferplus-8</a></p></td>
 <td></td>
@@ -1422,7 +1429,7 @@ but some of them come from other sources.</p>
 <td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/onnx/emotion-ferplus-8.json">model-proc</a></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>125</p></td>
+<tr class="row-odd"><td><p>126</p></td>
 <td><p>Detection</p></td>
 <td><p><a class="reference external" href="https://pytorch.org/vision/main/models/generated/torchvision.models.detection.ssdlite320_mobilenet_v3_large.html">torchvision.models.detection. ssdlite320_mobilenet_v3_large</a></p></td>
 <td><p>0.583</p></td>

@@ -155,8 +155,6 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../dev_guide/dev_guide_index.html">Developer Guide</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/metadata.html">Metadata</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../dev_guide/model_preparation.html">Model Preparation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../dev_guide/yolov5_model_preparation.html">Yolov5 Model Preparation Example</a></li>
-
 <li class="toctree-l3"><a class="reference internal" href="../../dev_guide/yolo_model_preparation.html">Yolo Models Preparation</a></li>
 </ul>
 </li>
@@ -170,6 +168,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/gpu_device_selection.html">GPU device selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dev_guide/performance_guide.html">Performance Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/profiling.html">Profiling with Intel VTune™</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/converting_deepstream_to_dlstreamer.html">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../dev_guide/how_to_contribute.html">How to Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -405,12 +404,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next Steps:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-create-docker-image-from-intel-dl-streamer-pipeline-framework-docker-file-and-run-it">Option #2: Create Docker image from Intel® DL Streamer Pipeline Framework Docker file and run it</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-install-docker-image-from-docker-hub-and-run-it">Option #2: Install Docker image from Docker Hub and run it</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-docker">Step 1: Install Docker</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-allow-connection-to-x-server">Step 2: Allow connection to X server</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-download-the-intel-dl-streamer-dockerfile">Step 3: Download the Intel® DL Streamer Dockerfile</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-intel-dl-streamer-pipeline-framework-image">Step 4: Build Intel® DL Streamer Pipeline Framework image</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-run-intel-dl-streamer-pipeline-framework-container">Step 5: Run Intel® DL Streamer Pipeline Framework container</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-pull-the-intel-dl-streamer-docker-image-from-docker-hub">Step 3: Pull the Intel® DL Streamer Docker image from Docker Hub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-run-intel-dl-streamer-pipeline-framework-container">Step 4: Run Intel® DL Streamer Pipeline Framework container</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intel-graphics-compute-runtime-for-oneapi-level-zero-and-opencl-driver-configuration-on-ubuntu-22-04">Intel® Graphics Compute Runtime for oneAPI Level Zero and OpenCL™ Driver configuration on Ubuntu* 22.04</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Next Steps:</a></li>
 </ul>
@@ -443,7 +441,7 @@ document.write(`
   <section id="install-guide-ubuntu">
 <h1>Install Guide Ubuntu<a class="headerlink" href="#install-guide-ubuntu" title="Permalink to this heading">#</a></h1>
 <p>The easiest way to install Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework is installing <a class="reference internal" href="#id1"><span class="std std-ref">from pre-built Debian packages</span></a>.
-If you prefer containerized environment based on Docker, the Intel® DL Streamer Pipeline Framework docker file is also available to build runtime docker image.</p>
+If you prefer containerized environment based on Docker, the Intel® DL Streamer Pipeline Framework Docker image is available as well as Dockerfile to build runtime Docker image.</p>
 <p>Alternatively, you can build Intel® DL Streamer Pipeline Framework from the source code
 provided in <a class="reference external" href="https://github.com/dlstreamer/dlstreamer">repository</a>, either building directly on host system, or
 as a Docker image.</p>
@@ -462,7 +460,7 @@ links in the first column of the table.</p>
 <td><p>Ubuntu 22.04 (kernel 6.6+ for NPU)</p></td>
 <td><p>-</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id2"><span class="std std-ref">Create Docker image from Intel® DL Streamer Pipeline Framework Docker file and run it</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id2"><span class="std std-ref">Install Docker image from Docker Hub and run it</span></a></p></td>
 <td><p>Any Linux OS as host system</p></td>
 <td><p>Recommended for containerized environment and when host OS is not supported by the Pipeline Framework installer</p></td>
 </tr>
@@ -603,8 +601,8 @@ sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </
 <p>You are ready to use Intel® DL Streamer. For further instructions please go to: <a class="reference internal" href="../tutorial.html"><span class="doc">Tutorial</span></a></p>
 </section>
 </section>
-<section id="option-2-create-docker-image-from-intel-dl-streamer-pipeline-framework-docker-file-and-run-it">
-<span id="id2"></span><h2>Option #2: Create Docker image from Intel® DL Streamer Pipeline Framework Docker file and run it<a class="headerlink" href="#option-2-create-docker-image-from-intel-dl-streamer-pipeline-framework-docker-file-and-run-it" title="Permalink to this heading">#</a></h2>
+<section id="option-2-install-docker-image-from-docker-hub-and-run-it">
+<span id="id2"></span><h2>Option #2: Install Docker image from Docker Hub and run it<a class="headerlink" href="#option-2-install-docker-image-from-docker-hub-and-run-it" title="Permalink to this heading">#</a></h2>
 <section id="step-1-install-docker">
 <h3>Step 1: Install Docker<a class="headerlink" href="#step-1-install-docker" title="Permalink to this heading">#</a></h3>
 <dl class="simple">
@@ -622,35 +620,24 @@ setfacl<span class="w"> </span>-m<span class="w"> </span>user:1000:r<span class=
 </pre></div>
 </div>
 </section>
-<section id="step-3-download-the-intel-dl-streamer-dockerfile">
-<h3>Step 3: Download the Intel® DL Streamer Dockerfile<a class="headerlink" href="#step-3-download-the-intel-dl-streamer-dockerfile" title="Permalink to this heading">#</a></h3>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install dependencies</span>
-sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>curl<span class="w"> </span>wget<span class="w"> </span>gpg<span class="w"> </span>software-properties-common<span class="w"> </span>jq
-</pre></div>
-</div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span><span class="k">$(</span>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span>https://api.github.com/repos/dlstreamer/dlstreamer/releases/latest<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.assets[] | select(.name | contains (&quot;dlstreamer.Dockerfile&quot;)) | .browser_download_url&#39;</span><span class="k">)</span>
+<section id="step-3-pull-the-intel-dl-streamer-docker-image-from-docker-hub">
+<h3>Step 3: Pull the Intel® DL Streamer Docker image from Docker Hub<a class="headerlink" href="#step-3-pull-the-intel-dl-streamer-docker-image-from-docker-hub" title="Permalink to this heading">#</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>pull<span class="w"> </span>intel/dlstreamer:latest
 </pre></div>
 </div>
 </section>
-<section id="step-4-build-intel-dl-streamer-pipeline-framework-image">
-<h3>Step 4: Build Intel® DL Streamer Pipeline Framework image<a class="headerlink" href="#step-4-build-intel-dl-streamer-pipeline-framework-image" title="Permalink to this heading">#</a></h3>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>dlstreamer<span class="w"> </span>-f<span class="w"> </span>dlstreamer.Dockerfile<span class="w"> </span>.
-</pre></div>
-</div>
-</section>
-<section id="step-5-run-intel-dl-streamer-pipeline-framework-container">
-<h3>Step 5: Run Intel® DL Streamer Pipeline Framework container<a class="headerlink" href="#step-5-run-intel-dl-streamer-pipeline-framework-container" title="Permalink to this heading">#</a></h3>
+<section id="step-4-run-intel-dl-streamer-pipeline-framework-container">
+<h3>Step 4: Run Intel® DL Streamer Pipeline Framework container<a class="headerlink" href="#step-4-run-intel-dl-streamer-pipeline-framework-container" title="Permalink to this heading">#</a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--net<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>--device<span class="o">=</span>/dev/dri<span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>-v<span class="w"> </span>~/.Xauthority:/home/dlstreamer/.Xauthority<span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>-v<span class="w"> </span>/tmp/.X11-unix<span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>-v<span class="w"> </span>/dev/bus/usb<span class="w"> </span><span class="se">\</span>
-<span class="w">   </span>--rm<span class="w"> </span>dlstreamer<span class="w"> </span>/bin/bash
+<span class="w">   </span>--rm<span class="w"> </span>intel/dlstreamer:latest<span class="w"> </span>/bin/bash
 </pre></div>
 </div>
-<p>For NPU devices use command below. Remmember about manual setting of permissions access (go to User acess to the device in <a class="github reference external" href="https://github.com/intel/linux-npu-driver/releases">intel/linux-npu-driver</a>):</p>
+<p>For NPU devices use command below. Remember about manual setting of permissions access (go to User acess to the device in <a class="github reference external" href="https://github.com/intel/linux-npu-driver/releases">intel/linux-npu-driver</a>):</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--net<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>--device<span class="o">=</span>/dev/dri<span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>--device<span class="o">=</span>/dev/accel<span class="w"> </span><span class="se">\</span>
@@ -658,7 +645,7 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"
 <span class="w">   </span>-v<span class="w"> </span>/tmp/.X11-unix<span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>-v<span class="w"> </span>/dev/bus/usb<span class="w"> </span><span class="se">\</span>
-<span class="w">   </span>--rm<span class="w"> </span>dlstreamer<span class="w"> </span>/bin/bash
+<span class="w">   </span>--rm<span class="w"> </span>intel/dlstreamer:latest<span class="w"> </span>/bin/bash
 </pre></div>
 </div>
 </section>
@@ -681,10 +668,6 @@ To run container as non-root with access to a GPU device, specify the render gro
 </pre></div>
 </div>
 <p>Now you can use the container with GPU access under the non-root user.</p>
-</section>
-<section id="id3">
-<h3>Next Steps:<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
-<p>You are ready to use Intel® DL Streamer. For further instructions please go to: <a class="reference internal" href="../tutorial.html"><span class="doc">Tutorial</span></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Running Intel® DL Streamer Pipeline Framework on GPU requires the drivers to be installed.
@@ -694,6 +677,10 @@ More information can be found here:</p>
 <li><p><a class="reference external" href="https://dgpu-docs.intel.com/driver/client/overview.html">For Intel® Arc™ GPUs</a></p></li>
 </ul>
 </div>
+</section>
+<section id="id3">
+<h3>Next Steps:<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>You are ready to use Intel® DL Streamer. For further instructions please go to: <a class="reference internal" href="../tutorial.html"><span class="doc">Tutorial</span></a></p>
 </section>
 </section>
 <section id="option-3-compile-intel-dl-streamer-pipeline-framework-from-sources-on-host-system">
@@ -949,7 +936,7 @@ sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </
 </div>
 <p>Intel® DL Streamer Pipeline Framework is now ready to use!</p>
 <p>You can find samples in folder <code class="docutils literal notranslate"><span class="pre">~/intel/dlstreamer_gst/samples</span></code>.
-Before using the samples, run the script <code class="docutils literal notranslate"><span class="pre">download_models.sh</span></code> (located
+Before using the samples, run the script <code class="docutils literal notranslate"><span class="pre">download_omz_models.sh</span></code> (located
 in <code class="docutils literal notranslate"><span class="pre">samples</span></code> folder) to download the models required for samples.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1031,12 +1018,11 @@ Also, you can create an issue on GitHub
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next Steps:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-create-docker-image-from-intel-dl-streamer-pipeline-framework-docker-file-and-run-it">Option #2: Create Docker image from Intel® DL Streamer Pipeline Framework Docker file and run it</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-install-docker-image-from-docker-hub-and-run-it">Option #2: Install Docker image from Docker Hub and run it</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-docker">Step 1: Install Docker</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-allow-connection-to-x-server">Step 2: Allow connection to X server</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-download-the-intel-dl-streamer-dockerfile">Step 3: Download the Intel® DL Streamer Dockerfile</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-intel-dl-streamer-pipeline-framework-image">Step 4: Build Intel® DL Streamer Pipeline Framework image</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-run-intel-dl-streamer-pipeline-framework-container">Step 5: Run Intel® DL Streamer Pipeline Framework container</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-pull-the-intel-dl-streamer-docker-image-from-docker-hub">Step 3: Pull the Intel® DL Streamer Docker image from Docker Hub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-run-intel-dl-streamer-pipeline-framework-container">Step 4: Run Intel® DL Streamer Pipeline Framework container</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intel-graphics-compute-runtime-for-oneapi-level-zero-and-opencl-driver-configuration-on-ubuntu-22-04">Intel® Graphics Compute Runtime for oneAPI Level Zero and OpenCL™ Driver configuration on Ubuntu* 22.04</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Next Steps:</a></li>
 </ul>

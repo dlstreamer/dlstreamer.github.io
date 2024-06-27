@@ -155,8 +155,6 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../dev_guide/dev_guide_index.html">Developer Guide</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/metadata.html">Metadata</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../dev_guide/model_preparation.html">Model Preparation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../dev_guide/yolov5_model_preparation.html">Yolov5 Model Preparation Example</a></li>
-
 <li class="toctree-l3"><a class="reference internal" href="../../dev_guide/yolo_model_preparation.html">Yolo Models Preparation</a></li>
 </ul>
 </li>
@@ -170,6 +168,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/gpu_device_selection.html">GPU device selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dev_guide/performance_guide.html">Performance Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/profiling.html">Profiling with Intel VTune™</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/converting_deepstream_to_dlstreamer.html">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../dev_guide/how_to_contribute.html">How to Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -520,10 +519,10 @@ intel/dlstreamer:dgpu-dpcpp-devel<span class="w"> </span>/bin/bash
 </section>
 <section id="step-5-a-run-object-detection-pipeline-and-display-results">
 <h2>Step 5(a): Run Object Detection Pipeline and Display Results<a class="headerlink" href="#step-5-a-run-object-detection-pipeline-and-display-results" title="Permalink to this heading">#</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0<span class="w"> </span>filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span>pexels_1721294.mp4<span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span>video/x-raw<span class="se">\(</span>memory:VASurface<span class="se">\)</span><span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0<span class="w"> </span>filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span>pexels_1721294.mp4<span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span>video/x-raw<span class="se">\(</span>memory:VAMemory<span class="se">\)</span><span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 <span class="w">               </span>gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span>./intel/person-vehicle-bike-detection-crossroad-1016/FP16-INT8/person-vehicle-bike-detection-crossroad-1016.xml<span class="w"> </span><span class="se">\</span>
 <span class="w">                         </span>model-proc<span class="o">=</span>/opt/intel/dlstreamer/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-crossroad-1016.json<span class="w"> </span><span class="se">\</span>
-<span class="w">                         </span>pre-process-backend<span class="o">=</span>vaapi-surface-sharing<span class="w"> </span><span class="se">\</span>
+<span class="w">                         </span>pre-process-backend<span class="o">=</span>va-surface-sharing<span class="w"> </span><span class="se">\</span>
 <span class="w">                         </span><span class="nv">device</span><span class="o">=</span>GPU<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 <span class="w">                         </span>meta_overlay<span class="w"> </span><span class="nv">device</span><span class="o">=</span>GPU<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 <span class="w">               </span>videoconvert<span class="w"> </span>!<span class="w"> </span>ximagesink
@@ -532,14 +531,14 @@ intel/dlstreamer:dgpu-dpcpp-devel<span class="w"> </span>/bin/bash
 </section>
 <section id="step-5-b-run-object-detection-pipeline-and-save-results">
 <h2>Step 5(b): Run Object Detection Pipeline and Save Results<a class="headerlink" href="#step-5-b-run-object-detection-pipeline-and-save-results" title="Permalink to this heading">#</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0<span class="w"> </span>filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span>pexels_1721294.mp4<span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span>video/x-raw<span class="se">\(</span>memory:VASurface<span class="se">\)</span><span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0<span class="w"> </span>filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span>pexels_1721294.mp4<span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span>video/x-raw<span class="se">\(</span>memory:VAMemory<span class="se">\)</span><span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 <span class="w">               </span>gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span>./intel/person-vehicle-bike-detection-crossroad-1016/FP16-INT8/person-vehicle-bike-detection-crossroad-1016.xml<span class="w"> </span><span class="se">\</span>
 <span class="w">                         </span>model-proc<span class="o">=</span>/opt/intel/dlstreamer/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-crossroad-1016.json<span class="w"> </span><span class="se">\</span>
-<span class="w">                         </span>pre-process-backend<span class="o">=</span>vaapi-surface-sharing<span class="w"> </span><span class="se">\</span>
+<span class="w">                         </span>pre-process-backend<span class="o">=</span>va-surface-sharing<span class="w"> </span><span class="se">\</span>
 <span class="w">                         </span><span class="nv">device</span><span class="o">=</span>GPU<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 <span class="w">               </span>meta_overlay<span class="w"> </span><span class="nv">device</span><span class="o">=</span>GPU<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 <span class="w">               </span>gvametaconvert<span class="w"> </span>json-indent<span class="o">=</span><span class="m">4</span><span class="w"> </span>!<span class="w"> </span>gvametapublish<span class="w"> </span>file-path<span class="o">=</span>detection_results.json<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
-<span class="w">               </span>vaapih264enc<span class="w"> </span>!<span class="w"> </span>h264parse<span class="w"> </span>!<span class="w"> </span>mp4mux<span class="w"> </span>!<span class="w"> </span>filesink<span class="w"> </span><span class="nv">location</span><span class="o">=</span>detection_output.mp4
+<span class="w">               </span>vah264enc<span class="w"> </span>!<span class="w"> </span>h264parse<span class="w"> </span>!<span class="w"> </span>mp4mux<span class="w"> </span>!<span class="w"> </span>filesink<span class="w"> </span><span class="nv">location</span><span class="o">=</span>detection_output.mp4
 </pre></div>
 </div>
 <hr class="docutils" />

@@ -155,8 +155,6 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="dev_guide_index.html">Developer Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="metadata.html">Metadata</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="model_preparation.html">Model Preparation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="yolov5_model_preparation.html">Yolov5 Model Preparation Example</a></li>
-
 <li class="toctree-l3"><a class="reference internal" href="yolo_model_preparation.html">Yolo Models Preparation</a></li>
 </ul>
 </li>
@@ -170,6 +168,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="gpu_device_selection.html">GPU device selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance_guide.html">Performance Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="profiling.html">Profiling with Intel VTune™</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="how_to_contribute.html">How to Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -542,33 +541,32 @@ nvvideoconvert<span class="w"> </span>!<span class="w"> </span><span class="s2">
 <section id="video-processing-elements">
 <h3>Video Processing Elements<a class="headerlink" href="#video-processing-elements" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Replace video processing elements with vaapi equivalents for GPU or
+<li><p>Replace video processing elements with VA equivalents for GPU or
 native GStreamer elements for CPU.</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">nvvideoconvert</span></code> with <code class="docutils literal notranslate"><span class="pre">vaapipostproc</span></code> or <code class="docutils literal notranslate"><span class="pre">mfxvpp</span></code> (GPU) or
+<li><p><code class="docutils literal notranslate"><span class="pre">nvvideoconvert</span></code> with <code class="docutils literal notranslate"><span class="pre">vapostproc</span></code> or <code class="docutils literal notranslate"><span class="pre">mfxvpp</span></code> (GPU) or
 <code class="docutils literal notranslate"><span class="pre">videoconvert</span></code> (CPU).</p>
 <ul>
 <li><p>If the <code class="docutils literal notranslate"><span class="pre">nvvideoconvert</span></code> is being used to convert to/from
 <code class="docutils literal notranslate"><span class="pre">memory:NVMM</span></code> it can just be removed.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nvv4ldecoder</span></code> can be replaced with <code class="docutils literal notranslate"><span class="pre">vaapi{CODEC}dec</span></code>, for
-example <code class="docutils literal notranslate"><span class="pre">vaapih264dec</span></code> for decode only or <code class="docutils literal notranslate"><span class="pre">vaapidecodebin</span></code> for
-decode and vaapipostproc. Alternatively, the native GStreamer
-element <code class="docutils literal notranslate"><span class="pre">decodebin</span></code> can be used to automatically choose an
-available decoder.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nvv4ldecoder</span></code> can be replaced with <code class="docutils literal notranslate"><span class="pre">va{CODEC}dec</span></code>, for
+example <code class="docutils literal notranslate"><span class="pre">vah264dec</span></code> for decode only. Alternatively, the
+native GStreamer element <code class="docutils literal notranslate"><span class="pre">decodebin</span></code> can be used to automatically
+choose an available decoder.</p></li>
 </ul>
 </li>
 <li><p>Some caps filters that follow an inferencing element may need to be
 adjusted or removed. Pipeline Framework inferencing elements do not support
 color space conversion in post-processing. You will need to have a
-<code class="docutils literal notranslate"><span class="pre">vaapipostproc</span></code> or <code class="docutils literal notranslate"><span class="pre">videoconvert</span></code> element to handle this.</p></li>
+<code class="docutils literal notranslate"><span class="pre">vapostproc</span></code> or <code class="docutils literal notranslate"><span class="pre">videoconvert</span></code> element to handle this.</p></li>
 </ul>
 <p>Here we removed a few caps filters and instances of <code class="docutils literal notranslate"><span class="pre">nvvideoconvert</span></code>
 used for conversions from DeepStream’s NVMM because Pipeline Framework uses
 standard GStreamer structures and memory types. We will leave the
 standard gstreamer element <code class="docutils literal notranslate"><span class="pre">videoconvert</span></code> to do color space conversion
-on CPU, however if available, we suggest using <code class="docutils literal notranslate"><span class="pre">vaapipostproc</span></code> to run
+on CPU, however if available, we suggest using <code class="docutils literal notranslate"><span class="pre">vapostproc</span></code> to run
 on Intel Graphics. Also, we will use the GStreamer standard element
 <code class="docutils literal notranslate"><span class="pre">decodebin</span></code> to choose an appropriate demuxer and decoder depending on
 the input stream as well as what is available on the system.</p>

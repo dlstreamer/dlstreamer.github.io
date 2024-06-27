@@ -189,7 +189,7 @@ To avoid this you can follow Tutorial Setup for Docker to download models on hos
 
       python3 -m pip install --upgrade pip
       python3 -m pip install openvino-dev[onnx,tensorflow,pytorch]
-      /opt/intel/dlstreamer/samples/download_models.sh
+      /opt/intel/dlstreamer/samples/download_omz_models.sh
 
    .. note::
       Make sure your environment variable $PATH includes '$HOME/.local/bin' .
@@ -225,7 +225,7 @@ To avoid this you can follow Tutorial Setup for Docker to download models on hos
       # Change this information to fit your setup.
       export VIDEO_EXAMPLE=~/path/to/video/FILENAME
 
-.. _object_detection:
+.. _tutorial-setup-for-docker:
 
 Tutorial Setup for Docker
 -------------------------
@@ -261,7 +261,7 @@ Tutorial Setup for Docker
    .. code:: sh
 
       cd ~/intel/dlstreamer_gst/samples 
-      ./download_models.sh
+      ./download_omz_models.sh
 
 #. Mount the models directory into the container using ``-v`` or ``--volume`` parameter in ``docker run`` command.
    Make sure your mounting parameter is specified as ``-v <path_on_host>:<path_in_the_container>``:
@@ -274,13 +274,13 @@ Tutorial Setup for Docker
 
    .. code:: sh
 
-      docker run -it --device /dev/dri --group-add=$(stat -c "%g" /dev/dri/render*) -v /home/$USER/models:/home/dlstreamer/intel/dl_streamer/models dlstreamer:latest
+      docker run -it --device /dev/dri --group-add=$(stat -c "%g" /dev/dri/render*) -v /home/$USER/models:/home/dlstreamer/intel/dl_streamer/models intel/dlstreamer:latest
 
    To run the Docker image on an NPU device:
 
    .. code:: sh
 
-      docker run -it --device /dev/dri --device /dev/accel/accel0 --group-add=$(stat -c "%g" /dev/dri/render*) -v /home/$USER/models:/home/dlstreamer/intel/dl_streamer/models dlstreamer:latest
+      docker run -it --device /dev/dri --device /dev/accel/accel0 --group-add=$(stat -c "%g" /dev/dri/render*) -v /home/$USER/models:/home/dlstreamer/intel/dl_streamer/models intel/dlstreamer:latest
       
 #. Export the *model* and *model_proc* files for detection and classification:
 

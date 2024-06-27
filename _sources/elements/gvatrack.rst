@@ -30,6 +30,11 @@ information on the element properties.
                     width: [ 1, 2147483647 ]
                    height: [ 1, 2147483647 ]
                 framerate: [ 0/1, 2147483647/1 ]
+        video/x-raw(memory:VAMemory)
+                   format: { (string)NV12 }
+                    width: [ 1, 2147483647 ]
+                   height: [ 1, 2147483647 ]
+                framerate: [ 0/1, 2147483647/1 ]
 
     SRC template: 'src'
       Availability: Always
@@ -45,6 +50,11 @@ information on the element properties.
                    height: [ 1, 2147483647 ]
                 framerate: [ 0/1, 2147483647/1 ]
         video/x-raw(memory:VASurface)
+                   format: { (string)NV12 }
+                    width: [ 1, 2147483647 ]
+                   height: [ 1, 2147483647 ]
+                framerate: [ 0/1, 2147483647/1 ]
+        video/x-raw(memory:VAMemory)
                    format: { (string)NV12 }
                     width: [ 1, 2147483647 ]
                    height: [ 1, 2147483647 ]

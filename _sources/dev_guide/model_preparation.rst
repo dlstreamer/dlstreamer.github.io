@@ -1,16 +1,16 @@
 Model Preparation
 =================
 
-1. Model files format used by OpenVINO™ Toolkit
------------------------------------------------
+1. Model file format used by OpenVINO™ Toolkit
+----------------------------------------------
 
 Video Analytics GStreamer plugins utilize
 `Intel® Distribution of OpenVINO™ Toolkit <https://www.intel.com/content/www/us/en/developer/tools/openvino-toolkit/overview.html>`__
 as a back-end for high efficiency-inference on Intel® CPU and accelerators
-(GPU, NPU, FPGA) and require CNN model to be converted from training
+(GPU, NPU, FPGA) and require the model to be converted from the training
 framework format (e.g., TensorFlow or Caffe) into a format optimized for
 inference on the target device. The model format used by OpenVINO™ Toolkit
-is termed called Intermediate Representation (IR) format and consists of two files:
+is called Intermediate Representation (IR) and consists of two files:
 
 - xml: XML file with a description of the network topology
 - bin: Binary file (potentially big) with model weights
@@ -19,9 +19,9 @@ You can either:
 
 #. Choose model(s) from the extensive set of pre-trained models available in
    `Open Model Zoo <https://github.com/openvinotoolkit/open_model_zoo>`__ (already in IR format)
+#. Use `OpenVINO™ Toolkit Model Conversion <https://docs.openvino.ai/2024/openvino-workflow/model-preparation/convert-model-to-ir.html>`__ method for converting your model from training framework format (e.g., TensorFlow) into IR format
 
-#. Use `OpenVINO™ Toolkit Model Conversion <https://docs.openvino.ai/2024/openvino-workflow/model-preparation/convert-model-to-ir.html>`__
-   method for converting your model from training framework format (e.g., TensorFlow) into IR format
+
 
 When using a pre-trained model from Open Model Zoo, consider using the `Model Downloader <https://docs.openvino.ai/latest/omz_tools_downloader.html>`__ tool to facilitate the model downloading process.
 
@@ -47,26 +47,20 @@ web-browser graphical interface
 2. Model pre- and post-processing
 ---------------------------------
 
-Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework plugins are capable of
+Intel® Deep Learning Streamer (Intel® DL Streamer) plugins are capable of
 optionally performing certain pre- and post-processing operations before/after inference.
 
 Pre- and post-processing can be configured using:
 
-* The “model-proc” file (mostly applicable to models from OpenModel zoo).
-Its format and all possible pre- and post-processing configuration
-parameters are described on the :doc:`model-proc description <model_proc_file>`
-page.
-* The “model_info” inside OpenVINO™ model.xml file with network topology,
-described on the on the :doc:`model_info description <model_info_xml>`
+* The “model-proc” file (mostly applicable to models from OpenModel zoo).Its format and all possible pre- and post-processing configuration parameters are described on the :doc:`model-proc description <model_proc_file>` page.
+* The “model_info” inside OpenVINO™ model.xml file with network topology, described on the on the :doc:`model_info description <model_info_xml>`
 
-Both methods yield same results, the “model_info” is recommended as it simplifies dynamic
-deployments (like re-training models with Intel® Geti™) as certain model pre- and post-processing
-parameters are tightly coupled with model training results.
+Both methods yield same results, but the “model_info” is recommended as it simplifies dynamic
+deployments (like re-training models with Intel® Geti™) as certain model pre- and post-processing parameters are tightly coupled with model training results.
 
 **Pre-processing** is an input data transformation into an appropriate form
-which a neural network expects it to be. Since Pipeline Framework mostly
-supports Convolutional Neural Networks, most pre-processing actions are
-performed under images. Pipeline Framework provides several pre-processing
+which a neural network expects it to be. Most pre-processing actions are
+designed for images. Pipeline Framework provides several pre-processing
 back-ends depending on your use case.
 
 **To use one of them, set the pre-process-backend property of the inference
@@ -93,18 +87,14 @@ element to one from the table below.**
      - System
      - Yes
    * - | va
-       | *or*
-       | vaapi
-     - Should be used in pipelines with GPU memory. Performs mapping to the system memory and uses vaapi pre-processor.
-     - | VASurface
+     - Should be used in pipelines with GPU memory. Performs mapping to the system memory and uses VA pre-processor.
+     - | VAMemory
        | *and*
        | DMABuf
      - Yes
    * - | va-surface-sharing
-       | *or*
-       | vaapi-surface-sharing
      - Should be used in pipelines with GPU memory and GPU inference device. Doesn't perform mapping to the system memory. As a pre-processor, it performs image resize, crop, and sets color format to NV12.
-     - | VASurface
+     - | VAMemory
      - Partially
 
 **Post-processing** is a raw inference results processing using so
@@ -117,19 +107,19 @@ Streamer, :doc:`Custom Processing <custom_processing>` can be used.
 3. Specify model files in GStreamer elements
 --------------------------------------------
 
-The .xml model file path specified in mandatory property 'model' of
-GStreamer inference elements gvainference/gvadetect/gvaclassify. For
-example pipeline with object detection (gvadetect) and classification
+The .xml model file path must be specified by the mandatory 'model' property of
+GStreamer inference elements - gvainference/gvadetect/gvaclassify. For
+example, this is a pipeline with object detection (gvadetect) and classification
 (gvaclassify)
 
 .. code:: sh
 
    gvadetect model=MODEL1_FILE_PATH.xml ! gvaclassify model=MODEL1_FILE_PATH.xml
 
-The .bin file expected to be located under same folder as .xml file,
-same filename but different extension .bin.
+The .bin file is expected to be located in the same folder as .xml file, and to have the
+same filename (with different extension).
 
-Pipeline example including gvadetect and gvaclassify with
+An example pipeline including gvadetect and gvaclassify with
 pre-processing/post-processing rules may look like
 
 .. code:: sh
@@ -148,5 +138,6 @@ The following diagram illustrates overall workflow
 .. toctree::
    :maxdepth: 2
 
-   yolov5_model_preparation
    yolo_model_preparation
+
+

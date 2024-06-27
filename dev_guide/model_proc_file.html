@@ -155,8 +155,6 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="dev_guide_index.html">Developer Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="metadata.html">Metadata</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="model_preparation.html">Model Preparation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="yolov5_model_preparation.html">Yolov5 Model Preparation Example</a></li>
-
 <li class="toctree-l3"><a class="reference internal" href="yolo_model_preparation.html">Yolo Models Preparation</a></li>
 </ul>
 </li>
@@ -170,6 +168,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="gpu_device_selection.html">GPU device selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance_guide.html">Performance Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="profiling.html">Profiling with Intel VTune™</a></li>
 <li class="toctree-l2"><a class="reference internal" href="converting_deepstream_to_dlstreamer.html">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="how_to_contribute.html">How to Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -539,8 +538,8 @@ should be described in a key-value format. Valid keys for
 <td><p>Resize an image.</p></td>
 <td><div class="line-block">
 <div class="line">opencv,</div>
-<div class="line">vaapi,</div>
-<div class="line">vaapi-surface-sharing</div>
+<div class="line">va,</div>
+<div class="line">va-surface-sharing</div>
 </div>
 </td>
 </tr>
@@ -555,8 +554,8 @@ should be described in a key-value format. Valid keys for
 <td><p>Convert image to targeted color space.</p></td>
 <td><div class="line-block">
 <div class="line">opencv,</div>
-<div class="line">vaapi,</div>
-<div class="line">vaapi-surface-sharing (BGR only)</div>
+<div class="line">va,</div>
+<div class="line">va-surface-sharing (BGR only)</div>
 </div>
 </td>
 </tr>
@@ -566,7 +565,7 @@ should be described in a key-value format. Valid keys for
 <td><p>Normalize input image values to be in the specified range.</p></td>
 <td><div class="line-block">
 <div class="line">opencv,</div>
-<div class="line">vaapi-surface-sharing</div>
+<div class="line">va-surface-sharing</div>
 <div class="line">ie</div>
 </div>
 </td>
@@ -577,7 +576,7 @@ should be described in a key-value format. Valid keys for
 <td><p>JSON arrays of doubles. Size of arrays should be equal to the number of channels of the input image.</p></td>
 <td><div class="line-block">
 <div class="line">opencv,</div>
-<div class="line">vaapi</div>
+<div class="line">va</div>
 </div>
 </td>
 </tr>
@@ -587,7 +586,7 @@ should be described in a key-value format. Valid keys for
 <td><p>JSON arrays of doubles. Size of arrays should be equal to the number of channels of the input image.</p></td>
 <td><div class="line-block">
 <div class="line">opencv,</div>
-<div class="line">vaapi</div>
+<div class="line">va</div>
 </div>
 </td>
 </tr>
@@ -605,8 +604,8 @@ should be described in a key-value format. Valid keys for
 <td><p>A JSON object with stride in pixels from image boundaries (also can be set with <em>stride_x</em> and <em>stride_y</em>)</p></td>
 <td><div class="line-block">
 <div class="line">opencv,</div>
-<div class="line">vaapi,</div>
-<div class="line">vaapi-surface-sharing</div>
+<div class="line">va,</div>
+<div class="line">va-surface-sharing</div>
 </div>
 </td>
 </tr>

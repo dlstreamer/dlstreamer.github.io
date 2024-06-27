@@ -47,7 +47,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'dev_guide/model_preparation';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Yolov5 Model Preparation Example" href="yolov5_model_preparation.html" />
+    <link rel="next" title="Yolo Models Preparation" href="yolo_model_preparation.html" />
     <link rel="prev" title="Metadata" href="metadata.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -155,8 +155,6 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="dev_guide_index.html">Developer Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="metadata.html">Metadata</a></li>
 <li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Model Preparation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="yolov5_model_preparation.html">Yolov5 Model Preparation Example</a></li>
-
 <li class="toctree-l3"><a class="reference internal" href="yolo_model_preparation.html">Yolo Models Preparation</a></li>
 </ul>
 </li>
@@ -170,6 +168,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="gpu_device_selection.html">GPU device selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance_guide.html">Performance Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="profiling.html">Profiling with Intel VTune™</a></li>
 <li class="toctree-l2"><a class="reference internal" href="converting_deepstream_to_dlstreamer.html">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="how_to_contribute.html">How to Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -397,7 +396,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-files-format-used-by-openvino-toolkit">1. Model files format used by OpenVINO™ Toolkit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-file-format-used-by-openvino-toolkit">1. Model file format used by OpenVINO™ Toolkit</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-pre-and-post-processing">2. Model pre- and post-processing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-model-files-in-gstreamer-elements">3. Specify model files in GStreamer elements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-diagram">4. Workflow diagram</a></li>
@@ -414,15 +413,15 @@ document.write(`
                   
   <section id="model-preparation">
 <h1>Model Preparation<a class="headerlink" href="#model-preparation" title="Permalink to this heading">#</a></h1>
-<section id="model-files-format-used-by-openvino-toolkit">
-<h2>1. Model files format used by OpenVINO™ Toolkit<a class="headerlink" href="#model-files-format-used-by-openvino-toolkit" title="Permalink to this heading">#</a></h2>
+<section id="model-file-format-used-by-openvino-toolkit">
+<h2>1. Model file format used by OpenVINO™ Toolkit<a class="headerlink" href="#model-file-format-used-by-openvino-toolkit" title="Permalink to this heading">#</a></h2>
 <p>Video Analytics GStreamer plugins utilize
 <a class="reference external" href="https://www.intel.com/content/www/us/en/developer/tools/openvino-toolkit/overview.html">Intel® Distribution of OpenVINO™ Toolkit</a>
 as a back-end for high efficiency-inference on Intel® CPU and accelerators
-(GPU, NPU, FPGA) and require CNN model to be converted from training
+(GPU, NPU, FPGA) and require the model to be converted from the training
 framework format (e.g., TensorFlow or Caffe) into a format optimized for
 inference on the target device. The model format used by OpenVINO™ Toolkit
-is termed called Intermediate Representation (IR) format and consists of two files:</p>
+is called Intermediate Representation (IR) and consists of two files:</p>
 <ul class="simple">
 <li><p>xml: XML file with a description of the network topology</p></li>
 <li><p>bin: Binary file (potentially big) with model weights</p></li>
@@ -431,8 +430,7 @@ is termed called Intermediate Representation (IR) format and consists of two fil
 <ol class="arabic simple">
 <li><p>Choose model(s) from the extensive set of pre-trained models available in
 <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo">Open Model Zoo</a> (already in IR format)</p></li>
-<li><p>Use <a class="reference external" href="https://docs.openvino.ai/2024/openvino-workflow/model-preparation/convert-model-to-ir.html">OpenVINO™ Toolkit Model Conversion</a>
-method for converting your model from training framework format (e.g., TensorFlow) into IR format</p></li>
+<li><p>Use <a class="reference external" href="https://docs.openvino.ai/2024/openvino-workflow/model-preparation/convert-model-to-ir.html">OpenVINO™ Toolkit Model Conversion</a> method for converting your model from training framework format (e.g., TensorFlow) into IR format</p></li>
 </ol>
 <p>When using a pre-trained model from Open Model Zoo, consider using the <a class="reference external" href="https://docs.openvino.ai/latest/omz_tools_downloader.html">Model Downloader</a> tool to facilitate the model downloading process.</p>
 <p>In the case of converting a custom model, you can optionally utilize the
@@ -456,24 +454,18 @@ web-browser graphical interface</p>
 </section>
 <section id="model-pre-and-post-processing">
 <h2>2. Model pre- and post-processing<a class="headerlink" href="#model-pre-and-post-processing" title="Permalink to this heading">#</a></h2>
-<p>Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework plugins are capable of
+<p>Intel® Deep Learning Streamer (Intel® DL Streamer) plugins are capable of
 optionally performing certain pre- and post-processing operations before/after inference.</p>
 <p>Pre- and post-processing can be configured using:</p>
 <ul class="simple">
-<li><p>The “model-proc” file (mostly applicable to models from OpenModel zoo).</p></li>
+<li><p>The “model-proc” file (mostly applicable to models from OpenModel zoo).Its format and all possible pre- and post-processing configuration parameters are described on the <a class="reference internal" href="model_proc_file.html"><span class="doc">model-proc description</span></a> page.</p></li>
+<li><p>The “model_info” inside OpenVINO™ model.xml file with network topology, described on the on the <a class="reference internal" href="model_info_xml.html"><span class="doc">model_info description</span></a></p></li>
 </ul>
-<p>Its format and all possible pre- and post-processing configuration
-parameters are described on the <a class="reference internal" href="model_proc_file.html"><span class="doc">model-proc description</span></a>
-page.
-* The “model_info” inside OpenVINO™ model.xml file with network topology,
-described on the on the <a class="reference internal" href="model_info_xml.html"><span class="doc">model_info description</span></a></p>
-<p>Both methods yield same results, the “model_info” is recommended as it simplifies dynamic
-deployments (like re-training models with Intel® Geti™) as certain model pre- and post-processing
-parameters are tightly coupled with model training results.</p>
+<p>Both methods yield same results, but the “model_info” is recommended as it simplifies dynamic
+deployments (like re-training models with Intel® Geti™) as certain model pre- and post-processing parameters are tightly coupled with model training results.</p>
 <p><strong>Pre-processing</strong> is an input data transformation into an appropriate form
-which a neural network expects it to be. Since Pipeline Framework mostly
-supports Convolutional Neural Networks, most pre-processing actions are
-performed under images. Pipeline Framework provides several pre-processing
+which a neural network expects it to be. Most pre-processing actions are
+designed for images. Pipeline Framework provides several pre-processing
 back-ends depending on your use case.</p>
 <p><strong>To use one of them, set the pre-process-backend property of the inference
 element to one from the table below.</strong></p>
@@ -507,13 +499,11 @@ element to one from the table below.</strong></p>
 </tr>
 <tr class="row-even"><td><div class="line-block">
 <div class="line">va</div>
-<div class="line"><em>or</em></div>
-<div class="line">vaapi</div>
 </div>
 </td>
-<td><p>Should be used in pipelines with GPU memory. Performs mapping to the system memory and uses vaapi pre-processor.</p></td>
+<td><p>Should be used in pipelines with GPU memory. Performs mapping to the system memory and uses VA pre-processor.</p></td>
 <td><div class="line-block">
-<div class="line">VASurface</div>
+<div class="line">VAMemory</div>
 <div class="line"><em>and</em></div>
 <div class="line">DMABuf</div>
 </div>
@@ -522,13 +512,11 @@ element to one from the table below.</strong></p>
 </tr>
 <tr class="row-odd"><td><div class="line-block">
 <div class="line">va-surface-sharing</div>
-<div class="line"><em>or</em></div>
-<div class="line">vaapi-surface-sharing</div>
 </div>
 </td>
 <td><p>Should be used in pipelines with GPU memory and GPU inference device. Doesn’t perform mapping to the system memory. As a pre-processor, it performs image resize, crop, and sets color format to NV12.</p></td>
 <td><div class="line-block">
-<div class="line">VASurface</div>
+<div class="line">VAMemory</div>
 </div>
 </td>
 <td><p>Partially</p></td>
@@ -543,16 +531,16 @@ Streamer, <a class="reference internal" href="custom_processing.html"><span clas
 </section>
 <section id="specify-model-files-in-gstreamer-elements">
 <h2>3. Specify model files in GStreamer elements<a class="headerlink" href="#specify-model-files-in-gstreamer-elements" title="Permalink to this heading">#</a></h2>
-<p>The .xml model file path specified in mandatory property ‘model’ of
-GStreamer inference elements gvainference/gvadetect/gvaclassify. For
-example pipeline with object detection (gvadetect) and classification
+<p>The .xml model file path must be specified by the mandatory ‘model’ property of
+GStreamer inference elements - gvainference/gvadetect/gvaclassify. For
+example, this is a pipeline with object detection (gvadetect) and classification
 (gvaclassify)</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span>MODEL1_FILE_PATH.xml<span class="w"> </span>!<span class="w"> </span>gvaclassify<span class="w"> </span><span class="nv">model</span><span class="o">=</span>MODEL1_FILE_PATH.xml
 </pre></div>
 </div>
-<p>The .bin file expected to be located under same folder as .xml file,
-same filename but different extension .bin.</p>
-<p>Pipeline example including gvadetect and gvaclassify with
+<p>The .bin file is expected to be located in the same folder as .xml file, and to have the
+same filename (with different extension).</p>
+<p>An example pipeline including gvadetect and gvaclassify with
 pre-processing/post-processing rules may look like</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span>MODEL1_FILE_PATH.xml<span class="w"> </span>model-proc<span class="o">=</span>MODEL1_FILE_PATH.json<span class="w"> </span>!<span class="w"> </span>gvaclassify<span class="w"> </span><span class="nv">model</span><span class="o">=</span>MODEL2_FILE_PATH.xml<span class="w"> </span>model-proc<span class="o">=</span>MODEL2_FILE_PATH.json
 </pre></div>
@@ -566,15 +554,6 @@ pre-processing/post-processing rules may look like</p>
 </figure>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="yolov5_model_preparation.html">Yolov5 Model Preparation Example</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="yolov5_model_preparation.html#setup">1. Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yolov5_model_preparation.html#pytorch-to-onnx-conversion">2. Pytorch to ONNX Conversion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yolov5_model_preparation.html#onnx-to-ir-conversion">3. ONNX to IR Conversion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yolov5_model_preparation.html#model-pre-post-processing">4. Model Pre/Post Processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yolov5_model_preparation.html#running-a-gstreamer-pipeline">5. Running a GStreamer pipeline</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="yolov5_model_preparation.html#references">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="yolo_model_preparation.html">Yolo Models Preparation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="yolo_model_preparation.html#setup">1. Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yolo_model_preparation.html#yolov5u-yolov8-yolov9">2. YoloV5u, YoloV8, YoloV9</a></li>
@@ -610,11 +589,11 @@ pre-processing/post-processing rules may look like</p>
       </div>
     </a>
     <a class="right-next"
-       href="yolov5_model_preparation.html"
+       href="yolo_model_preparation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Yolov5 Model Preparation Example</p>
+        <p class="prev-next-title">Yolo Models Preparation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -633,7 +612,7 @@ pre-processing/post-processing rules may look like</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-files-format-used-by-openvino-toolkit">1. Model files format used by OpenVINO™ Toolkit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-file-format-used-by-openvino-toolkit">1. Model file format used by OpenVINO™ Toolkit</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-pre-and-post-processing">2. Model pre- and post-processing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-model-files-in-gstreamer-elements">3. Specify model files in GStreamer elements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-diagram">4. Workflow diagram</a></li>

@@ -155,8 +155,6 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../dev_guide/dev_guide_index.html">Developer Guide</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../dev_guide/metadata.html">Metadata</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../dev_guide/model_preparation.html">Model Preparation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../dev_guide/yolov5_model_preparation.html">Yolov5 Model Preparation Example</a></li>
-
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/yolo_model_preparation.html">Yolo Models Preparation</a></li>
 </ul>
 </li>
@@ -170,6 +168,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../dev_guide/gpu_device_selection.html">GPU device selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/performance_guide.html">Performance Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev_guide/profiling.html">Profiling with Intel VTune™</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev_guide/converting_deepstream_to_dlstreamer.html">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../dev_guide/how_to_contribute.html">How to Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -422,6 +421,11 @@ input and outputs classification results with metadata.</p>
                   width: [ 1, 2147483647 ]
                  height: [ 1, 2147483647 ]
               framerate: [ 0/1, 2147483647/1 ]
+      video/x-raw(memory:VAMemory)
+                 format: { (string)NV12 }
+                  width: [ 1, 2147483647 ]
+                 height: [ 1, 2147483647 ]
+              framerate: [ 0/1, 2147483647/1 ]
 
   SINK template: &#39;sink&#39;
     Availability: Always
@@ -437,6 +441,11 @@ input and outputs classification results with metadata.</p>
                  height: [ 1, 2147483647 ]
               framerate: [ 0/1, 2147483647/1 ]
       video/x-raw(memory:VASurface)
+                 format: { (string)NV12 }
+                  width: [ 1, 2147483647 ]
+                 height: [ 1, 2147483647 ]
+              framerate: [ 0/1, 2147483647/1 ]
+      video/x-raw(memory:VAMemory)
                  format: { (string)NV12 }
                   width: [ 1, 2147483647 ]
                  height: [ 1, 2147483647 ]
@@ -506,7 +515,7 @@ Element Properties:
   parent              : The parent of the object
                         flags: readable, writable, 0x2000
                         Object of type &quot;GstObject&quot;
-  pre-process-backend : Select a pre-processing method (color conversion, resize and crop), one of &#39;ie&#39;, &#39;opencv&#39;, &#39;vaapi&#39;, &#39;vaapi-surface-sharing&#39;. If not set, it will be selected automatically: &#39;vaapi&#39; for VASurface and DMABuf, &#39;ie&#39; for SYSTEM memory.
+  pre-process-backend : Select a pre-processing method (color conversion, resize and crop), one of &#39;ie&#39;, &#39;opencv&#39;, &#39;va&#39;, &#39;va-surface-sharing&#39;. If not set, it will be selected automatically: &#39;va&#39; for VAMemory and DMABuf, &#39;ie&#39; for SYSTEM memory.
                         flags: readable, writable
                         String. Default: &quot;&quot;
   pre-process-config  : Comma separated list of KEY=VALUE parameters for image processing pipeline configuration

@@ -24,6 +24,11 @@ Runs deep learning inference using any model with an RGB or BGR input.
                     width: [ 1, 2147483647 ]
                    height: [ 1, 2147483647 ]
                 framerate: [ 0/1, 2147483647/1 ]
+        video/x-raw(memory:VAMemory)
+                   format: { (string)NV12 }
+                    width: [ 1, 2147483647 ]
+                   height: [ 1, 2147483647 ]
+                framerate: [ 0/1, 2147483647/1 ]
 
     SINK template: 'sink'
       Availability: Always
@@ -39,6 +44,11 @@ Runs deep learning inference using any model with an RGB or BGR input.
                    height: [ 1, 2147483647 ]
                 framerate: [ 0/1, 2147483647/1 ]
         video/x-raw(memory:VASurface)
+                   format: { (string)NV12 }
+                    width: [ 1, 2147483647 ]
+                   height: [ 1, 2147483647 ]
+                framerate: [ 0/1, 2147483647/1 ]
+        video/x-raw(memory:VAMemory)
                    format: { (string)NV12 }
                     width: [ 1, 2147483647 ]
                    height: [ 1, 2147483647 ]
@@ -108,7 +118,7 @@ Runs deep learning inference using any model with an RGB or BGR input.
     parent              : The parent of the object
                           flags: readable, writable, 0x2000
                           Object of type "GstObject"
-    pre-process-backend : Select a pre-processing method (color conversion, resize and crop), one of 'ie', 'opencv', 'vaapi', 'vaapi-surface-sharing'. If not set, it will be selected automatically: 'vaapi' for VASurface and DMABuf, 'ie' for SYSTEM memory.
+    pre-process-backend : Select a pre-processing method (color conversion, resize and crop), one of 'ie', 'opencv', 'va', 'va-surface-sharing'. If not set, it will be selected automatically: 'va' for VAMemory and DMABuf, 'ie' for SYSTEM memory.
                           flags: readable, writable
                           String. Default: ""
     qos                 : Handle Quality-of-Service events

@@ -26,6 +26,11 @@ FasterRCNN-like object detection models.
                     width: [ 1, 2147483647 ]
                    height: [ 1, 2147483647 ]
                 framerate: [ 0/1, 2147483647/1 ]
+        video/x-raw(memory:VAMemory)
+                   format: { (string)NV12 }
+                    width: [ 1, 2147483647 ]
+                   height: [ 1, 2147483647 ]
+                framerate: [ 0/1, 2147483647/1 ]
 
     SINK template: 'sink'
       Availability: Always
@@ -41,6 +46,11 @@ FasterRCNN-like object detection models.
                    height: [ 1, 2147483647 ]
                 framerate: [ 0/1, 2147483647/1 ]
         video/x-raw(memory:VASurface)
+                   format: { (string)NV12 }
+                    width: [ 1, 2147483647 ]
+                   height: [ 1, 2147483647 ]
+                framerate: [ 0/1, 2147483647/1 ]
+        video/x-raw(memory:VAMemory)
                    format: { (string)NV12 }
                     width: [ 1, 2147483647 ]
                    height: [ 1, 2147483647 ]
@@ -110,7 +120,7 @@ FasterRCNN-like object detection models.
     parent              : The parent of the object
                           flags: readable, writable, 0x2000
                           Object of type "GstObject"
-    pre-process-backend : Select a pre-processing method (color conversion, resize and crop), one of 'ie', 'opencv', 'vaapi', 'vaapi-surface-sharing'. If not set, it will be selected automatically: 'vaapi' for VASurface and DMABuf, 'ie' for SYSTEM memory.
+    pre-process-backend : Select a pre-processing method (color conversion, resize and crop), one of 'ie', 'opencv', 'va', 'va-surface-sharing'. If not set, it will be selected automatically: 'va' for VAMemory and DMABuf, 'ie' for SYSTEM memory.
                           flags: readable, writable
                           String. Default: ""
     pre-process-config  : Comma separated list of KEY=VALUE parameters for image processing pipeline configuration
@@ -128,7 +138,7 @@ FasterRCNN-like object detection models.
     reshape-width       : Width to which the network will be reshaped.
                           flags: readable, writable
                           Unsigned Integer. Range: 0 - 4294967295 Default: 0
-    scale-method        : Scale method to use in pre-preprocessing before inference. Only default and scale-method=fast (VAAPI based) supported in this element
+    scale-method        : Scale method to use in pre-preprocessing before inference. Only default and scale-method=fast (VA based) supported in this element
                           flags: readable, writable
                           String. Default: null Write only
     threshold           : Threshold for detection results. Only regions of interest with confidence values above the threshold will be added to the frame

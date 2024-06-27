@@ -9,7 +9,7 @@ This page describes how to enable ITT tracing and analyze performance of Intel®
    OpenVINO™ toolkit. Please refer to `wiki page <https://github.com/openvinotoolkit/openvino/wiki/BuildingCode>`__
    for instructions how to build OpenVINO™ toolkit from sources and additionally pass ``-DENABLE_PROFILING_ITT=ON`` option to cmake in configuration step.
    More details about ITT instrumentation in OpenVINO™ toolkit can be found on
-   `documentation page <https://github.com/openvinotoolkit/openvino/blob/master/src/plugins/intel_cpu/docs/performance_analysis_ITT_counters.md>`__
+   `documentation page <https://github.com/openvinotoolkit/openvino/blob/master/src/docs/performance_analysis_ITT_counters.md>`__
 
 1. Install VTune™
 -----------------
@@ -76,7 +76,7 @@ And additionally set GST_TRACERS environment variable to profile all GStreamer e
         source /opt/intel/openvino_2024/setupvars.sh
     
         # Intel® DL Streamer environment
-        source /opt/intel/dlstreamer/setupvars.sh
+        source /opt/intel/dlstreamer/gstreamer/setupvars.sh
 
         # Run VTune™ collector
         $command

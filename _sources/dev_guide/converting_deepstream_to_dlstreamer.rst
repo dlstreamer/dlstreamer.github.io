@@ -122,31 +122,30 @@ model-proc file.
 Video Processing Elements
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  Replace video processing elements with vaapi equivalents for GPU or
+-  Replace video processing elements with VA equivalents for GPU or
    native GStreamer elements for CPU.
 
-   -  ``nvvideoconvert`` with ``vaapipostproc`` or ``mfxvpp`` (GPU) or
+   -  ``nvvideoconvert`` with ``vapostproc`` or ``mfxvpp`` (GPU) or
       ``videoconvert`` (CPU).
 
       -  If the ``nvvideoconvert`` is being used to convert to/from
          ``memory:NVMM`` it can just be removed.
 
-   -  ``nvv4ldecoder`` can be replaced with ``vaapi{CODEC}dec``, for
-      example ``vaapih264dec`` for decode only or ``vaapidecodebin`` for
-      decode and vaapipostproc. Alternatively, the native GStreamer
-      element ``decodebin`` can be used to automatically choose an
-      available decoder.
+   -  ``nvv4ldecoder`` can be replaced with ``va{CODEC}dec``, for
+      example ``vah264dec`` for decode only. Alternatively, the
+      native GStreamer element ``decodebin`` can be used to automatically
+      choose an available decoder.
 
 -  Some caps filters that follow an inferencing element may need to be
    adjusted or removed. Pipeline Framework inferencing elements do not support
    color space conversion in post-processing. You will need to have a
-   ``vaapipostproc`` or ``videoconvert`` element to handle this.
+   ``vapostproc`` or ``videoconvert`` element to handle this.
 
 Here we removed a few caps filters and instances of ``nvvideoconvert``
 used for conversions from DeepStream’s NVMM because Pipeline Framework uses
 standard GStreamer structures and memory types. We will leave the
 standard gstreamer element ``videoconvert`` to do color space conversion
-on CPU, however if available, we suggest using ``vaapipostproc`` to run
+on CPU, however if available, we suggest using ``vapostproc`` to run
 on Intel Graphics. Also, we will use the GStreamer standard element
 ``decodebin`` to choose an appropriate demuxer and decoder depending on
 the input stream as well as what is available on the system.

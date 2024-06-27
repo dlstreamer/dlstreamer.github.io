@@ -48,7 +48,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Model-proc File" href="model_proc_file.html" />
-    <link rel="prev" title="Yolov5 Model Preparation Example" href="yolov5_model_preparation.html" />
+    <link rel="prev" title="Model Preparation" href="model_preparation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -155,8 +155,6 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="dev_guide_index.html">Developer Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="metadata.html">Metadata</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="model_preparation.html">Model Preparation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="yolov5_model_preparation.html">Yolov5 Model Preparation Example</a></li>
-
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Yolo Models Preparation</a></li>
 </ul>
 </li>
@@ -170,6 +168,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="gpu_device_selection.html">GPU device selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance_guide.html">Performance Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="profiling.html">Profiling with Intel VTune™</a></li>
 <li class="toctree-l2"><a class="reference internal" href="converting_deepstream_to_dlstreamer.html">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="how_to_contribute.html">How to Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -417,6 +416,11 @@ document.write(`
   <section id="yolo-models-preparation">
 <h1>Yolo Models Preparation<a class="headerlink" href="#yolo-models-preparation" title="Permalink to this heading">#</a></h1>
 <p>This page illustrates how to prepare models from the <strong>YOLO</strong> family for integration with the Intel® DL Streamer pipeline.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The steps outlined below enable the creation of basic model versions, ready for use in Intel® DL Streamer. However, for YoloV5 (both versions) and YoloV7, additional operations not covered here are required if the batch size is to exceed 1.</p>
+<p>It is recommended to use the download_public_models.sh script, which automatically downloads all supported Yolo models and carries out a complete conversion, allowing for the utilization of their full potential.</p>
+</div>
 <section id="setup">
 <h2>1. Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
 <p>The instructions assume Intel® DL Streamer framework is installed on the local system along with Intel® OpenVINO™ model downloader and converter tools,
@@ -483,12 +487,12 @@ for detailed examples of Intel® DL Streamer pipelines using different Yolo mode
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="yolov5_model_preparation.html"
+       href="model_preparation.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Yolov5 Model Preparation Example</p>
+        <p class="prev-next-title">Model Preparation</p>
       </div>
     </a>
     <a class="right-next"

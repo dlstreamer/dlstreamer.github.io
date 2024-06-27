@@ -155,8 +155,6 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../dev_guide/dev_guide_index.html">Developer Guide</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/metadata.html">Metadata</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../dev_guide/model_preparation.html">Model Preparation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../dev_guide/yolov5_model_preparation.html">Yolov5 Model Preparation Example</a></li>
-
 <li class="toctree-l3"><a class="reference internal" href="../../dev_guide/yolo_model_preparation.html">Yolo Models Preparation</a></li>
 </ul>
 </li>
@@ -170,6 +168,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/gpu_device_selection.html">GPU device selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dev_guide/performance_guide.html">Performance Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/profiling.html">Profiling with Intel VTune™</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/converting_deepstream_to_dlstreamer.html">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../dev_guide/how_to_contribute.html">How to Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -437,10 +436,6 @@ document.write(`
     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest-1a1e70434428a6b20dbd35be7837761ffa"><span class="std std-ref">label</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
     <span class="kt">double</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest-1acfaa4092998146914af651a094edad6c"><span class="std std-ref">confidence</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
     <span class="kt">int32_t</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest-1a4846b8816a96a08286ec25fa2a61356f"><span class="std std-ref">object_id</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-    <span class="kt">size_t</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest-1aa7fb3d2106058cd691c854179745fed6"><span class="std std-ref">mask_width</span></a><span></span><span class="p">();</span>
-    <span class="kt">size_t</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest-1a6b84d619305e6d04537f20ffbfb9d09b"><span class="std std-ref">mask_height</span></a><span></span><span class="p">();</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest-1a7dda3a8e7dfa730c3aad5becf5f77f75"><span class="std std-ref">mask</span></a><span></span><span class="p">();</span>
-    <span class="kt">bool</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest-1a169264aae739a853516ec85efdbc1b87"><span class="std std-ref">has_mask</span></a><span></span><span class="p">();</span>
     <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a><span></span><span class="o">&gt;</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest-1a383150acbf54733342df8aaaab6f650c"><span class="std std-ref">tensors</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
     <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a><span></span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest-1aba2238d0ce000d31ae00a4ca495cca88"><span class="std std-ref">add_tensor</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">);</span>
     <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a><span></span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest-1aa3360d1e9ffd9f4921905cfc756d2f4a"><span class="std std-ref">detection</span></a><span></span><span class="p">();</span>
@@ -497,27 +492,11 @@ document.write(`
 <p>Get unique id of the <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a>. The id typically created by gvatrack element.</p>
 <p class="rubric">Returns:</p>
 <p>Unique id, or zero value if not found</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1aa7fb3d2106058cd691c854179745fed6"><span id="index-8"></span><span></span><span class="kt">size_t</span> <span class="n">mask_width</span><span class="p">()</span></pre>
-<p>Get the width of the mask of the <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a>. Element added by gvadetect if a mask is detected.</p>
-<p class="rubric">Returns:</p>
-<p>Mask width, or zero value if not found</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1a6b84d619305e6d04537f20ffbfb9d09b"><span id="index-9"></span><span></span><span class="kt">size_t</span> <span class="n">mask_height</span><span class="p">()</span></pre>
-<p>Get the height of the mask of the <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a>. Element added by gvadetect if a mask is detected.</p>
-<p class="rubric">Returns:</p>
-<p>Mask height, or zero value if not found</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1a7dda3a8e7dfa730c3aad5becf5f77f75"><span id="index-10"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">mask</span><span class="p">()</span></pre>
-<p>Get the mask of the <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a>. Element added by gvadetect if a mask is detected.</p>
-<p class="rubric">Returns:</p>
-<p>Vector with mask values, or empty vector if not found</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1a169264aae739a853516ec85efdbc1b87"><span id="index-11"></span><span></span><span class="kt">bool</span> <span class="n">has_mask</span><span class="p">()</span></pre>
-<p>Check whether <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> has a mask defined.</p>
-<p class="rubric">Returns:</p>
-<p>True if <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> has a mask, or false if it does not</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1a383150acbf54733342df8aaaab6f650c"><span id="index-12"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a><span></span><span class="o">&gt;</span> <span class="n">tensors</span><span class="p">()</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1a383150acbf54733342df8aaaab6f650c"><span id="index-8"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a><span></span><span class="o">&gt;</span> <span class="n">tensors</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Get all <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> instances added to this <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a>.</p>
 <p class="rubric">Returns:</p>
 <p>vector of <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> instances added to this <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a></p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1aba2238d0ce000d31ae00a4ca495cca88"><span id="index-13"></span><a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a><span></span> <span class="n">add_tensor</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1aba2238d0ce000d31ae00a4ca495cca88"><span id="index-9"></span><a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a><span></span> <span class="n">add_tensor</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">)</span></pre>
 <p>Add new tensor (inference result) to this <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> with name set. To add detection tensor, set name to “detection”.</p>
 <p class="rubric">Parameters:</p>
 <table class="table">
@@ -533,19 +512,19 @@ document.write(`
 </table>
 <p class="rubric">Returns:</p>
 <p>just created <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> object, which can be filled with tensor information further</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1aa3360d1e9ffd9f4921905cfc756d2f4a"><span id="index-14"></span><a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a><span></span> <span class="n">detection</span><span class="p">()</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1aa3360d1e9ffd9f4921905cfc756d2f4a"><span id="index-10"></span><a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a><span></span> <span class="n">detection</span><span class="p">()</span></pre>
 <p>Returns detection <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a>, last added to this <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a>. As any other <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a>, returned detection <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> can contain arbitrary information. If you use <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> based on GstVideoRegionOfInterestMeta attached by gvadetect by default, then this <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> will contain “label_id”, “confidence”, “x_min”, “x_max”, “y_min”, “y_max” fields. If <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> doesn’t have detection <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a>, it will be created in-place.</p>
 <p class="rubric">Returns:</p>
 <p>detection <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a>, empty if there were no detection <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> objects added to this <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> when this method was called</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1a7d226e7a6907606bb5b4bc3a352bea44"><span id="index-15"></span><span></span><span class="kt">int</span> <span class="n">label_id</span><span class="p">()</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1a7d226e7a6907606bb5b4bc3a352bea44"><span id="index-11"></span><span></span><span class="kt">int</span> <span class="n">label_id</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Get label_id from detection <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a>, last added to this <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a>.</p>
 <p class="rubric">Returns:</p>
 <p>last added detection <a class="reference internal" href="class_GVA_Tensor.html#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> label_id if exists, otherwise 0</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1a91c9985c5999559f0d3070ec074e775b"><span id="index-16"></span><span></span><span class="kt">int</span> <span class="n">region_id</span><span class="p">()</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1a91c9985c5999559f0d3070ec074e775b"><span id="index-12"></span><span></span><span class="kt">int</span> <span class="n">region_id</span><span class="p">()</span></pre>
 <p>Access <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> ID Use this method to get <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> ID. ID is generated with “GVA::VideoFrame::add_region()” call. Region ID can be a positive or negative integer, but never zero.</p>
 <p class="rubric">Returns:</p>
 <p>ID field value</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1a727e82a6852257125c1b33c753688e96"><span id="index-17"></span><span></span><span class="kt">void</span> <span class="n">set_label</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">label</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1a727e82a6852257125c1b33c753688e96"><span id="index-13"></span><span></span><span class="kt">void</span> <span class="n">set_label</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">label</span><span class="p">)</span></pre>
 <p>Set <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> label.</p>
 <p class="rubric">Parameters:</p>
 <table class="table">
@@ -559,7 +538,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1aacf218f09e39c695011807f890242c63"><span id="index-18"></span><span></span><span class="kt">void</span> <span class="n">set_object_id</span><span class="p">(</span><span class="kt">int32_t</span> <span class="n">id</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1aacf218f09e39c695011807f890242c63"><span id="index-14"></span><span></span><span class="kt">void</span> <span class="n">set_object_id</span><span class="p">(</span><span class="kt">int32_t</span> <span class="n">id</span><span class="p">)</span></pre>
 <p>Set object ID.</p>
 <p class="rubric">Parameters:</p>
 <table class="table">
@@ -573,7 +552,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1ae48caa3aabb78046ecb676bd6f8d59ef"><span id="index-19"></span><span></span><span class="n">GstVideoRegionOfInterestMeta</span><span class="o">*</span> <span class="n">_meta</span><span class="p">()</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1ae48caa3aabb78046ecb676bd6f8d59ef"><span id="index-15"></span><span></span><span class="n">GstVideoRegionOfInterestMeta</span><span class="o">*</span> <span class="n">_meta</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Internal function, don’t use or use with caution.</p>
 <p class="rubric">Returns:</p>
 <p>pointer to underlying GstVideoRegionOfInterestMeta</p>

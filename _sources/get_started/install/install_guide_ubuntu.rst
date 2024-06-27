@@ -2,7 +2,7 @@ Install Guide Ubuntu
 ====================
 
 The easiest way to install Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework is installing :ref:`from pre-built Debian packages <1>`.
-If you prefer containerized environment based on Docker, the Intel® DL Streamer Pipeline Framework docker file is also available to build runtime docker image.
+If you prefer containerized environment based on Docker, the Intel® DL Streamer Pipeline Framework Docker image is available as well as Dockerfile to build runtime Docker image.
 
 Alternatively, you can build Intel® DL Streamer Pipeline Framework from the source code
 provided in `repository <https://github.com/dlstreamer/dlstreamer>`__, either building directly on host system, or
@@ -23,7 +23,7 @@ links in the first column of the table.
    * - :ref:`Install Intel® DL Streamer Pipeline Framework pre-built Debian packages <1>`
      - Ubuntu 22.04 (kernel 6.6+ for NPU)
      - \-
-   * - :ref:`Create Docker image from Intel® DL Streamer Pipeline Framework Docker file and run it <2>`
+   * - :ref:`Install Docker image from Docker Hub and run it <2>`
      - Any Linux OS as host system
      - Recommended for containerized environment and when host OS is not supported by the Pipeline Framework installer
    * - :ref:`Compile Intel® DL Streamer Pipeline Framework from sources on host system <3>`
@@ -172,7 +172,7 @@ You are ready to use Intel® DL Streamer. For further instructions please go to:
 
 .. _2:
 
-Option #2: Create Docker image from Intel® DL Streamer Pipeline Framework Docker file and run it
+Option #2: Install Docker image from Docker Hub and run it
 ------------------------------------------------------------------------------------------------
 
 Step 1: Install Docker
@@ -193,26 +193,14 @@ commands to allow connection from Docker container to X server on host:
    xhost local:root
    setfacl -m user:1000:r ~/.Xauthority
 
-Step 3: Download the Intel® DL Streamer Dockerfile
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. code:: sh
-
-   # Install dependencies
-   sudo apt-get update && sudo apt-get install curl wget gpg software-properties-common jq
+Step 3: Pull the Intel® DL Streamer Docker image from Docker Hub
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: sh
 
-   wget $(wget -q -O - https://api.github.com/repos/dlstreamer/dlstreamer/releases/latest | \
-     jq -r '.assets[] | select(.name | contains ("dlstreamer.Dockerfile")) | .browser_download_url')
+   docker pull intel/dlstreamer:latest
 
-Step 4: Build Intel® DL Streamer Pipeline Framework image
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code:: sh
-
-   docker build -t dlstreamer -f dlstreamer.Dockerfile .
-
-Step 5: Run Intel® DL Streamer Pipeline Framework container
+Step 4: Run Intel® DL Streamer Pipeline Framework container
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: sh
@@ -223,9 +211,9 @@ Step 5: Run Intel® DL Streamer Pipeline Framework container
       -v /tmp/.X11-unix \
       -e DISPLAY=$DISPLAY \
       -v /dev/bus/usb \
-      --rm dlstreamer /bin/bash
+      --rm intel/dlstreamer:latest /bin/bash
 
-For NPU devices use command below. Remmember about manual setting of permissions access (go to User acess to the device in https://github.com/intel/linux-npu-driver/releases):
+For NPU devices use command below. Remember about manual setting of permissions access (go to User acess to the device in https://github.com/intel/linux-npu-driver/releases):
 
 .. code:: sh
 
@@ -236,7 +224,7 @@ For NPU devices use command below. Remmember about manual setting of permissions
       -v /tmp/.X11-unix \
       -e DISPLAY=$DISPLAY \
       -v /dev/bus/usb \
-      --rm dlstreamer /bin/bash
+      --rm intel/dlstreamer:latest /bin/bash
 
 Intel® Graphics Compute Runtime for oneAPI Level Zero and OpenCL™ Driver configuration on Ubuntu* 22.04
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -266,11 +254,6 @@ For example, get the render group ID on your host:
 
 Now you can use the container with GPU access under the non-root user.
 
-Next Steps:
-^^^^^^^^^^^
-
-You are ready to use Intel® DL Streamer. For further instructions please go to: :doc:`../tutorial`
-
 .. note::
    Running Intel® DL Streamer Pipeline Framework on GPU requires the drivers to be installed.
    More information can be found here:
@@ -278,6 +261,12 @@ You are ready to use Intel® DL Streamer. For further instructions please go to:
    -  `For Intel® Data Center GPU Flex Series and Intel® Data Center GPU Max Series <https://dgpu-docs.intel.com/driver/installation.html>`__
 
    -  `For Intel® Arc™ GPUs <https://dgpu-docs.intel.com/driver/client/overview.html>`__
+
+
+Next Steps:
+^^^^^^^^^^^
+
+You are ready to use Intel® DL Streamer. For further instructions please go to: :doc:`../tutorial`
 
 
 .. _3:
@@ -577,7 +566,7 @@ When using Media, GPU or NPU devices as non-root user, please configure:
 Intel® DL Streamer Pipeline Framework is now ready to use!
 
 You can find samples in folder ``~/intel/dlstreamer_gst/samples``.
-Before using the samples, run the script ``download_models.sh`` (located
+Before using the samples, run the script ``download_omz_models.sh`` (located
 in ``samples`` folder) to download the models required for samples.
 
 .. note::
