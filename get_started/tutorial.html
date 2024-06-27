@@ -161,6 +161,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../dev_guide/model_proc_file.html">Model-proc File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/model_info_xml.html">Model Info Section</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev_guide/how_to_create_model_proc_file.html">How to Create Model-proc File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev_guide/python_bindings.html">Python Bindings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev_guide/custom_processing.html">Custom Processing</a></li>
@@ -595,7 +596,7 @@ or a file using <em>gvametaconvert</em> and <em>gvametapublish</em> of Intel® D
 </section>
 <section id="tutorial-setup">
 <h2>Tutorial Setup<a class="headerlink" href="#tutorial-setup" title="Permalink to this heading">#</a></h2>
-<p>If you chose Option 2 with Docker in Install Guide you can follow instruction below, but be aware you will need to download models every time in Docker container.
+<p>If you chose Option 2 with Docker in Install Guide, you can skip this part and follow Docker instruction below. Please be aware you will need to download models every time in Docker container.
 To avoid this you can follow Tutorial Setup for Docker to download models on host and mount them inside Docker container.</p>
 <ol class="arabic">
 <li><p>Install Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework by following the <a class="reference internal" href="install/install_guide_ubuntu.html"><span class="doc">Install-Guide</span></a>.</p></li>
@@ -664,24 +665,33 @@ git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="
 </pre></div>
 </div>
 </li>
-<li><p>Export MODELS_PATH where models will be dowloaded, for example export MODELS_PATH=/home/user/models</p></li>
-<li><p>Add /home/user/.local/bin to PATH:  export PATH=”$PATH:/home/user/.local/bin”</p></li>
+<li><p>Export <code class="docutils literal notranslate"><span class="pre">MODELS_PATH</span></code> where models will be dowloaded, for example:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">MODELS_PATH</span><span class="o">=</span>/home/<span class="nv">$USER</span>/models
+</pre></div>
+</div>
+</li>
+<li><p>Make sure your environmental variable <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> includes <code class="docutils literal notranslate"><span class="pre">/home/user/.local/bin</span></code>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PATH</span><span class="s2">:/home/</span><span class="nv">$USER</span><span class="s2">/.local/bin&quot;</span>
+</pre></div>
+</div>
+</li>
 <li><p>Download models:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/intel/dlstreamer_gst/samples
 ./download_models.sh
 </pre></div>
 </div>
 </li>
-<li><p>Mount models using -v or –volume parameter in docker run command:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>/path/to/models/on/host:/home/dlstreamer/intel/dl_streamer/models<span class="w"> </span>&lt;other<span class="w"> </span>args&gt;
-
-docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>/home/user/models:/home/dlstreamer/intel/dl_streamer/models<span class="w">  </span>&lt;other<span class="w"> </span>args&gt;
-
-docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--device<span class="w"> </span>/dev/dri<span class="w"> </span>--group-add<span class="o">=</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%g&quot;</span><span class="w"> </span>/dev/dri/render*<span class="k">)</span><span class="w"> </span>-v<span class="w"> </span>/home/user/models:/home/dlstreamer/intel/dl_streamer/models<span class="w"> </span>dlstreamer:latest
+<li><p>Mount the models directory into the container using <code class="docutils literal notranslate"><span class="pre">-v</span></code> or <code class="docutils literal notranslate"><span class="pre">--volume</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> command.
+Make sure your mounting parameter is specified as <code class="docutils literal notranslate"><span class="pre">-v</span> <span class="pre">&lt;path_on_host&gt;:&lt;path_in_the_container&gt;</span></code>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>/home/<span class="nv">$USER</span>/models:/home/dlstreamer/intel/dl_streamer/models<span class="w">  </span>&lt;other<span class="w"> </span>args&gt;
 </pre></div>
 </div>
-<p>For NPU devices:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--device<span class="w"> </span>/dev/dri<span class="w"> </span>--device<span class="w"> </span>/dev/accel/accel0<span class="w"> </span>--group-add<span class="o">=</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%g&quot;</span><span class="w"> </span>/dev/dri/render*<span class="k">)</span><span class="w"> </span>-v<span class="w"> </span>/home/user/models:/home/dlstreamer/intel/dl_streamer/models<span class="w"> </span>dlstreamer:latest
+<p>To run the Docker image on a GPU device:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--device<span class="w"> </span>/dev/dri<span class="w"> </span>--group-add<span class="o">=</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%g&quot;</span><span class="w"> </span>/dev/dri/render*<span class="k">)</span><span class="w"> </span>-v<span class="w"> </span>/home/<span class="nv">$USER</span>/models:/home/dlstreamer/intel/dl_streamer/models<span class="w"> </span>dlstreamer:latest
+</pre></div>
+</div>
+<p>To run the Docker image on an NPU device:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--device<span class="w"> </span>/dev/dri<span class="w"> </span>--device<span class="w"> </span>/dev/accel/accel0<span class="w"> </span>--group-add<span class="o">=</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%g&quot;</span><span class="w"> </span>/dev/dri/render*<span class="k">)</span><span class="w"> </span>-v<span class="w"> </span>/home/<span class="nv">$USER</span>/models:/home/dlstreamer/intel/dl_streamer/models<span class="w"> </span>dlstreamer:latest
 </pre></div>
 </div>
 </li>

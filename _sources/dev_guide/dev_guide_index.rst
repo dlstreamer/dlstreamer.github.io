@@ -7,6 +7,7 @@ Developer Guide
    metadata
    model_preparation
    model_proc_file
+   model_info_xml
    how_to_create_model_proc_file
    python_bindings
    custom_processing

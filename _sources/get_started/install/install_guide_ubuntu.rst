@@ -271,6 +271,15 @@ Next Steps:
 
 You are ready to use Intel® DL Streamer. For further instructions please go to: :doc:`../tutorial`
 
+.. note::
+   Running Intel® DL Streamer Pipeline Framework on GPU requires the drivers to be installed.
+   More information can be found here:
+
+   -  `For Intel® Data Center GPU Flex Series and Intel® Data Center GPU Max Series <https://dgpu-docs.intel.com/driver/installation.html>`__
+
+   -  `For Intel® Arc™ GPUs <https://dgpu-docs.intel.com/driver/client/overview.html>`__
+
+
 .. _3:
 
 Option #3: Compile Intel® DL Streamer Pipeline Framework from sources on host system

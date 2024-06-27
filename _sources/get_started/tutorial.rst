@@ -167,7 +167,7 @@ or a file using *gvametaconvert* and *gvametapublish* of Intel® DL Streamer.
 
 Tutorial Setup
 --------------
-If you chose Option 2 with Docker in Install Guide you can follow instruction below, but be aware you will need to download models every time in Docker container.
+If you chose Option 2 with Docker in Install Guide, you can skip this part and follow Docker instruction below. Please be aware you will need to download models every time in Docker container.
 To avoid this you can follow Tutorial Setup for Docker to download models on host and mount them inside Docker container.
 
 #. Install Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework by following the :doc:`Install-Guide <install/install_guide_ubuntu>`.
@@ -244,9 +244,17 @@ Tutorial Setup for Docker
       mkdir -p ~/intel
       git clone --recursive https://github.com/dlstreamer/dlstreamer.git ~/intel/dlstreamer_gst
 
-#. Export MODELS_PATH where models will be dowloaded, for example export MODELS_PATH=/home/user/models
+#. Export ``MODELS_PATH`` where models will be dowloaded, for example:
 
-#. Add /home/user/.local/bin to PATH:  export PATH="$PATH:/home/user/.local/bin"
+   .. code:: sh
+
+      export MODELS_PATH=/home/$USER/models
+
+#. Make sure your environmental variable ``$PATH`` includes ``/home/user/.local/bin``:
+
+   .. code:: sh
+
+      export PATH="$PATH:/home/$USER/.local/bin"
 
 #. Download models:
 
@@ -255,20 +263,24 @@ Tutorial Setup for Docker
       cd ~/intel/dlstreamer_gst/samples 
       ./download_models.sh
 
-#. Mount models using -v or --volume parameter in docker run command:
+#. Mount the models directory into the container using ``-v`` or ``--volume`` parameter in ``docker run`` command.
+   Make sure your mounting parameter is specified as ``-v <path_on_host>:<path_in_the_container>``:
 
    .. code:: sh
 
-      docker run -v /path/to/models/on/host:/home/dlstreamer/intel/dl_streamer/models <other args>
+      docker run -v /home/$USER/models:/home/dlstreamer/intel/dl_streamer/models  <other args>
 
-      docker run -v /home/user/models:/home/dlstreamer/intel/dl_streamer/models  <other args>
-
-      docker run -it --device /dev/dri --group-add=$(stat -c "%g" /dev/dri/render*) -v /home/user/models:/home/dlstreamer/intel/dl_streamer/models dlstreamer:latest 
-   For NPU devices:
+   To run the Docker image on a GPU device:
 
    .. code:: sh
 
-      docker run -it --device /dev/dri --device /dev/accel/accel0 --group-add=$(stat -c "%g" /dev/dri/render*) -v /home/user/models:/home/dlstreamer/intel/dl_streamer/models dlstreamer:latest
+      docker run -it --device /dev/dri --group-add=$(stat -c "%g" /dev/dri/render*) -v /home/$USER/models:/home/dlstreamer/intel/dl_streamer/models dlstreamer:latest
+
+   To run the Docker image on an NPU device:
+
+   .. code:: sh
+
+      docker run -it --device /dev/dri --device /dev/accel/accel0 --group-add=$(stat -c "%g" /dev/dri/render*) -v /home/$USER/models:/home/dlstreamer/intel/dl_streamer/models dlstreamer:latest
       
 #. Export the *model* and *model_proc* files for detection and classification:
 

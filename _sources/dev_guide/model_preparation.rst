@@ -7,7 +7,7 @@ Model Preparation
 Video Analytics GStreamer plugins utilize
 `Intel® Distribution of OpenVINO™ Toolkit <https://www.intel.com/content/www/us/en/developer/tools/openvino-toolkit/overview.html>`__
 as a back-end for high efficiency-inference on Intel® CPU and accelerators
-(GPU, VPU, FPGA) and require CNN model to be converted from training
+(GPU, NPU, FPGA) and require CNN model to be converted from training
 framework format (e.g., TensorFlow or Caffe) into a format optimized for
 inference on the target device. The model format used by OpenVINO™ Toolkit
 is termed called Intermediate Representation (IR) format and consists of two files:
@@ -20,13 +20,13 @@ You can either:
 #. Choose model(s) from the extensive set of pre-trained models available in
    `Open Model Zoo <https://github.com/openvinotoolkit/open_model_zoo>`__ (already in IR format)
 
-#. Use `Model Optimizer from OpenVINO™ Toolkit <https://docs.openvino.ai/latest/openvino_docs_MO_DG_Deep_Learning_Model_Optimizer_DevGuide.html>`__ 
-   tool for converting your model from training framework format (e.g., TensorFlow) into IR format
+#. Use `OpenVINO™ Toolkit Model Conversion <https://docs.openvino.ai/2024/openvino-workflow/model-preparation/convert-model-to-ir.html>`__
+   method for converting your model from training framework format (e.g., TensorFlow) into IR format
 
 When using a pre-trained model from Open Model Zoo, consider using the `Model Downloader <https://docs.openvino.ai/latest/omz_tools_downloader.html>`__ tool to facilitate the model downloading process.
 
 In the case of converting a custom model, you can optionally utilize the 
-`Post-Training Optimization Toolkit <https://docs.openvino.ai/latest/pot_introduction.html>`__
+`Post-Training Model Optimization and Compression <https://docs.openvino.ai/2024/openvino-workflow/model-optimization.html>`__
 for converting the model into a performance efficient, and more
 hardware-friendly representation, for example quantize from 32-bit
 floating point-precision into 8-bit integer precision. This gives a
@@ -44,16 +44,24 @@ web-browser graphical interface
 * profile per-layer performance
 * tune hyper parameters for throughput vs latency trade-off
 
-2. Model pre- and post-processing specification file
-----------------------------------------------------
+2. Model pre- and post-processing
+---------------------------------
 
 Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework plugins are capable of
 optionally performing certain pre- and post-processing operations before/after inference.
 
-Pre- and post-processing are configured with the “model-proc”
-file. Its format and all possible pre- and post-processing configuration
+Pre- and post-processing can be configured using:
+
+* The “model-proc” file (mostly applicable to models from OpenModel zoo).
+Its format and all possible pre- and post-processing configuration
 parameters are described on the :doc:`model-proc description <model_proc_file>`
 page.
+* The “model_info” inside OpenVINO™ model.xml file with network topology,
+described on the on the :doc:`model_info description <model_info_xml>`
+
+Both methods yield same results, the “model_info” is recommended as it simplifies dynamic
+deployments (like re-training models with Intel® Geti™) as certain model pre- and post-processing
+parameters are tightly coupled with model training results.
 
 **Pre-processing** is an input data transformation into an appropriate form
 which a neural network expects it to be. Since Pipeline Framework mostly
@@ -65,8 +73,8 @@ back-ends depending on your use case.
 element to one from the table below.**
 
 **Default behavior**: If the property is not set, Pipeline Framework will pick
-``ie`` if system memory is used in pipeline, ``vaapi`` - for GPU memory
-(VASurface and DMABuf).
+``ie`` if system memory is used in pipeline, ``va`` - for GPU memory
+(VAMemory and DMABuf).
 
 .. list-table::
    :widths: 25, 50, 25, 25
@@ -84,24 +92,24 @@ element to one from the table below.**
      - All power of OpenCV is leveraged for input image pre-processing. Provides a wide variety of operations that can be performed on image.
      - System
      - Yes
-   * - vaapi
-     - Should be used in pipelines with GPU memory. Performs mapping to the system memory and uses opencv pre-processor.
+   * - | va
+       | *or*
+       | vaapi
+     - Should be used in pipelines with GPU memory. Performs mapping to the system memory and uses vaapi pre-processor.
      - | VASurface
        | *and*
        | DMABuf
      - Yes
-   * - vaapi-surface-sharing
+   * - | va-surface-sharing
+       | *or*
+       | vaapi-surface-sharing
      - Should be used in pipelines with GPU memory and GPU inference device. Doesn't perform mapping to the system memory. As a pre-processor, it performs image resize, crop, and sets color format to NV12.
      - | VASurface
-       | *and*
-       | DMABuf
      - Partially
 
 **Post-processing** is a raw inference results processing using so
 called converters. Converters just transform the results from raw output
-``InferenceEngine::Blob`` to required representation. Once output blob
-is processed and the data is transformed, it is attached to a frame as
-meta data.
+tensors to GStreamer representation attached to a frame as meta data.
 
 If there's no suitable pre- and/or post-processing implementation in DL
 Streamer, :doc:`Custom Processing <custom_processing>` can be used.
