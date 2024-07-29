@@ -325,7 +325,7 @@ Install build dependencies:
 .. code:: sh
 
    # Install dependencies
-   sudo apt-get update && sudo apt-get install curl wget gpg software-properties-common cmake build-essential libpython3-dev python-gi-dev libopencv-dev jq
+   sudo apt-get update && sudo apt-get install curl wget gpg software-properties-common cmake build-essential libpython3-dev python-gi-dev libopencv-dev jq libgflags-dev
 
 Download pre-built Debian packages for GStreamer from `GitHub Release page <https://github.com/dlstreamer/dlstreamer/releases>`. 
 You can manually download all packages from the release page or try to use following command. 

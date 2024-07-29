@@ -15,8 +15,8 @@ The following command line is recommended for Intel platforms with integrated GP
 
 .. code:: shell
 
-    gst-launch-10 filesrc location=<VIDEO_FILE> ! parsebin ! vah264dec ! video/x-raw(memory:VAMemory) ! gvadetect model=<MODEL_FILE> device=GPU pre-process-backend=va ! queue ! gvafpscounter ! fakesink
-    gst-launch-10 filesrc location=<VIDEO_FILE> ! parsebin ! vah264dec ! video/x-raw(memory:VAMemory) ! gvadetect model=<MODEL_FILE> device=NPU pre-process-backend=va ! queue ! gvafpscounter ! fakesink
+    gst-launch-1.0 filesrc location=${VIDEO_FILE} ! parsebin ! vah264dec ! "video/x-raw(memory:VAMemory)" ! gvadetect model=${MODEL_FILE} device=GPU pre-process-backend=va ! queue ! gvafpscounter ! fakesink
+    gst-launch-1.0 filesrc location=${VIDEO_FILE} ! parsebin ! vah264dec ! "video/x-raw(memory:VAMemory)" ! gvadetect model=${MODEL_FILE} device=NPU pre-process-backend=va ! queue ! gvafpscounter ! fakesink
 
 When using discrete GPUs it is recommended to set 'pre-process-backend=va-surface-sharing' to enforce zero-copy operation between video decoder and AI inference engine.
 
@@ -25,15 +25,33 @@ The 'va-surface-sharing' option compiles the image scaling layer into the AI mod
 
 .. code:: shell
 
-    gst-launch-10 filesrc location=<VIDEO_FILE> ! parsebin ! vah264dec ! video/x-raw(memory:VAMemory) ! gvadetect model=<MODEL_FILE> device=GPU pre-process-backend=va-surface-sharing ! queue ! gvafpscounter ! fakesink
+    gst-launch-1.0 filesrc location=${VIDEO_FILE} ! parsebin ! vah264dec ! "video/x-raw(memory:VAMemory)" ! gvadetect model=${MODEL_FILE} device=GPU pre-process-backend=va-surface-sharing ! queue ! gvafpscounter ! fakesink
 
-The hardware-accelerated decoder is recommended even when using CPU device for inference. 
-The decoded image should be stored in system (CPU) memory and handled with OpenCV preprocessor backend (pre-proc-backend=opencv).
+While GPU device is preferred for hardware-accelerated media decoding, it is also possible to decode video streams using CPU device.
+The following table lists commands lines recommended pipelines for various combinations of media decode and AI inference devices.
 
-.. code:: shell
+.. list-table::
+   :header-rows: 1
 
-    gst-launch-10 filesrc location=<VIDEO_FILE> ! parsebin ! vah264dec ! video/x-raw ! gvadetect model=<MODEL_FILE> device=CPU pre-process-backend=opencv ! queue ! gvafpscounter ! fakesink
-
+   * - Media Decode device
+     - Inference device
+     - Sample command line
+   * - GPU
+     - | GPU
+       | *or*
+       | NPU
+     - gst-launch-1.0 filesrc location=${VIDEO_EXAMPLE} ! parsebin ! vah264dec ! "video/x-raw(memory:VAMemory)" ! gvadetect model=${MODEL_FILE} device=GPU pre-process-backend=va ! queue ! gvafpscounter ! fakesink
+   * - GPU
+     - CPU
+     - gst-launch-1.0 filesrc location=${VIDEO_EXAMPLE} ! parsebin ! vah264dec ! "video/x-raw" ! gvadetect model=${MODEL_FILE} device=CPU pre-process-backend=opencv ! queue ! gvafpscounter ! fakesink
+   * - CPU
+     - | GPU
+       | *or*
+       | NPU
+     - gst-launch-1.0 filesrc location=${VIDEO_EXAMPLE} ! parsebin ! avdec_h264 ! "video/x-raw" ! gvadetect model=${MODEL_FILE} device=GPU pre-process-backend=opencv ! queue ! gvafpscounter ! fakesink
+   * - CPU
+     - CPU
+     - gst-launch-1.0 filesrc location=${VIDEO_EXAMPLE} ! parsebin ! avdec_h264 ! "video/x-raw" ! gvadetect model=${MODEL_FILE} device=CPU pre-process-backend=opencv ! queue ! gvafpscounter ! fakesink
 
 2. Multi-stage pipeline with gvadetect and gvaclassify
 ------------------------------------------------------
@@ -43,11 +61,11 @@ The third element may use CPU device, after the video stream is copied from devi
 
 .. code:: shell
 
-    gst-launch-10 filesrc location=<VIDEO_FILE> ! parsebin ! vah264dec ! video/x-raw(memory:VAMemory) ! \
-    gvadetect model=<MODEL_FILE_1> device=GPU pre-process-backend=va ! queue ! \
-    gvaclassify model=<MODEL_FILE_2> device=NPU pre-process-backend=va ! queue ! \
+    gst-launch-1.0 filesrc location=${VIDEO_FILE} ! parsebin ! vah264dec ! "video/x-raw(memory:VAMemory)" ! \
+    gvadetect model=${MODEL_FILE_1} device=GPU pre-process-backend=va ! queue ! \
+    gvaclassify model=${MODEL_FILE_2} device=NPU pre-process-backend=va ! queue ! \
     vapostproc ! video/x-raw ! \
-    gvaclassify model=<MODEL_FILE_3> device=CPU pre-process-backend=opencv ! queue ! \
+    gvaclassify model=${MODEL_FILE_3} device=CPU pre-process-backend=opencv ! queue ! \
     gvafpscounter ! fakesink
 
 Please note 'queue' elements following each inference element (gvadetect and gvaclassify).
@@ -60,10 +78,10 @@ The pre-processing backend should be selected to handle all possible combination
 
 .. code:: shell
 
-    gst-launch-10 filesrc location=<VIDEO_FILE> ! parsebin ! vah264dec ! video/x-raw(memory:VAMemory) ! \
-    gvadetect model=<MODEL_FILE_1> device=MULTI:GPU,NPU,CPU pre-process-backend=va ! queue ! \
-    gvaclassify model=<MODEL_FILE_2> device=MULTI:GPU,NPU,CPU pre-process-backend=va ! queue ! \
-    gvaclassify model=<MODEL_FILE_3> device=MULTI:GPU,NPU,CPU pre-process-backend=va ! queue ! \
+    gst-launch-1.0 filesrc location=${VIDEO_FILE} ! parsebin ! vah264dec ! "video/x-raw(memory:VAMemory)" ! \
+    gvadetect model=${MODEL_FILE_1} device=MULTI:GPU,NPU,CPU pre-process-backend=va ! queue ! \
+    gvaclassify model=${MODEL_FILE_2} device=MULTI:GPU,NPU,CPU pre-process-backend=va ! queue ! \
+    gvaclassify model=${MODEL_FILE_3} device=MULTI:GPU,NPU,CPU pre-process-backend=va ! queue ! \
     gvafpscounter ! fakesink
 
 3. Multi-stream pipelines with single AI stage
@@ -75,14 +93,14 @@ This appraoch batches images from different streams to maximize throughtput and 
 
 .. code:: shell
 
-    gst-launch-10 filesrc location=<VIDEO_FILE_1> ! parsebin ! vah264dec ! video/x-raw(memory:VAMemory) ! \
-    gvadetect model=<MODEL_FILE> device=GPU pre-process-backend=va model-instance-id=inf0 batch-size=4 ! queue ! gvafpscounter ! fakesink \
-    gst-launch-10 filesrc location=<VIDEO_FILE_2> ! parsebin ! vah264dec ! video/x-raw(memory:VAMemory) ! \
-    gvadetect model=<MODEL_FILE> device=GPU pre-process-backend=va model-instance-id=inf0 batch-size=4 ! queue ! gvafpscounter ! fakesink \
-    gst-launch-10 filesrc location=<VIDEO_FILE_3> ! parsebin ! vah264dec ! video/x-raw(memory:VAMemory) ! \
-    gvadetect model=<MODEL_FILE> device=GPU pre-process-backend=va model-instance-id=inf0 batch-size=4 ! queue ! gvafpscounter ! fakesink \
-    gst-launch-10 filesrc location=<VIDEO_FILE_4> ! parsebin ! vah264dec ! video/x-raw(memory:VAMemory) ! \
-    gvadetect model=<MODEL_FILE> device=GPU pre-process-backend=va model-instance-id=inf0 batch-size=4 ! queue ! gvafpscounter ! fakesink
+    gst-launch-1.0 filesrc location=${VIDEO_FILE_1} ! parsebin ! vah264dec ! "video/x-raw(memory:VAMemory)" ! \
+    gvadetect model=${MODEL_FILE} device=GPU pre-process-backend=va model-instance-id=inf0 batch-size=4 ! queue ! gvafpscounter ! fakesink \
+    filesrc location=${VIDEO_FILE_2} ! parsebin ! vah264dec ! "video/x-raw(memory:VAMemory)" ! \
+    gvadetect model=${MODEL_FILE} device=GPU pre-process-backend=va model-instance-id=inf0 batch-size=4 ! queue ! gvafpscounter ! fakesink \
+    filesrc location=${VIDEO_FILE_3} ! parsebin ! vah264dec ! "video/x-raw(memory:VAMemory)" ! \
+    gvadetect model=${MODEL_FILE} device=GPU pre-process-backend=va model-instance-id=inf0 batch-size=4 ! queue ! gvafpscounter ! fakesink \
+    filesrc location=${VIDEO_FILE_4} ! parsebin ! vah264dec ! "video/x-raw(memory:VAMemory)" ! \
+    gvadetect model=${MODEL_FILE} device=GPU pre-process-backend=va model-instance-id=inf0 batch-size=4 ! queue ! gvafpscounter ! fakesink
 
 Similarily as for multi-stage scenarios, an aggregated inference device can be used with 'device=MULTI:GPU,NPU,CPU'.
 
@@ -102,15 +120,15 @@ Note the pipeline creates only two instances of inference models:
 
 .. code:: shell
 
-    gst-launch-10 filesrc location=<VIDEO_FILE_1> ! parsebin ! vah264dec ! video/x-raw(memory:VAMemory) ! \
-    gvadetect model=<MODEL_FILE_1> device=GPU pre-process-backend=va model-instance-id=inf1 batch-size=4 ! queue ! \
-    gvaclassify model=<MODEL_FILE_2> device=NPU pre-process-backend=va model-instance-id=inf2 batch-size=4 ! queue ! gvafpscounter ! fakesink \
-    gst-launch-10 filesrc location=<VIDEO_FILE_2> ! parsebin ! vah264dec ! video/x-raw(memory:VAMemory) ! \
-    gvadetect model=<MODEL_FILE_1> device=GPU pre-process-backend=va model-instance-id=inf1 batch-size=4 ! queue ! \
-    gvaclassify model=<MODEL_FILE_2> device=NPU pre-process-backend=va model-instance-id=inf2 batch-size=4 ! queue ! gvafpscounter ! fakesink \
-    gst-launch-10 filesrc location=<VIDEO_FILE_3> ! parsebin ! vah264dec ! video/x-raw(memory:VAMemory) ! \
-    gvadetect model=<MODEL_FILE_1> device=GPU pre-process-backend=va model-instance-id=inf1 batch-size=4 ! queue ! \
-    gvaclassify model=<MODEL_FILE_2> device=NPU pre-process-backend=va model-instance-id=inf2 batch-size=4 ! queue ! gvafpscounter ! fakesink \
-    gst-launch-10 filesrc location=<VIDEO_FILE_4> ! parsebin ! vah264dec ! video/x-raw(memory:VAMemory) ! \
-    gvadetect model=<MODEL_FILE_1> device=GPU pre-process-backend=va model-instance-id=inf1 batch-size=4 ! queue ! \
-    gvaclassify model=<MODEL_FILE_2> device=NPU pre-process-backend=va model-instance-id=inf2 batch-size=4 ! queue ! gvafpscounter ! fakesink
+    gst-launch-1.0 filesrc location=${VIDEO_FILE_1} ! parsebin ! vah264dec ! "video/x-raw(memory:VAMemory)" ! \
+    gvadetect model=${MODEL_FILE_1} device=GPU pre-process-backend=va model-instance-id=inf1 batch-size=4 ! queue ! \
+    gvaclassify model=${MODEL_FILE_2} device=NPU pre-process-backend=va model-instance-id=inf2 batch-size=4 ! queue ! gvafpscounter ! fakesink \
+    filesrc location=${VIDEO_FILE_2} ! parsebin ! vah264dec ! "video/x-raw(memory:VAMemory)" ! \
+    gvadetect model=${MODEL_FILE_1} device=GPU pre-process-backend=va model-instance-id=inf1 batch-size=4 ! queue ! \
+    gvaclassify model=${MODEL_FILE_2} device=NPU pre-process-backend=va model-instance-id=inf2 batch-size=4 ! queue ! gvafpscounter ! fakesink \
+    filesrc location=${VIDEO_FILE_3} ! parsebin ! vah264dec ! "video/x-raw(memory:VAMemory)" ! \
+    gvadetect model=${MODEL_FILE_1} device=GPU pre-process-backend=va model-instance-id=inf1 batch-size=4 ! queue ! \
+    gvaclassify model=${MODEL_FILE_2} device=NPU pre-process-backend=va model-instance-id=inf2 batch-size=4 ! queue ! gvafpscounter ! fakesink \
+    filesrc location=${VIDEO_FILE_4} ! parsebin ! vah264dec ! "video/x-raw(memory:VAMemory)" ! \
+    gvadetect model=${MODEL_FILE_1} device=GPU pre-process-backend=va model-instance-id=inf1 batch-size=4 ! queue ! \
+    gvaclassify model=${MODEL_FILE_2} device=NPU pre-process-backend=va model-instance-id=inf2 batch-size=4 ! queue ! gvafpscounter ! fakesink

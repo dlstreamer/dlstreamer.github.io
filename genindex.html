@@ -154,7 +154,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="dev_guide/dev_guide_index.html">Developer Guide</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="dev_guide/metadata.html">Metadata</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="dev_guide/model_preparation.html">Model Preparation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="dev_guide/yolo_model_preparation.html">Yolo Models Preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dev_guide/yolo_models.html">Yolo Models</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="dev_guide/model_proc_file.html">Model-proc File</a></li>
@@ -2105,8 +2105,6 @@ document.write(`
 </li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-5">process</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-6">[1]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-7">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransform.html#index-8">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransformInplace.html#index-2">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseTransformInplace.html#index-3">[5]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-5">[6]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-6">[7]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-7">[8]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Transform.html#index-8">[9]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_TransformInplace.html#index-2">[10]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_TransformInplace.html#index-3">[11]</a>
 </li>
-        <li><a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-4">radius</a>
-</li>
         <li><a href="architecture_2.0/api_ref/class_dlstreamer_Source.html#index-3">read</a>
 </li>
         <li><a href="api_ref/class_gstgva_region_of_interest_RegionOfInterest.html#index-1">rect</a>, <a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-2">[1]</a>
@@ -2124,6 +2122,8 @@ document.write(`
         <li><a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-11">remove_region</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-14">[1]</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-15">remove_tensor</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-15">[1]</a>
+</li>
+        <li><a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-4">rotation</a>
 </li>
         <li><a href="architecture_2.0/api_ref/class_GVA_AudioEvent.html#index-2">segment</a>
 </li>
@@ -3056,13 +3056,6 @@ document.write(`
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
-    radius
-
-      <ul>
-        <li><a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-4">function</a>
-</li>
-      </ul></li>
-      <li>
     read
 
       <ul>
@@ -3090,8 +3083,6 @@ document.write(`
         <li><a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-1">function</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     regions
 
@@ -3099,6 +3090,8 @@ document.write(`
         <li><a href="api_ref/class_gstgva_video_frame_VideoFrame.html#index-4">function</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-6">[1]</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-7">[2]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_BaseFrame.html#index-8">[3]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_Frame.html#index-9">[4]</a>, <a href="architecture_2.0/api_ref/class_dlstreamer_GSTFrame.html#index-2">[5]</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     remove_event
 
@@ -3125,6 +3118,13 @@ document.write(`
 
       <ul>
         <li><a href="architecture_2.0/api_ref/class_GVA_AudioFrame.html#index-15">function</a>, <a href="architecture_2.0/api_ref/class_GVA_VideoFrame.html#index-15">[1]</a>
+</li>
+      </ul></li>
+      <li>
+    rotation
+
+      <ul>
+        <li><a href="architecture_2.0/api_ref/class_GVA_RegionOfInterest.html#index-4">function</a>
 </li>
       </ul></li>
   </ul></td>

@@ -1,6 +1,14 @@
 Model Preparation
 =================
+.. note::  
+  When getting started with Intel® DL Streamer, the best way to obtain a collection of models ready for use in video analytics pipelines is to run `download_omz_models.sh <https://github.com/dlstreamer/dlstreamer/blob/master/samples/download_omz_models.sh>`__ and `download_public_models.sh <https://github.com/dlstreamer/dlstreamer/blob/master/samples/download_public_models.sh>`_.
+  These scripts will download models from `Open Model Zoo <https://github.com/openvinotoolkit/open_model_zoo>`__ and other sources, handle the necessary conversions and put model files in a directory specified by the MODELS_PATH environment variable. 
 
+  This way, you will be able to easily perform the most popular tasks, such as object detection and classification, instance segmentation, face localization and many others. 
+  For examples of how to set up Intel® DL Streamer pipelines that carry out these functions, please refer to the `sample directory <https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/gst_launch>`_. 
+
+  If you're interested in designing custom pipelines, make sure to review the `Supported Models <https://dlstreamer.github.io/supported_models.html>`_ table for guidance on whether Intel® DL Streamer elements require specific configurations (defined by the model-proc or labels files) for your selected model.
+  
 1. Model file format used by OpenVINO™ Toolkit
 ----------------------------------------------
 
@@ -126,18 +134,11 @@ pre-processing/post-processing rules may look like
 
    gvadetect model=MODEL1_FILE_PATH.xml model-proc=MODEL1_FILE_PATH.json ! gvaclassify model=MODEL2_FILE_PATH.xml model-proc=MODEL2_FILE_PATH.json
 
-4. Workflow diagram
--------------------
-
-The following diagram illustrates overall workflow
-
-.. figure:: gst_va_developer_flow.png
-   :alt: gst_va_developer_flow
 
 
 .. toctree::
    :maxdepth: 2
 
-   yolo_model_preparation
+   yolo_models
 
 

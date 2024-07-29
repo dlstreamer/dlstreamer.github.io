@@ -4,7 +4,7 @@ Profiling with Intel VTune™
 This page describes how to enable ITT tracing and analyze performance of Intel® Deep Learning Streamer (Intel® DL Streamer) and GStreamer elements using Intel VTune™ tool.
 
 .. note::
-   Intel VTune™ uses ITT interface to capture custom tasks and visualize them on Profile tab. ITT instrumentation enabled in default
+   Intel VTune™ uses ITT interface to capture custom tasks and visualize them on Profile tab. ITT instrumentation is enabled in default
    builds of Intel® DL Streamer, oneTBB, OpenCL intercept-layer, and some other libraries, but disabled by default in binary releases of
    OpenVINO™ toolkit. Please refer to `wiki page <https://github.com/openvinotoolkit/openvino/wiki/BuildingCode>`__
    for instructions how to build OpenVINO™ toolkit from sources and additionally pass ``-DENABLE_PROFILING_ITT=ON`` option to cmake in configuration step.
@@ -14,83 +14,48 @@ This page describes how to enable ITT tracing and analyze performance of Intel®
 1. Install VTune™
 -----------------
 
-Download and install VTune™ using following link https://www.intel.com/content/www/us/en/developer/tools/oneapi/vtune-profiler-download.html
+The preferable way of using VTune™ is Windows-to-Linux remote profiling/analysis method.
 
-Note: If you want remote profiling you need to install VTune™ on both host and target system
+First, download and install VTune™ using following link https://www.intel.com/content/www/us/en/developer/tools/oneapi/vtune-profiler-download.html
 
-2. Configure VTune™ target platform.
-------------------------------------
+Choose the Online Installer option. 
+
+2. Configure VTune™ host platform, Windows-to-Linux remote profiling method
+---------------------------------------------------------------------------
 1. Open VTune™ and create new project (or just Configure Analysis)
-2. Specify your target platform Please refer following Guide: https://www.intel.com/content/www/us/en/develop/documentation/vtune-help/top/set-up-analysis-target.html
-3. For remote connection please see: https://www.intel.com/content/www/us/en/develop/documentation/vtune-help/top/set-up-analysis-target/linux-targets/remote-linux-target-setup/configuring-ssh-access-for-remote-collection.html
-
-3. Source OpenVINO™ toolkit and Intel® DL Streamer environment variables
--------------------------------------------------------------------------
-On target system source OpenVINO™ toolkit and DLStreamer environment variables as usual
-
-.. code:: shell
-
-    # OpenVINO™ toolkit environment
-    source /opt/intel/openvino_2024/setupvars.sh
-    
-    # Intel® DL Streamer environment
-    source /opt/intel/dlstreamer/setupvars.sh
-    
-    # Intel® oneAPI DPC++/C++ Compiler environment (if installed)
-    # source /opt/intel/oneapi/compiler/latest/env/vars.sh
-
-And additionally set GST_TRACERS environment variable to profile all GStreamer elements in pipeline
-
-.. code:: shell
-
-    # Enable itt tracing in DLStreamer pipeline
-    export GST_TRACERS=gvaitttracer
-
-
-4. VTune™ configuration
------------------------
-
-1. Choose Launch Application option.
-2. Set Application path: full path do gst-launch-1.0 application like: 
+2. Setup configuration in three panes **WHERE**, **WHAT**, **HOW** 
+3. For pane **WHERE** configuration, please see: https://www.intel.com/content/www/us/en/develop/documentation/vtune-help/top/set-up-analysis-target/linux-targets/remote-linux-target-setup/configuring-ssh-access-for-remote-collection.html
+4. For pane **WHAT** configuration, please create a script on **target-Linux** system like below. 
+   
+   Please modify the **command** parameter in the script.
 
     .. code:: shell
 
-        /opt/intel/dlstreamer/gstreamer/bin/gst-launch-1.0
-
-3. In application parameters just pass full Intel® DL Streamer pipeline starting from filesrc option. Like below:
-
-    .. code:: shell
-    
-        filesrc location=<VIDEO_FILE> ! decodebin ! gvainference model=<MODEL>.xml ! fakesink sync=false
-
-4. Update advanced options: ensure check-box ``Analyze child processes`` is set.
-
-5. (Optional) If you launched VTune™ remotely or using different environment (CLI) you need to create a VTune™ wrapper script like below and set in under Advanced settings "Wrapper script" section:
-
-    .. code:: shell
-
-        #!/bin/shell
+        #!/bin/bash
         command="$@"
+        #e.g. command="gst-launch-1.0 filesrc location=<VIDEO_FILE> ! decodebin ! gvainference model=<MODEL>.xml ! fakesink sync=false"
 
         # OpenVINO™ Toolkit environment
         source /opt/intel/openvino_2024/setupvars.sh
     
         # Intel® DL Streamer environment
         source /opt/intel/dlstreamer/gstreamer/setupvars.sh
+        source /opt/intel/dlstreamer/setupvars.sh
 
         # Run VTune™ collector
-        $command
+        $command    
 
-        # Postfix script
-        ls -la $VTUNE_RESULT_DIR
+   Set **Application** path pointing the above script
 
-6. Select "Configure Analysis" and selects "Hotspots" or Accelerators analysis
+   Update advanced options: ensure check-box ``Analyze child processes`` is set.
+
+5. For pane **HOW** configuration, selects "Hotspots" or other Accelerators analysis
 
 .. image:: https://www.intel.com/content/www/us/en/docs/vtune-profiler/user-guide/2024-0/getting-started.html
 
-7. Press start button to execute your pipeline and collect performance snapshot.
+6. Press start button to execute your pipeline and collect performance snapshot.
 
-5. Results Analysis
+3. Results Analysis
 -------------------
 When results is ready you can check Bottom-UP tab (Grouping "Task Type / Function / Call stack") to check how much time each task takes and how many times it was called.
 

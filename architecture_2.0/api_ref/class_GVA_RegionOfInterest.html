@@ -155,7 +155,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../dev_guide/dev_guide_index.html">Developer Guide</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/metadata.html">Metadata</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../dev_guide/model_preparation.html">Model Preparation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../dev_guide/yolo_model_preparation.html">Yolo Models Preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dev_guide/yolo_models.html">Yolo Models</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/model_proc_file.html">Model-proc File</a></li>
@@ -432,7 +432,7 @@ document.write(`
 
     <a class="reference internal" href="struct_GVA_Rect.html#doxid-struct-g-v-a-1-1-rect"><span class="std std-ref">Rect</span></a><span></span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest-1a2556d1b0a7aa98d36eea9979f8c316bc"><span class="std std-ref">rect</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
     <a class="reference internal" href="struct_GVA_Rect.html#doxid-struct-g-v-a-1-1-rect"><span class="std std-ref">Rect</span></a><span></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest-1a72d3986623d95742855be5e0c46ae544"><span class="std std-ref">normalized_rect</span></a><span></span><span class="p">();</span>
-    <span class="kt">double</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest-1a9b01fe79fef84488cf9e2a7ca7348771"><span class="std std-ref">radius</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">double</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest-1a8fd47982b2c1d54e97e3700e90236985"><span class="std std-ref">rotation</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest-1a1e70434428a6b20dbd35be7837761ffa"><span class="std std-ref">label</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
     <span class="kt">double</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest-1acfaa4092998146914af651a094edad6c"><span class="std std-ref">confidence</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
     <span class="kt">int32_t</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest-1a4846b8816a96a08286ec25fa2a61356f"><span class="std std-ref">object_id</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
@@ -476,10 +476,10 @@ document.write(`
 <p>Get bounding box of the <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> as normalized coordinates in the range [0, 1].</p>
 <p class="rubric">Returns:</p>
 <p>Bounding box coordinates of the <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a></p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1a9b01fe79fef84488cf9e2a7ca7348771"><span id="index-4"></span><span></span><span class="kt">double</span> <span class="n">radius</span><span class="p">()</span> <span class="k">const</span></pre>
-<p>Get <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> bounding box radius.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1a8fd47982b2c1d54e97e3700e90236985"><span id="index-4"></span><span></span><span class="kt">double</span> <span class="n">rotation</span><span class="p">()</span> <span class="k">const</span></pre>
+<p>Get <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> bounding box rotation.</p>
 <p class="rubric">Returns:</p>
-<p>Bounding box radius of the <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a></p>
+<p>Bounding box rotation of the <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a></p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-region-of-interest-1a1e70434428a6b20dbd35be7837761ffa"><span id="index-5"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">label</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Get <a class="reference internal" href="#doxid-class-g-v-a-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a> label.</p>
 <p class="rubric">Returns:</p>

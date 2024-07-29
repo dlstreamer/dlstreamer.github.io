@@ -28,7 +28,7 @@ This class represents region of interest - object describing detection result (b
 	
 		:ref:`Rect<doxid-struct_g_v_a_1_1_rect>`<uint32_t> :ref:`rect<doxid-class_g_v_a_1_1_region_of_interest_1a2556d1b0a7aa98d36eea9979f8c316bc>`() const;
 		:ref:`Rect<doxid-struct_g_v_a_1_1_rect>`<double> :ref:`normalized_rect<doxid-class_g_v_a_1_1_region_of_interest_1a72d3986623d95742855be5e0c46ae544>`();
-		double :ref:`radius<doxid-class_g_v_a_1_1_region_of_interest_1a9b01fe79fef84488cf9e2a7ca7348771>`() const;
+		double :ref:`rotation<doxid-class_g_v_a_1_1_region_of_interest_1a8fd47982b2c1d54e97e3700e90236985>`() const;
 		std::string :ref:`label<doxid-class_g_v_a_1_1_region_of_interest_1a1e70434428a6b20dbd35be7837761ffa>`() const;
 		double :ref:`confidence<doxid-class_g_v_a_1_1_region_of_interest_1acfaa4092998146914af651a094edad6c>`() const;
 		int32_t :ref:`object_id<doxid-class_g_v_a_1_1_region_of_interest_1a4846b8816a96a08286ec25fa2a61356f>`() const;
@@ -108,21 +108,21 @@ Get bounding box of the :ref:`RegionOfInterest <doxid-class_g_v_a_1_1_region_of_
 
 Bounding box coordinates of the :ref:`RegionOfInterest <doxid-class_g_v_a_1_1_region_of_interest>`
 
-.. index:: pair: function; radius
-.. _doxid-class_g_v_a_1_1_region_of_interest_1a9b01fe79fef84488cf9e2a7ca7348771:
+.. index:: pair: function; rotation
+.. _doxid-class_g_v_a_1_1_region_of_interest_1a8fd47982b2c1d54e97e3700e90236985:
 
 .. ref-code-block:: cpp
 	:class: doxyrest-title-code-block
 
-	double radius() const
+	double rotation() const
 
-Get :ref:`RegionOfInterest <doxid-class_g_v_a_1_1_region_of_interest>` bounding box radius.
+Get :ref:`RegionOfInterest <doxid-class_g_v_a_1_1_region_of_interest>` bounding box rotation.
 
 
 
 .. rubric:: Returns:
 
-Bounding box radius of the :ref:`RegionOfInterest <doxid-class_g_v_a_1_1_region_of_interest>`
+Bounding box rotation of the :ref:`RegionOfInterest <doxid-class_g_v_a_1_1_region_of_interest>`
 
 .. index:: pair: function; label
 .. _doxid-class_g_v_a_1_1_region_of_interest_1a1e70434428a6b20dbd35be7837761ffa:

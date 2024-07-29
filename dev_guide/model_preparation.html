@@ -47,7 +47,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'dev_guide/model_preparation';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Yolo Models Preparation" href="yolo_model_preparation.html" />
+    <link rel="next" title="Yolo Models" href="yolo_models.html" />
     <link rel="prev" title="Metadata" href="metadata.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -155,7 +155,7 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="dev_guide_index.html">Developer Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="metadata.html">Metadata</a></li>
 <li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Model Preparation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="yolo_model_preparation.html">Yolo Models Preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yolo_models.html">Yolo Models</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="model_proc_file.html">Model-proc File</a></li>
@@ -399,7 +399,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-file-format-used-by-openvino-toolkit">1. Model file format used by OpenVINO™ Toolkit</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-pre-and-post-processing">2. Model pre- and post-processing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-model-files-in-gstreamer-elements">3. Specify model files in GStreamer elements</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-diagram">4. Workflow diagram</a></li>
 </ul>
             </nav>
         </div>
@@ -413,6 +412,14 @@ document.write(`
                   
   <section id="model-preparation">
 <h1>Model Preparation<a class="headerlink" href="#model-preparation" title="Permalink to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When getting started with Intel® DL Streamer, the best way to obtain a collection of models ready for use in video analytics pipelines is to run <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/download_omz_models.sh">download_omz_models.sh</a> and <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/download_public_models.sh">download_public_models.sh</a>.
+These scripts will download models from <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo">Open Model Zoo</a> and other sources, handle the necessary conversions and put model files in a directory specified by the MODELS_PATH environment variable.</p>
+<p>This way, you will be able to easily perform the most popular tasks, such as object detection and classification, instance segmentation, face localization and many others.
+For examples of how to set up Intel® DL Streamer pipelines that carry out these functions, please refer to the <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/gst_launch">sample directory</a>.</p>
+<p>If you’re interested in designing custom pipelines, make sure to review the <a class="reference external" href="https://dlstreamer.github.io/supported_models.html">Supported Models</a> table for guidance on whether Intel® DL Streamer elements require specific configurations (defined by the model-proc or labels files) for your selected model.</p>
+</div>
 <section id="model-file-format-used-by-openvino-toolkit">
 <h2>1. Model file format used by OpenVINO™ Toolkit<a class="headerlink" href="#model-file-format-used-by-openvino-toolkit" title="Permalink to this heading">#</a></h2>
 <p>Video Analytics GStreamer plugins utilize
@@ -545,22 +552,16 @@ pre-processing/post-processing rules may look like</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span>MODEL1_FILE_PATH.xml<span class="w"> </span>model-proc<span class="o">=</span>MODEL1_FILE_PATH.json<span class="w"> </span>!<span class="w"> </span>gvaclassify<span class="w"> </span><span class="nv">model</span><span class="o">=</span>MODEL2_FILE_PATH.xml<span class="w"> </span>model-proc<span class="o">=</span>MODEL2_FILE_PATH.json
 </pre></div>
 </div>
-</section>
-<section id="workflow-diagram">
-<h2>4. Workflow diagram<a class="headerlink" href="#workflow-diagram" title="Permalink to this heading">#</a></h2>
-<p>The following diagram illustrates overall workflow</p>
-<figure class="align-default">
-<img alt="gst_va_developer_flow" src="../_images/gst_va_developer_flow.png" />
-</figure>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="yolo_model_preparation.html">Yolo Models Preparation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="yolo_model_preparation.html#setup">1. Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yolo_model_preparation.html#yolov5u-yolov8-yolov9">2. YoloV5u, YoloV8, YoloV9</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yolo_model_preparation.html#yolov7">3. YoloV7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yolo_model_preparation.html#yolov5-older-versions">4. YoloV5 older versions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yolo_model_preparation.html#yolox">5. YoloX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yolo_model_preparation.html#model-usage">6. Model usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yolo_models.html">Yolo Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="yolo_models.html#setup">1. Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yolo_models.html#yolov8-yolov9">2. YoloV8, YoloV9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yolo_models.html#yolov7">3. YoloV7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yolo_models.html#yolov5-latest-version">4. YoloV5 latest version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yolo_models.html#yolov5-older-versions">5. YoloV5 older versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yolo_models.html#yolox">6. YoloX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yolo_models.html#model-usage">7. Model usage</a></li>
 </ul>
 </li>
 </ul>
@@ -589,11 +590,11 @@ pre-processing/post-processing rules may look like</p>
       </div>
     </a>
     <a class="right-next"
-       href="yolo_model_preparation.html"
+       href="yolo_models.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Yolo Models Preparation</p>
+        <p class="prev-next-title">Yolo Models</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -615,7 +616,6 @@ pre-processing/post-processing rules may look like</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-file-format-used-by-openvino-toolkit">1. Model file format used by OpenVINO™ Toolkit</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-pre-and-post-processing">2. Model pre- and post-processing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-model-files-in-gstreamer-elements">3. Specify model files in GStreamer elements</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-diagram">4. Workflow diagram</a></li>
 </ul>
   </nav></div>
 
