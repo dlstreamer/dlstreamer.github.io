@@ -115,7 +115,18 @@ should be described in a key-value format. Valid keys for
      - | no,
        | no-aspect-ratio,
        | aspect-ratio
-     - Resize an image.
+     - Resize an image to match input model layer dimensions.
+     - | opencv,
+       | va,
+       | va-surface-sharing
+   * - params
+     - crop
+     - | central,
+       | top_left,
+       | top_right,
+       | bottom_left,
+       | bottom_right
+     - Crop image to fit input model layer dimensions.
      - | opencv,
        | va,
        | va-surface-sharing

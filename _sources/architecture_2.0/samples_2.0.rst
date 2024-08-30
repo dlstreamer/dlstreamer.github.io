@@ -47,8 +47,6 @@ Architecture 2.0 brings new samples separated into 3 categories by programming m
    * - GStreamer low-level
      - samples/gstreamer/gst_launch/instance_segmentation/
      - `instance_segmentation.sh <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/gst_launch/instance_segmentation/instance_segmentation.sh>`_
-       `roi_background_removal.sh <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/gst_launch/instance_segmentation/roi_background_removal.sh>`_
-       `classification_with_background_removal.sh <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/gst_launch/instance_segmentation/classification_with_background_removal.sh>`_
      - No
      - Yes
      - Yes

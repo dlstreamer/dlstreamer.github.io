@@ -535,7 +535,7 @@ should be described in a key-value format. Valid keys for
 <div class="line">aspect-ratio</div>
 </div>
 </td>
-<td><p>Resize an image.</p></td>
+<td><p>Resize an image to match input model layer dimensions.</p></td>
 <td><div class="line-block">
 <div class="line">opencv,</div>
 <div class="line">va,</div>
@@ -544,6 +544,24 @@ should be described in a key-value format. Valid keys for
 </td>
 </tr>
 <tr class="row-odd"><td><p>params</p></td>
+<td><p>crop</p></td>
+<td><div class="line-block">
+<div class="line">central,</div>
+<div class="line">top_left,</div>
+<div class="line">top_right,</div>
+<div class="line">bottom_left,</div>
+<div class="line">bottom_right</div>
+</div>
+</td>
+<td><p>Crop image to fit input model layer dimensions.</p></td>
+<td><div class="line-block">
+<div class="line">opencv,</div>
+<div class="line">va,</div>
+<div class="line">va-surface-sharing</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>params</p></td>
 <td><p>color_space</p></td>
 <td><div class="line-block">
 <div class="line">RGB,</div>
@@ -559,7 +577,7 @@ should be described in a key-value format. Valid keys for
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>params</p></td>
+<tr class="row-odd"><td><p>params</p></td>
 <td><p>range</p></td>
 <td><p>[ 0.0, 1.0 ]</p></td>
 <td><p>Normalize input image values to be in the specified range.</p></td>
@@ -570,7 +588,7 @@ should be described in a key-value format. Valid keys for
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>params</p></td>
+<tr class="row-even"><td><p>params</p></td>
 <td><p>mean</p></td>
 <td><p>[ 0.485, 0.456, 0.406 ]</p></td>
 <td><p>JSON arrays of doubles. Size of arrays should be equal to the number of channels of the input image.</p></td>
@@ -580,7 +598,7 @@ should be described in a key-value format. Valid keys for
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>params</p></td>
+<tr class="row-odd"><td><p>params</p></td>
 <td><p>std</p></td>
 <td><p>[ 0.229, 0.224, 0.225 ]</p></td>
 <td><p>JSON arrays of doubles. Size of arrays should be equal to the number of channels of the input image.</p></td>
@@ -590,7 +608,7 @@ should be described in a key-value format. Valid keys for
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>params</p></td>
+<tr class="row-even"><td><p>params</p></td>
 <td><p>padding</p></td>
 <td><div class="line-block">
 <div class="line">{</div>

@@ -26,7 +26,7 @@ This algorithm like other tracking algorithms uses the common structure:
     od -> fe -> id
   }
 
-Various tracking algorithms implement each part differenty,
+Various tracking algorithms implement each part differently,
 but generally the pattern remains unchanged.
 
 Object detection

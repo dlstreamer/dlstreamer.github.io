@@ -397,7 +397,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">1. Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov8-yolov9">2. YoloV8, YoloV9</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov8-yolov9-yolov10">2. YoloV8, YoloV9, YoloV10</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov7">3. YoloV7</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov5-latest-version">4. YoloV5 latest version</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov5-older-versions">5. YoloV5 older versions</a></li>
@@ -425,18 +425,33 @@ document.write(`
 <h2>1. Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
 <p>The instructions assume Intel® DL Streamer framework is installed on the local system along with Intel® OpenVINO™ model downloader and converter tools,
 as described here: <a class="reference external" href="https://dlstreamer.github.io/get_started/tutorial.html#tutorial-setup">Tutorial</a>.</p>
-<p>For YoloV5, YoloV8 and YoloV9 models it is also necessary to install the Ultralytics Python package:</p>
+<p>For YoloV5, YoloV8, YoloV9 and YoloV10 models it is also necessary to install the Ultralytics Python package:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
 </pre></div>
 </div>
 </section>
-<section id="yolov8-yolov9">
-<h2>2. YoloV8, YoloV9<a class="headerlink" href="#yolov8-yolov9" title="Permalink to this heading">#</a></h2>
-<p>Python script converting the recent Ultralytics models to Intel® OpenVINO™ format (replace <em>MODEL_NAME</em> with yolov8s.pt or yolov9c.pt):</p>
+<section id="yolov8-yolov9-yolov10">
+<h2>2. YoloV8, YoloV9, YoloV10<a class="headerlink" href="#yolov8-yolov9-yolov10" title="Permalink to this heading">#</a></h2>
+<p>Python script converting the recent Ultralytics models to Intel® OpenVINO™ format (replace <em>MODEL_NAME</em> with “yolov8s.pt”, “yolov9c.pt” or “yolov10s.pt”):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="n">MODEL_NAME</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;openvino&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For model YoloV10 modify model_type as below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<span class="kn">import</span> <span class="nn">openvino</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">shutil</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="n">MODEL_NAME</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">converted_path</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;openvino&#39;</span><span class="p">)</span>
+<span class="n">converted_model</span> <span class="o">=</span> <span class="n">converted_path</span> <span class="o">+</span> <span class="s1">&#39;/yolov10s.xml&#39;</span>
+<span class="n">core</span> <span class="o">=</span> <span class="n">openvino</span><span class="o">.</span><span class="n">Core</span><span class="p">()</span>
+<span class="n">ov_model</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">read_model</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">converted_model</span><span class="p">)</span>
+<span class="n">ov_model</span><span class="o">.</span><span class="n">set_rt_info</span><span class="p">(</span><span class="s2">&quot;yolo_v10&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;model_info&#39;</span><span class="p">,</span> <span class="s1">&#39;model_type&#39;</span><span class="p">])</span>
+<span class="n">openvino</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="n">ov_model</span><span class="p">,</span> <span class="s1">&#39;./FP32/yolov10s.xml&#39;</span><span class="p">,</span> <span class="n">compress_to_fp16</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">openvino</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="n">ov_model</span><span class="p">,</span> <span class="s1">&#39;./FP16/yolov10s.xml&#39;</span><span class="p">,</span> <span class="n">compress_to_fp16</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">converted_path</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -546,7 +561,7 @@ for detailed examples of Intel® DL Streamer pipelines using different Yolo mode
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">1. Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov8-yolov9">2. YoloV8, YoloV9</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov8-yolov9-yolov10">2. YoloV8, YoloV9, YoloV10</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov7">3. YoloV7</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov5-latest-version">4. YoloV5 latest version</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov5-older-versions">5. YoloV5 older versions</a></li>

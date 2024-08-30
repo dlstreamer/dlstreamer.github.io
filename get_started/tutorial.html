@@ -403,8 +403,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework">Introduction to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-setup">Tutorial Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-setup-for-docker">Tutorial Setup for Docker</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-docker-tutorial-setup">Non-Docker tutorial setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-tutorial-setup">Docker tutorial setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-build-object-detection-pipeline">Exercise 1 - Build object detection pipeline</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline">Pipeline</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-with-a-web-camera-video-stream-input-first-optional-add-on-to-exercise-1">Pipeline with a Web Camera Video Stream Input (First optional add-on to Exercise 1)</a></li>
@@ -445,8 +445,8 @@ using Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework.</
 <ul class="simple">
 <li><p><a class="reference external" href="#about-gstreamer">About GStreamer</a></p></li>
 <li><p><a class="reference external" href="#introduction-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework">Introduction to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></p></li>
-<li><p><a class="reference external" href="#tutorial-setup">Tutorial Setup</a></p></li>
-<li><p><a class="reference external" href="#tutorial-setup-for-docker">Tutorial Setup for Docker</a></p></li>
+<li><p><a class="reference external" href="#non-docker-tutorial-setup">Non-Docker tutorial setup</a></p></li>
+<li><p><a class="reference external" href="#docker-tutorial-setup">Docker tutorial setup</a></p></li>
 <li><p><a class="reference internal" href="#object-detection"><span class="std std-ref">Exercise 1 - Build object detection pipeline</span></a></p></li>
 <li><p><a class="reference internal" href="#object-classification"><span class="std std-ref">Exercise 2 - Build object classification pipeline</span></a></p></li>
 <li><p><a class="reference internal" href="#object-tracking"><span class="std std-ref">Exercise 3 - Use object tracking to improve performance</span></a></p></li>
@@ -587,30 +587,22 @@ and create a video frame rendered with the bounding box aligned to
 the vehicle position; parse the classified vehicle result and label
 it on the bounding box.</p></li>
 </ul>
-<p>In addition to <em>gvadetect</em> and <em>gvaclassify</em>, you can use
-<em>gvainference</em> for running inference with any CNN model not supported
+<p>In addition to <code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> and <code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code>, you can use
+<code class="docutils literal notranslate"><span class="pre">gvainference</span></code> for running inference with any CNN model not supported
 by gvadetect or gvaclassify. Also, instead of visualizing the inference
 results, as shown in this tutorial, you can publish them to MQTT, Kafka
-or a file using <em>gvametaconvert</em> and <em>gvametapublish</em> of Intel® DL Streamer.</p>
+or a file using <code class="docutils literal notranslate"><span class="pre">gvametaconvert</span></code> and <code class="docutils literal notranslate"><span class="pre">gvametapublish</span></code> of Intel® DL Streamer.</p>
 </section>
-<section id="tutorial-setup">
-<h2>Tutorial Setup<a class="headerlink" href="#tutorial-setup" title="Permalink to this heading">#</a></h2>
-<p>If you chose Option 2 with Docker in Install Guide, you can skip this part and follow Docker instruction below. Please be aware you will need to download models every time in Docker container.
-To avoid this you can follow Tutorial Setup for Docker to download models on host and mount them inside Docker container.</p>
+<section id="non-docker-tutorial-setup">
+<h2>Non-Docker tutorial setup<a class="headerlink" href="#non-docker-tutorial-setup" title="Permalink to this heading">#</a></h2>
+<p>This section prepares the environment to run examples described below. It is suitable if you chose Option #1 or Option #3 in Install Guide Ubuntu.</p>
 <ol class="arabic">
-<li><p>Install Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework by following the <a class="reference internal" href="install/install_guide_ubuntu.html"><span class="doc">Install-Guide</span></a>.</p></li>
-<li><p>Set the environment variables:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>/opt/intel/openvino_2024/setupvars.sh
-<span class="nb">source</span><span class="w"> </span>/opt/intel/dlstreamer/gstreamer/setupvars.sh
+<li><p>Export <code class="docutils literal notranslate"><span class="pre">MODELS_PATH</span></code> to define where to download models. For example:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">MODELS_PATH</span><span class="o">=</span>/home/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/intel/models
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You must set the environment variables each time you open a new shell unless you added the variables to the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file. See
-<a class="reference external" href="https://docs.openvino.ai/latest/openvino_docs_install_guides_installing_openvino_from_archive_linux.html#step-2-configure-the-environment">Set the environment variables</a>.</p>
-</div>
 </li>
-<li><p>Download the models from <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo">Open Model Zoo</a></p>
+<li><p>Download the models from <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo">Open Model Zoo</a> to <code class="docutils literal notranslate"><span class="pre">MODELS_PATH</span></code> directory:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
 python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>openvino-dev<span class="o">[</span>onnx,tensorflow,pytorch<span class="o">]</span>
 /opt/intel/dlstreamer/samples/download_omz_models.sh
@@ -618,10 +610,10 @@ python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </s
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Make sure your environment variable $PATH includes ‘$HOME/.local/bin’ .</p>
+<p>Make sure your environment variable <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> includes <code class="docutils literal notranslate"><span class="pre">$HOME/.local/bin</span></code> - use <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$PATH</span></code>.</p>
 </div>
 </li>
-<li><p>Export the <em>model</em> and <em>model_proc</em> files for detection and classification:</p>
+<li><p>Export variables to set paths for <em>model</em> and <em>model_proc</em> files. It will make pipelines definition easy later in examples:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">DETECTION_MODEL</span><span class="o">=</span><span class="si">${</span><span class="nv">MODELS_PATH</span><span class="si">}</span>/intel/person-vehicle-bike-detection-2004/FP32/person-vehicle-bike-detection-2004.xml
 <span class="nb">export</span><span class="w"> </span><span class="nv">DETECTION_MODEL_PROC</span><span class="o">=</span>/opt/intel/dlstreamer/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-2004.json
 <span class="nb">export</span><span class="w"> </span><span class="nv">VEHICLE_CLASSIFICATION_MODEL</span><span class="o">=</span><span class="si">${</span><span class="nv">MODELS_PATH</span><span class="si">}</span>/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml
@@ -633,7 +625,7 @@ the IR (Intermediate Representation) format. For detailed
 instructions to convert models, <a class="reference external" href="https://docs.openvino.ai/latest/openvino_docs_MO_DG_prepare_model_convert_model_tf_specific_Convert_YOLO_From_Tensorflow.html">look
 here</a></p>
 </li>
-<li><p>Export the video file path:</p>
+<li><p>Export the example video file path:</p>
 <p>You may download a sample video from the
 <a class="reference external" href="https://github.com/intel-iot-devkit/sample-videos/raw/master/person-bicycle-car-detection.mp4">here</a>.
 If you provide your own video file as an input, please make sure that
@@ -649,55 +641,71 @@ cars, or pedestrians can be used with the exercise.</p>
 </li>
 </ol>
 </section>
-<section id="tutorial-setup-for-docker">
-<span id="id1"></span><h2>Tutorial Setup for Docker<a class="headerlink" href="#tutorial-setup-for-docker" title="Permalink to this heading">#</a></h2>
+<section id="docker-tutorial-setup">
+<span id="tutorial-setup-for-docker"></span><h2>Docker tutorial setup<a class="headerlink" href="#docker-tutorial-setup" title="Permalink to this heading">#</a></h2>
+<p>This section prepares the environment to run examples described below. It is suitable if you chose Option #2 in Install Guide Ubuntu.</p>
 <ol class="arabic">
-<li><p>Install pip,onnx and tensorflow:</p>
+<li><p>Make sure you are not in a Docker container, but on your local host.</p></li>
+<li><p>Install pip, onnx and tensorflow:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-pip
 python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>openvino-dev<span class="o">[</span>onnx,tensorflow,pytorch<span class="o">]</span>
 </pre></div>
 </div>
 </li>
-<li><p>Clone DLStreamer repository:</p>
+<li><p>Clone Intel® DL Streamer repository:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/intel
 git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/dlstreamer/dlstreamer.git<span class="w"> </span>~/intel/dlstreamer_gst
 </pre></div>
 </div>
 </li>
-<li><p>Export <code class="docutils literal notranslate"><span class="pre">MODELS_PATH</span></code> where models will be dowloaded, for example:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">MODELS_PATH</span><span class="o">=</span>/home/<span class="nv">$USER</span>/models
+<li><p>Export <code class="docutils literal notranslate"><span class="pre">MODELS_PATH</span></code> where models will be downloaded, for example:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">MODELS_PATH</span><span class="o">=</span>/home/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/models
 </pre></div>
 </div>
 </li>
-<li><p>Make sure your environmental variable <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> includes <code class="docutils literal notranslate"><span class="pre">/home/user/.local/bin</span></code>:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PATH</span><span class="s2">:/home/</span><span class="nv">$USER</span><span class="s2">/.local/bin&quot;</span>
+<li><p>Make sure your environmental variable <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> includes <code class="docutils literal notranslate"><span class="pre">/home/user/.local/bin</span></code>. If not:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PATH</span><span class="s2">:/home/</span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span><span class="s2">/.local/bin&quot;</span>
 </pre></div>
 </div>
 </li>
-<li><p>Download models:</p>
+<li><p>Download models from <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo">Open Model Zoo</a> to <code class="docutils literal notranslate"><span class="pre">MODELS_PATH</span></code> directory:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/intel/dlstreamer_gst/samples
 ./download_omz_models.sh
 </pre></div>
 </div>
 </li>
-<li><p>Mount the models directory into the container using <code class="docutils literal notranslate"><span class="pre">-v</span></code> or <code class="docutils literal notranslate"><span class="pre">--volume</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> command.
+<li><p>Run Intel® DL Streamer container.</p>
+<p>Run Docker container with the models directory mounted into the container using <code class="docutils literal notranslate"><span class="pre">-v</span></code> or <code class="docutils literal notranslate"><span class="pre">--volume</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> command.
 Make sure your mounting parameter is specified as <code class="docutils literal notranslate"><span class="pre">-v</span> <span class="pre">&lt;path_on_host&gt;:&lt;path_in_the_container&gt;</span></code>:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>/home/<span class="nv">$USER</span>/models:/home/dlstreamer/intel/dl_streamer/models<span class="w">  </span>&lt;other<span class="w"> </span>args&gt;
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="si">${</span><span class="nv">MODELS_PATH</span><span class="si">}</span>:/home/dlstreamer/models<span class="w"> </span>--env<span class="w"> </span><span class="nv">MODELS_PATH</span><span class="o">=</span>/home/dlstreamer/models<span class="w"> </span>intel/dlstreamer:latest
 </pre></div>
 </div>
-<p>To run the Docker image on a GPU device:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--device<span class="w"> </span>/dev/dri<span class="w"> </span>--group-add<span class="o">=</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%g&quot;</span><span class="w"> </span>/dev/dri/render*<span class="k">)</span><span class="w"> </span>-v<span class="w"> </span>/home/<span class="nv">$USER</span>/models:/home/dlstreamer/intel/dl_streamer/models<span class="w"> </span>intel/dlstreamer:latest
+<p>Running Intel® DL Streamer in the Docker container with an inference on GPU or NPU devices requires the access as a non-root user to these devices in the container.
+Intel® DL Streamer Pipeline Framework Docker images do not contain a <code class="docutils literal notranslate"><span class="pre">render</span></code> group for <code class="docutils literal notranslate"><span class="pre">dlstreamer</span></code> non-root user because the <code class="docutils literal notranslate"><span class="pre">render</span></code> group does not have a strict group ID, unlike the <code class="docutils literal notranslate"><span class="pre">video</span></code> group.
+To run container as non-root with access to a GPU and/or NPU device, you have to specify the <code class="docutils literal notranslate"><span class="pre">render</span></code> group ID from your host. The full running command example:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="si">${</span><span class="nv">MODELS_PATH</span><span class="si">}</span>:/home/dlstreamer/models<span class="w"> </span><span class="se">\</span>
+--device<span class="w"> </span>/dev/dri<span class="w"> </span><span class="se">\</span>
+--group-add<span class="w"> </span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%g&quot;</span><span class="w"> </span>/dev/dri/render*<span class="k">)</span><span class="w"> </span><span class="se">\</span>
+--device<span class="w"> </span>/dev/accel<span class="w"> </span><span class="se">\</span>
+--group-add<span class="w"> </span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%g&quot;</span><span class="w"> </span>/dev/accel/accel*<span class="k">)</span><span class="w"> </span><span class="se">\</span>
+--env<span class="w"> </span><span class="nv">ZE_ENABLE_ALT_DRIVERS</span><span class="o">=</span>libze_intel_vpu.so<span class="w"> </span><span class="se">\</span>
+--env<span class="w"> </span><span class="nv">MODELS_PATH</span><span class="o">=</span>/home/dlstreamer/models<span class="w"> </span><span class="se">\</span>
+intel/dlstreamer:latest
 </pre></div>
 </div>
-<p>To run the Docker image on an NPU device:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--device<span class="w"> </span>/dev/dri<span class="w"> </span>--device<span class="w"> </span>/dev/accel/accel0<span class="w"> </span>--group-add<span class="o">=</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%g&quot;</span><span class="w"> </span>/dev/dri/render*<span class="k">)</span><span class="w"> </span>-v<span class="w"> </span>/home/<span class="nv">$USER</span>/models:/home/dlstreamer/intel/dl_streamer/models<span class="w"> </span>intel/dlstreamer:latest
-</pre></div>
-</div>
+<p>where newly added parameters are:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--device</span> <span class="pre">/dev/dri</span></code> - access to GPU device, required when you want to use GPU as inference device (<code class="docutils literal notranslate"><span class="pre">device=GPU</span></code>) or use VA-API graphics hardware acceleration capabilities like <code class="docutils literal notranslate"><span class="pre">vapostproc</span></code>, <code class="docutils literal notranslate"><span class="pre">vah264dec</span></code>, <code class="docutils literal notranslate"><span class="pre">vah264enc</span></code>, <code class="docutils literal notranslate"><span class="pre">vah265dec</span></code>, <code class="docutils literal notranslate"><span class="pre">vah265enc</span></code> etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--group-add</span> <span class="pre">$(stat</span> <span class="pre">-c</span> <span class="pre">&quot;%g&quot;</span> <span class="pre">/dev/dri/render*)</span></code> - non-root access to GPU devices, required in the same scenarios as <code class="docutils literal notranslate"><span class="pre">--device</span> <span class="pre">/dev/dri</span></code> above</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--device</span> <span class="pre">/dev/accel</span></code> - access to NPU device, required when you want to use NPU as inference device (<code class="docutils literal notranslate"><span class="pre">device=NPU</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--group-add</span> <span class="pre">$(stat</span> <span class="pre">-c</span> <span class="pre">&quot;%g&quot;</span> <span class="pre">/dev/accel/accel*)</span></code> - non-root access to NPU devices, required in the same scenarios as <code class="docutils literal notranslate"><span class="pre">--device</span> <span class="pre">/dev/accel</span></code> above</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--env</span> <span class="pre">ZE_ENABLE_ALT_DRIVERS=libze_intel_vpu.so</span></code> - exporting environmental variable needed to run inference successfully on NPU devices</p></li>
+</ol>
 </li>
-<li><p>Export the <em>model</em> and <em>model_proc</em> files for detection and classification:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">DETECTION_MODEL</span><span class="o">=</span><span class="si">${</span><span class="nv">MODELS_PATH</span><span class="si">}</span>/intel/person-vehicle-bike-detection-2004/FP32/person-vehicle-bike-detection-2004.xml
+<li><p>In the container, export variables to set paths for <em>model</em> and <em>model_proc</em> files. It will make pipelines definition easy later in examples:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">DETECTION_MODEL</span><span class="o">=</span>/home/dlstreamer/models/intel/person-vehicle-bike-detection-2004/FP32/person-vehicle-bike-detection-2004.xml
 <span class="nb">export</span><span class="w"> </span><span class="nv">DETECTION_MODEL_PROC</span><span class="o">=</span>/opt/intel/dlstreamer/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-2004.json
-<span class="nb">export</span><span class="w"> </span><span class="nv">VEHICLE_CLASSIFICATION_MODEL</span><span class="o">=</span><span class="si">${</span><span class="nv">MODELS_PATH</span><span class="si">}</span>/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml
+<span class="nb">export</span><span class="w"> </span><span class="nv">VEHICLE_CLASSIFICATION_MODEL</span><span class="o">=</span>/home/dlstreamer/models/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml
 <span class="nb">export</span><span class="w"> </span><span class="nv">VEHICLE_CLASSIFICATION_MODEL_PROC</span><span class="o">=</span>/opt/intel/dlstreamer/samples/gstreamer/model_proc/intel/vehicle-attributes-recognition-barrier-0039.json
 </pre></div>
 </div>
@@ -706,7 +714,7 @@ the IR (Intermediate Representation) format. For detailed
 instructions to convert models, <a class="reference external" href="https://docs.openvino.ai/latest/openvino_docs_MO_DG_prepare_model_convert_model_tf_specific_Convert_YOLO_From_Tensorflow.html">look
 here</a></p>
 </li>
-<li><p>Export the video file path:</p>
+<li><p>In the container, export the example video file path:</p>
 <p>You may download a sample video from the
 <a class="reference external" href="https://github.com/intel-iot-devkit/sample-videos/raw/master/person-bicycle-car-detection.mp4">here</a>.
 If you provide your own video file as an input, please make sure that
@@ -725,7 +733,7 @@ cars, or pedestrians can be used with the exercise.</p>
 <section id="exercise-1-build-object-detection-pipeline">
 <span id="object-detection"></span><h2>Exercise 1 - Build object detection pipeline<a class="headerlink" href="#exercise-1-build-object-detection-pipeline" title="Permalink to this heading">#</a></h2>
 <p>This exercise helps you create a GStreamer pipeline that will perform
-object detection using <em>gvadetect</em> element and Intermediate
+object detection using <code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> element and Intermediate
 Representation (IR) formatted object detection model. It provides two
 optional add-ons to show you how to use video from a web camera stream
 and an RTSP URI.</p>
@@ -761,12 +769,12 @@ video sources. If the add-ons don’t suit you, jump ahead to start
 <h4>Pipeline with a Web Camera Video Stream Input (First optional add-on to Exercise 1)<a class="headerlink" href="#pipeline-with-a-web-camera-video-stream-input-first-optional-add-on-to-exercise-1" title="Permalink to this heading">#</a></h4>
 <p>GStreamer supports connected video devices, like web cameras, which
 means you use a web camera to perform real-time inference.</p>
-<p>In order to use web camera as an input, we will replace the <em>filesrc</em>
+<p>In order to use web camera as an input, we will replace the <code class="docutils literal notranslate"><span class="pre">filesrc</span></code>
 element in the object detection pipeline with
 <a class="reference external" href="https://gstreamer.freedesktop.org/documentation/video4linux2/v4l2src.html?gi-language=c">`v4l2src`</a>
 element, that is used for capturing video from webcams. Before running
 the below updated pipeline, check the web camera path and update it in
-the pipeline. The web camera stream is usually in the <em>/dev/</em>
+the pipeline. The web camera stream is usually in the <code class="docutils literal notranslate"><span class="pre">/dev/</span></code>
 directory.</p>
 <p>Object detection pipeline using Web camera:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change &lt;path-to-device&gt; below to your web camera device path</span>
@@ -779,7 +787,7 @@ gvawatermark<span class="w"> </span>!<span class="w"> </span>videoconvert<span c
 </section>
 <section id="pipeline-with-an-rtsp-input-second-optional-add-on-to-exercise-1">
 <h4>Pipeline with an RTSP Input (Second optional add-on to Exercise 1)<a class="headerlink" href="#pipeline-with-an-rtsp-input-second-optional-add-on-to-exercise-1" title="Permalink to this heading">#</a></h4>
-<p>In order to use RTSP source as an input, we will replace the <em>filesrc</em>
+<p>In order to use RTSP source as an input, we will replace the <code class="docutils literal notranslate"><span class="pre">filesrc</span></code>
 element in the object detection pipeline with
 <a class="reference external" href="https://gstreamer.freedesktop.org/documentation/playback/urisourcebin.html?gi-language=c">`urisourcebin`</a>
 to access URIs. Before running the below updated pipeline, replace ‘&lt;RTSP_uri&gt;’
@@ -798,8 +806,8 @@ gvawatermark<span class="w"> </span>!<span class="w"> </span>videoconvert<span c
 <section id="exercise-2-build-object-classification-pipeline">
 <span id="object-classification"></span><h2>Exercise 2: Build object classification pipeline<a class="headerlink" href="#exercise-2-build-object-classification-pipeline" title="Permalink to this heading">#</a></h2>
 <p>This exercise helps you create a GStreamer pipeline that will perform
-object classification on the Regions of Interest (ROIs) detected by <em>gvadetect</em> using
-<em>gvaclassify</em> element and Intermediate Representation (IR) formatted
+object classification on the Regions of Interest (ROIs) detected by <code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> using
+<code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code> element and Intermediate Representation (IR) formatted
 object classification model.</p>
 <p>This exercise uses the following Pipeline Framework elements:</p>
 <ul class="simple">
@@ -808,7 +816,7 @@ object classification model.</p>
 <li><p>gvawatermark</p></li>
 </ul>
 <section id="pipeline-1">
-<span id="id2"></span><h3>Pipeline<a class="headerlink" href="#pipeline-1" title="Permalink to this heading">#</a></h3>
+<span id="id1"></span><h3>Pipeline<a class="headerlink" href="#pipeline-1" title="Permalink to this heading">#</a></h3>
 <p>We will create a pipeline to detect people and vehicles in a video and
 classify the detected people and vehicle to provide additional
 attributes.</p>
@@ -825,18 +833,18 @@ boxes, and detection results as well as classification attributes such
 as vehicle type and color are displayed as video overlays.</p>
 <p>In the above pipeline:</p>
 <ol class="arabic simple">
-<li><p><em>gvadetect</em> detects the ROIs in the video and outputs ROIs with the
+<li><p><code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> detects the ROIs in the video and outputs ROIs with the
 appropriate attributes (person, vehicle, bike) according to its
 model-proc.</p></li>
-<li><p><em>gvadetect</em> ROIs are used as inputs for the <em>gvaclassify</em> model.</p></li>
-<li><p><em>gvaclassify</em> classifies the ROIs and outputs additional attributes
+<li><p><code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> ROIs are used as inputs for the <code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code> model.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code> classifies the ROIs and outputs additional attributes
 according to model-proc:</p>
 <ul class="simple">
-<li><p><em>object-class</em> tells <em>gvalcassify</em> which ROIs to classify.</p></li>
-<li><p><em>object-class=vehicle</em> classifies ROIs with ‘vehicle’ attribute only.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">object-class</span></code> tells <code class="docutils literal notranslate"><span class="pre">gvalcassify</span></code> which ROIs to classify.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">object-class=vehicle</span></code> classifies ROIs with ‘vehicle’ attribute only.</p></li>
 </ul>
 </li>
-<li><p><em>gvawatermark</em> displays the ROIs and their attributes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gvawatermark</span></code> displays the ROIs and their attributes.</p></li>
 </ol>
 <p>See <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/model_proc">model-proc</a>
 for the model-procs and its input and output specifications.</p>
@@ -846,21 +854,21 @@ for the model-procs and its input and output specifications.</p>
 <span id="object-tracking"></span><h2>Exercise 3: Use object tracking to improve performance<a class="headerlink" href="#exercise-3-use-object-tracking-to-improve-performance" title="Permalink to this heading">#</a></h2>
 <p>This exercise helps you create a GStreamer pipeline that will use object
 tracking for reducing the frequency of object detection and
-classification, thereby increasing the throughput, using <em>gvatrack</em>.</p>
+classification, thereby increasing the throughput, using <code class="docutils literal notranslate"><span class="pre">gvatrack</span></code>.</p>
 <p>This exercise uses the following Pipeline Framework elements:</p>
 <ul class="simple">
-<li><p>gvadetect</p></li>
-<li><p>gvaclassify</p></li>
-<li><p>gvatrack</p></li>
-<li><p>gvawatermark</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gvadetect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gvatrack</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gvawatermark</span></code></p></li>
 </ul>
 <section id="pipeline-2">
-<span id="id3"></span><h3>Pipeline<a class="headerlink" href="#pipeline-2" title="Permalink to this heading">#</a></h3>
+<span id="id2"></span><h3>Pipeline<a class="headerlink" href="#pipeline-2" title="Permalink to this heading">#</a></h3>
 <p>We will use the same pipeline as in exercise 2, for detecting and
-classifying vehicle and people. We will add <em>gvatrack</em> element after
-<em>gvadetect</em> and before <em>gvaclassify</em> to track objects. <em>gvatrack</em>
+classifying vehicle and people. We will add <code class="docutils literal notranslate"><span class="pre">gvatrack</span></code> element after
+<code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> and before <code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code> to track objects. <code class="docutils literal notranslate"><span class="pre">gvatrack</span></code>
 will assign object IDs and provide updated ROIs in between detections.
-We will also specify parameters of <em>gvadetect</em> and <em>gvaclassify</em>
+We will also specify parameters of <code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> and <code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code>
 elements to reduce frequency of detection and classification.</p>
 <p>Run the below pipeline at the command prompt and review the output:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0<span class="w"> </span><span class="se">\</span>
@@ -877,31 +885,31 @@ as vehicle type and color are displayed as video overlays, same as
 exercise 2. However, notice the increase in the FPS of the pipeline.</p>
 <p>In the above pipeline:</p>
 <ol class="arabic simple">
-<li><p><em>gvadetect</em> detects the ROIs in the video and outputs ROIs with the
+<li><p><code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> detects the ROIs in the video and outputs ROIs with the
 appropriate attributes (person, vehicle, bike) according to its
-model-proc on every 10th frame, due to <em>inference-interval=10</em>.</p></li>
-<li><p><em>gvatrack</em> tracks each object detected by <em>gvadetect</em>.</p></li>
-<li><p><em>gvadetect</em> ROIs are used as inputs for the <em>gvaclassify</em> model.</p></li>
-<li><p><em>gvaclassify</em> classifies the ROIs and outputs additional attributes
+model-proc on every 10th frame, due to <code class="docutils literal notranslate"><span class="pre">inference-interval=10</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gvatrack</span></code> tracks each object detected by <code class="docutils literal notranslate"><span class="pre">gvadetect</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> ROIs are used as inputs for the <code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code> model.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code> classifies the ROIs and outputs additional attributes
 according to model-proc, but skips classification for already
 classified objects for 10 frames, using tracking information from
-<em>gvatrack</em> to determine whether to classify an object:</p>
+<code class="docutils literal notranslate"><span class="pre">gvatrack</span></code> to determine whether to classify an object:</p>
 <ul class="simple">
-<li><p><em>object-class</em> tells <em>gvaclassify</em> which ROIs to classify.</p></li>
-<li><p><em>object-class=vehicle</em> classifies ROIs that have the ‘vehicle’ attribute.</p></li>
-<li><p><em>reclassify-interval</em> determines how often to reclassify tracked objects. Only valid when used in conjunction with gvatrack.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">object-class</span></code> tells <code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code> which ROIs to classify.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">object-class=vehicle</span></code> classifies ROIs that have the ‘vehicle’ attribute.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reclassify-interval</span></code> determines how often to reclassify tracked objects. Only valid when used in conjunction with gvatrack.</p></li>
 </ul>
 </li>
-<li><p><em>gvawatermark</em> displays the ROIs and their attributes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gvawatermark</span></code> displays the ROIs and their attributes.</p></li>
 </ol>
 <p>You’re done building and running this pipeline. The next exercise shows
-you how to publish your results to a <em>.json</em>.</p>
+you how to publish your results to a <code class="docutils literal notranslate"><span class="pre">.json</span></code>.</p>
 </section>
 </section>
 <section id="exercise-4-publish-inference-results">
 <span id="result-publishing"></span><h2>Exercise 4: Publish Inference Results<a class="headerlink" href="#exercise-4-publish-inference-results" title="Permalink to this heading">#</a></h2>
 <p>This exercise extends the pipeline to publish your detection and
-classification results to a <em>.json</em> file from a GStreamer pipeline.</p>
+classification results to a <code class="docutils literal notranslate"><span class="pre">.json</span></code> file from a GStreamer pipeline.</p>
 <p>This exercise uses the following Pipeline Framework elements:</p>
 <ul class="simple">
 <li><p>gvadetect</p></li>
@@ -919,7 +927,7 @@ output file path:</p>
 </div>
 </section>
 <section id="pipeline-3">
-<span id="id4"></span><h3>Pipeline<a class="headerlink" href="#pipeline-3" title="Permalink to this heading">#</a></h3>
+<span id="id3"></span><h3>Pipeline<a class="headerlink" href="#pipeline-3" title="Permalink to this heading">#</a></h3>
 <p>We will use the same pipeline as in exercise 2 for detecting and
 classifying vehicle and people. However, instead of overlaying the
 results and rendering them to a screen, we will send them to a file in
@@ -938,10 +946,10 @@ fakesink
 inference results is available. Review the JSON file.</p>
 <p>In the above pipeline:</p>
 <ul class="simple">
-<li><p><em>gvametaconvert</em> uses the optional parameter <em>format=json</em> to convert inferenced data to <em>GstGVAJSONMeta</em>.</p></li>
-<li><p><em>GstGVAJSONMeta</em> is a custom data structure that represents JSON metadata.</p></li>
-<li><p><em>gvametapublish</em> uses the optional parameter <em>method=file</em> to publish inference results to a file.</p></li>
-<li><p><em>filepath=${OUTFILE}</em> is a JSON file to which the inference results are published.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gvametaconvert</span></code> uses the optional parameter <code class="docutils literal notranslate"><span class="pre">format=json</span></code> to convert inferenced data to <code class="docutils literal notranslate"><span class="pre">GstGVAJSONMeta</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GstGVAJSONMeta</span></code> is a custom data structure that represents JSON metadata.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gvametapublish</span></code> uses the optional parameter <code class="docutils literal notranslate"><span class="pre">method=file</span></code> to publish inference results to a file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filepath=${OUTFILE}</span></code> is a JSON file to which the inference results are published.</p></li>
 </ul>
 <p>For publishing the results to MQTT or Kafka, please refer to the
 <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/gst_launch/metapublish">metapublish samples</a>.</p>
@@ -1014,8 +1022,8 @@ analytics pipeline with Intel® DL Streamer Pipeline Framework!</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework">Introduction to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-setup">Tutorial Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-setup-for-docker">Tutorial Setup for Docker</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-docker-tutorial-setup">Non-Docker tutorial setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-tutorial-setup">Docker tutorial setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-build-object-detection-pipeline">Exercise 1 - Build object detection pipeline</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline">Pipeline</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-with-a-web-camera-video-stream-input-first-optional-add-on-to-exercise-1">Pipeline with a Web Camera Video Stream Input (First optional add-on to Exercise 1)</a></li>

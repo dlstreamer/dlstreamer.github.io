@@ -1,12 +1,24 @@
 Install Guide Ubuntu
 ====================
 
-The easiest way to install Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework is installing :ref:`from pre-built Debian packages <1>`.
+The easiest way to install Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework is installing :ref:`from pre-built Debian packages <3>`.
 If you prefer containerized environment based on Docker, the Intel® DL Streamer Pipeline Framework Docker image is available as well as Dockerfile to build runtime Docker image.
 
 Alternatively, you can build Intel® DL Streamer Pipeline Framework from the source code
 provided in `repository <https://github.com/dlstreamer/dlstreamer>`__, either building directly on host system, or
-as a Docker image.
+as a Docker image. Before running chosen installations process, please follow prerequisites.
+
+.. list-table::
+   :header-rows: 1
+
+   * - Prerequisite
+     - Notes
+
+   * - :ref:`Install Intel® GPU drivers for computing and media runtimes <1>`
+     - \-
+   * - :ref:`Install Intel® NPU drivers <2>`
+     - Optional step only for Intel® Core™ Ultra processors with NPU AI accelerator.
+
 
 The following table summarizes installation options. You can find
 detailed instructions for each installation option by following the
@@ -20,51 +32,23 @@ links in the first column of the table.
      - Supported OS
      - Notes
 
-   * - :ref:`Install Intel® DL Streamer Pipeline Framework pre-built Debian packages <1>`
+   * - :ref:`Install Intel® DL Streamer Pipeline Framework pre-built Debian packages <3>`
      - Ubuntu 22.04 (kernel 6.6+ for NPU)
      - \-
-   * - :ref:`Install Docker image from Docker Hub and run it <2>`
+   * - :ref:`Install Docker image from Docker Hub and run it <4>`
      - Any Linux OS as host system
      - Recommended for containerized environment and when host OS is not supported by the Pipeline Framework installer
-   * - :ref:`Compile Intel® DL Streamer Pipeline Framework from sources on host system <3>`
+   * - :ref:`Compile Intel® DL Streamer Pipeline Framework from sources on host system <5>`
      - Ubuntu 22.04 (kernel 6.6+ for NPU)
      - If you want to build Pipeline Framework from source code on host system
 
+
 .. _1:
 
-Option #1: Install Intel® DL Streamer Pipeline Framework from Debian packages
------------------------------------------------------------------------------
+Prerequisite 1 - Intel® GPU drivers for computing and media runtimes
+-----------------------------------------------------------------------
 
-Available Debian packages
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. list-table::
-   :align: left
-   :header-rows: 1
-
-   * - Package name
-     - Description
-
-   * - intel-dlstreamer-dev
-     - Development package - installs runtime on CPU/GPU, C++/Python bindings, samples, development tools
-   * - intel-dlstreamer-cpu
-     - Runtime on CPU - files required for execution on CPU
-   * - intel-dlstreamer-gpu
-     - Runtime on GPU - files required for execution on GPU
-   * - intel-dlstreamer
-     - Runtime on CPU/GPU - files required for execution on CPU and GPU
-   * - intel-dlstreamer-dpcpp
-     - Additional runtime on GPU - runtime libraries built on Intel® oneAPI DPC++ Compiler. This package installs DPC++ runtime as dependency
-   * - python3-intel-dlstreamer
-     - Python runtime - installs Intel® DL Streamer Pipeline Framework Python bindings and runtime on CPU/GPU
-   * - intel-dlstreamer-cpp
-     - C++ bindings
-   * - intel-dlstreamer-samples
-     - C++ and Python samples demonstrating the use of Intel® DL Streamer Pipeline Framework
-
-
-Step 1: Install prerequisites
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+To use GPU as an inference device or to use graphics hardware encoding/decoding capabilities, it is required to install GPU computing and media runtime drivers.
 
 A. Install dependencies and register additional APT repositories.
 
@@ -77,44 +61,103 @@ A. Install dependencies and register additional APT repositories.
    curl -fsSL https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB | sudo gpg --dearmor --output /usr/share/keyrings/intel-sw-products.gpg
    echo "deb [signed-by=/usr/share/keyrings/intel-sw-products.gpg] https://apt.repos.intel.com/oneapi all main" | sudo tee /etc/apt/sources.list.d/intel-oneapi.list
 
-   # Download Intel® Graphics APT repository key
-   wget -qO - https://repositories.intel.com/gpu/intel-graphics.key | sudo gpg --yes --dearmor --output /usr/share/keyrings/intel-graphics.gpg
 
+B. Please cheek that you can see a ``renderD*`` device in ``/dev/dri`` directory before installation. You should be able to see a ``renderD128`` for the integrated GPU or ``renderD129`` for the discrete GPU.
 
-B. For Intel® Graphics APT repository please use **only one** of following (more information https://dgpu-docs.intel.com/driver/installation.html):
+   .. code:: sh
+
+      user@my-host:~$ ll /dev/dri | grep renderD
+      crw-rw----  1 root render 226, 128 Aug  6 22:41 renderD128
+   
+   If you can see see the device, please follow the next step C. If you cannot see it, please follow instructions to the full installation processes, including Kernel Mode drivers:
+         -  `For Intel® Data Center GPU Flex Series and Intel® Data Center GPU Max Series <https://dgpu-docs.intel.com/driver/installation.html>`__
+         -  `For Intel® Arc™ GPUs <https://dgpu-docs.intel.com/driver/client/overview.html>`__
+
+C. To register Intel® Graphics APT repository, please use **only one** of the following according to your hardware:
 
 -  For Intel® Data Center GPU Flex Series and Intel® Data Center GPU Max Series:
    
    ..  code:: sh
    
-     # Register Intel® Graphics APT repository
-     echo "deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/gpu/ubuntu jammy/production/2350 unified" | sudo tee /etc/apt/sources.list.d/intel-graphics.list
+      # Download Intel® Graphics APT repository key
+      wget -qO - https://repositories.intel.com/graphics/intel-graphics.key | sudo gpg --yes --dearmor --output /usr/share/keyrings/intel-graphics.gpg
+
+      # Download Intel® Graphics APT repository
+      echo "deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/graphics/ubuntu jammy flex" | sudo tee /etc/apt/sources.list.d/intel-graphics.list
 
 -  For Intel® Client and Arc™ GPUs:
    
    ..  code:: sh
    
-     # Register Intel® Graphics APT repository
-     echo "deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/gpu/ubuntu jammy client" | sudo tee /etc/apt/sources.list.d/intel-graphics.list
+       # Download Intel® Graphics APT repository key
+      wget -qO - https://repositories.intel.com/gpu/intel-graphics.key | sudo gpg --yes --dearmor --output /usr/share/keyrings/intel-graphics.gpg
+
+      # Download Intel® Graphics APT repository
+      echo "deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/gpu/ubuntu jammy client" | sudo tee /etc/apt/sources.list.d/intel-graphics.list
+
+D. Install or update packages responsible for computing and media runtimes:
+
+   .. code:: sh
+
+      # Install
+      sudo apt-get update && sudo apt-get install intel-level-zero-gpu level-zero
 
 
-C. For Intel® Core™ Ultra processors please install NPU drivers as described in https://github.com/intel/linux-npu-driver (requires Ubuntu 22.04 with kernel version 6.6+).
+.. _2:
 
+Prerequisite 2 - Install Intel® NPU drivers
+------------------------------------------
 
-D. Install Intel® oneAPI DPC++/C++ Compiler runtime package and Intel® DL Streamer features based on DPC++:
+.. note::
+   Optional step for Intel® Core™ Ultra processors
+
+If you want to use NPU AI accelerator, you need to have Intel® NPU drivers installed.
+
+A. Before installation, please make sure that intel_vpu.ko module is enabled on your host:
 
 .. code:: sh
 
-   # Install
-   sudo apt-get update && sudo apt-get install intel-level-zero-gpu level-zero
+   user@your-host:~$ lsmod | grep intel_vpu
+   intel_vpu             245760  0
 
-E. [optional] You can additionally install full Intel® oneAPI DPC++/C++ Compiler (previous command installs runtime only):
+B. Installing the driver requires the device to be recognized by your system - Kernel Mode driver should be available. It means you can see a ``accel`` device in ``/dev/dri`` directory. If you don't see it, please reboot the host.
 
-.. code:: sh
+   .. code:: sh
 
-   sudo apt-get install intel-oneapi-compiler-dpcpp-cpp
+      user@my-host:~$ ll /dev/accel/ | grep accel
+      crw-rw----  1 root render 261, 0   Aug  6 22:41 accel0
 
-Step 2: Install Intel® DL Streamer and OpenVINO™ toolkit
+C. Install the newest Intel® NPU driver. Please follow 'Installation procedure' for the newest available driver version described in: https://github.com/intel/linux-npu-driver/releases
+
+.. note::
+   If you are experiencing issues with installation process, check all notes and tips in the release note for the newest Intel® NPU driver version: https://github.com/intel/linux-npu-driver/releases.
+   Please pay attention to access to the device as a non-root user.
+
+.. note::
+   The following error can be reported when running Intel® DL Streamer on NPU device:
+
+   .. code:: sh
+
+      Setting pipeline to PLAYING ...
+      New clock: GstSystemClock
+      Caught SIGSEGV
+      Spinning.
+
+   In such case, please use the following setting as a temporary workaround:
+
+   .. code:: sh
+
+      export ZE_ENABLE_ALT_DRIVERS=libze_intel_vpu.so
+
+   The issue should be fixed with newer versions of Intel® NPU drivers and Intel® OpenVINO™ NPU plugins.
+
+
+.. _3:
+
+Option #1: Install Intel® DL Streamer Pipeline Framework from Debian packages
+-----------------------------------------------------------------------------
+
+Step 1: Install Intel® DL Streamer and OpenVINO™ toolkit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Download pre-built Debian packages from `GitHub Release page <https://github.com/dlstreamer/dlstreamer/releases>`. 
@@ -122,6 +165,8 @@ You can manually download all packages from the release page or try to use follo
 
 .. code:: sh
 
+   mkdir -p ~/intel/dlstreamer_gst
+   cd ~/intel/dlstreamer_gst
    wget $(wget -q -O - https://api.github.com/repos/dlstreamer/dlstreamer/releases/latest | \
      jq -r '.assets[] | select(.name | contains (".deb")) | .browser_download_url')
 
@@ -145,35 +190,78 @@ Configure the environment after installing Intel® DL Streamer and OpenVINO™:
    source /opt/intel/dlstreamer/setupvars.sh
 
 
-Step 3: Install MQTT and Kafka clients for element `gvametapublish`
+Step 2: Install MQTT and Kafka clients for element `gvametapublish`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note::
    Optional step
 
-In order to enable all `gvametapublish` backends install required dependencies with scripts:
+In order to enable all ``gvametapublish`` backends install required dependencies with scripts:
 
 .. code:: sh
 
    sudo -E /opt/intel/dlstreamer/install_dependencies/install_mqtt_client.sh
    sudo -E /opt/intel/dlstreamer/install_dependencies/install_kafka_client.sh
 
-Next Steps:
-^^^^^^^^^^^
 
-When using Media, GPU or NPU devices as non-root user, please configure:
+Step 3: Add user to groups
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When using Media, GPU or NPU devices as non-root user, please add your user to `video` and `render` groups:
 
 .. code:: sh
    
    sudo usermod -a -G video <username>	
    sudo usermod -a -G render <username>
-   
-You are ready to use Intel® DL Streamer. For further instructions please go to: :doc:`../tutorial`
 
-.. _2:
+
+Step 4: Set up the environment for Intel® DL Streamer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Source required environment variables to run GStreamer and Intel® DL Streamer:
+
+.. code:: sh
+
+   # Setup OpenVINO™ Toolkit environment
+   source /opt/intel/openvino_2024/setupvars.sh
+   # Setup GStreamer environment
+   source /opt/intel/dlstreamer/gstreamer/setupvars.sh  
+   # Setup Intel® DL Streamer Pipeline Framework environment
+   source /opt/intel/dlstreamer/setupvars.sh
+
+.. note::
+   The environment variables are removed when you close the shell.
+   Before each run of Intel® DL Streamer you need to setup the 
+   environment with the 3 scripts listed in this step.
+   As an option, you can set the environment variables in file
+   ``~/.bashrc`` for automatic enabling.
+
+
+Step 5: Verify Intel® DL Streamer installation 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Intel® DL Streamer has been installed. You can run the ``gst-inspect-1.0 gvadetect`` to confirm that GStreamer and Intel® DL Streamer are running:
+
+.. code:: sh
+
+   gst-inspect-1.0 gvadetect
+
+If your can see the documentation of ``gvadetect`` element, the installation process is completed.
+
+![gvadetect_help](./gvadetect_sample_help.jpg)
+
+
+Step 6: Next steps - running sample Intel® DL Streamer pipelines
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You are ready to use Intel® DL Streamer. For further instructions to run sample pipeline(s), please go to: :doc:`../tutorial`
+
+
+
+.. _4:
 
 Option #2: Install Docker image from Docker Hub and run it
-------------------------------------------------------------------------------------------------
+----------------------------------------------------------
 
 Step 1: Install Docker
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -200,76 +288,34 @@ Step 3: Pull the Intel® DL Streamer Docker image from Docker Hub
 
    docker pull intel/dlstreamer:latest
 
+
 Step 4: Run Intel® DL Streamer Pipeline Framework container
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code:: sh
-
-   docker run -it --net=host \
-      --device=/dev/dri \
-      -v ~/.Xauthority:/home/dlstreamer/.Xauthority \
-      -v /tmp/.X11-unix \
-      -e DISPLAY=$DISPLAY \
-      -v /dev/bus/usb \
-      --rm intel/dlstreamer:latest /bin/bash
-
-For NPU devices use command below. Remember about manual setting of permissions access (go to User acess to the device in https://github.com/intel/linux-npu-driver/releases):
+To confirm that your installation is completed successfully, please run a container
 
 .. code:: sh
 
-   docker run -it --net=host \
-      --device=/dev/dri \
-      --device=/dev/accel \
-      -v ~/.Xauthority:/home/dlstreamer/.Xauthority \
-      -v /tmp/.X11-unix \
-      -e DISPLAY=$DISPLAY \
-      -v /dev/bus/usb \
-      --rm intel/dlstreamer:latest /bin/bash
+   docker run -it --rm intel/dlstreamer:latest
 
-Intel® Graphics Compute Runtime for oneAPI Level Zero and OpenCL™ Driver configuration on Ubuntu* 22.04
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Intel® Graphics Compute Runtime for oneAPI Level Zero and OpenCL™ Driver components are required to use a GPU device.
-The driver is installed in the Intel® DL Streamer Pipeline Framework Docker image but you need to activate it in the container for a non-root user if you have Ubuntu 22.04 on your host.
-
-To access GPU capabilities, you need to have correct permissions on the host and Docker container.
-Run the following command to list the group assigned ownership of the render nodes on your host:
+In the container, please run the ``gst-inspect-1.0 gvadetect`` to confirm that GStreamer and Intel® DL Streamer are running
 
 .. code:: sh
 
-   stat -c "group_name=%G group_id=%g" /dev/dri/render*
+   dlstreamer@ea6445a05788:~$ gst-inspect-1.0 gvadetect
 
-Intel® DL Streamer Pipeline Framework Docker images do not contain a render group for `dlstreamer` non-root user because the render group does not have a strict group ID, unlike the video group.
-To run container as non-root with access to a GPU device, specify the render group ID from your host:
+If your can see the documentation of ``gvadetect`` element, the installation process is completed.
 
-.. code:: sh
-
-   docker run -it --device /dev/dri --group-add=<render_group_id_on_host> <other_args> <image_name>
-
-For example, get the render group ID on your host:
-
-.. code:: sh
-
-   docker run -it --device /dev/dri --group-add=$(stat -c "%g" /dev/dri/render*) <other_args> <image_name>
-
-Now you can use the container with GPU access under the non-root user.
-
-.. note::
-   Running Intel® DL Streamer Pipeline Framework on GPU requires the drivers to be installed.
-   More information can be found here:
-
-   -  `For Intel® Data Center GPU Flex Series and Intel® Data Center GPU Max Series <https://dgpu-docs.intel.com/driver/installation.html>`__
-
-   -  `For Intel® Arc™ GPUs <https://dgpu-docs.intel.com/driver/client/overview.html>`__
+![gvadetect_help](./gvadetect_sample_help.jpg)
 
 
-Next Steps:
-^^^^^^^^^^^
+Step 5: Next steps - running sample Intel® DL Streamer pipelines
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You are ready to use Intel® DL Streamer. For further instructions please go to: :doc:`../tutorial`
+You are ready to use Intel® DL Streamer. For further instructions to run sample pipeline(s), please go to: :doc:`../tutorial`
 
 
-.. _3:
+.. _5:
 
 Option #3: Compile Intel® DL Streamer Pipeline Framework from sources on host system
 ------------------------------------------------------------------------------------
@@ -277,8 +323,9 @@ Option #3: Compile Intel® DL Streamer Pipeline Framework from sources on host s
 .. note::
    These instructions are verified on Ubuntu 22.04
 
-Step 1: Clone this repository
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Step 1: Clone Intel® DL Streamer repository
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 First, clone this repository into folder ``~/intel/dlstreamer_gst``:
 
@@ -287,6 +334,7 @@ First, clone this repository into folder ``~/intel/dlstreamer_gst``:
    mkdir -p ~/intel
    git clone --recursive https://github.com/dlstreamer/dlstreamer.git ~/intel/dlstreamer_gst
    cd ~/intel/dlstreamer_gst
+
 
 Step 2: Install Intel® Distribution of OpenVINO™ Toolkit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -317,6 +365,7 @@ Install Open Model Zoo tools:
 .. note::
    Make sure your environment variable $PATH includes '$HOME/.local/bin' .
 
+
 Step 3: Install Intel® DL Streamer Pipeline Framework dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -329,7 +378,7 @@ Install build dependencies:
 
 Download pre-built Debian packages for GStreamer from `GitHub Release page <https://github.com/dlstreamer/dlstreamer/releases>`. 
 You can manually download all packages from the release page or try to use following command. 
-Install GStreamer from dowloaded packages:
+Install GStreamer from downloaded packages:
 
 .. code:: sh
 
@@ -337,6 +386,7 @@ Install GStreamer from dowloaded packages:
      jq -r '.assets[] | select(.name | contains (".deb")) | .browser_download_url')
    sudo apt install -y ./intel-dlstreamer-gst*
    sudo apt install -y ./intel-dlstreamer-ffmpeg*
+
 
 Step 4: Install Python dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -375,35 +425,12 @@ necessary dependencies using the following commands:
 
 .. _install-opencl:
 
+
 Step 5: Install OpenCL™
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note::
    Optional step
-
-Register Intel® Graphics APT repository key by:
-
-.. code:: sh
-
-   # Download Intel® Graphics APT repository key
-   wget -qO - https://repositories.intel.com/gpu/intel-graphics.key | sudo gpg --yes --dearmor --output /usr/share/keyrings/intel-graphics.gpg
-
-
-Then use **only one** of following (more information https://dgpu-docs.intel.com/driver/installation.html):
-
--  For Intel® Data Center GPU Flex Series and Intel® Data Center GPU Max Series:
-   
-   ..  code:: sh
-   
-     # Register Intel® Graphics APT repository
-     echo "deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/gpu/ubuntu jammy/production/2350 unified" | sudo tee /etc/apt/sources.list.d/intel-graphics.list
-
--  For Intel® Client and Arc™ GPUs:
-   
-   ..  code:: sh
-   
-     # Register Intel® Graphics APT repository
-     echo "deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/gpu/ubuntu jammy client" | sudo tee /etc/apt/sources.list.d/intel-graphics.list
 
 Run the following commands to install OpenCL™ driver:
 
@@ -501,37 +528,8 @@ If it's not resolved even after re-installation, please submit an issue for supp
 
 Additionally, pass ``-DENABLE_VAAPI=ON`` option to cmake in configuration step.
 
-Step 9: Install Intel® NPU drivers
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. note::
-   Optional step for Intel® Core™ Ultra processors
-
-Please follow instructions from https://github.com/intel/linux-npu-driver/releases.
-Please note Ubuntu 22.04 with Linux kernel 6.6+ and intel_vpu.ko module enabled is required.
-
-If you don't have proper kernel, one can use https://kernel.ubuntu.com/mainline/v6.7.10 
-(kernel version Intel® DL Streamer was validated with), following Linux kernel installation 
-steps from here: https://wiki.ubuntu.com/Kernel/MainlineBuilds.
-
-NOTE: The following error can be reported when running Intel® DL Streamer with an older version of NPU driver:
-
-.. code:: sh
-
-   Setting pipeline to PLAYING ...
-   New clock: GstSystemClock
-   Caught SIGSEGV
-   Spinning. 
-
-In such case, please use the following setting as a temporary workaround:
-
-.. code:: sh
-
-   export ZE_ENABLE_ALT_DRIVERS=libze_intel_vpu.so
-
-The issue should be fixed with newer versions of Intel® NPU drivers and Intel® OpenVINO™ NPU plugins.
-
-Step 10: Build Intel® DL Streamer Pipeline Framework
+Step 9: Build Intel® DL Streamer Pipeline Framework
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 With all dependencies installed, proceed to build Pipeline Framework:
@@ -565,12 +563,13 @@ When using Media, GPU or NPU devices as non-root user, please configure:
 
 Intel® DL Streamer Pipeline Framework is now ready to use!
 
-You can find samples in folder ``~/intel/dlstreamer_gst/samples``.
-Before using the samples, run the script ``download_omz_models.sh`` (located
-in ``samples`` folder) to download the models required for samples.
-
 .. note::
    The environment variables are removed when you close the shell.
+   Before each run of Intel® DL Streamer you need to setup the 
+   environment with the following 3 scripts as above in this step: 
+   ``source /opt/intel/openvino_2024/setupvars.sh``, 
+   ``source /opt/intel/dlstreamer/gstreamer/setupvars.sh`` 
+   and ``source ~/intel/dlstreamer_gst/scripts/setup_env.sh``.
    As an option, you can set the environment variables in file
    ``~/.bashrc`` for automatic enabling.
 
@@ -580,11 +579,26 @@ in ``samples`` folder) to download the models required for samples.
    Also, you can create an issue on GitHub
    `here <https://github.com/dlstreamer/dlstreamer/issues>`__.
 
-Next Steps
-----------
 
-* :doc:`../tutorial`
-* `Samples overview <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md>`__
+Step 10: Intel® DL Streamer installation verification 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Intel® DL Streamer has been installed. Please run the `gst-inspect-1.0 gvadetect` to confirm that GStreamer and Intel® DL Streamer are running
+
+.. code:: sh
+
+    user@my-host:~/intel/dlstreamer_gst/build$ gst-inspect-1.0 gvadetect
+
+If your can see the documentation of ``gvadetect`` element, the installation process is completed.
+
+![gvadetect_help](./gvadetect_sample_help.jpg)
+
+
+Step 11: Next steps - running sample Intel® DL Streamer pipelines
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You are ready to use Intel® DL Streamer. For further instructions to run sample pipeline(s), please go to: :doc:`../tutorial`
+
 
 -----
 

@@ -85,7 +85,7 @@ Intel® Deep Learning Streamer supports the following fields in the model info s
      - float
      - 255.0
      - Divide input image values by 'scale' before mapping to model input tensor
-       (typicall used when model was trained with input data normalized in <0,1> range).
+       (typically used when model was trained with input data normalized in <0,1> range).
      - range: [0.0, 1.0]
 
 Please also refer to `Deep Learning Workbench <https://docs.openvino.ai/latest/workbench_docs_Workbench_DG_Introduction.html>`__

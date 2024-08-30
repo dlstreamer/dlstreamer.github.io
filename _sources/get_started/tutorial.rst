@@ -6,8 +6,8 @@ using Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework.
 
 -  `About GStreamer <#about-gstreamer>`__
 -  `Introduction to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework <#introduction-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework>`__
--  `Tutorial Setup <#tutorial-setup>`__
--  `Tutorial Setup for Docker <#tutorial-setup-for-docker>`__
+-  `Non-Docker tutorial setup <#non-docker-tutorial-setup>`__
+-  `Docker tutorial setup <#docker-tutorial-setup>`__
 -  :ref:`Exercise 1 - Build object detection pipeline<object_detection>`
 -  :ref:`Exercise 2 - Build object classification pipeline<object-classification>`
 -  :ref:`Exercise 3 - Use object tracking to improve performance<object-tracking>`
@@ -159,31 +159,26 @@ Refer to :doc:`Intel® DL Streamer elements <../elements/elements>` page for mor
    the vehicle position; parse the classified vehicle result and label
    it on the bounding box.
 
-In addition to *gvadetect* and *gvaclassify*, you can use
-*gvainference* for running inference with any CNN model not supported
+In addition to ``gvadetect`` and ``gvaclassify``, you can use
+``gvainference`` for running inference with any CNN model not supported
 by gvadetect or gvaclassify. Also, instead of visualizing the inference
 results, as shown in this tutorial, you can publish them to MQTT, Kafka
-or a file using *gvametaconvert* and *gvametapublish* of Intel® DL Streamer.
+or a file using ``gvametaconvert`` and ``gvametapublish`` of Intel® DL Streamer.
 
-Tutorial Setup
---------------
-If you chose Option 2 with Docker in Install Guide, you can skip this part and follow Docker instruction below. Please be aware you will need to download models every time in Docker container.
-To avoid this you can follow Tutorial Setup for Docker to download models on host and mount them inside Docker container.
 
-#. Install Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework by following the :doc:`Install-Guide <install/install_guide_ubuntu>`.
+Non-Docker tutorial setup
+-------------------------
 
-#. Set the environment variables:
+This section prepares the environment to run examples described below. It is suitable if you chose Option #1 or Option #3 in Install Guide Ubuntu.
+
+#. Export ``MODELS_PATH`` to define where to download models. For example:
 
    .. code:: sh
 
-      source /opt/intel/openvino_2024/setupvars.sh
-      source /opt/intel/dlstreamer/gstreamer/setupvars.sh
+      export MODELS_PATH=/home/${USER}/intel/models
 
-   .. note::
-      You must set the environment variables each time you open a new shell unless you added the variables to the ``.bashrc`` file. See
-      `Set the environment variables <https://docs.openvino.ai/latest/openvino_docs_install_guides_installing_openvino_from_archive_linux.html#step-2-configure-the-environment>`__.
 
-#. Download the models from `Open Model Zoo <https://github.com/openvinotoolkit/open_model_zoo>`__
+#. Download the models from `Open Model Zoo <https://github.com/openvinotoolkit/open_model_zoo>`__ to ``MODELS_PATH`` directory:
 
    .. code:: sh
 
@@ -192,9 +187,9 @@ To avoid this you can follow Tutorial Setup for Docker to download models on hos
       /opt/intel/dlstreamer/samples/download_omz_models.sh
 
    .. note::
-      Make sure your environment variable $PATH includes '$HOME/.local/bin' .
+      Make sure your environment variable ``$PATH`` includes ``$HOME/.local/bin`` - use ``echo $PATH``.
 
-#. Export the *model* and *model_proc* files for detection and classification:
+#. Export variables to set paths for *model* and *model_proc* files. It will make pipelines definition easy later in examples:
 
    .. code:: sh
 
@@ -209,7 +204,7 @@ To avoid this you can follow Tutorial Setup for Docker to download models on hos
    instructions to convert models, `look
    here <https://docs.openvino.ai/latest/openvino_docs_MO_DG_prepare_model_convert_model_tf_specific_Convert_YOLO_From_Tensorflow.html>`__
 
-#. Export the video file path:
+#. Export the example video file path:
 
    You may download a sample video from the
    `here <https://github.com/intel-iot-devkit/sample-videos/raw/master/person-bicycle-car-detection.mp4>`__.
@@ -227,68 +222,88 @@ To avoid this you can follow Tutorial Setup for Docker to download models on hos
 
 .. _tutorial-setup-for-docker:
 
-Tutorial Setup for Docker
+Docker tutorial setup
 -------------------------
+This section prepares the environment to run examples described below. It is suitable if you chose Option #2 in Install Guide Ubuntu.
 
-#. Install pip,onnx and tensorflow:
+#. Make sure you are not in a Docker container, but on your local host.
+
+#. Install pip, onnx and tensorflow:
 
    .. code:: sh
 
       sudo apt-get install python3-pip
       python3 -m pip install openvino-dev[onnx,tensorflow,pytorch]
 
-#. Clone DLStreamer repository:
+#. Clone Intel® DL Streamer repository:
 
    .. code:: sh
 
       mkdir -p ~/intel
       git clone --recursive https://github.com/dlstreamer/dlstreamer.git ~/intel/dlstreamer_gst
 
-#. Export ``MODELS_PATH`` where models will be dowloaded, for example:
+#. Export ``MODELS_PATH`` where models will be downloaded, for example:
 
    .. code:: sh
 
-      export MODELS_PATH=/home/$USER/models
+      export MODELS_PATH=/home/${USER}/models
 
-#. Make sure your environmental variable ``$PATH`` includes ``/home/user/.local/bin``:
+#. Make sure your environmental variable ``$PATH`` includes ``/home/user/.local/bin``. If not:
 
    .. code:: sh
 
-      export PATH="$PATH:/home/$USER/.local/bin"
+      export PATH="$PATH:/home/${USER}/.local/bin"
 
-#. Download models:
+#. Download models from `Open Model Zoo <https://github.com/openvinotoolkit/open_model_zoo>`__ to ``MODELS_PATH`` directory:
 
    .. code:: sh
 
       cd ~/intel/dlstreamer_gst/samples 
       ./download_omz_models.sh
 
-#. Mount the models directory into the container using ``-v`` or ``--volume`` parameter in ``docker run`` command.
+#. Run Intel® DL Streamer container.
+   
+   Run Docker container with the models directory mounted into the container using ``-v`` or ``--volume`` parameter in ``docker run`` command.
    Make sure your mounting parameter is specified as ``-v <path_on_host>:<path_in_the_container>``:
 
    .. code:: sh
 
-      docker run -v /home/$USER/models:/home/dlstreamer/intel/dl_streamer/models  <other args>
+      docker run -it --rm -v ${MODELS_PATH}:/home/dlstreamer/models --env MODELS_PATH=/home/dlstreamer/models intel/dlstreamer:latest
 
-   To run the Docker image on a GPU device:
-
-   .. code:: sh
-
-      docker run -it --device /dev/dri --group-add=$(stat -c "%g" /dev/dri/render*) -v /home/$USER/models:/home/dlstreamer/intel/dl_streamer/models intel/dlstreamer:latest
-
-   To run the Docker image on an NPU device:
+   Running Intel® DL Streamer in the Docker container with an inference on GPU or NPU devices requires the access as a non-root user to these devices in the container.
+   Intel® DL Streamer Pipeline Framework Docker images do not contain a ``render`` group for ``dlstreamer`` non-root user because the ``render`` group does not have a strict group ID, unlike the ``video`` group.
+   To run container as non-root with access to a GPU and/or NPU device, you have to specify the ``render`` group ID from your host. The full running command example:
 
    .. code:: sh
 
-      docker run -it --device /dev/dri --device /dev/accel/accel0 --group-add=$(stat -c "%g" /dev/dri/render*) -v /home/$USER/models:/home/dlstreamer/intel/dl_streamer/models intel/dlstreamer:latest
-      
-#. Export the *model* and *model_proc* files for detection and classification:
+      docker run -it --rm -v ${MODELS_PATH}:/home/dlstreamer/models \
+      --device /dev/dri \
+      --group-add $(stat -c "%g" /dev/dri/render*) \
+      --device /dev/accel \
+      --group-add $(stat -c "%g" /dev/accel/accel*) \
+      --env ZE_ENABLE_ALT_DRIVERS=libze_intel_vpu.so \
+      --env MODELS_PATH=/home/dlstreamer/models \
+      intel/dlstreamer:latest
+   
+   where newly added parameters are:
+
+   #. ``--device /dev/dri`` - access to GPU device, required when you want to use GPU as inference device (``device=GPU``) or use VA-API graphics hardware acceleration capabilities like ``vapostproc``, ``vah264dec``, ``vah264enc``, ``vah265dec``, ``vah265enc`` etc.
+
+   #. ``--group-add $(stat -c "%g" /dev/dri/render*)`` - non-root access to GPU devices, required in the same scenarios as ``--device /dev/dri`` above
+
+   #. ``--device /dev/accel`` - access to NPU device, required when you want to use NPU as inference device (``device=NPU``)
+
+   #. ``--group-add $(stat -c "%g" /dev/accel/accel*)`` - non-root access to NPU devices, required in the same scenarios as ``--device /dev/accel`` above
+
+   #. ``--env ZE_ENABLE_ALT_DRIVERS=libze_intel_vpu.so`` - exporting environmental variable needed to run inference successfully on NPU devices
+
+#. In the container, export variables to set paths for *model* and *model_proc* files. It will make pipelines definition easy later in examples:
 
    .. code:: sh
 
-      export DETECTION_MODEL=${MODELS_PATH}/intel/person-vehicle-bike-detection-2004/FP32/person-vehicle-bike-detection-2004.xml
+      export DETECTION_MODEL=/home/dlstreamer/models/intel/person-vehicle-bike-detection-2004/FP32/person-vehicle-bike-detection-2004.xml
       export DETECTION_MODEL_PROC=/opt/intel/dlstreamer/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-2004.json
-      export VEHICLE_CLASSIFICATION_MODEL=${MODELS_PATH}/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml
+      export VEHICLE_CLASSIFICATION_MODEL=/home/dlstreamer/models/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml
       export VEHICLE_CLASSIFICATION_MODEL_PROC=/opt/intel/dlstreamer/samples/gstreamer/model_proc/intel/vehicle-attributes-recognition-barrier-0039.json
 
 
@@ -297,7 +312,7 @@ Tutorial Setup for Docker
    instructions to convert models, `look
    here <https://docs.openvino.ai/latest/openvino_docs_MO_DG_prepare_model_convert_model_tf_specific_Convert_YOLO_From_Tensorflow.html>`__
 
-#. Export the video file path:
+#. In the container, export the example video file path:
 
    You may download a sample video from the
    `here <https://github.com/intel-iot-devkit/sample-videos/raw/master/person-bicycle-car-detection.mp4>`__.
@@ -313,13 +328,14 @@ Tutorial Setup for Docker
       # Change this information to fit your setup.
       export VIDEO_EXAMPLE=~/path/to/video/FILENAME
 
+
 .. _object_detection:
 
 Exercise 1 - Build object detection pipeline
 ---------------------------------------------
 
 This exercise helps you create a GStreamer pipeline that will perform
-object detection using *gvadetect* element and Intermediate
+object detection using ``gvadetect`` element and Intermediate
 Representation (IR) formatted object detection model. It provides two
 optional add-ons to show you how to use video from a web camera stream
 and an RTSP URI.
@@ -365,12 +381,12 @@ Pipeline with a Web Camera Video Stream Input (First optional add-on to Exercise
 GStreamer supports connected video devices, like web cameras, which
 means you use a web camera to perform real-time inference.
 
-In order to use web camera as an input, we will replace the *filesrc*
+In order to use web camera as an input, we will replace the ``filesrc``
 element in the object detection pipeline with
 `\`v4l2src\` <https://gstreamer.freedesktop.org/documentation/video4linux2/v4l2src.html?gi-language=c>`__
 element, that is used for capturing video from webcams. Before running
 the below updated pipeline, check the web camera path and update it in
-the pipeline. The web camera stream is usually in the */dev/*
+the pipeline. The web camera stream is usually in the ``/dev/``
 directory.
 
 Object detection pipeline using Web camera:
@@ -386,7 +402,7 @@ Object detection pipeline using Web camera:
 Pipeline with an RTSP Input (Second optional add-on to Exercise 1)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In order to use RTSP source as an input, we will replace the *filesrc*
+In order to use RTSP source as an input, we will replace the ``filesrc``
 element in the object detection pipeline with
 `\`urisourcebin\` <https://gstreamer.freedesktop.org/documentation/playback/urisourcebin.html?gi-language=c>`__
 to access URIs. Before running the below updated pipeline, replace ‘<RTSP_uri>’
@@ -408,8 +424,8 @@ Exercise 2: Build object classification pipeline
 -------------------------------------------------
 
 This exercise helps you create a GStreamer pipeline that will perform
-object classification on the Regions of Interest (ROIs) detected by *gvadetect* using
-*gvaclassify* element and Intermediate Representation (IR) formatted
+object classification on the Regions of Interest (ROIs) detected by ``gvadetect`` using
+``gvaclassify`` element and Intermediate Representation (IR) formatted
 object classification model.
 
 This exercise uses the following Pipeline Framework elements:
@@ -443,17 +459,17 @@ as vehicle type and color are displayed as video overlays.
 
 In the above pipeline:
 
-1. *gvadetect* detects the ROIs in the video and outputs ROIs with the
+1. ``gvadetect`` detects the ROIs in the video and outputs ROIs with the
    appropriate attributes (person, vehicle, bike) according to its
    model-proc.
-2. *gvadetect* ROIs are used as inputs for the *gvaclassify* model.
-3. *gvaclassify* classifies the ROIs and outputs additional attributes
+2. ``gvadetect`` ROIs are used as inputs for the ``gvaclassify`` model.
+3. ``gvaclassify`` classifies the ROIs and outputs additional attributes
    according to model-proc:
 
-   -  *object-class* tells *gvalcassify* which ROIs to classify.
-   -  *object-class=vehicle* classifies ROIs with 'vehicle' attribute only.
+   -  ``object-class`` tells ``gvalcassify`` which ROIs to classify.
+   -  ``object-class=vehicle`` classifies ROIs with 'vehicle' attribute only.
 
-4. *gvawatermark* displays the ROIs and their attributes.
+4. ``gvawatermark`` displays the ROIs and their attributes.
 
 See `model-proc <https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/model_proc>`__
 for the model-procs and its input and output specifications.
@@ -465,14 +481,14 @@ Exercise 3: Use object tracking to improve performance
 
 This exercise helps you create a GStreamer pipeline that will use object
 tracking for reducing the frequency of object detection and
-classification, thereby increasing the throughput, using *gvatrack*.
+classification, thereby increasing the throughput, using ``gvatrack``.
 
 This exercise uses the following Pipeline Framework elements:
 
-* gvadetect
-* gvaclassify
-* gvatrack
-* gvawatermark
+* ``gvadetect``
+* ``gvaclassify``
+* ``gvatrack``
+* ``gvawatermark``
 
 .. _pipeline-2:
 
@@ -480,10 +496,10 @@ Pipeline
 ~~~~~~~~
 
 We will use the same pipeline as in exercise 2, for detecting and
-classifying vehicle and people. We will add *gvatrack* element after
-*gvadetect* and before *gvaclassify* to track objects. *gvatrack*
+classifying vehicle and people. We will add ``gvatrack`` element after
+``gvadetect`` and before ``gvaclassify`` to track objects. ``gvatrack``
 will assign object IDs and provide updated ROIs in between detections.
-We will also specify parameters of *gvadetect* and *gvaclassify*
+We will also specify parameters of ``gvadetect`` and ``gvaclassify``
 elements to reduce frequency of detection and classification.
 
 Run the below pipeline at the command prompt and review the output:
@@ -504,24 +520,24 @@ exercise 2. However, notice the increase in the FPS of the pipeline.
 
 In the above pipeline:
 
-1. *gvadetect* detects the ROIs in the video and outputs ROIs with the
+1. ``gvadetect`` detects the ROIs in the video and outputs ROIs with the
    appropriate attributes (person, vehicle, bike) according to its
-   model-proc on every 10th frame, due to *inference-interval=10*.
-2. *gvatrack* tracks each object detected by *gvadetect*.
-3. *gvadetect* ROIs are used as inputs for the *gvaclassify* model.
-4. *gvaclassify* classifies the ROIs and outputs additional attributes
+   model-proc on every 10th frame, due to ``inference-interval=10``.
+2. ``gvatrack`` tracks each object detected by ``gvadetect``.
+3. ``gvadetect`` ROIs are used as inputs for the ``gvaclassify`` model.
+4. ``gvaclassify`` classifies the ROIs and outputs additional attributes
    according to model-proc, but skips classification for already
    classified objects for 10 frames, using tracking information from
-   *gvatrack* to determine whether to classify an object:
+   ``gvatrack`` to determine whether to classify an object:
 
-   - *object-class* tells *gvaclassify* which ROIs to classify.
-   - *object-class=vehicle* classifies ROIs that have the ‘vehicle’ attribute.
-   - *reclassify-interval* determines how often to reclassify tracked objects. Only valid when used in conjunction with gvatrack.
+   - ``object-class`` tells ``gvaclassify`` which ROIs to classify.
+   - ``object-class=vehicle`` classifies ROIs that have the ‘vehicle’ attribute.
+   - ``reclassify-interval`` determines how often to reclassify tracked objects. Only valid when used in conjunction with gvatrack.
 
-5. *gvawatermark* displays the ROIs and their attributes.
+5. ``gvawatermark`` displays the ROIs and their attributes.
 
 You’re done building and running this pipeline. The next exercise shows
-you how to publish your results to a *.json*.
+you how to publish your results to a ``.json``.
 
 
 .. _result-publishing:
@@ -530,7 +546,7 @@ Exercise 4: Publish Inference Results
 --------------------------------------
 
 This exercise extends the pipeline to publish your detection and
-classification results to a *.json* file from a GStreamer pipeline.
+classification results to a ``.json`` file from a GStreamer pipeline.
 
 This exercise uses the following Pipeline Framework elements:
 
@@ -577,10 +593,10 @@ inference results is available. Review the JSON file.
 
 In the above pipeline:
 
-- *gvametaconvert* uses the optional parameter *format=json* to convert inferenced data to *GstGVAJSONMeta*.
-- *GstGVAJSONMeta* is a custom data structure that represents JSON metadata.
-- *gvametapublish* uses the optional parameter *method=file* to publish inference results to a file.
-- *filepath=${OUTFILE}* is a JSON file to which the inference results are published.
+- ``gvametaconvert`` uses the optional parameter ``format=json`` to convert inferenced data to ``GstGVAJSONMeta``.
+- ``GstGVAJSONMeta`` is a custom data structure that represents JSON metadata.
+- ``gvametapublish`` uses the optional parameter ``method=file`` to publish inference results to a file.
+- ``filepath=${OUTFILE}`` is a JSON file to which the inference results are published.
 
 For publishing the results to MQTT or Kafka, please refer to the
 `metapublish samples <https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/gst_launch/metapublish>`__.

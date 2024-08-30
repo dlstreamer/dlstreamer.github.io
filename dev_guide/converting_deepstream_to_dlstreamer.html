@@ -397,6 +397,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-your-model">Preparing Your Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-model-for-intel-dl-streamer">Configuring Model for Intel® DL Streamer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gstreamer-pipeline-adjustments">GStreamer Pipeline Adjustments</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mux-and-demux-elements">Mux and Demux Elements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencing-elements">Inferencing Elements</a></li>
@@ -429,23 +430,90 @@ there as a reference example of the changes being made in each section.</p>
 </div>
 <section id="preparing-your-model">
 <h2>Preparing Your Model<a class="headerlink" href="#preparing-your-model" title="Permalink to this heading">#</a></h2>
-<p>To use Intel® DL Streamer Pipeline Framework and OpenVINO™ Toolkit the
-model needs to be in Intermediate Representation (IR) format. To convert
-your model to this format, use the <a class="reference external" href="https://docs.openvino.ai/latest/openvino_docs_MO_DG_Deep_Learning_Model_Optimizer_DevGuide.html">Model Optimizer</a>
-tool from OpenVINO™ Toolkit.</p>
-<p>Pipeline Framework’s inference plugins optionally can do some pre- and
-post-processing operations before/after running inference. These
-operations are specified in a model-proc file. Visit <a class="reference internal" href="model_preparation.html"><span class="doc">this page</span></a>
-for more information on creating a model-proc file and examples with
-various models from <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo">Open Model Zoo</a>.</p>
+<p>To use Intel® DL Streamer Pipeline Framework and OpenVINO™ Toolkit the model needs to be in
+Intermediate Representation (IR) format. To convert your model to this format, please follow
+<a class="reference internal" href="model_preparation.html"><span class="doc">model preparation</span></a> steps.</p>
+</section>
+<section id="configuring-model-for-intel-dl-streamer">
+<h2>Configuring Model for Intel® DL Streamer<a class="headerlink" href="#configuring-model-for-intel-dl-streamer" title="Permalink to this heading">#</a></h2>
+<p>NVIDIA DeepStream uses a combination of model configuration files and DeepStream element properties
+to specify interference actions as well as pre- and post-processing steps before/after running inference
+as documented here: <a class="reference external" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_plugin_gst-nvinfer.html">here</a>.</p>
+<p>Similarly, Intel® DL Streamer Pipeline Framework uses GStreamer element properties for inference
+settings and <span class="xref std std-doc">model proc</span> files for pre- and post-processing steps.</p>
+<p>The following table shows how to map commonly used NVIDIA DeepStream configuration properties
+to Intel® DL Streamer settings.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>NVIDIA DeepStream config file</p></th>
+<th class="head"><p>NVIDIA DeepStream element property</p></th>
+<th class="head"><p>Intel® DL Streamer model proc file</p></th>
+<th class="head"><p>Intel® DL Streamer element property</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>model-engine-file &lt;path&gt;</p></td>
+<td><p>model-engine-file &lt;path&gt;</p></td>
+<td></td>
+<td><p>model &lt;path&gt;</p></td>
+<td><p>Path to inference model network file.</p></td>
+</tr>
+<tr class="row-odd"><td><p>labelfile-path &lt;path&gt;</p></td>
+<td></td>
+<td></td>
+<td><p>labels-file &lt;path&gt;</p></td>
+<td><p>Path to .txt file containing object classes.</p></td>
+</tr>
+<tr class="row-even"><td><p>network-type &lt;0..3&gt;</p></td>
+<td></td>
+<td></td>
+<td><div class="line-block">
+<div class="line">gvadetect for detection, instance segmentation</div>
+<div class="line">gvaclassify for classification, semantic segmentation</div>
+</div>
+</td>
+<td><p>Type of inference operation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>batch-size &lt;N&gt;</p></td>
+<td><p>batch-size &lt;N&gt;</p></td>
+<td></td>
+<td><p>batch-size &lt;N&gt;</p></td>
+<td><p>Number of frames batched together for a single inference.</p></td>
+</tr>
+<tr class="row-even"><td><p>maintain-aspect-ratio</p></td>
+<td></td>
+<td><p>resize: aspect-ratio</p></td>
+<td></td>
+<td><p>Number of frames batched together for a single inference.</p></td>
+</tr>
+<tr class="row-odd"><td><p>num-detected-classes</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>Number of classes detected by the model, inferred from label file by Intel® DL Streamer.</p></td>
+</tr>
+<tr class="row-even"><td><p>interval &lt;N&gt;</p></td>
+<td><p>interval &lt;N&gt;</p></td>
+<td></td>
+<td><p>inference-interval &lt;N+1&gt;</p></td>
+<td><p>Inference action executed every Nth frame, please note Intel® DL Streamer value is greater by 1.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>threshold</p></td>
+<td></td>
+<td><p>threshold</p></td>
+<td><p>Threshold for detection results.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="gstreamer-pipeline-adjustments">
 <h2>GStreamer Pipeline Adjustments<a class="headerlink" href="#gstreamer-pipeline-adjustments" title="Permalink to this heading">#</a></h2>
-<p>In the following sections we will be converting the below pipeline that
-is using DeepStream elements to Pipeline Framework. It is taken from one of the
-examples
-<a class="reference external" href="https://github.com/NVIDIA-AI-IOT/redaction_with_deepstream">here</a>.
-It takes an input stream from file, decodes, runs inference, overlays
+<p>In the following sections we will be converting DeepStream pipeline to Pipeline Framework.
+The DeepStream pipeline is taken from one of the examples
+<a class="reference external" href="https://github.com/NVIDIA-AI-IOT/deepstream_reference_apps">here</a>.
+It reads a video stream from the input file, decodes it, runs inference, overlays
 the inferences on the video, re-encodes and outputs a new .mp4 file.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span>input_file.mp4<span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 nvstreammux<span class="w"> </span>batch-size<span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">width</span><span class="o">=</span><span class="m">1920</span><span class="w"> </span><span class="nv">height</span><span class="o">=</span><span class="m">1080</span><span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
@@ -461,12 +529,11 @@ nvvideoconvert<span class="w"> </span>!<span class="w"> </span><span class="s2">
 <li><p>Remove <code class="docutils literal notranslate"><span class="pre">nvstreammux</span></code> and <code class="docutils literal notranslate"><span class="pre">nvstreamdemux</span></code> and all their
 properties.</p>
 <ul>
-<li><p>These elements are used in the case of multiple input streams to
-connect all inputs to the same inferencing element. In DL
-Streamer, the inferencing elements share properties and instances
-if they share the same <code class="docutils literal notranslate"><span class="pre">model-instance-id</span></code> property.</p></li>
-<li><p>In our example, we only have one source so we will skip this for
-now. See more on how to do this with Pipeline Framework in the section
+<li><p>These elements combine multiple input streams into a single batched video stream (NVIDIA-specific).
+Intel® DL Streamer takes a different approach: it employs generic GStreamer syntax to define parallel streams.
+The cross-stream batching happens at the inferencing elements by setting the same <code class="docutils literal notranslate"><span class="pre">model-instance-id</span></code> property.</p></li>
+<li><p>In this example, there is only one video stream so we can skip this for now.
+See more on how to construct multi-stream pipelines in the following section
 <a class="reference internal" href="#multiple-input-streams"><span class="std std-ref">Multiple Input Streams</span></a> below.</p></li>
 </ul>
 </li>
@@ -523,29 +590,14 @@ This replaces <code class="docutils literal notranslate"><span class="pre">nvinf
 output region of interests. <code class="docutils literal notranslate"><span class="pre">batch-size</span></code> was also added for
 consistency with what was removed above (the default value is 1 so it is
 not needed). We replaced <code class="docutils literal notranslate"><span class="pre">config-file-path</span></code> property with <code class="docutils literal notranslate"><span class="pre">model</span></code>
-and <code class="docutils literal notranslate"><span class="pre">model-proc</span></code> properties. See the section above about “Preparing
-your model” for converting the model to IR format and creating a
-model-proc file.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">model-proc</span></code> file is not always needed depending on the model’s inputs and outputs.</p>
-</div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span>input_file.mp4<span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
-gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span>./model.xml<span class="w"> </span>model-proc<span class="o">=</span>./model_proc.json<span class="w"> </span>batch-size<span class="o">=</span><span class="m">1</span><span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
-nvvideoconvert<span class="w"> </span>!<span class="w"> </span><span class="s2">&quot;video/x-raw(memory:NVMM), format=RGBA&quot;</span><span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
-nvdsosd<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
-nvvideoconvert<span class="w"> </span>!<span class="w"> </span><span class="s2">&quot;video/x-raw, format=I420&quot;</span><span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span>avenc_mpeg4<span class="w"> </span><span class="nv">bitrate</span><span class="o">=</span><span class="m">8000000</span><span class="w"> </span>!<span class="w"> </span>qtmux<span class="w"> </span>!<span class="w"> </span>filesink<span class="w"> </span><span class="nv">location</span><span class="o">=</span>output_file.mp4
-</pre></div>
-</div>
+and <code class="docutils literal notranslate"><span class="pre">model-proc</span></code> properties as described in “Configuring Model for Intel® DL Streamer” above.</p>
 </section>
 <section id="video-processing-elements">
 <h3>Video Processing Elements<a class="headerlink" href="#video-processing-elements" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Replace video processing elements with VA equivalents for GPU or
-native GStreamer elements for CPU.</p>
+<li><p>Replace NVIDIA-specific video processing elements with native GStreamer elements.</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">nvvideoconvert</span></code> with <code class="docutils literal notranslate"><span class="pre">vapostproc</span></code> or <code class="docutils literal notranslate"><span class="pre">mfxvpp</span></code> (GPU) or
-<code class="docutils literal notranslate"><span class="pre">videoconvert</span></code> (CPU).</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">nvvideoconvert</span></code> with <code class="docutils literal notranslate"><span class="pre">vapostproc</span></code> (GPU) or <code class="docutils literal notranslate"><span class="pre">videoconvert</span></code> (CPU).</p>
 <ul>
 <li><p>If the <code class="docutils literal notranslate"><span class="pre">nvvideoconvert</span></code> is being used to convert to/from
 <code class="docutils literal notranslate"><span class="pre">memory:NVMM</span></code> it can just be removed.</p></li>
@@ -570,12 +622,6 @@ on CPU, however if available, we suggest using <code class="docutils literal not
 on Intel Graphics. Also, we will use the GStreamer standard element
 <code class="docutils literal notranslate"><span class="pre">decodebin</span></code> to choose an appropriate demuxer and decoder depending on
 the input stream as well as what is available on the system.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span>input_file.mp4<span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
-gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span>./model.xml<span class="w"> </span>model-proc<span class="o">=</span>./model_proc.json<span class="w"> </span>batch-size<span class="o">=</span><span class="m">1</span><span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
-nvdsosd<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
-videoconvert<span class="w"> </span>!<span class="w"> </span>avenc_mpeg4<span class="w"> </span><span class="nv">bitrate</span><span class="o">=</span><span class="m">8000000</span><span class="w"> </span>!<span class="w"> </span>qtmux<span class="w"> </span>!<span class="w"> </span>filesink<span class="w"> </span><span class="nv">location</span><span class="o">=</span>output_file.mp4
-</pre></div>
-</div>
 </section>
 <section id="metadata-elements">
 <h3>Metadata Elements<a class="headerlink" href="#metadata-elements" title="Permalink to this heading">#</a></h3>
@@ -618,31 +664,33 @@ generated by <code class="docutils literal notranslate"><span class="pre">gvamet
 </ul>
 <p>The only metadata processing that is done in this pipeline is to overlay
 the inferences on the video for which we use <code class="docutils literal notranslate"><span class="pre">gvawatermark</span></code>.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span>input_file.mp4<span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
-gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span>./model.xml<span class="w"> </span>model-proc<span class="o">=</span>./model_proc.json<span class="w"> </span>batch-size<span class="o">=</span><span class="m">1</span><span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
-gvawatermark<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
-videoconvert<span class="w"> </span>!<span class="w"> </span>avenc_mpeg4<span class="w"> </span><span class="nv">bitrate</span><span class="o">=</span><span class="m">8000000</span><span class="w"> </span>!<span class="w"> </span>qtmux<span class="w"> </span>!<span class="w"> </span>filesink<span class="w"> </span><span class="nv">location</span><span class="o">=</span>output_file.mp4
-</pre></div>
-</div>
 </section>
 </section>
 <section id="multiple-input-streams">
 <span id="id1"></span><h2>Multiple Input Streams<a class="headerlink" href="#multiple-input-streams" title="Permalink to this heading">#</a></h2>
 <div class="line-block">
-<div class="line">Unlike DeepStream, where all sources need to be linked to the sink
-pads of the <code class="docutils literal notranslate"><span class="pre">nvstreammux</span></code> element, Pipeline Framework shares all model and
-Inference Engine properties between elements that have the same
-<code class="docutils literal notranslate"><span class="pre">model-instance-id</span></code> property. Meaning that you do not need to mux
-all sources together before inference and you can remove any
-instances of <code class="docutils literal notranslate"><span class="pre">nvstreammux</span></code> and <code class="docutils literal notranslate"><span class="pre">nvstreamdemux</span></code>. Below is a pseudo
-example of a pipeline with two streams.</div>
-<div class="line">For DeepStream, the pipeline would look like this:</div>
+<div class="line">Unlike DeepStream, where all sources need to be linked to the sink pads of the <code class="docutils literal notranslate"><span class="pre">nvstreammux</span></code> element,
+Pipeline Framework uses existing GStreamer mechanisms to define multiple parallel video processing streams.
+This approach allow to reuse native GStreamer elements within the pipeline.
+The input stream can share same Inference Engine if they have same <code class="docutils literal notranslate"><span class="pre">model-instance-id</span></code> property.
+This allows creating inference batching across streams.</div>
 </div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nvstreammux<span class="w"> </span>!<span class="w"> </span>nvinfer<span class="w"> </span>config-file-path<span class="o">=</span>./config.txt<span class="w"> </span>!<span class="w"> </span>nvstreamdemux<span class="w"> </span>filesrc<span class="w"> </span>!<span class="w"> </span>decode<span class="w"> </span>!<span class="w"> </span>mux.sink_0<span class="w"> </span>filesrc<span class="w"> </span>!<span class="w"> </span>decode<span class="w"> </span>!<span class="w"> </span>mux.sink_1<span class="w"> </span>demux.src_0<span class="w"> </span>!<span class="w"> </span>encode<span class="w"> </span>!<span class="w"> </span>filesink<span class="w"> </span>demux.src_1<span class="w"> </span>!<span class="w"> </span>encode<span class="w"> </span>!<span class="w"> </span>filesink
+<div class="line-block">
+<div class="line">For DeepStream, the simple pipeline involving two streams would look like code snippet below.
+The first line defines a common inference element for two (muxed and batched) streams.
+The second line defines per-stream input operations prior to muxing.
+The third line defines per-stream output operations after de-muxing.</div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nvstreammux<span class="w"> </span>!<span class="w"> </span>nvinfer<span class="w"> </span>batch-size<span class="o">=</span><span class="m">2</span><span class="w"> </span>config-file-path<span class="o">=</span>./config.txt<span class="w"> </span>!<span class="w"> </span>nvstreamdemux<span class="w"> </span><span class="se">\</span>
+filesrc<span class="w"> </span>!<span class="w"> </span>decode<span class="w"> </span>!<span class="w"> </span>mux.sink_0<span class="w"> </span>filesrc<span class="w"> </span>!<span class="w"> </span>decode<span class="w"> </span>!<span class="w"> </span>mux.sink_1<span class="w"> </span><span class="se">\</span>
+demux.src_0<span class="w"> </span>!<span class="w"> </span>encode<span class="w"> </span>!<span class="w"> </span>filesink<span class="w"> </span>demux.src_1<span class="w"> </span>!<span class="w"> </span>encode<span class="w"> </span>!<span class="w"> </span>filesink
 </pre></div>
 </div>
-<p>When using Pipeline Framework, the pipeline will look like this:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>filesrc<span class="w"> </span>!<span class="w"> </span>decode<span class="w"> </span>!<span class="w"> </span>gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span>./model.xml<span class="w"> </span>model-proc<span class="o">=</span>./model_proc.json<span class="w"> </span>model-instance-id<span class="o">=</span>model1<span class="w"> </span>!<span class="w"> </span>encode<span class="w"> </span>!<span class="w"> </span>filesink<span class="w"> </span>filesrc<span class="w"> </span>!<span class="w"> </span>decode<span class="w"> </span>!<span class="w"> </span>gvadetect<span class="w"> </span>model-instance-id<span class="o">=</span>model1<span class="w"> </span>!<span class="w"> </span>encode<span class="w"> </span>!<span class="w"> </span>filesink
+<p>When using Pipeline Framework, the command line defines operations for two parallel streams using native GStreamer syntax.
+By setting <code class="docutils literal notranslate"><span class="pre">model-instance-id</span></code> to the same value, both streams share the same instance <code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> element.
+Hence, the shared inference parameters (model, batch size, …) can be defined only in the first line.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>filesrc<span class="w"> </span>!<span class="w"> </span>decode<span class="w"> </span>!<span class="w"> </span>gvadetect<span class="w"> </span>model-instance-id<span class="o">=</span>model1<span class="w"> </span><span class="nv">model</span><span class="o">=</span>./model.xml<span class="w"> </span>batch-size<span class="o">=</span><span class="m">2</span><span class="w"> </span>!<span class="w"> </span>encode<span class="w"> </span>!<span class="w"> </span>filesink<span class="w"> </span><span class="se">\</span>
+filesrc<span class="w"> </span>!<span class="w"> </span>decode<span class="w"> </span>!<span class="w"> </span>gvadetect<span class="w"> </span>model-instance-id<span class="o">=</span>model1<span class="w"> </span>!<span class="w"> </span>encode<span class="w"> </span>!<span class="w"> </span>filesink
 </pre></div>
 </div>
 </section>
@@ -693,6 +741,7 @@ example of a pipeline with two streams.</div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-your-model">Preparing Your Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-model-for-intel-dl-streamer">Configuring Model for Intel® DL Streamer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gstreamer-pipeline-adjustments">GStreamer Pipeline Adjustments</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mux-and-demux-elements">Mux and Demux Elements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencing-elements">Inferencing Elements</a></li>

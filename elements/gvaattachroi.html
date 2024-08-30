@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>DeepSORT tracking support &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
+    <title>gvaattachroi &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
   
   
   
@@ -44,11 +44,9 @@
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script src="../_static/target-highlight.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'dev_guide/deepsort_implementation';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'elements/gvaattachroi';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="GPU device selection" href="gpu_device_selection.html" />
-    <link rel="prev" title="Object Tracking" href="object_tracking.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -136,7 +134,7 @@
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../get_started/get_started_index.html">Get Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../get_started/hardware_requirements.html">Hardware Requirements</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../get_started/install/install_guide_index.html">Install Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -152,45 +150,45 @@
 <li class="toctree-l2"><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">Samples</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="dev_guide_index.html">Developer Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="metadata.html">Metadata</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="model_preparation.html">Model Preparation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="yolo_models.html">Yolo Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../dev_guide/dev_guide_index.html">Developer Guide</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/metadata.html">Metadata</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dev_guide/model_preparation.html">Model Preparation</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dev_guide/yolo_models.html">Yolo Models</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="model_proc_file.html">Model-proc File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="model_info_xml.html">Model Info Section</a></li>
-<li class="toctree-l2"><a class="reference internal" href="how_to_create_model_proc_file.html">How to Create Model-proc File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python_bindings.html">Python Bindings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="custom_processing.html">Custom Processing</a></li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="object_tracking.html">Object Tracking</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">DeepSORT tracking support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/model_proc_file.html">Model-proc File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/model_info_xml.html">Model Info Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/how_to_create_model_proc_file.html">How to Create Model-proc File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/python_bindings.html">Python Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/custom_processing.html">Custom Processing</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dev_guide/object_tracking.html">Object Tracking</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dev_guide/deepsort_implementation.html">DeepSORT tracking support</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="gpu_device_selection.html">GPU device selection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="performance_guide.html">Performance Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="profiling.html">Profiling with Intel VTune™</a></li>
-<li class="toctree-l2"><a class="reference internal" href="converting_deepstream_to_dlstreamer.html">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="how_to_contribute.html">How to Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="coding_style.html">Coding Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/gpu_device_selection.html">GPU device selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/performance_guide.html">Performance Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/profiling.html">Profiling with Intel VTune™</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/converting_deepstream_to_dlstreamer.html">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dev_guide/how_to_contribute.html">How to Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dev_guide/coding_style.html">Coding Style</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="latency_tracer.html">Latency Tracer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/latency_tracer.html">Latency Tracer</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../elements/elements.html">Elements</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../elements/gvadetect.html">gvadetect</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../elements/gvaclassify.html">gvaclassify</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../elements/gvainference.html">gvainference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../elements/gvaaudiodetect.html">gvaaudiodetect</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../elements/gvatrack.html">gvatrack</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../elements/gvametaconvert.html">gvametaconvert</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../elements/gvametapublish.html">gvametapublish</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../elements/gvametaaggregate.html">gvametaaggregate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../elements/gvapython.html">gvapython</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../elements/gvawatermark.html">gvawatermark</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../elements/gvafpscounter.html">gvafpscounter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../elements/python_object_association.html">python_object_association</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="elements.html">Elements</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="gvadetect.html">gvadetect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gvaclassify.html">gvaclassify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gvainference.html">gvainference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gvaaudiodetect.html">gvaaudiodetect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gvatrack.html">gvatrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gvametaconvert.html">gvametaconvert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gvametapublish.html">gvametapublish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gvametaaggregate.html">gvametaaggregate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gvapython.html">gvapython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gvawatermark.html">gvawatermark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gvafpscounter.html">gvafpscounter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_object_association.html">python_object_association</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../supported_models.html">Supported Models</a></li>
@@ -302,7 +300,7 @@
       
       
       
-      <li><a href="../_sources/dev_guide/deepsort_implementation.rst" target="_blank"
+      <li><a href="../_sources/elements/gvaattachroi.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -373,9 +371,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -386,25 +382,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>DeepSORT tracking support</h1>
+    <h1>gvaattachroi</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-few-words-about-deepsort">A few words about DeepSORT</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object-detection">Object detection</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction">Feature extraction</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id-assignment">ID assignment</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-deepsort-pipeline-example">Basic DeepSORT pipeline example</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -414,98 +396,98 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="deepsort-tracking-support">
-<h1>DeepSORT tracking support<a class="headerlink" href="#deepsort-tracking-support" title="Permalink to this heading">#</a></h1>
-<p>This page contains information about how to build DeepSORT people tracking pipeline
-with <strong>Intel® Deep Learning Streamer (Intel® DL Streamer)</strong>.</p>
-<section id="a-few-words-about-deepsort">
-<h2>A few words about DeepSORT<a class="headerlink" href="#a-few-words-about-deepsort" title="Permalink to this heading">#</a></h2>
-<p>DeepSORT is a <em>zero-term</em> tracking algorithm
-based on SORT algorithm with deep learning model usage.</p>
-<p>This algorithm like other tracking algorithms uses the common structure:</p>
-<figure class="align-default" id="id1">
-<div class="graphviz"><img src="../_images/graphviz-b687f4ad7af64c113c8e8f910cdb9fdda1c2e3af.png" alt="digraph {
-  rankdir=&quot;LR&quot;
-  node[shape=box, style=&quot;rounded, filled&quot;, fillcolor=white]
+  <section id="gvaattachroi">
+<h1>gvaattachroi<a class="headerlink" href="#gvaattachroi" title="Permalink to this heading">#</a></h1>
+<p>Provides the ability to define one or more regions of interest to perform inference on,
+instead of the full frame.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Pad Templates:
+  SINK template: &#39;sink&#39;
+    Availability: Always
+    Capabilities:
+      video/x-raw
+                format: { (string)BGRx, (string)BGRA, (string)BGR, (string)NV12, (string)I420 }
+                  width: [ 1, 2147483647 ]
+                height: [ 1, 2147483647 ]
+              framerate: [ 0/1, 2147483647/1 ]
+      video/x-raw(memory:DMABuf)
+                format: { (string)DMA_DRM }
+                  width: [ 1, 2147483647 ]
+                height: [ 1, 2147483647 ]
+              framerate: [ 0/1, 2147483647/1 ]
+      video/x-raw(memory:VASurface)
+                format: { (string)NV12 }
+                  width: [ 1, 2147483647 ]
+                height: [ 1, 2147483647 ]
+              framerate: [ 0/1, 2147483647/1 ]
+      video/x-raw(memory:VAMemory)
+                format: { (string)NV12 }
+                  width: [ 1, 2147483647 ]
+                height: [ 1, 2147483647 ]
+              framerate: [ 0/1, 2147483647/1 ]
 
-  od[label=&quot;Object Detection&quot;]
-  fe[label=&quot;Feature Extraction&quot;]
-  id[label=&quot;ID Assignment&quot;]
+  SRC template: &#39;src&#39;
+    Availability: Always
+    Capabilities:
+      video/x-raw
+                format: { (string)BGRx, (string)BGRA, (string)BGR, (string)NV12, (string)I420 }
+                  width: [ 1, 2147483647 ]
+                height: [ 1, 2147483647 ]
+              framerate: [ 0/1, 2147483647/1 ]
+      video/x-raw(memory:DMABuf)
+                format: { (string)DMA_DRM }
+                  width: [ 1, 2147483647 ]
+                height: [ 1, 2147483647 ]
+              framerate: [ 0/1, 2147483647/1 ]
+      video/x-raw(memory:VASurface)
+                format: { (string)NV12 }
+                  width: [ 1, 2147483647 ]
+                height: [ 1, 2147483647 ]
+              framerate: [ 0/1, 2147483647/1 ]
+      video/x-raw(memory:VAMemory)
+                format: { (string)NV12 }
+                  width: [ 1, 2147483647 ]
+                height: [ 1, 2147483647 ]
+              framerate: [ 0/1, 2147483647/1 ]
 
-  od -&gt; fe -&gt; id
-}" class="graphviz" /></div>
-<figcaption>
-<p><span class="caption-text">DeepSORT structure</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Various tracking algorithms implement each part differently,
-but generally the pattern remains unchanged.</p>
-<section id="object-detection">
-<h3>Object detection<a class="headerlink" href="#object-detection" title="Permalink to this heading">#</a></h3>
-<p>Object tracking with Intel® DL Streamer models is a simple task.
-To enable this usage we going to use <a class="reference internal" href="../elements/gvadetect.html"><span class="doc">gvadetect</span></a>
-element with <em>yolov5m</em> model.</p>
-</section>
-<section id="feature-extraction">
-<h3>Feature extraction<a class="headerlink" href="#feature-extraction" title="Permalink to this heading">#</a></h3>
-<p>This part of tracking algorithm is necessary to make ID assignments.
-In order to distinguish detected objects from each other,
-it is necessary to extract information that will uniquely identify the object via Features.
-Features may be presented as combination of various positional or colour characteristics,
-for example bounding-box coordinates or colour histogram.</p>
-<p>Instead of the histogram, DeepSORT uses embeddings generated with DL models.
-The example below uses the <em>person-reidentification-retail-0287</em> model from Open Model Zoo to get embeddings.
-This model is run using <a class="reference internal" href="../elements/gvainference.html"><span class="doc">gvainference</span></a> element since post-processing is not required
-(raw embeddings are fed to ID assignment).</p>
-<p>Please note following properties on gvainference:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">inference-region=roi-list</span></code> – to perform inference on detections (ROIs) from gvatedect;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">object-class=person</span></code> – to perform inference on detections (ROIs) whose class identifier is a person, since the re-identification model for people is used.</p></li>
-</ul>
-<p>Make sure you’ve indicated <code class="docutils literal notranslate"><span class="pre">model-proc</span></code> file with labels list for
-<em>yolo-v5</em> model in <code class="docutils literal notranslate"><span class="pre">gvadetect</span></code>. The label list should have <em>person</em> label.</p>
-</section>
-<section id="id-assignment">
-<h3>ID assignment<a class="headerlink" href="#id-assignment" title="Permalink to this heading">#</a></h3>
-<p>ID assignment is the heart of any OT algorithm.
-It contains the complete logic of the algorithm, parts of which may be the Kalman filter,
-Linear assignment algorithm, set of features matching algorithms
-(embeddings, IoU, histogram…), or OT memory implementation.</p>
-<p>We use <a class="reference external" href="https://github.com/levan92/deep_sort_realtime">deep-sort-realtime</a>
-python library inside <a class="reference internal" href="../elements/python_object_association.html"><span class="doc">python_object_association</span></a> element.
-We pass bounding-boxes with feature embeddings as an input and
-get new adjusted bounding-boxes with unique IDs as an output.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>By default we overwrite existing input ROIs with new ROIs’ metadata,
-because tracking algorithm gives more accurate bounding-boxes
-and we don’t need match original ROIs and updated ones with IoU calculation just to set the <em>id</em>.
-If you want to keep them set <code class="docutils literal notranslate"><span class="pre">overwrite-roi=false</span></code> property.</p>
-</div>
-<p>Because we want to perform tracking only for <em>persons</em> we need to indicate this
-with <code class="docutils literal notranslate"><span class="pre">object-class=person</span></code> property</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">person</span></code> label will be saved during overwriting, because <code class="docutils literal notranslate"><span class="pre">save-object-class-label</span></code> property is <code class="docutils literal notranslate"><span class="pre">true</span></code> by default.
-This will work while properties <code class="docutils literal notranslate"><span class="pre">object-class</span></code> is <em>defined</em>, <strong>and</strong> <code class="docutils literal notranslate"><span class="pre">overwrite-roi</span></code> is <em>true</em>.</p>
-</section>
-</section>
-<section id="basic-deepsort-pipeline-example">
-<h2>Basic DeepSORT pipeline example<a class="headerlink" href="#basic-deepsort-pipeline-example" title="Permalink to this heading">#</a></h2>
-<p>So, we’ve just described all three parts of the algorithm and how to implement them
-with our elements and now we can write whole pipeline:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0<span class="w"> </span><span class="se">\</span>
-filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span>&lt;video.mp4&gt;<span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
-gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span>&lt;yolov5m.xml&gt;<span class="w"> </span><span class="nv">model_proc</span><span class="o">=</span>&lt;yolo-v5.json&gt;!<span class="w"> </span><span class="se">\</span>
-gvainference<span class="w"> </span><span class="nv">model</span><span class="o">=</span>&lt;person-reidentification-retail-0287.xml&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>inference-region<span class="o">=</span>roi-list<span class="w"> </span>object-class<span class="o">=</span><span class="s2">&quot;person&quot;</span><span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
-python_object_association<span class="w"> </span>object-class<span class="o">=</span><span class="s2">&quot;person&quot;</span><span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
-opencv_meta_overlay<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
-videoconvert<span class="w"> </span>!<span class="w"> </span>gvafpscounter<span class="w"> </span>!<span class="w"> </span>xvimagesink<span class="w"> </span><span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
+Element has no clocking capabilities.
+Element has no URI handling capabilities.
+
+Pads:
+  SINK: &#39;sink&#39;
+    Pad Template: &#39;sink&#39;
+  SRC: &#39;src&#39;
+    Pad Template: &#39;src&#39;
+
+Element Properties:
+
+  file-path           : Absolute path to input file with ROIs to attach to buffer.
+                        flags: readable, writable
+                        String. Default: null
+
+  mode                : Mode used to attach ROIs from JSON file
+                        flags: readable, writable
+                        Enum &quot;GstGVAAttachRoiMode&quot; Default: 0, &quot;in-order&quot;
+                          (0): in-order         - Attach ROIs in order. Number of frames in the pipeline must match to number of ROIs in JSON.
+                          (1): in-loop          - Attach ROIs in cyclic manner. Same as in-order, but for cases when the number of frames in the pipeline exceeds ROIs in JSON.
+                          (2): by-timestamp     - Attach ROIs using timestamping. ROIs in JSON file must be timestamped.
+
+  name                : The name of the object
+                        flags: readable, writable
+                        String. Default: &quot;gvaattachroi0&quot;
+
+  parent              : The parent of the object
+                        flags: readable, writable
+                        Object of type &quot;GstObject&quot;
+
+  qos                 : Handle Quality-of-Service events
+                        flags: readable, writable
+                        Boolean. Default: false
+
+  roi                 : Specifies pixel absolute coordinates of ROI to attach to buffer in form: x_top_left,y_top_left,x_bottom_right,y_bottom_right
+                        flags: readable, writable
+                        String. Default: null
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">python_object_association</span></code> has several properties to set algorithm’s parameters.
-You can experiment with them to get maximum from your use-case,
-just remember all changes may impact on both performance and accuracy.</p>
-</section>
 </section>
 
 
@@ -519,50 +501,12 @@ just remember all changes may impact on both performance and accuracy.</p>
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="object_tracking.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Object Tracking</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="gpu_device_selection.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">GPU device selection</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-few-words-about-deepsort">A few words about DeepSORT</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object-detection">Object detection</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction">Feature extraction</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id-assignment">ID assignment</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-deepsort-pipeline-example">Basic DeepSORT pipeline example</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

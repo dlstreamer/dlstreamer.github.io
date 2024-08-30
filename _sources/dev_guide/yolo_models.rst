@@ -14,23 +14,40 @@ This page illustrates how to prepare models from the **YOLO** family for integra
 The instructions assume Intel® DL Streamer framework is installed on the local system along with Intel® OpenVINO™ model downloader and converter tools,
 as described here: `Tutorial <https://dlstreamer.github.io/get_started/tutorial.html#tutorial-setup>`__.
 
-For YoloV5, YoloV8 and YoloV9 models it is also necessary to install the Ultralytics Python package:
+For YoloV5, YoloV8, YoloV9 and YoloV10 models it is also necessary to install the Ultralytics Python package:
 
 .. code:: sh
 
    pip install ultralytics
 
-2. YoloV8, YoloV9
------------------
+2. YoloV8, YoloV9, YoloV10
+--------------------------
 
-Python script converting the recent Ultralytics models to Intel® OpenVINO™ format (replace *MODEL_NAME* with yolov8s.pt or yolov9c.pt):
+Python script converting the recent Ultralytics models to Intel® OpenVINO™ format (replace *MODEL_NAME* with "yolov8s.pt", "yolov9c.pt" or "yolov10s.pt"):
 
 .. code-block:: python
 
    from ultralytics import YOLO
    model = YOLO(MODEL_NAME)
    model.info()
-   model.export(format='openvino')  
+   model.export(format='openvino')
+
+For model YoloV10 modify model_type as below:
+
+.. code-block:: python
+
+   from ultralytics import YOLO
+   import openvino, sys, shutil
+   model = YOLO(MODEL_NAME)
+   model.info()
+   converted_path = model.export(format='openvino')
+   converted_model = converted_path + '/yolov10s.xml'
+   core = openvino.Core()
+   ov_model = core.read_model(model=converted_model)
+   ov_model.set_rt_info("yolo_v10", ['model_info', 'model_type'])
+   openvino.save_model(ov_model, './FP32/yolov10s.xml', compress_to_fp16=False)
+   openvino.save_model(ov_model, './FP16/yolov10s.xml', compress_to_fp16=True)
+   shutil.rmtree(converted_path)
 
 3. YoloV7
 ---------
