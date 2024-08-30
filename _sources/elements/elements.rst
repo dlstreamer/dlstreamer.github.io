@@ -45,9 +45,11 @@ gst-inspect-1.0 utility
    * - :doc:`gvafpscounter <gvafpscounter>`
      - Measures frames per second across multiple streams in a single process.
 
+   * - :doc:`gvaattachroi <gvaattachroi>`
+     - Provides the ability to define one or more regions of interest to perform inference on, instead of the full frame.
+
    * - :doc:`python_object_association <python_object_association>`
      - Assigns unique ID to ROI via DeepSORT algorithm.
-
 
 .. toctree::
    :maxdepth: 1
@@ -64,4 +66,5 @@ gst-inspect-1.0 utility
    gvapython
    gvawatermark
    gvafpscounter
+   gvaattachroi
    python_object_association

@@ -248,7 +248,7 @@ Intel® DL Streamer has been installed. You can run the ``gst-inspect-1.0 gvadet
 
 If your can see the documentation of ``gvadetect`` element, the installation process is completed.
 
-![gvadetect_help](./gvadetect_sample_help.jpg)
+.. image:: gvadetect_sample_help.png
 
 
 Step 6: Next steps - running sample Intel® DL Streamer pipelines
@@ -306,7 +306,7 @@ In the container, please run the ``gst-inspect-1.0 gvadetect`` to confirm that G
 
 If your can see the documentation of ``gvadetect`` element, the installation process is completed.
 
-![gvadetect_help](./gvadetect_sample_help.jpg)
+.. image:: gvadetect_sample_help.png
 
 
 Step 5: Next steps - running sample Intel® DL Streamer pipelines
@@ -591,7 +591,7 @@ Intel® DL Streamer has been installed. Please run the `gst-inspect-1.0 gvadetec
 
 If your can see the documentation of ``gvadetect`` element, the installation process is completed.
 
-![gvadetect_help](./gvadetect_sample_help.jpg)
+.. image:: gvadetect_sample_help.png
 
 
 Step 11: Next steps - running sample Intel® DL Streamer pipelines
