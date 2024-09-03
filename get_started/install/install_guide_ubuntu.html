@@ -597,10 +597,18 @@ Spinning.
 <h3>Step 1: Install Intel® DL Streamer and OpenVINO™ toolkit<a class="headerlink" href="#step-1-install-intel-dl-streamer-and-openvino-toolkit" title="Permalink to this heading">#</a></h3>
 <p>Download pre-built Debian packages from <cite>GitHub Release page &lt;https://github.com/dlstreamer/dlstreamer/releases&gt;</cite>.
 You can manually download all packages from the release page or try to use following command:</p>
+<p>For Ubuntu 24.04:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/intel/dlstreamer_gst
 <span class="nb">cd</span><span class="w"> </span>~/intel/dlstreamer_gst
 wget<span class="w"> </span><span class="k">$(</span>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span>https://api.github.com/repos/dlstreamer/dlstreamer/releases/latest<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.assets[] | select(.name | contains (&quot;.deb&quot;)) | .browser_download_url&#39;</span><span class="k">)</span>
+<span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.assets[] | select(.name | contains (&quot;ubuntu_24.04_amd64.deb&quot;)) | .browser_download_url&#39;</span><span class="k">)</span>
+</pre></div>
+</div>
+<p>For Ubuntu 22.04:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/intel/dlstreamer_gst
+<span class="nb">cd</span><span class="w"> </span>~/intel/dlstreamer_gst
+wget<span class="w"> </span><span class="k">$(</span>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span>https://api.github.com/repos/dlstreamer/dlstreamer/releases/latest<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.assets[] | select(.name | contains (&quot;ubuntu_22.04_amd64.deb&quot;)) | .browser_download_url&#39;</span><span class="k">)</span>
 </pre></div>
 </div>
 <p>Install Intel® DL Streamer via <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span></code> and OpenVINO™ via script <code class="docutils literal notranslate"><span class="pre">install_openvino.sh</span></code>.</p>

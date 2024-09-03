@@ -163,12 +163,23 @@ Step 1: Install Intel® DL Streamer and OpenVINO™ toolkit
 Download pre-built Debian packages from `GitHub Release page <https://github.com/dlstreamer/dlstreamer/releases>`. 
 You can manually download all packages from the release page or try to use following command:
 
+For Ubuntu 24.04:
+
 .. code:: sh
 
    mkdir -p ~/intel/dlstreamer_gst
    cd ~/intel/dlstreamer_gst
    wget $(wget -q -O - https://api.github.com/repos/dlstreamer/dlstreamer/releases/latest | \
-     jq -r '.assets[] | select(.name | contains (".deb")) | .browser_download_url')
+     jq -r '.assets[] | select(.name | contains ("ubuntu_24.04_amd64.deb")) | .browser_download_url')
+
+For Ubuntu 22.04:
+
+.. code:: sh
+
+   mkdir -p ~/intel/dlstreamer_gst
+   cd ~/intel/dlstreamer_gst
+   wget $(wget -q -O - https://api.github.com/repos/dlstreamer/dlstreamer/releases/latest | \
+     jq -r '.assets[] | select(.name | contains ("ubuntu_22.04_amd64.deb")) | .browser_download_url')
 
 Install Intel® DL Streamer via ``apt install`` and OpenVINO™ via script ``install_openvino.sh``.
 
