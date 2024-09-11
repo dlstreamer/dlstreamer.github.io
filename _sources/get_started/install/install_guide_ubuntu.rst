@@ -157,51 +157,68 @@ C. Install the newest Intel® NPU driver. Please follow 'Installation procedure'
 Option #1: Install Intel® DL Streamer Pipeline Framework from Debian packages
 -----------------------------------------------------------------------------
 
-Step 1: Install Intel® DL Streamer and OpenVINO™ toolkit
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 1: Preprare the installation environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Download pre-built Debian packages from `GitHub Release page <https://github.com/dlstreamer/dlstreamer/releases>`. 
-You can manually download all packages from the release page or try to use following command:
+A. For **Ubuntu 24.04**:
 
-For Ubuntu 24.04:
+   Download pre-built Debian packages:
 
-.. code:: sh
+   .. code:: sh
 
-   mkdir -p ~/intel/dlstreamer_gst
-   cd ~/intel/dlstreamer_gst
-   wget $(wget -q -O - https://api.github.com/repos/dlstreamer/dlstreamer/releases/latest | \
-     jq -r '.assets[] | select(.name | contains ("ubuntu_24.04_amd64.deb")) | .browser_download_url')
+      mkdir -p ~/intel/dlstreamer_gst
+      cd ~/intel/dlstreamer_gst
+      wget $(wget -q -O - https://api.github.com/repos/dlstreamer/dlstreamer/releases/latest | \
+        jq -r '.assets[] | select(.name | contains ("ubuntu_24.04_amd64.deb")) | .browser_download_url')
 
-For Ubuntu 22.04:
 
-.. code:: sh
 
-   mkdir -p ~/intel/dlstreamer_gst
-   cd ~/intel/dlstreamer_gst
-   wget $(wget -q -O - https://api.github.com/repos/dlstreamer/dlstreamer/releases/latest | \
-     jq -r '.assets[] | select(.name | contains ("ubuntu_22.04_amd64.deb")) | .browser_download_url')
+B. For **Ubuntu 22.04**:
 
-Install Intel® DL Streamer via ``apt install`` and OpenVINO™ via script ``install_openvino.sh``.
+   Download Ninja build system and use it to build OpenCV library:
+
+   .. code:: sh
+
+      mkdir -p ~/intel/dlstreamer_gst
+      cd ~/intel/dlstreamer_gst
+      sudo apt-get install ninja-build unzip
+      wget -q --no-check-certificate -O opencv.zip https://github.com/opencv/opencv/archive/4.10.0.zip
+      unzip opencv.zip && rm opencv.zip && mv opencv-4.10.0 opencv && mkdir -p opencv/build
+      cd ./opencv/build
+      cmake -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DBUILD_EXAMPLES=OFF -DBUILD_opencv_apps=OFF -GNinja .. \
+      && ninja -j "$(nproc)" && sudo ninja install
+
+
+   Download pre-built Debian packages:
+
+   .. code:: sh
+
+      cd ~/intel/dlstreamer_gst
+      wget $(wget -q -O - https://api.github.com/repos/dlstreamer/dlstreamer/releases/latest | \
+        jq -r '.assets[] | select(.name | contains ("ubuntu_22.04_amd64.deb")) | .browser_download_url')
+
+
+Step 2: Install Intel® DL Streamer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Install Intel® DL Streamer from pre-built Debian packages:
 
 ..  code:: sh
 
-   # Install Intel® DL Streamer
    sudo apt install ./*.deb
 
-   # Install OpenVINO™ toolkit (if not installed)
+
+Step 3: Install OpenVINO™ toolkit
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Install Intel® OpenVINO™ via script ``install_openvino.sh``.
+
+..  code:: sh
+
    sudo -E /opt/intel/dlstreamer/install_dependencies/install_openvino.sh
 
 
-Configure the environment after installing Intel® DL Streamer and OpenVINO™:
-
-..  code:: sh
-
-   # Setup OpenVINO™ and Intel® DL Streamer environment
-   source /opt/intel/openvino_2024/setupvars.sh
-   source /opt/intel/dlstreamer/setupvars.sh
-
-
-Step 2: Install MQTT and Kafka clients for element `gvametapublish`
+Step 4: Install MQTT and Kafka clients for element `gvametapublish`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note::
@@ -215,7 +232,7 @@ In order to enable all ``gvametapublish`` backends install required dependencies
    sudo -E /opt/intel/dlstreamer/install_dependencies/install_kafka_client.sh
 
 
-Step 3: Add user to groups
+Step 5: Add user to groups
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When using Media, GPU or NPU devices as non-root user, please add your user to `video` and `render` groups:
@@ -226,7 +243,7 @@ When using Media, GPU or NPU devices as non-root user, please add your user to `
    sudo usermod -a -G render <username>
 
 
-Step 4: Set up the environment for Intel® DL Streamer
+Step 6: Set up the environment for Intel® DL Streamer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Source required environment variables to run GStreamer and Intel® DL Streamer:
@@ -235,20 +252,18 @@ Source required environment variables to run GStreamer and Intel® DL Streamer:
 
    # Setup OpenVINO™ Toolkit environment
    source /opt/intel/openvino_2024/setupvars.sh
-   # Setup GStreamer environment
-   source /opt/intel/dlstreamer/gstreamer/setupvars.sh  
-   # Setup Intel® DL Streamer Pipeline Framework environment
+   # Setup GStreamer and Intel® DL Streamer Pipeline Framework environments
    source /opt/intel/dlstreamer/setupvars.sh
 
 .. note::
    The environment variables are removed when you close the shell.
    Before each run of Intel® DL Streamer you need to setup the 
-   environment with the 3 scripts listed in this step.
+   environment with the 2 scripts listed in this step.
    As an option, you can set the environment variables in file
    ``~/.bashrc`` for automatic enabling.
 
 
-Step 5: Verify Intel® DL Streamer installation 
+Step 7: Verify Intel® DL Streamer installation 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Intel® DL Streamer has been installed. You can run the ``gst-inspect-1.0 gvadetect`` to confirm that GStreamer and Intel® DL Streamer are running:
@@ -262,7 +277,7 @@ If your can see the documentation of ``gvadetect`` element, the installation pro
 .. image:: gvadetect_sample_help.png
 
 
-Step 6: Next steps - running sample Intel® DL Streamer pipelines
+Step 8: Next steps - running sample Intel® DL Streamer pipelines
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You are ready to use Intel® DL Streamer. For further instructions to run sample pipeline(s), please go to: :doc:`../tutorial`
@@ -385,18 +400,29 @@ Install build dependencies:
 .. code:: sh
 
    # Install dependencies
-   sudo apt-get update && sudo apt-get install curl wget gpg software-properties-common cmake build-essential libpython3-dev python-gi-dev libopencv-dev jq libgflags-dev
+   sudo apt-get update && sudo apt-get install curl wget gpg software-properties-common cmake build-essential libpython3-dev python-gi-dev libopencv-dev jq libgflags-dev libdrm-dev
 
 Download pre-built Debian packages for GStreamer from `GitHub Release page <https://github.com/dlstreamer/dlstreamer/releases>`. 
 You can manually download all packages from the release page or try to use following command. 
 Install GStreamer from downloaded packages:
 
-.. code:: sh
+A. For **Ubuntu 24.04**:
+   
+   .. code:: sh
 
-   wget $(wget -q -O - https://api.github.com/repos/dlstreamer/dlstreamer/releases/latest | \
-     jq -r '.assets[] | select(.name | contains (".deb")) | .browser_download_url')
-   sudo apt install -y ./intel-dlstreamer-gst*
-   sudo apt install -y ./intel-dlstreamer-ffmpeg*
+      wget $(wget -q -O - https://api.github.com/repos/dlstreamer/dlstreamer/releases/latest | \
+        jq -r '.assets[] | select(.name | contains ("ubuntu_24.04_amd64.deb")) | .browser_download_url')
+      sudo apt install -y ./intel-dlstreamer-gst*
+      sudo apt install -y ./intel-dlstreamer-ffmpeg*
+
+B. For **Ubuntu 22.04**:
+
+   .. code:: sh
+
+      wget $(wget -q -O - https://api.github.com/repos/dlstreamer/dlstreamer/releases/latest | \
+        jq -r '.assets[] | select(.name | contains ("ubuntu_22.04_amd64.deb")) | .browser_download_url')
+      sudo apt install -y ./intel-dlstreamer-gst*
+      sudo apt install -y ./intel-dlstreamer-ffmpeg*
 
 
 Step 4: Install Python dependencies

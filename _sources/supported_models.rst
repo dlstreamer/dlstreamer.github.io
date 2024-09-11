@@ -24,56 +24,56 @@ Models Table
 
     * - 1
       - Detection
-      - `yolo-v5 <https://dlstreamer.github.io/dev_guide/yolo_model_preparation.html>`__
+      - `yolo-v5 <https://dlstreamer.github.io/dev_guide/yolo_models.html>`__
       - 
       - `coco_80cl.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_80cl.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v5.json>`__
       -
     * - 2
       - Detection
-      - `yolo-v7 <https://dlstreamer.github.io/dev_guide/yolo_model_preparation.html>`__
+      - `yolo-v7 <https://dlstreamer.github.io/dev_guide/yolo_models.html>`__
       - 
       - `coco_80cl.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_80cl.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v7.json>`__
       -
     * - 3
       - Detection
-      - `yolo-v8 <https://dlstreamer.github.io/dev_guide/yolo_model_preparation.html>`__
+      - `yolo-v8 <https://dlstreamer.github.io/dev_guide/yolo_models.html>`__
       - 
       -
       - not required
       -
     * - 4
       - Detection
-      - `yolo-v8-OBB <https://dlstreamer.github.io/dev_guide/yolo_model_preparation.html>`__
+      - `yolo-v8-OBB <https://dlstreamer.github.io/dev_guide/yolo_models.html>`__
       - 
       -
       - not required
       -
     * - 5
       - Instance Segmentation
-      - `yolo-v8-SEG <https://dlstreamer.github.io/dev_guide/yolo_model_preparation.html>`__
+      - `yolo-v8-SEG <https://dlstreamer.github.io/dev_guide/yolo_models.html>`__
       - 
       -
       - not required
       -
     * - 6
       - Detection
-      - `yolo-v9 <https://dlstreamer.github.io/dev_guide/yolo_model_preparation.html>`__
+      - `yolo-v9 <https://dlstreamer.github.io/dev_guide/yolo_models.html>`__
       - 
       -
       - not required
       -
     * - 7
       - Detection
-      - `yolo-v10 <https://dlstreamer.github.io/dev_guide/yolo_model_preparation.html>`__
+      - `yolo-v10 <https://dlstreamer.github.io/dev_guide/yolo_models.html>`__
       - 
       -
       - not required
       -
     * - 8
       - Detection
-      - `yolo-x <https://dlstreamer.github.io/dev_guide/yolo_model_preparation.html>`__
+      - `yolo-x <https://dlstreamer.github.io/dev_guide/yolo_models.html>`__
       - 
       - `coco_80cl.txt <https://github.com/dlstreamer/dlstreamer/blob/master/samples/labels/coco_80cl.txt>`__
       - `model-proc <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-x.json>`__

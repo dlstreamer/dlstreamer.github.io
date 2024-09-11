@@ -400,12 +400,14 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisite-1-intel-gpu-drivers-for-computing-and-media-runtimes">Prerequisite 1 - Intel® GPU drivers for computing and media runtimes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisite-2-install-intel-npu-drivers">Prerequisite 2 - Install Intel® NPU drivers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-install-intel-dl-streamer-pipeline-framework-from-debian-packages">Option #1: Install Intel® DL Streamer Pipeline Framework from Debian packages</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-intel-dl-streamer-and-openvino-toolkit">Step 1: Install Intel® DL Streamer and OpenVINO™ toolkit</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-mqtt-and-kafka-clients-for-element-gvametapublish">Step 2: Install MQTT and Kafka clients for element <cite>gvametapublish</cite></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-add-user-to-groups">Step 3: Add user to groups</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-set-up-the-environment-for-intel-dl-streamer">Step 4: Set up the environment for Intel® DL Streamer</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-verify-intel-dl-streamer-installation">Step 5: Verify Intel® DL Streamer installation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-next-steps-running-sample-intel-dl-streamer-pipelines">Step 6: Next steps - running sample Intel® DL Streamer pipelines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-preprare-the-installation-environment">Step 1: Preprare the installation environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-intel-dl-streamer">Step 2: Install Intel® DL Streamer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-install-openvino-toolkit">Step 3: Install OpenVINO™ toolkit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-install-mqtt-and-kafka-clients-for-element-gvametapublish">Step 4: Install MQTT and Kafka clients for element <cite>gvametapublish</cite></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-add-user-to-groups">Step 5: Add user to groups</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-set-up-the-environment-for-intel-dl-streamer">Step 6: Set up the environment for Intel® DL Streamer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-verify-intel-dl-streamer-installation">Step 7: Verify Intel® DL Streamer installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-next-steps-running-sample-intel-dl-streamer-pipelines">Step 8: Next steps - running sample Intel® DL Streamer pipelines</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-install-docker-image-from-docker-hub-and-run-it">Option #2: Install Docker image from Docker Hub and run it</a><ul class="nav section-nav flex-column">
@@ -593,41 +595,55 @@ Spinning.
 </section>
 <section id="option-1-install-intel-dl-streamer-pipeline-framework-from-debian-packages">
 <span id="id3"></span><h2>Option #1: Install Intel® DL Streamer Pipeline Framework from Debian packages<a class="headerlink" href="#option-1-install-intel-dl-streamer-pipeline-framework-from-debian-packages" title="Permalink to this heading">#</a></h2>
-<section id="step-1-install-intel-dl-streamer-and-openvino-toolkit">
-<h3>Step 1: Install Intel® DL Streamer and OpenVINO™ toolkit<a class="headerlink" href="#step-1-install-intel-dl-streamer-and-openvino-toolkit" title="Permalink to this heading">#</a></h3>
-<p>Download pre-built Debian packages from <cite>GitHub Release page &lt;https://github.com/dlstreamer/dlstreamer/releases&gt;</cite>.
-You can manually download all packages from the release page or try to use following command:</p>
-<p>For Ubuntu 24.04:</p>
+<section id="step-1-preprare-the-installation-environment">
+<h3>Step 1: Preprare the installation environment<a class="headerlink" href="#step-1-preprare-the-installation-environment" title="Permalink to this heading">#</a></h3>
+<ol class="upperalpha">
+<li><p>For <strong>Ubuntu 24.04</strong>:</p>
+<p>Download pre-built Debian packages:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/intel/dlstreamer_gst
 <span class="nb">cd</span><span class="w"> </span>~/intel/dlstreamer_gst
 wget<span class="w"> </span><span class="k">$(</span>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span>https://api.github.com/repos/dlstreamer/dlstreamer/releases/latest<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.assets[] | select(.name | contains (&quot;ubuntu_24.04_amd64.deb&quot;)) | .browser_download_url&#39;</span><span class="k">)</span>
 </pre></div>
 </div>
-<p>For Ubuntu 22.04:</p>
+</li>
+<li><p>For <strong>Ubuntu 22.04</strong>:</p>
+<p>Download Ninja build system and use it to build OpenCV library:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/intel/dlstreamer_gst
 <span class="nb">cd</span><span class="w"> </span>~/intel/dlstreamer_gst
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ninja-build<span class="w"> </span>unzip
+wget<span class="w"> </span>-q<span class="w"> </span>--no-check-certificate<span class="w"> </span>-O<span class="w"> </span>opencv.zip<span class="w"> </span>https://github.com/opencv/opencv/archive/4.10.0.zip
+unzip<span class="w"> </span>opencv.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>opencv.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mv<span class="w"> </span>opencv-4.10.0<span class="w"> </span>opencv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>opencv/build
+<span class="nb">cd</span><span class="w"> </span>./opencv/build
+cmake<span class="w"> </span>-DBUILD_TESTS<span class="o">=</span>OFF<span class="w"> </span>-DBUILD_PERF_TESTS<span class="o">=</span>OFF<span class="w"> </span>-DBUILD_EXAMPLES<span class="o">=</span>OFF<span class="w"> </span>-DBUILD_opencv_apps<span class="o">=</span>OFF<span class="w"> </span>-GNinja<span class="w"> </span>..<span class="w"> </span><span class="se">\</span>
+<span class="o">&amp;&amp;</span><span class="w"> </span>ninja<span class="w"> </span>-j<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>nproc<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>ninja<span class="w"> </span>install
+</pre></div>
+</div>
+<p>Download pre-built Debian packages:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/intel/dlstreamer_gst
 wget<span class="w"> </span><span class="k">$(</span>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span>https://api.github.com/repos/dlstreamer/dlstreamer/releases/latest<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.assets[] | select(.name | contains (&quot;ubuntu_22.04_amd64.deb&quot;)) | .browser_download_url&#39;</span><span class="k">)</span>
 </pre></div>
 </div>
-<p>Install Intel® DL Streamer via <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span></code> and OpenVINO™ via script <code class="docutils literal notranslate"><span class="pre">install_openvino.sh</span></code>.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install Intel® DL Streamer</span>
-sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>./*.deb
-
-<span class="c1"># Install OpenVINO™ toolkit (if not installed)</span>
-sudo<span class="w"> </span>-E<span class="w"> </span>/opt/intel/dlstreamer/install_dependencies/install_openvino.sh
-</pre></div>
-</div>
-<p>Configure the environment after installing Intel® DL Streamer and OpenVINO™:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup OpenVINO™ and Intel® DL Streamer environment</span>
-<span class="nb">source</span><span class="w"> </span>/opt/intel/openvino_2024/setupvars.sh
-<span class="nb">source</span><span class="w"> </span>/opt/intel/dlstreamer/setupvars.sh
+</li>
+</ol>
+</section>
+<section id="step-2-install-intel-dl-streamer">
+<h3>Step 2: Install Intel® DL Streamer<a class="headerlink" href="#step-2-install-intel-dl-streamer" title="Permalink to this heading">#</a></h3>
+<p>Install Intel® DL Streamer from pre-built Debian packages:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>./*.deb
 </pre></div>
 </div>
 </section>
-<section id="step-2-install-mqtt-and-kafka-clients-for-element-gvametapublish">
-<h3>Step 2: Install MQTT and Kafka clients for element <cite>gvametapublish</cite><a class="headerlink" href="#step-2-install-mqtt-and-kafka-clients-for-element-gvametapublish" title="Permalink to this heading">#</a></h3>
+<section id="step-3-install-openvino-toolkit">
+<h3>Step 3: Install OpenVINO™ toolkit<a class="headerlink" href="#step-3-install-openvino-toolkit" title="Permalink to this heading">#</a></h3>
+<p>Install Intel® OpenVINO™ via script <code class="docutils literal notranslate"><span class="pre">install_openvino.sh</span></code>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>-E<span class="w"> </span>/opt/intel/dlstreamer/install_dependencies/install_openvino.sh
+</pre></div>
+</div>
+</section>
+<section id="step-4-install-mqtt-and-kafka-clients-for-element-gvametapublish">
+<h3>Step 4: Install MQTT and Kafka clients for element <cite>gvametapublish</cite><a class="headerlink" href="#step-4-install-mqtt-and-kafka-clients-for-element-gvametapublish" title="Permalink to this heading">#</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Optional step</p>
@@ -638,22 +654,20 @@ sudo<span class="w"> </span>-E<span class="w"> </span>/opt/intel/dlstreamer/inst
 </pre></div>
 </div>
 </section>
-<section id="step-3-add-user-to-groups">
-<h3>Step 3: Add user to groups<a class="headerlink" href="#step-3-add-user-to-groups" title="Permalink to this heading">#</a></h3>
+<section id="step-5-add-user-to-groups">
+<h3>Step 5: Add user to groups<a class="headerlink" href="#step-5-add-user-to-groups" title="Permalink to this heading">#</a></h3>
 <p>When using Media, GPU or NPU devices as non-root user, please add your user to <cite>video</cite> and <cite>render</cite> groups:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>video<span class="w"> </span>&lt;username&gt;
 sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>render<span class="w"> </span>&lt;username&gt;
 </pre></div>
 </div>
 </section>
-<section id="step-4-set-up-the-environment-for-intel-dl-streamer">
-<h3>Step 4: Set up the environment for Intel® DL Streamer<a class="headerlink" href="#step-4-set-up-the-environment-for-intel-dl-streamer" title="Permalink to this heading">#</a></h3>
+<section id="step-6-set-up-the-environment-for-intel-dl-streamer">
+<h3>Step 6: Set up the environment for Intel® DL Streamer<a class="headerlink" href="#step-6-set-up-the-environment-for-intel-dl-streamer" title="Permalink to this heading">#</a></h3>
 <p>Source required environment variables to run GStreamer and Intel® DL Streamer:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup OpenVINO™ Toolkit environment</span>
 <span class="nb">source</span><span class="w"> </span>/opt/intel/openvino_2024/setupvars.sh
-<span class="c1"># Setup GStreamer environment</span>
-<span class="nb">source</span><span class="w"> </span>/opt/intel/dlstreamer/gstreamer/setupvars.sh
-<span class="c1"># Setup Intel® DL Streamer Pipeline Framework environment</span>
+<span class="c1"># Setup GStreamer and Intel® DL Streamer Pipeline Framework environments</span>
 <span class="nb">source</span><span class="w"> </span>/opt/intel/dlstreamer/setupvars.sh
 </pre></div>
 </div>
@@ -661,13 +675,13 @@ sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </
 <p class="admonition-title">Note</p>
 <p>The environment variables are removed when you close the shell.
 Before each run of Intel® DL Streamer you need to setup the
-environment with the 3 scripts listed in this step.
+environment with the 2 scripts listed in this step.
 As an option, you can set the environment variables in file
 <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> for automatic enabling.</p>
 </div>
 </section>
-<section id="step-5-verify-intel-dl-streamer-installation">
-<h3>Step 5: Verify Intel® DL Streamer installation<a class="headerlink" href="#step-5-verify-intel-dl-streamer-installation" title="Permalink to this heading">#</a></h3>
+<section id="step-7-verify-intel-dl-streamer-installation">
+<h3>Step 7: Verify Intel® DL Streamer installation<a class="headerlink" href="#step-7-verify-intel-dl-streamer-installation" title="Permalink to this heading">#</a></h3>
 <p>Intel® DL Streamer has been installed. You can run the <code class="docutils literal notranslate"><span class="pre">gst-inspect-1.0</span> <span class="pre">gvadetect</span></code> to confirm that GStreamer and Intel® DL Streamer are running:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-inspect-1.0<span class="w"> </span>gvadetect
 </pre></div>
@@ -675,8 +689,8 @@ As an option, you can set the environment variables in file
 <p>If your can see the documentation of <code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> element, the installation process is completed.</p>
 <img alt="../../_images/gvadetect_sample_help.png" src="../../_images/gvadetect_sample_help.png" />
 </section>
-<section id="step-6-next-steps-running-sample-intel-dl-streamer-pipelines">
-<h3>Step 6: Next steps - running sample Intel® DL Streamer pipelines<a class="headerlink" href="#step-6-next-steps-running-sample-intel-dl-streamer-pipelines" title="Permalink to this heading">#</a></h3>
+<section id="step-8-next-steps-running-sample-intel-dl-streamer-pipelines">
+<h3>Step 8: Next steps - running sample Intel® DL Streamer pipelines<a class="headerlink" href="#step-8-next-steps-running-sample-intel-dl-streamer-pipelines" title="Permalink to this heading">#</a></h3>
 <p>You are ready to use Intel® DL Streamer. For further instructions to run sample pipeline(s), please go to: <a class="reference internal" href="../tutorial.html"><span class="doc">Tutorial</span></a></p>
 </section>
 </section>
@@ -768,18 +782,30 @@ python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </s
 <h3>Step 3: Install Intel® DL Streamer Pipeline Framework dependencies<a class="headerlink" href="#step-3-install-intel-dl-streamer-pipeline-framework-dependencies" title="Permalink to this heading">#</a></h3>
 <p>Install build dependencies:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install dependencies</span>
-sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>curl<span class="w"> </span>wget<span class="w"> </span>gpg<span class="w"> </span>software-properties-common<span class="w"> </span>cmake<span class="w"> </span>build-essential<span class="w"> </span>libpython3-dev<span class="w"> </span>python-gi-dev<span class="w"> </span>libopencv-dev<span class="w"> </span>jq<span class="w"> </span>libgflags-dev
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>curl<span class="w"> </span>wget<span class="w"> </span>gpg<span class="w"> </span>software-properties-common<span class="w"> </span>cmake<span class="w"> </span>build-essential<span class="w"> </span>libpython3-dev<span class="w"> </span>python-gi-dev<span class="w"> </span>libopencv-dev<span class="w"> </span>jq<span class="w"> </span>libgflags-dev<span class="w"> </span>libdrm-dev
 </pre></div>
 </div>
 <p>Download pre-built Debian packages for GStreamer from <cite>GitHub Release page &lt;https://github.com/dlstreamer/dlstreamer/releases&gt;</cite>.
 You can manually download all packages from the release page or try to use following command.
 Install GStreamer from downloaded packages:</p>
+<ol class="upperalpha">
+<li><p>For <strong>Ubuntu 24.04</strong>:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span><span class="k">$(</span>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span>https://api.github.com/repos/dlstreamer/dlstreamer/releases/latest<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.assets[] | select(.name | contains (&quot;.deb&quot;)) | .browser_download_url&#39;</span><span class="k">)</span>
+<span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.assets[] | select(.name | contains (&quot;ubuntu_24.04_amd64.deb&quot;)) | .browser_download_url&#39;</span><span class="k">)</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>./intel-dlstreamer-gst*
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>./intel-dlstreamer-ffmpeg*
 </pre></div>
 </div>
+</li>
+<li><p>For <strong>Ubuntu 22.04</strong>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span><span class="k">$(</span>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span>https://api.github.com/repos/dlstreamer/dlstreamer/releases/latest<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.assets[] | select(.name | contains (&quot;ubuntu_22.04_amd64.deb&quot;)) | .browser_download_url&#39;</span><span class="k">)</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>./intel-dlstreamer-gst*
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>./intel-dlstreamer-ffmpeg*
+</pre></div>
+</div>
+</li>
+</ol>
 </section>
 <section id="step-4-install-python-dependencies">
 <h3>Step 4: Install Python dependencies<a class="headerlink" href="#step-4-install-python-dependencies" title="Permalink to this heading">#</a></h3>
@@ -1017,12 +1043,14 @@ Also, you can create an issue on GitHub
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisite-1-intel-gpu-drivers-for-computing-and-media-runtimes">Prerequisite 1 - Intel® GPU drivers for computing and media runtimes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisite-2-install-intel-npu-drivers">Prerequisite 2 - Install Intel® NPU drivers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-install-intel-dl-streamer-pipeline-framework-from-debian-packages">Option #1: Install Intel® DL Streamer Pipeline Framework from Debian packages</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-intel-dl-streamer-and-openvino-toolkit">Step 1: Install Intel® DL Streamer and OpenVINO™ toolkit</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-mqtt-and-kafka-clients-for-element-gvametapublish">Step 2: Install MQTT and Kafka clients for element <cite>gvametapublish</cite></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-add-user-to-groups">Step 3: Add user to groups</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-set-up-the-environment-for-intel-dl-streamer">Step 4: Set up the environment for Intel® DL Streamer</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-verify-intel-dl-streamer-installation">Step 5: Verify Intel® DL Streamer installation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-next-steps-running-sample-intel-dl-streamer-pipelines">Step 6: Next steps - running sample Intel® DL Streamer pipelines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-preprare-the-installation-environment">Step 1: Preprare the installation environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-intel-dl-streamer">Step 2: Install Intel® DL Streamer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-install-openvino-toolkit">Step 3: Install OpenVINO™ toolkit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-install-mqtt-and-kafka-clients-for-element-gvametapublish">Step 4: Install MQTT and Kafka clients for element <cite>gvametapublish</cite></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-add-user-to-groups">Step 5: Add user to groups</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-set-up-the-environment-for-intel-dl-streamer">Step 6: Set up the environment for Intel® DL Streamer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-verify-intel-dl-streamer-installation">Step 7: Verify Intel® DL Streamer installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-next-steps-running-sample-intel-dl-streamer-pipelines">Step 8: Next steps - running sample Intel® DL Streamer pipelines</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-install-docker-image-from-docker-hub-and-run-it">Option #2: Install Docker image from Docker Hub and run it</a><ul class="nav section-nav flex-column">
