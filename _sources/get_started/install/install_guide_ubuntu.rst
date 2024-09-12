@@ -33,13 +33,13 @@ links in the first column of the table.
      - Notes
 
    * - :ref:`Install Intel® DL Streamer Pipeline Framework pre-built Debian packages <3>`
-     - Ubuntu 22.04 (kernel 6.6+ for NPU)
+     - Ubuntu 24.04 , 22.04 (kernel 6.6+ for NPU)
      - \-
    * - :ref:`Install Docker image from Docker Hub and run it <4>`
      - Any Linux OS as host system
      - Recommended for containerized environment and when host OS is not supported by the Pipeline Framework installer
    * - :ref:`Compile Intel® DL Streamer Pipeline Framework from sources on host system <5>`
-     - Ubuntu 22.04 (kernel 6.6+ for NPU)
+     - Ubuntu 24.04, 22.04 (kernel 6.6+ for NPU)
      - If you want to build Pipeline Framework from source code on host system
 
 
@@ -83,7 +83,11 @@ C. To register Intel® Graphics APT repository, please use **only one** of the f
       wget -qO - https://repositories.intel.com/graphics/intel-graphics.key | sudo gpg --yes --dearmor --output /usr/share/keyrings/intel-graphics.gpg
 
       # Download Intel® Graphics APT repository
+      # [Ubuntu 24.04]
+      echo "deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/graphics/ubuntu noble flex" | sudo tee /etc/apt/sources.list.d/intel-graphics.list
+      # [Ubuntu 22.04]
       echo "deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/graphics/ubuntu jammy flex" | sudo tee /etc/apt/sources.list.d/intel-graphics.list
+
 
 -  For Intel® Client and Arc™ GPUs:
    
@@ -93,6 +97,9 @@ C. To register Intel® Graphics APT repository, please use **only one** of the f
       wget -qO - https://repositories.intel.com/gpu/intel-graphics.key | sudo gpg --yes --dearmor --output /usr/share/keyrings/intel-graphics.gpg
 
       # Download Intel® Graphics APT repository
+      # [Ubuntu 24.04]
+      echo "deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/gpu/ubuntu noble client" | sudo tee /etc/apt/sources.list.d/intel-graphics.list
+      # [Ubuntu 22.04]
       echo "deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/gpu/ubuntu jammy client" | sudo tee /etc/apt/sources.list.d/intel-graphics.list
 
 D. Install or update packages responsible for computing and media runtimes:
@@ -310,9 +317,20 @@ commands to allow connection from Docker container to X server on host:
 Step 3: Pull the Intel® DL Streamer Docker image from Docker Hub
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Visit <https://hub.docker.com/r/intel/dlstreamer/> Intel® DL Streamer image docker hub to select the most appropriate version.
+By default , the latest docker image points to Ubuntu24 version.
+
+For **Ubuntu 24.04** please use **latest** tag or specified version e.g. **2024.1.2-ubuntu24**
+
 .. code:: sh
 
    docker pull intel/dlstreamer:latest
+
+For **Ubuntu 22.04** please specify tag e.g. **2024.1.2-ubuntu22**
+
+.. code:: sh
+
+   docker pull intel/dlstreamer:2024.1.2-ubuntu22
 
 
 Step 4: Run Intel® DL Streamer Pipeline Framework container
