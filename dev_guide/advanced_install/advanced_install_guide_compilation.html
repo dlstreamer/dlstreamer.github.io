@@ -1,0 +1,818 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Advanced installation guide for Ubuntu - compilation from source files &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/doxyrest-pygments.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/target-highlight.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'dev_guide/advanced_install/advanced_install_guide_compilation';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Metadata" href="../metadata.html" />
+    <link rel="prev" title="Advanced installation guide for Ubuntu - pre-built packages" href="advanced_install_guide_prebuilt.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../get_started/get_started_index.html">Get Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../get_started/hardware_requirements.html">Hardware Requirements</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../get_started/install/install_guide_index.html">Install Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../get_started/install/install_guide_ubuntu.html">Install Guide Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_started/install/uninstall_guide_ubuntu.html">Uninstall Guide Ubuntu</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../get_started/tutorial.html">Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../get_started/flex_series/quick_start_guide.html">Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">Samples</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../dev_guide_index.html">Developer Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="advanced_install_guide_index.html">Advanced Installation Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="advanced_install_guide_prerequisites.html">Advanced installation guide for Ubuntu - prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced_install_guide_prebuilt.html">Advanced installation guide for Ubuntu - pre-built packages</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Advanced installation guide for Ubuntu - compilation from source files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata.html">Metadata</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../model_preparation.html">Model Preparation</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../yolo_models.html">Yolo Models</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../model_proc_file.html">Model-proc File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model_info_xml.html">Model Info Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../how_to_create_model_proc_file.html">How to Create Model-proc File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_bindings.html">Python Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../custom_processing.html">Custom Processing</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../object_tracking.html">Object Tracking</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../deepsort_implementation.html">DeepSORT tracking support</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../gpu_device_selection.html">GPU device selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../performance_guide.html">Performance Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../profiling.html">Profiling with Intel VTune™</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../converting_deepstream_to_dlstreamer.html">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../how_to_contribute.html">How to Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../coding_style.html">Coding Style</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../latency_tracer.html">Latency Tracer</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../elements/elements.html">Elements</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvadetect.html">gvadetect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvaclassify.html">gvaclassify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvainference.html">gvainference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvaaudiodetect.html">gvaaudiodetect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvatrack.html">gvatrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvametaconvert.html">gvametaconvert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvametapublish.html">gvametapublish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvametaaggregate.html">gvametaaggregate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvapython.html">gvapython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvawatermark.html">gvawatermark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvafpscounter.html">gvafpscounter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvaattachroi.html">gvaattachroi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/python_object_association.html">python_object_association</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../supported_models.html">Supported Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api_ref/api_reference.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api_ref/page_index.html">Intel® Deep Learning Streamer (Intel® DL Streamer) API reference</a></li>
+
+
+
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api_ref/global.html">Global Namespace</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api_ref/namespace_gstgva.html">namespace gstgva</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api_ref/namespace_gstgva_region_of_interest.html">namespace gstgva::region_of_interest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api_ref/namespace_gstgva_tensor.html">namespace gstgva::tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api_ref/namespace_gstgva_video_frame.html">namespace gstgva::video_frame</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api_ref/enum_GVALayout.html">enum GVALayout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api_ref/enum_GVAPrecision.html">enum GVAPrecision</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api_ref/struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../architecture_2.0/architecture_2.0.html">Architecture 2.0 [Preview]</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture_2.0/migration_guide.html">Migration to 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture_2.0/cpp_interfaces.html">① Memory Interop and C++ abstract interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture_2.0/cpp_elements.html">② C++ elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture_2.0/gstreamer_elements.html">③ GStreamer Elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture_2.0/gstreamer_bins.html">③ GStreamer Bin Elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture_2.0/python_bindings.html">③ Python Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture_2.0/pytorch_inference.html">PyTorch tensor inference [Preview]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture_2.0/elements_list.html">Elements 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture_2.0/packaging.html">Packaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture_2.0/samples_2.0.html">Samples 2.0</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../architecture_2.0/api_ref/index.html">API 2.0 Reference</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../architecture_2.0/api_ref/global.html">Global Namespace</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture_2.0/api_ref/namespace_GVA.html">namespace GVA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture_2.0/api_ref/namespace_dlstreamer.html">namespace dlstreamer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture_2.0/api_ref/enum_GVALayout.html">enum GVALayout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture_2.0/api_ref/enum_GVAPrecision.html">enum GVAPrecision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture_2.0/api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture_2.0/api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/dev_guide/advanced_install/advanced_install_guide_compilation.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Advanced installation guide for Ubuntu - compilation from source files</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-prerequisites">Step 1: Install prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-clone-intel-dl-streamer-repository">Step 2: Clone Intel® DL Streamer repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-install-intel-distribution-of-openvino-toolkit">Step 3: Install Intel® Distribution of OpenVINO™ Toolkit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-install-intel-dl-streamer-pipeline-framework-dependencies">Step 4: Install Intel® DL Streamer Pipeline Framework dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-install-opencv">Step 5: Install OpenCV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-install-python-dependencies">Step 6: Install Python dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-install-opencl">Step 7: Install OpenCL™</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-install-message-brokers">Step 8: Install message brokers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-install-intel-oneapi-dpc-c-compiler">Step 9: Install Intel® oneAPI DPC++/C++ Compiler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-10-install-va-api-dependencies">Step 10: Install VA-API dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-11-build-intel-dl-streamer-pipeline-framework">Step 11: Build Intel® DL Streamer Pipeline Framework</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-12-intel-dl-streamer-installation-verification">Step 12: Intel® DL Streamer installation verification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-13-next-steps-running-sample-intel-dl-streamer-pipelines">Step 13: Next steps - running sample Intel® DL Streamer pipelines</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="advanced-installation-guide-for-ubuntu-compilation-from-source-files">
+<h1>Advanced installation guide for Ubuntu - compilation from source files<a class="headerlink" href="#advanced-installation-guide-for-ubuntu-compilation-from-source-files" title="Permalink to this heading">#</a></h1>
+<p>The easiest way to install Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework is installing it from pre-built Debian packages with one-click script.
+If you would like to follow this way, please go to <a class="reference internal" href="../../get_started/install/install_guide_ubuntu.html"><span class="doc">Install Guide Ubuntu</span></a>.</p>
+<p>The instruction below focuses on installation steps with building Intel® DL Streamer Pipeline Framework from the source code
+provided in <a class="reference external" href="https://github.com/dlstreamer/dlstreamer">repository</a>.</p>
+<section id="step-1-install-prerequisites">
+<h2>Step 1: Install prerequisites<a class="headerlink" href="#step-1-install-prerequisites" title="Permalink to this heading">#</a></h2>
+<p>Please go through prerequisites 1 &amp; 2 described in <a class="reference internal" href="../../get_started/install/install_guide_ubuntu.html"><span class="doc">Install Guide Ubuntu</span></a></p>
+</section>
+<section id="step-2-clone-intel-dl-streamer-repository">
+<h2>Step 2: Clone Intel® DL Streamer repository<a class="headerlink" href="#step-2-clone-intel-dl-streamer-repository" title="Permalink to this heading">#</a></h2>
+<p>First, clone this repository into folder <code class="docutils literal notranslate"><span class="pre">~/intel/dlstreamer_gst</span></code>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/intel
+git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/dlstreamer/dlstreamer.git<span class="w"> </span>~/intel/dlstreamer_gst
+<span class="nb">cd</span><span class="w"> </span>~/intel/dlstreamer_gst
+</pre></div>
+</div>
+</section>
+<section id="step-3-install-intel-distribution-of-openvino-toolkit">
+<h2>Step 3: Install Intel® Distribution of OpenVINO™ Toolkit<a class="headerlink" href="#step-3-install-intel-distribution-of-openvino-toolkit" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://docs.openvino.ai/2024/get-started/install-openvino/install-openvino-archive-linux.html">Follow OpenVINO™ Toolkit instruction guide here</a> to install OpenVINO™ on Linux.</p>
+<ul class="simple">
+<li><p>Environment: <strong>Runtime</strong></p></li>
+<li><p>Operating System: <strong>Linux</strong></p></li>
+<li><p>Version: <strong>Latest</strong></p></li>
+<li><p>Distribution: <strong>OpenVINO™ Archives</strong></p></li>
+</ul>
+<p>After successful OpenVINO™ Toolkit package installation, run the
+following commands to install OpenVINO™ Toolkit dependencies and enable
+OpenVINO™ Toolkit development environment:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>-E<span class="w"> </span>/opt/intel/openvino_2024/install_dependencies/install_openvino_dependencies.sh
+<span class="nb">source</span><span class="w"> </span>/opt/intel/openvino_2024/setupvars.sh
+</pre></div>
+</div>
+<p>Install Open Model Zoo tools:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>openvino-dev<span class="o">[</span>onnx,tensorflow,pytorch<span class="o">]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure your environment variable $PATH includes ‘$HOME/.local/bin’ .</p>
+</div>
+</section>
+<section id="step-4-install-intel-dl-streamer-pipeline-framework-dependencies">
+<h2>Step 4: Install Intel® DL Streamer Pipeline Framework dependencies<a class="headerlink" href="#step-4-install-intel-dl-streamer-pipeline-framework-dependencies" title="Permalink to this heading">#</a></h2>
+<p>Install build dependencies:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install dependencies</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>curl<span class="w"> </span>wget<span class="w"> </span>gpg<span class="w"> </span>software-properties-common<span class="w"> </span>cmake<span class="w"> </span>build-essential<span class="w"> </span>libpython3-dev<span class="w"> </span>python-gi-dev<span class="w"> </span>libopencv-dev<span class="w"> </span>jq<span class="w"> </span>libgflags-dev<span class="w"> </span>libdrm-dev
+</pre></div>
+</div>
+<p>Download pre-built Debian packages for GStreamer from <cite>GitHub Release page &lt;https://github.com/dlstreamer/dlstreamer/releases&gt;</cite>.
+You can manually download all packages from the release page or try to use following command.
+Install GStreamer from downloaded packages:</p>
+<ol class="upperalpha">
+<li><p>For <strong>Ubuntu 24.04</strong>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span><span class="k">$(</span>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span>https://api.github.com/repos/dlstreamer/dlstreamer/releases/latest<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.assets[] | select(.name | contains (&quot;ubuntu_24.04_amd64.deb&quot;)) | .browser_download_url&#39;</span><span class="k">)</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>./intel-dlstreamer-gst*
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>./intel-dlstreamer-ffmpeg*
+</pre></div>
+</div>
+</li>
+<li><p>For <strong>Ubuntu 22.04</strong>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span><span class="k">$(</span>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span>https://api.github.com/repos/dlstreamer/dlstreamer/releases/latest<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.assets[] | select(.name | contains (&quot;ubuntu_22.04_amd64.deb&quot;)) | .browser_download_url&#39;</span><span class="k">)</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>./intel-dlstreamer-gst*
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>./intel-dlstreamer-ffmpeg*
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="step-5-install-opencv">
+<h2>Step 5: Install OpenCV<a class="headerlink" href="#step-5-install-opencv" title="Permalink to this heading">#</a></h2>
+<p>Download Ninja build system and use it to build OpenCV library:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/intel/dlstreamer_gst
+<span class="nb">cd</span><span class="w"> </span>~/intel/dlstreamer_gst
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ninja-build<span class="w"> </span>unzip
+wget<span class="w"> </span>-q<span class="w"> </span>--no-check-certificate<span class="w"> </span>-O<span class="w"> </span>opencv.zip<span class="w"> </span>https://github.com/opencv/opencv/archive/4.10.0.zip
+unzip<span class="w"> </span>opencv.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>opencv.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mv<span class="w"> </span>opencv-4.10.0<span class="w"> </span>opencv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>opencv/build
+<span class="nb">cd</span><span class="w"> </span>./opencv/build
+cmake<span class="w"> </span>-DBUILD_TESTS<span class="o">=</span>OFF<span class="w"> </span>-DBUILD_PERF_TESTS<span class="o">=</span>OFF<span class="w"> </span>-DBUILD_EXAMPLES<span class="o">=</span>OFF<span class="w"> </span>-DBUILD_opencv_apps<span class="o">=</span>OFF<span class="w"> </span>-GNinja<span class="w"> </span>..<span class="w"> </span><span class="se">\</span>
+<span class="o">&amp;&amp;</span><span class="w"> </span>ninja<span class="w"> </span>-j<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>nproc<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>ninja<span class="w"> </span>install
+</pre></div>
+</div>
+</section>
+<section id="step-6-install-python-dependencies">
+<h2>Step 6: Install Python dependencies<a class="headerlink" href="#step-6-install-python-dependencies" title="Permalink to this heading">#</a></h2>
+<p>If you intend to use Python elements or samples, you need to install the
+necessary dependencies using the following commands:</p>
+<ul>
+<li><p>If you want to set up a local environment follow this step (skip to
+install all the dependencies globally):</p>
+<ul>
+<li><p>Install the <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code> tool to create isolated Python
+environments</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># you can install it within the global python interpreter</span>
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>virtualenv
+<span class="c1"># or you can install it as a user package</span>
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>virtualenv
+</pre></div>
+</div>
+</li>
+<li><p>Create a virtual environment and activate it</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/intel/dlstreamer_gst
+virtualenv<span class="w"> </span>-p<span class="w"> </span>/usr/bin/python3<span class="w"> </span>.env3<span class="w"> </span>--system-site-packages
+<span class="nb">source</span><span class="w"> </span>.env3/bin/activate
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Install Python requirements:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/intel/dlstreamer_gst
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="step-7-install-opencl">
+<span id="install-opencl"></span><h2>Step 7: Install OpenCL™<a class="headerlink" href="#step-7-install-opencl" title="Permalink to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Optional step</p>
+</div>
+<p>Run the following commands to install OpenCL™ driver:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>intel-opencl-icd<span class="w"> </span>ocl-icd-opencl-dev<span class="w"> </span>opencl-clhpp-headers
+</pre></div>
+</div>
+</section>
+<section id="step-8-install-message-brokers">
+<h2>Step 8: Install message brokers<a class="headerlink" href="#step-8-install-message-brokers" title="Permalink to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Optional step</p>
+</div>
+<p>Installation of message brokers will enable capability of
+<code class="docutils literal notranslate"><span class="pre">gvametapublish</span></code> element to publish inference results to Kafka or
+MQTT. Note that <code class="docutils literal notranslate"><span class="pre">gvametapublish</span></code> element will be able to publish
+inference results to file even if you skip this step.</p>
+<p>Run following script to install the message brokers:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/intel/dlstreamer_gst/scripts/
+sudo<span class="w"> </span>-E<span class="w"> </span>./install_metapublish_dependencies.sh
+</pre></div>
+</div>
+<p>In order to enable one of these message brokers in Pipeline Framework,
+corresponding key should be passed to cmake in configuration step. To
+enable MQTT please pass <code class="docutils literal notranslate"><span class="pre">-DENABLE_PAHO_INSTALLATION=ON</span></code> option to
+cmake. To enable Kafka please pass <code class="docutils literal notranslate"><span class="pre">-DENABLE_RDKAFKA_INSTALLATION=ON</span></code>
+option to cmake.</p>
+</section>
+<section id="step-9-install-intel-oneapi-dpc-c-compiler">
+<h2>Step 9: Install Intel® oneAPI DPC++/C++ Compiler<a class="headerlink" href="#step-9-install-intel-oneapi-dpc-c-compiler" title="Permalink to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Optional step</p>
+</div>
+<p><a class="reference internal" href="#install-opencl"><span class="std std-ref">OpenCL™ driver installation</span></a> is required before continuing.</p>
+<p>Intel® oneAPI DPC++ Compiler will enable execution of <code class="docutils literal notranslate"><span class="pre">gvawatermark</span></code>
+and <code class="docutils literal notranslate"><span class="pre">gvatrack</span></code> elements on GPU.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Register Intel® oneAPI APT repository</span>
+curl<span class="w"> </span>-fsSL<span class="w"> </span>https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>--output<span class="w"> </span>/usr/share/keyrings/intel-sw-products.gpg
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [signed-by=/usr/share/keyrings/intel-sw-products.gpg] https://apt.repos.intel.com/oneapi all main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/intel-oneapi.list
+
+<span class="c1"># Install Intel® oneAPI DPC++/C++ Compiler</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>intel-oneapi-compiler-dpcpp-cpp<span class="w"> </span>intel-level-zero-gpu<span class="w"> </span>level-zero-dev
+
+<span class="c1"># Set up environment</span>
+<span class="nb">source</span><span class="w"> </span>/opt/intel/oneapi/compiler/latest/env/vars.sh
+</pre></div>
+</div>
+</section>
+<section id="step-10-install-va-api-dependencies">
+<h2>Step 10: Install VA-API dependencies<a class="headerlink" href="#step-10-install-va-api-dependencies" title="Permalink to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Optional step</p>
+</div>
+<p><a class="reference internal" href="#install-opencl"><span class="std std-ref">OpenCL™ driver installation</span></a> is required before continuing.</p>
+<p>To enable VA-API preprocessing of Pipeline Framework’s inference
+elements run the following commands:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>intel-dlstreamer-gst-vaapi<span class="w"> </span>libva-dev<span class="w"> </span>vainfo<span class="w"> </span>intel-media-va-driver-non-free
+<span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVER_NAME</span><span class="o">=</span>iHD
+
+<span class="c1"># When using Media, GPU or NPU devices as non-root user, please configure:</span>
+sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>video<span class="w"> </span>&lt;username&gt;
+sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>render<span class="w"> </span>&lt;username&gt;
+
+<span class="c1"># Check installation</span>
+vainfo
+</pre></div>
+</div>
+<p>The output shouldn’t contain any error messages, iHD driver must be found.
+If no errors occur, please proceed further to the next step.</p>
+<p>If you receive error message like the one below, please reboot your
+machine and try again.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>libva<span class="w"> </span>info:<span class="w"> </span>va_openDriver<span class="o">()</span><span class="w"> </span>returns<span class="w"> </span>-1
+vaInitialize<span class="w"> </span>failed<span class="w"> </span>with<span class="w"> </span>error<span class="w"> </span>code<span class="w"> </span>-1<span class="w"> </span><span class="o">(</span>unknown<span class="w"> </span>libva<span class="w"> </span>error<span class="o">)</span>,<span class="w"> </span><span class="nb">exit</span>
+</pre></div>
+</div>
+<p>If you receive any other errors, please retry installation process.
+If it’s not resolved even after re-installation, please submit an issue for support on GitHub
+<a class="reference external" href="https://github.com/dlstreamer/dlstreamer/issues">here</a>.</p>
+<p>Additionally, pass <code class="docutils literal notranslate"><span class="pre">-DENABLE_VAAPI=ON</span></code> option to cmake in configuration step.</p>
+</section>
+<section id="step-11-build-intel-dl-streamer-pipeline-framework">
+<h2>Step 11: Build Intel® DL Streamer Pipeline Framework<a class="headerlink" href="#step-11-build-intel-dl-streamer-pipeline-framework" title="Permalink to this heading">#</a></h2>
+<p>With all dependencies installed, proceed to build Pipeline Framework:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># OpenVINO™ Toolkit environment</span>
+<span class="nb">source</span><span class="w"> </span>/opt/intel/openvino_2024/setupvars.sh
+<span class="c1"># GStreamer environment</span>
+<span class="nb">source</span><span class="w"> </span>/opt/intel/dlstreamer/gstreamer/setupvars.sh
+<span class="c1"># Intel® oneAPI DPC++/C++ Compiler environment (if installed)</span>
+<span class="nb">source</span><span class="w"> </span>/opt/intel/oneapi/compiler/latest/env/vars.sh
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">CPATH</span><span class="o">=</span>/opt/intel/dlstreamer/include:<span class="si">${</span><span class="nv">CPATH</span><span class="si">}</span>
+
+<span class="c1"># cmake, remove -DENABLE_VAAPI option if VA-API not installed</span>
+mkdir<span class="w"> </span>~/intel/dlstreamer_gst/build
+<span class="nb">cd</span><span class="w"> </span>~/intel/dlstreamer_gst/build
+cmake<span class="w"> </span>-DENABLE_VAAPI<span class="o">=</span>ON<span class="w"> </span>..
+
+<span class="c1"># make</span>
+make<span class="w"> </span>-j
+
+<span class="c1"># Setup Intel® DL Streamer Pipeline Framework environment</span>
+<span class="nb">source</span><span class="w"> </span>~/intel/dlstreamer_gst/scripts/setup_env.sh
+</pre></div>
+</div>
+<p>When using Media, GPU or NPU devices as non-root user, please configure:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>video<span class="w"> </span>&lt;username&gt;
+sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>render<span class="w"> </span>&lt;username&gt;
+</pre></div>
+</div>
+<p>Intel® DL Streamer Pipeline Framework is now ready to use!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The environment variables are removed when you close the shell.
+Before each run of Intel® DL Streamer you need to setup the
+environment with the following 2 scripts as above in this step:
+<code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/opt/intel/openvino_2024/setupvars.sh</span></code>
+and <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">~/intel/dlstreamer_gst/scripts/setup_env.sh</span></code>.
+As an option, you can set the environment variables in file
+<code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> for automatic enabling.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The manual installation on the host machine may have environment issues.
+If this happened, please consider other ways.
+Also, you can create an issue on GitHub
+<a class="reference external" href="https://github.com/dlstreamer/dlstreamer/issues">here</a>.</p>
+</div>
+</section>
+<section id="step-12-intel-dl-streamer-installation-verification">
+<h2>Step 12: Intel® DL Streamer installation verification<a class="headerlink" href="#step-12-intel-dl-streamer-installation-verification" title="Permalink to this heading">#</a></h2>
+<p>Intel® DL Streamer has been installed. Please run the <cite>gst-inspect-1.0 gvadetect</cite> to confirm that GStreamer and Intel® DL Streamer are running</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>user@my-host:~/intel/dlstreamer_gst/build$<span class="w"> </span>gst-inspect-1.0<span class="w"> </span>gvadetect
+</pre></div>
+</div>
+<p>If your can see the documentation of <code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> element, the installation process is completed.</p>
+<img alt="dev_guide/advanced_install/gvadetect_sample_help.png" src="dev_guide/advanced_install/gvadetect_sample_help.png" />
+</section>
+<section id="step-13-next-steps-running-sample-intel-dl-streamer-pipelines">
+<h2>Step 13: Next steps - running sample Intel® DL Streamer pipelines<a class="headerlink" href="#step-13-next-steps-running-sample-intel-dl-streamer-pipelines" title="Permalink to this heading">#</a></h2>
+<p>You are ready to use Intel® DL Streamer. For further instructions to run sample pipeline(s), please go to: <a class="reference internal" href="../../get_started/tutorial.html"><span class="doc">Tutorial</span></a></p>
+<hr class="docutils" />
+<blockquote>
+<div><p><strong>*</strong> <em>Other names and brands may be claimed as the property of others.</em></p>
+</div></blockquote>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="advanced_install_guide_prebuilt.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Advanced installation guide for Ubuntu - pre-built packages</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../metadata.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Metadata</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-prerequisites">Step 1: Install prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-clone-intel-dl-streamer-repository">Step 2: Clone Intel® DL Streamer repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-install-intel-distribution-of-openvino-toolkit">Step 3: Install Intel® Distribution of OpenVINO™ Toolkit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-install-intel-dl-streamer-pipeline-framework-dependencies">Step 4: Install Intel® DL Streamer Pipeline Framework dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-install-opencv">Step 5: Install OpenCV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-install-python-dependencies">Step 6: Install Python dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-install-opencl">Step 7: Install OpenCL™</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-install-message-brokers">Step 8: Install message brokers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-install-intel-oneapi-dpc-c-compiler">Step 9: Install Intel® oneAPI DPC++/C++ Compiler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-10-install-va-api-dependencies">Step 10: Install VA-API dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-11-build-intel-dl-streamer-pipeline-framework">Step 11: Build Intel® DL Streamer Pipeline Framework</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-12-intel-dl-streamer-installation-verification">Step 12: Intel® DL Streamer installation verification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-13-next-steps-running-sample-intel-dl-streamer-pipelines">Step 13: Next steps - running sample Intel® DL Streamer pipelines</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Intel Corporation
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Intel Corporation.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

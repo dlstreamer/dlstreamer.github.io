@@ -4,6 +4,7 @@ Developer Guide
 .. toctree::
    :maxdepth: 2
 
+   advanced_install/advanced_install_guide_index
    metadata
    model_preparation
    model_proc_file
