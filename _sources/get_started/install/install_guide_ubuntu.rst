@@ -26,7 +26,7 @@ Step 1: Download the prerequisites installation script
 
    mkdir -p ~/intel/dlstreamer_gst
    cd ~/intel/dlstreamer_gst/
-   wget https://github.com/dlstreamer/dlstreamer/blob/master/scripts/DLS_install_prerequisites.sh
+   wget https://github.com/dlstreamer/dlstreamer/raw/master/scripts/DLS_install_prerequisites.sh
 
 
 Step 2: Give the script execute permission
@@ -62,7 +62,7 @@ Step 1: Download the installation script
 ..  code:: sh
 
    cd ~/intel/dlstreamer_gst/
-   wget https://github.com/dlstreamer/dlstreamer/blob/master/scripts/DLS_install_deb_packages.sh
+   wget https://github.com/dlstreamer/dlstreamer/raw/master/scripts/DLS_install_deb_packages.sh
 
 
 Step 2: Give the script execute permission
