@@ -247,6 +247,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/enum_GVALayout.html">enum GVALayout</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html">enum GVAPrecision</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct__GstAnalyticsODExtMtdData.html">struct _GstAnalyticsODExtMtdData</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a></li>
 </ul>
@@ -732,6 +733,151 @@ model-proc can be ignored.</p>
 <em>Converter</em> column contain a link to a model-proc file with this
 converter. The last column contains a link to a model for which this
 converter can be applied.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Converter</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Applied to output layer like</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>For gvainference</strong>:</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>raw_data_copy</p></td>
+<td><p>Attach tensor data from all output layers in raw binary format and optionally tag the data format.</p></td>
+<td><p>Basically any inference model</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>For gvadetect</strong>:</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-retail-0004.json">detection_output</a></p></td>
+<td><p>Parse output blob produced by object detection neural network with <em>DetectionOutput</em> IR output layer’s type. Output is RegionOfInterest.</p>
+<p><em>labels</em> - an array of strings representing labels or a path to a file with labels where each label is on a new line.</p>
+</td>
+<td><p><a class="reference external" href="https://docs.openvino.ai/2024/omz_models_model_ssdlite_mobilenet_v2.html#output">ssdlite_mobilenet_v2</a></p>
+<p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_crossroad_0078.html#outputs">person-vehicle-bike-detection-crossroad-0078</a></p>
+</td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-0205.json">boxes_labels</a></p></td>
+<td><p>Parse output blob produced by object detection neural network with two output layers: <em>boxes</em> and <em>labels</em>. Output is RegionOfInterest.</p>
+<p><em>labels</em> - an array of strings representing labels or a path to a file with labels where each label is on a new line.</p>
+</td>
+<td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_face_detection_0205.html#outputs">face-detection-0205</a></p>
+<p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_2004.html#outputs">person-vehicle-bike-detection-2004</a></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v2-tf.json">yolo_v2</a></p></td>
+<td><p>Parse output blob produced by object detection neural network with YOLO v2 architecture. Output is RegionOfInterest.</p>
+<ul class="simple">
+<li><p><em>labels</em> - an array of strings representing labels or a path to a file with labels where each label is on a new line;</p></li>
+<li><p><em>classes</em> - an integer number of classes;</p></li>
+<li><p><em>bbox_number_on_cell</em> - box count that can be predicted in each cell;</p></li>
+<li><p><em>anchors</em> - box size (x, y) is multiplied by this value. <em>len(anchors) == bbox_number_on_cell * 2 * number_of_outputs</em>;</p></li>
+<li><p><em>cells_number</em> - an image is split on cells with this number (if model’s input layer has non-square form set <em>cells_number_x</em> &amp; <em>cells_number_y</em> instead <em>cells_number</em>);</p></li>
+<li><p><em>iou_threshold</em> - parameter for NMS.</p></li>
+</ul>
+</td>
+<td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v2_tf.html#output">yolo-v2-tf</a></p>
+<p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v2_tiny_tf.html#output">yolo-v2-tiny-tf</a></p>
+</td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v3-tf.json">yolo_v3</a></p></td>
+<td><p>Parse output blob produced by object detection neural network with YOLO v3 architecture.</p>
+<ul class="simple">
+<li><p><em>labels</em> - an array of strings representing labels or a path to a file with labels where each label is on a new line;</p></li>
+<li><p><em>classes</em> - an integer number of classes;</p></li>
+<li><p><em>bbox_number_on_cell</em> - box count that can be predicted in each cell;</p></li>
+<li><p><em>anchors</em> - box size (x, y) is multiplied by this value. <em>len(anchors) == bbox_number_on_cell * 2 * number_of_outputs</em>;</p></li>
+<li><p><em>cells_number</em> - an image is split on cells with this number (if model’s input layer has non-square form set <em>cells_number_x</em> &amp; <em>cells_number_y</em> instead <em>cells_number</em>);</p></li>
+<li><p><em>iou_threshold</em> - parameter for NMS;</p></li>
+<li><p><em>masks</em>- determines what anchors are related to what output layer;</p></li>
+<li><p><em>output_sigmoid_activation</em> - performs sigmoid operation for coordinates and confidence.</p></li>
+</ul>
+<p>See more details <a class="reference internal" href="how_to_create_model_proc_file.html#build-model-proc-for-detection-model-with-advance-post-processing"><span class="std std-ref">there</span></a>.</p>
+</td>
+<td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v3_tf.html#output">yolo-v3-tf</a></p>
+<p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v4_tf.html#output">yolo-v4-tf</a></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>heatmap_boxes</p></td>
+<td><p>Parse output blob produced by network with DBNet architecture which is in the form of a probability heatmap. Output is RegionOfInterest.</p>
+<ul class="simple">
+<li><p><em>minimum_side</em> - Any detected box with its smallest side &lt; minimum_side will be dropped;</p></li>
+<li><p><em>binarize_threshold</em> - Threshold value for OpenCV binary image thresholding, expected in range [0.0, 255.0];</p></li>
+</ul>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>For gvaclassify</strong>:</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/age-gender-recognition-retail-0013.json">text</a></p></td>
+<td><p>Transform output tensor to text.</p>
+<ul class="simple">
+<li><p><em>text_scale</em> - scales data by this number;</p></li>
+<li><p><em>text_precision</em> - sets precision for textual representation.</p></li>
+</ul>
+</td>
+<td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_age_gender_recognition_retail_0013.html#outputs">age-gender-recognition-retail-0013</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/vehicle-attributes-recognition-barrier-0039.json">label</a></p></td>
+<td><p>Put an appropriate label for result.</p>
+<ul class="simple">
+<li><p><em>method</em>: one of [<em>max</em>, <em>index</em>, <em>compound</em> (threshold is required. 0.5 is default)];</p></li>
+<li><p><em>labels</em> - an array of strings representing labels or a path to a file with labels where each label is on a new line.</p></li>
+</ul>
+</td>
+<td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_emotions_recognition_retail_0003.html#outputs">emotions-recognition-retail-0003</a></p>
+<p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_license_plate_recognition_barrier_0007.html#outputs">license-plate-recognition-barrier-0007</a></p>
+<p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_attributes_recognition_crossroad_0230.html#outputs">person-attributes-recognition-crossroad-0230</a></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/single-human-pose-estimation-0001.json">keypoints_hrnet</a></p></td>
+<td><p>Parse output blob produced by network with HRNet architecture. Output tensor will have an array of key points.</p>
+<ul class="simple">
+<li><p><em>point_names</em> - an array of strings with the name of the points;</p></li>
+<li><p><em>point_connections</em> - an array of strings with points connection. The length should be even.</p></li>
+</ul>
+</td>
+<td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_single_human_pose_estimation_0001.html#outputs">single-human-pose-estimation-0001</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/human-pose-estimation-0001.json">keypoints_openpose</a></p></td>
+<td><p>Parse output blob produced by network with OpenPose architecture. Output tensor will have an array of key points.</p>
+<ul class="simple">
+<li><p><em>point_names</em> - an array of strings with the name of the points;</p></li>
+<li><p><em>point_connections</em> - an array of strings with points connection. The length should be even.</p></li>
+</ul>
+</td>
+<td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_human_pose_estimation_0001.html#outputs">human-pose-estimation-0001</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>keypoints_3d</p></td>
+<td><p>Parse output blob produced by network with HRNet architecture. Output tensor will have an array of 3D-key points.</p>
+<ul class="simple">
+<li><p><em>point_names</em> - an array of strings with the name of the points;</p></li>
+<li><p><em>point_connections</em> - an array of strings with points connection. The length should be even.</p></li>
+</ul>
+</td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>For gvaaudiodetect</strong>:</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/aclnet.json">audio_labels</a></p></td>
+<td><p>Output tensor - audio detections tensor.</p>
+<ul class="simple">
+<li><p><em>layer_name</em> - name of the layer to process;</p></li>
+<li><p><em>labels</em> - an array of JSON objects with index, label, threshold fields.</p></li>
+</ul>
+</td>
+<td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_aclnet.html#output">aclnet</a></p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="output-postproc-example">
 <span id="id2"></span><h3>Example<a class="headerlink" href="#output-postproc-example" title="Permalink to this heading">#</a></h3>

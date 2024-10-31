@@ -247,6 +247,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/enum_GVALayout.html">enum GVALayout</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html">enum GVAPrecision</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct__GstAnalyticsODExtMtdData.html">struct _GstAnalyticsODExtMtdData</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a></li>
 </ul>
@@ -418,40 +419,58 @@ gst-inspect-1.0 utility</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference internal" href="gvadetect.html"><span class="doc">gvadetect</span></a></p></td>
-<td><p>Performs object detection using SSD-like (including MobileNet-V1/V2 and ResNet), YoloV2/YoloV3/YoloV2-tiny/YoloV3-tiny and FasterRCNN-like object detection models.</p></td>
+<td><p>Performs object detection and [optionally] classification/segmentation/pose estimation.Inputs: ROIs (regions of interest) or full frame. Output: object bounding box detection along with prediction metadata.</p>
+<p><em>[eg syntax]</em> <em>gst-launch-1.0 … ! decodebin ! gvadetect model=$mDetect device=GPU[CPU,NPU] ! … OUT</em></p>
+</td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="gvaclassify.html"><span class="doc">gvaclassify</span></a></p></td>
-<td><p>Performs object classification. Accepts the ROI or full frame as an input and outputs classification results with metadata.</p></td>
+<td><p>Performs object classification/segmentation/pose estimation. Inputs: ROI or full frame. Output: prediction metadata.</p>
+<p><em>[eg syntax]</em> <em>gst-launch-1.0 … ! decodebin ! gvadetect model=$mDetect device=GPU ! gvaclassify model=$mClassify device=CPU ! … OUT</em></p>
+</td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="gvainference.html"><span class="doc">gvainference</span></a></p></td>
-<td><p>Runs deep learning inference using any model with an RGB or BGR input.</p></td>
+<td><p>Executes any inference model and outputs raw results (does not interpret data and does not generate metadata).</p>
+<p><em>[eg syntax]</em> <em>gst-launch-1.0 … ! decodebin ! gvadetect model=$mDetect device=GPU ! gvainference model=$mHeadPoseEst device=CPU ! … OUT</em></p>
+</td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="gvaaudiodetect.html"><span class="doc">gvaaudiodetect</span></a></p></td>
-<td><p>Performs audio event detection using AclNet model.</p></td>
+<td><p>Legacy plugin.Performs audio event detection using AclNet model.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="gvatrack.html"><span class="doc">gvatrack</span></a></p></td>
-<td><p>Performs object tracking using zero-term or short-term tracking algorithms. Zero-term tracking assigns unique object IDs and requires object detection to run on every frame. Short-term tracking allows to track objects between frames, thereby  reducing the need to run object detection on each frame.</p></td>
+<td><p>Tracks objects across video frames using zero-term or short-term tracking algorithms. Zero-term tracking assigns unique object IDs and requires object detection to run on every frame. Short-term tracking allows to track objects between frames, thereby reducing the need to run object detection on each frame.</p>
+<p><em>[eg syntax]</em> <em>gst-launch-1.0 … ! decodebin ! gvadetect model=$mDetect device=GPU ! gvatrack tracking-type=short-term-imageless ! … OUT</em></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="gvametaconvert.html"><span class="doc">gvametaconvert</span></a></p></td>
+<td><p>Converts the metadata structure to JSON or raw text formats, can write output to a file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="gvametapublish.html"><span class="doc">gvametapublish</span></a></p></td>
+<td><p>Publishes the JSON metadata to MQTT or Kafka message brokers or files.</p>
+<p><em>[eg syntax]</em> <em>gst-launch-1.0 … ! decodebin ! gvadetect model=$mDetect device=GPU … ! gvametaconvert format=json … ! gvametapublish … ! … OUT</em></p>
+</td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="gvametaaggregate.html"><span class="doc">gvametaaggregate</span></a></p></td>
 <td><p>Aggregates inference results from multiple pipeline branches.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="gvametaconvert.html"><span class="doc">gvametaconvert</span></a></p></td>
-<td><p>Converts the metadata structure to the JSON format.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="gvametapublish.html"><span class="doc">gvametapublish</span></a></p></td>
-<td><p>Publishes the JSON metadata to MQTT or Kafka message brokers or files.</p></td>
-</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="gvapython.html"><span class="doc">gvapython</span></a></p></td>
-<td><p>Provides a callback to execute user-defined Python functions on every frame. Can be used for metadata conversion, inference post-processing, and other tasks.</p></td>
+<td><p>Provides a callback to execute user-defined Python functions on every frame, used to augment DLStreamer with user-defined algorithms (e.g. metadata conversion, inference post-processing).</p>
+<p><em>[eg syntax]</em> <em>gst-launch-1.0 … !  gvaclassify ! gvapython module={gvapython.callback_module.classAge_pp} ! … OUT</em></p>
+</td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="gvawatermark.html"><span class="doc">gvawatermark</span></a></p></td>
-<td><p>Overlays the metadata on the video frame to visualize the inference results.</p></td>
+<td><p>Overlays the metadata on the video frame to visualize the inference results.</p>
+<p><em>[eg syntax]</em> <em>gst-launch-1.0 … ! decodebin ! gvadetect … ! gvawatermark ! … OUT</em></p>
+</td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="gvafpscounter.html"><span class="doc">gvafpscounter</span></a></p></td>
-<td><p>Measures frames per second across multiple streams in a single process.</p></td>
+<td><p>Measures frames per second across multiple video streams in a single GStreamer process.</p>
+<p><em>[eg syntax]</em> <em>gst-launch-1.0 … ! decodebin ! gvadetect … ! gvafpscounter ! … OUT</em></p>
+</td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="gvaattachroi.html"><span class="doc">gvaattachroi</span></a></p></td>
-<td><p>Provides the ability to define one or more regions of interest to perform inference on, instead of the full frame.</p></td>
+<td><p>Adds user-defined regions of interest to perform inference on, instead of full frame. Example: monitoring traffic on a road in a city camera feed, or when split large image to smaller pieces and inference each piece (healthcare cell analytics).</p>
+<p><em>[eg syntax]</em> <em>gst-launch-1.0 … ! decodebin ! gvaattachroi roi=xtl,ytl,xbr,ybr gvadetect inference-region=1 ! … OUT</em></p>
+</td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="python_object_association.html"><span class="doc">python_object_association</span></a></p></td>
 <td><p>Assigns unique ID to ROI via DeepSORT algorithm.</p></td>

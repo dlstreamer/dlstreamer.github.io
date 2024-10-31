@@ -218,3 +218,9 @@ The below example presents usage of the GStreamer framework **compositor** eleme
 
 
 .. image:: gstreamer_compositor_dls_4outputs.png
+
+
+7. The Intel® DL Streamer Pipeline Framework performance benchmark results
+--------------------------------------------------------------------------
+
+The Intel® DL Streamer Pipeline Framework example performance benchmark results can be found as a part of the `Smart Cities Accelerated by Intel® Graphics Solutions paper <https://www.intel.com/content/www/us/en/secure/content-details/826398/smart-cities-accelerated-by-intel-gpus-arc-gpu-addendum.html?wapkw=smart%20cities&DocID=826398>`__.

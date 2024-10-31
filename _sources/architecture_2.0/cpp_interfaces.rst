@@ -52,8 +52,8 @@ Below is reference to some low-level interfaces used by Intel® DL Streamer memo
 buffer sharing between media frameworks and OpenCL/SYCL
 
 1. (Linux) `VA-API to DMA-BUF <http://intel.github.io/libva/group__api__core.html#ga404be4f513f3a15b9a831ff561b1b179>`_
-2. `DMA-BUF or NT-Handle to Level-zero <https://spec.oneapi.io/level-zero/latest/core/PROG.html#external-memory-import-and-export>`_
-3. `OpenCL extension cl_khr_external_memory <https://registry.khronos.org/OpenCL/specs/3.0-unified/html/OpenCL_Ext.html#cl_khr_external_memory>`_
+2. `DMA-BUF or NT-Handle to Level-zero <https://oneapi-src.github.io/level-zero-spec/level-zero/latest/core/PROG.html#external-memory-import-and-export>`_
+3. `OpenCL extension cl_khr_external_memory <https://registry.khronos.org/OpenCL/specs/3.0-unified/html/OpenCL_API.html#cl_khr_external_memory>`_
 
 Memory interop in a few lines - using Intel® DL Streamer
 --------------------------------------------------------

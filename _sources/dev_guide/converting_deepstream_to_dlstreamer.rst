@@ -162,7 +162,6 @@ not needed). We replaced ``config-file-path`` property with ``model``
 and ``model-proc`` properties as described in “Configuring Model for Intel® DL Streamer” above.
 
 .. code:: shell
-   :emphasize-lines: 2
 
    filesrc location=input_file.mp4 ! decodebin ! \
    gvadetect model=./model.xml model-proc=./model_proc.json batch-size=1 ! queue ! \
@@ -200,7 +199,6 @@ on Intel Graphics. Also, we will use the GStreamer standard element
 the input stream as well as what is available on the system.
 
 .. code:: shell
-   :emphasize-lines: 4
 
    filesrc location=input_file.mp4 ! decodebin ! \
    gvadetect model=./model.xml model-proc=./model_proc.json batch-size=1 ! queue ! \
@@ -245,7 +243,6 @@ The only metadata processing that is done in this pipeline is to overlay
 the inferences on the video for which we use ``gvawatermark``.
 
 .. code:: shell
-   :emphasize-lines: 3
 
    filesrc location=input_file.mp4 ! decodebin ! \
    gvadetect model=./model.xml model-proc=./model_proc.json batch-size=1 ! queue ! \

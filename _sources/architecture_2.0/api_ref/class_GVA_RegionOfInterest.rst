@@ -23,7 +23,7 @@ This class represents region of interest - object describing detection result (b
 		// construction
 	
 		:ref:`RegionOfInterest<doxid-class_g_v_a_1_1_region_of_interest_1a68e47be95f3d19b9537fa1b6db230ab9>`(GstVideoRegionOfInterestMeta* meta);
-		:target:`RegionOfInterest<doxid-class_g_v_a_1_1_region_of_interest_1a6f186a48bab9836c7f4c287b56e8cbf1>`(GstAnalyticsODMtd meta);
+		:target:`RegionOfInterest<doxid-class_g_v_a_1_1_region_of_interest_1a0b8de147d9ac722fcc06ef0b70e56296>`(GstAnalyticsODMtd od_meta, :ref:`GstAnalyticsODExtMtd<doxid-objectdetectionmtdext_8h_1a0c8b8479b3989230d7585990ead9e95e>` od_ext_meta);
 
 		// methods
 	
@@ -40,6 +40,9 @@ This class represents region of interest - object describing detection result (b
 		int :ref:`region_id<doxid-class_g_v_a_1_1_region_of_interest_1a91c9985c5999559f0d3070ec074e775b>`();
 		void :ref:`set_label<doxid-class_g_v_a_1_1_region_of_interest_1a727e82a6852257125c1b33c753688e96>`(std::string label);
 		void :ref:`set_object_id<doxid-class_g_v_a_1_1_region_of_interest_1aacf218f09e39c695011807f890242c63>`(int32_t id);
+		GList* :target:`get_params<doxid-class_g_v_a_1_1_region_of_interest_1a48d24ec0ee33f12a483d1f7b82afde04>`() const;
+		GstStructure* :target:`get_param<doxid-class_g_v_a_1_1_region_of_interest_1ab7e8f4e7dc93b48559b2629c00fd662b>`(const char* name) const;
+		void :target:`add_param<doxid-class_g_v_a_1_1_region_of_interest_1a5855eb0e5af310ccacfaa8fc54818a46>`(GstStructure* s);
 		GstVideoRegionOfInterestMeta* :ref:`_meta<doxid-class_g_v_a_1_1_region_of_interest_1ae48caa3aabb78046ecb676bd6f8d59ef>`() const;
 	};
 .. _details-class_g_v_a_1_1_region_of_interest:

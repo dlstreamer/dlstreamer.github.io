@@ -289,7 +289,7 @@ converter can be applied.
      - Parse output blob produced by object detection neural network with *DetectionOutput* IR output layer's type. Output is RegionOfInterest.
        
        *labels* - an array of strings representing labels or a path to a file with labels where each label is on a new line.
-     - `mobilnet-ssd <https://docs.openvino.ai/latest/omz_models_model_mobilenet_ssd.html#output>`__
+     - `ssdlite_mobilenet_v2 <https://docs.openvino.ai/2024/omz_models_model_ssdlite_mobilenet_v2.html#output>`__
      
        `person-vehicle-bike-detection-crossroad-0078 <https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_crossroad_0078.html#outputs>`__
    * - `boxes_labels <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-0205.json>`__
@@ -332,6 +332,7 @@ converter can be applied.
 
        * *minimum_side* - Any detected box with its smallest side < minimum_side will be dropped;
        * *binarize_threshold* - Threshold value for OpenCV binary image thresholding, expected in range [0.0, 255.0];
+     -
    * - **For gvaclassify**:
      -
      -

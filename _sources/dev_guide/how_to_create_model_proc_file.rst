@@ -8,7 +8,7 @@ Please refer to the :doc:`model-proc documentation <model_proc_file>`
 before going through this tutorial.
 
 Content
---------
+-------
 
 -  `Theory <#theory>`__
 
@@ -116,7 +116,7 @@ In the table below you can find examples of model-proc files that use some of th
      - Model-proc
      - Operation
 
-   * - `MobileNet https://github.com/onnx/models/blob/main/validated/vision/classification/mobilenet`__
+   * - `MobileNet <https://github.com/onnx/models/blob/main/validated/vision/classification/mobilenet>`__
      - `mobilenetv2-7.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/onnx/mobilenetv2-7.json>`__
      - normalization
 

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>class dlstreamer::ImageLayout &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
+    <title>struct _GstAnalyticsODExtMtdData &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
   
   
   
@@ -44,11 +44,11 @@
     <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script src="../../_static/target-highlight.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'architecture_2.0/api_ref/class_dlstreamer_ImageLayout';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'architecture_2.0/api_ref/struct__GstAnalyticsODExtMtdData';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="enum dlstreamer::ImageLayout::Value" href="enum_dlstreamer_ImageLayout_Value.html" />
-    <link rel="prev" title="class dlstreamer::GSTTensor" href="class_dlstreamer_GSTTensor.html" />
+    <link rel="next" title="struct _GstGVAJSONMeta" href="struct__GstGVAJSONMeta.html" />
+    <link rel="prev" title="struct GstGVAAudioEventMeta" href="struct_GstGVAAudioEventMeta.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -243,11 +243,11 @@
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">API 2.0 Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="global.html">Global Namespace</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="namespace_GVA.html">namespace GVA</a></li>
-<li class="toctree-l4 current active"><a class="reference internal" href="namespace_dlstreamer.html">namespace dlstreamer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_dlstreamer.html">namespace dlstreamer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="enum_GVALayout.html">enum GVALayout</a></li>
 <li class="toctree-l4"><a class="reference internal" href="enum_GVAPrecision.html">enum GVAPrecision</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a></li>
-<li class="toctree-l4"><a class="reference internal" href="struct__GstAnalyticsODExtMtdData.html">struct _GstAnalyticsODExtMtdData</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">struct _GstAnalyticsODExtMtdData</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a></li>
 </ul>
@@ -310,7 +310,7 @@
       
       
       
-      <li><a href="../../_sources/architecture_2.0/api_ref/class_dlstreamer_ImageLayout.rst" target="_blank"
+      <li><a href="../../_sources/architecture_2.0/api_ref/struct__GstAnalyticsODExtMtdData.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -392,7 +392,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>class dlstreamer::ImageLayout</h1>
+    <h1>struct _GstAnalyticsODExtMtdData</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -406,34 +406,18 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="class-dlstreamer-imagelayout">
-<span id="doxid-classdlstreamer-1-1-image-layout"></span><span id="index-0"></span><h1>class dlstreamer::ImageLayout<a class="headerlink" href="#class-dlstreamer-imagelayout" title="Permalink to this heading">#</a></h1>
+  <section id="struct-gstanalyticsodextmtddata">
+<span id="doxid-struct-gst-analytics-o-d-ext-mtd-data"></span><span id="index-0"></span><h1>struct _GstAnalyticsODExtMtdData<a class="headerlink" href="#struct-gstanalyticsodextmtddata" title="Permalink to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;image_info.h&gt;</span>
+<pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;objectdetectionmtdext.h&gt;</span>
 
-<span class="k">class</span> <span class="n">ImageLayout</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="c1">// enums</span>
+<span class="k">struct</span> <span class="n">_GstAnalyticsODExtMtdData</span> <span class="p">{</span>
+    <span class="c1">// fields</span>
 
-    <span class="k">enum</span> <a class="reference internal" href="enum_dlstreamer_ImageLayout_Value.html#doxid-classdlstreamer-1-1-image-layout-1ad4e006ff101d882ea06f6fba5dd6172f"><span class="std std-ref">Value</span></a><span></span><span class="p">;</span>
-
-    <span class="c1">// construction</span>
-
-    <span class="doxyrest-code-target target" id="doxid-classdlstreamer-1-1-image-layout-1ad648a85d78fdde08ce12cde67f7a4cbb"><span></span><span class="n">ImageLayout</span></span><span></span><span class="p">();</span>
-    <span class="doxyrest-code-target target" id="doxid-classdlstreamer-1-1-image-layout-1aad0a3654b84986ced0a43c3544033887"><span></span><span class="n">ImageLayout</span></span><span></span><span class="p">(</span><a class="reference internal" href="enum_dlstreamer_ImageLayout_Value.html#doxid-classdlstreamer-1-1-image-layout-1ad4e006ff101d882ea06f6fba5dd6172f"><span class="std std-ref">Value</span></a><span></span> <span class="n">value</span><span class="p">);</span>
-    <span class="doxyrest-code-target target" id="doxid-classdlstreamer-1-1-image-layout-1a817cc447c2adf9ba775e0f06fda58719"><span></span><span class="n">ImageLayout</span></span><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">str</span><span class="p">);</span>
-    <span class="doxyrest-code-target target" id="doxid-classdlstreamer-1-1-image-layout-1a3e8f09693f017499b39a11d2c1e32511"><span></span><span class="n">ImageLayout</span></span><span></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span> <span class="n">shape</span><span class="p">);</span>
-
-    <span class="c1">// methods</span>
-
-    <span class="doxyrest-code-target target" id="doxid-classdlstreamer-1-1-image-layout-1a4272acb3c60905b09e28fd2f3f4a51e7"><span></span><span class="k">operator</span> <span class="n">Value</span></span><span></span> <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-    <span class="doxyrest-code-target target" id="doxid-classdlstreamer-1-1-image-layout-1afe4ef3c6d39738361dce7f9aedf4a4c4"><span></span><span class="k">operator</span> <span class="kt">bool</span></span><span></span> <span class="p">();</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="doxyrest-code-target target" id="doxid-classdlstreamer-1-1-image-layout-1af93795bd0f00ebe33ed32028d41f26d7"><span></span><span class="n">to_string</span></span><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="doxyrest-code-target target" id="doxid-classdlstreamer-1-1-image-layout-1a78f58325a5b8f324f83614ea4ad2daec"><span></span><span class="n">w_position</span></span><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="doxyrest-code-target target" id="doxid-classdlstreamer-1-1-image-layout-1a7c36b6883913868152d5e072d43c1fb2"><span></span><span class="n">h_position</span></span><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="doxyrest-code-target target" id="doxid-classdlstreamer-1-1-image-layout-1a4248d8e2aa3e0088ce644c946235dcc6"><span></span><span class="n">c_position</span></span><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="doxyrest-code-target target" id="doxid-classdlstreamer-1-1-image-layout-1a27402d42a59dd95e522253036ac7567e"><span></span><span class="n">n_position</span></span><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="n">gint</span> <span class="doxyrest-code-target target" id="doxid-struct-gst-analytics-o-d-ext-mtd-data-1a7a47d49ac5235611c88c21c9e329615e"><span></span><span class="n">class_id</span></span><span></span><span class="p">;</span>
+    <span class="n">gdouble</span> <span class="doxyrest-code-target target" id="doxid-struct-gst-analytics-o-d-ext-mtd-data-1a159a06c015c9cc6bbd0c2d68182bdce2"><span></span><span class="n">rotation</span></span><span></span><span class="p">;</span>
+    <span class="n">GList</span><span class="o">*</span> <span class="doxyrest-code-target target" id="doxid-struct-gst-analytics-o-d-ext-mtd-data-1a3c56a944f127c0271c70d17f4b0424d2"><span></span><span class="n">params</span></span><span></span><span class="p">;</span>
 <span class="p">};</span></pre>
 </section>
 
@@ -449,20 +433,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="class_dlstreamer_GSTTensor.html"
+       href="struct_GstGVAAudioEventMeta.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">class dlstreamer::GSTTensor</p>
+        <p class="prev-next-title">struct GstGVAAudioEventMeta</p>
       </div>
     </a>
     <a class="right-next"
-       href="enum_dlstreamer_ImageLayout_Value.html"
+       href="struct__GstGVAJSONMeta.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">enum dlstreamer::ImageLayout::Value</p>
+        <p class="prev-next-title">struct _GstGVAJSONMeta</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

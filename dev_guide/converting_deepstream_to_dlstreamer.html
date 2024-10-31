@@ -247,6 +247,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/enum_GVALayout.html">enum GVALayout</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html">enum GVAPrecision</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct__GstAnalyticsODExtMtdData.html">struct _GstAnalyticsODExtMtdData</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a></li>
 </ul>
@@ -598,6 +599,13 @@ output region of interests. <code class="docutils literal notranslate"><span cla
 consistency with what was removed above (the default value is 1 so it is
 not needed). We replaced <code class="docutils literal notranslate"><span class="pre">config-file-path</span></code> property with <code class="docutils literal notranslate"><span class="pre">model</span></code>
 and <code class="docutils literal notranslate"><span class="pre">model-proc</span></code> properties as described in “Configuring Model for Intel® DL Streamer” above.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span>input_file.mp4<span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span>./model.xml<span class="w"> </span>model-proc<span class="o">=</span>./model_proc.json<span class="w"> </span>batch-size<span class="o">=</span><span class="m">1</span><span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+nvvideoconvert<span class="w"> </span>!<span class="w"> </span><span class="s2">&quot;video/x-raw(memory:NVMM), format=RGBA&quot;</span><span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+nvdsosd<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+nvvideoconvert<span class="w"> </span>!<span class="w"> </span><span class="s2">&quot;video/x-raw, format=I420&quot;</span><span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span>avenc_mpeg4<span class="w"> </span><span class="nv">bitrate</span><span class="o">=</span><span class="m">8000000</span><span class="w"> </span>!<span class="w"> </span>qtmux<span class="w"> </span>!<span class="w"> </span>filesink<span class="w"> </span><span class="nv">location</span><span class="o">=</span>output_file.mp4
+</pre></div>
+</div>
 </section>
 <section id="video-processing-elements">
 <h3>Video Processing Elements<a class="headerlink" href="#video-processing-elements" title="Permalink to this heading">#</a></h3>
@@ -629,6 +637,12 @@ on CPU, however if available, we suggest using <code class="docutils literal not
 on Intel Graphics. Also, we will use the GStreamer standard element
 <code class="docutils literal notranslate"><span class="pre">decodebin</span></code> to choose an appropriate demuxer and decoder depending on
 the input stream as well as what is available on the system.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span>input_file.mp4<span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span>./model.xml<span class="w"> </span>model-proc<span class="o">=</span>./model_proc.json<span class="w"> </span>batch-size<span class="o">=</span><span class="m">1</span><span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+nvdsosd<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+videoconvert<span class="w"> </span>!<span class="w"> </span>avenc_mpeg4<span class="w"> </span><span class="nv">bitrate</span><span class="o">=</span><span class="m">8000000</span><span class="w"> </span>!<span class="w"> </span>qtmux<span class="w"> </span>!<span class="w"> </span>filesink<span class="w"> </span><span class="nv">location</span><span class="o">=</span>output_file.mp4
+</pre></div>
+</div>
 </section>
 <section id="metadata-elements">
 <h3>Metadata Elements<a class="headerlink" href="#metadata-elements" title="Permalink to this heading">#</a></h3>
@@ -671,6 +685,12 @@ generated by <code class="docutils literal notranslate"><span class="pre">gvamet
 </ul>
 <p>The only metadata processing that is done in this pipeline is to overlay
 the inferences on the video for which we use <code class="docutils literal notranslate"><span class="pre">gvawatermark</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span>input_file.mp4<span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span>./model.xml<span class="w"> </span>model-proc<span class="o">=</span>./model_proc.json<span class="w"> </span>batch-size<span class="o">=</span><span class="m">1</span><span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+gvawatermark<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+videoconvert<span class="w"> </span>!<span class="w"> </span>avenc_mpeg4<span class="w"> </span><span class="nv">bitrate</span><span class="o">=</span><span class="m">8000000</span><span class="w"> </span>!<span class="w"> </span>qtmux<span class="w"> </span>!<span class="w"> </span>filesink<span class="w"> </span><span class="nv">location</span><span class="o">=</span>output_file.mp4
+</pre></div>
+</div>
 </section>
 </section>
 <section id="multiple-input-streams">

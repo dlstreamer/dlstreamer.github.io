@@ -13,40 +13,58 @@ gst-inspect-1.0 utility
      - Description
 
    * - :doc:`gvadetect <gvadetect>`
-     - Performs object detection using SSD-like (including MobileNet-V1/V2 and ResNet), YoloV2/YoloV3/YoloV2-tiny/YoloV3-tiny and FasterRCNN-like object detection models.
+     - Performs object detection and [optionally] classification/segmentation/pose estimation.Inputs: ROIs (regions of interest) or full frame. Output: object bounding box detection along with prediction metadata.
+
+       *[eg syntax]* *gst-launch-1.0 ... ! decodebin ! gvadetect model=$mDetect device=GPU[CPU,NPU] ! ... OUT*
 
    * - :doc:`gvaclassify <gvaclassify>`
-     - Performs object classification. Accepts the ROI or full frame as an input and outputs classification results with metadata.
+     - Performs object classification/segmentation/pose estimation. Inputs: ROI or full frame. Output: prediction metadata.
+
+       *[eg syntax]* *gst-launch-1.0 ... ! decodebin ! gvadetect model=$mDetect device=GPU ! gvaclassify model=$mClassify device=CPU ! ... OUT*
 
    * - :doc:`gvainference <gvainference>`
-     -  Runs deep learning inference using any model with an RGB or BGR input.
+     - Executes any inference model and outputs raw results (does not interpret data and does not generate metadata).
+
+       *[eg syntax]* *gst-launch-1.0 ... ! decodebin ! gvadetect model=$mDetect device=GPU ! gvainference model=$mHeadPoseEst device=CPU ! ... OUT*
 
    * - :doc:`gvaaudiodetect <gvaaudiodetect>`
-     - Performs audio event detection using AclNet model.
+     - Legacy plugin.Performs audio event detection using AclNet model.
 
    * - :doc:`gvatrack <gvatrack>`
-     - Performs object tracking using zero-term or short-term tracking algorithms. Zero-term tracking assigns unique object IDs and requires object detection to run on every frame. Short-term tracking allows to track objects between frames, thereby  reducing the need to run object detection on each frame.
+     - Tracks objects across video frames using zero-term or short-term tracking algorithms. Zero-term tracking assigns unique object IDs and requires object detection to run on every frame. Short-term tracking allows to track objects between frames, thereby reducing the need to run object detection on each frame.
 
-   * - :doc:`gvametaaggregate <gvametaaggregate>`
-     - Aggregates inference results from multiple pipeline branches.
+       *[eg syntax]* *gst-launch-1.0 ... ! decodebin ! gvadetect model=$mDetect device=GPU ! gvatrack tracking-type=short-term-imageless ! ... OUT*
 
    * - :doc:`gvametaconvert <gvametaconvert>`
-     - Converts the metadata structure to the JSON format.
+     - Converts the metadata structure to JSON or raw text formats, can write output to a file.       
 
    * - :doc:`gvametapublish <gvametapublish>`
      - Publishes the JSON metadata to MQTT or Kafka message brokers or files.
+
+       *[eg syntax]* *gst-launch-1.0 ... ! decodebin ! gvadetect model=$mDetect device=GPU ... ! gvametaconvert format=json ... ! gvametapublish ... ! ... OUT* 
+
+   * - :doc:`gvametaaggregate <gvametaaggregate>`
+     - Aggregates inference results from multiple pipeline branches.
     
    * - :doc:`gvapython <gvapython>`
-     - Provides a callback to execute user-defined Python functions on every frame. Can be used for metadata conversion, inference post-processing, and other tasks.
+     - Provides a callback to execute user-defined Python functions on every frame, used to augment DLStreamer with user-defined algorithms (e.g. metadata conversion, inference post-processing).
+
+       *[eg syntax]* *gst-launch-1.0 ... !  gvaclassify ! gvapython module={gvapython.callback_module.classAge_pp} ! ... OUT*
 
    * - :doc:`gvawatermark <gvawatermark>`
      - Overlays the metadata on the video frame to visualize the inference results.
 
+       *[eg syntax]* *gst-launch-1.0 ... ! decodebin ! gvadetect ... ! gvawatermark ! ... OUT*
+
    * - :doc:`gvafpscounter <gvafpscounter>`
-     - Measures frames per second across multiple streams in a single process.
+     - Measures frames per second across multiple video streams in a single GStreamer process.
+
+       *[eg syntax]* *gst-launch-1.0 ... ! decodebin ! gvadetect ... ! gvafpscounter ! ... OUT*
 
    * - :doc:`gvaattachroi <gvaattachroi>`
-     - Provides the ability to define one or more regions of interest to perform inference on, instead of the full frame.
+     - Adds user-defined regions of interest to perform inference on, instead of full frame. Example: monitoring traffic on a road in a city camera feed, or when split large image to smaller pieces and inference each piece (healthcare cell analytics).
+
+       *[eg syntax]* *gst-launch-1.0 ... ! decodebin ! gvaattachroi roi=xtl,ytl,xbr,ybr gvadetect inference-region=1 ! ... OUT*
 
    * - :doc:`python_object_association <python_object_association>`
      - Assigns unique ID to ROI via DeepSORT algorithm.
