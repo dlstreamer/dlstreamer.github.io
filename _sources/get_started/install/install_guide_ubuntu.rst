@@ -1,7 +1,7 @@
 Install Guide Ubuntu
 ====================
 
-The easiest way to install Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework is installing :ref:`from pre-built Debian packages <2>` with one-click installation script.
+The easiest way to install Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework is installation :ref:`from Debian packages using APT repository <2>`.
 If you prefer containerized environment based on Docker, the Intel® DL Streamer Pipeline Framework :ref:`Docker image <3>` is available as well as Dockerfile to build runtime Docker image.
 Regardless of chosen installations process, please follow :ref:`prerequisites <1>`.
 
@@ -45,64 +45,74 @@ Step 3: Execute the script and follow its instructions
    ./DLS_install_prerequisites.sh
 
 
-Step 4: Further information
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-For more information or in case of installation issues, please take a look on detailed documentation available in Developer guide: :doc:`../../dev_guide/advanced_install/advanced_install_guide_prerequisites`
-
-
-
 .. _2:
 
-Option #1: Install Intel® DL Streamer Pipeline Framework from Debian packages
------------------------------------------------------------------------------
+Option #1: Install Intel® DL Streamer Pipeline Framework from Debian packages using APT repository
+--------------------------------------------------------------------------------------------------
 
-Step 1: Download the installation script
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This option provides the simplest installation flow using apt-get install command.
+
+Step 1: Setup repositories
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ..  code:: sh
+   
+   sudo -E wget -O- https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB | gpg --dearmor | sudo tee /usr/share/keyrings/oneapi-archive-keyring.gpg > /dev/null
+   sudo wget -O- https://eci.intel.com/sed-repos/gpg-keys/GPG-PUB-KEY-INTEL-SED.gpg | sudo tee /usr/share/keyrings/sed-archive-keyring.gpg > /dev/null
+   sudo echo "deb [signed-by=/usr/share/keyrings/sed-archive-keyring.gpg] https://eci.intel.com/sed-repos/$(source /etc/os-release && echo $VERSION_CODENAME) sed main" | sudo tee /etc/apt/sources.list.d/sed.list
+   sudo bash -c 'echo -e "Package: *\nPin: origin eci.intel.com\nPin-Priority: 1000" > /etc/apt/preferences.d/sed'
+     
+   ## Ubuntu24 ##
+   sudo bash -c 'echo "deb [signed-by=/usr/share/keyrings/oneapi-archive-keyring.gpg] https://apt.repos.intel.com/openvino/2024 ubuntu24 main" | sudo tee /etc/apt/sources.list.d/intel-openvino-2024.list'
 
-   cd ~/intel/dlstreamer_gst/
-   wget https://github.com/dlstreamer/dlstreamer/raw/master/scripts/DLS_install_deb_packages.sh
+   ## Ubuntu22 ##
+   sudo bash -c 'echo "deb [signed-by=/usr/share/keyrings/oneapi-archive-keyring.gpg] https://apt.repos.intel.com/openvino/2024 ubuntu22 main" | sudo tee /etc/apt/sources.list.d/intel-openvino-2024.list'
 
 
-Step 2: Give the script execute permission
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 2: Install Intel® DL Streamer Pipeline Framework
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: sh
 
-   sudo chmod +x DLS_install_deb_packages.sh
+   sudo apt update
+   sudo apt-get install intel-dlstreamer
+
+.. note::
+
+   This step will also install the required dependencies, including OpenVINO™ Toolkit and GStreamer.
+
+   
+Check for installed packages and versions.
+
+.. code:: sh
+
+   apt list --installed | grep intel-dlstreamer
 
 
-Step 3: Execute the script and follow its instructions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 3: Run hello_dlstreamer script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The script sets up the required environment variables and runs a sample pipeline to confirm that Intel® DL Streamer is installed correctly. 
+During the first run, the script will download the YOLOv11s model from the Ultralytics website along with other required components and convert it to the OpenVINO™ format.
+
 
 ..  code:: sh
    
-   ./DLS_install_deb_packages.sh
+   /opt/intel/dlstreamer/scripts/hello_dlstreamer.sh
 
 
 .. note::
-   For more information or in case of installation issues, please take a look on detailed documentation available in Developer guide: :doc:`../../dev_guide/advanced_install/advanced_install_guide_prebuilt`
-
-
-Step 4: Next steps - running sample Intel® DL Streamer pipelines
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-You are ready to use Intel® DL Streamer. For further instructions to run sample pipeline(s), please go to: :doc:`../tutorial`
-
-.. note::
-   The installation script initializes the environment with the 2 scripts listed below. It also provides the option
-   to add them to ``~/.profile``. If you did not want to add them, please remember the environment is reset when you close the shell.
-   Therefore, before each run of Intel® DL Streamer you need to setup the environment with the 2 scripts listed below.
    
-   .. code:: sh
+   To set up Linux with the relevant environment variables every time a new terminal is opened, open ~/.bashrc and add the following lines:
 
-      # Setup OpenVINO™ Toolkit environment
-      source /opt/intel/openvino_2024/setupvars.sh
-      # Setup GStreamer and Intel® DL Streamer Pipeline Framework environments
-      source /opt/intel/dlstreamer/setupvars.sh
-
-
+..  code:: sh
+   
+   export LIBVA_DRIVER_NAME=iHD
+   export GST_PLUGIN_PATH=/opt/intel/dlstreamer/build/intel64/Release/lib:/opt/intel/dlstreamer/gstreamer/lib/gstreamer-1.0:/opt/intel/dlstreamer/gstreamer/lib/:
+   export LD_LIBRARY_PATH=/opt/intel/dlstreamer/gstreamer/lib:/opt/intel/dlstreamer/build/intel64/Release/lib:/opt/intel/dlstreamer/lib/gstreamer-1.0:/usr/lib:/opt/intel/dlstreamer/build/intel64/Release/lib:/opt/opencv:/opt/openh264:/opt/rdkafka:/opt/ffmpeg:/usr/local/lib/gstreamer-1.0:/usr/local/lib
+   export LIBVA_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri
+   export GST_VA_ALL_DRIVERS=1
+   export PATH=/opt/intel/dlstreamer/gstreamer/bin:/opt/intel/dlstreamer/build/intel64/Release/bin:$PATH
 
 
 .. _3:

@@ -1,5 +1,5 @@
-Advanced installation guide for Ubuntu - compilation from source files
-======================================================================
+Ubuntu advanced installation - compilation from source files
+============================================================
 
 The easiest way to install Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework is installing it from pre-built Debian packages with one-click script. 
 If you would like to follow this way, please go to :doc:`../../get_started/install/install_guide_ubuntu`.

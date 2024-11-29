@@ -1,5 +1,5 @@
-Advanced installation guide for Ubuntu - prerequisites
-======================================================
+Ubuntu advanced installation - prerequisites
+============================================
 
 To use GPU and/or NPU as an inference devices or to use graphics hardware encoding/decoding capabilities, it is required to install appropriate drivers.
 The easiest way to install these drivers is to use automated script described in: :doc:`../../get_started/install/install_guide_ubuntu`.

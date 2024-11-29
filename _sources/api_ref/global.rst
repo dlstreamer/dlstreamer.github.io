@@ -10,7 +10,9 @@ Global Namespace
 	namespace_gstgva.rst
 	enum_GVALayout.rst
 	enum_GVAPrecision.rst
+	enum_GstAnalyticsKeypointDimensions.rst
 	struct_GstGVAAudioEventMeta.rst
+	struct_GstKeypointPair.rst
 	struct__GstGVAJSONMeta.rst
 	struct__GstGVATensorMeta.rst
 
@@ -33,6 +35,7 @@ Overview
 
 	// typedefs
 
+	typedef typedefG_BEGIN_DECLS struct _GstAnalyticsMtd :ref:`GstAnalyticsKeypointsMtd<doxid-gstanalyticskeypointsmtd_8h_1afb01b2e17e7cfcdc9a61148cc0e1c49d>`;
 	typedef typedefG_BEGIN_DECLS struct :ref:`_GstGVAJSONMeta<doxid-struct___gst_g_v_a_j_s_o_n_meta>` :target:`GstGVAJSONMeta<doxid-gva__json__meta_8h_1a64a17a6fb82826c3a7159e71c9449a54>`;
 	typedef struct :ref:`_GstGVATensorMeta<doxid-struct___gst_g_v_a_tensor_meta>` :target:`GstGVATensorMeta<doxid-gva__tensor__meta_8h_1a038ecf5fdabb0acf1f2053800ba16d62>`;
 
@@ -40,14 +43,51 @@ Overview
 
 	enum :ref:`GVALayout<doxid-gva__tensor__meta_8h_1a2d0113c46cec570b215b893571ab14ed>`;
 	enum :ref:`GVAPrecision<doxid-gva__tensor__meta_8h_1ac26bbefa1eda84e0a4b888d51d2795ce>`;
+	enum :ref:`GstAnalyticsKeypointDimensions<doxid-gstanalyticskeypointsmtd_8h_1a9034de0e92b489c3805199eb05a434df>`;
 
 	// structs
 
 	struct :ref:`GstGVAAudioEventMeta<doxid-struct_gst_g_v_a_audio_event_meta>`;
+	struct :ref:`GstKeypointPair<doxid-struct_gst_keypoint_pair>`;
 	struct :ref:`_GstGVAJSONMeta<doxid-struct___gst_g_v_a_j_s_o_n_meta>`;
 	struct :ref:`_GstGVATensorMeta<doxid-struct___gst_g_v_a_tensor_meta>`;
 
 	// global functions
+
+	GST_ANALYTICS_META_API GstAnalyticsMtdType :target:`gst_analytics_keypoints_mtd_get_mtd_type<doxid-gstanalyticskeypointsmtd_8h_1a5688ba87dcd0136b3c61e60e9b41e1a6>`(void);
+	GST_ANALYTICS_META_API gsize :target:`gst_analytics_keypoints_mtd_get_count<doxid-gstanalyticskeypointsmtd_8h_1a3acbe6dfc99b789be84659a8baf2d8db>`(const :ref:`GstAnalyticsKeypointsMtd<doxid-gstanalyticskeypointsmtd_8h_1afb01b2e17e7cfcdc9a61148cc0e1c49d>`* handle);
+	GST_ANALYTICS_META_API :ref:`GstAnalyticsKeypointDimensions<doxid-gstanalyticskeypointsmtd_8h_1a9034de0e92b489c3805199eb05a434df>` :target:`gst_analytics_keypoints_mtd_get_dimension<doxid-gstanalyticskeypointsmtd_8h_1a88bff3d8ee03caa1209688168e1e7042>`(const :ref:`GstAnalyticsKeypointsMtd<doxid-gstanalyticskeypointsmtd_8h_1afb01b2e17e7cfcdc9a61148cc0e1c49d>`* handle);
+	GST_ANALYTICS_META_API gsize :target:`gst_analytics_keypoints_mtd_get_confidence_count<doxid-gstanalyticskeypointsmtd_8h_1af20f328cd1ed07f1469a2e788037b28a>`(const :ref:`GstAnalyticsKeypointsMtd<doxid-gstanalyticskeypointsmtd_8h_1afb01b2e17e7cfcdc9a61148cc0e1c49d>`* handle);
+	GST_ANALYTICS_META_API gsize :target:`gst_analytics_keypoints_mtd_get_skeleton_count<doxid-gstanalyticskeypointsmtd_8h_1a94e1da49995eabb555f698d57ee26f60>`(const :ref:`GstAnalyticsKeypointsMtd<doxid-gstanalyticskeypointsmtd_8h_1afb01b2e17e7cfcdc9a61148cc0e1c49d>`* handle);
+
+	GST_ANALYTICS_META_API gboolean :target:`gst_analytics_keypoints_mtd_get_position<doxid-gstanalyticskeypointsmtd_8h_1a2ce9b7b78426f2c721f588abafcbbb3d>`(
+		const :ref:`GstAnalyticsKeypointsMtd<doxid-gstanalyticskeypointsmtd_8h_1afb01b2e17e7cfcdc9a61148cc0e1c49d>`* handle,
+		gfloat* position,
+		gsize index
+	);
+
+	GST_ANALYTICS_META_API gboolean :target:`gst_analytics_keypoints_mtd_get_confidence<doxid-gstanalyticskeypointsmtd_8h_1a7a0ef1cbadbd7b8c694a0f5deeb4a452>`(
+		const :ref:`GstAnalyticsKeypointsMtd<doxid-gstanalyticskeypointsmtd_8h_1afb01b2e17e7cfcdc9a61148cc0e1c49d>`* handle,
+		gfloat* confidence,
+		gsize index
+	);
+
+	GST_ANALYTICS_META_API gboolean :target:`gst_analytics_keypoints_mtd_get_skeleton<doxid-gstanalyticskeypointsmtd_8h_1ab0715d81a5f3861546d83a970b9f28dd>`(
+		const :ref:`GstAnalyticsKeypointsMtd<doxid-gstanalyticskeypointsmtd_8h_1afb01b2e17e7cfcdc9a61148cc0e1c49d>`* handle,
+		:ref:`GstKeypointPair<doxid-struct_gst_keypoint_pair>`* skeleton,
+		gsize index
+	);
+
+	GST_ANALYTICS_META_API gboolean :target:`gst_analytics_relation_meta_add_keypoints_mtd<doxid-gstanalyticskeypointsmtd_8h_1ae59799f7d85c4489a2a49e53c6ee0fba>`(
+		GstAnalyticsRelationMeta* instance,
+		const gsize keypoint_count,
+		const :ref:`GstAnalyticsKeypointDimensions<doxid-gstanalyticskeypointsmtd_8h_1a9034de0e92b489c3805199eb05a434df>` keypoint_dimensions,
+		const gfloat* positions,
+		const gfloat* confidences,
+		const gsize skeleton_count,
+		const :ref:`GstKeypointPair<doxid-struct_gst_keypoint_pair>`* skeletons,
+		:ref:`GstAnalyticsKeypointsMtd<doxid-gstanalyticskeypointsmtd_8h_1afb01b2e17e7cfcdc9a61148cc0e1c49d>`* keypoint_mtd
+	);
 
 	GType :target:`gst_gva_audio_event_meta_api_get_type<doxid-gva__audio__event__meta_8h_1abbda3842d56b2d1be936c56fc10b5fe4>`(void);
 	const GstMetaInfo* :target:`gst_gva_audio_event_meta_get_info<doxid-gva__audio__event__meta_8h_1ada019174d6ba549dd03bd53b456149f1>`(void);
@@ -108,6 +148,23 @@ Detailed Documentation
 ~~~~~~~~~~~~~~~~~~~~~~
 
 
+
+Typedefs
+--------
+
+.. index:: pair: typedef; GstAnalyticsKeypointsMtd
+.. _doxid-gstanalyticskeypointsmtd_8h_1afb01b2e17e7cfcdc9a61148cc0e1c49d:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	typedef typedefG_BEGIN_DECLS struct _GstAnalyticsMtd GstAnalyticsKeypointsMtd
+
+GstAnalyticsKeypointsMtd: @id: Instance identifier. @meta: Instance of #GstAnalyticsRelationMeta where the analysis-metadata identified by @id is stored.
+
+Handle containing data required to use gst_analytics_keypoints_mtd APIs. This type is generally expected to be allocated on the stack.
+
+Since: 1.26
 
 Global Functions
 ----------------
