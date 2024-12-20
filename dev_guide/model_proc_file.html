@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Model-proc File &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
+    <title>Model-proc File (legacy) &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
   
   
   
@@ -47,8 +47,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'dev_guide/model_proc_file';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Model Info Section" href="model_info_xml.html" />
-    <link rel="prev" title="Yolo Models" href="yolo_models.html" />
+    <link rel="next" title="How to Create Model-proc File" href="how_to_create_model_proc_file.html" />
+    <link rel="prev" title="Latency Tracer" href="latency_tracer.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -165,9 +165,7 @@
 <li class="toctree-l3"><a class="reference internal" href="yolo_models.html">Yolo Models</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Model-proc File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="model_info_xml.html">Model Info Section</a></li>
-<li class="toctree-l2"><a class="reference internal" href="how_to_create_model_proc_file.html">How to Create Model-proc File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python_bindings.html">Python Bindings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="custom_processing.html">Custom Processing</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="object_tracking.html">Object Tracking</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -183,9 +181,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="latency_tracer.html">Latency Tracer</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Model-proc File (legacy)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="how_to_create_model_proc_file.html">How to Create Model-proc File</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../elements/elements.html">Elements</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../elements/elements.html">Elements</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvadetect.html">gvadetect</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvaclassify.html">gvaclassify</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvainference.html">gvainference</a></li>
@@ -202,14 +204,14 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../supported_models.html">Supported Models</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../api_ref/api_reference.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_ref/api_reference.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api_ref/page_index.html">Intel® Deep Learning Streamer (Intel® DL Streamer) API reference</a></li>
 
 
 
 
-<li class="toctree-l2 has-children"><a class="reference internal" href="../api_ref/global.html">Global Namespace</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/namespace_gstgva.html">namespace gstgva</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api_ref/global.html">Global Namespace</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/namespace_gstgva.html">namespace gstgva</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../api_ref/namespace_gstgva_region_of_interest.html">namespace gstgva::region_of_interest</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api_ref/namespace_gstgva_tensor.html">namespace gstgva::tensor</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api_ref/namespace_gstgva_video_frame.html">namespace gstgva::video_frame</a></li>
@@ -217,24 +219,26 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../api_ref/enum_GVALayout.html">enum GVALayout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api_ref/enum_GVAPrecision.html">enum GVAPrecision</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api_ref/enum_GstAnalyticsKeypointDimensions.html">enum GstAnalyticsKeypointDimensions</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct_GstAnalyticsKeypoint.html">struct GstAnalyticsKeypoint</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct_GstKeypointPair.html">struct GstKeypointPair</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct_GstAnalyticsKeypointPair.html">struct GstAnalyticsKeypointPair</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../architecture_2.0/architecture_2.0.html">Architecture 2.0 [Preview]</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../architecture_2.0/architecture_2.0.html">Architecture 2.0 [Preview]</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/migration_guide.html">Migration to 2.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/cpp_interfaces.html">① Memory Interop and C++ abstract interfaces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/cpp_elements.html">② C++ elements</a></li>
@@ -245,15 +249,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/elements_list.html">Elements 2.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/packaging.html">Packaging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/samples_2.0.html">Samples 2.0</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../architecture_2.0/api_ref/index.html">API 2.0 Reference</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../architecture_2.0/api_ref/global.html">Global Namespace</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../architecture_2.0/api_ref/index.html">API 2.0 Reference</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../architecture_2.0/api_ref/global.html">Global Namespace</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/namespace_GVA.html">namespace GVA</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/namespace_dlstreamer.html">namespace dlstreamer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/enum_GVALayout.html">enum GVALayout</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html">enum GVAPrecision</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/enum_GstAnalyticsKeypointDimensions.html">enum GstAnalyticsKeypointDimensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct_GstAnalyticsKeypoint.html">struct GstAnalyticsKeypoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct_GstAnalyticsKeypointPair.html">struct GstAnalyticsKeypointPair</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct_GstKeypointPair.html">struct GstKeypointPair</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct__GstAnalyticsODExtMtdData.html">struct _GstAnalyticsODExtMtdData</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a></li>
@@ -401,7 +405,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Model-proc File</h1>
+    <h1>Model-proc File (legacy)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -434,8 +438,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="model-proc-file">
-<h1>Model-proc File<a class="headerlink" href="#model-proc-file" title="Permalink to this heading">#</a></h1>
+  <section id="model-proc-file-legacy">
+<h1>Model-proc File (legacy)<a class="headerlink" href="#model-proc-file-legacy" title="Permalink to this heading">#</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The functionality described here has been <strong>deprecated</strong>. Avoid using it to prevent dealing with a legacy solution. It will be maintained for some time to ensure backwards compatibility, but you should not use it in modern applications.
+The new method of model preparation is described in <a class="reference external" href="https://dlstreamer.github.io/dev_guide/model_info_xml.html">Model Info Section</a></p>
+</div>
 <section id="contents">
 <h2>Contents<a class="headerlink" href="#contents" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
@@ -764,16 +773,16 @@ converter can be applied.</p>
 <td><p>Parse output blob produced by object detection neural network with <em>DetectionOutput</em> IR output layer’s type. Output is RegionOfInterest.</p>
 <p><em>labels</em> - an array of strings representing labels or a path to a file with labels where each label is on a new line.</p>
 </td>
-<td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_ssdlite_mobilenet_v2.html#output">ssdlite_mobilenet_v2</a></p>
-<p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_crossroad_0078.html#outputs">person-vehicle-bike-detection-crossroad-0078</a></p>
+<td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/ssdlite_mobilenet_v2#output">ssdlite_mobilenet_v2</a></p>
+<p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/person-vehicle-bike-detection-crossroad-0078#outputs">person-vehicle-bike-detection-crossroad-0078</a></p>
 </td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-0205.json">boxes_labels</a></p></td>
 <td><p>Parse output blob produced by object detection neural network with two output layers: <em>boxes</em> and <em>labels</em>. Output is RegionOfInterest.</p>
 <p><em>labels</em> - an array of strings representing labels or a path to a file with labels where each label is on a new line.</p>
 </td>
-<td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_face_detection_0205.html#outputs">face-detection-0205</a></p>
-<p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_2004.html#outputs">person-vehicle-bike-detection-2004</a></p>
+<td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/face-detection-0205#outputs">face-detection-0205</a></p>
+<p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/person-vehicle-bike-detection-2004#outputs">person-vehicle-bike-detection-2004</a></p>
 </td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v2-tf.json">yolo_v2</a></p></td>
@@ -787,8 +796,8 @@ converter can be applied.</p>
 <li><p><em>iou_threshold</em> - parameter for NMS.</p></li>
 </ul>
 </td>
-<td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v2_tf.html#output">yolo-v2-tf</a></p>
-<p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v2_tiny_tf.html#output">yolo-v2-tiny-tf</a></p>
+<td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/yolo-v2-tf#output">yolo-v2-tf</a></p>
+<p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/yolo-v2-tiny-tf#output">yolo-v2-tiny-tf</a></p>
 </td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v3-tf.json">yolo_v3</a></p></td>
@@ -805,8 +814,8 @@ converter can be applied.</p>
 </ul>
 <p>See more details <a class="reference internal" href="how_to_create_model_proc_file.html#build-model-proc-for-detection-model-with-advance-post-processing"><span class="std std-ref">there</span></a>.</p>
 </td>
-<td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v3_tf.html#output">yolo-v3-tf</a></p>
-<p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_yolo_v4_tf.html#output">yolo-v4-tf</a></p>
+<td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/yolo-v3-tf#output">yolo-v3-tf</a></p>
+<p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/yolo-v4-tf#output">yolo-v4-tf</a></p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>heatmap_boxes</p></td>
@@ -829,7 +838,7 @@ converter can be applied.</p>
 <li><p><em>text_precision</em> - sets precision for textual representation.</p></li>
 </ul>
 </td>
-<td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_age_gender_recognition_retail_0013.html#outputs">age-gender-recognition-retail-0013</a></p></td>
+<td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/age-gender-recognition-retail-0013#outputs">age-gender-recognition-retail-0013</a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/vehicle-attributes-recognition-barrier-0039.json">label</a></p></td>
 <td><p>Put an appropriate label for result.</p>
@@ -838,9 +847,9 @@ converter can be applied.</p>
 <li><p><em>labels</em> - an array of strings representing labels or a path to a file with labels where each label is on a new line.</p></li>
 </ul>
 </td>
-<td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_emotions_recognition_retail_0003.html#outputs">emotions-recognition-retail-0003</a></p>
-<p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_license_plate_recognition_barrier_0007.html#outputs">license-plate-recognition-barrier-0007</a></p>
-<p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_person_attributes_recognition_crossroad_0230.html#outputs">person-attributes-recognition-crossroad-0230</a></p>
+<td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/age-gender-recognition-retail-0013#outputs">emotions-recognition-retail-0003</a></p>
+<p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/license-plate-recognition-barrier-0001#outputs">license-plate-recognition-barrier-0007</a></p>
+<p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/person-attributes-recognition-crossroad-0230#outputs">person-attributes-recognition-crossroad-0230</a></p>
 </td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/single-human-pose-estimation-0001.json">keypoints_hrnet</a></p></td>
@@ -850,7 +859,7 @@ converter can be applied.</p>
 <li><p><em>point_connections</em> - an array of strings with points connection. The length should be even.</p></li>
 </ul>
 </td>
-<td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_single_human_pose_estimation_0001.html#outputs">single-human-pose-estimation-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/single-human-pose-estimation-0001#outputs">single-human-pose-estimation-0001</a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/human-pose-estimation-0001.json">keypoints_openpose</a></p></td>
 <td><p>Parse output blob produced by network with OpenPose architecture. Output tensor will have an array of key points.</p>
@@ -859,7 +868,7 @@ converter can be applied.</p>
 <li><p><em>point_connections</em> - an array of strings with points connection. The length should be even.</p></li>
 </ul>
 </td>
-<td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_human_pose_estimation_0001.html#outputs">human-pose-estimation-0001</a></p></td>
+<td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/human-pose-estimation-0001#outputs">human-pose-estimation-0001</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>keypoints_3d</p></td>
 <td><p>Parse output blob produced by network with HRNet architecture. Output tensor will have an array of 3D-key points.</p>
@@ -881,7 +890,7 @@ converter can be applied.</p>
 <li><p><em>labels</em> - an array of JSON objects with index, label, threshold fields.</p></li>
 </ul>
 </td>
-<td><p><a class="reference external" href="https://docs.openvino.ai/latest/omz_models_model_aclnet.html#output">aclnet</a></p></td>
+<td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/public/aclnet/README.md#output">aclnet</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -983,6 +992,18 @@ converter can be applied.</p>
 <span class="p">...</span>
 </pre></div>
 </div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how_to_create_model_proc_file.html">How to Create Model-proc File</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="how_to_create_model_proc_file.html#content">Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_create_model_proc_file.html#theory">Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_create_model_proc_file.html#how-to-define-pre-processing">How to define pre-processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_create_model_proc_file.html#how-to-define-post-processing">How to define post-processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_create_model_proc_file.html#practice">Practice</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </section>
 </section>
 </section>
@@ -999,20 +1020,20 @@ converter can be applied.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="yolo_models.html"
+       href="latency_tracer.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Yolo Models</p>
+        <p class="prev-next-title">Latency Tracer</p>
       </div>
     </a>
     <a class="right-next"
-       href="model_info_xml.html"
+       href="how_to_create_model_proc_file.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Model Info Section</p>
+        <p class="prev-next-title">How to Create Model-proc File</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

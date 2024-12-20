@@ -98,7 +98,7 @@ Introduction to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Fr
 Intel® DL Streamer Pipeline Framework is an easy way to construct media analytics
 pipelines using Intel® Distribution of OpenVINO™ toolkit. It leverages
 the open source media framework GStreamer to provide optimized media operations and 
-`Deep Learning Inference Engine <https://docs.openvino.ai/latest/openvino_docs_OV_UG_OV_Runtime_User_Guide.html>`__
+`Deep Learning Inference Engine <https://docs.openvino.ai/2024/index.html>`__
 from OpenVINO™ Toolkit to provide optimized inference.
 
 The elements packaged in the Intel® DL Streamer Pipeline Framework binary release can be divided into three categories:
@@ -199,10 +199,10 @@ This section prepares the environment to run examples described below. It is sui
       export VEHICLE_CLASSIFICATION_MODEL_PROC=/opt/intel/dlstreamer/samples/gstreamer/model_proc/intel/vehicle-attributes-recognition-barrier-0039.json
 
 
-   If you want to use your own models, you need to first convert them in
+   If you want to use your own models, you first need to convert them to
    the IR (Intermediate Representation) format. For detailed
-   instructions to convert models, `look
-   here <https://docs.openvino.ai/latest/openvino_docs_MO_DG_prepare_model_convert_model_tf_specific_Convert_YOLO_From_Tensorflow.html>`__
+   instructions on how to convert models, `look
+   here <https://docs.openvino.ai/2024/openvino-workflow/model-preparation/convert-model-to-ir.html>`__
 
 #. Export the example video file path:
 
@@ -310,7 +310,7 @@ This section prepares the environment to run examples described below. It is sui
    If you want to use your own models, you need to first convert them in
    the IR (Intermediate Representation) format. For detailed
    instructions to convert models, `look
-   here <https://docs.openvino.ai/latest/openvino_docs_MO_DG_prepare_model_convert_model_tf_specific_Convert_YOLO_From_Tensorflow.html>`__
+   here <https://docs.openvino.ai/2024/openvino-workflow/model-preparation/convert-model-to-ir.html>`__
 
 #. In the container, export the example video file path:
 

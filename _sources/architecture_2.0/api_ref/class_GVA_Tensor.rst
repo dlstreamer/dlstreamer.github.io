@@ -68,7 +68,13 @@ This class represents tensor - map-like storage for inference result information
 		int :ref:`label_id<doxid-class_g_v_a_1_1_tensor_1aaa38a09854062816512e7d08e8c35498>`() const;
 		bool :ref:`is_detection<doxid-class_g_v_a_1_1_tensor_1a28a71b8b0973df2df5707bb74b1588f7>`() const;
 		GstStructure* :ref:`gst_structure<doxid-class_g_v_a_1_1_tensor_1a65270f22539aa9a422ab0bfa674cf214>`() const;
-		bool :ref:`convert_to_meta<doxid-class_g_v_a_1_1_tensor_1aa97f59bb62293b275545f18218256401>`(GstAnalyticsMtd* mtd, GstAnalyticsRelationMeta* meta);
+	
+		bool :ref:`convert_to_meta<doxid-class_g_v_a_1_1_tensor_1a95ae5bee6254ab73644dc4ac107e4832>`(
+			GstAnalyticsMtd* mtd,
+			GstAnalyticsODMtd* od_mtd,
+			GstAnalyticsRelationMeta* meta
+		);
+	
 		static GstStructure* :target:`convert_to_tensor<doxid-class_g_v_a_1_1_tensor_1acb745d4f788b93a82de532a78ff76668>`(GstAnalyticsMtd mtd);
 	};
 .. _details-class_g_v_a_1_1_tensor:
@@ -663,12 +669,16 @@ Get ptr to underlying GstStructure.
 ptr to underlying GstStructure
 
 .. index:: pair: function; convert_to_meta
-.. _doxid-class_g_v_a_1_1_tensor_1aa97f59bb62293b275545f18218256401:
+.. _doxid-class_g_v_a_1_1_tensor_1a95ae5bee6254ab73644dc4ac107e4832:
 
 .. ref-code-block:: cpp
 	:class: doxyrest-title-code-block
 
-	bool convert_to_meta(GstAnalyticsMtd* mtd, GstAnalyticsRelationMeta* meta)
+	bool convert_to_meta(
+		GstAnalyticsMtd* mtd,
+		GstAnalyticsODMtd* od_mtd,
+		GstAnalyticsRelationMeta* meta
+	)
 
 Convert tensor to GST analytic metadata.
 

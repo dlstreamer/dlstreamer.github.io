@@ -84,11 +84,11 @@ In the table below you can find examples of model-proc files that use formats de
      - Model-proc
      - 2nd layer format
 
-   * - `Faster-RCNN <https://docs.openvino.ai/latest/omz_models_model_faster_rcnn_resnet50_coco.html#converted_model>`__
+   * - `Faster-RCNN <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/faster_rcnn_resnet50_coco>`__
      - `preproc-image-info.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-image-info.json>`__
      - image_info
 
-   * - `license-plate-recognition-barrier-0007 <https://docs.openvino.ai/latest/omz_models_model_license_plate_recognition_barrier_0007.html>`__
+   * - `license-plate-recognition-barrier-0007 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/license-plate-recognition-barrier-0007>`__
      - `license-plate-recognition-barrier-0007.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/license-plate-recognition-barrier-0007.json>`__
      - sequence_index
 
@@ -120,7 +120,7 @@ In the table below you can find examples of model-proc files that use some of th
      - `mobilenetv2-7.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/onnx/mobilenetv2-7.json>`__
      - normalization
 
-   * - `single-human-pose-estimation-0001 <https://docs.openvino.ai/latest/omz_models_model_single_human_pose_estimation_0001.html>`__
+   * - `single-human-pose-estimation-0001 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/single-human-pose-estimation-0001>`__
      - `single-human-pose-estimation-0001.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/single-human-pose-estimation-0001.json>`__
      - padding
 
@@ -142,7 +142,7 @@ converter in *"output_postproc"* for separate processing. Example:
 
    * - Model
      - Model-proc
-   * - `age-gender-recognition-retail-0013 <https://docs.openvino.ai/latest/omz_models_model_age_gender_recognition_retail_0013.html>`__
+   * - `age-gender-recognition-retail-0013 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/age-gender-recognition-retail-0013>`__
      - `age-gender-recognition-retail-0013.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/age-gender-recognition-retail-0013.json>`__
 
 For joint processing of blobs from several output layers, it is enough to specify only one converter and
@@ -153,7 +153,7 @@ the field *"layer_names": ["layer_name_1", .. , "layer_name_n"]* in it. Example:
 
    * - Model
      - Model-proc
-   * - `YOLOv3 <https://docs.openvino.ai/latest/omz_models_model_yolo_v3_tf.html>`__
+   * - `YOLOv3 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/yolo-v3-tf>`__
      - `yolo-v3-tf.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v3-tf.json>`__
 
 .. note::
@@ -200,13 +200,13 @@ Examples of labels in model-proc files:
      - Model
      - Model-proc
    * - ImageNet
-     - `resnet-18-pytorch <https://docs.openvino.ai/latest/omz_models_model_resnet_18_pytorch.html>`__
+     - `resnet-18-pytorch <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/resnet-18-pytorch>`__
      - `preproc-aspect-ratio.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
    * - COCO
-     - `YOLOv2 <https://docs.openvino.ai/latest/omz_models_model_yolo_v2_tf.html>`__
+     - `YOLOv2 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/yolo-v2-tf>`__
      - `yolo-v2-tf.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v2-tf.json>`__
    * - PASCAL VOC
-     - `yolo-v2-ava-0001 <https://docs.openvino.ai/latest/omz_models_model_yolo_v2_ava_0001.html>`__
+     - `yolo-v2-ava-0001 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/yolo-v2-ava-0001>`__
      - `yolo-v2-ava-0001.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/yolo-v2-ava-0001.json>`__
 
 Practice

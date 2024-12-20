@@ -6,6 +6,11 @@
 Architecture 2.0 [Preview]
 ==========================
 
+.. note::
+   The Architecture 2.0 approach is being deprecated in favor of aligning Intel® DL Streamer with 
+   `GStreamer analytics library <https://gstreamer.freedesktop.org/documentation/analytics/index.html>`__.
+
+
 Intel® DL Streamer Pipeline Framework release 2022.2 introduces new architecture 2.0 [Preview] aiming the following goals
 
 1. **Memory interop on CPU and GPU.** |br|

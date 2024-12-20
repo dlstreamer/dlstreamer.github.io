@@ -27,7 +27,7 @@ Explicit selection
 ^^^^^^^^^^^^^^^^^^
 
 In case of video decode running on CPU and inference running on GPU, the ``device`` property in inference elements allows
-to select GPU device according to `OpenVINO™ GPU device naming <https://docs.openvino.ai/latest/openvino_docs_OV_UG_supported_plugins_GPU.html#device-naming-convention>`__
+to select GPU device according to `OpenVINO™ GPU device naming <https://docs.openvino.ai/2024/openvino-workflow/running-inference/inference-devices-and-modes/gpu-device.html#device-naming-convention>`__
 with devices enumerated as "GPU.0", "GPU.1", etc, for example:
 
 .. code:: shell

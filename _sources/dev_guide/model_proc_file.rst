@@ -1,5 +1,9 @@
-Model-proc File
-===============
+Model-proc File (legacy)
+========================
+
+.. warning::  
+  The functionality described here has been **deprecated**. Avoid using it to prevent dealing with a legacy solution. It will be maintained for some time to ensure backwards compatibility, but you should not use it in modern applications.
+  The new method of model preparation is described in `Model Info Section <https://dlstreamer.github.io/dev_guide/model_info_xml.html>`__
 
 Contents
 --------
@@ -289,16 +293,16 @@ converter can be applied.
      - Parse output blob produced by object detection neural network with *DetectionOutput* IR output layer's type. Output is RegionOfInterest.
        
        *labels* - an array of strings representing labels or a path to a file with labels where each label is on a new line.
-     - `ssdlite_mobilenet_v2 <https://docs.openvino.ai/latest/omz_models_model_ssdlite_mobilenet_v2.html#output>`__
+     - `ssdlite_mobilenet_v2 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/ssdlite_mobilenet_v2#output>`__
      
-       `person-vehicle-bike-detection-crossroad-0078 <https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_crossroad_0078.html#outputs>`__
+       `person-vehicle-bike-detection-crossroad-0078 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/person-vehicle-bike-detection-crossroad-0078#outputs>`__
    * - `boxes_labels <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-0205.json>`__
      - Parse output blob produced by object detection neural network with two output layers: *boxes* and *labels*. Output is RegionOfInterest.
        
        *labels* - an array of strings representing labels or a path to a file with labels where each label is on a new line.
-     - `face-detection-0205 <https://docs.openvino.ai/latest/omz_models_model_face_detection_0205.html#outputs>`__
+     - `face-detection-0205 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/face-detection-0205#outputs>`__
      
-       `person-vehicle-bike-detection-2004 <https://docs.openvino.ai/latest/omz_models_model_person_vehicle_bike_detection_2004.html#outputs>`__
+       `person-vehicle-bike-detection-2004 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/person-vehicle-bike-detection-2004#outputs>`__
    * - `yolo_v2 <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v2-tf.json>`__
      - Parse output blob produced by object detection neural network with YOLO v2 architecture. Output is RegionOfInterest.
      
@@ -308,9 +312,9 @@ converter can be applied.
        * *anchors* - box size (x, y) is multiplied by this value. *len(anchors) == bbox_number_on_cell * 2 * number_of_outputs*;
        * *cells_number* - an image is split on cells with this number (if model's input layer has non-square form set *cells_number_x* & *cells_number_y* instead *cells_number*);
        * *iou_threshold* - parameter for NMS.
-     - `yolo-v2-tf <https://docs.openvino.ai/latest/omz_models_model_yolo_v2_tf.html#output>`__
+     - `yolo-v2-tf <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/yolo-v2-tf#output>`__
      
-       `yolo-v2-tiny-tf <https://docs.openvino.ai/latest/omz_models_model_yolo_v2_tiny_tf.html#output>`__
+       `yolo-v2-tiny-tf <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/yolo-v2-tiny-tf#output>`__
    * - `yolo_v3 <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v3-tf.json>`__
      - Parse output blob produced by object detection neural network with YOLO v3 architecture.
        
@@ -324,9 +328,9 @@ converter can be applied.
        * *output_sigmoid_activation* - performs sigmoid operation for coordinates and confidence.
        
        See more details :ref:`there <Build-model-proc-for-detection-model-with-advance-post-processing>`.
-     - `yolo-v3-tf <https://docs.openvino.ai/latest/omz_models_model_yolo_v3_tf.html#output>`__
+     - `yolo-v3-tf <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/yolo-v3-tf#output>`__
      
-       `yolo-v4-tf <https://docs.openvino.ai/latest/omz_models_model_yolo_v4_tf.html#output>`__
+       `yolo-v4-tf <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/yolo-v4-tf#output>`__
    * - heatmap_boxes
      - Parse output blob produced by network with DBNet architecture which is in the form of a probability heatmap. Output is RegionOfInterest.
 
@@ -341,29 +345,29 @@ converter can be applied.
      
        * *text_scale* - scales data by this number;
        * *text_precision* - sets precision for textual representation.
-     - `age-gender-recognition-retail-0013 <https://docs.openvino.ai/latest/omz_models_model_age_gender_recognition_retail_0013.html#outputs>`__
+     - `age-gender-recognition-retail-0013 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/age-gender-recognition-retail-0013#outputs>`__
    * - `label <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/vehicle-attributes-recognition-barrier-0039.json>`__
      - Put an appropriate label for result.
        
        * *method*: one of [*max*, *index*, *compound* (threshold is required. 0.5 is default)];
        * *labels* - an array of strings representing labels or a path to a file with labels where each label is on a new line.
-     - `emotions-recognition-retail-0003 <https://docs.openvino.ai/latest/omz_models_model_emotions_recognition_retail_0003.html#outputs>`__
+     - `emotions-recognition-retail-0003 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/age-gender-recognition-retail-0013#outputs>`__
      
-       `license-plate-recognition-barrier-0007 <https://docs.openvino.ai/latest/omz_models_model_license_plate_recognition_barrier_0007.html#outputs>`__
+       `license-plate-recognition-barrier-0007 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/license-plate-recognition-barrier-0001#outputs>`__
        
-       `person-attributes-recognition-crossroad-0230 <https://docs.openvino.ai/latest/omz_models_model_person_attributes_recognition_crossroad_0230.html#outputs>`__
+       `person-attributes-recognition-crossroad-0230 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/person-attributes-recognition-crossroad-0230#outputs>`__
    * - `keypoints_hrnet <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/single-human-pose-estimation-0001.json>`__
      - Parse output blob produced by network with HRNet architecture. Output tensor will have an array of key points.
        
        * *point_names* - an array of strings with the name of the points;
        * *point_connections* - an array of strings with points connection. The length should be even.
-     - `single-human-pose-estimation-0001 <https://docs.openvino.ai/latest/omz_models_model_single_human_pose_estimation_0001.html#outputs>`__
+     - `single-human-pose-estimation-0001 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/single-human-pose-estimation-0001#outputs>`__
    * - `keypoints_openpose <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/human-pose-estimation-0001.json>`__
      - Parse output blob produced by network with OpenPose architecture. Output tensor will have an array of key points.
        
        * *point_names* - an array of strings with the name of the points;
        * *point_connections* - an array of strings with points connection. The length should be even.
-     - `human-pose-estimation-0001 <https://docs.openvino.ai/latest/omz_models_model_human_pose_estimation_0001.html#outputs>`__
+     - `human-pose-estimation-0001 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/human-pose-estimation-0001#outputs>`__
    * - keypoints_3d
      - Parse output blob produced by network with HRNet architecture. Output tensor will have an array of 3D-key points.
        
@@ -378,7 +382,7 @@ converter can be applied.
        
        * *layer_name* - name of the layer to process;
        * *labels* - an array of JSON objects with index, label, threshold fields.
-     - `aclnet <https://docs.openvino.ai/latest/omz_models_model_aclnet.html#output>`__
+     - `aclnet <https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/public/aclnet/README.md#output>`__
 
 
 
@@ -482,3 +486,8 @@ See an example of what ``output_postproc`` and its parameters can look in the co
       }
    ]
    ...
+
+.. toctree::
+   :maxdepth: 2
+
+   how_to_create_model_proc_file

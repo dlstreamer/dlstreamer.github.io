@@ -7,9 +7,7 @@ Developer Guide
    advanced_install/advanced_install_guide_index
    metadata
    model_preparation
-   model_proc_file
    model_info_xml
-   how_to_create_model_proc_file
    python_bindings
    custom_processing
    object_tracking
@@ -19,3 +17,4 @@ Developer Guide
    converting_deepstream_to_dlstreamer
    how_to_contribute
    latency_tracer
+   model_proc_file   

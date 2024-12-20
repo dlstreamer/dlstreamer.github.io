@@ -88,5 +88,5 @@ Intel® Deep Learning Streamer supports the following fields in the model info s
        (typically used when model was trained with input data normalized in <0,1> range).
      - range: [0.0, 1.0]
 
-Please also refer to `Deep Learning Workbench <https://docs.openvino.ai/latest/workbench_docs_Workbench_DG_Introduction.html>`__
+Please also refer to `OpenVINO™ Model API <https://github.com/openvinotoolkit/model_api/blob/master/docs/source/guides/model-configuration.md>`__
 for more information on the “model_info” section. 

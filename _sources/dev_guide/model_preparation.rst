@@ -31,7 +31,7 @@ You can either:
 
 
 
-When using a pre-trained model from Open Model Zoo, consider using the `Model Downloader <https://docs.openvino.ai/latest/omz_tools_downloader.html>`__ tool to facilitate the model downloading process.
+When using a pre-trained model from Open Model Zoo, consider using the `Model Downloader <https://github.com/openvinotoolkit/open_model_zoo/blob/master/tools/model_tools/README.md>`__ tool to facilitate the model downloading process.
 
 In the case of converting a custom model, you can optionally utilize the 
 `Post-Training Model Optimization and Compression <https://docs.openvino.ai/2024/openvino-workflow/model-optimization.html>`__
@@ -41,16 +41,6 @@ floating point-precision into 8-bit integer precision. This gives a
 significant performance boost (up to 4x) on some hardware platforms
 including the CPU, with only a minor accuracy drop.
 
-If you prefer graphical UI over command-line tools, consider the web-based
-`Deep Learning Workbench <https://docs.openvino.ai/latest/workbench_docs_Workbench_DG_Introduction.html>`__
-tool which provides all the functionality mentioned below and more in a
-web-browser graphical interface
-
-* download pre-trained model 
-* convert a model from training framework format
-* quantize into INT8 precision with accuracy checking 
-* profile per-layer performance
-* tune hyper parameters for throughput vs latency trade-off
 
 2. Model pre- and post-processing
 ---------------------------------
