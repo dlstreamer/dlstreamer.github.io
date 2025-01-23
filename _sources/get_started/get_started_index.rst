@@ -4,7 +4,7 @@ Get Started
 .. toctree::
    :maxdepth: 2
 
-   hardware_requirements
+   system_requirements
    install/install_guide_index
    tutorial
    flex_series/quick_start_guide

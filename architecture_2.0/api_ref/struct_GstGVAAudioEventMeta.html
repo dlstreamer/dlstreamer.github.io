@@ -47,7 +47,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'architecture_2.0/api_ref/struct_GstGVAAudioEventMeta';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="struct _GstAnalyticsODExtMtdData" href="struct__GstAnalyticsODExtMtdData.html" />
+    <link rel="next" title="struct _GstGVAJSONMeta" href="struct__GstGVAJSONMeta.html" />
     <link rel="prev" title="struct GstAnalyticsKeypointPair" href="struct_GstAnalyticsKeypointPair.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -138,7 +138,7 @@
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../get_started/get_started_index.html">Get Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../get_started/hardware_requirements.html">Hardware Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../get_started/system_requirements.html">System Requirements</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../get_started/install/install_guide_index.html">Install Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../get_started/install/install_guide_ubuntu.html">Install Guide Ubuntu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../get_started/install/uninstall_guide_ubuntu.html">Uninstall Guide Ubuntu</a></li>
@@ -168,39 +168,39 @@
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/model_info_xml.html">Model Info Section</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/python_bindings.html">Python Bindings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/custom_processing.html">Custom Processing</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../dev_guide/object_tracking.html">Object Tracking</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../dev_guide/deepsort_implementation.html">DeepSORT tracking support</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../../dev_guide/object_tracking.html">Object Tracking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/gpu_device_selection.html">GPU device selection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/performance_guide.html">Performance Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/profiling.html">Profiling with Intel VTune™</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/converting_deepstream_to_dlstreamer.html">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../dev_guide/how_to_contribute.html">How to Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../dev_guide/how_to_contribute.html">How to Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../dev_guide/coding_style.html">Coding Style</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../dev_guide/latency_tracer.html">Latency Tracer</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../dev_guide/model_proc_file.html">Model-proc File (legacy)</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../dev_guide/model_proc_file.html">Model-proc File (legacy)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../dev_guide/how_to_create_model_proc_file.html">How to Create Model-proc File</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../elements/elements.html">Elements</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../elements/elements.html">Elements</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvadetect.html">gvadetect</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvaclassify.html">gvaclassify</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvainference.html">gvainference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../elements/gvaaudiodetect.html">gvaaudiodetect</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvatrack.html">gvatrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvaaudiodetect.html">gvaaudiodetect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvaattachroi.html">gvaattachroi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvafpscounter.html">gvafpscounter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvametaaggregate.html">gvametaaggregate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvametaconvert.html">gvametaconvert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvametapublish.html">gvametapublish</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../elements/gvametaaggregate.html">gvametaaggregate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvapython.html">gvapython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvawatermark.html">gvawatermark</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../elements/gvafpscounter.html">gvafpscounter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../elements/gvaattachroi.html">gvaattachroi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../elements/python_object_association.html">python_object_association</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../elements/gstelements.html">GStreamer Elements</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../elements/compositor.html">compositor</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../supported_models.html">Supported Models</a></li>
@@ -258,7 +258,6 @@
 <li class="toctree-l4"><a class="reference internal" href="struct_GstAnalyticsKeypoint.html">struct GstAnalyticsKeypoint</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct_GstAnalyticsKeypointPair.html">struct GstAnalyticsKeypointPair</a></li>
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">struct GstGVAAudioEventMeta</a></li>
-<li class="toctree-l4"><a class="reference internal" href="struct__GstAnalyticsODExtMtdData.html">struct _GstAnalyticsODExtMtdData</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a></li>
 <li class="toctree-l4"><a class="reference internal" href="struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a></li>
 </ul>
@@ -493,11 +492,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="struct__GstAnalyticsODExtMtdData.html"
+       href="struct__GstGVAJSONMeta.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">struct _GstAnalyticsODExtMtdData</p>
+        <p class="prev-next-title">struct _GstGVAJSONMeta</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

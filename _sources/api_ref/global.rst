@@ -40,6 +40,7 @@ Overview
 	typedef struct _GstAnalyticsMtd :ref:`GstAnalyticsKeypointGroupMtd<doxid-gstanalyticskeypointsmtd_8h_1ab379a79ec2fc34993cf77d7348538ed8>`;
 	typedef typedefG_BEGIN_DECLS struct :ref:`_GstGVAJSONMeta<doxid-struct___gst_g_v_a_j_s_o_n_meta>` :target:`GstGVAJSONMeta<doxid-gva__json__meta_8h_1a64a17a6fb82826c3a7159e71c9449a54>`;
 	typedef struct :ref:`_GstGVATensorMeta<doxid-struct___gst_g_v_a_tensor_meta>` :target:`GstGVATensorMeta<doxid-gva__tensor__meta_8h_1a038ecf5fdabb0acf1f2053800ba16d62>`;
+	typedef typedefG_BEGIN_DECLS struct _GstAnalyticsMtd :target:`GstAnalyticsODExtMtd<doxid-objectdetectionmtdext_8h_1a3cbd896154d2778ee22b2b4825379caf>`;
 
 	// enums
 
@@ -53,6 +54,10 @@ Overview
 	struct :ref:`GstGVAAudioEventMeta<doxid-struct_gst_g_v_a_audio_event_meta>`;
 	struct :ref:`_GstGVAJSONMeta<doxid-struct___gst_g_v_a_j_s_o_n_meta>`;
 	struct :ref:`_GstGVATensorMeta<doxid-struct___gst_g_v_a_tensor_meta>`;
+
+	// global variables
+
+	const int :target:`NEW_METADATA<doxid-objectdetectionmtdext_8h_1a09d15366318352adc2a6671508110b87>` = 0;
 
 	// global functions
 
@@ -159,6 +164,43 @@ Overview
 		const char* model_name,
 		const char* output_layer,
 		const char* element_id
+	);
+
+	GST_ANALYTICS_META_API GstAnalyticsMtdType :target:`gst_analytics_od_ext_mtd_get_mtd_type<doxid-objectdetectionmtdext_8h_1ac70fecd24ba6063ba39ade94d74a2870>`(void);
+
+	GST_ANALYTICS_META_API gboolean :target:`gst_analytics_od_ext_mtd_get_rotation<doxid-objectdetectionmtdext_8h_1a047a2800e8a7cc4fc622853fe62e4d87>`(
+		const :ref:`GstAnalyticsODExtMtd<doxid-objectdetectionmtdext_8h_1a3cbd896154d2778ee22b2b4825379caf>`* handle,
+		gdouble* rotation
+	);
+
+	GST_ANALYTICS_META_API gboolean :target:`gst_analytics_od_ext_mtd_get_class_id<doxid-objectdetectionmtdext_8h_1add9670b60a97abc285726f4ac9932fe5>`(
+		const :ref:`GstAnalyticsODExtMtd<doxid-objectdetectionmtdext_8h_1a3cbd896154d2778ee22b2b4825379caf>`* handle,
+		gint* class_id
+	);
+
+	GST_ANALYTICS_META_API GList* :target:`gst_analytics_od_ext_mtd_get_params<doxid-objectdetectionmtdext_8h_1a536f0fc50e3596e5b3cbc7a12f4fdcb5>`(const :ref:`GstAnalyticsODExtMtd<doxid-objectdetectionmtdext_8h_1a3cbd896154d2778ee22b2b4825379caf>`* handle);
+
+	GST_ANALYTICS_META_API gboolean :target:`gst_analytics_od_ext_mtd_add_param<doxid-objectdetectionmtdext_8h_1a23091b6f3021ff737d1f213ea879b981>`(
+		const :ref:`GstAnalyticsODExtMtd<doxid-objectdetectionmtdext_8h_1a3cbd896154d2778ee22b2b4825379caf>`* handle,
+		GstStructure* s
+	);
+
+	GST_ANALYTICS_META_API GstStructure* :target:`gst_analytics_od_ext_mtd_get_param<doxid-objectdetectionmtdext_8h_1afc4a7c25eb94d858c72d32a8460d5959>`(
+		const :ref:`GstAnalyticsODExtMtd<doxid-objectdetectionmtdext_8h_1a3cbd896154d2778ee22b2b4825379caf>`* handle,
+		const gchar* name
+	);
+
+	GST_ANALYTICS_META_API gboolean :target:`gst_analytics_relation_meta_add_od_ext_mtd<doxid-objectdetectionmtdext_8h_1a666abd130c6e98f2540e73701fb85fdf>`(
+		GstAnalyticsRelationMeta* instance,
+		gdouble rotation,
+		gint class_id,
+		:ref:`GstAnalyticsODExtMtd<doxid-objectdetectionmtdext_8h_1a3cbd896154d2778ee22b2b4825379caf>`* od_ext_mtd
+	);
+
+	GST_ANALYTICS_META_API gboolean :target:`gst_analytics_relation_meta_get_od_ext_mtd<doxid-objectdetectionmtdext_8h_1ae467ba19c4fcfe760e4070bd10dfab1f>`(
+		GstAnalyticsRelationMeta* meta,
+		gint an_meta_id,
+		:ref:`GstAnalyticsODExtMtd<doxid-objectdetectionmtdext_8h_1a3cbd896154d2778ee22b2b4825379caf>`* rlt
 	);
 
 .. _details-global:

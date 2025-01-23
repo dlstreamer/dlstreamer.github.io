@@ -2,8 +2,7 @@ gvadetect
 =========
 
 Performs object detection using SSD-like (including MobileNet-V1/V2 and
-ResNet), YoloV2/YoloV3/YoloV4/YoloV2-tiny/YoloV3-tiny and
-FasterRCNN-like object detection models.
+ResNet), YoloV5-YoloV11,YoloX and FasterRCNN-like object detection models.
 
 .. code-block:: none
 

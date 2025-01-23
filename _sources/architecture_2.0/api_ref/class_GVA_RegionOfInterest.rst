@@ -23,7 +23,7 @@ This class represents region of interest - object describing detection result (b
 		// construction
 	
 		:ref:`RegionOfInterest<doxid-class_g_v_a_1_1_region_of_interest_1a68e47be95f3d19b9537fa1b6db230ab9>`(GstVideoRegionOfInterestMeta* meta);
-		:target:`RegionOfInterest<doxid-class_g_v_a_1_1_region_of_interest_1a0b8de147d9ac722fcc06ef0b70e56296>`(GstAnalyticsODMtd od_meta, :ref:`GstAnalyticsODExtMtd<doxid-objectdetectionmtdext_8h_1a0c8b8479b3989230d7585990ead9e95e>` od_ext_meta);
+		:target:`RegionOfInterest<doxid-class_g_v_a_1_1_region_of_interest_1a0b8de147d9ac722fcc06ef0b70e56296>`(GstAnalyticsODMtd od_meta, :ref:`GstAnalyticsODExtMtd<doxid-objectdetectionmtdext_8h_1a3cbd896154d2778ee22b2b4825379caf>` od_ext_meta);
 
 		// methods
 	

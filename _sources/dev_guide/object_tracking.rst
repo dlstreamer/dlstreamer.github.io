@@ -1,11 +1,6 @@
 Object Tracking
 ===============
 
-.. toctree::
-  :hidden:
-
-  deepsort_implementation
-
 Object tracking types
 ---------------------
 
@@ -139,8 +134,3 @@ detects faces every 10th frame and tracks faces position next 9 frames,
 age and gender classification updated once a second, emotion
 classification updated twice a second, landmark points updated every
 frame.
-
-DeepSORT tracking
------------------
-
-Please refer to :doc:`DeepSORT tracking support <deepsort_implementation>` for how to create a pipeline with DeepSORT tracking.
