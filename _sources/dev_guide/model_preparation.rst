@@ -130,5 +130,6 @@ pre-processing/post-processing rules may look like
    :maxdepth: 2
 
    yolo_models
+   download_public_models
 
 

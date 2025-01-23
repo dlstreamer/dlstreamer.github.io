@@ -25,7 +25,7 @@ to specify interference actions as well as pre- and post-processing steps before
 as documented here: `here <https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_plugin_gst-nvinfer.html>`__.
 
 Similarly, Intel® DL Streamer Pipeline Framework uses GStreamer element properties for inference
-settings and :doc:`model proc <model_proc_files>` files for pre- and post-processing steps. 
+settings and :doc:`model proc <model_proc_file>` files for pre- and post-processing steps. 
 
 The following table shows how to map commonly used NVIDIA DeepStream configuration properties
 to Intel® DL Streamer settings.

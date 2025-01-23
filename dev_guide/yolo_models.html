@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Yolo Models &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
+    <title>YOLO Models &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
   
   
   
@@ -47,7 +47,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'dev_guide/yolo_models';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Model Info Section" href="model_info_xml.html" />
+    <link rel="next" title="Download Public Models" href="download_public_models.html" />
     <link rel="prev" title="Model Preparation" href="model_preparation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -162,7 +162,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="metadata.html">Metadata</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="model_preparation.html">Model Preparation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">Yolo Models</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">YOLO Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="download_public_models.html">Download Public Models</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="model_info_xml.html">Model Info Section</a></li>
@@ -404,7 +405,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Yolo Models</h1>
+    <h1>YOLO Models</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -415,11 +416,11 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">1. Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov8-yolov9-yolov10">2. YoloV8, YoloV9, YoloV10</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov7">3. YoloV7</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov5-latest-version">4. YoloV5 latest version</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov5-older-versions">5. YoloV5 older versions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolox">6. YoloX</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov8-yolov9-yolov10-yolo11">2. YOLOv8, YOLOv9, YOLOv10, YOLO11</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov7">3. YOLOv7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov5-latest-version">4. YOLOv5 latest version</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov5-older-versions">5. YOLOv5 older versions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolox">6. YOLOX</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-usage">7. Model usage</a></li>
 </ul>
             </nav>
@@ -433,58 +434,69 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="yolo-models">
-<h1>Yolo Models<a class="headerlink" href="#yolo-models" title="Permalink to this heading">#</a></h1>
+<h1>YOLO Models<a class="headerlink" href="#yolo-models" title="Permalink to this heading">#</a></h1>
 <p>This page illustrates how to prepare models from the <strong>YOLO</strong> family for integration with the Intel® DL Streamer pipeline.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The instructions provided below are comprehensive, but for convenience, it is recommended to use the <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/download_public_models.sh">download_public_models.sh</a> script. This script will download all supported Yolo models and perform the necessary conversions automatically.</p>
+<p>See <a class="reference internal" href="download_public_models.html"><span class="doc">download_public_models</span></a> for more information.</p>
 </div>
 <section id="setup">
 <h2>1. Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
 <p>The instructions assume Intel® DL Streamer framework is installed on the local system along with Intel® OpenVINO™ model downloader and converter tools,
 as described here: <a class="reference external" href="https://dlstreamer.github.io/get_started/tutorial.html#tutorial-setup">Tutorial</a>.</p>
-<p>For YoloV5, YoloV8, YoloV9 and YoloV10 models it is also necessary to install the Ultralytics Python package:</p>
+<p>For YOLOv5, YOLOv8, YOLOv9, YOLOv10, YOLO11 models it is also necessary to install the Ultralytics Python package:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
 </pre></div>
 </div>
 </section>
-<section id="yolov8-yolov9-yolov10">
-<h2>2. YoloV8, YoloV9, YoloV10<a class="headerlink" href="#yolov8-yolov9-yolov10" title="Permalink to this heading">#</a></h2>
-<p>Python script converting the recent Ultralytics models to Intel® OpenVINO™ format (replace <em>MODEL_NAME</em> with “yolov8s.pt”, “yolov9c.pt” or “yolov10s.pt”):</p>
+<section id="yolov8-yolov9-yolov10-yolo11">
+<h2>2. YOLOv8, YOLOv9, YOLOv10, YOLO11<a class="headerlink" href="#yolov8-yolov9-yolov10-yolo11" title="Permalink to this heading">#</a></h2>
+<p>Python script converting the recent Ultralytics models to Intel® OpenVINO™ format (replace <em>model_name</em> and <em>model_type</em> with the relevant models and types values):</p>
+<p>Example for YOLO11 model:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="n">MODEL_NAME</span><span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">openvino</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">shutil</span><span class="o">,</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">model_name</span> <span class="o">=</span> <span class="s1">&#39;yolo11s&#39;</span>
+<span class="n">model_type</span> <span class="o">=</span> <span class="s1">&#39;yolo_v11&#39;</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">model_name</span> <span class="o">+</span> <span class="s1">&#39;.pt&#39;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;openvino&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>For model YoloV10 modify model_type as below:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">openvino</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">shutil</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="n">MODEL_NAME</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+
 <span class="n">converted_path</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;openvino&#39;</span><span class="p">)</span>
-<span class="n">converted_model</span> <span class="o">=</span> <span class="n">converted_path</span> <span class="o">+</span> <span class="s1">&#39;/yolov10s.xml&#39;</span>
+<span class="n">converted_model</span> <span class="o">=</span> <span class="n">converted_path</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">model_name</span> <span class="o">+</span> <span class="s1">&#39;.xml&#39;</span>
+
 <span class="n">core</span> <span class="o">=</span> <span class="n">openvino</span><span class="o">.</span><span class="n">Core</span><span class="p">()</span>
+
 <span class="n">ov_model</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">read_model</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">converted_model</span><span class="p">)</span>
-<span class="n">ov_model</span><span class="o">.</span><span class="n">set_rt_info</span><span class="p">(</span><span class="s2">&quot;yolo_v10&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;model_info&#39;</span><span class="p">,</span> <span class="s1">&#39;model_type&#39;</span><span class="p">])</span>
-<span class="n">openvino</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="n">ov_model</span><span class="p">,</span> <span class="s1">&#39;./FP32/yolov10s.xml&#39;</span><span class="p">,</span> <span class="n">compress_to_fp16</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">openvino</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="n">ov_model</span><span class="p">,</span> <span class="s1">&#39;./FP16/yolov10s.xml&#39;</span><span class="p">,</span> <span class="n">compress_to_fp16</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">model_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;YOLOv8-SEG&quot;</span><span class="p">,</span> <span class="s2">&quot;yolo_v11_seg&quot;</span><span class="p">]:</span>
+    <span class="n">ov_model</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">set_names</span><span class="p">({</span><span class="s2">&quot;boxes&quot;</span><span class="p">})</span>
+    <span class="n">ov_model</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">set_names</span><span class="p">({</span><span class="s2">&quot;masks&quot;</span><span class="p">})</span>
+<span class="n">ov_model</span><span class="o">.</span><span class="n">set_rt_info</span><span class="p">(</span><span class="n">model_type</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;model_info&#39;</span><span class="p">,</span> <span class="s1">&#39;model_type&#39;</span><span class="p">])</span>
+
+<span class="n">openvino</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="n">ov_model</span><span class="p">,</span> <span class="s1">&#39;./FP32/&#39;</span> <span class="o">+</span> <span class="n">model_name</span> <span class="o">+</span> <span class="s1">&#39;.xml&#39;</span><span class="p">,</span> <span class="n">compress_to_fp16</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">openvino</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="n">ov_model</span><span class="p">,</span> <span class="s1">&#39;./FP16/&#39;</span> <span class="o">+</span> <span class="n">model_name</span> <span class="o">+</span> <span class="s1">&#39;.xml&#39;</span><span class="p">,</span> <span class="n">compress_to_fp16</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
 <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">converted_path</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">.pt&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="yolov7">
-<h2>3. YoloV7<a class="headerlink" href="#yolov7" title="Permalink to this heading">#</a></h2>
+<h2>3. YOLOv7<a class="headerlink" href="#yolov7" title="Permalink to this heading">#</a></h2>
 <p>Model preparation:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/WongKinYiu/yolov7.git
 <span class="nb">cd</span><span class="w"> </span>yolov7
 python3<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov7.pt<span class="w"> </span>--grid<span class="w"> </span>--dynamic-batch
+<span class="c1"># Convert the model to OpenVINO format FP32 precision</span>
+ovc<span class="w"> </span>yolov7.onnx<span class="w"> </span>--compress_to_fp16<span class="o">=</span>False
+<span class="c1"># Convert the model to OpenVINO format FP16 precision</span>
 ovc<span class="w"> </span>yolov7.onnx
 </pre></div>
 </div>
 </section>
 <section id="yolov5-latest-version">
-<h2>4. YoloV5 latest version<a class="headerlink" href="#yolov5-latest-version" title="Permalink to this heading">#</a></h2>
+<h2>4. YOLOv5 latest version<a class="headerlink" href="#yolov5-latest-version" title="Permalink to this heading">#</a></h2>
 <p>Model preparation enabling the dynamic batch size:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">openvino.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">Core</span>
@@ -500,8 +512,8 @@ ovc<span class="w"> </span>yolov7.onnx
 </div>
 </section>
 <section id="yolov5-older-versions">
-<h2>5. YoloV5 older versions<a class="headerlink" href="#yolov5-older-versions" title="Permalink to this heading">#</a></h2>
-<p>Model preparation of YoloV5 7.0 from Ultralytics involves two steps.
+<h2>5. YOLOv5 older versions<a class="headerlink" href="#yolov5-older-versions" title="Permalink to this heading">#</a></h2>
+<p>Model preparation of YOLOv5 7.0 from Ultralytics involves two steps.
 First, convert the PyTorch model to Intel® OpenVINO™ format :</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5
 <span class="nb">cd</span><span class="w"> </span>yolov5
@@ -520,7 +532,7 @@ python3<span class="w"> </span>export.py<span class="w"> </span>--weights<span c
 </div>
 </section>
 <section id="yolox">
-<h2>6. YoloX<a class="headerlink" href="#yolox" title="Permalink to this heading">#</a></h2>
+<h2>6. YOLOX<a class="headerlink" href="#yolox" title="Permalink to this heading">#</a></h2>
 <p>Intel® OpenVINO™ version of the model can be obtained from the ONNX file:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_s.onnx
 ovc<span class="w"> </span>yolox_s.onnx<span class="w"> </span>--compress_to_fp16<span class="o">=</span>False
@@ -555,11 +567,11 @@ for detailed examples of Intel® DL Streamer pipelines using different Yolo mode
       </div>
     </a>
     <a class="right-next"
-       href="model_info_xml.html"
+       href="download_public_models.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Model Info Section</p>
+        <p class="prev-next-title">Download Public Models</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -579,11 +591,11 @@ for detailed examples of Intel® DL Streamer pipelines using different Yolo mode
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">1. Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov8-yolov9-yolov10">2. YoloV8, YoloV9, YoloV10</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov7">3. YoloV7</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov5-latest-version">4. YoloV5 latest version</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov5-older-versions">5. YoloV5 older versions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolox">6. YoloX</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov8-yolov9-yolov10-yolo11">2. YOLOv8, YOLOv9, YOLOv10, YOLO11</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov7">3. YOLOv7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov5-latest-version">4. YOLOv5 latest version</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov5-older-versions">5. YOLOv5 older versions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolox">6. YOLOX</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-usage">7. Model usage</a></li>
 </ul>
   </nav></div>
