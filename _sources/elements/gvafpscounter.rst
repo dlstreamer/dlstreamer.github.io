@@ -49,3 +49,6 @@ Measures frames per second across multiple streams in a single process.
     write-pipe          : Write FPS data to a named pipe. Blocks until read-pipe is opened.
                           flags: readable, writable
                           String. Default: null
+    print-std-dev       : Write standard deviation for all streams. The metric measures time interval between two subsequent frames received for a particular video stream and computes standard deviation over time.
+                          flags: readable, writable
+                          Boolean. Default: false

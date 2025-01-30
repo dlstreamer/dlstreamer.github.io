@@ -9,6 +9,7 @@ Developer Guide
    model_preparation
    model_info_xml
    python_bindings
+   custom_plugin_installation
    custom_processing
    object_tracking
    gpu_device_selection
