@@ -15,34 +15,40 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/doxyrest-pygments.css" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script src="../_static/target-highlight.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'dev_guide/converting_deepstream_to_dlstreamer';</script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -51,6 +57,7 @@
     <link rel="prev" title="Profiling with Intel VTune™" href="profiling.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -58,32 +65,16 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -91,7 +82,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -99,16 +89,25 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -123,6 +122,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../index.html">
   
@@ -134,16 +135,23 @@
     <p class="title logo__title">Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../get_started/get_started_index.html">Get Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../get_started/get_started_index.html">Get Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../get_started/system_requirements.html">System Requirements</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../get_started/install/install_guide_index.html">Install Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../get_started/install/install_guide_index.html">Install Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../get_started/install/install_guide_ubuntu.html">Install Guide Ubuntu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">Uninstall Guide Ubuntu</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../get_started/tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../get_started/flex_series/quick_start_guide.html">Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series</a></li>
 
@@ -151,21 +159,22 @@
 
 <li class="toctree-l2"><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">Samples</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="dev_guide_index.html">Developer Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="advanced_install/advanced_install_guide_index.html">Advanced Installation Guide</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="dev_guide_index.html">Developer Guide</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="advanced_install/advanced_install_guide_index.html">Advanced Installation Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_install_guide_prerequisites.html">Ubuntu advanced installation - prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_install_guide_prebuilt.html">Ubuntu advanced installation - pre-built packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_install_guide_compilation.html">Ubuntu advanced installation - compilation from source files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_uninstall_guide.html">Ubuntu advanced uninstall guide</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="metadata.html">Metadata</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="model_preparation.html">Model Preparation</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="model_preparation.html">Model Preparation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="yolo_models.html">YOLO Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lvms.html">Large Vision Models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="download_public_models.html">Download Public Models</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="model_info_xml.html">Model Info Section</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python_bindings.html">Python Bindings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="custom_plugin_installation.html">Custom GStreamer Plugin Installation</a></li>
@@ -175,18 +184,18 @@
 <li class="toctree-l2"><a class="reference internal" href="performance_guide.html">Performance Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="profiling.html">Profiling with Intel VTune™</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="how_to_contribute.html">How to Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="how_to_contribute.html">How to Contribute</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="coding_style.html">Coding Style</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="latency_tracer.html">Latency Tracer</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="model_proc_file.html">Model-proc File (legacy)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="model_proc_file.html">Model-proc File (legacy)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="how_to_create_model_proc_file.html">How to Create Model-proc File</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../elements/elements.html">Elements</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../elements/elements.html">Elements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvadetect.html">gvadetect</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvaclassify.html">gvaclassify</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvainference.html">gvainference</a></li>
@@ -199,48 +208,48 @@
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvametapublish.html">gvametapublish</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvapython.html">gvapython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvawatermark.html">gvawatermark</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../elements/gstelements.html">GStreamer Elements</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../elements/gstelements.html">GStreamer Elements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../elements/compositor.html">compositor</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../supported_models.html">Supported Models</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../api_ref/api_reference.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_ref/api_reference.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api_ref/page_index.html">Intel® Deep Learning Streamer (Intel® DL Streamer) API reference</a></li>
 
 
 
 
-<li class="toctree-l2 has-children"><a class="reference internal" href="../api_ref/global.html">Global Namespace</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/namespace_gstgva.html">namespace gstgva</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api_ref/global.html">Global Namespace</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/namespace_gstgva.html">namespace gstgva</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../api_ref/namespace_gstgva_region_of_interest.html">namespace gstgva::region_of_interest</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api_ref/namespace_gstgva_tensor.html">namespace gstgva::tensor</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api_ref/namespace_gstgva_video_frame.html">namespace gstgva::video_frame</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l3"><a class="reference internal" href="../api_ref/enum_GVALayout.html">enum GVALayout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api_ref/enum_GVAPrecision.html">enum GVAPrecision</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct_GstAnalyticsKeypoint.html">struct GstAnalyticsKeypoint</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct_GstAnalyticsKeypoint.html">struct GstAnalyticsKeypoint</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct_GstAnalyticsKeypointPair.html">struct GstAnalyticsKeypointPair</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct_GstAnalyticsKeypointPair.html">struct GstAnalyticsKeypointPair</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../architecture_2.0/architecture_2.0.html">Architecture 2.0 [Preview]</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../architecture_2.0/architecture_2.0.html">Architecture 2.0 [Preview]</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/migration_guide.html">Migration to 2.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/cpp_interfaces.html">① Memory Interop and C++ abstract interfaces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/cpp_elements.html">② C++ elements</a></li>
@@ -251,10 +260,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/elements_list.html">Elements 2.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/packaging.html">Packaging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../architecture_2.0/samples_2.0.html">Samples 2.0</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../architecture_2.0/api_ref/index.html">API 2.0 Reference</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../architecture_2.0/api_ref/global.html">Global Namespace</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../architecture_2.0/api_ref/index.html">API 2.0 Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../architecture_2.0/api_ref/global.html">Global Namespace</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/namespace_GVA.html">namespace GVA</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/namespace_dlstreamer.html">namespace dlstreamer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/namespace_std.html">namespace std</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/enum_GVALayout.html">enum GVALayout</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/enum_GVAPrecision.html">enum GVAPrecision</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct_GstAnalyticsKeypoint.html">struct GstAnalyticsKeypoint</a></li>
@@ -263,11 +273,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../architecture_2.0/api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -276,14 +286,19 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -292,14 +307,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -375,27 +390,19 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -416,6 +423,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-your-model">Preparing Your Model</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-model-for-intel-dl-streamer">Configuring Model for Intel® DL Streamer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gstreamer-pipeline-adjustments">GStreamer Pipeline Adjustments</a><ul class="nav section-nav flex-column">
@@ -426,6 +434,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-input-streams">Multiple Input Streams</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deepstream-to-dlstreamer-elements-mapping-cheetsheet">DeepStream to DLStreamer Elements Mapping Cheetsheet</a></li>
 </ul>
             </nav>
         </div>
@@ -435,11 +444,11 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="converting-nvidia-deepstream-pipelines-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework">
 <h1>Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework<a class="headerlink" href="#converting-nvidia-deepstream-pipelines-to-intel-deep-learning-streamer-intel-dl-streamer-pipeline-framework" title="Permalink to this heading">#</a></h1>
-<p>This document will describe the steps to convert a pipeline from NVIDIA
+<p>This document describes the steps to convert a pipeline from NVIDIA
 DeepStream to Intel® DL Streamer Pipeline Framework.
 We also have a running example through the document that will be updated at
 each step to help show the modifications being described.</p>
@@ -448,14 +457,28 @@ each step to help show the modifications being described.</p>
 <p>The intermediate steps of the pipeline are not meant to run. They are simply
 there as a reference example of the changes being made in each section.</p>
 </div>
+<section id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#preparing-model"><span class="std std-ref">Preparing Your Model</span></a></p></li>
+<li><p><a class="reference internal" href="#configure-model"><span class="std std-ref">Configuring Model for Intel® DL Streamer</span></a></p></li>
+<li><p><a class="reference internal" href="#gstreamer-pipeline-adj"><span class="std std-ref">GStreamer Pipeline Adjustments</span></a></p></li>
+<li><p><a class="reference internal" href="#mux-demux-elements"><span class="std std-ref">Mux and Demux Elements</span></a></p></li>
+<li><p><a class="reference internal" href="#inferencing-elements"><span class="std std-ref">Inferencing Elements</span></a></p></li>
+<li><p><a class="reference internal" href="#video-processing-elements"><span class="std std-ref">Video Processing Elements</span></a></p></li>
+<li><p><a class="reference internal" href="#metadata-elements"><span class="std std-ref">Metadata Elements</span></a></p></li>
+<li><p><a class="reference internal" href="#multiple-input-streams"><span class="std std-ref">Multiple Input Streams</span></a></p></li>
+<li><p><a class="reference internal" href="#mapping-cheetsheet"><span class="std std-ref">DeepStream to DLStreamer Elements Mapping Cheetsheet</span></a></p></li>
+</ul>
+</section>
 <section id="preparing-your-model">
-<h2>Preparing Your Model<a class="headerlink" href="#preparing-your-model" title="Permalink to this heading">#</a></h2>
+<span id="preparing-model"></span><h2>Preparing Your Model<a class="headerlink" href="#preparing-your-model" title="Permalink to this heading">#</a></h2>
 <p>To use Intel® DL Streamer Pipeline Framework and OpenVINO™ Toolkit the model needs to be in
 Intermediate Representation (IR) format. To convert your model to this format, please follow
 <a class="reference internal" href="model_preparation.html"><span class="doc">model preparation</span></a> steps.</p>
 </section>
 <section id="configuring-model-for-intel-dl-streamer">
-<h2>Configuring Model for Intel® DL Streamer<a class="headerlink" href="#configuring-model-for-intel-dl-streamer" title="Permalink to this heading">#</a></h2>
+<span id="configure-model"></span><h2>Configuring Model for Intel® DL Streamer<a class="headerlink" href="#configuring-model-for-intel-dl-streamer" title="Permalink to this heading">#</a></h2>
 <p>NVIDIA DeepStream uses a combination of model configuration files and DeepStream element properties
 to specify interference actions as well as pre- and post-processing steps before/after running inference
 as documented here: <a class="reference external" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_plugin_gst-nvinfer.html">here</a>.</p>
@@ -463,7 +486,7 @@ as documented here: <a class="reference external" href="https://docs.nvidia.com/
 settings and <a class="reference internal" href="model_proc_file.html"><span class="doc">model proc</span></a> files for pre- and post-processing steps.</p>
 <p>The following table shows how to map commonly used NVIDIA DeepStream configuration properties
 to Intel® DL Streamer settings.</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>NVIDIA DeepStream config file</p></th>
 <th class="head"><p>NVIDIA DeepStream element property</p></th>
@@ -527,9 +550,10 @@ to Intel® DL Streamer settings.</p>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="gstreamer-pipeline-adjustments">
-<h2>GStreamer Pipeline Adjustments<a class="headerlink" href="#gstreamer-pipeline-adjustments" title="Permalink to this heading">#</a></h2>
+<span id="gstreamer-pipeline-adj"></span><h2>GStreamer Pipeline Adjustments<a class="headerlink" href="#gstreamer-pipeline-adjustments" title="Permalink to this heading">#</a></h2>
 <p>In the following sections we will be converting DeepStream pipeline to Pipeline Framework.
 The DeepStream pipeline is taken from one of the examples
 <a class="reference external" href="https://github.com/NVIDIA-AI-IOT/deepstream_reference_apps">here</a>.
@@ -543,8 +567,12 @@ nvdsosd<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </
 nvvideoconvert<span class="w"> </span>!<span class="w"> </span><span class="s2">&quot;video/x-raw, format=I420&quot;</span><span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span>avenc_mpeg4<span class="w"> </span><span class="nv">bitrate</span><span class="o">=</span><span class="m">8000000</span><span class="w"> </span>!<span class="w"> </span>qtmux<span class="w"> </span>!<span class="w"> </span>filesink<span class="w"> </span><span class="nv">location</span><span class="o">=</span>output_file.mp4
 </pre></div>
 </div>
+<p>The below mapping represents the typical changes that need to be made to the pipeline to convert it to Intel® DL Streamer Pipeline Framework.
+The pipeline is broken down into sections based on the elements used in the pipeline.</p>
+<img alt="../_images/deepstream_mapping_dlstreamer.png" src="../_images/deepstream_mapping_dlstreamer.png" />
+<p>The next chapters give more details on how to replace each element.</p>
 <section id="mux-and-demux-elements">
-<h3>Mux and Demux Elements<a class="headerlink" href="#mux-and-demux-elements" title="Permalink to this heading">#</a></h3>
+<span id="mux-demux-elements"></span><h3>Mux and Demux Elements<a class="headerlink" href="#mux-and-demux-elements" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Remove <code class="docutils literal notranslate"><span class="pre">nvstreammux</span></code> and <code class="docutils literal notranslate"><span class="pre">nvstreamdemux</span></code> and all their
 properties.</p>
@@ -571,7 +599,7 @@ nvvideoconvert<span class="w"> </span>!<span class="w"> </span><span class="s2">
 </div>
 </section>
 <section id="inferencing-elements">
-<h3>Inferencing Elements<a class="headerlink" href="#inferencing-elements" title="Permalink to this heading">#</a></h3>
+<span id="id1"></span><h3>Inferencing Elements<a class="headerlink" href="#inferencing-elements" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Remove <code class="docutils literal notranslate"><span class="pre">nvinfer</span></code> and replace it with <code class="docutils literal notranslate"><span class="pre">gvainference</span></code>,
 <code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> or <code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code> depending on the following use
@@ -620,7 +648,7 @@ nvvideoconvert<span class="w"> </span>!<span class="w"> </span><span class="s2">
 </div>
 </section>
 <section id="video-processing-elements">
-<h3>Video Processing Elements<a class="headerlink" href="#video-processing-elements" title="Permalink to this heading">#</a></h3>
+<span id="id2"></span><h3>Video Processing Elements<a class="headerlink" href="#video-processing-elements" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Replace NVIDIA-specific video processing elements with native GStreamer elements.</p>
 <ul>
@@ -657,7 +685,7 @@ videoconvert<span class="w"> </span>!<span class="w"> </span>avenc_mpeg4<span cl
 </div>
 </section>
 <section id="metadata-elements">
-<h3>Metadata Elements<a class="headerlink" href="#metadata-elements" title="Permalink to this heading">#</a></h3>
+<span id="id3"></span><h3>Metadata Elements<a class="headerlink" href="#metadata-elements" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Replace <code class="docutils literal notranslate"><span class="pre">nvtracker</span></code> with
 <a class="reference internal" href="../elements/gvatrack.html"><span class="doc">gvatrack</span></a></p>
@@ -706,7 +734,7 @@ videoconvert<span class="w"> </span>!<span class="w"> </span>avenc_mpeg4<span cl
 </section>
 </section>
 <section id="multiple-input-streams">
-<span id="id1"></span><h2>Multiple Input Streams<a class="headerlink" href="#multiple-input-streams" title="Permalink to this heading">#</a></h2>
+<span id="id4"></span><h2>Multiple Input Streams<a class="headerlink" href="#multiple-input-streams" title="Permalink to this heading">#</a></h2>
 <div class="line-block">
 <div class="line">Unlike DeepStream, where all sources need to be linked to the sink pads of the <code class="docutils literal notranslate"><span class="pre">nvstreammux</span></code> element,
 Pipeline Framework uses existing GStreamer mechanisms to define multiple parallel video processing streams.
@@ -733,6 +761,75 @@ filesrc<span class="w"> </span>!<span class="w"> </span>decode<span class="w"> <
 </pre></div>
 </div>
 </section>
+<section id="deepstream-to-dlstreamer-elements-mapping-cheetsheet">
+<span id="mapping-cheetsheet"></span><h2>DeepStream to DLStreamer Elements Mapping Cheetsheet<a class="headerlink" href="#deepstream-to-dlstreamer-elements-mapping-cheetsheet" title="Permalink to this heading">#</a></h2>
+<p>Below table lists quick reference for mapping typical DeepStream elements to Intel® DL Streamer elements or GStreamer.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>DeepStream Element</p></th>
+<th class="head"><p>DLStreamer Element</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_plugin_gst-nvinfer.html">nvinfer</a></p></td>
+<td><p><a class="reference internal" href="../elements/gvadetect.html"><span class="doc">gvadetect</span></a>, <a class="reference internal" href="../elements/gvaclassify.html"><span class="doc">gvaclassify</span></a>, <a class="reference internal" href="../elements/gvainference.html"><span class="doc">gvainference</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_plugin_gst-nvdsosd.html">nvdsosd</a></p></td>
+<td><p><a class="reference internal" href="../elements/gvawatermark.html"><span class="doc">gvawatermark</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_plugin_gst-nvtracker.html">nvtracker</a></p></td>
+<td><p><a class="reference internal" href="../elements/gvatrack.html"><span class="doc">gvatrack</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_plugin_gst-nvmsgconv.html">nvmsgconv</a></p></td>
+<td><p><a class="reference internal" href="../elements/gvametaconvert.html"><span class="doc">gvametaconvert</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_plugin_gst-nvmsgbroker.html">nvmsgbroker</a></p></td>
+<td><p><a class="reference internal" href="../elements/gvametapublish.html"><span class="doc">gvametapublish</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>DeepStream Element</p></th>
+<th class="head"><p>GStreamer Element</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>nvvideoconvert</p></td>
+<td><p>videoconvert</p></td>
+</tr>
+<tr class="row-odd"><td><p>nvv4l2decoder</p></td>
+<td><p>decodebin</p></td>
+</tr>
+<tr class="row-even"><td><p>nvv4l2h264dec</p></td>
+<td><p>vah264dec</p></td>
+</tr>
+<tr class="row-odd"><td><p>nvv4l2h265dec</p></td>
+<td><p>vah265dec</p></td>
+</tr>
+<tr class="row-even"><td><p>nvv4l2h264enc</p></td>
+<td><p>va264enc</p></td>
+</tr>
+<tr class="row-odd"><td><p>nvv4l2h265enc</p></td>
+<td><p>va265enc</p></td>
+</tr>
+<tr class="row-even"><td><p>nvv4l2vp8dec</p></td>
+<td><p>vavp8dec</p></td>
+</tr>
+<tr class="row-odd"><td><p>nvv4l2vp9dec</p></td>
+<td><p>vavp9dec</p></td>
+</tr>
+<tr class="row-even"><td><p>nvv4l2vp8enc</p></td>
+<td><p>vavp8enc</p></td>
+</tr>
+<tr class="row-odd"><td><p>nvv4l2vp9enc</p></td>
+<td><p>vavp9enc</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 </section>
 
 
@@ -743,7 +840,7 @@ filesrc<span class="w"> </span>!<span class="w"> </span>decode<span class="w"> <
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -771,7 +868,9 @@ filesrc<span class="w"> </span>!<span class="w"> </span>decode<span class="w"> <
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -779,6 +878,7 @@ filesrc<span class="w"> </span>!<span class="w"> </span>decode<span class="w"> <
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-your-model">Preparing Your Model</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-model-for-intel-dl-streamer">Configuring Model for Intel® DL Streamer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gstreamer-pipeline-adjustments">GStreamer Pipeline Adjustments</a><ul class="nav section-nav flex-column">
@@ -789,6 +889,7 @@ filesrc<span class="w"> </span>!<span class="w"> </span>decode<span class="w"> <
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-input-streams">Multiple Input Streams</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deepstream-to-dlstreamer-elements-mapping-cheetsheet">DeepStream to DLStreamer Elements Mapping Cheetsheet</a></li>
 </ul>
   </nav></div>
 
@@ -837,8 +938,8 @@ By Intel Corporation
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

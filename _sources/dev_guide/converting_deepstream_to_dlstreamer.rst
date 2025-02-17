@@ -1,7 +1,7 @@
 Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework
 ================================================================================================================
 
-This document will describe the steps to convert a pipeline from NVIDIA
+This document describes the steps to convert a pipeline from NVIDIA
 DeepStream to Intel® DL Streamer Pipeline Framework.
 We also have a running example through the document that will be updated at
 each step to help show the modifications being described.
@@ -10,6 +10,21 @@ each step to help show the modifications being described.
    The intermediate steps of the pipeline are not meant to run. They are simply
    there as a reference example of the changes being made in each section.
 
+Contents
+--------
+
+-  :ref:`Preparing Your Model <preparing_model>`
+-  :ref:`Configuring Model for Intel® DL Streamer <configure_model>`
+-  :ref:`GStreamer Pipeline Adjustments <gstreamer_pipeline_adj>`
+-  :ref:`Mux and Demux Elements <mux_demux_elements>`
+-  :ref:`Inferencing Elements <inferencing_elements>`
+-  :ref:`Video Processing Elements <video_processing_elements>`
+-  :ref:`Metadata Elements <metadata_elements>`
+-  :ref:`Multiple Input Streams <multiple-input-streams>`
+-  :ref:`DeepStream to DLStreamer Elements Mapping Cheetsheet <mapping_cheetsheet>`
+
+ 
+.. _preparing_model:
 Preparing Your Model
 --------------------
 
@@ -17,6 +32,7 @@ To use Intel® DL Streamer Pipeline Framework and OpenVINO™ Toolkit the model 
 Intermediate Representation (IR) format. To convert your model to this format, please follow
 :doc:`model preparation <model_preparation>` steps.
 
+.. _configure_model:
 Configuring Model for Intel® DL Streamer
 ------------------------------------------------------------
 
@@ -80,7 +96,7 @@ to Intel® DL Streamer settings.
      - threshold
      - Threshold for detection results.
 
-
+.. _gstreamer_pipeline_adj:
 GStreamer Pipeline Adjustments
 ------------------------------
 
@@ -99,6 +115,18 @@ the inferences on the video, re-encodes and outputs a new .mp4 file.
    nvdsosd ! queue ! \
    nvvideoconvert ! "video/x-raw, format=I420" ! videoconvert ! avenc_mpeg4 bitrate=8000000 ! qtmux ! filesink location=output_file.mp4
 
+
+The below mapping represents the typical changes that need to be made to the pipeline to convert it to Intel® DL Streamer Pipeline Framework.
+The pipeline is broken down into sections based on the elements used in the pipeline.
+
+
+.. image:: deepstream_mapping_dlstreamer.png
+
+
+The next chapters give more details on how to replace each element.
+
+
+.. _mux_demux_elements:
 Mux and Demux Elements
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -110,7 +138,7 @@ Mux and Demux Elements
       The cross-stream batching happens at the inferencing elements by setting the same ``model-instance-id`` property.
    -  In this example, there is only one video stream so we can skip this for now.
       See more on how to construct multi-stream pipelines in the following section
-      :ref:`Multiple Input Streams <Multiple-Input-Streams>` below.
+      :ref:`Multiple Input Streams <multiple-input-streams>` below.
 
 At this stage we have removed ``nvstreammux`` and the ``queue`` that
 followed it. Notably, the ``batch-size`` property is also removed. It
@@ -125,6 +153,7 @@ inference elements.
    nvdsosd ! queue ! \
    nvvideoconvert ! "video/x-raw, format=I420" ! videoconvert ! avenc_mpeg4 bitrate=8000000 ! qtmux ! filesink location=output_file.mp4
 
+.. _inferencing_elements:
 Inferencing Elements
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -169,6 +198,7 @@ and ``model-proc`` properties as described in “Configuring Model for Intel® D
    nvdsosd ! queue ! \
    nvvideoconvert ! "video/x-raw, format=I420" ! videoconvert ! avenc_mpeg4 bitrate=8000000 ! qtmux ! filesink location=output_file.mp4
 
+.. _video_processing_elements:
 Video Processing Elements
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -205,6 +235,7 @@ the input stream as well as what is available on the system.
    nvdsosd ! queue ! \
    videoconvert ! avenc_mpeg4 bitrate=8000000 ! qtmux ! filesink location=output_file.mp4
 
+.. _metadata_elements:
 Metadata Elements
 ~~~~~~~~~~~~~~~~~
 
@@ -249,8 +280,8 @@ the inferences on the video for which we use ``gvawatermark``.
    gvawatermark ! queue ! \
    videoconvert ! avenc_mpeg4 bitrate=8000000 ! qtmux ! filesink location=output_file.mp4
 
-.. _Multiple-Input-Streams:
 
+.. _multiple-input-streams:
 Multiple Input Streams
 ----------------------
 
@@ -280,3 +311,56 @@ Hence, the shared inference parameters (model, batch size, ...) can be defined o
 
    filesrc ! decode ! gvadetect model-instance-id=model1 model=./model.xml batch-size=2 ! encode ! filesink \ 
    filesrc ! decode ! gvadetect model-instance-id=model1 ! encode ! filesink
+
+
+
+.. _mapping_cheetsheet:
+DeepStream to DLStreamer Elements Mapping Cheetsheet
+----------------------------------------------------
+
+Below table lists quick reference for mapping typical DeepStream elements to Intel® DL Streamer elements or GStreamer.
+
+.. list-table::
+  :header-rows: 1
+  :widths: auto
+  
+  * - DeepStream Element
+    - DLStreamer Element
+  * - `nvinfer <https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_plugin_gst-nvinfer.html>`__
+    - :doc:`gvadetect <../elements/gvadetect>`, :doc:`gvaclassify <../elements/gvaclassify>`, :doc:`gvainference <../elements/gvainference>`
+  * - `nvdsosd <https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_plugin_gst-nvdsosd.html>`__
+    - :doc:`gvawatermark <../elements/gvawatermark>`
+  * - `nvtracker <https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_plugin_gst-nvtracker.html>`__
+    - :doc:`gvatrack <../elements/gvatrack>`
+  * - `nvmsgconv <https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_plugin_gst-nvmsgconv.html>`__
+    - :doc:`gvametaconvert <../elements/gvametaconvert>`
+  * - `nvmsgbroker <https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_plugin_gst-nvmsgbroker.html>`__
+    - :doc:`gvametapublish <../elements/gvametapublish>`
+
+
+.. list-table::
+  :header-rows: 1
+  :widths: auto
+  
+  * - DeepStream Element
+    - GStreamer Element
+  * - nvvideoconvert
+    - videoconvert
+  * - nvv4l2decoder
+    - decodebin
+  * - nvv4l2h264dec
+    - vah264dec
+  * - nvv4l2h265dec
+    - vah265dec
+  * - nvv4l2h264enc
+    - va264enc
+  * - nvv4l2h265enc
+    - va265enc
+  * - nvv4l2vp8dec
+    - vavp8dec
+  * - nvv4l2vp9dec
+    - vavp9dec
+  * - nvv4l2vp8enc
+    - vavp8enc
+  * - nvv4l2vp9enc
+    - vavp9enc

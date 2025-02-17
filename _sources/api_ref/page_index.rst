@@ -4,6 +4,8 @@
 Intel® Deep Learning Streamer (Intel® DL Streamer) API reference
 ==================================================================
 
+:target:`doxid-index_1md_index`
+
 Overview
 ========
 

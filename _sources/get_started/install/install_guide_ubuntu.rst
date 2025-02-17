@@ -55,18 +55,27 @@ This option provides the simplest installation flow using apt-get install comman
 Step 1: Setup repositories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-..  code:: sh
-   
-   sudo -E wget -O- https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB | gpg --dearmor | sudo tee /usr/share/keyrings/oneapi-archive-keyring.gpg > /dev/null
-   sudo wget -O- https://eci.intel.com/sed-repos/gpg-keys/GPG-PUB-KEY-INTEL-SED.gpg | sudo tee /usr/share/keyrings/sed-archive-keyring.gpg > /dev/null
-   sudo echo "deb [signed-by=/usr/share/keyrings/sed-archive-keyring.gpg] https://eci.intel.com/sed-repos/$(source /etc/os-release && echo $VERSION_CODENAME) sed main" | sudo tee /etc/apt/sources.list.d/sed.list
-   sudo bash -c 'echo -e "Package: *\nPin: origin eci.intel.com\nPin-Priority: 1000" > /etc/apt/preferences.d/sed'
-     
-   ## Ubuntu24 ##
-   sudo bash -c 'echo "deb [signed-by=/usr/share/keyrings/oneapi-archive-keyring.gpg] https://apt.repos.intel.com/openvino/2024 ubuntu24 main" | sudo tee /etc/apt/sources.list.d/intel-openvino-2024.list'
+..  tabs::
 
-   ## Ubuntu22 ##
-   sudo bash -c 'echo "deb [signed-by=/usr/share/keyrings/oneapi-archive-keyring.gpg] https://apt.repos.intel.com/openvino/2024 ubuntu22 main" | sudo tee /etc/apt/sources.list.d/intel-openvino-2024.list'
+   ..  tab:: Ubuntu 22
+
+      .. code-block:: sh
+
+          sudo -E wget -O- https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB | gpg --dearmor | sudo tee /usr/share/keyrings/oneapi-archive-keyring.gpg > /dev/null
+          sudo wget -O- https://eci.intel.com/sed-repos/gpg-keys/GPG-PUB-KEY-INTEL-SED.gpg | sudo tee /usr/share/keyrings/sed-archive-keyring.gpg > /dev/null
+          sudo echo "deb [signed-by=/usr/share/keyrings/sed-archive-keyring.gpg] https://eci.intel.com/sed-repos/$(source /etc/os-release && echo $VERSION_CODENAME) sed main" | sudo tee /etc/apt/sources.list.d/sed.list
+          sudo bash -c 'echo -e "Package: *\nPin: origin eci.intel.com\nPin-Priority: 1000" > /etc/apt/preferences.d/sed'
+          sudo bash -c 'echo "deb [signed-by=/usr/share/keyrings/oneapi-archive-keyring.gpg] https://apt.repos.intel.com/openvino/2025 ubuntu22 main" | sudo tee /etc/apt/sources.list.d/intel-openvino-2025.list'
+
+   ..  tab:: Ubuntu 24
+
+      .. code-block:: sh
+
+          sudo -E wget -O- https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB | gpg --dearmor | sudo tee /usr/share/keyrings/oneapi-archive-keyring.gpg > /dev/null
+          sudo wget -O- https://eci.intel.com/sed-repos/gpg-keys/GPG-PUB-KEY-INTEL-SED.gpg | sudo tee /usr/share/keyrings/sed-archive-keyring.gpg > /dev/null
+          sudo echo "deb [signed-by=/usr/share/keyrings/sed-archive-keyring.gpg] https://eci.intel.com/sed-repos/$(source /etc/os-release && echo $VERSION_CODENAME) sed main" | sudo tee /etc/apt/sources.list.d/sed.list
+          sudo bash -c 'echo -e "Package: *\nPin: origin eci.intel.com\nPin-Priority: 1000" > /etc/apt/preferences.d/sed'
+          sudo bash -c 'echo "deb [signed-by=/usr/share/keyrings/oneapi-archive-keyring.gpg] https://apt.repos.intel.com/openvino/2025 ubuntu24 main" | sudo tee /etc/apt/sources.list.d/intel-openvino-2025.list'
 
 
 Step 2: Install Intel® DL Streamer Pipeline Framework
@@ -87,6 +96,28 @@ Check for installed packages and versions.
 .. code:: sh
 
    apt list --installed | grep intel-dlstreamer
+
+
+To install a specific version run the following command:
+
+.. code:: sh
+
+   sudo apt install intel-dlstreamer=<VERSION>.<UPDATE>.<PATCH>
+
+
+For example
+
+.. code:: sh
+
+   sudo apt install intel-dlstreamer=2025.0.0
+
+
+List available versions
+
+.. code:: sh
+
+   sudo apt show -a intel-dlstreamer
+
 
 
 Step 3: Run hello_dlstreamer script
@@ -142,19 +173,24 @@ Step 3: Pull the Intel® DL Streamer Docker image from Docker Hub
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Visit <https://hub.docker.com/r/intel/dlstreamer/> Intel® DL Streamer image docker hub to select the most appropriate version.
-By default , the latest docker image points to Ubuntu24 version.
+By default , the latest docker image points to Ubuntu 24 version.
 
-For **Ubuntu 24.04** please use **latest** tag or specified version e.g. **2024.1.2-ubuntu24**
+For **Ubuntu 22.04** please specify tag e.g. **2025.0.1-ubuntu22**.
+For **Ubuntu 24.04** please use **latest** tag or specified version e.g. **2025.0.1-ubuntu24**.
 
-.. code:: sh
+..  tabs::
 
-   docker pull intel/dlstreamer:latest
+   ..  tab:: Ubuntu 22
 
-For **Ubuntu 22.04** please specify tag e.g. **2024.1.2-ubuntu22**
+      .. code-block:: sh
 
-.. code:: sh
+          docker pull intel/dlstreamer:2025.0.1-ubuntu22
 
-   docker pull intel/dlstreamer:2024.1.2-ubuntu22
+   ..  tab:: Ubuntu 24
+
+      .. code-block:: sh
+
+          docker pull intel/dlstreamer:latest
 
 
 Step 4: Run Intel® DL Streamer Pipeline Framework container
@@ -170,7 +206,7 @@ In the container, please run the ``gst-inspect-1.0 gvadetect`` to confirm that G
 
 .. code:: sh
 
-   dlstreamer@ea6445a05788:~$ gst-inspect-1.0 gvadetect
+   gst-inspect-1.0 gvadetect
 
 If your can see the documentation of ``gvadetect`` element, the installation process is completed.
 

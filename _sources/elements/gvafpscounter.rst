@@ -52,3 +52,6 @@ Measures frames per second across multiple streams in a single process.
     print-std-dev       : Write standard deviation for all streams. The metric measures time interval between two subsequent frames received for a particular video stream and computes standard deviation over time.
                           flags: readable, writable
                           Boolean. Default: false
+    print-latency       : Write average frame latency for all streams. Needs timecodestamper element at the beginning of pipeline.
+                          flags: readable, writable
+                          Boolean. Default: false

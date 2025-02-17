@@ -15,34 +15,40 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/doxyrest-pygments.css" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script src="../_static/target-highlight.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'architecture_2.0/elements_list';</script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -51,6 +57,7 @@
     <link rel="prev" title="PyTorch tensor inference [Preview]" href="pytorch_inference.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -58,32 +65,16 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -91,7 +82,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -99,16 +89,25 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -123,6 +122,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../index.html">
   
@@ -134,16 +135,23 @@
     <p class="title logo__title">Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../get_started/get_started_index.html">Get Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../get_started/get_started_index.html">Get Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../get_started/system_requirements.html">System Requirements</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../get_started/install/install_guide_index.html">Install Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../get_started/install/install_guide_index.html">Install Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../get_started/install/install_guide_ubuntu.html">Install Guide Ubuntu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">Uninstall Guide Ubuntu</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../get_started/tutorial.html">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../get_started/flex_series/quick_start_guide.html">Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series</a></li>
 
@@ -151,21 +159,22 @@
 
 <li class="toctree-l2"><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">Samples</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../dev_guide/dev_guide_index.html">Developer Guide</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_index.html">Advanced Installation Guide</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../dev_guide/dev_guide_index.html">Developer Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_index.html">Advanced Installation Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_prerequisites.html">Ubuntu advanced installation - prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_prebuilt.html">Ubuntu advanced installation - pre-built packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_compilation.html">Ubuntu advanced installation - compilation from source files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_uninstall_guide.html">Ubuntu advanced uninstall guide</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev_guide/metadata.html">Metadata</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../dev_guide/model_preparation.html">Model Preparation</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dev_guide/model_preparation.html">Model Preparation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/yolo_models.html">YOLO Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dev_guide/lvms.html">Large Vision Models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/download_public_models.html">Download Public Models</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev_guide/model_info_xml.html">Model Info Section</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev_guide/python_bindings.html">Python Bindings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev_guide/custom_plugin_installation.html">Custom GStreamer Plugin Installation</a></li>
@@ -175,18 +184,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../dev_guide/performance_guide.html">Performance Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev_guide/profiling.html">Profiling with Intel VTune™</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev_guide/converting_deepstream_to_dlstreamer.html">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../dev_guide/how_to_contribute.html">How to Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dev_guide/how_to_contribute.html">How to Contribute</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/coding_style.html">Coding Style</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev_guide/latency_tracer.html">Latency Tracer</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../dev_guide/model_proc_file.html">Model-proc File (legacy)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dev_guide/model_proc_file.html">Model-proc File (legacy)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/how_to_create_model_proc_file.html">How to Create Model-proc File</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../elements/elements.html">Elements</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../elements/elements.html">Elements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvadetect.html">gvadetect</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvaclassify.html">gvaclassify</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvainference.html">gvainference</a></li>
@@ -199,48 +208,48 @@
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvametapublish.html">gvametapublish</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvapython.html">gvapython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvawatermark.html">gvawatermark</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../elements/gstelements.html">GStreamer Elements</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../elements/gstelements.html">GStreamer Elements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../elements/compositor.html">compositor</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../supported_models.html">Supported Models</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../api_ref/api_reference.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_ref/api_reference.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api_ref/page_index.html">Intel® Deep Learning Streamer (Intel® DL Streamer) API reference</a></li>
 
 
 
 
-<li class="toctree-l2 has-children"><a class="reference internal" href="../api_ref/global.html">Global Namespace</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/namespace_gstgva.html">namespace gstgva</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api_ref/global.html">Global Namespace</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/namespace_gstgva.html">namespace gstgva</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../api_ref/namespace_gstgva_region_of_interest.html">namespace gstgva::region_of_interest</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api_ref/namespace_gstgva_tensor.html">namespace gstgva::tensor</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api_ref/namespace_gstgva_video_frame.html">namespace gstgva::video_frame</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l3"><a class="reference internal" href="../api_ref/enum_GVALayout.html">enum GVALayout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api_ref/enum_GVAPrecision.html">enum GVAPrecision</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct_GstAnalyticsKeypoint.html">struct GstAnalyticsKeypoint</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct_GstAnalyticsKeypoint.html">struct GstAnalyticsKeypoint</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct_GstAnalyticsKeypointPair.html">struct GstAnalyticsKeypointPair</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct_GstAnalyticsKeypointPair.html">struct GstAnalyticsKeypointPair</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="architecture_2.0.html">Architecture 2.0 [Preview]</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="architecture_2.0.html">Architecture 2.0 [Preview]</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="migration_guide.html">Migration to 2.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cpp_interfaces.html">① Memory Interop and C++ abstract interfaces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cpp_elements.html">② C++ elements</a></li>
@@ -251,10 +260,11 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Elements 2.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging.html">Packaging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="samples_2.0.html">Samples 2.0</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api_ref/index.html">API 2.0 Reference</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api_ref/global.html">Global Namespace</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api_ref/index.html">API 2.0 Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="api_ref/global.html">Global Namespace</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="api_ref/namespace_GVA.html">namespace GVA</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api_ref/namespace_dlstreamer.html">namespace dlstreamer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_ref/namespace_std.html">namespace std</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api_ref/enum_GVALayout.html">enum GVALayout</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api_ref/enum_GVAPrecision.html">enum GVAPrecision</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api_ref/struct_GstAnalyticsKeypoint.html">struct GstAnalyticsKeypoint</a></li>
@@ -263,11 +273,11 @@
 <li class="toctree-l4"><a class="reference internal" href="api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -276,14 +286,19 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -292,14 +307,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -375,27 +390,19 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -630,7 +637,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="elements-2-0">
 <h1>Elements 2.0<a class="headerlink" href="#elements-2-0" title="Permalink to this heading">#</a></h1>
@@ -639,7 +646,7 @@ document.write(`
 <p>Overlays the metadata on the video frame to visualize the inference results.</p>
 <section id="capabilities">
 <h3>Capabilities<a class="headerlink" href="#capabilities" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -665,10 +672,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="properties">
 <h3>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -752,6 +760,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="object-classify">
@@ -759,7 +768,7 @@ document.write(`
 <p>Performs object classification. Accepts the ROI or full frame as an input and outputs classification results with metadata.</p>
 <section id="id1">
 <h3>Capabilities<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -785,10 +794,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id2">
 <h3>Properties<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -968,6 +978,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="object-detect">
@@ -975,7 +986,7 @@ document.write(`
 <p>Performs inference-based object detection</p>
 <section id="id3">
 <h3>Capabilities<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -1001,10 +1012,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id4">
 <h3>Properties<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -1173,6 +1185,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="object-track">
@@ -1180,7 +1193,7 @@ document.write(`
 <p>Assigns unique ID to detected objects</p>
 <section id="id5">
 <h3>Capabilities<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -1206,10 +1219,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id6">
 <h3>Properties<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -1412,6 +1426,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="processbin">
@@ -1419,7 +1434,7 @@ document.write(`
 <p>Bin element for processing pipelines using branching: tee name=t t. ! &lt;preprocess&gt; ! &lt;process&gt; ! &lt;postprocess&gt; ! &lt;aggregate&gt;  t. ! aggregate</p>
 <section id="id7">
 <h3>Capabilities<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -1435,10 +1450,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id8">
 <h3>Properties<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -1517,6 +1533,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="video-inference">
@@ -1524,7 +1541,7 @@ document.write(`
 <p>Runs Deep Learning inference on any model with RGB-like input</p>
 <section id="id9">
 <h3>Capabilities<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -1550,10 +1567,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id10">
 <h3>Properties<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -1722,6 +1740,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="batch-create">
@@ -1729,7 +1748,7 @@ document.write(`
 <p>Accumulate multiple buffers into single buffer with multiple GstMemory</p>
 <section id="id11">
 <h3>Capabilities<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SRC template: src</p></td>
 <td><ul class="simple">
@@ -1745,10 +1764,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id12">
 <h3>Properties<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -1777,6 +1797,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="batch-split">
@@ -1784,7 +1805,7 @@ document.write(`
 <p>Split input tensor (remove batch dimension from tensor shape)</p>
 <section id="id13">
 <h3>Capabilities<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SRC template: src</p></td>
 <td><ul class="simple">
@@ -1800,10 +1821,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id14">
 <h3>Properties<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -1827,6 +1849,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="capsrelax">
@@ -1834,7 +1857,7 @@ document.write(`
 <p>Pass data without modification, relaxes formats</p>
 <section id="id15">
 <h3>Capabilities<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -1850,10 +1873,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id16">
 <h3>Properties<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -1877,6 +1901,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="gvadrop">
@@ -1884,7 +1909,7 @@ document.write(`
 <p>Pass / drop custom number of frames in pipeline</p>
 <section id="id17">
 <h3>Capabilities<a class="headerlink" href="#id17" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -1900,10 +1925,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id18">
 <h3>Properties<a class="headerlink" href="#id18" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -1942,6 +1968,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="meta-aggregate">
@@ -1949,7 +1976,7 @@ document.write(`
 <p>Muxes video streams with tensor’s ROI into single stream</p>
 <section id="id19">
 <h3>Capabilities<a class="headerlink" href="#id19" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: meta_%u</p></td>
 <td><ul class="simple">
@@ -1987,10 +2014,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id20">
 <h3>Properties<a class="headerlink" href="#id20" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -2039,6 +2067,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="meta-smooth">
@@ -2046,7 +2075,7 @@ document.write(`
 <p>smooth metadata</p>
 <section id="id21">
 <h3>Capabilities<a class="headerlink" href="#id21" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SRC template: src</p></td>
 <td><ul class="simple">
@@ -2062,10 +2091,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id22">
 <h3>Properties<a class="headerlink" href="#id22" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -2089,6 +2119,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="roi-split">
@@ -2096,7 +2127,7 @@ document.write(`
 <p>Split buffer with multiple GstVideoRegionOfInterestMeta into multiple buffers</p>
 <section id="id23">
 <h3>Capabilities<a class="headerlink" href="#id23" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SRC template: src</p></td>
 <td><ul class="simple">
@@ -2112,10 +2143,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id24">
 <h3>Properties<a class="headerlink" href="#id24" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -2144,6 +2176,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="video-frames-buffer">
@@ -2151,7 +2184,7 @@ document.write(`
 <p>Buffer and optionally repeat compressed video frames</p>
 <section id="id25">
 <h3>Capabilities<a class="headerlink" href="#id25" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SRC template: src</p></td>
 <td><ul class="simple">
@@ -2167,10 +2200,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id26">
 <h3>Properties<a class="headerlink" href="#id26" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -2204,6 +2238,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="rate-adjust">
@@ -2211,7 +2246,7 @@ document.write(`
 <p>Adjust frame rate. Output frame rate is input rate multiplied by (numerator/denominator)</p>
 <section id="id27">
 <h3>Capabilities<a class="headerlink" href="#id27" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -2227,10 +2262,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id28">
 <h3>Properties<a class="headerlink" href="#id28" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -2259,6 +2295,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="tensor-convert">
@@ -2266,7 +2303,7 @@ document.write(`
 <p>Convert (zero-copy if possible) between video/audio and tensors media type</p>
 <section id="id29">
 <h3>Capabilities<a class="headerlink" href="#id29" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -2326,10 +2363,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id30">
 <h3>Properties<a class="headerlink" href="#id30" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -2353,6 +2391,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="tensor-histogram">
@@ -2360,7 +2399,7 @@ document.write(`
 <p>Calculates histogram on tensors of UInt8 data type and NHWC layout</p>
 <section id="id31">
 <h3>Capabilities<a class="headerlink" href="#id31" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -2396,10 +2435,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id32">
 <h3>Properties<a class="headerlink" href="#id32" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -2458,6 +2498,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="tensor-postproc-add-params">
@@ -2465,7 +2506,7 @@ document.write(`
 <p>Post-processing to only add properties/parameters to metadata</p>
 <section id="id33">
 <h3>Capabilities<a class="headerlink" href="#id33" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -2491,10 +2532,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id34">
 <h3>Properties<a class="headerlink" href="#id34" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -2528,6 +2570,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="tensor-postproc-detection">
@@ -2535,7 +2578,7 @@ document.write(`
 <p>Post-processing of object detection inference to extract bounding box coordinates, confidence, label, mask</p>
 <section id="id35">
 <h3>Capabilities<a class="headerlink" href="#id35" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -2561,10 +2604,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id36">
 <h3>Properties<a class="headerlink" href="#id36" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -2648,6 +2692,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="tensor-postproc-label">
@@ -2655,7 +2700,7 @@ document.write(`
 <p>Post-processing of classification inference to extract object classes</p>
 <section id="id37">
 <h3>Capabilities<a class="headerlink" href="#id37" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -2681,10 +2726,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id38">
 <h3>Properties<a class="headerlink" href="#id38" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -2743,6 +2789,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="tensor-postproc-text">
@@ -2750,7 +2797,7 @@ document.write(`
 <p>Post-processing to convert tensor data into text</p>
 <section id="id39">
 <h3>Capabilities<a class="headerlink" href="#id39" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -2776,10 +2823,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id40">
 <h3>Properties<a class="headerlink" href="#id40" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -2823,6 +2871,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="tensor-postproc-yolo">
@@ -2830,7 +2879,7 @@ document.write(`
 <p>Post-processing of YOLO models to extract bounding box list</p>
 <section id="id41">
 <h3>Capabilities<a class="headerlink" href="#id41" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -2856,10 +2905,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id42">
 <h3>Properties<a class="headerlink" href="#id42" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -2958,6 +3008,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="tensor-sliding-window">
@@ -2965,7 +3016,7 @@ document.write(`
 <p>Sliding aggregation of input tensors</p>
 <section id="id43">
 <h3>Capabilities<a class="headerlink" href="#id43" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -2991,10 +3042,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id44">
 <h3>Properties<a class="headerlink" href="#id44" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -3018,6 +3070,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="openvino-tensor-inference">
@@ -3025,7 +3078,7 @@ document.write(`
 <p>Inference on OpenVINO™ toolkit backend</p>
 <section id="id45">
 <h3>Capabilities<a class="headerlink" href="#id45" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -3052,10 +3105,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id46">
 <h3>Properties<a class="headerlink" href="#id46" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -3109,6 +3163,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="openvino-video-inference">
@@ -3116,7 +3171,7 @@ document.write(`
 <p>Inference on OpenVINO™ toolkit backend</p>
 <section id="id47">
 <h3>Capabilities<a class="headerlink" href="#id47" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -3146,10 +3201,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id48">
 <h3>Properties<a class="headerlink" href="#id48" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -3203,6 +3259,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="opencv-cropscale">
@@ -3210,7 +3267,7 @@ document.write(`
 <p>Fused video crop and scale on OpenCV backend. Crop operation supports GstVideoCropMeta if attached to input buffer</p>
 <section id="id49">
 <h3>Capabilities<a class="headerlink" href="#id49" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -3274,10 +3331,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id50">
 <h3>Properties<a class="headerlink" href="#id50" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -3306,6 +3364,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="opencv-find-contours">
@@ -3313,7 +3372,7 @@ document.write(`
 <p>Find contour points of given mask using opencv</p>
 <section id="id51">
 <h3>Capabilities<a class="headerlink" href="#id51" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -3329,10 +3388,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id52">
 <h3>Properties<a class="headerlink" href="#id52" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -3371,6 +3431,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="opencv-meta-overlay">
@@ -3378,7 +3439,7 @@ document.write(`
 <p>Visualize inference results using OpenCV</p>
 <section id="id53">
 <h3>Capabilities<a class="headerlink" href="#id53" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -3442,10 +3503,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id54">
 <h3>Properties<a class="headerlink" href="#id54" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -3489,6 +3551,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="opencv-object-association">
@@ -3496,7 +3559,7 @@ document.write(`
 <p>Assigns unique ID to ROI objects based on objects trajectory and (optionally) feature vector obtained from ROI metadata</p>
 <section id="id55">
 <h3>Capabilities<a class="headerlink" href="#id55" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -3512,10 +3575,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id56">
 <h3>Properties<a class="headerlink" href="#id56" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -3586,6 +3650,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="opencv-remove-background">
@@ -3593,7 +3658,7 @@ document.write(`
 <p>Remove background using mask</p>
 <section id="id57">
 <h3>Capabilities<a class="headerlink" href="#id57" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -3657,10 +3722,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id58">
 <h3>Properties<a class="headerlink" href="#id58" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -3694,6 +3760,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="opencv-tensor-normalize">
@@ -3701,7 +3768,7 @@ document.write(`
 <p>Convert U8 tensor to F32 tensor with normalization</p>
 <section id="id59">
 <h3>Capabilities<a class="headerlink" href="#id59" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -3737,10 +3804,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id60">
 <h3>Properties<a class="headerlink" href="#id60" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -3779,6 +3847,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="opencv-warp-affine">
@@ -3786,7 +3855,7 @@ document.write(`
 <p>Rotation using cv::warpAffine</p>
 <section id="id61">
 <h3>Capabilities<a class="headerlink" href="#id61" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -3850,10 +3919,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id62">
 <h3>Properties<a class="headerlink" href="#id62" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -3887,6 +3957,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="tensor-postproc-human-pose">
@@ -3894,7 +3965,7 @@ document.write(`
 <p>Post-processing to extract key points from human pose estimation model output</p>
 <section id="id63">
 <h3>Capabilities<a class="headerlink" href="#id63" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -3920,10 +3991,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id64">
 <h3>Properties<a class="headerlink" href="#id64" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -3957,6 +4029,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="vaapi-batch-proc">
@@ -3964,7 +4037,7 @@ document.write(`
 <p>Batched pre-processing with VAAPI memory as input and output</p>
 <section id="id65">
 <h3>Capabilities<a class="headerlink" href="#id65" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -3990,10 +4063,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id66">
 <h3>Properties<a class="headerlink" href="#id66" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -4032,6 +4106,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="vaapi-sync">
@@ -4039,7 +4114,7 @@ document.write(`
 <p>Synchronize VAAPI surfaces (call vaSyncSurface)</p>
 <section id="id67">
 <h3>Capabilities<a class="headerlink" href="#id67" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -4065,10 +4140,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id68">
 <h3>Properties<a class="headerlink" href="#id68" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -4097,6 +4173,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="opencl-tensor-normalize">
@@ -4104,7 +4181,7 @@ document.write(`
 <p>Convert U8 tensor to U8 or F32 tensor with normalization</p>
 <section id="id69">
 <h3>Capabilities<a class="headerlink" href="#id69" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -4130,10 +4207,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id70">
 <h3>Properties<a class="headerlink" href="#id70" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -4162,6 +4240,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="vaapi-to-opencl">
@@ -4169,7 +4248,7 @@ document.write(`
 <p>Convert memory:VASurface to memory:OpenCL</p>
 <section id="id71">
 <h3>Capabilities<a class="headerlink" href="#id71" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -4196,10 +4275,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id72">
 <h3>Properties<a class="headerlink" href="#id72" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -4223,6 +4303,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="sycl-meta-overlay">
@@ -4230,7 +4311,7 @@ document.write(`
 <p>Visualize inference results using DPC++/SYCL backend</p>
 <section id="id73">
 <h3>Capabilities<a class="headerlink" href="#id73" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -4274,10 +4355,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id74">
 <h3>Properties<a class="headerlink" href="#id74" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -4306,6 +4388,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="sycl-tensor-histogram">
@@ -4313,7 +4396,7 @@ document.write(`
 <p>Calculates histogram on tensors of UInt8 data type and NHWC layout</p>
 <section id="id75">
 <h3>Capabilities<a class="headerlink" href="#id75" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SINK template: sink</p></td>
 <td><ul class="simple">
@@ -4355,10 +4438,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id76">
 <h3>Properties<a class="headerlink" href="#id76" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -4417,6 +4501,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="inference-openvino">
@@ -4424,7 +4509,7 @@ document.write(`
 <p>OpenVINO™ toolkit inference element</p>
 <section id="id77">
 <h3>Capabilities<a class="headerlink" href="#id77" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SRC template: src</p></td>
 <td><ul class="simple">
@@ -4450,10 +4535,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id78">
 <h3>Properties<a class="headerlink" href="#id78" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -4492,6 +4578,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="pytorch-tensor-inference">
@@ -4499,7 +4586,7 @@ document.write(`
 <p>PyTorch inference element</p>
 <section id="id79">
 <h3>Capabilities<a class="headerlink" href="#id79" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>SRC template: src</p></td>
 <td><ul class="simple">
@@ -4525,10 +4612,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id80">
 <h3>Properties<a class="headerlink" href="#id80" title="Permalink to this heading">#</a></h3>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -4567,6 +4655,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 </section>
@@ -4579,7 +4668,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -4607,7 +4696,9 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -4868,8 +4959,8 @@ By Intel Corporation
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

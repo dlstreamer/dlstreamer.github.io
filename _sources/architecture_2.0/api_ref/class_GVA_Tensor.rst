@@ -43,6 +43,7 @@ This class represents tensor - map-like storage for inference result information
 		std::string :ref:`layer_name<doxid-class_g_v_a_1_1_tensor_1ac463c44557b69a233ee62a69de70e35e>`() const;
 		std::string :ref:`model_name<doxid-class_g_v_a_1_1_tensor_1a1e59cc380692947b6d2b1f4a2841d597>`() const;
 		std::string :ref:`format<doxid-class_g_v_a_1_1_tensor_1ae84bc122455ba1dc61d844c7d16df412>`() const;
+		std::string :target:`type<doxid-class_g_v_a_1_1_tensor_1a8eb9966dd42cb81474f6b3622746a778>`() const;
 		std::string :ref:`name<doxid-class_g_v_a_1_1_tensor_1ab4ff43a5debb89a3073204571d5c063a>`() const;
 		double :ref:`confidence<doxid-class_g_v_a_1_1_tensor_1a131d6f95a68539ea0a9e22565e769d78>`() const;
 		std::string :ref:`label<doxid-class_g_v_a_1_1_tensor_1a81285ccb826dd979f0b77fa8361a7f06>`() const;

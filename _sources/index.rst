@@ -39,7 +39,7 @@ High-performance Media Analytics solutions are difficult to build, deploy, and b
 
 **Intel® DL Streamer** offers a long list of models and samples optimized for Intel hardware platforms which could be used as a reference or a starting point for a wide range of applications and system configurations. These models and samples are a quick & easy way to reach high performance, then benchmark and optimize your application on your system.
 
-**Intel® DL Streamer** is already used by many partners and customers leading solutions, including `Open Visual Cloud <https://github.com/OpenVisualCloud>`__ Media Analytics services, `NTT Software Innovation Center <https://www.rd.ntt/e/sic/overview/>`__, `AIVID TECHVISION <https://www.aividtechvision.com/>`__, `Videonetics Technology Pvt. Limited <https://www.videonetics.com/>`__, and others.
+**Intel® DL Streamer** is already used by many partners and customers leading solutions, including `Open Visual Cloud <https://github.com/OpenVisualCloud>`__ Media Analytics services, `NTT Software Innovation Center <https://www.global.ntt/innovation/innovating-today/>`__, `AIVID TECHVISION <https://www.aividtechvision.com/>`__, `Videonetics Technology Pvt. Limited <https://www.videonetics.com/>`__, and others.
 
 Testimonials
 ============

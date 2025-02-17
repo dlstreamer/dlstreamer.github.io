@@ -9,6 +9,7 @@ Global Namespace
 
 	namespace_GVA.rst
 	namespace_dlstreamer.rst
+	namespace_std.rst
 	enum_GVALayout.rst
 	enum_GVAPrecision.rst
 	struct_GstAnalyticsKeypoint.rst
@@ -35,6 +36,7 @@ Overview
 		namespace :ref:`dlstreamer::param<doxid-namespacedlstreamer_1_1param>`;
 		namespace :ref:`dlstreamer::tensor<doxid-namespacedlstreamer_1_1tensor>`;
 			namespace :ref:`dlstreamer::tensor::key<doxid-namespacedlstreamer_1_1tensor_1_1key>`;
+	namespace :ref:`std<doxid-namespacestd>`;
 
 	// typedefs
 
