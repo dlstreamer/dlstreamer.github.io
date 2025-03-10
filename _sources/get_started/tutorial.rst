@@ -71,10 +71,10 @@ standard
 element to render the video frames on a local display.
 
 We will also use the
-`decodebin <https://gstreamer.freedesktop.org/documentation/playback/decodebin.html#decodebin>`__
-utility element. The **decodebin** element constructs a concrete set of
+`decodebin3 <https://gstreamer.freedesktop.org/documentation/playback/decodebin3.html>`__
+utility element. The **decodebin3** element constructs a concrete set of
 decode operations based on the given input format and the decoder and
-demuxer elements available in the system. At a high level, the **decodebin**
+demuxer elements available in the system. At a high level, the **decodebin3**
 abstracts the individual operations required to take encoded frames and
 produce raw video frames suitable for image transformation and
 inferencing.
@@ -126,6 +126,7 @@ Refer to :doc:`Intel® DL Streamer elements <../elements/elements>` page for mor
    - Runs detection with the Inference Engine from OpenVINO™ Toolkit. We
    will use it to detect vehicles in a frame and output their bounding
    boxes aka Regions of Interest (ROI).
+   ``queue`` element must be put directly after ``gvadetect`` element in pipeline.
 
    -  model - path to the inference model network file
    -  device - device to run inferencing on
@@ -138,6 +139,7 @@ Refer to :doc:`Intel® DL Streamer elements <../elements/elements>` page for mor
    - Runs classification with the Inference Engine from OpenVINO™
    Toolkit. We will use it to label the bounding boxes that gvadetect
    outputs, with the type and color of the vehicle.
+   ``queue`` element must be put directly after ``gvaclassify`` element in pipeline.
 
    -  model - path to the inference model network file
    -  model-proc - path to the model-proc file. A model-proc file
@@ -161,9 +163,11 @@ Refer to :doc:`Intel® DL Streamer elements <../elements/elements>` page for mor
 
 In addition to ``gvadetect`` and ``gvaclassify``, you can use
 ``gvainference`` for running inference with any CNN model not supported
-by gvadetect or gvaclassify. Also, instead of visualizing the inference
-results, as shown in this tutorial, you can publish them to MQTT, Kafka
-or a file using ``gvametaconvert`` and ``gvametapublish`` of Intel® DL Streamer.
+by gvadetect or gvaclassify.
+``queue`` element must be put directly after ``gvainference`` element in pipeline.
+Also, instead of visualizing the inference results, as shown in this tutorial, 
+you can publish them to MQTT, Kafka or a file using ``gvametaconvert`` and 
+``gvametapublish`` of Intel® DL Streamer.
 
 
 Non-Docker tutorial setup
@@ -358,7 +362,7 @@ Run the below pipeline at the command prompt and review the output:
 .. code:: sh
 
    gst-launch-1.0 \
-   filesrc location=${VIDEO_EXAMPLE} ! decodebin ! \
+   filesrc location=${VIDEO_EXAMPLE} ! decodebin3 ! \
    gvadetect model=${DETECTION_MODEL} model_proc=${DETECTION_MODEL_PROC} device=CPU ! queue ! \
    gvawatermark ! videoconvert ! fpsdisplaysink video-sink=xvimagesink sync=false
 
@@ -395,7 +399,7 @@ Object detection pipeline using Web camera:
 
    # Change <path-to-device> below to your web camera device path
    gst-launch-1.0 \
-   v4l2src device=<path-to-device> ! decodebin ! \
+   v4l2src device=<path-to-device> ! decodebin3 ! \
    gvadetect model=${DETECTION_MODEL} model_proc=${DETECTION_MODEL_PROC} device=CPU ! queue ! \
    gvawatermark ! videoconvert ! fpsdisplaysink video-sink=xvimagesink sync=false
 
@@ -414,7 +418,7 @@ Object detection pipeline using RTSP URI:
 
    # Change <RTSP_uri> below to your RTSP URL
    gst-launch-1.0 \
-   urisourcebin uri=<RTSP_uri> ! decodebin ! \
+   urisourcebin uri=<RTSP_uri> ! decodebin3 ! \
    gvadetect model=${DETECTION_MODEL} model_proc=${DETECTION_MODEL_PROC} device=CPU ! queue ! \
    gvawatermark ! videoconvert ! fpsdisplaysink video-sink=xvimagesink sync=false
 
@@ -448,7 +452,7 @@ Run the below pipeline at the command prompt and review the output:
 .. code:: sh
 
    gst-launch-1.0 \
-   filesrc location=${VIDEO_EXAMPLE} ! decodebin ! \
+   filesrc location=${VIDEO_EXAMPLE} ! decodebin3 ! \
    gvadetect model=${DETECTION_MODEL} model_proc=${DETECTION_MODEL_PROC} device=CPU ! queue ! \
    gvaclassify model=${VEHICLE_CLASSIFICATION_MODEL} model-proc=${VEHICLE_CLASSIFICATION_MODEL_PROC} device=CPU object-class=vehicle ! queue ! \
    gvawatermark ! videoconvert ! fpsdisplaysink video-sink=xvimagesink sync=false
@@ -507,7 +511,7 @@ Run the below pipeline at the command prompt and review the output:
 .. code:: sh
 
    gst-launch-1.0 \
-   filesrc location=${VIDEO_EXAMPLE} ! decodebin ! \
+   filesrc location=${VIDEO_EXAMPLE} ! decodebin3 ! \
    gvadetect model=${DETECTION_MODEL} model_proc=${DETECTION_MODEL_PROC} device=CPU inference-interval=10 ! queue ! \
    gvatrack tracking-type=short-term-imageless ! queue ! \
    gvaclassify model=${VEHICLE_CLASSIFICATION_MODEL} model-proc=${VEHICLE_CLASSIFICATION_MODEL_PROC} device=CPU object-class=vehicle reclassify-interval=10 ! queue ! \
@@ -581,7 +585,7 @@ Run the below pipeline at the command prompt and review the output:
 .. code:: sh
 
    gst-launch-1.0 \
-   filesrc location=${VIDEO_EXAMPLE} ! decodebin ! \
+   filesrc location=${VIDEO_EXAMPLE} ! decodebin3 ! \
    gvadetect model=${DETECTION_MODEL} model_proc=${DETECTION_MODEL_PROC} device=CPU ! queue ! \
    gvaclassify model=${VEHICLE_CLASSIFICATION_MODEL} model-proc=${VEHICLE_CLASSIFICATION_MODEL_PROC} device=CPU object-class=vehicle ! queue ! \
    gvametaconvert format=json ! \

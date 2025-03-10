@@ -17,19 +17,17 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
@@ -37,11 +35,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/doxyrest-pygments.css" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -53,11 +50,10 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'get_started/tutorial';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series" href="flex_series/quick_start_guide.html" />
+    <link rel="next" title="Developer Guide" href="../dev_guide/dev_guide_index.html" />
     <link rel="prev" title="Uninstall Guide Ubuntu" href="install/uninstall_guide_ubuntu.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -73,8 +69,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -82,6 +89,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -89,8 +97,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -106,8 +114,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -137,11 +144,15 @@
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
@@ -153,10 +164,6 @@
 </ul>
 </details></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flex_series/quick_start_guide.html">Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series</a></li>
-
-
-
 <li class="toctree-l2"><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">Samples</a></li>
 </ul>
 </details></li>
@@ -286,14 +293,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -390,16 +392,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -528,10 +538,10 @@ standard
 <a class="reference external" href="https://gstreamer.freedesktop.org/documentation/xvimagesink/index.html?gi-language=c">xvimagesink</a>
 element to render the video frames on a local display.</p>
 <p>We will also use the
-<a class="reference external" href="https://gstreamer.freedesktop.org/documentation/playback/decodebin.html#decodebin">decodebin</a>
-utility element. The <strong>decodebin</strong> element constructs a concrete set of
+<a class="reference external" href="https://gstreamer.freedesktop.org/documentation/playback/decodebin3.html">decodebin3</a>
+utility element. The <strong>decodebin3</strong> element constructs a concrete set of
 decode operations based on the given input format and the decoder and
-demuxer elements available in the system. At a high level, the <strong>decodebin</strong>
+demuxer elements available in the system. At a high level, the <strong>decodebin3</strong>
 abstracts the individual operations required to take encoded frames and
 produce raw video frames suitable for image transformation and
 inferencing.</p>
@@ -578,7 +588,8 @@ Refer to <a class="reference internal" href="../elements/elements.html"><span cl
 <li><p><a class="reference internal" href="../elements/gvadetect.html"><span class="doc">gvadetect</span></a>
 - Runs detection with the Inference Engine from OpenVINO™ Toolkit. We
 will use it to detect vehicles in a frame and output their bounding
-boxes aka Regions of Interest (ROI).</p>
+boxes aka Regions of Interest (ROI).
+<code class="docutils literal notranslate"><span class="pre">queue</span></code> element must be put directly after <code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> element in pipeline.</p>
 <ul>
 <li><p>model - path to the inference model network file</p></li>
 <li><p>device - device to run inferencing on</p></li>
@@ -591,7 +602,8 @@ setting it to 5 would run detection on every fifth frame.</p></li>
 <li><p><a class="reference internal" href="../elements/gvaclassify.html"><span class="doc">gvaclassify</span></a>
 - Runs classification with the Inference Engine from OpenVINO™
 Toolkit. We will use it to label the bounding boxes that gvadetect
-outputs, with the type and color of the vehicle.</p>
+outputs, with the type and color of the vehicle.
+<code class="docutils literal notranslate"><span class="pre">queue</span></code> element must be put directly after <code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code> element in pipeline.</p>
 <ul>
 <li><p>model - path to the inference model network file</p></li>
 <li><p>model-proc - path to the model-proc file. A model-proc file
@@ -616,9 +628,11 @@ it on the bounding box.</p></li>
 </ul>
 <p>In addition to <code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> and <code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code>, you can use
 <code class="docutils literal notranslate"><span class="pre">gvainference</span></code> for running inference with any CNN model not supported
-by gvadetect or gvaclassify. Also, instead of visualizing the inference
-results, as shown in this tutorial, you can publish them to MQTT, Kafka
-or a file using <code class="docutils literal notranslate"><span class="pre">gvametaconvert</span></code> and <code class="docutils literal notranslate"><span class="pre">gvametapublish</span></code> of Intel® DL Streamer.</p>
+by gvadetect or gvaclassify.
+<code class="docutils literal notranslate"><span class="pre">queue</span></code> element must be put directly after <code class="docutils literal notranslate"><span class="pre">gvainference</span></code> element in pipeline.
+Also, instead of visualizing the inference results, as shown in this tutorial,
+you can publish them to MQTT, Kafka or a file using <code class="docutils literal notranslate"><span class="pre">gvametaconvert</span></code> and
+<code class="docutils literal notranslate"><span class="pre">gvametapublish</span></code> of Intel® DL Streamer.</p>
 </section>
 <section id="non-docker-tutorial-setup">
 <h2>Non-Docker tutorial setup<a class="headerlink" href="#non-docker-tutorial-setup" title="Permalink to this heading">#</a></h2>
@@ -777,7 +791,7 @@ detection. It will overlay the bounding boxes for detected vehicles on
 the video frame and render the video to local device.</p>
 <p>Run the below pipeline at the command prompt and review the output:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0<span class="w"> </span><span class="se">\</span>
-filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span><span class="si">${</span><span class="nv">VIDEO_EXAMPLE</span><span class="si">}</span><span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span><span class="si">${</span><span class="nv">VIDEO_EXAMPLE</span><span class="si">}</span><span class="w"> </span>!<span class="w"> </span>decodebin3<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL</span><span class="si">}</span><span class="w"> </span><span class="nv">model_proc</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL_PROC</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>CPU<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 gvawatermark<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span>fpsdisplaysink<span class="w"> </span>video-sink<span class="o">=</span>xvimagesink<span class="w"> </span><span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
 </pre></div>
@@ -806,7 +820,7 @@ directory.</p>
 <p>Object detection pipeline using Web camera:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change &lt;path-to-device&gt; below to your web camera device path</span>
 gst-launch-1.0<span class="w"> </span><span class="se">\</span>
-v4l2src<span class="w"> </span><span class="nv">device</span><span class="o">=</span>&lt;path-to-device&gt;<span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+v4l2src<span class="w"> </span><span class="nv">device</span><span class="o">=</span>&lt;path-to-device&gt;<span class="w"> </span>!<span class="w"> </span>decodebin3<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL</span><span class="si">}</span><span class="w"> </span><span class="nv">model_proc</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL_PROC</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>CPU<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 gvawatermark<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span>fpsdisplaysink<span class="w"> </span>video-sink<span class="o">=</span>xvimagesink<span class="w"> </span><span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
 </pre></div>
@@ -822,7 +836,7 @@ with your RTSP URI and verify it before running the command.</p>
 <p>Object detection pipeline using RTSP URI:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change &lt;RTSP_uri&gt; below to your RTSP URL</span>
 gst-launch-1.0<span class="w"> </span><span class="se">\</span>
-urisourcebin<span class="w"> </span><span class="nv">uri</span><span class="o">=</span>&lt;RTSP_uri&gt;<span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+urisourcebin<span class="w"> </span><span class="nv">uri</span><span class="o">=</span>&lt;RTSP_uri&gt;<span class="w"> </span>!<span class="w"> </span>decodebin3<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL</span><span class="si">}</span><span class="w"> </span><span class="nv">model_proc</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL_PROC</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>CPU<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 gvawatermark<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span>fpsdisplaysink<span class="w"> </span>video-sink<span class="o">=</span>xvimagesink<span class="w"> </span><span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
 </pre></div>
@@ -849,7 +863,7 @@ classify the detected people and vehicle to provide additional
 attributes.</p>
 <p>Run the below pipeline at the command prompt and review the output:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0<span class="w"> </span><span class="se">\</span>
-filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span><span class="si">${</span><span class="nv">VIDEO_EXAMPLE</span><span class="si">}</span><span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span><span class="si">${</span><span class="nv">VIDEO_EXAMPLE</span><span class="si">}</span><span class="w"> </span>!<span class="w"> </span>decodebin3<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL</span><span class="si">}</span><span class="w"> </span><span class="nv">model_proc</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL_PROC</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>CPU<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 gvaclassify<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">VEHICLE_CLASSIFICATION_MODEL</span><span class="si">}</span><span class="w"> </span>model-proc<span class="o">=</span><span class="si">${</span><span class="nv">VEHICLE_CLASSIFICATION_MODEL_PROC</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>CPU<span class="w"> </span>object-class<span class="o">=</span>vehicle<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 gvawatermark<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span>fpsdisplaysink<span class="w"> </span>video-sink<span class="o">=</span>xvimagesink<span class="w"> </span><span class="nv">sync</span><span class="o">=</span><span class="nb">false</span>
@@ -899,7 +913,7 @@ We will also specify parameters of <code class="docutils literal notranslate"><s
 elements to reduce frequency of detection and classification.</p>
 <p>Run the below pipeline at the command prompt and review the output:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0<span class="w"> </span><span class="se">\</span>
-filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span><span class="si">${</span><span class="nv">VIDEO_EXAMPLE</span><span class="si">}</span><span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span><span class="si">${</span><span class="nv">VIDEO_EXAMPLE</span><span class="si">}</span><span class="w"> </span>!<span class="w"> </span>decodebin3<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL</span><span class="si">}</span><span class="w"> </span><span class="nv">model_proc</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL_PROC</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>CPU<span class="w"> </span>inference-interval<span class="o">=</span><span class="m">10</span><span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 gvatrack<span class="w"> </span>tracking-type<span class="o">=</span>short-term-imageless<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 gvaclassify<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">VEHICLE_CLASSIFICATION_MODEL</span><span class="si">}</span><span class="w"> </span>model-proc<span class="o">=</span><span class="si">${</span><span class="nv">VEHICLE_CLASSIFICATION_MODEL_PROC</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>CPU<span class="w"> </span>object-class<span class="o">=</span>vehicle<span class="w"> </span>reclassify-interval<span class="o">=</span><span class="m">10</span><span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
@@ -961,7 +975,7 @@ results and rendering them to a screen, we will send them to a file in
 JSON format.</p>
 <p>Run the below pipeline at the command prompt and review the output:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0<span class="w"> </span><span class="se">\</span>
-filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span><span class="si">${</span><span class="nv">VIDEO_EXAMPLE</span><span class="si">}</span><span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span><span class="si">${</span><span class="nv">VIDEO_EXAMPLE</span><span class="si">}</span><span class="w"> </span>!<span class="w"> </span>decodebin3<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL</span><span class="si">}</span><span class="w"> </span><span class="nv">model_proc</span><span class="o">=</span><span class="si">${</span><span class="nv">DETECTION_MODEL_PROC</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>CPU<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 gvaclassify<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">VEHICLE_CLASSIFICATION_MODEL</span><span class="si">}</span><span class="w"> </span>model-proc<span class="o">=</span><span class="si">${</span><span class="nv">VEHICLE_CLASSIFICATION_MODEL_PROC</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>CPU<span class="w"> </span>object-class<span class="o">=</span>vehicle<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 gvametaconvert<span class="w"> </span><span class="nv">format</span><span class="o">=</span>json<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
@@ -1019,11 +1033,11 @@ analytics pipeline with Intel® DL Streamer Pipeline Framework!</p>
       </div>
     </a>
     <a class="right-next"
-       href="flex_series/quick_start_guide.html"
+       href="../dev_guide/dev_guide_index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Quick Start Guide for Media Analytics on Intel® Data Center GPU Flex Series</p>
+        <p class="prev-next-title">Developer Guide</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1034,8 +1048,7 @@ analytics pipeline with Intel® DL Streamer Pipeline Framework!</p>
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1123,8 +1136,8 @@ By Intel Corporation
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

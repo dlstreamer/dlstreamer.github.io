@@ -17,28 +17,31 @@ Inference plugins
    
    * - :doc:`gvadetect <gvadetect>`
      - Performs object detection and [optionally] classification/segmentation/pose estimation.Inputs: ROIs (regions of interest) or full frame. Output: object bounding box detection along with prediction metadata.
+     ``queue`` element must be put directly after ``gvadetect`` element in pipeline.
 
-       *[eg syntax]* *gst-launch-1.0 ... ! decodebin ! gvadetect model=$mDetect device=GPU[CPU,NPU] ! ... OUT*
+       *[eg syntax]* *gst-launch-1.0 ... ! decodebin3 ! gvadetect model=$mDetect device=GPU[CPU,NPU] ! queue ! ... OUT*
 
    * - :doc:`gvaclassify <gvaclassify>`
      - Performs object classification/segmentation/pose estimation. Inputs: ROI or full frame. Output: prediction metadata.
+     ``queue`` element must be put directly after ``gvaclassify`` element in pipeline.
 
-       *[eg syntax]* *gst-launch-1.0 ... ! decodebin ! gvadetect model=$mDetect device=GPU ! gvaclassify model=$mClassify device=CPU ! ... OUT*
+       *[eg syntax]* *gst-launch-1.0 ... ! decodebin3 ! gvadetect model=$mDetect device=GPU ! queue ! gvaclassify model=$mClassify device=CPU ! queue ! ... OUT*
 
    * - :doc:`gvainference <gvainference>`
      - Executes any inference model and outputs raw results (does not interpret data and does not generate metadata).
+     ``queue`` element must be put directly after ``gvainference`` element in pipeline.
 
-       *[eg syntax]* *gst-launch-1.0 ... ! decodebin ! gvadetect model=$mDetect device=GPU ! gvainference model=$mHeadPoseEst device=CPU ! ... OUT*
+       *[eg syntax]* *gst-launch-1.0 ... ! decodebin3 ! gvadetect model=$mDetect device=GPU ! queue ! gvainference model=$mHeadPoseEst device=CPU ! queue ! ... OUT*
 
    * - :doc:`gvatrack <gvatrack>`
      - Tracks objects across video frames using zero-term or short-term tracking algorithms. Zero-term tracking assigns unique object IDs and requires object detection to run on every frame. Short-term tracking allows to track objects between frames, thereby reducing the need to run object detection on each frame.
 
-       *[eg syntax]* *gst-launch-1.0 ... ! decodebin ! gvadetect model=$mDetect device=GPU ! gvatrack tracking-type=short-term-imageless ! ... OUT*
+       *[eg syntax]* *gst-launch-1.0 ... ! decodebin3 ! gvadetect model=$mDetect device=GPU ! gvatrack tracking-type=short-term-imageless ! ... OUT*
        
    * - :doc:`gvaaudiodetect <gvaaudiodetect>`
      - Legacy plugin.Performs audio event detection using AclNet model.
 
-       *[eg syntax]* *gst-launch-1.0 ... ! decodebin ! audioresample ! audioconvert ! audio/x-raw ... ! audiomixer ... ! gvaaudiodetect model=$mAudioDetect ! ... OUT*
+       *[eg syntax]* *gst-launch-1.0 ... ! decodebin3 ! audioresample ! audioconvert ! audio/x-raw ... ! audiomixer ... ! gvaaudiodetect model=$mAudioDetect ! ... OUT*
 
 
 Auxiliary plugins
@@ -53,12 +56,12 @@ Auxiliary plugins
    * - :doc:`gvaattachroi <gvaattachroi>`
      - Adds user-defined regions of interest to perform inference on, instead of full frame. Example: monitoring traffic on a road in a city camera feed, or when split large image to smaller pieces and inference each piece (healthcare cell analytics).
 
-       *[eg syntax]* *gst-launch-1.0 ... ! decodebin ! gvaattachroi roi=xtl,ytl,xbr,ybr gvadetect inference-region=1 ! ... OUT*
+       *[eg syntax]* *gst-launch-1.0 ... ! decodebin3 ! gvaattachroi roi=xtl,ytl,xbr,ybr gvadetect inference-region=1 ! ... OUT*
        
    * - :doc:`gvafpscounter <gvafpscounter>`
      - Measures frames per second across multiple video streams in a single GStreamer process.
 
-       *[eg syntax]* *gst-launch-1.0 ... ! decodebin ! gvadetect ... ! gvafpscounter ! ... OUT*
+       *[eg syntax]* *gst-launch-1.0 ... ! decodebin3 ! gvadetect ... ! gvafpscounter ! ... OUT*
 
    * - :doc:`gvametaaggregate <gvametaaggregate>`
      - Aggregates inference results from multiple pipeline branches.
@@ -69,7 +72,7 @@ Auxiliary plugins
    * - :doc:`gvametapublish <gvametapublish>`
      - Publishes the JSON metadata to MQTT or Kafka message brokers or files.
 
-       *[eg syntax]* *gst-launch-1.0 ... ! decodebin ! gvadetect model=$mDetect device=GPU ... ! gvametaconvert format=json ... ! gvametapublish ... ! ... OUT* 
+       *[eg syntax]* *gst-launch-1.0 ... ! decodebin3 ! gvadetect model=$mDetect device=GPU ... ! gvametaconvert format=json ... ! gvametapublish ... ! ... OUT* 
    
    * - :doc:`gvapython <gvapython>`
      - Provides a callback to execute user-defined Python functions on every frame, used to augment DLStreamer with user-defined algorithms (e.g. metadata conversion, inference post-processing).
@@ -79,7 +82,7 @@ Auxiliary plugins
    * - :doc:`gvawatermark <gvawatermark>`
      - Overlays the metadata on the video frame to visualize the inference results.
 
-       *[eg syntax]* *gst-launch-1.0 ... ! decodebin ! gvadetect ... ! gvawatermark ! ... OUT*
+       *[eg syntax]* *gst-launch-1.0 ... ! decodebin3 ! gvadetect ... ! gvawatermark ! ... OUT*
 
 .. toctree::
    :maxdepth: 1

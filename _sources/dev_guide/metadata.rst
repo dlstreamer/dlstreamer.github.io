@@ -52,7 +52,7 @@ Using the following pipeline as an example
    MODEL3=emotions-recognition-retail-0003
 
    gst-launch-1.0 --gst-plugin-path ${GST_PLUGIN_PATH} \
-       filesrc location=${INPUT} ! decodebin ! video/x-raw ! videoconvert ! \
+       filesrc location=${INPUT} ! decodebin3 ! video/x-raw ! videoconvert ! \
        gvadetect   model=$(MODEL_PATH $MODEL1) ! queue ! \
        gvaclassify model=$(MODEL_PATH $MODEL2) model-proc=$(PROC_PATH $MODEL2) ! queue ! \
        gvaclassify model=$(MODEL_PATH $MODEL3) model-proc=$(PROC_PATH $MODEL3) ! queue ! \

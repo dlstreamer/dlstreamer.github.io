@@ -32,7 +32,7 @@ MODEL2=age-gender-recognition-retail-0013
 MODEL3=emotions-recognition-retail-0003
 
 gst-launch-1.0 \
-    filesrc location=${INPUT} ! decodebin ! video/x-raw ! videoconvert ! \
+    filesrc location=${INPUT} ! decodebin3 ! video/x-raw ! videoconvert ! \
     gvadetect   model=$(MODEL_PATH $MODEL1) ! queue ! \
     gvaclassify model=$(MODEL_PATH $MODEL2) model-proc=$(PROC_PATH $MODEL2) ! queue ! \
     gvaclassify model=$(MODEL_PATH $MODEL3) model-proc=$(PROC_PATH $MODEL3) ! queue ! \
@@ -214,7 +214,7 @@ def main():
     args = parser.parse_args()
 
     # build pipeline using parse_launch
-    pipeline_str = "filesrc location={} ! decodebin ! videoconvert ! video/x-raw,format=BGRx ! " \
+    pipeline_str = "filesrc location={} ! decodebin3 ! videoconvert ! video/x-raw,format=BGRx ! " \
         "gvainference name=gvainference model={} ! queue ! " \
         "gvawatermark ! videoconvert ! fpsdisplaysink video-sink=xvimagesink sync=false".format(
             args.input, args.detection_model)
@@ -305,7 +305,7 @@ In `main` function we create string template of video analytics pipeline with **
 
 ```python
 # build pipeline using parse_launch
-pipeline_str = "filesrc location={} ! decodebin ! videoconvert ! video/x-raw,format=BGRx ! " \
+pipeline_str = "filesrc location={} ! decodebin3 ! videoconvert ! video/x-raw,format=BGRx ! " \
     "gvainference name=gvainference model={} ! queue ! " \
     "gvawatermark ! videoconvert ! fpsdisplaysink video-sink=xvimagesink sync=false".format(
     args.input, args.detection_model)

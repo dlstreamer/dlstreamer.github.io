@@ -33,7 +33,7 @@ Choose the Online Installer option.
 
         #!/bin/bash
         command="$@"
-        #e.g. command="gst-launch-1.0 filesrc location=<VIDEO_FILE> ! decodebin ! gvainference model=<MODEL>.xml ! fakesink sync=false"
+        #e.g. command="gst-launch-1.0 filesrc location=<VIDEO_FILE> ! decodebin3 ! gvainference model=<MODEL>.xml ! fakesink sync=false"
 
         # OpenVINO™ Toolkit environment
         source /opt/intel/openvino_2024/setupvars.sh

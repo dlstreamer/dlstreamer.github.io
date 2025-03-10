@@ -68,10 +68,6 @@ The third element may use CPU device, after the video stream is copied from devi
     gvaclassify model=${MODEL_FILE_3} device=CPU pre-process-backend=opencv ! queue ! \
     gvafpscounter ! fakesink
 
-Please note 'queue' elements following each inference element (gvadetect and gvaclassify).
-The inference elements process output tensors asynchronously in the context of OpenVINO™ threads. 
-For performance reasons, the asynchronous calls should complete as soon as possible - hence 'queue' elements.
-
 Static allocation of AI stages to inference devices may be suboptimal if one model is much bigger than others.
 In such case, it is recommended to use 'virtual' aggregated devices and let the OpenVINO™ inference engine to select devices dynamically.
 The pre-processing backend should be selected to handle all possible combinations.

@@ -7,5 +7,4 @@ Get Started
    system_requirements
    install/install_guide_index
    tutorial
-   flex_series/quick_start_guide
    Samples <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md>

@@ -108,7 +108,7 @@ the inferences on the video, re-encodes and outputs a new .mp4 file.
 
 .. code:: shell
 
-   filesrc location=input_file.mp4 ! decodebin ! \
+   filesrc location=input_file.mp4 ! decodebin3 ! \
    nvstreammux batch-size=1 width=1920 height=1080 ! queue ! \
    nvinfer config-file-path=./config.txt ! \
    nvvideoconvert ! "video/x-raw(memory:NVMM), format=RGBA" ! \
@@ -147,7 +147,7 @@ inference elements.
 
 .. code:: shell
 
-   filesrc location=input_file.mp4 ! decodebin ! \
+   filesrc location=input_file.mp4 ! decodebin3 ! \
    nvinfer config-file-path=./config.txt ! \
    nvvideoconvert ! "video/x-raw(memory:NVMM), format=RGBA" ! \
    nvdsosd ! queue ! \
@@ -192,7 +192,7 @@ and ``model-proc`` properties as described in “Configuring Model for Intel® D
 
 .. code:: shell
 
-   filesrc location=input_file.mp4 ! decodebin ! \
+   filesrc location=input_file.mp4 ! decodebin3 ! \
    gvadetect model=./model.xml model-proc=./model_proc.json batch-size=1 ! queue ! \
    nvvideoconvert ! "video/x-raw(memory:NVMM), format=RGBA" ! \
    nvdsosd ! queue ! \
@@ -211,7 +211,7 @@ Video Processing Elements
 
    -  ``nvv4ldecoder`` can be replaced with ``va{CODEC}dec``, for
       example ``vah264dec`` for decode only. Alternatively, the
-      native GStreamer element ``decodebin`` can be used to automatically
+      native GStreamer element ``decodebin3`` can be used to automatically
       choose an available decoder.
 
 -  Some caps filters that follow an inferencing element may need to be
@@ -230,7 +230,7 @@ the input stream as well as what is available on the system.
 
 .. code:: shell
 
-   filesrc location=input_file.mp4 ! decodebin ! \
+   filesrc location=input_file.mp4 ! decodebin3 ! \
    gvadetect model=./model.xml model-proc=./model_proc.json batch-size=1 ! queue ! \
    nvdsosd ! queue ! \
    videoconvert ! avenc_mpeg4 bitrate=8000000 ! qtmux ! filesink location=output_file.mp4
@@ -275,7 +275,7 @@ the inferences on the video for which we use ``gvawatermark``.
 
 .. code:: shell
 
-   filesrc location=input_file.mp4 ! decodebin ! \
+   filesrc location=input_file.mp4 ! decodebin3 ! \
    gvadetect model=./model.xml model-proc=./model_proc.json batch-size=1 ! queue ! \
    gvawatermark ! queue ! \
    videoconvert ! avenc_mpeg4 bitrate=8000000 ! qtmux ! filesink location=output_file.mp4
@@ -347,7 +347,7 @@ Below table lists quick reference for mapping typical DeepStream elements to Int
   * - nvvideoconvert
     - videoconvert
   * - nvv4l2decoder
-    - decodebin
+    - decodebin3
   * - nvv4l2h264dec
     - vah264dec
   * - nvv4l2h265dec

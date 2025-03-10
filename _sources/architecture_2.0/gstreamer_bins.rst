@@ -39,14 +39,14 @@ Here's an example of the same pipeline without and with ``processbin``:
 .. code:: sh
   
   # Without processbin
-  filesrc location=$FILE ! decodebin ! \
+  filesrc location=$FILE ! decodebin3 ! \
   tee name=t t. ! queue !  meta_aggregate name=mux ! fakesink \
   t. ! videoscale ! videoconvert ! video/x-raw,format=BGRP ! tensor_convert ! \
     openvino_tensor_inference model=$MODEL device=CPU ! \
     queue ! tensor_postproc_detection threshold=0.5 ! mux.
 
   # Using processbin
-  filesrc location=$FILE ! decodebin ! \
+  filesrc location=$FILE ! decodebin3 ! \
   processbin \
     preprocess="videoscale ! videoconvert ! video/x-raw,format=BGRP ! tensor_convert" \
     process="openvino_tensor_inference model=$MODEL device=CPU" \

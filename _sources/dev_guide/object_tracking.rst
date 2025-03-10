@@ -122,7 +122,7 @@ For example the following pipeline
 
   gst-launch-1.0 \
   ... ! \
-  decodebin ! \
+  decodebin3 ! \
   gvadetect model=$DETECTION_MODEL inference-interval=10 ! \
   gvatrack tracking-type=short-term-imageless ! \
   gvaclassify model=$AGE_GENDER_MODEL reclassify-interval=30 ! \
