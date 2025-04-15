@@ -160,11 +160,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../get_started/system_requirements.html">System Requirements</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../get_started/install/install_guide_index.html">Install Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../get_started/install/install_guide_ubuntu.html">Install Guide Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../get_started/install/install_guide_ubuntu_wsl2.html">Install Guide Ubuntu 24.04 on WSL2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">Uninstall Guide Ubuntu</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../get_started/tutorial.html">Tutorial</a></li>
-<li class="toctree-l2"><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">Samples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/README.md">Samples</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="dev_guide_index.html">Developer Guide</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -172,6 +173,7 @@
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_install_guide_prerequisites.html">Ubuntu advanced installation - prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_install_guide_prebuilt.html">Ubuntu advanced installation - pre-built packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_install_guide_compilation.html">Ubuntu advanced installation - compilation from source files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_build_docker_image.html">Ubuntu advanced installation - build Docker image</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_uninstall_guide.html">Ubuntu advanced uninstall guide</a></li>
 </ul>
 </details></li>
@@ -493,7 +495,7 @@ without aspect-ratio preservation and their color space will be changed
 to BGR.</p>
 <p><code class="docutils literal notranslate"><span class="pre">output_postproc</span></code> says that the inference result is one of the strings
 listed in <code class="docutils literal notranslate"><span class="pre">&quot;labels&quot;</span></code>.</p>
-<p>See the <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/model_proc">samples/gstreamer/model_proc</a>
+<p>See the <a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc">samples/gstreamer/model_proc</a>
 for examples of .json files using various models from <a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo">Open Model Zoo</a> and some
 public models.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -789,7 +791,7 @@ converter can be applied.</p>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-retail-0004.json">detection_output</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/intel/face-detection-retail-0004.json">detection_output</a></p></td>
 <td><p>Parse output blob produced by object detection neural network with <em>DetectionOutput</em> IR output layer’s type. Output is RegionOfInterest.</p>
 <p><em>labels</em> - an array of strings representing labels or a path to a file with labels where each label is on a new line.</p>
 </td>
@@ -797,7 +799,7 @@ converter can be applied.</p>
 <p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/person-vehicle-bike-detection-crossroad-0078#outputs">person-vehicle-bike-detection-crossroad-0078</a></p>
 </td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/face-detection-0205.json">boxes_labels</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/intel/face-detection-0205.json">boxes_labels</a></p></td>
 <td><p>Parse output blob produced by object detection neural network with two output layers: <em>boxes</em> and <em>labels</em>. Output is RegionOfInterest.</p>
 <p><em>labels</em> - an array of strings representing labels or a path to a file with labels where each label is on a new line.</p>
 </td>
@@ -805,7 +807,7 @@ converter can be applied.</p>
 <p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/person-vehicle-bike-detection-2004#outputs">person-vehicle-bike-detection-2004</a></p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v2-tf.json">yolo_v2</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/public/yolo-v2-tf.json">yolo_v2</a></p></td>
 <td><p>Parse output blob produced by object detection neural network with YOLO v2 architecture. Output is RegionOfInterest.</p>
 <ul class="simple">
 <li><p><em>labels</em> - an array of strings representing labels or a path to a file with labels where each label is on a new line;</p></li>
@@ -820,7 +822,7 @@ converter can be applied.</p>
 <p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/yolo-v2-tiny-tf#output">yolo-v2-tiny-tf</a></p>
 </td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v3-tf.json">yolo_v3</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/public/yolo-v3-tf.json">yolo_v3</a></p></td>
 <td><p>Parse output blob produced by object detection neural network with YOLO v3 architecture.</p>
 <ul class="simple">
 <li><p><em>labels</em> - an array of strings representing labels or a path to a file with labels where each label is on a new line;</p></li>
@@ -851,7 +853,7 @@ converter can be applied.</p>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/age-gender-recognition-retail-0013.json">text</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/intel/age-gender-recognition-retail-0013.json">text</a></p></td>
 <td><p>Transform output tensor to text.</p>
 <ul class="simple">
 <li><p><em>text_scale</em> - scales data by this number;</p></li>
@@ -860,7 +862,7 @@ converter can be applied.</p>
 </td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/age-gender-recognition-retail-0013#outputs">age-gender-recognition-retail-0013</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/vehicle-attributes-recognition-barrier-0039.json">label</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/intel/vehicle-attributes-recognition-barrier-0039.json">label</a></p></td>
 <td><p>Put an appropriate label for result.</p>
 <ul class="simple">
 <li><p><em>method</em>: one of [<em>max</em>, <em>index</em>, <em>compound</em> (threshold is required. 0.5 is default)];</p></li>
@@ -872,7 +874,7 @@ converter can be applied.</p>
 <p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/person-attributes-recognition-crossroad-0230#outputs">person-attributes-recognition-crossroad-0230</a></p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/single-human-pose-estimation-0001.json">keypoints_hrnet</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/public/single-human-pose-estimation-0001.json">keypoints_hrnet</a></p></td>
 <td><p>Parse output blob produced by network with HRNet architecture. Output tensor will have an array of key points.</p>
 <ul class="simple">
 <li><p><em>point_names</em> - an array of strings with the name of the points;</p></li>
@@ -881,7 +883,7 @@ converter can be applied.</p>
 </td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/single-human-pose-estimation-0001#outputs">single-human-pose-estimation-0001</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/human-pose-estimation-0001.json">keypoints_openpose</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/intel/human-pose-estimation-0001.json">keypoints_openpose</a></p></td>
 <td><p>Parse output blob produced by network with OpenPose architecture. Output tensor will have an array of key points.</p>
 <ul class="simple">
 <li><p><em>point_names</em> - an array of strings with the name of the points;</p></li>
@@ -903,7 +905,7 @@ converter can be applied.</p>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/aclnet.json">audio_labels</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/public/aclnet.json">audio_labels</a></p></td>
 <td><p>Output tensor - audio detections tensor.</p>
 <ul class="simple">
 <li><p><em>layer_name</em> - name of the layer to process;</p></li>

@@ -42,7 +42,12 @@ GStreamer library constructs a pipeline object that contains the
 individual elements and handles common operations such as clocking,
 messaging, and state changes.
 
-Example: gst-launch-1.0 videotestsrc ! ximagesink
+Example with test video input:
+
+.. code:: sh
+
+   gst-launch-1.0 videotestsrc ! ximagesink
+
 
 Elements
 ~~~~~~~~
@@ -67,7 +72,7 @@ pipeline. As an example, a sink element could write transcoded frames to
 a file on the local disk or open a window to render the video content to
 the screen or even restream the content via RTSP. We will use the
 standard
-`xvimagesink <https://gstreamer.freedesktop.org/documentation/xvimagesink/index.html?gi-language=c>`__
+`autovideosink <https://gstreamer.freedesktop.org/documentation/autodetect/autovideosink.html?gi-language=c>`__
 element to render the video frames on a local display.
 
 We will also use the
@@ -86,7 +91,11 @@ Elements are configured using key-value pairs called properties. As an
 example, the filesrc element has a property named location which
 specifies the file path for input.
 
-Example: filesrc location=cars_1900.mp4
+Example of filesrc element with its filesrc property:
+
+.. code:: sh
+
+   filesrc location=cars_1900.mp4
 
 The documentation for each element, which can be viewed using the
 command line tool **gst-inspect-1.0**, describes its properties as well as
@@ -97,8 +106,8 @@ Introduction to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Fr
 
 Intel® DL Streamer Pipeline Framework is an easy way to construct media analytics
 pipelines using Intel® Distribution of OpenVINO™ toolkit. It leverages
-the open source media framework GStreamer to provide optimized media operations and 
-`Deep Learning Inference Engine <https://docs.openvino.ai/2024/index.html>`__
+the open source media framework GStreamer to provide optimized media operations and
+`Deep Learning Inference Engine <https://docs.openvino.ai/2025/index.html>`__
 from OpenVINO™ Toolkit to provide optimized inference.
 
 The elements packaged in the Intel® DL Streamer Pipeline Framework binary release can be divided into three categories:
@@ -165,15 +174,15 @@ In addition to ``gvadetect`` and ``gvaclassify``, you can use
 ``gvainference`` for running inference with any CNN model not supported
 by gvadetect or gvaclassify.
 ``queue`` element must be put directly after ``gvainference`` element in pipeline.
-Also, instead of visualizing the inference results, as shown in this tutorial, 
-you can publish them to MQTT, Kafka or a file using ``gvametaconvert`` and 
+Also, instead of visualizing the inference results, as shown in this tutorial,
+you can publish them to MQTT, Kafka or a file using ``gvametaconvert`` and
 ``gvametapublish`` of Intel® DL Streamer.
 
 
 Non-Docker tutorial setup
 -------------------------
 
-This section prepares the environment to run examples described below. It is suitable if you chose Option #1 or Option #3 in Install Guide Ubuntu.
+This section prepares the environment to run examples described below. It is suitable if you chose Option #1 (APT repository) in Install Guide Ubuntu.
 
 #. Export ``MODELS_PATH`` to define where to download models. For example:
 
@@ -188,7 +197,8 @@ This section prepares the environment to run examples described below. It is sui
 
       python3 -m pip install --upgrade pip
       python3 -m pip install openvino-dev[onnx,tensorflow,pytorch]
-      /opt/intel/dlstreamer/samples/download_omz_models.sh
+      mkdir -p $MODELS_PATH
+      omz_downloader --name person-vehicle-bike-detection-2004,vehicle-attributes-recognition-barrier-0039 -o $MODELS_PATH
 
    .. note::
       Make sure your environment variable ``$PATH`` includes ``$HOME/.local/bin`` - use ``echo $PATH``.
@@ -197,16 +207,16 @@ This section prepares the environment to run examples described below. It is sui
 
    .. code:: sh
 
-      export DETECTION_MODEL=${MODELS_PATH}/intel/person-vehicle-bike-detection-2004/FP32/person-vehicle-bike-detection-2004.xml
+      export DETECTION_MODEL=${MODELS_PATH}/intel/person-vehicle-bike-detection-2004/FP16/person-vehicle-bike-detection-2004.xml
       export DETECTION_MODEL_PROC=/opt/intel/dlstreamer/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-2004.json
-      export VEHICLE_CLASSIFICATION_MODEL=${MODELS_PATH}/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml
+      export VEHICLE_CLASSIFICATION_MODEL=${MODELS_PATH}/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml
       export VEHICLE_CLASSIFICATION_MODEL_PROC=/opt/intel/dlstreamer/samples/gstreamer/model_proc/intel/vehicle-attributes-recognition-barrier-0039.json
 
 
    If you want to use your own models, you first need to convert them to
    the IR (Intermediate Representation) format. For detailed
    instructions on how to convert models, `look
-   here <https://docs.openvino.ai/2024/openvino-workflow/model-preparation/convert-model-to-ir.html>`__
+   here <https://docs.openvino.ai/2025/openvino-workflow/model-preparation/convert-model-to-ir.html>`__
 
 #. Export the example video file path:
 
@@ -228,51 +238,47 @@ This section prepares the environment to run examples described below. It is sui
 
 Docker tutorial setup
 -------------------------
-This section prepares the environment to run examples described below. It is suitable if you chose Option #2 in Install Guide Ubuntu.
+This section prepares the environment to run examples described below. It is suitable if you chose Option #2 (Docker) in Install Guide Ubuntu.
 
 #. Make sure you are not in a Docker container, but on your local host.
 
-#. Install pip, onnx and tensorflow:
+#. Export ``MODELS_PATH`` to define where to download models. For example:
 
    .. code:: sh
 
-      sudo apt-get install python3-pip
+      export MODELS_PATH=/home/${USER}/intel/models
+
+
+#. Download the models from `Open Model Zoo <https://github.com/openvinotoolkit/open_model_zoo>`__ to ``MODELS_PATH`` directory:
+
+   .. code:: sh
+
+      python3 -m pip install --upgrade pip
       python3 -m pip install openvino-dev[onnx,tensorflow,pytorch]
+      mkdir -p $MODELS_PATH
+      omz_downloader --name person-vehicle-bike-detection-2004,vehicle-attributes-recognition-barrier-0039 -o $MODELS_PATH
 
-#. Clone Intel® DL Streamer repository:
-
-   .. code:: sh
-
-      mkdir -p ~/intel
-      git clone --recursive https://github.com/dlstreamer/dlstreamer.git ~/intel/dlstreamer_gst
-
-#. Export ``MODELS_PATH`` where models will be downloaded, for example:
-
-   .. code:: sh
-
-      export MODELS_PATH=/home/${USER}/models
-
-#. Make sure your environmental variable ``$PATH`` includes ``/home/user/.local/bin``. If not:
-
-   .. code:: sh
-
-      export PATH="$PATH:/home/${USER}/.local/bin"
-
-#. Download models from `Open Model Zoo <https://github.com/openvinotoolkit/open_model_zoo>`__ to ``MODELS_PATH`` directory:
-
-   .. code:: sh
-
-      cd ~/intel/dlstreamer_gst/samples 
-      ./download_omz_models.sh
+   .. note::
+      Make sure your environment variable ``$PATH`` includes ``$HOME/.local/bin`` - use ``echo $PATH``.
 
 #. Run Intel® DL Streamer container.
-   
+
    Run Docker container with the models directory mounted into the container using ``-v`` or ``--volume`` parameter in ``docker run`` command.
    Make sure your mounting parameter is specified as ``-v <path_on_host>:<path_in_the_container>``:
 
-   .. code:: sh
+   ..  tabs::
 
-      docker run -it --rm -v ${MODELS_PATH}:/home/dlstreamer/models --env MODELS_PATH=/home/dlstreamer/models intel/dlstreamer:latest
+      ..  tab:: Ubuntu 22
+
+         .. code-block:: sh
+
+             docker run -it --rm -v ${MODELS_PATH}:/home/dlstreamer/models --env MODELS_PATH=/home/dlstreamer/models intel/dlstreamer:2025.0.1.2-ubuntu22
+
+      ..  tab:: Ubuntu 24
+
+         .. code-block:: sh
+
+             docker run -it --rm -v ${MODELS_PATH}:/home/dlstreamer/models --env MODELS_PATH=/home/dlstreamer/models intel/dlstreamer:latest
 
    Running Intel® DL Streamer in the Docker container with an inference on GPU or NPU devices requires the access as a non-root user to these devices in the container.
    Intel® DL Streamer Pipeline Framework Docker images do not contain a ``render`` group for ``dlstreamer`` non-root user because the ``render`` group does not have a strict group ID, unlike the ``video`` group.
@@ -288,7 +294,7 @@ This section prepares the environment to run examples described below. It is sui
       --env ZE_ENABLE_ALT_DRIVERS=libze_intel_vpu.so \
       --env MODELS_PATH=/home/dlstreamer/models \
       intel/dlstreamer:latest
-   
+
    where newly added parameters are:
 
    #. ``--device /dev/dri`` - access to GPU device, required when you want to use GPU as inference device (``device=GPU``) or use VA-API graphics hardware acceleration capabilities like ``vapostproc``, ``vah264dec``, ``vah264enc``, ``vah265dec``, ``vah265enc`` etc.
@@ -305,16 +311,16 @@ This section prepares the environment to run examples described below. It is sui
 
    .. code:: sh
 
-      export DETECTION_MODEL=/home/dlstreamer/models/intel/person-vehicle-bike-detection-2004/FP32/person-vehicle-bike-detection-2004.xml
+      export DETECTION_MODEL=/home/dlstreamer/models/intel/person-vehicle-bike-detection-2004/FP16/person-vehicle-bike-detection-2004.xml
       export DETECTION_MODEL_PROC=/opt/intel/dlstreamer/samples/gstreamer/model_proc/intel/person-vehicle-bike-detection-2004.json
-      export VEHICLE_CLASSIFICATION_MODEL=/home/dlstreamer/models/intel/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml
+      export VEHICLE_CLASSIFICATION_MODEL=/home/dlstreamer/models/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml
       export VEHICLE_CLASSIFICATION_MODEL_PROC=/opt/intel/dlstreamer/samples/gstreamer/model_proc/intel/vehicle-attributes-recognition-barrier-0039.json
 
 
    If you want to use your own models, you need to first convert them in
    the IR (Intermediate Representation) format. For detailed
    instructions to convert models, `look
-   here <https://docs.openvino.ai/2024/openvino-workflow/model-preparation/convert-model-to-ir.html>`__
+   here <https://docs.openvino.ai/2025/openvino-workflow/model-preparation/convert-model-to-ir.html>`__
 
 #. In the container, export the example video file path:
 
@@ -364,15 +370,10 @@ Run the below pipeline at the command prompt and review the output:
    gst-launch-1.0 \
    filesrc location=${VIDEO_EXAMPLE} ! decodebin3 ! \
    gvadetect model=${DETECTION_MODEL} model_proc=${DETECTION_MODEL_PROC} device=CPU ! queue ! \
-   gvawatermark ! videoconvert ! fpsdisplaysink video-sink=xvimagesink sync=false
+   gvawatermark ! videoconvert ! autovideosink sync=false
 
 **Expected output**: You will see your video overlaid by bounding boxes
 around persons, vehicles, and bikes.
-
-In addition to the elements described in the first two section, the
-pipeline uses
-`\`fpsdisplaysink\` <https://gstreamer.freedesktop.org/documentation/debugutilsbad/fpsdisplaysink.html?gi-language=c>`__
-to display the average FPS of the pipeline.
 
 You’re done building and running this pipeline. To expand on this
 exercise, use one or both add-ons to this exercise to select different
@@ -393,7 +394,7 @@ the below updated pipeline, check the web camera path and update it in
 the pipeline. The web camera stream is usually in the ``/dev/``
 directory.
 
-Object detection pipeline using Web camera:
+Object detection pipeline using web camera:
 
 .. code:: sh
 
@@ -401,7 +402,7 @@ Object detection pipeline using Web camera:
    gst-launch-1.0 \
    v4l2src device=<path-to-device> ! decodebin3 ! \
    gvadetect model=${DETECTION_MODEL} model_proc=${DETECTION_MODEL_PROC} device=CPU ! queue ! \
-   gvawatermark ! videoconvert ! fpsdisplaysink video-sink=xvimagesink sync=false
+   gvawatermark ! videoconvert ! autovideosink sync=false
 
 Pipeline with an RTSP Input (Second optional add-on to Exercise 1)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -412,15 +413,14 @@ element in the object detection pipeline with
 to access URIs. Before running the below updated pipeline, replace ‘<RTSP_uri>’
 with your RTSP URI and verify it before running the command.
 
-Object detection pipeline using RTSP URI:
+Object detection pipeline using sample RTSP URI from Pexels:
 
 .. code:: sh
 
-   # Change <RTSP_uri> below to your RTSP URL
    gst-launch-1.0 \
-   urisourcebin uri=<RTSP_uri> ! decodebin3 ! \
+   urisourcebin uri=https://videos.pexels.com/video-files/1192116/1192116-sd_640_360_30fps.mp4 ! decodebin3 ! \
    gvadetect model=${DETECTION_MODEL} model_proc=${DETECTION_MODEL_PROC} device=CPU ! queue ! \
-   gvawatermark ! videoconvert ! fpsdisplaysink video-sink=xvimagesink sync=false
+   gvawatermark ! videoconvert ! autovideosink sync=false
 
 .. _object-classification:
 
@@ -438,8 +438,6 @@ This exercise uses the following Pipeline Framework elements:
 * gvaclassify
 * gvawatermark
 
-.. _pipeline-1:
-
 Pipeline
 ~~~~~~~~
 
@@ -455,7 +453,7 @@ Run the below pipeline at the command prompt and review the output:
    filesrc location=${VIDEO_EXAMPLE} ! decodebin3 ! \
    gvadetect model=${DETECTION_MODEL} model_proc=${DETECTION_MODEL_PROC} device=CPU ! queue ! \
    gvaclassify model=${VEHICLE_CLASSIFICATION_MODEL} model-proc=${VEHICLE_CLASSIFICATION_MODEL_PROC} device=CPU object-class=vehicle ! queue ! \
-   gvawatermark ! videoconvert ! fpsdisplaysink video-sink=xvimagesink sync=false
+   gvawatermark ! videoconvert ! autovideosink sync=false
 
 **Expected output**: Persons, vehicles, and bikes are bound by colored
 boxes, and detection results as well as classification attributes such
@@ -475,7 +473,7 @@ In the above pipeline:
 
 4. ``gvawatermark`` displays the ROIs and their attributes.
 
-See `model-proc <https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/model_proc>`__
+See `model-proc <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc>`__
 for the model-procs and its input and output specifications.
 
 .. _object-tracking:
@@ -493,8 +491,6 @@ This exercise uses the following Pipeline Framework elements:
 * ``gvaclassify``
 * ``gvatrack``
 * ``gvawatermark``
-
-.. _pipeline-2:
 
 Pipeline
 ~~~~~~~~
@@ -515,7 +511,7 @@ Run the below pipeline at the command prompt and review the output:
    gvadetect model=${DETECTION_MODEL} model_proc=${DETECTION_MODEL_PROC} device=CPU inference-interval=10 ! queue ! \
    gvatrack tracking-type=short-term-imageless ! queue ! \
    gvaclassify model=${VEHICLE_CLASSIFICATION_MODEL} model-proc=${VEHICLE_CLASSIFICATION_MODEL_PROC} device=CPU object-class=vehicle reclassify-interval=10 ! queue ! \
-   gvawatermark ! videoconvert ! fpsdisplaysink video-sink=xvimagesink sync=false
+   gvawatermark ! videoconvert ! autovideosink sync=false
 
 **Expected output**: Persons, vehicles, and bikes are bound by colored
 boxes, and detection results as well as classification attributes such
@@ -567,8 +563,8 @@ output file path:
 
 .. code:: sh
 
-   # Replace <path-to-FILENAME> with path to your file before running the below command.
-   export OUTFILE=<path-to-FILENAME>
+   # Adjust the command below according to your needs
+   export OUTFILE=~/pipeline_output.json
 
 .. _pipeline-3:
 
@@ -598,12 +594,11 @@ inference results is available. Review the JSON file.
 In the above pipeline:
 
 - ``gvametaconvert`` uses the optional parameter ``format=json`` to convert inferenced data to ``GstGVAJSONMeta``.
-- ``GstGVAJSONMeta`` is a custom data structure that represents JSON metadata.
 - ``gvametapublish`` uses the optional parameter ``method=file`` to publish inference results to a file.
 - ``filepath=${OUTFILE}`` is a JSON file to which the inference results are published.
 
 For publishing the results to MQTT or Kafka, please refer to the
-`metapublish samples <https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/gst_launch/metapublish>`__.
+`metapublish samples <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/gst_launch/metapublish>`__.
 
 You have completed this tutorial. Now, start creating your video
 analytics pipeline with Intel® DL Streamer Pipeline Framework!
@@ -611,7 +606,7 @@ analytics pipeline with Intel® DL Streamer Pipeline Framework!
 Next Steps
 ----------
 
-* `Samples overview <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md>`__
+* `Samples overview <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/README.md>`__
 * :doc:`../elements/elements`
 * :doc:`../dev_guide/how_to_create_model_proc_file`
 

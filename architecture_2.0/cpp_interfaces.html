@@ -160,11 +160,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../get_started/system_requirements.html">System Requirements</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../get_started/install/install_guide_index.html">Install Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../get_started/install/install_guide_ubuntu.html">Install Guide Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../get_started/install/install_guide_ubuntu_wsl2.html">Install Guide Ubuntu 24.04 on WSL2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">Uninstall Guide Ubuntu</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../get_started/tutorial.html">Tutorial</a></li>
-<li class="toctree-l2"><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">Samples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/README.md">Samples</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../dev_guide/dev_guide_index.html">Developer Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -172,6 +173,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_prerequisites.html">Ubuntu advanced installation - prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_prebuilt.html">Ubuntu advanced installation - pre-built packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_compilation.html">Ubuntu advanced installation - compilation from source files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_build_docker_image.html">Ubuntu advanced installation - build Docker image</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_uninstall_guide.html">Ubuntu advanced uninstall guide</a></li>
 </ul>
 </details></li>
@@ -466,7 +468,7 @@ frameworks and memory handles on CPU and GPU</p>
 <li><p>VA-API <code class="docutils literal notranslate"><span class="pre">VASurfaceID</span></code></p></li>
 </ul>
 <p>The memory interop sub-component is available via APT installation <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">intel-dlstreamer-cpp</span></code> and on
-<a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/include/dlstreamer">github</a>.</p>
+<a href="#id4"><span class="problematic" id="id5">`github https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/include/dlstreamer&gt;`__</span></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This sub-component implemented as C++ header-only library. Python bindings for this library coming in next releases.</p>
@@ -602,9 +604,9 @@ see table below for each supported framework/library:</p>
 <p>Application can create <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> and <code class="docutils literal notranslate"><span class="pre">Frame</span></code> objects by either passing pre-allocated native memory object to C++ constructor
 (wrap already allocated object) or passing allocation parameters to C++ constructor (allocate new memory).</p>
 <p>Many examples how to allocate memory and create and use memory mappers can be found by searching word <code class="docutils literal notranslate"><span class="pre">mapper</span></code> in
-<a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples">samples</a> and
-<a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/src">src</a> folders on github source code, for example
-FFmpeg+DPCPP sample <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/ffmpeg_dpcpp/rgb_to_grayscale">rgb_to_grayscale</a>
+<a href="#id4"><span class="problematic" id="id6">`samples https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples&gt;`__</span></a> and
+<a href="#id4"><span class="problematic" id="id7">`src https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/src&gt;`__</span></a> folders on github source code, for example
+FFmpeg+DPCPP sample <a href="#id8"><span class="problematic" id="id9">`rgb_to_grayscale https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/ffmpeg_dpcpp/rgb_to_grayscale&gt;`_</span></a>
 and almost every C++ element.</p>
 <p>There is special mapper <a class="reference internal" href="api_ref/class_dlstreamer_MemoryMapperChain.html"><span class="doc">MemoryMapperChain</span></a> implementing
 unified interface <a class="reference internal" href="api_ref/class_dlstreamer_MemoryMapper.html"><span class="doc">MemoryMapper</span></a> as arbitrary chain of multiple mappers.

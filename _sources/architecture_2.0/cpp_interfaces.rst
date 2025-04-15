@@ -17,7 +17,7 @@ frameworks and memory handles on CPU and GPU
 * VA-API ``VASurfaceID``
 
 The memory interop sub-component is available via APT installation ``sudo apt install intel-dlstreamer-cpp`` and on
-`github <https://github.com/dlstreamer/dlstreamer/tree/master/include/dlstreamer>`__.
+`github https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/include/dlstreamer>`__.
 
 .. note::
   This sub-component implemented as C++ header-only library. Python bindings for this library coming in next releases.
@@ -145,9 +145,9 @@ Application can create ``Tensor`` and ``Frame`` objects by either passing pre-al
 (wrap already allocated object) or passing allocation parameters to C++ constructor (allocate new memory).
 
 Many examples how to allocate memory and create and use memory mappers can be found by searching word ``mapper`` in
-`samples <https://github.com/dlstreamer/dlstreamer/tree/master/samples>`__ and
-`src <https://github.com/dlstreamer/dlstreamer/tree/master/src>`__ folders on github source code, for example
-FFmpeg+DPCPP sample `rgb_to_grayscale <https://github.com/dlstreamer/dlstreamer/tree/master/samples/ffmpeg_dpcpp/rgb_to_grayscale>`_
+`samples https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples>`__ and
+`src https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/src>`__ folders on github source code, for example
+FFmpeg+DPCPP sample `rgb_to_grayscale https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/ffmpeg_dpcpp/rgb_to_grayscale>`_
 and almost every C++ element.
 
 There is special mapper :doc:`MemoryMapperChain <api_ref/class_dlstreamer_MemoryMapperChain>` implementing

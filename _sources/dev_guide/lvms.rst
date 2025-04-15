@@ -5,7 +5,7 @@ This page illustrates how to prepare the Vision Transformer from the **clip-vit-
 
 .. note::
    
-   The instructions provided below are comprehensive, but for convenience, it is recommended to use the `download_public_models.sh <https://github.com/dlstreamer/dlstreamer/blob/master/samples/download_public_models.sh>`_ script. This script will download all supported models and perform the necessary conversions automatically.
+   The instructions provided below are comprehensive, but for convenience, it is recommended to use the `download_public_models.sh <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/download_public_models.sh>`_ script. This script will download all supported models and perform the necessary conversions automatically.
    
    See :doc:`download_public_models <download_public_models>` for more information.
 

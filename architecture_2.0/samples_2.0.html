@@ -160,11 +160,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../get_started/system_requirements.html">System Requirements</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../get_started/install/install_guide_index.html">Install Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../get_started/install/install_guide_ubuntu.html">Install Guide Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../get_started/install/install_guide_ubuntu_wsl2.html">Install Guide Ubuntu 24.04 on WSL2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">Uninstall Guide Ubuntu</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../get_started/tutorial.html">Tutorial</a></li>
-<li class="toctree-l2"><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">Samples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/README.md">Samples</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../dev_guide/dev_guide_index.html">Developer Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -172,6 +173,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_prerequisites.html">Ubuntu advanced installation - prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_prebuilt.html">Ubuntu advanced installation - pre-built packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_compilation.html">Ubuntu advanced installation - compilation from source files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_build_docker_image.html">Ubuntu advanced installation - build Docker image</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_uninstall_guide.html">Ubuntu advanced uninstall guide</a></li>
 </ul>
 </details></li>
@@ -473,29 +475,29 @@ document.write(`
 </tr>
 <tr class="row-odd"><td><p>GStreamer low-level</p></td>
 <td><p>samples/gstreamer/gst_launch/face_detection_and_classification_bins/</p></td>
-<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/gst_launch/face_detection_and_classification_bins/face_detection_and_classification_cpu.sh">face_detection_and_classification_cpu.sh</a>
-<a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/gst_launch/face_detection_and_classification_bins/face_detection_and_classification_gpu.sh">face_detection_and_classification_gpu.sh</a></p></td>
+<td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/gst_launch/face_detection_and_classification_bins/face_detection_and_classification_cpu.sh">face_detection_and_classification_cpu.sh</a>
+<a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/gst_launch/face_detection_and_classification_bins/face_detection_and_classification_gpu.sh">face_detection_and_classification_gpu.sh</a></p></td>
 <td><p>No</p></td>
 <td><p>Yes</p></td>
 <td><p>No</p></td>
 </tr>
 <tr class="row-even"><td><p>GStreamer low-level</p></td>
 <td><p>samples/gstreamer/gst_launch/action_recognition/</p></td>
-<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/gst_launch/action_recognition/action_recognition.sh">action_recognition.sh</a></p></td>
+<td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/gst_launch/action_recognition/action_recognition.sh">action_recognition.sh</a></p></td>
 <td><p>No</p></td>
 <td><p>Yes</p></td>
 <td><p>Yes</p></td>
 </tr>
 <tr class="row-odd"><td><p>GStreamer low-level</p></td>
 <td><p>samples/gstreamer/gst_launch/instance_segmentation/</p></td>
-<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/gst_launch/instance_segmentation/instance_segmentation.sh">instance_segmentation.sh</a></p></td>
+<td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/gst_launch/instance_segmentation/instance_segmentation.sh">instance_segmentation.sh</a></p></td>
 <td><p>No</p></td>
 <td><p>Yes</p></td>
 <td><p>Yes</p></td>
 </tr>
 <tr class="row-even"><td><p>GStreamer high-level</p></td>
 <td><p>samples/gstreamer/gst_launch</p></td>
-<td><p>All other <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer">GStreamer samples</a>
+<td><p>All other <a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer">GStreamer samples</a>
 if set environment variable <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">DLSTREAMER_GEN=2</span></code></p></td>
 <td><p>No</p></td>
 <td><p>No</p></td>
@@ -503,7 +505,7 @@ if set environment variable <code class="docutils literal notranslate"><span cla
 </tr>
 <tr class="row-odd"><td><p>GStreamer gva* (architecture 1.0)</p></td>
 <td><p>samples/gstreamer/gst_launch</p></td>
-<td><p>All <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer">GStreamer samples</a>
+<td><p>All <a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer">GStreamer samples</a>
 using PV-quality gva* elements</p></td>
 <td><p>No</p></td>
 <td><p>No</p></td>

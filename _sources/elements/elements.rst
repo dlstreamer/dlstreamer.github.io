@@ -16,20 +16,17 @@ Inference plugins
      - Description
    
    * - :doc:`gvadetect <gvadetect>`
-     - Performs object detection and [optionally] classification/segmentation/pose estimation.Inputs: ROIs (regions of interest) or full frame. Output: object bounding box detection along with prediction metadata.
-     ``queue`` element must be put directly after ``gvadetect`` element in pipeline.
+     - Performs object detection and [optionally] classification/segmentation/pose estimation. Inputs: ROIs (regions of interest) or full frame. Output: object bounding box detection along with prediction metadata. ``queue`` element must be put directly after ``gvadetect`` element in pipeline.
 
        *[eg syntax]* *gst-launch-1.0 ... ! decodebin3 ! gvadetect model=$mDetect device=GPU[CPU,NPU] ! queue ! ... OUT*
 
    * - :doc:`gvaclassify <gvaclassify>`
-     - Performs object classification/segmentation/pose estimation. Inputs: ROI or full frame. Output: prediction metadata.
-     ``queue`` element must be put directly after ``gvaclassify`` element in pipeline.
+     - Performs object classification/segmentation/pose estimation. Inputs: ROI or full frame. Output: prediction metadata. ``queue`` element must be put directly after ``gvaclassify`` element in pipeline.
 
        *[eg syntax]* *gst-launch-1.0 ... ! decodebin3 ! gvadetect model=$mDetect device=GPU ! queue ! gvaclassify model=$mClassify device=CPU ! queue ! ... OUT*
 
    * - :doc:`gvainference <gvainference>`
-     - Executes any inference model and outputs raw results (does not interpret data and does not generate metadata).
-     ``queue`` element must be put directly after ``gvainference`` element in pipeline.
+     - Executes any inference model and outputs raw results (does not interpret data and does not generate metadata). ``queue`` element must be put directly after ``gvainference`` element in pipeline.
 
        *[eg syntax]* *gst-launch-1.0 ... ! decodebin3 ! gvadetect model=$mDetect device=GPU ! queue ! gvainference model=$mHeadPoseEst device=CPU ! queue ! ... OUT*
 
@@ -39,7 +36,7 @@ Inference plugins
        *[eg syntax]* *gst-launch-1.0 ... ! decodebin3 ! gvadetect model=$mDetect device=GPU ! gvatrack tracking-type=short-term-imageless ! ... OUT*
        
    * - :doc:`gvaaudiodetect <gvaaudiodetect>`
-     - Legacy plugin.Performs audio event detection using AclNet model.
+     - Legacy plugin. Performs audio event detection using AclNet model.
 
        *[eg syntax]* *gst-launch-1.0 ... ! decodebin3 ! audioresample ! audioconvert ! audio/x-raw ... ! audiomixer ... ! gvaaudiodetect model=$mAudioDetect ! ... OUT*
 

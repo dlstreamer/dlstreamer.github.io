@@ -160,11 +160,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../get_started/system_requirements.html">System Requirements</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../get_started/install/install_guide_index.html">Install Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../get_started/install/install_guide_ubuntu.html">Install Guide Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../get_started/install/install_guide_ubuntu_wsl2.html">Install Guide Ubuntu 24.04 on WSL2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">Uninstall Guide Ubuntu</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../get_started/tutorial.html">Tutorial</a></li>
-<li class="toctree-l2"><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">Samples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/README.md">Samples</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="dev_guide_index.html">Developer Guide</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -172,6 +173,7 @@
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_install_guide_prerequisites.html">Ubuntu advanced installation - prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_install_guide_prebuilt.html">Ubuntu advanced installation - pre-built packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_install_guide_compilation.html">Ubuntu advanced installation - compilation from source files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_build_docker_image.html">Ubuntu advanced installation - build Docker image</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_uninstall_guide.html">Ubuntu advanced uninstall guide</a></li>
 </ul>
 </details></li>
@@ -554,11 +556,11 @@ supported</strong> by Pipeline Framework, however, there is an <strong>exception
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/faster_rcnn_resnet50_coco">Faster-RCNN</a></p></td>
-<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-image-info.json">preproc-image-info.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/public/preproc-image-info.json">preproc-image-info.json</a></p></td>
 <td><p>image_info</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/license-plate-recognition-barrier-0007">license-plate-recognition-barrier-0007</a></p></td>
-<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/license-plate-recognition-barrier-0007.json">license-plate-recognition-barrier-0007.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/intel/license-plate-recognition-barrier-0007.json">license-plate-recognition-barrier-0007.json</a></p></td>
 <td><p>sequence_index</p></td>
 </tr>
 </tbody>
@@ -586,11 +588,11 @@ However, if the goal is to get the highest possible accuracy, this may not be en
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/onnx/models/blob/main/validated/vision/classification/mobilenet">MobileNet</a></p></td>
-<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/onnx/mobilenetv2-7.json">mobilenetv2-7.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/onnx/mobilenetv2-7.json">mobilenetv2-7.json</a></p></td>
 <td><p>normalization</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/single-human-pose-estimation-0001">single-human-pose-estimation-0001</a></p></td>
-<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/single-human-pose-estimation-0001.json">single-human-pose-estimation-0001.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/public/single-human-pose-estimation-0001.json">single-human-pose-estimation-0001.json</a></p></td>
 <td><p>padding</p></td>
 </tr>
 </tbody>
@@ -613,7 +615,7 @@ converter in <em>“output_postproc”</em> for separate processing. Example:</p
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/age-gender-recognition-retail-0013">age-gender-recognition-retail-0013</a></p></td>
-<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/age-gender-recognition-retail-0013.json">age-gender-recognition-retail-0013.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/intel/age-gender-recognition-retail-0013.json">age-gender-recognition-retail-0013.json</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -628,7 +630,7 @@ the field <em>“layer_names”: [“layer_name_1”, .. , “layer_name_n”]</
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/yolo-v3-tf">YOLOv3</a></p></td>
-<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v3-tf.json">yolo-v3-tf.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/public/yolo-v3-tf.json">yolo-v3-tf.json</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -678,15 +680,15 @@ and specify <em>“labels”</em> field as a list or a path to labels file.</p>
 <tbody>
 <tr class="row-even"><td><p>ImageNet</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/resnet-18-pytorch">resnet-18-pytorch</a></p></td>
-<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json">preproc-aspect-ratio.json</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>COCO</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/yolo-v2-tf">YOLOv2</a></p></td>
-<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v2-tf.json">yolo-v2-tf.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/public/yolo-v2-tf.json">yolo-v2-tf.json</a></p></td>
 </tr>
 <tr class="row-even"><td><p>PASCAL VOC</p></td>
 <td><p><a class="reference external" href="https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/yolo-v2-ava-0001">yolo-v2-ava-0001</a></p></td>
-<td><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/yolo-v2-ava-0001.json">yolo-v2-ava-0001.json</a></p></td>
+<td><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/intel/yolo-v2-ava-0001.json">yolo-v2-ava-0001.json</a></p></td>
 </tr>
 </tbody>
 </table>

@@ -160,11 +160,12 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">System Requirements</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="install/install_guide_index.html">Install Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="install/install_guide_ubuntu.html">Install Guide Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/install_guide_ubuntu_wsl2.html">Install Guide Ubuntu 24.04 on WSL2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install/uninstall_guide_ubuntu.html">Uninstall Guide Ubuntu</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
-<li class="toctree-l2"><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">Samples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/README.md">Samples</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../dev_guide/dev_guide_index.html">Developer Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -172,6 +173,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_prerequisites.html">Ubuntu advanced installation - prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_prebuilt.html">Ubuntu advanced installation - pre-built packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_compilation.html">Ubuntu advanced installation - compilation from source files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_build_docker_image.html">Ubuntu advanced installation - build Docker image</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_uninstall_guide.html">Ubuntu advanced uninstall guide</a></li>
 </ul>
 </details></li>
@@ -466,6 +468,12 @@ document.write(`
 <td><p>Integrated Intel® AI Boost</p></td>
 <td><p>Ubuntu 24.04 with kernel version &gt;= 6.12</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.intel.com/content/www/us/en/ark/products/codename/225837/products-formerly-arrow-lake.html">Arrow Lake</a></p></td>
+<td><p>Intel® Core™ Ultra Processors - series 2</p></td>
+<td><p>Integrated Intel® Arc™ Graphics</p></td>
+<td><p>Integrated Intel® AI Boost</p></td>
+<td><p>Ubuntu 24.04 with kernel version &gt;= 6.12</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -484,7 +492,11 @@ document.write(`
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://www.intel.com/content/www/us/en/products/details/discrete-gpus/arc/arc-a-series/products.html">Alchemist</a></p></td>
 <td><p>Intel® Arc™ GPU Series A</p></td>
-<td><p>Ubuntu 22.04</p></td>
+<td><p>Ubuntu 22.04, Ubuntu 24.04</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.intel.com/content/www/us/en/ark/products/series/240391/intel-arc-b-series-graphics.html">Battlemage</a></p></td>
+<td><p>Intel® Arc™ GPU Series B</p></td>
+<td><p>Ubuntu 24.04</p></td>
 </tr>
 </tbody>
 </table>

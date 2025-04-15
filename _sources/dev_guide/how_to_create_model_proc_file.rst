@@ -85,11 +85,11 @@ In the table below you can find examples of model-proc files that use formats de
      - 2nd layer format
 
    * - `Faster-RCNN <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/faster_rcnn_resnet50_coco>`__
-     - `preproc-image-info.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-image-info.json>`__
+     - `preproc-image-info.json <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/public/preproc-image-info.json>`__
      - image_info
 
    * - `license-plate-recognition-barrier-0007 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/license-plate-recognition-barrier-0007>`__
-     - `license-plate-recognition-barrier-0007.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/license-plate-recognition-barrier-0007.json>`__
+     - `license-plate-recognition-barrier-0007.json <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/intel/license-plate-recognition-barrier-0007.json>`__
      - sequence_index
 
 
@@ -117,11 +117,11 @@ In the table below you can find examples of model-proc files that use some of th
      - Operation
 
    * - `MobileNet <https://github.com/onnx/models/blob/main/validated/vision/classification/mobilenet>`__
-     - `mobilenetv2-7.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/onnx/mobilenetv2-7.json>`__
+     - `mobilenetv2-7.json <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/onnx/mobilenetv2-7.json>`__
      - normalization
 
    * - `single-human-pose-estimation-0001 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/single-human-pose-estimation-0001>`__
-     - `single-human-pose-estimation-0001.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/single-human-pose-estimation-0001.json>`__
+     - `single-human-pose-estimation-0001.json <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/public/single-human-pose-estimation-0001.json>`__
      - padding
 
 For details see :doc:`model-proc documentation <model_proc_file>`.
@@ -143,7 +143,7 @@ converter in *"output_postproc"* for separate processing. Example:
    * - Model
      - Model-proc
    * - `age-gender-recognition-retail-0013 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/age-gender-recognition-retail-0013>`__
-     - `age-gender-recognition-retail-0013.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/age-gender-recognition-retail-0013.json>`__
+     - `age-gender-recognition-retail-0013.json <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/intel/age-gender-recognition-retail-0013.json>`__
 
 For joint processing of blobs from several output layers, it is enough to specify only one converter and
 the field *"layer_names": ["layer_name_1", .. , "layer_name_n"]* in it. Example:
@@ -154,7 +154,7 @@ the field *"layer_names": ["layer_name_1", .. , "layer_name_n"]* in it. Example:
    * - Model
      - Model-proc
    * - `YOLOv3 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/yolo-v3-tf>`__
-     - `yolo-v3-tf.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v3-tf.json>`__
+     - `yolo-v3-tf.json <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/public/yolo-v3-tf.json>`__
 
 .. note::
    In this example, you will not find the use of the *"layer_names"* field, because it is not necessary to specify it in
@@ -201,13 +201,13 @@ Examples of labels in model-proc files:
      - Model-proc
    * - ImageNet
      - `resnet-18-pytorch <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/resnet-18-pytorch>`__
-     - `preproc-aspect-ratio.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
+     - `preproc-aspect-ratio.json <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/public/preproc-aspect-ratio.json>`__
    * - COCO
      - `YOLOv2 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/public/yolo-v2-tf>`__
-     - `yolo-v2-tf.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/public/yolo-v2-tf.json>`__
+     - `yolo-v2-tf.json <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/public/yolo-v2-tf.json>`__
    * - PASCAL VOC
      - `yolo-v2-ava-0001 <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/yolo-v2-ava-0001>`__
-     - `yolo-v2-ava-0001.json <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/model_proc/intel/yolo-v2-ava-0001.json>`__
+     - `yolo-v2-ava-0001.json <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/model_proc/intel/yolo-v2-ava-0001.json>`__
 
 Practice
 --------

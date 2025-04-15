@@ -6,7 +6,7 @@ Intel® Deep Learning Streamer (Intel® DL Streamer) releases are validated on t
 .. list-table::
   :header-rows: 1
   :widths: auto
-  
+
   * - Codename
     - CPU
     - GPU
@@ -26,7 +26,12 @@ Intel® Deep Learning Streamer (Intel® DL Streamer) releases are validated on t
     - Intel® Core™ Ultra Processors - series 2
     - Integrated Intel® Arc™ B-Series Graphics
     - Integrated Intel® AI Boost
-    - Ubuntu 24.04 with kernel version >= 6.12 
+    - Ubuntu 24.04 with kernel version >= 6.12
+  * - `Arrow Lake <https://www.intel.com/content/www/us/en/ark/products/codename/225837/products-formerly-arrow-lake.html>`__
+    - Intel® Core™ Ultra Processors - series 2
+    - Integrated Intel® Arc™ Graphics
+    - Integrated Intel® AI Boost
+    - Ubuntu 24.04 with kernel version >= 6.12
 
 
 Additionally, Intel® DL Streamer releases are validated on the following discrete GPUs:
@@ -34,7 +39,7 @@ Additionally, Intel® DL Streamer releases are validated on the following discre
 .. list-table::
   :header-rows: 1
   :widths: auto
-  
+
   * - Codename
     - GPU
     - Operating system
@@ -43,7 +48,10 @@ Additionally, Intel® DL Streamer releases are validated on the following discre
     - Ubuntu 22.04
   * - `Alchemist <https://www.intel.com/content/www/us/en/products/details/discrete-gpus/arc/arc-a-series/products.html>`__
     - Intel® Arc™ GPU Series A
-    - Ubuntu 22.04
+    - Ubuntu 22.04, Ubuntu 24.04
+  * - `Battlemage <https://www.intel.com/content/www/us/en/ark/products/series/240391/intel-arc-b-series-graphics.html>`__
+    - Intel® Arc™ GPU Series B
+    - Ubuntu 24.04
 
-To see the full list of potentially supported platforms, please refer to 
+To see the full list of potentially supported platforms, please refer to
 `OpenVINO™ System Requirements <https://www.intel.com/content/www/us/en/developer/tools/openvino-toolkit/system-requirements.html>`__

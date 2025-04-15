@@ -11,7 +11,7 @@ This page provides instructions on how to use the *samples/download_public_model
 
 The script downloads the models from the respective sources, handles the necessary conversions, and places the model files in a directory specified by the MODELS_PATH environment variable.
 
-Link to check `supported models <https://github.com/dlstreamer/dlstreamer/blob/master/samples/download_public_models.sh#L12>`__
+Link to check `supported models <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/download_public_models.sh#L12>`__
 
 
 Example for downloading YOLOv11s model:

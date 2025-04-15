@@ -1,8 +1,8 @@
 
 .. Links
 .. _GstVideoRegionOfInterestMeta: https://gstreamer.freedesktop.org/documentation/video/gstvideometa.html?gi-language=c#GstVideoRegionOfInterestMeta
-.. _GstGVATensorMeta: https://github.com/dlstreamer/dlstreamer/blob/master/include/dlstreamer/gst/metadata/gva_tensor_meta.h
-.. _GstGVAJSONMeta: https://github.com/dlstreamer/dlstreamer/blob/master/include/dlstreamer/gst/metadata/gva_json_meta.h
+.. _GstGVATensorMeta: https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/include/dlstreamer/gst/metadata/gva_tensor_meta.h
+.. _GstGVAJSONMeta: https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/include/dlstreamer/gst/metadata/gva_json_meta.h
 
 Metadata
 ========
@@ -43,7 +43,7 @@ model) containing tensor raw data and additional information such as
 tensor dimensions, data precision, etc.
 
 Using the following pipeline as an example
-(more examples can be found in the `gst_launch <https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/gst_launch>`__ folder)
+(more examples can be found in the `gst_launch <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/gst_launch>`__ folder)
 
 .. code:: shell
 

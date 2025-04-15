@@ -1,0 +1,597 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Ubuntu advanced installation - build Docker image &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/doxyrest-pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../../_static/target-highlight.js"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'dev_guide/advanced_install/advanced_build_docker_image';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Ubuntu advanced uninstall guide" href="advanced_uninstall_guide.html" />
+    <link rel="prev" title="Ubuntu advanced installation - compilation from source files" href="advanced_install_guide_compilation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../get_started/get_started_index.html">Get Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../get_started/system_requirements.html">System Requirements</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../get_started/install/install_guide_index.html">Install Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../get_started/install/install_guide_ubuntu.html">Install Guide Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_started/install/install_guide_ubuntu_wsl2.html">Install Guide Ubuntu 24.04 on WSL2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_started/install/uninstall_guide_ubuntu.html">Uninstall Guide Ubuntu</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../get_started/tutorial.html">Tutorial</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/README.md">Samples</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../dev_guide_index.html">Developer Guide</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="advanced_install_guide_index.html">Advanced Installation Guide</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="advanced_install_guide_prerequisites.html">Ubuntu advanced installation - prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced_install_guide_prebuilt.html">Ubuntu advanced installation - pre-built packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced_install_guide_compilation.html">Ubuntu advanced installation - compilation from source files</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Ubuntu advanced installation - build Docker image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced_uninstall_guide.html">Ubuntu advanced uninstall guide</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata.html">Metadata</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../model_preparation.html">Model Preparation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../yolo_models.html">YOLO Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lvms.html">Large Vision Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../download_public_models.html">Download Public Models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../model_info_xml.html">Model Info Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_bindings.html">Python Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../custom_plugin_installation.html">Custom GStreamer Plugin Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../custom_processing.html">Custom Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../object_tracking.html">Object Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpu_device_selection.html">GPU device selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../performance_guide.html">Performance Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../profiling.html">Profiling with Intel VTune™</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../converting_deepstream_to_dlstreamer.html">Converting NVIDIA DeepStream Pipelines to Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../how_to_contribute.html">How to Contribute</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../coding_style.html">Coding Style</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../latency_tracer.html">Latency Tracer</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../model_proc_file.html">Model-proc File (legacy)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../how_to_create_model_proc_file.html">How to Create Model-proc File</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../elements/elements.html">Elements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvadetect.html">gvadetect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvaclassify.html">gvaclassify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvainference.html">gvainference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvatrack.html">gvatrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvaaudiodetect.html">gvaaudiodetect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvaattachroi.html">gvaattachroi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvafpscounter.html">gvafpscounter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvametaaggregate.html">gvametaaggregate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvametaconvert.html">gvametaconvert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvametapublish.html">gvametapublish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvapython.html">gvapython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvawatermark.html">gvawatermark</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../elements/gstelements.html">GStreamer Elements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../elements/compositor.html">compositor</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../supported_models.html">Supported Models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api_ref/api_reference.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api_ref/page_index.html">Intel® Deep Learning Streamer (Intel® DL Streamer) API reference</a></li>
+
+
+
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api_ref/global.html">Global Namespace</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api_ref/namespace_gstgva.html">namespace gstgva</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api_ref/namespace_gstgva_region_of_interest.html">namespace gstgva::region_of_interest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api_ref/namespace_gstgva_tensor.html">namespace gstgva::tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api_ref/namespace_gstgva_video_frame.html">namespace gstgva::video_frame</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api_ref/enum_GVALayout.html">enum GVALayout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api_ref/enum_GVAPrecision.html">enum GVAPrecision</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api_ref/struct_GstAnalyticsKeypoint.html">struct GstAnalyticsKeypoint</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api_ref/struct_GstAnalyticsKeypointPair.html">struct GstAnalyticsKeypointPair</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api_ref/struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../architecture_2.0/architecture_2.0.html">Architecture 2.0 [Preview]</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture_2.0/migration_guide.html">Migration to 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture_2.0/cpp_interfaces.html">① Memory Interop and C++ abstract interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture_2.0/cpp_elements.html">② C++ elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture_2.0/gstreamer_elements.html">③ GStreamer Elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture_2.0/gstreamer_bins.html">③ GStreamer Bin Elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture_2.0/python_bindings.html">③ Python Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture_2.0/pytorch_inference.html">PyTorch tensor inference [Preview]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture_2.0/elements_list.html">Elements 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture_2.0/packaging.html">Packaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture_2.0/samples_2.0.html">Samples 2.0</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../architecture_2.0/api_ref/index.html">API 2.0 Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../architecture_2.0/api_ref/global.html">Global Namespace</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture_2.0/api_ref/namespace_GVA.html">namespace GVA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture_2.0/api_ref/namespace_dlstreamer.html">namespace dlstreamer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture_2.0/api_ref/namespace_std.html">namespace std</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture_2.0/api_ref/enum_GVALayout.html">enum GVALayout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture_2.0/api_ref/enum_GVAPrecision.html">enum GVAPrecision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture_2.0/api_ref/struct_GstAnalyticsKeypoint.html">struct GstAnalyticsKeypoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture_2.0/api_ref/struct_GstAnalyticsKeypointPair.html">struct GstAnalyticsKeypointPair</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html">struct GstGVAAudioEventMeta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture_2.0/api_ref/struct__GstGVAJSONMeta.html">struct _GstGVAJSONMeta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture_2.0/api_ref/struct__GstGVATensorMeta.html">struct _GstGVATensorMeta</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/dev_guide/advanced_install/advanced_build_docker_image.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Ubuntu advanced installation - build Docker image</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-prerequisites">Step 1: Install prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-download-dockerfiles">Step 2: Download Dockerfiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-build-docker-image">Step 3: Build Docker image</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="ubuntu-advanced-installation-build-docker-image">
+<h1>Ubuntu advanced installation - build Docker image<a class="headerlink" href="#ubuntu-advanced-installation-build-docker-image" title="Permalink to this heading">#</a></h1>
+<p>The easiest way to run DLStreamer in Docker is to pull docker images from DockerHub.
+If you would like to follow this way, please go to Option 2 in <a class="reference internal" href="../../get_started/install/install_guide_ubuntu.html"><span class="doc">Install Guide Ubuntu</span></a></p>
+<p>The instruction below shows how to build Docker images based on Ubuntu22/24 from DLStreamer Dockerfiles.</p>
+<section id="step-1-install-prerequisites">
+<h2>Step 1: Install prerequisites<a class="headerlink" href="#step-1-install-prerequisites" title="Permalink to this heading">#</a></h2>
+<p>Please go through Prerequisites described in <a class="reference internal" href="../../get_started/install/install_guide_ubuntu.html"><span class="doc">Install Guide Ubuntu</span></a></p>
+</section>
+<section id="step-2-download-dockerfiles">
+<h2>Step 2: Download Dockerfiles<a class="headerlink" href="#step-2-download-dockerfiles" title="Permalink to this heading">#</a></h2>
+<p>You can download these files from the main repository using commands below:</p>
+<p>All Dockerfiles are in <a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/docker">DLStreamer GitHub repository</a>.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Ubuntu24 debian Dockerfile</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Ubuntu22 debian Dockerfile</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">Ubuntu24 dev Dockerfile</button><button aria-controls="panel-0-0-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-3" name="0-3" role="tab" tabindex="-1">Ubuntu22 dev Dockerfile</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/docker/dlstreamer_ubuntu24.Dockerfile
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/docker/dlstreamer_ubuntu22.Dockerfile
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/docker/dlstreamer_dev_ubuntu24.Dockerfile
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-3" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-3" name="0-3" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/docker/dlstreamer_dev_ubuntu22.Dockerfile
+</pre></div>
+</div>
+</div></div>
+</section>
+<section id="step-3-build-docker-image">
+<h2>Step 3: Build Docker image<a class="headerlink" href="#step-3-build-docker-image" title="Permalink to this heading">#</a></h2>
+<p>This is a temaplate command line which builds a Docker image from the specified Dockerfile using the current directory as the build context</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>build<span class="w"> </span>-f<span class="w"> </span>&lt;Dockerfile<span class="w"> </span>name&gt;<span class="w"> </span>-t<span class="w"> </span>&lt;name<span class="w"> </span><span class="k">for</span><span class="w"> </span>Docker<span class="w"> </span>image&gt;<span class="w"> </span>.
+</pre></div>
+</div>
+<p>This command builds a Docker image from the <strong>dlstreamer_dev_ubuntu22.Dockerfile</strong> assigning it the name <strong>dlstreamer-dev-ubuntu22</strong> using the current directory as the build context</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>build<span class="w"> </span>-f<span class="w"> </span>dlstreamer_dev_ubuntu22.Dockerfile<span class="w"> </span>-t<span class="w"> </span>dlstreamer-dev-ubuntu22<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="advanced_install_guide_compilation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Ubuntu advanced installation - compilation from source files</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="advanced_uninstall_guide.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Ubuntu advanced uninstall guide</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-prerequisites">Step 1: Install prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-download-dockerfiles">Step 2: Download Dockerfiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-build-docker-image">Step 3: Build Docker image</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Intel Corporation
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Intel Corporation.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -160,11 +160,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../get_started/system_requirements.html">System Requirements</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../get_started/install/install_guide_index.html">Install Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../get_started/install/install_guide_ubuntu.html">Install Guide Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../get_started/install/install_guide_ubuntu_wsl2.html">Install Guide Ubuntu 24.04 on WSL2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">Uninstall Guide Ubuntu</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../get_started/tutorial.html">Tutorial</a></li>
-<li class="toctree-l2"><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">Samples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/README.md">Samples</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="dev_guide_index.html">Developer Guide</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -172,6 +173,7 @@
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_install_guide_prerequisites.html">Ubuntu advanced installation - prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_install_guide_prebuilt.html">Ubuntu advanced installation - pre-built packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_install_guide_compilation.html">Ubuntu advanced installation - compilation from source files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_build_docker_image.html">Ubuntu advanced installation - build Docker image</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_uninstall_guide.html">Ubuntu advanced uninstall guide</a></li>
 </ul>
 </details></li>
@@ -440,9 +442,9 @@ document.write(`
 <p>Inference plugins utilize standard GStreamer metadata <a class="reference external" href="https://gstreamer.freedesktop.org/documentation/video/gstvideometa.html?gi-language=c#GstVideoRegionOfInterestMeta">GstVideoRegionOfInterestMeta</a>
 for object detection and classification use cases (elements <strong>gvadetect</strong>, <strong>gvaclassify</strong>), and define two custom metadata types</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/include/dlstreamer/gst/metadata/gva_tensor_meta.h">GstGVATensorMeta</a> for output of <strong>gvainference</strong> element performing generic inference
+<li><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/include/dlstreamer/gst/metadata/gva_tensor_meta.h">GstGVATensorMeta</a> for output of <strong>gvainference</strong> element performing generic inference
 on any model with image-compatible input layer and any format of output layer(s)</p></li>
-<li><p><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/include/dlstreamer/gst/metadata/gva_json_meta.h">GstGVAJSONMeta</a> for output of <strong>gvametaconvert</strong> element performing
+<li><p><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/include/dlstreamer/gst/metadata/gva_json_meta.h">GstGVAJSONMeta</a> for output of <strong>gvametaconvert</strong> element performing
 conversion of <strong>GstVideoRegionOfInterestMeta</strong> into JSON format</p></li>
 </ul>
 <p>The <strong>gvadetect</strong> element supports only object detection models and
@@ -470,7 +472,7 @@ metadata <strong>GstGVATensorMeta</strong> (as many instances as output layers i
 model) containing tensor raw data and additional information such as
 tensor dimensions, data precision, etc.</p>
 <p>Using the following pipeline as an example
-(more examples can be found in the <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/gst_launch">gst_launch</a> folder)</p>
+(more examples can be found in the <a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/gst_launch">gst_launch</a> folder)</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">MODEL1</span><span class="o">=</span>face-detection-adas-0001
 <span class="nv">MODEL2</span><span class="o">=</span>age-gender-recognition-retail-0013
 <span class="nv">MODEL3</span><span class="o">=</span>emotions-recognition-retail-0003

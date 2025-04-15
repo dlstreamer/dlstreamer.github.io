@@ -33,17 +33,17 @@ The following table summarizes major differences between programming models
           * Application can use memory interop library and any C++ elements provided by Intel® DL Streamer
    * - Sample(s):
      -
-          * GStreamer command-line: `samples/gstreamer/gst_launch <https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/gst_launch>`_
-          * GStreamer C++: `samples/gstreamer/cpp <https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/cpp>`_
-          * GStreamer Python: `samples/gstreamer/python <https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/python>`_
+          * GStreamer command-line: `samples/gstreamer/gst_launch <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/gst_launch>`_
+          * GStreamer C++: `samples/gstreamer/cpp <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/cpp>`_
+          * GStreamer Python: `samples/gstreamer/python <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/python>`_
      -
           * For example, what if we should implement object classification (on ROI cropped images) with background removal?
-          * Adding custom C++ element `opencv_remove_background <https://github.com/dlstreamer/dlstreamer/blob/master/src/opencv/opencv_remove_background/opencv_remove_background.cpp>`_
-            in ~100 C++ lines `allows to achieve that <https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/gst_launch/instance_segmentation>`_
+          * Adding custom C++ element `opencv_remove_background <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/src/opencv/opencv_remove_background/opencv_remove_background.cpp>`_
+            in ~100 C++ lines `allows to achieve that <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/gst_launch/instance_segmentation>`_
           * We reused many existent low-level elements for pre-processing, inference, post-processing on segmentation and classification models.
      -
-          * FFmpeg+OpenVINO™: `samples/ffmpeg_openvino <https://github.com/dlstreamer/dlstreamer/tree/master/samples/ffmpeg_openvino>`_
-          * FFmpeg+DPCPP/SYCL: `samples/ffmpeg_dpcpp <https://github.com/dlstreamer/dlstreamer/tree/master/samples/ffmpeg_dpcpp>`_
+          * FFmpeg+OpenVINO™: `samples/ffmpeg_openvino <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/ffmpeg_openvino>`_
+          * FFmpeg+DPCPP/SYCL: `samples/ffmpeg_dpcpp <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/ffmpeg_dpcpp>`_
 
 
 See :doc:`Samples 2.0 <samples_2.0>` for table with all samples.

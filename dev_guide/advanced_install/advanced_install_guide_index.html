@@ -160,11 +160,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../get_started/system_requirements.html">System Requirements</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../get_started/install/install_guide_index.html">Install Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../get_started/install/install_guide_ubuntu.html">Install Guide Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_started/install/install_guide_ubuntu_wsl2.html">Install Guide Ubuntu 24.04 on WSL2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../get_started/install/uninstall_guide_ubuntu.html">Uninstall Guide Ubuntu</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../../get_started/tutorial.html">Tutorial</a></li>
-<li class="toctree-l2"><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">Samples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/README.md">Samples</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../dev_guide_index.html">Developer Guide</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -172,6 +173,7 @@
 <li class="toctree-l3"><a class="reference internal" href="advanced_install_guide_prerequisites.html">Ubuntu advanced installation - prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install_guide_prebuilt.html">Ubuntu advanced installation - pre-built packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install_guide_compilation.html">Ubuntu advanced installation - compilation from source files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced_build_docker_image.html">Ubuntu advanced installation - build Docker image</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_uninstall_guide.html">Ubuntu advanced uninstall guide</a></li>
 </ul>
 </details></li>
@@ -458,18 +460,22 @@ document.write(`
 </li>
 <li class="toctree-l1"><a class="reference internal" href="advanced_install_guide_compilation.html">Ubuntu advanced installation - compilation from source files</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-1-install-prerequisites">Step 1: Install prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-2-clone-intel-dl-streamer-repository">Step 2: Clone Intel® DL Streamer repository</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-3-install-intel-distribution-of-openvino-toolkit">Step 3: Install Intel® Distribution of OpenVINO™ Toolkit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-4-install-intel-dl-streamer-pipeline-framework-dependencies">Step 4: Install Intel® DL Streamer Pipeline Framework dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-5-install-opencv">Step 5: Install OpenCV</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-6-install-python-dependencies">Step 6: Install Python dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-7-install-opencl">Step 7: Install OpenCL™</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-8-install-message-brokers">Step 8: Install message brokers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-9-install-intel-oneapi-dpc-c-compiler">Step 9: Install Intel® oneAPI DPC++/C++ Compiler</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-10-install-va-api-dependencies">Step 10: Install VA-API dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-11-build-intel-dl-streamer-pipeline-framework">Step 11: Build Intel® DL Streamer Pipeline Framework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-12-intel-dl-streamer-installation-verification">Step 12: Intel® DL Streamer installation verification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-13-next-steps-running-sample-intel-dl-streamer-pipelines">Step 13: Next steps - running sample Intel® DL Streamer pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-2-install-build-dependencies">Step 2: Install build dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-3-set-up-a-python-environment">Step 3: Set up a Python environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-4-build-ffmpeg">Step 4: Build FFmpeg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-5-build-gstreamer">Step 5: Build GStreamer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-6-build-opencv">Step 6: Build OpenCV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-7-clone-intel-dl-streamer-repository">Step 7: Clone Intel® DL Streamer repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-8-install-openvino-toolkit">Step 8: Install OpenVINO™ Toolkit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-9-build-intel-dlstreamer">Step 9: Build Intel DLStreamer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-10-set-up-environment">Step 10: Set up environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_install_guide_compilation.html#step-11-install-python-dependencies-optional">Step 11: Install Python dependencies (optional)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_build_docker_image.html">Ubuntu advanced installation - build Docker image</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced_build_docker_image.html#step-1-install-prerequisites">Step 1: Install prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_build_docker_image.html#step-2-download-dockerfiles">Step 2: Download Dockerfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_build_docker_image.html#step-3-build-docker-image">Step 3: Build Docker image</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="advanced_uninstall_guide.html">Ubuntu advanced uninstall guide</a><ul>

@@ -160,11 +160,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../get_started/system_requirements.html">System Requirements</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../get_started/install/install_guide_index.html">Install Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../get_started/install/install_guide_ubuntu.html">Install Guide Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../get_started/install/install_guide_ubuntu_wsl2.html">Install Guide Ubuntu 24.04 on WSL2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../get_started/install/uninstall_guide_ubuntu.html">Uninstall Guide Ubuntu</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../get_started/tutorial.html">Tutorial</a></li>
-<li class="toctree-l2"><a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md">Samples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/README.md">Samples</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../dev_guide/dev_guide_index.html">Developer Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -172,6 +173,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_prerequisites.html">Ubuntu advanced installation - prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_prebuilt.html">Ubuntu advanced installation - pre-built packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_compilation.html">Ubuntu advanced installation - compilation from source files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_build_docker_image.html">Ubuntu advanced installation - build Docker image</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_uninstall_guide.html">Ubuntu advanced uninstall guide</a></li>
 </ul>
 </details></li>
@@ -487,21 +489,21 @@ FFmpeg, GStreamer, OpenVINO™, Level-Zero, OpenCL, OpenCV Mat, SYCL, VA-API</p>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Sample(s):</p></th>
 <td><ul class="simple">
-<li><p>GStreamer command-line: <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/gst_launch">samples/gstreamer/gst_launch</a></p></li>
-<li><p>GStreamer C++: <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/cpp">samples/gstreamer/cpp</a></p></li>
-<li><p>GStreamer Python: <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/python">samples/gstreamer/python</a></p></li>
+<li><p>GStreamer command-line: <a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/gst_launch">samples/gstreamer/gst_launch</a></p></li>
+<li><p>GStreamer C++: <a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/cpp">samples/gstreamer/cpp</a></p></li>
+<li><p>GStreamer Python: <a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/python">samples/gstreamer/python</a></p></li>
 </ul>
 </td>
 <td><ul class="simple">
 <li><p>For example, what if we should implement object classification (on ROI cropped images) with background removal?</p></li>
-<li><p>Adding custom C++ element <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/blob/master/src/opencv/opencv_remove_background/opencv_remove_background.cpp">opencv_remove_background</a>
-in ~100 C++ lines <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/gstreamer/gst_launch/instance_segmentation">allows to achieve that</a></p></li>
+<li><p>Adding custom C++ element <a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/src/opencv/opencv_remove_background/opencv_remove_background.cpp">opencv_remove_background</a>
+in ~100 C++ lines <a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/gst_launch/instance_segmentation">allows to achieve that</a></p></li>
 <li><p>We reused many existent low-level elements for pre-processing, inference, post-processing on segmentation and classification models.</p></li>
 </ul>
 </td>
 <td><ul class="simple">
-<li><p>FFmpeg+OpenVINO™: <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/ffmpeg_openvino">samples/ffmpeg_openvino</a></p></li>
-<li><p>FFmpeg+DPCPP/SYCL: <a class="reference external" href="https://github.com/dlstreamer/dlstreamer/tree/master/samples/ffmpeg_dpcpp">samples/ffmpeg_dpcpp</a></p></li>
+<li><p>FFmpeg+OpenVINO™: <a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/ffmpeg_openvino">samples/ffmpeg_openvino</a></p></li>
+<li><p>FFmpeg+DPCPP/SYCL: <a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/ffmpeg_dpcpp">samples/ffmpeg_dpcpp</a></p></li>
 </ul>
 </td>
 </tr>

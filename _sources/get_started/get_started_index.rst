@@ -7,4 +7,4 @@ Get Started
    system_requirements
    install/install_guide_index
    tutorial
-   Samples <https://github.com/dlstreamer/dlstreamer/blob/master/samples/gstreamer/README.md>
+   Samples <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/README.md>

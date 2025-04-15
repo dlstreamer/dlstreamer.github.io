@@ -54,7 +54,7 @@ so that C++ element implements only remaining virtual functions (mostly ``read``
   }
 
 Many examples how to create C++ elements can be found on github repository in
-`folder src <https://github.com/dlstreamer/dlstreamer/tree/master/src>`__ and sub-folders.
+`folder src <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/src>`__ and sub-folders.
 
 Element description
 -------------------
@@ -104,7 +104,7 @@ pointer as :doc:`parameters <api_ref/namespace_dlstreamer>`:
     auto ffmpeg_source = create_source(ffmpeg_multi_source, {{"inputs", inputs}}, ffmpeg_ctx);
 
 See direct programming samples
-`ffmpeg_openvino <https://github.com/dlstreamer/dlstreamer/tree/master/samples/ffmpeg_openvino>`__
+`ffmpeg_openvino <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/ffmpeg_openvino>`__
 and
-`ffmpeg_dpcpp <https://github.com/dlstreamer/dlstreamer/tree/master/samples/ffmpeg_dpcpp>`__
+`ffmpeg_dpcpp <https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/ffmpeg_dpcpp>`__
 for examples.
