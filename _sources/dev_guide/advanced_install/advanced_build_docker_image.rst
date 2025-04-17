@@ -25,25 +25,25 @@ All Dockerfiles are in `DLStreamer GitHub repository <https://github.com/open-ed
 
         .. code-block:: sh
 
-            wget https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/docker/dlstreamer_ubuntu24.Dockerfile
+            wget https://raw.githubusercontent.com/open-edge-platform/edge-ai-libraries/main/libraries/dl-streamer/docker/dlstreamer_ubuntu24.Dockerfile
 
     .. tab:: Ubuntu22 debian Dockerfile
 
         .. code-block:: sh
 
-            wget https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/docker/dlstreamer_ubuntu22.Dockerfile
+            wget https://raw.githubusercontent.com/open-edge-platform/edge-ai-libraries/main/libraries/dl-streamer/docker/dlstreamer_ubuntu22.Dockerfile
 
     .. tab:: Ubuntu24 dev Dockerfile
 
         .. code-block:: sh
 
-            wget https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/docker/dlstreamer_dev_ubuntu24.Dockerfile
+            wget https://raw.githubusercontent.com/open-edge-platform/edge-ai-libraries/main/libraries/dl-streamer/docker/dlstreamer_dev_ubuntu24.Dockerfile
 
     .. tab:: Ubuntu22 dev Dockerfile
 
         .. code-block:: sh
 
-            wget https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/docker/dlstreamer_dev_ubuntu22.Dockerfile
+            wget https://raw.githubusercontent.com/open-edge-platform/edge-ai-libraries/main/libraries/dl-streamer/docker/dlstreamer_dev_ubuntu22.Dockerfile
 
 
 Step 3: Build Docker image

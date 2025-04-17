@@ -26,7 +26,7 @@ Step 1: Download the prerequisites installation script
 
    mkdir -p ~/intel/dlstreamer_gst
    cd ~/intel/dlstreamer_gst/
-   wget https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/scripts/DLS_install_prerequisites.sh
+   wget https://raw.githubusercontent.com/open-edge-platform/edge-ai-libraries/main/libraries/dl-streamer/scripts/DLS_install_prerequisites.sh
 
 
 Step 2: Execute the script and follow its instructions
