@@ -26,7 +26,7 @@ Step 1: Download the prerequisites installation script
 
    mkdir -p ~/intel/dlstreamer_gst
    cd ~/intel/dlstreamer_gst/
-   wget https://raw.githubusercontent.com/open-edge-platform/edge-ai-libraries/main/libraries/dl-streamer/scripts/DLS_install_prerequisites.sh
+   wget -O DLS_install_prerequisites.sh https://raw.githubusercontent.com/open-edge-platform/edge-ai-libraries/main/libraries/dl-streamer/scripts/DLS_install_prerequisites.sh && chmod +x DLS_install_prerequisites.sh
 
 
 Step 2: Execute the script and follow its instructions
@@ -35,6 +35,31 @@ Step 2: Execute the script and follow its instructions
 ..  code:: sh
 
    ./DLS_install_prerequisites.sh
+
+
+The script installs all the essential packages needed for most users, including the following packages:
+
+..  code:: sh
+
+   GPU:
+      libze-intel-gpu1
+      libze1
+      intel-opencl-icd
+      clinfo
+      intel-gsc
+   Media: 
+      intel-media-va-driver-non-free
+   NPU:
+      intel-driver-compiler-npu
+      intel-fw-npu
+      intel-level-zero-npu
+      level-zero
+
+More details about the packages can be found in the following driver links respectively:
+`Client GPU <https://dgpu-docs.intel.com/driver/client/overview.html#installing-gpu-packages>`__, 
+`Data Center GPU <https://dgpu-docs.intel.com/driver/installation.html#installing-data-center-gpu-lts-releases>`__, 
+`Media <https://github.com/intel/media-driver/releases>`__, 
+`NPU <https://github.com/intel/linux-npu-driver/releases/tag/v1.13.0>`__.
 
 .. _2:
 
@@ -106,6 +131,9 @@ Step 3: Install Intel® DL Streamer Pipeline Framework
 
 
 **Congratulations! Intel® DL Streamer is now installed and ready for use!**
+
+
+To see the full list of installed components check the `dockerfile content for Ubuntu24 <https://raw.githubusercontent.com/open-edge-platform/edge-ai-libraries/refs/heads/main/libraries/dl-streamer/docker/dlstreamer_dev_ubuntu24.Dockerfile>`__
 
 
 [Optional] Step 4: Python dependencies
