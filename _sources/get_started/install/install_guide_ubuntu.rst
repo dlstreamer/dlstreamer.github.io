@@ -47,7 +47,7 @@ The script installs all the essential packages needed for most users, including 
       intel-opencl-icd
       clinfo
       intel-gsc
-   Media: 
+   Media:
       intel-media-va-driver-non-free
    NPU:
       intel-driver-compiler-npu
@@ -56,9 +56,9 @@ The script installs all the essential packages needed for most users, including 
       level-zero
 
 More details about the packages can be found in the following driver links respectively:
-`Client GPU <https://dgpu-docs.intel.com/driver/client/overview.html#installing-gpu-packages>`__, 
-`Data Center GPU <https://dgpu-docs.intel.com/driver/installation.html#installing-data-center-gpu-lts-releases>`__, 
-`Media <https://github.com/intel/media-driver/releases>`__, 
+`Client GPU <https://dgpu-docs.intel.com/driver/client/overview.html#installing-gpu-packages>`__,
+`Data Center GPU <https://dgpu-docs.intel.com/driver/installation.html#installing-data-center-gpu-lts-releases>`__,
+`Media <https://github.com/intel/media-driver/releases>`__,
 `NPU <https://github.com/intel/linux-npu-driver/releases/tag/v1.13.0>`__.
 
 .. _2:
@@ -112,7 +112,7 @@ Step 2: Setup repositories
 
 .. code:: sh
 
-   sudo apt remove -y openvino* libopenvino* python3-openvino*
+   sudo apt remove -y openvino* libopenvino-* python3-openvino*
    sudo apt-get autoremove
 
 
@@ -159,6 +159,8 @@ The hello_dlstreamer.sh script assumes the availability of the YOLO11s model. If
 
 ..  code:: sh
 
+   mkdir -p /home/${USER}/models
+   export MODELS_PATH=/home/${USER}/models
    /opt/intel/dlstreamer/samples/download_public_models.sh yolo11s
 
 
@@ -183,6 +185,7 @@ To run the hello_dlstreamer script, execute the following command:
    export LIBVA_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri
    export GST_VA_ALL_DRIVERS=1
    export PATH=/opt/intel/dlstreamer/gstreamer/bin:/opt/intel/dlstreamer/build/intel64/Release/bin:$PATH
+   export GST_PLUGIN_FEATURE_RANK=${GST_PLUGIN_FEATURE_RANK},ximagesink:MAX
 
 [Optional] Step 6: Auxiliary installation steps
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

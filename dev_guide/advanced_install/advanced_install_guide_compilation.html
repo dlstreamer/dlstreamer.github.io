@@ -528,7 +528,7 @@ sudo<span class="w"> </span>make<span class="w"> </span>install
 git<span class="w"> </span>clone<span class="w"> </span>https://gitlab.freedesktop.org/gstreamer/gstreamer.git
 
 <span class="nb">cd</span><span class="w"> </span>~/gstreamer
-git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;1.26.0&quot;</span><span class="w"> </span><span class="s2">&quot;tags/1.26.0&quot;</span>
+git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;1.24.12&quot;</span><span class="w"> </span><span class="s2">&quot;tags/1.24.12&quot;</span>
 meson<span class="w"> </span>setup<span class="w"> </span>-Dexamples<span class="o">=</span>disabled<span class="w"> </span>-Dtests<span class="o">=</span>disabled<span class="w"> </span>-Dvaapi<span class="o">=</span>enabled<span class="w"> </span>-Dgst-examples<span class="o">=</span>disabled<span class="w"> </span>--buildtype<span class="o">=</span>release<span class="w"> </span>--prefix<span class="o">=</span>/opt/intel/dlstreamer/gstreamer<span class="w"> </span>--libdir<span class="o">=</span>lib/<span class="w"> </span>--libexecdir<span class="o">=</span>bin/<span class="w"> </span>build/
 ninja<span class="w"> </span>-C<span class="w"> </span>build
 sudo<span class="w"> </span>env<span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/python3venv/bin:<span class="nv">$PATH</span><span class="w"> </span>meson<span class="w"> </span>install<span class="w"> </span>-C<span class="w"> </span>build/
@@ -554,7 +554,9 @@ sudo<span class="w"> </span>env<span class="w"> </span><span class="nv">PATH</sp
 <section id="step-7-clone-intel-dl-streamer-repository">
 <h2>Step 7: Clone Intel® DL Streamer repository<a class="headerlink" href="#step-7-clone-intel-dl-streamer-repository" title="Permalink to this heading">#</a></h2>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~
-git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/open-edge-platform/edge-ai-libraries.git
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/open-edge-platform/edge-ai-libraries.git
+<span class="nb">cd</span><span class="w"> </span>edge-ai-libraries
+git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>libraries/dl-streamer/thirdparty/spdlog
 </pre></div>
 </div>
 </section>
@@ -614,6 +616,7 @@ make<span class="w"> </span>-j<span class="w"> </span><span class="s2">&quot;</s
 <span class="nb">export</span><span class="w"> </span><span class="nv">GST_VA_ALL_DRIVERS</span><span class="o">=</span><span class="s2">&quot;1&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/opt/intel/dlstreamer/gstreamer/bin:</span><span class="nv">$HOME</span><span class="s2">/edge-ai-libraries/libraries/dl-streamer/build/intel64/Release/bin:</span><span class="nv">$HOME</span><span class="s2">/.local/bin:</span><span class="nv">$HOME</span><span class="s2">/python3venv/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="s2">&quot;/usr/local/lib/pkgconfig:</span><span class="nv">$HOME</span><span class="s2">/edge-ai-libraries/libraries/dl-streamer/build/intel64/Release/lib/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/opt/intel/dlstreamer/gstreamer/lib/pkgconfig:</span><span class="nv">$PKG_CONFIG_PATH</span><span class="s2">&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">GST_PLUGIN_FEATURE_RANK</span><span class="o">=</span><span class="si">${</span><span class="nv">GST_PLUGIN_FEATURE_RANK</span><span class="si">}</span>,ximagesink:MAX
 </pre></div>
 </div>
 <div class="admonition note">

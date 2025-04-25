@@ -552,7 +552,7 @@ sudo<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </spa
 <p class="admonition-title">Note</p>
 <p>If you have OpenVINO installed in a version different from 2025.0.0, please uninstall the OpenVINO packages using the following commands.</p>
 </div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>-y<span class="w"> </span>openvino*<span class="w"> </span>libopenvino*<span class="w"> </span>python3-openvino*
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>-y<span class="w"> </span>openvino*<span class="w"> </span>libopenvino-*<span class="w"> </span>python3-openvino*
 sudo<span class="w"> </span>apt-get<span class="w"> </span>autoremove
 </pre></div>
 </div>
@@ -585,7 +585,9 @@ The hello_dlstreamer.sh script assumes the availability of the YOLO11s model. If
 <p>The <strong>download_public_models.sh</strong> script will download the YOLO11s model from the Ultralytics website along with other required components and convert it to the OpenVINO™ format.
 If you already have the model, skip this step and simply export the MODELS_PATH and execute the <strong>hello_dlstreamer.sh</strong> script.</p>
 </div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/opt/intel/dlstreamer/samples/download_public_models.sh<span class="w"> </span>yolo11s
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>/home/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/models
+<span class="nb">export</span><span class="w"> </span><span class="nv">MODELS_PATH</span><span class="o">=</span>/home/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/models
+/opt/intel/dlstreamer/samples/download_public_models.sh<span class="w"> </span>yolo11s
 </pre></div>
 </div>
 <p>The <strong>hello_dlstreamer.sh</strong> will set up the required environment variables and runs a sample pipeline to confirm that Intel® DL Streamer is installed correctly.
@@ -603,6 +605,7 @@ To run the hello_dlstreamer script, execute the following command:</p>
 <span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVERS_PATH</span><span class="o">=</span>/usr/lib/x86_64-linux-gnu/dri
 <span class="nb">export</span><span class="w"> </span><span class="nv">GST_VA_ALL_DRIVERS</span><span class="o">=</span><span class="m">1</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/opt/intel/dlstreamer/gstreamer/bin:/opt/intel/dlstreamer/build/intel64/Release/bin:<span class="nv">$PATH</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">GST_PLUGIN_FEATURE_RANK</span><span class="o">=</span><span class="si">${</span><span class="nv">GST_PLUGIN_FEATURE_RANK</span><span class="si">}</span>,ximagesink:MAX
 </pre></div>
 </div>
 </section>
