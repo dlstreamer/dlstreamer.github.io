@@ -56,8 +56,8 @@ The script installs all the essential packages needed for most users, including 
       level-zero
 
 More details about the packages can be found in the following driver links respectively:
-`Client GPU <https://dgpu-docs.intel.com/driver/client/overview.html#installing-gpu-packages>`__,
-`Data Center GPU <https://dgpu-docs.intel.com/driver/installation.html#installing-data-center-gpu-lts-releases>`__,
+`Intel® Client GPU <https://dgpu-docs.intel.com/driver/client/overview.html#installing-gpu-packages>`__,
+`Intel® Data Center GPU <https://dgpu-docs.intel.com/driver/installation.html#installing-data-center-gpu-lts-releases>`__,
 `Media <https://github.com/intel/media-driver/releases>`__,
 `NPU <https://github.com/intel/linux-npu-driver/releases/tag/v1.13.0>`__.
 
@@ -108,7 +108,7 @@ Step 2: Setup repositories
 
 .. note::
 
-   If you have OpenVINO installed in a version different from 2025.0.0, please uninstall the OpenVINO packages using the following commands.
+   If you have OpenVINO™ installed in a version different from 2025.0.0, please uninstall the OpenVINO™ packages using the following commands.
 
 .. code:: sh
 
@@ -133,7 +133,7 @@ Step 3: Install Intel® DL Streamer Pipeline Framework
 **Congratulations! Intel® DL Streamer is now installed and ready for use!**
 
 
-To see the full list of installed components check the `dockerfile content for Ubuntu24 <https://raw.githubusercontent.com/open-edge-platform/edge-ai-libraries/refs/heads/main/libraries/dl-streamer/docker/dlstreamer_dev_ubuntu24.Dockerfile>`__
+To see the full list of installed components check the `Dockerfile content for Ubuntu 24 <https://github.com/open-edge-platform/edge-ai-libraries/blob/main/libraries/dl-streamer/docker/devel/ubuntu24/dlstreamer_dev_ubuntu24.Dockerfile>`__
 
 
 [Optional] Step 4: Python dependencies
@@ -186,6 +186,16 @@ To run the hello_dlstreamer script, execute the following command:
    export GST_VA_ALL_DRIVERS=1
    export PATH=/opt/intel/dlstreamer/gstreamer/bin:/opt/intel/dlstreamer/build/intel64/Release/bin:$PATH
    export GST_PLUGIN_FEATURE_RANK=${GST_PLUGIN_FEATURE_RANK},ximagesink:MAX
+
+
+or run: 
+
+..  code:: sh
+
+   source /opt/intel/dlstreamer/scripts/setup_dls_config.sh
+
+to configure environment variables for the current terminal session.
+
 
 [Optional] Step 6: Auxiliary installation steps
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

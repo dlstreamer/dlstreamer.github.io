@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Ubuntu advanced installation - compilation from source files &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
+    <title>Advanced installation - compilation from source files &#8212; Intel® Deep Learning Streamer (Intel® DL Streamer)  documentation</title>
   
   
   
@@ -174,7 +174,7 @@
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="advanced_install_guide_index.html">Advanced Installation Guide</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="advanced_install_guide_prerequisites.html">Ubuntu advanced installation - prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install_guide_prebuilt.html">Ubuntu advanced installation - pre-built packages</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">Ubuntu advanced installation - compilation from source files</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Advanced installation - compilation from source files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_build_docker_image.html">Ubuntu advanced installation - build Docker image</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_uninstall_guide.html">Ubuntu advanced uninstall guide</a></li>
 </ul>
@@ -214,9 +214,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvaaudiodetect.html">gvaaudiodetect</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvaattachroi.html">gvaattachroi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvafpscounter.html">gvafpscounter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../elements/gvametaaggregate.html">gvametaaggregate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvametaconvert.html">gvametaconvert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvametapublish.html">gvametapublish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvametaaggregate.html">gvametaaggregate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvapython.html">gvapython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvawatermark.html">gvawatermark</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../elements/gstelements.html">GStreamer Elements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -427,7 +427,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Ubuntu advanced installation - compilation from source files</h1>
+    <h1>Advanced installation - compilation from source files</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -437,7 +437,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-prerequisites">Step 1: Install prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-prerequisites-only-for-ubuntu">Step 1: Install prerequisites (only for Ubuntu)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-build-dependencies">Step 2: Install build dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-set-up-a-python-environment">Step 3: Set up a Python environment</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-ffmpeg">Step 4: Build FFmpeg</a></li>
@@ -459,20 +459,20 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="ubuntu-advanced-installation-compilation-from-source-files">
-<h1>Ubuntu advanced installation - compilation from source files<a class="headerlink" href="#ubuntu-advanced-installation-compilation-from-source-files" title="Permalink to this heading">#</a></h1>
+  <section id="advanced-installation-compilation-from-source-files">
+<h1>Advanced installation - compilation from source files<a class="headerlink" href="#advanced-installation-compilation-from-source-files" title="Permalink to this heading">#</a></h1>
 <p>The easiest way to install Intel® Deep Learning Streamer (Intel® DL Streamer) Pipeline Framework is installing it from pre-built Debian packages.
 If you would like to follow this way, please go to <a class="reference internal" href="../../get_started/install/install_guide_ubuntu.html"><span class="doc">Install Guide Ubuntu</span></a>.</p>
 <p>The instruction below focuses on installation steps with building Intel® DL Streamer Pipeline Framework from the source code
 provided in <a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries.git">Open Edge Platform repository</a>.</p>
-<section id="step-1-install-prerequisites">
-<h2>Step 1: Install prerequisites<a class="headerlink" href="#step-1-install-prerequisites" title="Permalink to this heading">#</a></h2>
+<section id="step-1-install-prerequisites-only-for-ubuntu">
+<h2>Step 1: Install prerequisites (only for Ubuntu)<a class="headerlink" href="#step-1-install-prerequisites-only-for-ubuntu" title="Permalink to this heading">#</a></h2>
 <p>Please go through prerequisites 1 &amp; 2 described in <a class="reference internal" href="../../get_started/install/install_guide_ubuntu.html"><span class="doc">Install Guide Ubuntu</span></a></p>
 </section>
 <section id="step-2-install-build-dependencies">
 <h2>Step 2: Install build dependencies<a class="headerlink" href="#step-2-install-build-dependencies" title="Permalink to this heading">#</a></h2>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Ubuntu 24</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Ubuntu 22</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Ubuntu 24</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Ubuntu 22</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">Fedora 41</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>wget<span class="w"> </span>vainfo<span class="w"> </span>xz-utils<span class="w"> </span>python3-pip<span class="w"> </span>python3-gi<span class="w"> </span>gcc-multilib<span class="w"> </span>libglib2.0-dev<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>flex<span class="w"> </span>bison<span class="w"> </span>autoconf<span class="w"> </span>automake<span class="w"> </span>libtool<span class="w"> </span>libogg-dev<span class="w"> </span>make<span class="w"> </span>g++<span class="w"> </span>libva-dev<span class="w"> </span>yasm<span class="w"> </span>libglx-dev<span class="w"> </span>libdrm-dev<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>python-gi-dev<span class="w"> </span>python3-dev<span class="w"> </span>libtbb12<span class="w"> </span>gpg<span class="w"> </span>unzip<span class="w"> </span>libopencv-dev<span class="w"> </span>libgflags-dev<span class="w"> </span><span class="se">\</span>
@@ -490,6 +490,19 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w
 <span class="w">    </span>libcairo2-dev<span class="w"> </span>libxt-dev<span class="w"> </span>libgirepository1.0-dev<span class="w"> </span>libgles2-mesa-dev<span class="w"> </span>wayland-protocols<span class="w"> </span>libcurl4-openssl-dev<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>libssh2-1-dev<span class="w"> </span>cmake<span class="w"> </span>git<span class="w"> </span>valgrind<span class="w"> </span>numactl<span class="w"> </span>libvpx-dev<span class="w"> </span>libopus-dev<span class="w"> </span>libsrtp2-dev<span class="w"> </span>libxv-dev<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>linux-libc-dev<span class="w"> </span>libpmix2<span class="w"> </span>libhwloc15<span class="w"> </span>libhwloc-plugins<span class="w"> </span>libxcb1-dev<span class="w"> </span>libx11-xcb-dev
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-<span class="k">$(</span>rpm<span class="w"> </span>-E<span class="w"> </span>%fedora<span class="k">)</span>.noarch.rpm<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-<span class="k">$(</span>rpm<span class="w"> </span>-E<span class="w"> </span>%fedora<span class="k">)</span>.noarch.rpm
+
+sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>wget<span class="w"> </span>libva-utils<span class="w"> </span>xz<span class="w"> </span>python3-pip<span class="w"> </span>python3-gobject<span class="w"> </span>gcc<span class="w"> </span>gcc-c++<span class="w"> </span>glibc-devel<span class="w"> </span>glib2-devel<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>flex<span class="w"> </span>bison<span class="w"> </span>autoconf<span class="w"> </span>automake<span class="w"> </span>libtool<span class="w"> </span>libogg-devel<span class="w"> </span>make<span class="w"> </span>libva-devel<span class="w"> </span>yasm<span class="w"> </span>mesa-libGL-devel<span class="w"> </span>libdrm-devel<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>python3-gobject-devel<span class="w"> </span>python3-devel<span class="w"> </span>tbb<span class="w"> </span>gnupg2<span class="w"> </span>unzip<span class="w"> </span>opencv-devel<span class="w"> </span>gflags-devel<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>gobject-introspection-devel<span class="w"> </span>x265-devel<span class="w"> </span>x264-devel<span class="w"> </span>libde265-devel<span class="w"> </span>libgudev-devel<span class="w"> </span>libusb1<span class="w"> </span>libusb1-devel<span class="w"> </span>nasm<span class="w"> </span>python3-virtualenv<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>cairo-devel<span class="w"> </span>cairo-gobject-devel<span class="w"> </span>libXt-devel<span class="w"> </span>mesa-libGLES-devel<span class="w"> </span>wayland-protocols-devel<span class="w"> </span>libcurl-devel<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>libssh2-devel<span class="w"> </span>cmake<span class="w"> </span>git<span class="w"> </span>valgrind<span class="w"> </span>numactl<span class="w"> </span>libvpx-devel<span class="w"> </span>opus-devel<span class="w"> </span>libsrtp-devel<span class="w"> </span>libXv-devel<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>kernel-headers<span class="w"> </span>pmix<span class="w"> </span>pmix-devel<span class="w"> </span>hwloc<span class="w"> </span>hwloc-libs<span class="w"> </span>hwloc-devel<span class="w"> </span>libxcb-devel<span class="w"> </span>libX11-devel<span class="w"> </span>libatomic<span class="w"> </span>intel-media-driver
 </pre></div>
 </div>
 </div></div>
@@ -528,7 +541,8 @@ sudo<span class="w"> </span>make<span class="w"> </span>install
 git<span class="w"> </span>clone<span class="w"> </span>https://gitlab.freedesktop.org/gstreamer/gstreamer.git
 
 <span class="nb">cd</span><span class="w"> </span>~/gstreamer
-git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;1.24.12&quot;</span><span class="w"> </span><span class="s2">&quot;tags/1.24.12&quot;</span>
+git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;1.26.1&quot;</span><span class="w"> </span><span class="s2">&quot;tags/1.26.1&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span>/usr/local/lib/pkgconfig
 meson<span class="w"> </span>setup<span class="w"> </span>-Dexamples<span class="o">=</span>disabled<span class="w"> </span>-Dtests<span class="o">=</span>disabled<span class="w"> </span>-Dvaapi<span class="o">=</span>enabled<span class="w"> </span>-Dgst-examples<span class="o">=</span>disabled<span class="w"> </span>--buildtype<span class="o">=</span>release<span class="w"> </span>--prefix<span class="o">=</span>/opt/intel/dlstreamer/gstreamer<span class="w"> </span>--libdir<span class="o">=</span>lib/<span class="w"> </span>--libexecdir<span class="o">=</span>bin/<span class="w"> </span>build/
 ninja<span class="w"> </span>-C<span class="w"> </span>build
 sudo<span class="w"> </span>env<span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/python3venv/bin:<span class="nv">$PATH</span><span class="w"> </span>meson<span class="w"> </span>install<span class="w"> </span>-C<span class="w"> </span>build/
@@ -563,16 +577,10 @@ git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w
 <section id="step-8-install-openvino-toolkit">
 <h2>Step 8: Install OpenVINO™ Toolkit<a class="headerlink" href="#step-8-install-openvino-toolkit" title="Permalink to this heading">#</a></h2>
 <p>Download and install OpenVINO™ Toolkit:</p>
-<div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Ubuntu 24</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Ubuntu 22</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/edge-ai-libraries/libraries/dl-streamer
-sudo<span class="w"> </span>./scripts/install_dependencies/install_openvino_ubuntu24.sh
-</pre></div>
-</div>
-</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/edge-ai-libraries/libraries/dl-streamer
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/edge-ai-libraries/libraries/dl-streamer
 sudo<span class="w"> </span>./scripts/install_dependencies/install_openvino.sh
 </pre></div>
 </div>
-</div></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In case of any problems with the installation scripts, <a class="reference external" href="https://docs.openvino.ai/2025/get-started/install-openvino/install-openvino-archive-linux.html">Follow OpenVINO™ Toolkit instruction guide here</a> to install OpenVINO™ on Linux.</p>
@@ -585,8 +593,10 @@ sudo<span class="w"> </span>./scripts/install_dependencies/install_openvino.sh
 <p>After successful OpenVINO™ Toolkit package installation, run the
 following commands to install OpenVINO™ Toolkit dependencies and enable
 OpenVINO™ Toolkit development environment:</p>
-<p>sudo -E /opt/intel/openvino_2025/install_dependencies/install_openvino_dependencies.sh
-source /opt/intel/openvino_2025/setupvars.sh</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>-E<span class="w"> </span>/opt/intel/openvino_2025/install_dependencies/install_openvino_dependencies.sh
+<span class="nb">source</span><span class="w"> </span>/opt/intel/openvino_2025/setupvars.sh
+</pre></div>
+</div>
 </div>
 </section>
 <section id="step-9-build-intel-dlstreamer">
@@ -609,7 +619,8 @@ make<span class="w"> </span>-j<span class="w"> </span><span class="s2">&quot;</s
 <section id="step-10-set-up-environment">
 <h2>Step 10: Set up environment<a class="headerlink" href="#step-10-set-up-environment" title="Permalink to this heading">#</a></h2>
 <p>Set up the required environment variables:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVER_NAME</span><span class="o">=</span>iHD
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Ubuntu</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Fedora</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVER_NAME</span><span class="o">=</span>iHD
 <span class="nb">export</span><span class="w"> </span><span class="nv">GST_PLUGIN_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/edge-ai-libraries/libraries/dl-streamer/build/intel64/Release/lib:/opt/intel/dlstreamer/gstreamer/lib/gstreamer-1.0:/usr/lib/x86_64-linux-gnu/gstreamer-1.0&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">&quot;/opt/intel/dlstreamer/gstreamer/lib:</span><span class="nv">$HOME</span><span class="s2">/edge-ai-libraries/libraries/dl-streamer/build/intel64/Release/lib:/usr/lib:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVERS_PATH</span><span class="o">=</span><span class="s2">&quot;/usr/lib/x86_64-linux-gnu/dri&quot;</span>
@@ -619,6 +630,17 @@ make<span class="w"> </span>-j<span class="w"> </span><span class="s2">&quot;</s
 <span class="nb">export</span><span class="w"> </span><span class="nv">GST_PLUGIN_FEATURE_RANK</span><span class="o">=</span><span class="si">${</span><span class="nv">GST_PLUGIN_FEATURE_RANK</span><span class="si">}</span>,ximagesink:MAX
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVER_NAME</span><span class="o">=</span>iHD
+<span class="nb">export</span><span class="w"> </span><span class="nv">GST_PLUGIN_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/edge-ai-libraries/libraries/dl-streamer/build/intel64/Release/lib:/opt/intel/dlstreamer/gstreamer/lib/gstreamer-1.0:/usr/lib64/gstreamer-1.0&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">&quot;/opt/intel/dlstreamer/gstreamer/lib:</span><span class="nv">$HOME</span><span class="s2">/edge-ai-libraries/libraries/dl-streamer/build/intel64/Release/lib:/usr/lib:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVERS_PATH</span><span class="o">=</span><span class="s2">&quot;/usr/lib64/dri-nonfree&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">GST_VA_ALL_DRIVERS</span><span class="o">=</span><span class="s2">&quot;1&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/opt/intel/dlstreamer/gstreamer/bin:</span><span class="nv">$HOME</span><span class="s2">/edge-ai-libraries/libraries/dl-streamer/build/intel64/Release/bin:</span><span class="nv">$HOME</span><span class="s2">/.local/bin:</span><span class="nv">$HOME</span><span class="s2">/python3venv/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="s2">&quot;/usr/local/lib/pkgconfig:</span><span class="nv">$HOME</span><span class="s2">/edge-ai-libraries/libraries/dl-streamer/build/intel64/Release/lib/pkgconfig:/usr/lib64/pkgconfig:/opt/intel/dlstreamer/gstreamer/lib/pkgconfig:</span><span class="nv">$PKG_CONFIG_PATH</span><span class="s2">&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">GST_PLUGIN_FEATURE_RANK</span><span class="o">=</span><span class="si">${</span><span class="nv">GST_PLUGIN_FEATURE_RANK</span><span class="si">}</span>,ximagesink:MAX
+</pre></div>
+</div>
+</div></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To set up Linux with the relevant environment variables every time a new terminal is opened, open ~/.bashrc and add the above lines</p>
@@ -681,7 +703,7 @@ python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </s
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-prerequisites">Step 1: Install prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-prerequisites-only-for-ubuntu">Step 1: Install prerequisites (only for Ubuntu)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-build-dependencies">Step 2: Install build dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-set-up-a-python-environment">Step 3: Set up a Python environment</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-ffmpeg">Step 4: Build FFmpeg</a></li>

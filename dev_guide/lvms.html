@@ -34,6 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/doxyrest-pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -47,6 +48,7 @@
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script src="../_static/target-highlight.js"></script>
+    <script src="../_static/tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'dev_guide/lvms';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -172,7 +174,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="advanced_install/advanced_install_guide_index.html">Advanced Installation Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_install_guide_prerequisites.html">Ubuntu advanced installation - prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_install_guide_prebuilt.html">Ubuntu advanced installation - pre-built packages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_install_guide_compilation.html">Ubuntu advanced installation - compilation from source files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_install_guide_compilation.html">Advanced installation - compilation from source files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_build_docker_image.html">Ubuntu advanced installation - build Docker image</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_uninstall_guide.html">Ubuntu advanced uninstall guide</a></li>
 </ul>
@@ -212,9 +214,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvaaudiodetect.html">gvaaudiodetect</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvaattachroi.html">gvaattachroi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvafpscounter.html">gvafpscounter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../elements/gvametaaggregate.html">gvametaaggregate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvametaconvert.html">gvametaconvert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvametapublish.html">gvametapublish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvametaaggregate.html">gvametaaggregate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvapython.html">gvapython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvawatermark.html">gvawatermark</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../elements/gstelements.html">GStreamer Elements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -451,7 +453,7 @@ document.write(`
                   
   <section id="large-vision-models">
 <h1>Large Vision Models<a class="headerlink" href="#large-vision-models" title="Permalink to this heading">#</a></h1>
-<p>This page illustrates how to prepare the Vision Transformer from the <strong>clip-vit-large-patch14</strong> model for integration with the Intel® DL Streamer pipeline.</p>
+<p>This page illustrates how to prepare the Vision Transformer from the CLIP models for integration with the Intel® DL Streamer pipeline.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The instructions provided below are comprehensive, but for convenience, it is recommended to use the <a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/download_public_models.sh">download_public_models.sh</a> script. This script will download all supported models and perform the necessary conversions automatically.</p>
@@ -469,9 +471,10 @@ pip<span class="w"> </span>install<span class="w"> </span>pillow
 </section>
 <section id="model-preparation">
 <h2>2. Model preparation<a class="headerlink" href="#model-preparation" title="Permalink to this heading">#</a></h2>
-<p>Below is a Python script for converting the Vision Transformer from the <strong>clip-vit-large-patch14</strong> model to the Intel® OpenVINO™ format. Since using a sample input is recommended during the conversion,
+<p>Below is a Python script for converting the Vision Transformer from the <strong>clip-vit-large-patch14</strong>/<strong>clip-vit-base-patch16</strong>/<strong>clip-vit-base-patch32</strong> model to the Intel® OpenVINO™ format. Since using a sample input is recommended during the conversion,
 prepare a sample image in one of the common formats and replace <em>IMG_PATH</em> with the relevant value:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">CLIPProcessor</span><span class="p">,</span> <span class="n">CLIPVisionModel</span>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">clip-vit-large-patch14</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">clip-vit-base-patch16</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">clip-vit-base-patch32</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">CLIPProcessor</span><span class="p">,</span> <span class="n">CLIPVisionModel</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">PIL</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">openvino</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ov</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">openvino.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">PartialShape</span><span class="p">,</span> <span class="n">Type</span>
@@ -507,6 +510,79 @@ prepare a sample image in one of the common formats and replace <em>IMG_PATH</em
 <span class="n">ov</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="n">ov_model</span><span class="p">,</span> <span class="n">MODEL</span> <span class="o">+</span> <span class="s2">&quot;.xml&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">CLIPProcessor</span><span class="p">,</span> <span class="n">CLIPVisionModel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">PIL</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">openvino</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ov</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">openvino.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">PartialShape</span><span class="p">,</span> <span class="n">Type</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">MODEL</span><span class="o">=</span><span class="s1">&#39;clip-vit-base-patch16&#39;</span>
+<span class="n">IMG_PATH</span> <span class="o">=</span> <span class="s2">&quot;sample_image.jpg&quot;</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">IMG_PATH</span><span class="p">)</span>
+<span class="n">vision_model</span> <span class="o">=</span> <span class="n">CLIPVisionModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;openai/&#39;</span><span class="o">+</span><span class="n">MODEL</span><span class="p">)</span>
+<span class="n">processor</span> <span class="o">=</span> <span class="n">CLIPProcessor</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;openai/&#39;</span><span class="o">+</span><span class="n">MODEL</span><span class="p">)</span>
+<span class="n">batch</span> <span class="o">=</span> <span class="n">processor</span><span class="o">.</span><span class="n">image_processor</span><span class="p">(</span><span class="n">images</span><span class="o">=</span><span class="n">img</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s1">&#39;pt&#39;</span><span class="p">)[</span><span class="s2">&quot;pixel_values&quot;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Conversion starting...&quot;</span><span class="p">)</span>
+<span class="n">ov_model</span> <span class="o">=</span> <span class="n">ov</span><span class="o">.</span><span class="n">convert_model</span><span class="p">(</span><span class="n">vision_model</span><span class="p">,</span> <span class="n">example_input</span><span class="o">=</span><span class="n">batch</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Conversion finished.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define the input shape explicitly</span>
+<span class="n">input_shape</span> <span class="o">=</span> <span class="n">PartialShape</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">batch</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">batch</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">batch</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">3</span><span class="p">]])</span>
+
+<span class="c1"># Set the input shape and type explicitly</span>
+<span class="k">for</span> <span class="nb">input</span> <span class="ow">in</span> <span class="n">ov_model</span><span class="o">.</span><span class="n">inputs</span><span class="p">:</span>
+   <span class="nb">input</span><span class="o">.</span><span class="n">get_node</span><span class="p">()</span><span class="o">.</span><span class="n">set_partial_shape</span><span class="p">(</span><span class="n">PartialShape</span><span class="p">(</span><span class="n">input_shape</span><span class="p">))</span>
+   <span class="nb">input</span><span class="o">.</span><span class="n">get_node</span><span class="p">()</span><span class="o">.</span><span class="n">set_element_type</span><span class="p">(</span><span class="n">Type</span><span class="o">.</span><span class="n">f32</span><span class="p">)</span>
+
+<span class="n">ov_model</span><span class="o">.</span><span class="n">set_rt_info</span><span class="p">(</span><span class="s2">&quot;clip_token&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;model_info&#39;</span><span class="p">,</span> <span class="s1">&#39;model_type&#39;</span><span class="p">])</span>
+<span class="n">ov_model</span><span class="o">.</span><span class="n">set_rt_info</span><span class="p">(</span><span class="s2">&quot;68.500,66.632,70.323&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;model_info&#39;</span><span class="p">,</span> <span class="s1">&#39;scale_values&#39;</span><span class="p">])</span>
+<span class="n">ov_model</span><span class="o">.</span><span class="n">set_rt_info</span><span class="p">(</span><span class="s2">&quot;122.771,116.746,104.094&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;model_info&#39;</span><span class="p">,</span> <span class="s1">&#39;mean_values&#39;</span><span class="p">])</span>
+<span class="n">ov_model</span><span class="o">.</span><span class="n">set_rt_info</span><span class="p">(</span><span class="s2">&quot;True&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;model_info&#39;</span><span class="p">,</span> <span class="s1">&#39;reverse_input_channels&#39;</span><span class="p">])</span>
+<span class="n">ov_model</span><span class="o">.</span><span class="n">set_rt_info</span><span class="p">(</span><span class="s2">&quot;crop&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;model_info&#39;</span><span class="p">,</span> <span class="s1">&#39;resize_type&#39;</span><span class="p">])</span>
+
+<span class="n">ov</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="n">ov_model</span><span class="p">,</span> <span class="n">MODEL</span> <span class="o">+</span> <span class="s2">&quot;.xml&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">CLIPProcessor</span><span class="p">,</span> <span class="n">CLIPVisionModel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">PIL</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">openvino</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ov</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">openvino.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">PartialShape</span><span class="p">,</span> <span class="n">Type</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">MODEL</span><span class="o">=</span><span class="s1">&#39;clip-vit-base-patch32&#39;</span>
+<span class="n">IMG_PATH</span> <span class="o">=</span> <span class="s2">&quot;sample_image.jpg&quot;</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">IMG_PATH</span><span class="p">)</span>
+<span class="n">vision_model</span> <span class="o">=</span> <span class="n">CLIPVisionModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;openai/&#39;</span><span class="o">+</span><span class="n">MODEL</span><span class="p">)</span>
+<span class="n">processor</span> <span class="o">=</span> <span class="n">CLIPProcessor</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;openai/&#39;</span><span class="o">+</span><span class="n">MODEL</span><span class="p">)</span>
+<span class="n">batch</span> <span class="o">=</span> <span class="n">processor</span><span class="o">.</span><span class="n">image_processor</span><span class="p">(</span><span class="n">images</span><span class="o">=</span><span class="n">img</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s1">&#39;pt&#39;</span><span class="p">)[</span><span class="s2">&quot;pixel_values&quot;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Conversion starting...&quot;</span><span class="p">)</span>
+<span class="n">ov_model</span> <span class="o">=</span> <span class="n">ov</span><span class="o">.</span><span class="n">convert_model</span><span class="p">(</span><span class="n">vision_model</span><span class="p">,</span> <span class="n">example_input</span><span class="o">=</span><span class="n">batch</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Conversion finished.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define the input shape explicitly</span>
+<span class="n">input_shape</span> <span class="o">=</span> <span class="n">PartialShape</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">batch</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">batch</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">batch</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">3</span><span class="p">]])</span>
+
+<span class="c1"># Set the input shape and type explicitly</span>
+<span class="k">for</span> <span class="nb">input</span> <span class="ow">in</span> <span class="n">ov_model</span><span class="o">.</span><span class="n">inputs</span><span class="p">:</span>
+   <span class="nb">input</span><span class="o">.</span><span class="n">get_node</span><span class="p">()</span><span class="o">.</span><span class="n">set_partial_shape</span><span class="p">(</span><span class="n">PartialShape</span><span class="p">(</span><span class="n">input_shape</span><span class="p">))</span>
+   <span class="nb">input</span><span class="o">.</span><span class="n">get_node</span><span class="p">()</span><span class="o">.</span><span class="n">set_element_type</span><span class="p">(</span><span class="n">Type</span><span class="o">.</span><span class="n">f32</span><span class="p">)</span>
+
+<span class="n">ov_model</span><span class="o">.</span><span class="n">set_rt_info</span><span class="p">(</span><span class="s2">&quot;clip_token&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;model_info&#39;</span><span class="p">,</span> <span class="s1">&#39;model_type&#39;</span><span class="p">])</span>
+<span class="n">ov_model</span><span class="o">.</span><span class="n">set_rt_info</span><span class="p">(</span><span class="s2">&quot;68.500,66.632,70.323&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;model_info&#39;</span><span class="p">,</span> <span class="s1">&#39;scale_values&#39;</span><span class="p">])</span>
+<span class="n">ov_model</span><span class="o">.</span><span class="n">set_rt_info</span><span class="p">(</span><span class="s2">&quot;122.771,116.746,104.094&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;model_info&#39;</span><span class="p">,</span> <span class="s1">&#39;mean_values&#39;</span><span class="p">])</span>
+<span class="n">ov_model</span><span class="o">.</span><span class="n">set_rt_info</span><span class="p">(</span><span class="s2">&quot;True&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;model_info&#39;</span><span class="p">,</span> <span class="s1">&#39;reverse_input_channels&#39;</span><span class="p">])</span>
+<span class="n">ov_model</span><span class="o">.</span><span class="n">set_rt_info</span><span class="p">(</span><span class="s2">&quot;crop&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;model_info&#39;</span><span class="p">,</span> <span class="s1">&#39;resize_type&#39;</span><span class="p">])</span>
+
+<span class="n">ov</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="n">ov_model</span><span class="p">,</span> <span class="n">MODEL</span> <span class="o">+</span> <span class="s2">&quot;.xml&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></div>
 </section>
 <section id="model-usage">
 <h2>3. Model usage<a class="headerlink" href="#model-usage" title="Permalink to this heading">#</a></h2>

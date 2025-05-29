@@ -172,7 +172,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="advanced_install/advanced_install_guide_index.html">Advanced Installation Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_install_guide_prerequisites.html">Ubuntu advanced installation - prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_install_guide_prebuilt.html">Ubuntu advanced installation - pre-built packages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_install_guide_compilation.html">Ubuntu advanced installation - compilation from source files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_install_guide_compilation.html">Advanced installation - compilation from source files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_build_docker_image.html">Ubuntu advanced installation - build Docker image</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced_install/advanced_uninstall_guide.html">Ubuntu advanced uninstall guide</a></li>
 </ul>
@@ -212,9 +212,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvaaudiodetect.html">gvaaudiodetect</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvaattachroi.html">gvaattachroi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvafpscounter.html">gvafpscounter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../elements/gvametaaggregate.html">gvametaaggregate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvametaconvert.html">gvametaconvert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvametapublish.html">gvametapublish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvametaaggregate.html">gvametaaggregate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvapython.html">gvapython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvawatermark.html">gvawatermark</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../elements/gstelements.html">GStreamer Elements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -439,7 +439,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-stage-pipeline-with-gvadetect-and-gvaclassify">2. Multi-stage pipeline with gvadetect and gvaclassify</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-stream-pipelines-with-single-ai-stage">3. Multi-stream pipelines with single AI stage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-stream-pipelines-with-multiple-ai-stages">4. Multi-stream pipelines with multiple AI stages</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-intel-dl-streamer-pipeline-framework-performance-benchmark-results">5. The Intel® DL Streamer Pipeline Framework performance benchmark results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-stream-pipelines-with-meta-aggregation-element">5. Multi-stream pipelines with meta-aggregation element</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-intel-dl-streamer-pipeline-framework-performance-benchmark-results">6. The Intel® DL Streamer Pipeline Framework performance benchmark results</a></li>
 </ul>
             </nav>
         </div>
@@ -580,8 +581,24 @@ gvaclassify<span class="w"> </span><span class="nv">model</span><span class="o">
 </pre></div>
 </div>
 </section>
+<section id="multi-stream-pipelines-with-meta-aggregation-element">
+<h2>5. Multi-stream pipelines with meta-aggregation element<a class="headerlink" href="#multi-stream-pipelines-with-meta-aggregation-element" title="Permalink to this heading">#</a></h2>
+<p>The multi-stage and multi-stream scenarios can use the <a class="reference external" href="https://dlstreamer.github.io/elements/gvametaaggregate.html">gvametaaggregate</a> element to aggregate the results from multiple branches of the pipeline.
+The aggregated results are published as a single JSON metadata output.
+The following example shows how to use the gvametaaggregate element to aggregate the results from two streams pipelines.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0<span class="w"> </span>filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span><span class="si">${</span><span class="nv">VIDEO_FILE_1</span><span class="si">}</span><span class="w"> </span>!<span class="w"> </span>decodebin3<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>tee<span class="w"> </span><span class="nv">name</span><span class="o">=</span>t<span class="w"> </span>t.<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span>gvametaaggregate<span class="w"> </span><span class="nv">name</span><span class="o">=</span>a<span class="w"> </span>!
+<span class="w">  </span>gvaclassify<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">MODEL_FILE_2</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>CPU<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>gvametaconvert<span class="w"> </span><span class="nv">format</span><span class="o">=</span>json<span class="w"> </span>add-tensor-data<span class="o">=</span><span class="nb">true</span><span class="w"> </span>!<span class="w"> </span>gvametapublish<span class="w"> </span>file-path<span class="o">=</span>./result.json<span class="w"> </span><span class="nv">method</span><span class="o">=</span>file<span class="w"> </span>file-format<span class="o">=</span>json-lines<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>fakesink<span class="w"> </span><span class="nv">sync</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>t.<span class="w"> </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">MODEL_FILE_1</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>GPU<span class="w"> </span>!<span class="w"> </span>a.<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span><span class="si">${</span><span class="nv">VIDEO_FILE_1</span><span class="si">}</span><span class="w"> </span>!<span class="w"> </span>decodebin3<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>gvadetect<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="si">${</span><span class="nv">MODEL_FILE_1</span><span class="si">}</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>GPU<span class="w"> </span>!<span class="w"> </span>a.
+</pre></div>
+</div>
+</section>
 <section id="the-intel-dl-streamer-pipeline-framework-performance-benchmark-results">
-<h2>5. The Intel® DL Streamer Pipeline Framework performance benchmark results<a class="headerlink" href="#the-intel-dl-streamer-pipeline-framework-performance-benchmark-results" title="Permalink to this heading">#</a></h2>
+<h2>6. The Intel® DL Streamer Pipeline Framework performance benchmark results<a class="headerlink" href="#the-intel-dl-streamer-pipeline-framework-performance-benchmark-results" title="Permalink to this heading">#</a></h2>
 <p>The Intel® DL Streamer Pipeline Framework example performance benchmark results can be found as a part of the <a class="reference external" href="https://www.intel.com/content/www/us/en/secure/content-details/826398/smart-cities-accelerated-by-intel-gpus-arc-gpu-addendum.html?wapkw=smart%20cities&amp;DocID=826398">Smart Cities Accelerated by Intel® Graphics Solutions paper</a>.</p>
 </section>
 </section>
@@ -635,7 +652,8 @@ gvaclassify<span class="w"> </span><span class="nv">model</span><span class="o">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-stage-pipeline-with-gvadetect-and-gvaclassify">2. Multi-stage pipeline with gvadetect and gvaclassify</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-stream-pipelines-with-single-ai-stage">3. Multi-stream pipelines with single AI stage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-stream-pipelines-with-multiple-ai-stages">4. Multi-stream pipelines with multiple AI stages</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-intel-dl-streamer-pipeline-framework-performance-benchmark-results">5. The Intel® DL Streamer Pipeline Framework performance benchmark results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-stream-pipelines-with-meta-aggregation-element">5. Multi-stream pipelines with meta-aggregation element</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-intel-dl-streamer-pipeline-framework-performance-benchmark-results">6. The Intel® DL Streamer Pipeline Framework performance benchmark results</a></li>
 </ul>
   </nav></div>
 

@@ -172,7 +172,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_index.html">Advanced Installation Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_prerequisites.html">Ubuntu advanced installation - prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_prebuilt.html">Ubuntu advanced installation - pre-built packages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_compilation.html">Ubuntu advanced installation - compilation from source files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_install_guide_compilation.html">Advanced installation - compilation from source files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_build_docker_image.html">Ubuntu advanced installation - build Docker image</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/advanced_install/advanced_uninstall_guide.html">Ubuntu advanced uninstall guide</a></li>
 </ul>
@@ -212,9 +212,9 @@
 <li class="toctree-l2"><a class="reference internal" href="gvaaudiodetect.html">gvaaudiodetect</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gvaattachroi.html">gvaattachroi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gvafpscounter.html">gvafpscounter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gvametaaggregate.html">gvametaaggregate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gvametaconvert.html">gvametaconvert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gvametapublish.html">gvametapublish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gvametaaggregate.html">gvametaaggregate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gvapython.html">gvapython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gvawatermark.html">gvawatermark</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="gstelements.html">GStreamer Elements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -510,15 +510,17 @@ gst-inspect-1.0 utility</p>
 <p><em>[eg syntax]</em> <em>gst-launch-1.0 … ! decodebin3 ! gvadetect … ! gvafpscounter ! … OUT</em></p>
 </td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="gvametaaggregate.html"><span class="doc">gvametaaggregate</span></a></p></td>
-<td><p>Aggregates inference results from multiple pipeline branches.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="gvametaconvert.html"><span class="doc">gvametaconvert</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="gvametaconvert.html"><span class="doc">gvametaconvert</span></a></p></td>
 <td><p>Converts the metadata structure to JSON or raw text formats, can write output to a file.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="gvametapublish.html"><span class="doc">gvametapublish</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="gvametapublish.html"><span class="doc">gvametapublish</span></a></p></td>
 <td><p>Publishes the JSON metadata to MQTT or Kafka message brokers or files.</p>
 <p><em>[eg syntax]</em> <em>gst-launch-1.0 … ! decodebin3 ! gvadetect model=$mDetect device=GPU … ! gvametaconvert format=json … ! gvametapublish … ! … OUT</em></p>
+</td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="gvametaaggregate.html"><span class="doc">gvametaaggregate</span></a></p></td>
+<td><p>Aggregates inference results from multiple pipeline branches.</p>
+<p><em>[eg syntax]</em> <em>gst-launch-1.0 … ! decodebin3 ! tee name=t t. ! queue ! gvametaaggregate name=a ! gvaclassify … ! gvaclassify … ! gvametaconvert … ! gvametapublish … ! fakesink t. ! queue ! gvadetect … ! a.</em></p>
 </td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="gvapython.html"><span class="doc">gvapython</span></a></p></td>

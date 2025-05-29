@@ -174,7 +174,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../dev_guide/advanced_install/advanced_install_guide_index.html">Advanced Installation Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../dev_guide/advanced_install/advanced_install_guide_prerequisites.html">Ubuntu advanced installation - prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dev_guide/advanced_install/advanced_install_guide_prebuilt.html">Ubuntu advanced installation - pre-built packages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dev_guide/advanced_install/advanced_install_guide_compilation.html">Ubuntu advanced installation - compilation from source files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dev_guide/advanced_install/advanced_install_guide_compilation.html">Advanced installation - compilation from source files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dev_guide/advanced_install/advanced_build_docker_image.html">Ubuntu advanced installation - build Docker image</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dev_guide/advanced_install/advanced_uninstall_guide.html">Ubuntu advanced uninstall guide</a></li>
 </ul>
@@ -214,9 +214,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvaaudiodetect.html">gvaaudiodetect</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvaattachroi.html">gvaattachroi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvafpscounter.html">gvafpscounter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../elements/gvametaaggregate.html">gvametaaggregate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvametaconvert.html">gvametaconvert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvametapublish.html">gvametapublish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvametaaggregate.html">gvametaaggregate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvapython.html">gvapython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvawatermark.html">gvawatermark</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../elements/gstelements.html">GStreamer Elements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -513,8 +513,8 @@ NPU:
 </pre></div>
 </div>
 <p>More details about the packages can be found in the following driver links respectively:
-<a class="reference external" href="https://dgpu-docs.intel.com/driver/client/overview.html#installing-gpu-packages">Client GPU</a>,
-<a class="reference external" href="https://dgpu-docs.intel.com/driver/installation.html#installing-data-center-gpu-lts-releases">Data Center GPU</a>,
+<a class="reference external" href="https://dgpu-docs.intel.com/driver/client/overview.html#installing-gpu-packages">Intel® Client GPU</a>,
+<a class="reference external" href="https://dgpu-docs.intel.com/driver/installation.html#installing-data-center-gpu-lts-releases">Intel® Data Center GPU</a>,
 <a class="reference external" href="https://github.com/intel/media-driver/releases">Media</a>,
 <a class="reference external" href="https://github.com/intel/linux-npu-driver/releases/tag/v1.13.0">NPU</a>.</p>
 </section>
@@ -550,7 +550,7 @@ sudo<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </spa
 </div></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you have OpenVINO installed in a version different from 2025.0.0, please uninstall the OpenVINO packages using the following commands.</p>
+<p>If you have OpenVINO™ installed in a version different from 2025.0.0, please uninstall the OpenVINO™ packages using the following commands.</p>
 </div>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>-y<span class="w"> </span>openvino*<span class="w"> </span>libopenvino-*<span class="w"> </span>python3-openvino*
 sudo<span class="w"> </span>apt-get<span class="w"> </span>autoremove
@@ -568,7 +568,7 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w
 </pre></div>
 </div>
 <p><strong>Congratulations! Intel® DL Streamer is now installed and ready for use!</strong></p>
-<p>To see the full list of installed components check the <a class="reference external" href="https://raw.githubusercontent.com/open-edge-platform/edge-ai-libraries/refs/heads/main/libraries/dl-streamer/docker/dlstreamer_dev_ubuntu24.Dockerfile">dockerfile content for Ubuntu24</a></p>
+<p>To see the full list of installed components check the <a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/blob/main/libraries/dl-streamer/docker/devel/ubuntu24/dlstreamer_dev_ubuntu24.Dockerfile">Dockerfile content for Ubuntu 24</a></p>
 </section>
 <section id="optional-step-4-python-dependencies">
 <h3>[Optional] Step 4: Python dependencies<a class="headerlink" href="#optional-step-4-python-dependencies" title="Permalink to this heading">#</a></h3>
@@ -608,6 +608,11 @@ To run the hello_dlstreamer script, execute the following command:</p>
 <span class="nb">export</span><span class="w"> </span><span class="nv">GST_PLUGIN_FEATURE_RANK</span><span class="o">=</span><span class="si">${</span><span class="nv">GST_PLUGIN_FEATURE_RANK</span><span class="si">}</span>,ximagesink:MAX
 </pre></div>
 </div>
+<p>or run:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>/opt/intel/dlstreamer/scripts/setup_dls_config.sh
+</pre></div>
+</div>
+<p>to configure environment variables for the current terminal session.</p>
 </section>
 <section id="optional-step-6-auxiliary-installation-steps">
 <h3>[Optional] Step 6: Auxiliary installation steps<a class="headerlink" href="#optional-step-6-auxiliary-installation-steps" title="Permalink to this heading">#</a></h3>

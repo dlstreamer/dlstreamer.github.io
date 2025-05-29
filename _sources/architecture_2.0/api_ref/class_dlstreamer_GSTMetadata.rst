@@ -51,5 +51,6 @@ Inherited Members
 		:ref:`iterator<doxid-classdlstreamer_1_1_metadata_1acc5d5f5b8001e3c473d8b2d33a6e9df6>` :ref:`end<doxid-classdlstreamer_1_1_metadata_1a57f3df030d2f34c874ebc23780c7ee36>`() const;
 		virtual :ref:`DictionaryPtr<doxid-namespacedlstreamer_1ab94d4f1fc850dbd9c71343191460d20a>` :ref:`add<doxid-classdlstreamer_1_1_metadata_1a4bb542ba1c659b24e50e4034755ae520>`(std::string_view name) = 0;
 		virtual :ref:`iterator<doxid-classdlstreamer_1_1_metadata_1acc5d5f5b8001e3c473d8b2d33a6e9df6>` :ref:`erase<doxid-classdlstreamer_1_1_metadata_1a81be521d875d613bfecaa0c9fc752c30>`(:ref:`iterator<doxid-classdlstreamer_1_1_metadata_1acc5d5f5b8001e3c473d8b2d33a6e9df6>` pos) = 0;
+		virtual :ref:`iterator<doxid-classdlstreamer_1_1_metadata_1acc5d5f5b8001e3c473d8b2d33a6e9df6>` :ref:`erase<doxid-classdlstreamer_1_1_metadata_1a11add24125e5b60dce46e0413577b6bc>`(:ref:`iterator<doxid-classdlstreamer_1_1_metadata_1acc5d5f5b8001e3c473d8b2d33a6e9df6>` first, :ref:`iterator<doxid-classdlstreamer_1_1_metadata_1acc5d5f5b8001e3c473d8b2d33a6e9df6>` last);
 		virtual void :ref:`clear<doxid-classdlstreamer_1_1_metadata_1a7fb81693b271b5408e6a89024085efb3>`() = 0;
 
