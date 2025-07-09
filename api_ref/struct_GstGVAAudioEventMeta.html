@@ -466,8 +466,8 @@ document.write(`
     <span class="n">GstMeta</span> <a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta-1aa9e75d536dc0b26bdcd4a5244b39ff73"><span class="std std-ref">meta</span></a><span></span><span class="p">;</span>
     <span class="n">GQuark</span> <a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta-1a0dacfefbf7225e0debd793de5411d32e"><span class="std std-ref">event_type</span></a><span></span><span class="p">;</span>
     <span class="n">gint</span> <a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta-1a90f4a9a1ed5700bda3c9347cf9328400"><span class="std std-ref">id</span></a><span></span><span class="p">;</span>
-    <span class="n">gulong</span> <a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta-1a69e2d1983f3351a0d1e12925ab218037"><span class="std std-ref">start_timestamp</span></a><span></span><span class="p">;</span>
-    <span class="n">gulong</span> <a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta-1a0be03e85ec272ab042d116c900645384"><span class="std std-ref">end_timestamp</span></a><span></span><span class="p">;</span>
+    <span class="n">guint64</span> <a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta-1a69e2d1983f3351a0d1e12925ab218037"><span class="std std-ref">start_timestamp</span></a><span></span><span class="p">;</span>
+    <span class="n">guint64</span> <a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta-1a0be03e85ec272ab042d116c900645384"><span class="std std-ref">end_timestamp</span></a><span></span><span class="p">;</span>
     <span class="n">GList</span><span class="o">*</span> <a class="reference internal" href="../architecture_2.0/api_ref/struct_GstGVAAudioEventMeta.html#doxid-struct-gst-g-v-a-audio-event-meta-1a1842127f10abe2ca8850864a7b350e1f"><span class="std std-ref">params</span></a><span></span><span class="p">;</span>
 <span class="p">};</span></pre>
 </section>
@@ -482,12 +482,12 @@ document.write(`
 <p>GQuark describing the semantic of the AudioEvent (f.i. a Sound, a Speech, Silence)</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-struct-gst-g-v-a-audio-event-meta-1a90f4a9a1ed5700bda3c9347cf9328400"><span id="index-3"></span><span></span><span class="n">gint</span> <span class="n">id</span></pre>
 <p>Identifier of this particular event</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-struct-gst-g-v-a-audio-event-meta-1a69e2d1983f3351a0d1e12925ab218037"><span id="index-4"></span><span></span><span class="n">gulong</span> <span class="n">start_timestamp</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-struct-gst-g-v-a-audio-event-meta-1a69e2d1983f3351a0d1e12925ab218037"><span id="index-4"></span><span></span><span class="n">guint64</span> <span class="n">start_timestamp</span></pre>
 <p>Start time stamp of the segment</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-struct-gst-g-v-a-audio-event-meta-1a0be03e85ec272ab042d116c900645384"><span id="index-5"></span><span></span><span class="n">gulong</span> <span class="n">end_timestamp</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-struct-gst-g-v-a-audio-event-meta-1a0be03e85ec272ab042d116c900645384"><span id="index-5"></span><span></span><span class="n">guint64</span> <span class="n">end_timestamp</span></pre>
 <p>End time stamp of the segment</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-struct-gst-g-v-a-audio-event-meta-1a1842127f10abe2ca8850864a7b350e1f"><span id="index-6"></span><span></span><span class="n">GList</span><span class="o">*</span> <span class="n">params</span></pre>
-<p>List of #GstStructure containing element-specific params for downstream, see <a class="reference internal" href="../architecture_2.0/api_ref/global.html#doxid-gva-audio-event-meta-8h-1ab2ac8cd76f8f0a52f344f80921903f20"><span class="std std-ref">gst_gva_audio_event_meta_add_param()</span></a>.</p>
+<p>List of #GstStructure containing element-specific params for downstream, see <a class="reference internal" href="../architecture_2.0/api_ref/global.html#doxid-gva-audio-event-meta-8h-1a71b5f79e7958b04f6af52821525c5b5b"><span class="std std-ref">gst_gva_audio_event_meta_add_param()</span></a>.</p>
 </section>
 </section>
 </section>

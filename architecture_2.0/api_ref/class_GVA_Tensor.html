@@ -477,16 +477,27 @@ document.write(`
     <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="n">T</span><span class="o">&gt;</span>
     <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1ac61de94784df20b83e2b045b26b48506"><span class="std std-ref">data</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
 
+    <span class="kt">void</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a22061b1190aa0952858e0bc2c2304019"><span class="std std-ref">set_data</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">);</span>
     <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">guint</span><span class="o">&gt;</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1abea9f7ab67e6b2768e871b1ffa59c4e6"><span class="std std-ref">dims</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">void</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a062bb5088ed41318e9cb64cc5d873f04"><span class="std std-ref">set_dims</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">guint</span><span class="o">&gt;&amp;</span> <span class="n">dims</span><span class="p">);</span>
     <a class="reference internal" href="enum_GVA_Tensor_Precision.html#doxid-class-g-v-a-1-1-tensor-1a1619104b4d017b07063ec70e5143deee"><span class="std std-ref">Precision</span></a><span></span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1afc914408f86c747a6ec12c4d3e28f61a"><span class="std std-ref">precision</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">void</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a42e3edca26cb702c94c24be2bf51a93f"><span class="std std-ref">set_precision</span></a><span></span><span class="p">(</span><span class="k">const</span> <a class="reference internal" href="enum_GVA_Tensor_Precision.html#doxid-class-g-v-a-1-1-tensor-1a1619104b4d017b07063ec70e5143deee"><span class="std std-ref">Precision</span></a><span></span> <span class="n">precision</span><span class="p">);</span>
     <a class="reference internal" href="enum_GVA_Tensor_Layout.html#doxid-class-g-v-a-1-1-tensor-1aefae220aa20aeeff872f7a9d7ccb2650"><span class="std std-ref">Layout</span></a><span></span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1aef835f662ddf50b0973d00e34ea19793"><span class="std std-ref">layout</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">void</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1ac09d3c20a2ff73376b78ca85097ea8ff"><span class="std std-ref">set_layout</span></a><span></span><span class="p">(</span><span class="k">const</span> <a class="reference internal" href="enum_GVA_Tensor_Layout.html#doxid-class-g-v-a-1-1-tensor-1aefae220aa20aeeff872f7a9d7ccb2650"><span class="std std-ref">Layout</span></a><span></span> <span class="n">layout</span><span class="p">);</span>
     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1ac463c44557b69a233ee62a69de70e35e"><span class="std std-ref">layer_name</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">void</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a1d0c0dcd39a25bf48ded3ddc9d947076"><span class="std std-ref">set_layer_name</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">);</span>
     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a1e59cc380692947b6d2b1f4a2841d597"><span class="std std-ref">model_name</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">void</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1af27065d033afdae29e24e4c82dd8822a"><span class="std std-ref">set_model_name</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">);</span>
     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1ae84bc122455ba1dc61d844c7d16df412"><span class="std std-ref">format</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="doxyrest-code-target target" id="doxid-class-g-v-a-1-1-tensor-1a8eb9966dd42cb81474f6b3622746a778"><span></span><span class="n">type</span></span><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">void</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a04b3aa0d4b4bd8ddc9e2c5f64f0aae06"><span class="std std-ref">set_format</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">format</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a8eb9966dd42cb81474f6b3622746a778"><span class="std std-ref">type</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">void</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1ad8442ccfb725eed25cd6117fd15f245a"><span class="std std-ref">set_type</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">type</span><span class="p">);</span>
     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1ab4ff43a5debb89a3073204571d5c063a"><span class="std std-ref">name</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">void</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1ad01bf81b1fb65f891197be588e54d29a"><span class="std std-ref">set_name</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">);</span>
     <span class="kt">double</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a131d6f95a68539ea0a9e22565e769d78"><span class="std std-ref">confidence</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">void</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a8d02450dce96741d5a22ba71b7b7e90f"><span class="std std-ref">set_confidence</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="kt">double</span> <span class="n">confidence</span><span class="p">);</span>
     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a81285ccb826dd979f0b77fa8361a7f06"><span class="std std-ref">label</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">void</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a249ddb89ab4abb3787d2836feccbc2c1"><span class="std std-ref">set_label</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">label</span><span class="p">);</span>
     <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1aa45d665b0cace8a13c6b73f141585a55"><span class="std std-ref">fields</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
     <span class="kt">bool</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a02af446bd566495a2d8915047445f717"><span class="std std-ref">has_field</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
@@ -497,18 +508,28 @@ document.write(`
 
     <span class="kt">int</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1aa060cfe8ed40e586905868c0905b11e1"><span class="std std-ref">get_int</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="kt">int32_t</span> <span class="n">default_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
     <span class="kt">double</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1ad06d2883a852b8713b7993f349616ee0"><span class="std std-ref">get_double</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="kt">double</span> <span class="n">default_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a447334bf81b617a41ef716ea6edd0b25"><span class="std std-ref">get_float_vector</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a891cfbd45c26c1d9824c70c4b243a6b6"><span class="std std-ref">get_vector</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">field_name</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+    <span class="kt">void</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a6f8ed9eaef0a76940eee1e2c977f996c"><span class="std std-ref">set_vector</span></a><span></span><span class="p">(</span>
+        <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">field_name</span><span class="p">,</span>
+        <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">data</span>
+    <span class="p">);</span>
+
     <span class="kt">void</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a1cd955d556f2fd16df47d28e95b7b423"><span class="std std-ref">set_string</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">);</span>
     <span class="kt">void</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a6bf5b624608bed60ea5b7edc5dddf61d"><span class="std std-ref">set_int</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">value</span><span class="p">);</span>
+    <span class="kt">void</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a385209dd11378bd2ee37ef1a85f3eb86"><span class="std std-ref">set_uint64</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">value</span><span class="p">);</span>
     <span class="kt">void</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a899c7cd7ef6428a13a76f29a3869c730"><span class="std std-ref">set_double</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="kt">double</span> <span class="n">value</span><span class="p">);</span>
-    <span class="kt">void</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1ad01bf81b1fb65f891197be588e54d29a"><span class="std std-ref">set_name</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">);</span>
-    <span class="kt">void</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a249ddb89ab4abb3787d2836feccbc2c1"><span class="std std-ref">set_label</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">label</span><span class="p">);</span>
+    <span class="kt">void</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1acc6fef4506285743ac482547b0e1ff62"><span class="std std-ref">set_bool</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">value</span><span class="p">);</span>
     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1aa33c11426d860d1562506b7bd8b4cabe"><span class="std std-ref">precision_as_string</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1aeed9e5d0654804b6168b8e814806d69c"><span class="std std-ref">layout_as_string</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a4ee8c5ca615cb3d864571946ffcc41d3"><span class="std std-ref">element_id</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
     <span class="kt">int</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1aaa38a09854062816512e7d08e8c35498"><span class="std std-ref">label_id</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
     <span class="kt">bool</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a28a71b8b0973df2df5707bb74b1588f7"><span class="std std-ref">is_detection</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
     <span class="n">GstStructure</span><span class="o">*</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a65270f22539aa9a422ab0bfa674cf214"><span class="std std-ref">gst_structure</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a0d856677b3c0f57bff510b5a26159599"><span class="std std-ref">to_string</span></a><span></span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">bool</span> <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor-1a95ae5bee6254ab73644dc4ac107e4832"><span class="std std-ref">convert_to_meta</span></a><span></span><span class="p">(</span>
         <span class="n">GstAnalyticsMtd</span><span class="o">*</span> <span class="n">mtd</span><span class="p">,</span>
@@ -560,47 +581,219 @@ document.write(`
 </div>
 <p class="rubric">Returns:</p>
 <p>vector of values of type T representing raw inference data, empty vector if data can’t be read</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1abea9f7ab67e6b2768e871b1ffa59c4e6"><span id="index-3"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">guint</span><span class="o">&gt;</span> <span class="n">dims</span><span class="p">()</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a22061b1190aa0952858e0bc2c2304019"><span id="index-3"></span><span></span><span class="kt">void</span> <span class="n">set_data</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span></pre>
+<p>Set raw data buffer as inference output data.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>buffer</p></td>
+<td><p>with data element</p></td>
+</tr>
+<tr class="row-even"><td><p>size</p></td>
+<td><p>of data buffer in bytes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1abea9f7ab67e6b2768e871b1ffa59c4e6"><span id="index-4"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">guint</span><span class="o">&gt;</span> <span class="n">dims</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Get inference result blob dimensions info.</p>
 <p class="rubric">Returns:</p>
 <p>vector of dimensions. Empty vector if dims are not set</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1afc914408f86c747a6ec12c4d3e28f61a"><span id="index-4"></span><a class="reference internal" href="enum_GVA_Tensor_Precision.html#doxid-class-g-v-a-1-1-tensor-1a1619104b4d017b07063ec70e5143deee"><span class="std std-ref">Precision</span></a><span></span> <span class="n">precision</span><span class="p">()</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a062bb5088ed41318e9cb64cc5d873f04"><span id="index-5"></span><span></span><span class="kt">void</span> <span class="n">set_dims</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">guint</span><span class="o">&gt;&amp;</span> <span class="n">dims</span><span class="p">)</span></pre>
+<p>Set inference result blob dimensions info.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>dims</p></td>
+<td><p>vector of dimensions</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1afc914408f86c747a6ec12c4d3e28f61a"><span id="index-6"></span><a class="reference internal" href="enum_GVA_Tensor_Precision.html#doxid-class-g-v-a-1-1-tensor-1a1619104b4d017b07063ec70e5143deee"><span class="std std-ref">Precision</span></a><span></span> <span class="n">precision</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Get inference output blob precision.</p>
 <p class="rubric">Returns:</p>
 <p>Enum Precision, <a class="reference internal" href="enum_GVA_Tensor_Precision.html#doxid-class-g-v-a-1-1-tensor-1a1619104b4d017b07063ec70e5143deeea1c04cc3823d476c3017238679a0fdf52"><span class="std std-ref">Precision::UNSPECIFIED</span></a> if can’t be read</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1aef835f662ddf50b0973d00e34ea19793"><span id="index-5"></span><a class="reference internal" href="enum_GVA_Tensor_Layout.html#doxid-class-g-v-a-1-1-tensor-1aefae220aa20aeeff872f7a9d7ccb2650"><span class="std std-ref">Layout</span></a><span></span> <span class="n">layout</span><span class="p">()</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a42e3edca26cb702c94c24be2bf51a93f"><span id="index-7"></span><span></span><span class="kt">void</span> <span class="n">set_precision</span><span class="p">(</span><span class="k">const</span> <a class="reference internal" href="enum_GVA_Tensor_Precision.html#doxid-class-g-v-a-1-1-tensor-1a1619104b4d017b07063ec70e5143deee"><span class="std std-ref">Precision</span></a><span></span> <span class="n">precision</span><span class="p">)</span></pre>
+<p>Set inference output blob precision.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>precision</p></td>
+<td><p>of inference data buffer</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1aef835f662ddf50b0973d00e34ea19793"><span id="index-8"></span><a class="reference internal" href="enum_GVA_Tensor_Layout.html#doxid-class-g-v-a-1-1-tensor-1aefae220aa20aeeff872f7a9d7ccb2650"><span class="std std-ref">Layout</span></a><span></span> <span class="n">layout</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Get inference result blob layout.</p>
 <p class="rubric">Returns:</p>
 <p>Enum Layout, <a class="reference internal" href="enum_GVA_Tensor_Layout.html#doxid-class-g-v-a-1-1-tensor-1aefae220aa20aeeff872f7a9d7ccb2650a8e1bde3c3d303163521522cf1d62f21f"><span class="std std-ref">Layout::ANY</span></a> if can’t be read</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1ac463c44557b69a233ee62a69de70e35e"><span id="index-6"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">layer_name</span><span class="p">()</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1ac09d3c20a2ff73376b78ca85097ea8ff"><span id="index-9"></span><span></span><span class="kt">void</span> <span class="n">set_layout</span><span class="p">(</span><span class="k">const</span> <a class="reference internal" href="enum_GVA_Tensor_Layout.html#doxid-class-g-v-a-1-1-tensor-1aefae220aa20aeeff872f7a9d7ccb2650"><span class="std std-ref">Layout</span></a><span></span> <span class="n">layout</span><span class="p">)</span></pre>
+<p>Set layout of output blob precision.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>layout</p></td>
+<td><p>of inference data buffer</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1ac463c44557b69a233ee62a69de70e35e"><span id="index-10"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">layer_name</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Get inference result blob layer name.</p>
 <p class="rubric">Returns:</p>
 <p>layer name as a string, empty string if failed to get</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a1e59cc380692947b6d2b1f4a2841d597"><span id="index-7"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">model_name</span><span class="p">()</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a1d0c0dcd39a25bf48ded3ddc9d947076"><span id="index-11"></span><span></span><span class="kt">void</span> <span class="n">set_layer_name</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">)</span></pre>
+<p>Set name of output blob layer.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>of output blob layer</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a1e59cc380692947b6d2b1f4a2841d597"><span id="index-12"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">model_name</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Get model name which was used for inference.</p>
 <p class="rubric">Returns:</p>
 <p>model name as a string, empty string if failed to get</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1ae84bc122455ba1dc61d844c7d16df412"><span id="index-8"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">format</span><span class="p">()</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1af27065d033afdae29e24e4c82dd8822a"><span id="index-13"></span><span></span><span class="kt">void</span> <span class="n">set_model_name</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">)</span></pre>
+<p>Set model name of output blob.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>of output blob model</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1ae84bc122455ba1dc61d844c7d16df412"><span id="index-14"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">format</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Get data format as specified in model pre/post-processing json configuration.</p>
 <p class="rubric">Returns:</p>
 <p>format as a string, empty string if failed to get</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1ab4ff43a5debb89a3073204571d5c063a"><span id="index-9"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">()</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a04b3aa0d4b4bd8ddc9e2c5f64f0aae06"><span id="index-15"></span><span></span><span class="kt">void</span> <span class="n">set_format</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">format</span><span class="p">)</span></pre>
+<p>Set inference output blob precision.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>format</p></td>
+<td><p>of inference data buffer</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a8eb9966dd42cb81474f6b3622746a778"><span id="index-16"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">type</span><span class="p">()</span> <span class="k">const</span></pre>
+<p>Get tensor type as a string.</p>
+<p class="rubric">Returns:</p>
+<p><a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> instance’s type</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1ad8442ccfb725eed25cd6117fd15f245a"><span id="index-17"></span><span></span><span class="kt">void</span> <span class="n">set_type</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">type</span><span class="p">)</span></pre>
+<p>Set tensor type as a string.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>of tensor data buffer</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1ab4ff43a5debb89a3073204571d5c063a"><span id="index-18"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Get tensor name as a string.</p>
 <p class="rubric">Returns:</p>
 <p><a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> instance’s name</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a131d6f95a68539ea0a9e22565e769d78"><span id="index-10"></span><span></span><span class="kt">double</span> <span class="n">confidence</span><span class="p">()</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1ad01bf81b1fb65f891197be588e54d29a"><span id="index-19"></span><span></span><span class="kt">void</span> <span class="n">set_name</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">)</span></pre>
+<p>Set <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> instance’s name.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>of tensor instance</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a131d6f95a68539ea0a9e22565e769d78"><span id="index-20"></span><span></span><span class="kt">double</span> <span class="n">confidence</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Get confidence of detection or classification result extracted from the tensor.</p>
 <p class="rubric">Returns:</p>
 <p>confidence of inference result as a double, 0 if failed to get</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a81285ccb826dd979f0b77fa8361a7f06"><span id="index-11"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">label</span><span class="p">()</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a8d02450dce96741d5a22ba71b7b7e90f"><span id="index-21"></span><span></span><span class="kt">void</span> <span class="n">set_confidence</span><span class="p">(</span><span class="k">const</span> <span class="kt">double</span> <span class="n">confidence</span><span class="p">)</span></pre>
+<p>Set confidence of detection or classification result.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>confidence</p></td>
+<td><p>of inference result</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a81285ccb826dd979f0b77fa8361a7f06"><span id="index-22"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">label</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Get label. This label is set for <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> instances produced by gvaclassify element. It will throw an exception if called for detection <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a>. To get detection class label, use <a class="reference internal" href="class_GVA_RegionOfInterest.html#doxid-class-g-v-a-1-1-region-of-interest-1a1e70434428a6b20dbd35be7837761ffa"><span class="std std-ref">RegionOfInterest::label</span></a>.</p>
 <p class="rubric">Returns:</p>
 <p>label as a string, empty string if failed to get</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1aa45d665b0cace8a13c6b73f141585a55"><span id="index-12"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">fields</span><span class="p">()</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a249ddb89ab4abb3787d2836feccbc2c1"><span id="index-23"></span><span></span><span class="kt">void</span> <span class="n">set_label</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">label</span><span class="p">)</span></pre>
+<p>Set label. It will throw an exception if called for detection <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a>.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>label</p></td>
+<td><p>label name as a string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1aa45d665b0cace8a13c6b73f141585a55"><span id="index-24"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">fields</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Get vector of fields contained in <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> instance.</p>
 <p class="rubric">Returns:</p>
 <p>vector of fields contained in <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> instance</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a02af446bd566495a2d8915047445f717"><span id="index-13"></span><span></span><span class="kt">bool</span> <span class="n">has_field</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">)</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a02af446bd566495a2d8915047445f717"><span id="index-25"></span><span></span><span class="kt">bool</span> <span class="n">has_field</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">)</span> <span class="k">const</span></pre>
 <p>Check if <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> instance has field.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -617,7 +810,7 @@ document.write(`
 </div>
 <p class="rubric">Returns:</p>
 <p>True if field with this name is found, False otherwise</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a3dc174bc60e07621149318fed58fcb80"><span id="index-14"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">get_string</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a3dc174bc60e07621149318fed58fcb80"><span id="index-26"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">get_string</span><span class="p">(</span>
     <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span>
     <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">default_value</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">()</span>
 <span class="p">)</span> <span class="k">const</span></pre>
@@ -640,7 +833,7 @@ document.write(`
 </div>
 <p class="rubric">Returns:</p>
 <p>string value stored at field_name if field_name is found and contains a string, default_value string otherwise</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1aa060cfe8ed40e586905868c0905b11e1"><span id="index-15"></span><span></span><span class="kt">int</span> <span class="n">get_int</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="kt">int32_t</span> <span class="n">default_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1aa060cfe8ed40e586905868c0905b11e1"><span id="index-27"></span><span></span><span class="kt">int</span> <span class="n">get_int</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="kt">int32_t</span> <span class="n">default_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span></pre>
 <p>Get int contained in value stored at field_name.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -660,7 +853,7 @@ document.write(`
 </div>
 <p class="rubric">Returns:</p>
 <p>int value stored at field_name if field_name is found and contains an int, default_value otherwise</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1ad06d2883a852b8713b7993f349616ee0"><span id="index-16"></span><span></span><span class="kt">double</span> <span class="n">get_double</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="kt">double</span> <span class="n">default_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1ad06d2883a852b8713b7993f349616ee0"><span id="index-28"></span><span></span><span class="kt">double</span> <span class="n">get_double</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="kt">double</span> <span class="n">default_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span></pre>
 <p>Get double contained in value stored at field_name.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -680,8 +873,9 @@ document.write(`
 </div>
 <p class="rubric">Returns:</p>
 <p>double value stored at field_name if field_name is found and contains an double, default_value otherwise</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a447334bf81b617a41ef716ea6edd0b25"><span id="index-17"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">get_float_vector</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">)</span> <span class="k">const</span></pre>
-<p>Get float vector contained in value stored at field_name.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a891cfbd45c26c1d9824c70c4b243a6b6"><span id="index-29"></span><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">get_vector</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">field_name</span><span class="p">)</span> <span class="k">const</span></pre>
+<p>Get vector stored as GST_TYPE_ARRAY field.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
@@ -690,14 +884,36 @@ document.write(`
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>field_name</p></td>
-<td><p>field name</p></td>
+<td><p>name of GST_TYPE_ARRAY field to get</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <p class="rubric">Returns:</p>
-<p>float vector stored at field_name if field_name is found and contains an float array, empty vector otherwise</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a1cd955d556f2fd16df47d28e95b7b423"><span id="index-18"></span><span></span><span class="kt">void</span> <span class="n">set_string</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">)</span></pre>
+<p>vector with data of type T</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a6f8ed9eaef0a76940eee1e2c977f996c"><span id="index-30"></span><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">set_vector</span><span class="p">(</span>
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">field_name</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">data</span>
+<span class="p">)</span></pre>
+<p>Set vector as GST_TYPE_ARRAY field.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>field_name</p></td>
+<td><p>name of GST_TYPE_ARRAY field to set</p></td>
+</tr>
+<tr class="row-even"><td><p>data</p></td>
+<td><p>vector to set</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a1cd955d556f2fd16df47d28e95b7b423"><span id="index-31"></span><span></span><span class="kt">void</span> <span class="n">set_string</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">)</span></pre>
 <p>Set field_name with string value.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -715,7 +931,7 @@ document.write(`
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a6bf5b624608bed60ea5b7edc5dddf61d"><span id="index-19"></span><span></span><span class="kt">void</span> <span class="n">set_int</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">value</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a6bf5b624608bed60ea5b7edc5dddf61d"><span id="index-32"></span><span></span><span class="kt">void</span> <span class="n">set_int</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">value</span><span class="p">)</span></pre>
 <p>Set field_name with int value.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -733,7 +949,25 @@ document.write(`
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a899c7cd7ef6428a13a76f29a3869c730"><span id="index-20"></span><span></span><span class="kt">void</span> <span class="n">set_double</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="kt">double</span> <span class="n">value</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a385209dd11378bd2ee37ef1a85f3eb86"><span id="index-33"></span><span></span><span class="kt">void</span> <span class="n">set_uint64</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">value</span><span class="p">)</span></pre>
+<p>Set field_name with uint64 value.</p>
+<p class="rubric">Parameters:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>field_name</p></td>
+<td><p>field name</p></td>
+</tr>
+<tr class="row-even"><td><p>value</p></td>
+<td><p>value to set</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a899c7cd7ef6428a13a76f29a3869c730"><span id="index-34"></span><span></span><span class="kt">void</span> <span class="n">set_double</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="kt">double</span> <span class="n">value</span><span class="p">)</span></pre>
 <p>Set field_name with double value.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -751,10 +985,8 @@ document.write(`
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1ad01bf81b1fb65f891197be588e54d29a"><span id="index-21"></span><span></span><span class="kt">void</span> <span class="n">set_name</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">)</span></pre>
-<p>Set <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> instance’s name.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a249ddb89ab4abb3787d2836feccbc2c1"><span id="index-22"></span><span></span><span class="kt">void</span> <span class="n">set_label</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">label</span><span class="p">)</span></pre>
-<p>Set label. It will throw an exception if called for detection <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a>.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1acc6fef4506285743ac482547b0e1ff62"><span id="index-35"></span><span></span><span class="kt">void</span> <span class="n">set_bool</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">field_name</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">value</span><span class="p">)</span></pre>
+<p>Set field_name with bool value.</p>
 <p class="rubric">Parameters:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
@@ -762,37 +994,44 @@ document.write(`
 <col style="width: 80.0%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>label</p></td>
-<td><p>label name as a string</p></td>
+<tr class="row-odd"><td><p>field_name</p></td>
+<td><p>field name</p></td>
+</tr>
+<tr class="row-even"><td><p>value</p></td>
+<td><p>value to set</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1aa33c11426d860d1562506b7bd8b4cabe"><span id="index-23"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">precision_as_string</span><span class="p">()</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1aa33c11426d860d1562506b7bd8b4cabe"><span id="index-36"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">precision_as_string</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Get inference result blob precision as a string.</p>
 <p class="rubric">Returns:</p>
 <p>precision as a string, “ANY” if can’t be read</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1aeed9e5d0654804b6168b8e814806d69c"><span id="index-24"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">layout_as_string</span><span class="p">()</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1aeed9e5d0654804b6168b8e814806d69c"><span id="index-37"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">layout_as_string</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Get inference result blob layout as a string.</p>
 <p class="rubric">Returns:</p>
 <p>layout as a string, “ANY” if can’t be read</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a4ee8c5ca615cb3d864571946ffcc41d3"><span id="index-25"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">element_id</span><span class="p">()</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a4ee8c5ca615cb3d864571946ffcc41d3"><span id="index-38"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">element_id</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Get inference-id property value of <a class="reference internal" href="namespace_GVA.html#doxid-namespace-g-v-a"><span class="std std-ref">GVA</span></a> element from which this <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> came.</p>
 <p class="rubric">Returns:</p>
 <p>inference-id property value of <a class="reference internal" href="namespace_GVA.html#doxid-namespace-g-v-a"><span class="std std-ref">GVA</span></a> element from which this <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> came, empty string if failed to get</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1aaa38a09854062816512e7d08e8c35498"><span id="index-26"></span><span></span><span class="kt">int</span> <span class="n">label_id</span><span class="p">()</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1aaa38a09854062816512e7d08e8c35498"><span id="index-39"></span><span></span><span class="kt">int</span> <span class="n">label_id</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Get label id.</p>
 <p class="rubric">Returns:</p>
 <p>label id as an int, 0 if failed to get</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a28a71b8b0973df2df5707bb74b1588f7"><span id="index-27"></span><span></span><span class="kt">bool</span> <span class="n">is_detection</span><span class="p">()</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a28a71b8b0973df2df5707bb74b1588f7"><span id="index-40"></span><span></span><span class="kt">bool</span> <span class="n">is_detection</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Check if this <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> is detection <a class="reference internal" href="#doxid-class-g-v-a-1-1-tensor"><span class="std std-ref">Tensor</span></a> (contains detection results)</p>
 <p class="rubric">Returns:</p>
 <p>True if tensor contains detection results, False otherwise</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a65270f22539aa9a422ab0bfa674cf214"><span id="index-28"></span><span></span><span class="n">GstStructure</span><span class="o">*</span> <span class="n">gst_structure</span><span class="p">()</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a65270f22539aa9a422ab0bfa674cf214"><span id="index-41"></span><span></span><span class="n">GstStructure</span><span class="o">*</span> <span class="n">gst_structure</span><span class="p">()</span> <span class="k">const</span></pre>
 <p>Get ptr to underlying GstStructure.</p>
 <p class="rubric">Returns:</p>
 <p>ptr to underlying GstStructure</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a95ae5bee6254ab73644dc4ac107e4832"><span id="index-29"></span><span></span><span class="kt">bool</span> <span class="n">convert_to_meta</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a0d856677b3c0f57bff510b5a26159599"><span id="index-42"></span><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">to_string</span><span class="p">()</span> <span class="k">const</span></pre>
+<p>Returns a string representation of the underlying GstStructure.</p>
+<p class="rubric">Returns:</p>
+<p>String with GstStructure contents.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-class-g-v-a-1-1-tensor-1a95ae5bee6254ab73644dc4ac107e4832"><span id="index-43"></span><span></span><span class="kt">bool</span> <span class="n">convert_to_meta</span><span class="p">(</span>
     <span class="n">GstAnalyticsMtd</span><span class="o">*</span> <span class="n">mtd</span><span class="p">,</span>
     <span class="n">GstAnalyticsODMtd</span><span class="o">*</span> <span class="n">od_mtd</span><span class="p">,</span>
     <span class="n">GstAnalyticsRelationMeta</span><span class="o">*</span> <span class="n">meta</span>

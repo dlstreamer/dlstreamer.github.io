@@ -33,7 +33,7 @@ This class represents video frame - object for working with RegionOfInterest and
 		def :ref:`regions<doxid-classgstgva_1_1video__frame_1_1_video_frame_1a1e8dc83ad23ea3f503c6354abaf8fc53>`(self self);
 		def :ref:`tensors<doxid-classgstgva_1_1video__frame_1_1_video_frame_1a77d5b23d5e7b94b4c8ce376d05fb6f8d>`(self self);
 	
-		:ref:`RegionOfInterest<doxid-classgstgva_1_1region__of__interest_1_1_region_of_interest>` :ref:`add_region<doxid-classgstgva_1_1video__frame_1_1_video_frame_1a91d71fb1082fb075250c8cc10bbed2c2>`(
+		:ref:`RegionOfInterest<doxid-classgstgva_1_1region__of__interest_1_1_region_of_interest>` :ref:`add_region<doxid-classgstgva_1_1video__frame_1_1_video_frame_1a0c73a2692b99e963a907b390d50c2652>`(
 			self self,
 			x x,
 			y y,
@@ -41,7 +41,8 @@ This class represents video frame - object for working with RegionOfInterest and
 			h h,
 			str label = "",
 			float confidence = 0.0,
-			bool normalized = False
+			bool normalized = False,
+			extra_params extra_params = None
 		);
 	
 		:ref:`Tensor<doxid-classgstgva_1_1tensor_1_1_tensor>` :ref:`add_tensor<doxid-classgstgva_1_1video__frame_1_1_video_frame_1aad298cbe68a61de4de8906d68ec180c2>`(self self);
@@ -169,7 +170,7 @@ Get Tensor objects attached to :ref:`VideoFrame <doxid-classgstgva_1_1video__fra
 iterator of Tensor objects attached to :ref:`VideoFrame <doxid-classgstgva_1_1video__frame_1_1_video_frame>`
 
 .. index:: pair: function; add_region
-.. _doxid-classgstgva_1_1video__frame_1_1_video_frame_1a91d71fb1082fb075250c8cc10bbed2c2:
+.. _doxid-classgstgva_1_1video__frame_1_1_video_frame_1a0c73a2692b99e963a907b390d50c2652:
 
 .. ref-code-block:: cpp
 	:class: doxyrest-title-code-block
@@ -182,7 +183,8 @@ iterator of Tensor objects attached to :ref:`VideoFrame <doxid-classgstgva_1_1vi
 		h h,
 		str label = "",
 		float confidence = 0.0,
-		bool normalized = False
+		bool normalized = False,
+		extra_params extra_params = None
 	)
 
 Attach RegionOfInterest to this :ref:`VideoFrame <doxid-classgstgva_1_1video__frame_1_1_video_frame>`.

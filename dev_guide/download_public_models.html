@@ -412,7 +412,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -428,6 +430,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantization">Quantization</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -456,6 +466,28 @@ document.write(`
 ./samples/download_public_models.sh yolo11s
 </pre></div>
 </div>
+<section id="quantization">
+<h2>Quantization<a class="headerlink" href="#quantization" title="Permalink to this heading">#</a></h2>
+<p>You can perform INT8 quantization on some of the models by specifying a second parameter with a dataset to be used for the quantization process.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./samples/download_public_models.sh yolo11s coco128
+</pre></div>
+</div>
+<p>Currently available datasets are <code class="docutils literal notranslate"><span class="pre">coco</span></code> and <code class="docutils literal notranslate"><span class="pre">coco128</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">coco</span></code> is a very large dataset of over 20GB and containing more than a 100,000 images. Quantization on this dataset can take a very long time. For development purposes, it is recommended to use <code class="docutils literal notranslate"><span class="pre">coco128</span></code> instead which is much lighter.</p>
+</div>
+<p>Models which currently support quantization are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>YOLOv5: nu, su, mu, lu, xu, n6u, s6u, m6u, l6u, x6u</p></li>
+<li><p>YOLOv8: n, s, m, l, x</p></li>
+<li><p>YOLOV9: t, s, m, c, e</p></li>
+<li><p>YOLOv10: n, s, m, b, l, x</p></li>
+<li><p>YOLOv11: n, s, m, l, x</p></li>
+</ul>
+</div></blockquote>
+</section>
 </section>
 
 
@@ -493,6 +525,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantization">Quantization</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

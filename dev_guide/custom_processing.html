@@ -440,6 +440,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insert-gvapython-element-and-provide-python-callback-function">3. Insert gvapython element and provide Python callback function</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insert-new-gstreamer-element-implemented-on-c-c">4. Insert new GStreamer element implemented on C/C++</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-source-code-of-post-processors-for-gvadetect-gvaclassify-elements">5. Modify source code of post-processors for gvadetect/gvaclassify elements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-custom-post-processing-library">6. Create custom post-processing library</a></li>
 </ul>
             </nav>
         </div>
@@ -473,7 +474,8 @@ application:</p>
 <li><p>Set C/Python callback in the middle of GStreamer pipeline;</p></li>
 <li><p>Insert gvapython element and provide Python callback function;</p></li>
 <li><p>Insert new GStreamer element implemented on C/C++;</p></li>
-<li><p>Modify source code of gvadetect/gvaclassify elements.</p></li>
+<li><p>Modify source code of gvadetect/gvaclassify elements;</p></li>
+<li><p>Create custom post-processing library.</p></li>
 </ol>
 <p>Next sections talk about these options in more details.</p>
 <section id="consume-tensor-data-and-parse-convert-it-on-application-side">
@@ -530,6 +532,206 @@ helper class</p>
 <a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/src/monolithic/gst/inference_elements/common/post_processor/blob_to_meta_converter.cpp">post-processor</a>
 for gvadetect/gvaclassify elements.</p>
 </section>
+<section id="create-custom-post-processing-library">
+<h2>6. Create custom post-processing library<a class="headerlink" href="#create-custom-post-processing-library" title="Permalink to this heading">#</a></h2>
+<p>For advanced custom post-processing scenarios, you can create a separate dynamic library
+that implements the post-processing logic without modifying the DL Streamer source code.
+This approach provides flexibility and modularity while maintaining clean separation
+between the core framework and custom processing logic.</p>
+<p><strong>Important Requirements</strong></p>
+<p>Your custom library must use the <strong>GStreamer Analytics Library</strong> which provides
+standardized metadata structures for AI/ML results. The library implements structures
+such as <code class="docutils literal notranslate"><span class="pre">GstTensorMeta</span></code>, <code class="docutils literal notranslate"><span class="pre">GstAnalyticsRelationMeta</span></code>, <code class="docutils literal notranslate"><span class="pre">GstAnalyticsODMtd</span></code>,
+<code class="docutils literal notranslate"><span class="pre">GstAnalyticsClsMtd</span></code>, and others.</p>
+<p>For more information about the Analytics metadata library, please refer to:
+<a class="reference external" href="https://gstreamer.freedesktop.org/documentation/analytics/index.html?gi-language=c">GStreamer Analytics Documentation</a></p>
+<p><strong>Current Support Limitations</strong></p>
+<p>At this time, support is available only for <strong>detection</strong> and <strong>classification</strong> tasks:</p>
+<ul class="simple">
+<li><p><strong>Object Detection</strong> (<code class="docutils literal notranslate"><span class="pre">GstAnalyticsODMtd</span></code>) - works only with <code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> element</p></li>
+<li><p><strong>Classification</strong> (<code class="docutils literal notranslate"><span class="pre">GstAnalyticsClsMtd</span></code>) - works with both <code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> and <code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code> elements</p></li>
+</ul>
+<p>The custom library approach is implemented through two specialized converters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">custom_to_roi</span></code> - for object detection models that output regions of interest</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">custom_to_tensor</span></code> - for models that output tensor data</p></li>
+</ul>
+<p><strong>Implementation Requirements</strong></p>
+<p>Your custom library must export a <code class="docutils literal notranslate"><span class="pre">Convert</span></code> function with the following signature:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">Convert</span><span class="p">(</span><span class="n">GstTensorMeta</span> <span class="o">*</span><span class="n">tmeta</span><span class="p">,</span>
+             <span class="k">const</span> <span class="n">GstStructure</span> <span class="o">*</span><span class="n">network_info</span><span class="p">,</span>
+             <span class="k">const</span> <span class="n">GstStructure</span> <span class="o">*</span><span class="n">params_info</span><span class="p">,</span>
+             <span class="n">GstAnalyticsRelationMeta</span> <span class="o">*</span><span class="n">relation_meta</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tmeta</span></code> - contains output tensor data from the model inference</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">network_info</span></code> - model metadata including labels, input dimensions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">params_info</span></code> - processing parameters like confidence thresholds</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">relation_meta</span></code> - output structure for attaching results</p></li>
+</ul>
+<p><strong>Important Notes:</strong></p>
+<ul class="simple">
+<li><p>Each model output layer has a separate <code class="docutils literal notranslate"><span class="pre">GstTensor</span></code> contained within one <code class="docutils literal notranslate"><span class="pre">GstTensorMeta</span></code>. Tensors from individual layers can be identified by their <code class="docutils literal notranslate"><span class="pre">GstTensor</span></code> IDs.</p></li>
+<li><p>Regardless of the <code class="docutils literal notranslate"><span class="pre">batch-size</span></code> setting in <code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> or <code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code> elements, the output tensors from the model are always passed to the <code class="docutils literal notranslate"><span class="pre">Convert</span></code> function in an <strong>unbatched</strong> format (i.e., with batch dimension equal to 1).</p></li>
+</ul>
+<p><strong>Usage in GStreamer Pipeline</strong></p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">custom-postproc-lib</span></code> parameter directly in DLS elements
+(<code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> or <code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0<span class="w"> </span>videotestsrc<span class="w"> </span>!<span class="w"> </span>gvadetect<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nv">model</span><span class="o">=</span>/path/to/model.xml<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>custom-postproc-lib<span class="o">=</span>/path/to/your/libcustom_postproc.so<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>...
+</pre></div>
+</div>
+<p><strong>Example Implementation</strong></p>
+<p>Here are examples of custom post-processing libraries for both use cases:</p>
+<p><strong>Example 1: Object Detection (custom_to_roi)</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;gst/gst.h&gt;</span>
+<span class="cp">#include</span> <span class="cpf">&lt;gst/analytics/analytics.h&gt;</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdexcept&gt;</span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span>
+
+<span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="kt">void</span> <span class="n">Convert</span><span class="p">(</span><span class="n">GstTensorMeta</span> <span class="o">*</span><span class="n">outputTensors</span><span class="p">,</span>
+                        <span class="k">const</span> <span class="n">GstStructure</span> <span class="o">*</span><span class="n">network</span><span class="p">,</span>
+                        <span class="k">const</span> <span class="n">GstStructure</span> <span class="o">*</span><span class="n">params</span><span class="p">,</span>
+                        <span class="n">GstAnalyticsRelationMeta</span> <span class="o">*</span><span class="n">relationMeta</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">// Get output tensor(s)</span>
+    <span class="k">const</span> <span class="n">GstTensor</span> <span class="o">*</span><span class="n">tensor</span> <span class="o">=</span> <span class="n">gst_tensor_meta_get</span><span class="p">(</span><span class="n">outputTensors</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="kt">size_t</span> <span class="n">dims_size</span><span class="p">;</span>
+    <span class="kt">size_t</span> <span class="o">*</span><span class="n">dims</span> <span class="o">=</span> <span class="n">gst_tensor_get_dims</span><span class="p">(</span><span class="n">gst_tensor_copy</span><span class="p">(</span><span class="n">tensor</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">dims_size</span><span class="p">);</span>
+
+    <span class="c1">// Get network metadata</span>
+    <span class="kt">size_t</span> <span class="n">input_width</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">input_height</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">gst_structure_get_uint64</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="s">&quot;image_width&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">input_width</span><span class="p">);</span>
+    <span class="n">gst_structure_get_uint64</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="s">&quot;image_height&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">input_height</span><span class="p">);</span>
+
+    <span class="c1">// Get processing parameters</span>
+    <span class="kt">double</span> <span class="n">confidence_threshold</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="n">gst_structure_get_double</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="s">&quot;confidence_threshold&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">confidence_threshold</span><span class="p">);</span>
+
+    <span class="c1">// Get class labels</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">labels</span><span class="p">;</span>
+    <span class="k">const</span> <span class="n">GValue</span> <span class="o">*</span><span class="n">labels_value</span> <span class="o">=</span> <span class="n">gst_structure_get_value</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="s">&quot;labels&quot;</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">labels_value</span> <span class="o">&amp;&amp;</span> <span class="n">G_VALUE_HOLDS</span><span class="p">(</span><span class="n">labels_value</span><span class="p">,</span> <span class="n">GST_TYPE_ARRAY</span><span class="p">))</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">n_labels</span> <span class="o">=</span> <span class="n">gst_value_array_get_size</span><span class="p">(</span><span class="n">labels_value</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n_labels</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">const</span> <span class="n">GValue</span> <span class="o">*</span><span class="n">item</span> <span class="o">=</span> <span class="n">gst_value_array_get_value</span><span class="p">(</span><span class="n">labels_value</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">G_VALUE_HOLDS_STRING</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+                <span class="n">labels</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">g_value_get_string</span><span class="p">(</span><span class="n">item</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Map tensor data to access raw model output</span>
+    <span class="kt">float</span> <span class="o">*</span><span class="n">data</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="n">GstMapInfo</span> <span class="n">map</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">gst_buffer_map</span><span class="p">(</span><span class="n">tensor</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">map</span><span class="p">,</span> <span class="n">GST_MAP_READ</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">float</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+        <span class="n">gst_buffer_unmap</span><span class="p">(</span><span class="n">tensor</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">map</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;Failed to map tensor data.&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Process model output according to your specific model format</span>
+    <span class="c1">// Parse detection results: bounding boxes, confidence scores, class IDs</span>
+    <span class="c1">// Apply confidence thresholding and NMS if needed</span>
+    <span class="c1">// ...</span>
+
+    <span class="c1">// For each detected object, add object detection metadata</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">150</span><span class="p">;</span>  <span class="c1">// Example coordinates</span>
+    <span class="kt">float</span> <span class="n">confidence</span> <span class="o">=</span> <span class="mf">0.85</span><span class="p">;</span>                <span class="c1">// Example confidence</span>
+    <span class="kt">size_t</span> <span class="n">class_id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>                   <span class="c1">// Example class index</span>
+
+    <span class="n">GQuark</span> <span class="n">label_quark</span> <span class="o">=</span> <span class="n">g_quark_from_string</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">class_id</span><span class="p">].</span><span class="n">c_str</span><span class="p">());</span>
+
+    <span class="n">GstAnalyticsODMtd</span> <span class="n">od_mtd</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">gst_analytics_relation_meta_add_od_mtd</span><span class="p">(</span><span class="n">relationMeta</span><span class="p">,</span> <span class="n">label_quark</span><span class="p">,</span>
+                                               <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">confidence</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">od_mtd</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;Failed to add object detection metadata.&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example 2: Classification (custom_to_tensor)</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;gst/gst.h&gt;</span>
+<span class="cp">#include</span> <span class="cpf">&lt;gst/analytics/analytics.h&gt;</span>
+<span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdexcept&gt;</span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span>
+
+<span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="kt">void</span> <span class="n">Convert</span><span class="p">(</span><span class="n">GstTensorMeta</span> <span class="o">*</span><span class="n">outputTensors</span><span class="p">,</span>
+                        <span class="k">const</span> <span class="n">GstStructure</span> <span class="o">*</span><span class="n">network</span><span class="p">,</span>
+                        <span class="k">const</span> <span class="n">GstStructure</span> <span class="o">*</span><span class="n">params</span><span class="p">,</span>
+                        <span class="n">GstAnalyticsRelationMeta</span> <span class="o">*</span><span class="n">relationMeta</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">// Get classification output tensor</span>
+    <span class="k">const</span> <span class="n">GstTensor</span> <span class="o">*</span><span class="n">tensor</span> <span class="o">=</span> <span class="n">gst_tensor_meta_get</span><span class="p">(</span><span class="n">outputTensors</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="kt">size_t</span> <span class="n">dims_size</span><span class="p">;</span>
+    <span class="kt">size_t</span> <span class="o">*</span><span class="n">dims</span> <span class="o">=</span> <span class="n">gst_tensor_get_dims</span><span class="p">(</span><span class="n">gst_tensor_copy</span><span class="p">(</span><span class="n">tensor</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">dims_size</span><span class="p">);</span>
+
+    <span class="kt">size_t</span> <span class="n">num_classes</span> <span class="o">=</span> <span class="n">dims</span><span class="p">[</span><span class="n">dims_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+
+    <span class="c1">// Get network metadata</span>
+    <span class="kt">size_t</span> <span class="n">input_width</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">input_height</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">gst_structure_get_uint64</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="s">&quot;image_width&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">input_width</span><span class="p">);</span>
+    <span class="n">gst_structure_get_uint64</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="s">&quot;image_height&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">input_height</span><span class="p">);</span>
+
+    <span class="c1">// Specify confidence threshold</span>
+    <span class="kt">double</span> <span class="n">confidence_threshold</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+
+    <span class="c1">// Get class labels</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">labels</span><span class="p">;</span>
+    <span class="k">const</span> <span class="n">GValue</span> <span class="o">*</span><span class="n">labels_value</span> <span class="o">=</span> <span class="n">gst_structure_get_value</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="s">&quot;labels&quot;</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">labels_value</span> <span class="o">&amp;&amp;</span> <span class="n">G_VALUE_HOLDS</span><span class="p">(</span><span class="n">labels_value</span><span class="p">,</span> <span class="n">GST_TYPE_ARRAY</span><span class="p">))</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">n_labels</span> <span class="o">=</span> <span class="n">gst_value_array_get_size</span><span class="p">(</span><span class="n">labels_value</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n_labels</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">const</span> <span class="n">GValue</span> <span class="o">*</span><span class="n">item</span> <span class="o">=</span> <span class="n">gst_value_array_get_value</span><span class="p">(</span><span class="n">labels_value</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">G_VALUE_HOLDS_STRING</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+                <span class="n">labels</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">g_value_get_string</span><span class="p">(</span><span class="n">item</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Map tensor data to access raw model output</span>
+    <span class="kt">float</span> <span class="o">*</span><span class="n">data</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="n">GstMapInfo</span> <span class="n">map</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">gst_buffer_map</span><span class="p">(</span><span class="n">tensor</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">map</span><span class="p">,</span> <span class="n">GST_MAP_READ</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">float</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+        <span class="n">gst_buffer_unmap</span><span class="p">(</span><span class="n">tensor</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">map</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;Failed to map tensor data.&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Process classification output according to your model format</span>
+    <span class="c1">// Apply softmax, find top-k classes, or other post-processing</span>
+    <span class="c1">// ...</span>
+
+    <span class="c1">// Example: find class with highest score</span>
+    <span class="kt">size_t</span> <span class="n">best_class_id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">best_confidence</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">;</span>  <span class="c1">// Example confidence score</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">best_confidence</span> <span class="o">&gt;</span> <span class="n">confidence_threshold</span> <span class="o">&amp;&amp;</span> <span class="n">best_class_id</span> <span class="o">&lt;</span> <span class="n">labels</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">label</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">best_class_id</span><span class="p">];</span>
+        <span class="n">GQuark</span> <span class="n">label_quark</span> <span class="o">=</span> <span class="n">g_quark_from_string</span><span class="p">(</span><span class="n">label</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
+
+        <span class="c1">// Add classification metadata</span>
+        <span class="n">GstAnalyticsClsMtd</span> <span class="n">cls_mtd</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">gst_analytics_relation_meta_add_one_cls_mtd</span><span class="p">(</span><span class="n">relationMeta</span><span class="p">,</span> <span class="n">best_confidence</span><span class="p">,</span>
+                                                        <span class="n">label_quark</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">cls_mtd</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;Failed to add classification metadata.&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Compilation</strong></p>
+<p>Compile your library as a shared object with GStreamer Analytics support:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>g++<span class="w"> </span>-shared<span class="w"> </span>-fPIC<span class="w"> </span>-o<span class="w"> </span>libcustom_postproc.so<span class="w"> </span>custom_postproc.cpp<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="sb">`</span>pkg-config<span class="w"> </span>--cflags<span class="w"> </span>--libs<span class="w"> </span>gstreamer-1.0<span class="w"> </span>gstreamer-analytics-1.0<span class="sb">`</span><span class="w"> </span>-ldl<span class="w"> </span>-Wl,--no-undefined
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -582,6 +784,7 @@ for gvadetect/gvaclassify elements.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insert-gvapython-element-and-provide-python-callback-function">3. Insert gvapython element and provide Python callback function</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insert-new-gstreamer-element-implemented-on-c-c">4. Insert new GStreamer element implemented on C/C++</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-source-code-of-post-processors-for-gvadetect-gvaclassify-elements">5. Modify source code of post-processors for gvadetect/gvaclassify elements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-custom-post-processing-library">6. Create custom post-processing library</a></li>
 </ul>
   </nav></div>
 

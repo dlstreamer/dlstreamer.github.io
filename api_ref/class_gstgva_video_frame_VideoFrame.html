@@ -474,7 +474,7 @@ document.write(`
     <span class="n">def</span> <a class="reference internal" href="#doxid-classgstgva-1-1video-frame-1-1-video-frame-1a1e8dc83ad23ea3f503c6354abaf8fc53"><span class="std std-ref">regions</span></a><span></span><span class="p">(</span><span class="n">self</span> <span class="n">self</span><span class="p">);</span>
     <span class="n">def</span> <a class="reference internal" href="#doxid-classgstgva-1-1video-frame-1-1-video-frame-1a77d5b23d5e7b94b4c8ce376d05fb6f8d"><span class="std std-ref">tensors</span></a><span></span><span class="p">(</span><span class="n">self</span> <span class="n">self</span><span class="p">);</span>
 
-    <a class="reference internal" href="class_gstgva_region_of_interest_RegionOfInterest.html#doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a><span></span> <a class="reference internal" href="#doxid-classgstgva-1-1video-frame-1-1-video-frame-1a91d71fb1082fb075250c8cc10bbed2c2"><span class="std std-ref">add_region</span></a><span></span><span class="p">(</span>
+    <a class="reference internal" href="class_gstgva_region_of_interest_RegionOfInterest.html#doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a><span></span> <a class="reference internal" href="#doxid-classgstgva-1-1video-frame-1-1-video-frame-1a0c73a2692b99e963a907b390d50c2652"><span class="std std-ref">add_region</span></a><span></span><span class="p">(</span>
         <span class="n">self</span> <span class="n">self</span><span class="p">,</span>
         <span class="n">x</span> <span class="n">x</span><span class="p">,</span>
         <span class="n">y</span> <span class="n">y</span><span class="p">,</span>
@@ -482,7 +482,8 @@ document.write(`
         <span class="n">h</span> <span class="n">h</span><span class="p">,</span>
         <span class="n">str</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
         <span class="kt">float</span> <span class="n">confidence</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
-        <span class="kt">bool</span> <span class="n">normalized</span> <span class="o">=</span> <span class="n">False</span>
+        <span class="kt">bool</span> <span class="n">normalized</span> <span class="o">=</span> <span class="n">False</span><span class="p">,</span>
+        <span class="n">extra_params</span> <span class="n">extra_params</span> <span class="o">=</span> <span class="n">None</span>
     <span class="p">);</span>
 
     <a class="reference internal" href="class_gstgva_tensor_Tensor.html#doxid-classgstgva-1-1tensor-1-1-tensor"><span class="std std-ref">Tensor</span></a><span></span> <a class="reference internal" href="#doxid-classgstgva-1-1video-frame-1-1-video-frame-1aad298cbe68a61de4de8906d68ec180c2"><span class="std std-ref">add_tensor</span></a><span></span><span class="p">(</span><span class="n">self</span> <span class="n">self</span><span class="p">);</span>
@@ -543,7 +544,7 @@ document.write(`
 <p>Get Tensor objects attached to <a class="reference internal" href="#doxid-classgstgva-1-1video-frame-1-1-video-frame"><span class="std std-ref">VideoFrame</span></a>.</p>
 <p class="rubric">Returns:</p>
 <p>iterator of Tensor objects attached to <a class="reference internal" href="#doxid-classgstgva-1-1video-frame-1-1-video-frame"><span class="std std-ref">VideoFrame</span></a></p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-classgstgva-1-1video-frame-1-1-video-frame-1a91d71fb1082fb075250c8cc10bbed2c2"><span id="index-6"></span><a class="reference internal" href="class_gstgva_region_of_interest_RegionOfInterest.html#doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a><span></span> <span class="n">add_region</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-classgstgva-1-1video-frame-1-1-video-frame-1a0c73a2692b99e963a907b390d50c2652"><span id="index-6"></span><a class="reference internal" href="class_gstgva_region_of_interest_RegionOfInterest.html#doxid-classgstgva-1-1region-of-interest-1-1-region-of-interest"><span class="std std-ref">RegionOfInterest</span></a><span></span> <span class="n">add_region</span><span class="p">(</span>
     <span class="n">self</span> <span class="n">self</span><span class="p">,</span>
     <span class="n">x</span> <span class="n">x</span><span class="p">,</span>
     <span class="n">y</span> <span class="n">y</span><span class="p">,</span>
@@ -551,7 +552,8 @@ document.write(`
     <span class="n">h</span> <span class="n">h</span><span class="p">,</span>
     <span class="n">str</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
     <span class="kt">float</span> <span class="n">confidence</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
-    <span class="kt">bool</span> <span class="n">normalized</span> <span class="o">=</span> <span class="n">False</span>
+    <span class="kt">bool</span> <span class="n">normalized</span> <span class="o">=</span> <span class="n">False</span><span class="p">,</span>
+    <span class="n">extra_params</span> <span class="n">extra_params</span> <span class="o">=</span> <span class="n">None</span>
 <span class="p">)</span></pre>
 <p>Attach RegionOfInterest to this <a class="reference internal" href="#doxid-classgstgva-1-1video-frame-1-1-video-frame"><span class="std std-ref">VideoFrame</span></a>.</p>
 <p class="rubric">Parameters:</p>

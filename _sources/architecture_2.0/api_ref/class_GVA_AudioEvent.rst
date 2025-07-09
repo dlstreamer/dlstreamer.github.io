@@ -26,7 +26,7 @@ This class represents audio event - object describing audio event detection resu
 
 		// methods
 	
-		:ref:`Segment<doxid-struct_g_v_a_1_1_segment>`<gulong> :ref:`segment<doxid-class_g_v_a_1_1_audio_event_1abf8625c18e4410cc302d353d0482501b>`() const;
+		:ref:`Segment<doxid-struct_g_v_a_1_1_segment>`<guint64> :ref:`segment<doxid-class_g_v_a_1_1_audio_event_1a9ca1e804f4cc7f10c6af1a804039bf2e>`() const;
 		std::string :ref:`label<doxid-class_g_v_a_1_1_audio_event_1a0f0dce868b5b24ce4d58f985da21ee82>`() const;
 		double :ref:`confidence<doxid-class_g_v_a_1_1_audio_event_1a9bf388c2ee9ab5e472e79eb30a0cd81e>`() const;
 		std::vector<:ref:`Tensor<doxid-class_g_v_a_1_1_tensor>`> :ref:`tensors<doxid-class_g_v_a_1_1_audio_event_1ab129e5558dd825c252821c899c8fd882>`() const;
@@ -72,12 +72,12 @@ Methods
 -------
 
 .. index:: pair: function; segment
-.. _doxid-class_g_v_a_1_1_audio_event_1abf8625c18e4410cc302d353d0482501b:
+.. _doxid-class_g_v_a_1_1_audio_event_1a9ca1e804f4cc7f10c6af1a804039bf2e:
 
 .. ref-code-block:: cpp
 	:class: doxyrest-title-code-block
 
-	:ref:`Segment<doxid-struct_g_v_a_1_1_segment>`<gulong> segment() const
+	:ref:`Segment<doxid-struct_g_v_a_1_1_segment>`<guint64> segment() const
 
 Get :ref:`Segment <doxid-struct_g_v_a_1_1_segment>` of :ref:`AudioEvent <doxid-class_g_v_a_1_1_audio_event>` as start and end timestamps, timestamps are presentation time.
 

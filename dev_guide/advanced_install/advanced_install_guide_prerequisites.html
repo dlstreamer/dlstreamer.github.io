@@ -455,68 +455,14 @@ The easiest way to install these drivers is to use automated script described in
 This documentation describes how to do these steps manually.</p>
 <section id="prerequisite-1-intel-gpu-drivers-for-computing-and-media-runtimes">
 <h2>Prerequisite 1 - Intel® GPU drivers for computing and media runtimes<a class="headerlink" href="#prerequisite-1-intel-gpu-drivers-for-computing-and-media-runtimes" title="Permalink to this heading">#</a></h2>
-<p>To use GPU as an inference device or to use graphics hardware encoding/decoding capabilities, it is required to install GPU computing and media runtime drivers.</p>
-<ol class="upperalpha simple">
-<li><p>Install dependencies and register additional APT repositories.</p></li>
-</ol>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install dependencies</span>
-sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>curl<span class="w"> </span>wget<span class="w"> </span>gpg<span class="w"> </span>software-properties-common<span class="w"> </span>jq
-
-<span class="c1"># Register Intel® oneAPI APT repository</span>
-curl<span class="w"> </span>-fsSL<span class="w"> </span>https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>--output<span class="w"> </span>/usr/share/keyrings/intel-sw-products.gpg
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [signed-by=/usr/share/keyrings/intel-sw-products.gpg] https://apt.repos.intel.com/oneapi all main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/intel-oneapi.list
-</pre></div>
-</div>
-<ol class="upperalpha" start="2">
-<li><p>Please cheek that you can see a <code class="docutils literal notranslate"><span class="pre">renderD*</span></code> device in <code class="docutils literal notranslate"><span class="pre">/dev/dri</span></code> directory before installation. You should be able to see a <code class="docutils literal notranslate"><span class="pre">renderD128</span></code> for the integrated GPU or <code class="docutils literal notranslate"><span class="pre">renderD129</span></code> for the discrete GPU.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>user@my-host:~$<span class="w"> </span>ll<span class="w"> </span>/dev/dri<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>renderD
-crw-rw----<span class="w">  </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>render<span class="w"> </span><span class="m">226</span>,<span class="w"> </span><span class="m">128</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">22</span>:41<span class="w"> </span>renderD128
-</pre></div>
-</div>
-<dl class="simple">
-<dt>If you can see see the device, please follow the next step C. If you cannot see it, please follow instructions to the full installation processes, including Kernel Mode drivers:</dt><dd><ul class="simple">
-<li><p><a class="reference external" href="https://dgpu-docs.intel.com/driver/installation.html">For Intel® Data Center GPU Flex Series and Intel® Data Center GPU Max Series</a></p></li>
-<li><p><a class="reference external" href="https://dgpu-docs.intel.com/driver/client/overview.html">For Intel® Arc™ GPUs</a></p></li>
+<p>To use GPU as an inference device or to use graphics hardware encoding/decoding capabilities, it is required to install GPU computing and media runtime drivers.
+Please follow the up-to-date instruction according to your hardware:</p>
+<ul class="simple">
+<li><p>For Intel® Data Center GPU Flex Series and Intel® Data Center GPU Max Series:
+<a class="reference external" href="https://dgpu-docs.intel.com/driver/client/overview.html">https://dgpu-docs.intel.com/driver/client/overview.html</a></p></li>
+<li><p>For Intel® Client and Arc™ GPUs:
+<a class="reference external" href="https://dgpu-docs.intel.com/driver/installation.html">https://dgpu-docs.intel.com/driver/installation.html</a></p></li>
 </ul>
-</dd>
-</dl>
-</li>
-<li><p>To register Intel® Graphics APT repository, please use <strong>only one</strong> of the following according to your hardware:</p></li>
-</ol>
-<ul>
-<li><p>For Intel® Data Center GPU Flex Series and Intel® Data Center GPU Max Series:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download Intel® Graphics APT repository key</span>
-wget<span class="w"> </span>-qO<span class="w"> </span>-<span class="w"> </span>https://repositories.intel.com/graphics/intel-graphics.key<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--yes<span class="w"> </span>--dearmor<span class="w"> </span>--output<span class="w"> </span>/usr/share/keyrings/intel-graphics.gpg
-
-<span class="c1"># Download Intel® Graphics APT repository</span>
-<span class="c1"># [Ubuntu 24.04]</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/graphics/ubuntu noble flex&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/intel-graphics.list
-<span class="c1"># [Ubuntu 22.04]</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/graphics/ubuntu jammy flex&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/intel-graphics.list
-</pre></div>
-</div>
-</li>
-<li><p>For Intel® Client and Arc™ GPUs:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="c1"># Download Intel® Graphics APT repository key</span>
-wget<span class="w"> </span>-qO<span class="w"> </span>-<span class="w"> </span>https://repositories.intel.com/gpu/intel-graphics.key<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--yes<span class="w"> </span>--dearmor<span class="w"> </span>--output<span class="w"> </span>/usr/share/keyrings/intel-graphics.gpg
-
-<span class="c1"># Download Intel® Graphics APT repository</span>
-<span class="c1"># [Ubuntu 24.04]</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/gpu/ubuntu noble client&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/intel-graphics.list
-<span class="c1"># [Ubuntu 22.04]</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=amd64 signed-by=/usr/share/keyrings/intel-graphics.gpg] https://repositories.intel.com/gpu/ubuntu jammy client&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/intel-graphics.list
-</pre></div>
-</div>
-</li>
-</ul>
-<ol class="upperalpha" start="4">
-<li><p>Install or update packages responsible for computing and media runtimes:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install</span>
-sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>intel-level-zero-gpu<span class="w"> </span>level-zero
-</pre></div>
-</div>
-</li>
-</ol>
 </section>
 <section id="prerequisite-2-install-intel-npu-drivers">
 <h2>Prerequisite 2 - Install Intel® NPU drivers<a class="headerlink" href="#prerequisite-2-install-intel-npu-drivers" title="Permalink to this heading">#</a></h2>

@@ -461,6 +461,14 @@ document.write(`
 <p>The instructions provided below are comprehensive, but for convenience, it is recommended to use the <a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/download_public_models.sh">download_public_models.sh</a> script. This script will download all supported Yolo models and perform the necessary conversions automatically.</p>
 <p>See <a class="reference internal" href="download_public_models.html"><span class="doc">download_public_models</span></a> for more information.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When running YOLOv10 models on a GPU device, you must add the parameter <strong>ie-config=GPU_DISABLE_WINOGRAD_CONVOLUTION=YES</strong>.</p>
+<p>Example:</p>
+<blockquote>
+<div><p>gvadetect model=yolov10s.xml device=GPU pre-process-backend=va ie-config=GPU_DISABLE_WINOGRAD_CONVOLUTION=YES</p>
+</div></blockquote>
+</div>
 <section id="setup">
 <h2>1. Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
 <p>The instructions assume Intel® DL Streamer framework is installed on the local system along with Intel® OpenVINO™ model downloader and converter tools,

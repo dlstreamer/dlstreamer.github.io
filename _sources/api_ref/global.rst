@@ -113,7 +113,7 @@ Overview
 		:ref:`GstAnalyticsKeypointSkeletonMtd<doxid-gstanalyticskeypointsmtd_8h_1aa11d3893d074f85e896106b71bea4f9a>`* keypoint_skeleton
 	);
 
-	GType :target:`gst_gva_audio_event_meta_api_get_type<doxid-gva__audio__event__meta_8h_1abbda3842d56b2d1be936c56fc10b5fe4>`(void);
+	DLS_EXPORT GType :target:`gst_gva_audio_event_meta_api_get_type<doxid-gva__audio__event__meta_8h_1ab900357c9549cd29850dae9d64764402>`(void);
 	const GstMetaInfo* :target:`gst_gva_audio_event_meta_get_info<doxid-gva__audio__event__meta_8h_1ada019174d6ba549dd03bd53b456149f1>`(void);
 
 	:ref:`GstGVAAudioEventMeta<doxid-struct_gst_g_v_a_audio_event_meta>`* :target:`gst_gva_buffer_get_audio_event_meta_id<doxid-gva__audio__event__meta_8h_1a28911a7b18dd81195a62f99bfce3a677>`(
@@ -121,7 +121,7 @@ Overview
 		gint id
 	);
 
-	:ref:`GstGVAAudioEventMeta<doxid-struct_gst_g_v_a_audio_event_meta>`* :target:`gst_gva_buffer_add_audio_event_meta<doxid-gva__audio__event__meta_8h_1a4afcfba36998cd584614490ecf310f75>`(
+	DLS_EXPORT :ref:`GstGVAAudioEventMeta<doxid-struct_gst_g_v_a_audio_event_meta>`* :target:`gst_gva_buffer_add_audio_event_meta<doxid-gva__audio__event__meta_8h_1a78e0412f62178b84daeff316440e1a7b>`(
 		GstBuffer* buffer,
 		const gchar* event_type,
 		gulong start_timestamp,
@@ -135,7 +135,7 @@ Overview
 		gulong end_timestamp
 	);
 
-	void :target:`gst_gva_audio_event_meta_add_param<doxid-gva__audio__event__meta_8h_1ab2ac8cd76f8f0a52f344f80921903f20>`(
+	DLS_EXPORT void :target:`gst_gva_audio_event_meta_add_param<doxid-gva__audio__event__meta_8h_1a71b5f79e7958b04f6af52821525c5b5b>`(
 		:ref:`GstGVAAudioEventMeta<doxid-struct_gst_g_v_a_audio_event_meta>`* meta,
 		GstStructure* s
 	);
@@ -145,13 +145,13 @@ Overview
 		const gchar* name
 	);
 
-	const GstMetaInfo* :ref:`gst_gva_json_meta_get_info<doxid-gva__json__meta_8h_1aa3e2cbd81b77b33be3a69a11c190cb57>`(void);
-	GType :ref:`gst_gva_json_meta_api_get_type<doxid-gva__json__meta_8h_1a4136c51ca9905bc6da7a3536ca957899>`(void);
+	DLS_EXPORT const GstMetaInfo* :ref:`gst_gva_json_meta_get_info<doxid-gva__json__meta_8h_1a5b3c0305d4b9ff9eebc366ca26d44977>`(void);
+	DLS_EXPORT GType :ref:`gst_gva_json_meta_api_get_type<doxid-gva__json__meta_8h_1a681e2ec2e8c211ad0f03bd38a289c379>`(void);
 	gchar* :ref:`get_json_message<doxid-gva__json__meta_8h_1aa545ce5192458c944e25cd7a420ba6c1>`(:ref:`GstGVAJSONMeta<doxid-gva__json__meta_8h_1a64a17a6fb82826c3a7159e71c9449a54>`* meta);
 	void :ref:`set_json_message<doxid-gva__json__meta_8h_1a0ea9b77e35bd236b9d3e842764a970ae>`(:ref:`GstGVAJSONMeta<doxid-gva__json__meta_8h_1a64a17a6fb82826c3a7159e71c9449a54>`* meta, const gchar* message);
 	const void* :ref:`gva_get_tensor_data<doxid-gva__tensor__meta_8h_1a10f40dae431beeca931a84d6e803df03>`(GstStructure* s, gsize* nbytes);
-	const GstMetaInfo* :ref:`gst_gva_tensor_meta_get_info<doxid-gva__tensor__meta_8h_1a09753594569dbadb68669cdddf5bdad1>`(void);
-	GType :ref:`gst_gva_tensor_meta_api_get_type<doxid-gva__tensor__meta_8h_1ac5b45e42b95ae7bb4bd51711551fd3c1>`(void);
+	DLS_EXPORT const GstMetaInfo* :ref:`gst_gva_tensor_meta_get_info<doxid-gva__tensor__meta_8h_1a41b460b5fc4511dd829c20935f3f6925>`(void);
+	DLS_EXPORT GType :ref:`gst_gva_tensor_meta_api_get_type<doxid-gva__tensor__meta_8h_1a1a2fc0ce13c95f22aa6c10ec8e5430bf>`(void);
 
 	:ref:`GstGVATensorMeta<doxid-gva__tensor__meta_8h_1a038ecf5fdabb0acf1f2053800ba16d62>`* :ref:`find_tensor_meta<doxid-gva__tensor__meta_8h_1a8c412ce7685600f250c77914b95bdb1f>`(
 		GstBuffer* buffer,
@@ -166,7 +166,7 @@ Overview
 		const char* element_id
 	);
 
-	GST_ANALYTICS_META_API GstAnalyticsMtdType :target:`gst_analytics_od_ext_mtd_get_mtd_type<doxid-objectdetectionmtdext_8h_1ac70fecd24ba6063ba39ade94d74a2870>`(void);
+	GST_ANALYTICS_META_API DLS_EXPORT GstAnalyticsMtdType :target:`gst_analytics_od_ext_mtd_get_mtd_type<doxid-objectdetectionmtdext_8h_1a4886329247e380fd066386c3dfb48718>`(void);
 
 	GST_ANALYTICS_META_API gboolean :target:`gst_analytics_od_ext_mtd_get_rotation<doxid-objectdetectionmtdext_8h_1a047a2800e8a7cc4fc622853fe62e4d87>`(
 		const :ref:`GstAnalyticsODExtMtd<doxid-objectdetectionmtdext_8h_1a3cbd896154d2778ee22b2b4825379caf>`* handle,
@@ -178,7 +178,7 @@ Overview
 		gint* class_id
 	);
 
-	GST_ANALYTICS_META_API GList* :target:`gst_analytics_od_ext_mtd_get_params<doxid-objectdetectionmtdext_8h_1a536f0fc50e3596e5b3cbc7a12f4fdcb5>`(const :ref:`GstAnalyticsODExtMtd<doxid-objectdetectionmtdext_8h_1a3cbd896154d2778ee22b2b4825379caf>`* handle);
+	GST_ANALYTICS_META_API DLS_EXPORT GList* :target:`gst_analytics_od_ext_mtd_get_params<doxid-objectdetectionmtdext_8h_1ab6c9927d18c3c8343f47b6bdd1f50f2f>`(const :ref:`GstAnalyticsODExtMtd<doxid-objectdetectionmtdext_8h_1a3cbd896154d2778ee22b2b4825379caf>`* handle);
 
 	GST_ANALYTICS_META_API gboolean :target:`gst_analytics_od_ext_mtd_add_param<doxid-objectdetectionmtdext_8h_1a23091b6f3021ff737d1f213ea879b981>`(
 		const :ref:`GstAnalyticsODExtMtd<doxid-objectdetectionmtdext_8h_1a3cbd896154d2778ee22b2b4825379caf>`* handle,
@@ -259,12 +259,12 @@ Global Functions
 ----------------
 
 .. index:: pair: function; gst_gva_json_meta_get_info
-.. _doxid-gva__json__meta_8h_1aa3e2cbd81b77b33be3a69a11c190cb57:
+.. _doxid-gva__json__meta_8h_1a5b3c0305d4b9ff9eebc366ca26d44977:
 
 .. ref-code-block:: cpp
 	:class: doxyrest-title-code-block
 
-	const GstMetaInfo* gst_gva_json_meta_get_info(void)
+	DLS_EXPORT const GstMetaInfo* gst_gva_json_meta_get_info(void)
 
 This function registers, if needed, and returns GstMetaInfo for :ref:`_GstGVAJSONMeta <doxid-struct___gst_g_v_a_j_s_o_n_meta>`.
 
@@ -275,12 +275,12 @@ This function registers, if needed, and returns GstMetaInfo for :ref:`_GstGVAJSO
 const GstMetaInfo* for registered type
 
 .. index:: pair: function; gst_gva_json_meta_api_get_type
-.. _doxid-gva__json__meta_8h_1a4136c51ca9905bc6da7a3536ca957899:
+.. _doxid-gva__json__meta_8h_1a681e2ec2e8c211ad0f03bd38a289c379:
 
 .. ref-code-block:: cpp
 	:class: doxyrest-title-code-block
 
-	GType gst_gva_json_meta_api_get_type(void)
+	DLS_EXPORT GType gst_gva_json_meta_api_get_type(void)
 
 This function registers, if needed, and returns a GType for api "GstGVAJSONMetaAPI" and associate it with GVA_JSON_META_TAG tag.
 
@@ -385,12 +385,12 @@ This function returns a pointer to the fixed array of tensor bytes.
 void* to tensor data as bytes, NULL if s has no "data_buffer" field
 
 .. index:: pair: function; gst_gva_tensor_meta_get_info
-.. _doxid-gva__tensor__meta_8h_1a09753594569dbadb68669cdddf5bdad1:
+.. _doxid-gva__tensor__meta_8h_1a41b460b5fc4511dd829c20935f3f6925:
 
 .. ref-code-block:: cpp
 	:class: doxyrest-title-code-block
 
-	const GstMetaInfo* gst_gva_tensor_meta_get_info(void)
+	DLS_EXPORT const GstMetaInfo* gst_gva_tensor_meta_get_info(void)
 
 This function registers, if needed, and returns GstMetaInfo for :ref:`_GstGVATensorMeta <doxid-struct___gst_g_v_a_tensor_meta>`.
 
@@ -401,12 +401,12 @@ This function registers, if needed, and returns GstMetaInfo for :ref:`_GstGVATen
 GstMetaInfo* for registered type
 
 .. index:: pair: function; gst_gva_tensor_meta_api_get_type
-.. _doxid-gva__tensor__meta_8h_1ac5b45e42b95ae7bb4bd51711551fd3c1:
+.. _doxid-gva__tensor__meta_8h_1a1a2fc0ce13c95f22aa6c10ec8e5430bf:
 
 .. ref-code-block:: cpp
 	:class: doxyrest-title-code-block
 
-	GType gst_gva_tensor_meta_api_get_type(void)
+	DLS_EXPORT GType gst_gva_tensor_meta_api_get_type(void)
 
 This function registers, if needed, and returns a GType for api "GstGVATensorMetaAPI" and associate it with GVA_TENSOR_META_TAG tag.
 

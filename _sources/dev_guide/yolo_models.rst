@@ -10,6 +10,15 @@ This page illustrates how to prepare models from the **YOLO** family for integra
    See :doc:`download_public_models <download_public_models>` for more information.
 
 
+.. note::
+
+   When running YOLOv10 models on a GPU device, you must add the parameter **ie-config=GPU_DISABLE_WINOGRAD_CONVOLUTION=YES**.
+
+   Example:
+
+      gvadetect model=yolov10s.xml device=GPU pre-process-backend=va ie-config=GPU_DISABLE_WINOGRAD_CONVOLUTION=YES
+
+
 1. Setup
 --------
 

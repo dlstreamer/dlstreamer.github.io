@@ -440,9 +440,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-prerequisites-only-for-ubuntu">Step 1: Install prerequisites (only for Ubuntu)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-build-dependencies">Step 2: Install build dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-set-up-a-python-environment">Step 3: Set up a Python environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-ffmpeg">Step 4: Build FFmpeg</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-ffmpeg-fedora-only">Step 4: Build FFmpeg (fedora only)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-build-gstreamer">Step 5: Build GStreamer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-build-opencv">Step 6: Build OpenCV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-build-opencv-ubuntu-22-fedora">Step 6: Build OpenCV (ubuntu 22/fedora)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-clone-intel-dl-streamer-repository">Step 7: Clone Intel® DL Streamer repository</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-install-openvino-toolkit">Step 8: Install OpenVINO™ Toolkit</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-build-intel-dlstreamer">Step 9: Build Intel DLStreamer</a></li>
@@ -475,33 +475,37 @@ provided in <a class="reference external" href="https://github.com/open-edge-pla
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Ubuntu 24</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Ubuntu 22</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">Fedora 41</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>wget<span class="w"> </span>vainfo<span class="w"> </span>xz-utils<span class="w"> </span>python3-pip<span class="w"> </span>python3-gi<span class="w"> </span>gcc-multilib<span class="w"> </span>libglib2.0-dev<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>flex<span class="w"> </span>bison<span class="w"> </span>autoconf<span class="w"> </span>automake<span class="w"> </span>libtool<span class="w"> </span>libogg-dev<span class="w"> </span>make<span class="w"> </span>g++<span class="w"> </span>libva-dev<span class="w"> </span>yasm<span class="w"> </span>libglx-dev<span class="w"> </span>libdrm-dev<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>python-gi-dev<span class="w"> </span>python3-dev<span class="w"> </span>libtbb12<span class="w"> </span>gpg<span class="w"> </span>unzip<span class="w"> </span>libopencv-dev<span class="w"> </span>libgflags-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>python-gi-dev<span class="w"> </span>python3-dev<span class="w"> </span>unzip<span class="w"> </span>libgflags-dev<span class="w"> </span>libcurl4-openssl-dev<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>libgirepository1.0-dev<span class="w"> </span>libx265-dev<span class="w"> </span>libx264-dev<span class="w"> </span>libde265-dev<span class="w"> </span>gudev-1.0<span class="w"> </span>libusb-1.0<span class="w"> </span>nasm<span class="w"> </span>python3-venv<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>libcairo2-dev<span class="w"> </span>libxt-dev<span class="w"> </span>libgirepository1.0-dev<span class="w"> </span>libgles2-mesa-dev<span class="w"> </span>wayland-protocols<span class="w"> </span>libcurl4-openssl-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>libcairo2-dev<span class="w"> </span>libxt-dev<span class="w"> </span>libgirepository1.0-dev<span class="w"> </span>libgles2-mesa-dev<span class="w"> </span>wayland-protocols<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>libssh2-1-dev<span class="w"> </span>cmake<span class="w"> </span>git<span class="w"> </span>valgrind<span class="w"> </span>numactl<span class="w"> </span>libvpx-dev<span class="w"> </span>libopus-dev<span class="w"> </span>libsrtp2-dev<span class="w"> </span>libxv-dev<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>linux-libc-dev<span class="w"> </span>libpmix2t64<span class="w"> </span>libhwloc15<span class="w"> </span>libhwloc-plugins<span class="w"> </span>libxcb1-dev<span class="w"> </span>libx11-xcb-dev
+<span class="w">    </span>linux-libc-dev<span class="w"> </span>libpmix2t64<span class="w"> </span>libhwloc15<span class="w"> </span>libhwloc-plugins<span class="w"> </span>libxcb1-dev<span class="w"> </span>libx11-xcb-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>ffmpeg<span class="w"> </span>librdkafka-dev<span class="w"> </span>libpaho-mqtt-dev<span class="w"> </span>libopencv-dev<span class="w"> </span>libpostproc-dev<span class="w"> </span>libavfilter-dev<span class="w"> </span>libavdevice-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>libswscale-dev<span class="w"> </span>libswresample-dev<span class="w"> </span>libavutil-dev<span class="w"> </span>libavformat-dev<span class="w"> </span>libavcodec-dev<span class="w"> </span>libtbb12
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>wget<span class="w"> </span>vainfo<span class="w"> </span>xz-utils<span class="w"> </span>python3-pip<span class="w"> </span>python3-gi<span class="w"> </span>gcc-multilib<span class="w"> </span>libglib2.0-dev<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>flex<span class="w"> </span>bison<span class="w"> </span>autoconf<span class="w"> </span>automake<span class="w"> </span>libtool<span class="w"> </span>libogg-dev<span class="w"> </span>make<span class="w"> </span>g++<span class="w"> </span>libva-dev<span class="w"> </span>yasm<span class="w"> </span>libglx-dev<span class="w"> </span>libdrm-dev<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>python-gi-dev<span class="w"> </span>python3-dev<span class="w"> </span>libtbb12<span class="w"> </span>gpg<span class="w"> </span>unzip<span class="w"> </span>libopencv-dev<span class="w"> </span>libgflags-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>python-gi-dev<span class="w"> </span>python3-dev<span class="w"> </span>unzip<span class="w"> </span>libgflags-dev<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>libgirepository1.0-dev<span class="w"> </span>libx265-dev<span class="w"> </span>libx264-dev<span class="w"> </span>libde265-dev<span class="w"> </span>gudev-1.0<span class="w"> </span>libusb-1.0<span class="w"> </span>nasm<span class="w"> </span>python3-venv<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>libcairo2-dev<span class="w"> </span>libxt-dev<span class="w"> </span>libgirepository1.0-dev<span class="w"> </span>libgles2-mesa-dev<span class="w"> </span>wayland-protocols<span class="w"> </span>libcurl4-openssl-dev<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>libssh2-1-dev<span class="w"> </span>cmake<span class="w"> </span>git<span class="w"> </span>valgrind<span class="w"> </span>numactl<span class="w"> </span>libvpx-dev<span class="w"> </span>libopus-dev<span class="w"> </span>libsrtp2-dev<span class="w"> </span>libxv-dev<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>linux-libc-dev<span class="w"> </span>libpmix2<span class="w"> </span>libhwloc15<span class="w"> </span>libhwloc-plugins<span class="w"> </span>libxcb1-dev<span class="w"> </span>libx11-xcb-dev
+<span class="w">    </span>linux-libc-dev<span class="w"> </span>libpmix2<span class="w"> </span>libhwloc15<span class="w"> </span>libhwloc-plugins<span class="w"> </span>libxcb1-dev<span class="w"> </span>libx11-xcb-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>ffmpeg<span class="w"> </span>libpaho-mqtt-dev<span class="w"> </span>libpostproc-dev<span class="w"> </span>libavfilter-dev<span class="w"> </span>libavdevice-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>libswscale-dev<span class="w"> </span>libswresample-dev<span class="w"> </span>libavutil-dev<span class="w"> </span>libavformat-dev<span class="w"> </span>libavcodec-dev
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span><span class="se">\</span>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-<span class="k">$(</span>rpm<span class="w"> </span>-E<span class="w"> </span>%fedora<span class="k">)</span>.noarch.rpm<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-<span class="k">$(</span>rpm<span class="w"> </span>-E<span class="w"> </span>%fedora<span class="k">)</span>.noarch.rpm
 
 sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>wget<span class="w"> </span>libva-utils<span class="w"> </span>xz<span class="w"> </span>python3-pip<span class="w"> </span>python3-gobject<span class="w"> </span>gcc<span class="w"> </span>gcc-c++<span class="w"> </span>glibc-devel<span class="w"> </span>glib2-devel<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>flex<span class="w"> </span>bison<span class="w"> </span>autoconf<span class="w"> </span>automake<span class="w"> </span>libtool<span class="w"> </span>libogg-devel<span class="w"> </span>make<span class="w"> </span>libva-devel<span class="w"> </span>yasm<span class="w"> </span>mesa-libGL-devel<span class="w"> </span>libdrm-devel<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>python3-gobject-devel<span class="w"> </span>python3-devel<span class="w"> </span>tbb<span class="w"> </span>gnupg2<span class="w"> </span>unzip<span class="w"> </span>opencv-devel<span class="w"> </span>gflags-devel<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>python3-gobject-devel<span class="w"> </span>python3-devel<span class="w"> </span>tbb<span class="w"> </span>gnupg2<span class="w"> </span>unzip<span class="w"> </span>opencv-devel<span class="w"> </span>gflags-devel<span class="w"> </span>openssl-devel<span class="w"> </span>openssl-devel-engine<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>gobject-introspection-devel<span class="w"> </span>x265-devel<span class="w"> </span>x264-devel<span class="w"> </span>libde265-devel<span class="w"> </span>libgudev-devel<span class="w"> </span>libusb1<span class="w"> </span>libusb1-devel<span class="w"> </span>nasm<span class="w"> </span>python3-virtualenv<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>cairo-devel<span class="w"> </span>cairo-gobject-devel<span class="w"> </span>libXt-devel<span class="w"> </span>mesa-libGLES-devel<span class="w"> </span>wayland-protocols-devel<span class="w"> </span>libcurl-devel<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>libssh2-devel<span class="w"> </span>cmake<span class="w"> </span>git<span class="w"> </span>valgrind<span class="w"> </span>numactl<span class="w"> </span>libvpx-devel<span class="w"> </span>opus-devel<span class="w"> </span>libsrtp-devel<span class="w"> </span>libXv-devel<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>cairo-devel<span class="w"> </span>cairo-gobject-devel<span class="w"> </span>libXt-devel<span class="w"> </span>mesa-libGLES-devel<span class="w"> </span>wayland-protocols-devel<span class="w"> </span>libcurl-devel<span class="w"> </span>which<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>libssh2-devel<span class="w"> </span>cmake<span class="w"> </span>git<span class="w"> </span>valgrind<span class="w"> </span>numactl<span class="w"> </span>libvpx-devel<span class="w"> </span>opus-devel<span class="w"> </span>libsrtp-devel<span class="w"> </span>libXv-devel<span class="w"> </span>paho-c-devel<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>kernel-headers<span class="w"> </span>pmix<span class="w"> </span>pmix-devel<span class="w"> </span>hwloc<span class="w"> </span>hwloc-libs<span class="w"> </span>hwloc-devel<span class="w"> </span>libxcb-devel<span class="w"> </span>libX11-devel<span class="w"> </span>libatomic<span class="w"> </span>intel-media-driver
 </pre></div>
 </div>
@@ -518,8 +522,8 @@ pip<span class="w"> </span>install<span class="w"> </span><span class="nv">meson
 </pre></div>
 </div>
 </section>
-<section id="step-4-build-ffmpeg">
-<h2>Step 4: Build FFmpeg<a class="headerlink" href="#step-4-build-ffmpeg" title="Permalink to this heading">#</a></h2>
+<section id="step-4-build-ffmpeg-fedora-only">
+<h2>Step 4: Build FFmpeg (fedora only)<a class="headerlink" href="#step-4-build-ffmpeg-fedora-only" title="Permalink to this heading">#</a></h2>
 <p>Download and build FFmpeg:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>~/ffmpeg
 wget<span class="w"> </span>--no-check-certificate<span class="w"> </span>https://ffmpeg.org/releases/ffmpeg-6.1.1.tar.gz<span class="w"> </span>-O<span class="w"> </span>~/ffmpeg/ffmpeg-6.1.1.tar.gz
@@ -549,21 +553,41 @@ sudo<span class="w"> </span>env<span class="w"> </span><span class="nv">PATH</sp
 </pre></div>
 </div>
 </section>
-<section id="step-6-build-opencv">
-<h2>Step 6: Build OpenCV<a class="headerlink" href="#step-6-build-opencv" title="Permalink to this heading">#</a></h2>
+<section id="step-6-build-opencv-ubuntu-22-fedora">
+<h2>Step 6: Build OpenCV (ubuntu 22/fedora)<a class="headerlink" href="#step-6-build-opencv-ubuntu-22-fedora" title="Permalink to this heading">#</a></h2>
 <p>Download and build OpenCV:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>--no-check-certificate<span class="w"> </span>-O<span class="w"> </span>~/opencv.zip<span class="w"> </span>https://github.com/opencv/opencv/archive/4.10.0.zip
-unzip<span class="w"> </span>~/opencv.zip<span class="w"> </span>-d<span class="w"> </span>~
-rm<span class="w"> </span>~/opencv.zip
-mv<span class="w"> </span>~/opencv-4.10.0<span class="w"> </span>~/opencv
-mkdir<span class="w"> </span>-p<span class="w"> </span>~/opencv/build
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Ubuntu 22</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Fedora 41</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>--no-check-certificate<span class="w"> </span>-O<span class="w"> </span>~/opencv.zip<span class="w"> </span>https://github.com/opencv/opencv/archive/4.6.0.zip
+wget<span class="w"> </span>--no-check-certificate<span class="w"> </span>-O<span class="w"> </span>~/opencv_contrib.zip<span class="w"> </span>https://github.com/opencv/opencv_contrib/archive/4.6.0.zip
+unzip<span class="w"> </span>opencv.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+unzip<span class="w"> </span>opencv_contrib.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+rm<span class="w"> </span>opencv.zip<span class="w"> </span>opencv_contrib.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+mv<span class="w"> </span>opencv-4.6.0<span class="w"> </span>opencv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+mv<span class="w"> </span>opencv_contrib-4.6.0<span class="w"> </span>opencv_contrib<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>opencv/build
 
 <span class="nb">cd</span><span class="w"> </span>~/opencv/build
-cmake<span class="w"> </span>-DBUILD_TESTS<span class="o">=</span>OFF<span class="w"> </span>-DBUILD_PERF_TESTS<span class="o">=</span>OFF<span class="w"> </span>-DBUILD_EXAMPLES<span class="o">=</span>OFF<span class="w"> </span>-DBUILD_opencv_apps<span class="o">=</span>OFF<span class="w"> </span>-GNinja<span class="w"> </span>..
+cmake<span class="w"> </span>-DBUILD_TESTS<span class="o">=</span>OFF<span class="w"> </span>-DBUILD_PERF_TESTS<span class="o">=</span>OFF<span class="w"> </span>-DBUILD_EXAMPLES<span class="o">=</span>OFF<span class="w"> </span>-DBUILD_opencv_apps<span class="o">=</span>OFF<span class="w"> </span>-DOPENCV_EXTRA_MODULES_PATH<span class="o">=</span>~/opencv_contrib/modules<span class="w"> </span>-GNinja<span class="w"> </span>..
 ninja<span class="w"> </span>-j<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>nproc<span class="k">)</span><span class="s2">&quot;</span>
 sudo<span class="w"> </span>env<span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/python3venv/bin:<span class="nv">$PATH</span><span class="w"> </span>ninja<span class="w"> </span>install
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>--no-check-certificate<span class="w"> </span>-O<span class="w"> </span>~/opencv.zip<span class="w"> </span>https://github.com/opencv/opencv/archive/4.10.0.zip
+wget<span class="w"> </span>--no-check-certificate<span class="w"> </span>-O<span class="w"> </span>~/opencv_contrib.zip<span class="w"> </span>https://github.com/opencv/opencv_contrib/archive/4.10.0.zip
+unzip<span class="w"> </span>opencv.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+unzip<span class="w"> </span>opencv_contrib.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+rm<span class="w"> </span>opencv.zip<span class="w"> </span>opencv_contrib.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+mv<span class="w"> </span>opencv-4.10.0<span class="w"> </span>opencv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+mv<span class="w"> </span>opencv_contrib-4.10.0<span class="w"> </span>opencv_contrib<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>opencv/build
+
+<span class="nb">cd</span><span class="w"> </span>~/opencv/build
+cmake<span class="w"> </span>-DBUILD_TESTS<span class="o">=</span>OFF<span class="w"> </span>-DBUILD_PERF_TESTS<span class="o">=</span>OFF<span class="w"> </span>-DBUILD_EXAMPLES<span class="o">=</span>OFF<span class="w"> </span>-DBUILD_opencv_apps<span class="o">=</span>OFF<span class="w"> </span>-DOPENCV_EXTRA_MODULES_PATH<span class="o">=</span>~/opencv_contrib/modules<span class="w"> </span>-GNinja<span class="w"> </span>..
+ninja<span class="w"> </span>-j<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>nproc<span class="k">)</span><span class="s2">&quot;</span>
+sudo<span class="w"> </span>env<span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/python3venv/bin:<span class="nv">$PATH</span><span class="w"> </span>ninja<span class="w"> </span>install
+</pre></div>
+</div>
+</div></div>
 </section>
 <section id="step-7-clone-intel-dl-streamer-repository">
 <h2>Step 7: Clone Intel® DL Streamer repository<a class="headerlink" href="#step-7-clone-intel-dl-streamer-repository" title="Permalink to this heading">#</a></h2>
@@ -601,9 +625,8 @@ OpenVINO™ Toolkit development environment:</p>
 </section>
 <section id="step-9-build-intel-dlstreamer">
 <h2>Step 9: Build Intel DLStreamer<a class="headerlink" href="#step-9-build-intel-dlstreamer" title="Permalink to this heading">#</a></h2>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/edge-ai-libraries/libraries/dl-streamer
-
-sudo<span class="w"> </span>./scripts/install_metapublish_dependencies.sh
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">Ubuntu 24</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">Ubuntu 22</button><button aria-controls="panel-2-2-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-2" name="2-2" role="tab" tabindex="-1">Fedora</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/edge-ai-libraries/libraries/dl-streamer
 
 mkdir<span class="w"> </span>build
 <span class="nb">cd</span><span class="w"> </span>build
@@ -615,14 +638,47 @@ cmake<span class="w"> </span>-DENABLE_PAHO_INSTALLATION<span class="o">=</span>O
 make<span class="w"> </span>-j<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>nproc<span class="k">)</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/edge-ai-libraries/libraries/dl-streamer
+
+curl<span class="w"> </span>-sSL<span class="w"> </span>https://github.com/edenhill/librdkafka/archive/v2.3.0.tar.gz<span class="w"> </span><span class="p">|</span><span class="w"> </span>tar<span class="w"> </span>-xz
+<span class="nb">cd</span><span class="w"> </span>/librdkafka-2.3.0
+./configure<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>install
+
+mkdir<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>build
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="s2">&quot;/opt/intel/dlstreamer/gstreamer/lib/pkgconfig:</span><span class="si">${</span><span class="nv">PKG_CONFIG_PATH</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">source</span><span class="w"> </span>/opt/intel/openvino_2025/setupvars.sh
+
+cmake<span class="w"> </span>-DENABLE_PAHO_INSTALLATION<span class="o">=</span>ON<span class="w"> </span>-DENABLE_RDKAFKA_INSTALLATION<span class="o">=</span>ON<span class="w"> </span>-DENABLE_VAAPI<span class="o">=</span>ON<span class="w"> </span>-DENABLE_SAMPLES<span class="o">=</span>ON<span class="w"> </span>..
+make<span class="w"> </span>-j<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>nproc<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-2-2-2" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-2" name="2-2" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/edge-ai-libraries/libraries/dl-streamer
+
+curl<span class="w"> </span>-sSL<span class="w"> </span>https://github.com/edenhill/librdkafka/archive/v2.3.0.tar.gz<span class="w"> </span><span class="p">|</span><span class="w"> </span>tar<span class="w"> </span>-xz
+<span class="nb">cd</span><span class="w"> </span>./librdkafka-2.3.0
+./configure<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span><span class="nv">INSTALL</span><span class="o">=</span>install<span class="w"> </span>install
+
+mkdir<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>build
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="s2">&quot;/opt/intel/dlstreamer/gstreamer/lib/pkgconfig:</span><span class="si">${</span><span class="nv">PKG_CONFIG_PATH</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">source</span><span class="w"> </span>/opt/intel/openvino_2025/setupvars.sh
+
+cmake<span class="w"> </span>-DENABLE_PAHO_INSTALLATION<span class="o">=</span>ON<span class="w"> </span>-DENABLE_RDKAFKA_INSTALLATION<span class="o">=</span>ON<span class="w"> </span>-DENABLE_VAAPI<span class="o">=</span>ON<span class="w"> </span>-DENABLE_SAMPLES<span class="o">=</span>ON<span class="w"> </span>..
+make<span class="w"> </span>-j<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>nproc<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div></div>
 </section>
 <section id="step-10-set-up-environment">
 <h2>Step 10: Set up environment<a class="headerlink" href="#step-10-set-up-environment" title="Permalink to this heading">#</a></h2>
 <p>Set up the required environment variables:</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Ubuntu</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Fedora</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVER_NAME</span><span class="o">=</span>iHD
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-3-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-3-3-0" name="3-0" role="tab" tabindex="0">Ubuntu</button><button aria-controls="panel-3-3-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-1" name="3-1" role="tab" tabindex="-1">Fedora</button></div><div aria-labelledby="tab-3-3-0" class="sphinx-tabs-panel" id="panel-3-3-0" name="3-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVER_NAME</span><span class="o">=</span>iHD
 <span class="nb">export</span><span class="w"> </span><span class="nv">GST_PLUGIN_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/edge-ai-libraries/libraries/dl-streamer/build/intel64/Release/lib:/opt/intel/dlstreamer/gstreamer/lib/gstreamer-1.0:/usr/lib/x86_64-linux-gnu/gstreamer-1.0&quot;</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">&quot;/opt/intel/dlstreamer/gstreamer/lib:</span><span class="nv">$HOME</span><span class="s2">/edge-ai-libraries/libraries/dl-streamer/build/intel64/Release/lib:/usr/lib:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">&quot;/opt/intel/dlstreamer/gstreamer/lib:</span><span class="nv">$HOME</span><span class="s2">/edge-ai-libraries/libraries/dl-streamer/build/intel64/Release/lib:/usr/lib:/usr/local/lib:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVERS_PATH</span><span class="o">=</span><span class="s2">&quot;/usr/lib/x86_64-linux-gnu/dri&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">GST_VA_ALL_DRIVERS</span><span class="o">=</span><span class="s2">&quot;1&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/opt/intel/dlstreamer/gstreamer/bin:</span><span class="nv">$HOME</span><span class="s2">/edge-ai-libraries/libraries/dl-streamer/build/intel64/Release/bin:</span><span class="nv">$HOME</span><span class="s2">/.local/bin:</span><span class="nv">$HOME</span><span class="s2">/python3venv/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
@@ -630,9 +686,9 @@ make<span class="w"> </span>-j<span class="w"> </span><span class="s2">&quot;</s
 <span class="nb">export</span><span class="w"> </span><span class="nv">GST_PLUGIN_FEATURE_RANK</span><span class="o">=</span><span class="si">${</span><span class="nv">GST_PLUGIN_FEATURE_RANK</span><span class="si">}</span>,ximagesink:MAX
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVER_NAME</span><span class="o">=</span>iHD
+</div><div aria-labelledby="tab-3-3-1" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-1" name="3-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVER_NAME</span><span class="o">=</span>iHD
 <span class="nb">export</span><span class="w"> </span><span class="nv">GST_PLUGIN_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/edge-ai-libraries/libraries/dl-streamer/build/intel64/Release/lib:/opt/intel/dlstreamer/gstreamer/lib/gstreamer-1.0:/usr/lib64/gstreamer-1.0&quot;</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">&quot;/opt/intel/dlstreamer/gstreamer/lib:</span><span class="nv">$HOME</span><span class="s2">/edge-ai-libraries/libraries/dl-streamer/build/intel64/Release/lib:/usr/lib:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">&quot;/opt/intel/dlstreamer/gstreamer/lib:</span><span class="nv">$HOME</span><span class="s2">/edge-ai-libraries/libraries/dl-streamer/build/intel64/Release/lib:/usr/lib:/usr/local/lib:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVERS_PATH</span><span class="o">=</span><span class="s2">&quot;/usr/lib64/dri-nonfree&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">GST_VA_ALL_DRIVERS</span><span class="o">=</span><span class="s2">&quot;1&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/opt/intel/dlstreamer/gstreamer/bin:</span><span class="nv">$HOME</span><span class="s2">/edge-ai-libraries/libraries/dl-streamer/build/intel64/Release/bin:</span><span class="nv">$HOME</span><span class="s2">/.local/bin:</span><span class="nv">$HOME</span><span class="s2">/python3venv/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
@@ -650,7 +706,11 @@ make<span class="w"> </span>-j<span class="w"> </span><span class="s2">&quot;</s
 <h2>Step 11: Install Python dependencies (optional)<a class="headerlink" href="#step-11-install-python-dependencies-optional" title="Permalink to this heading">#</a></h2>
 <p>If you intend to use Python elements or samples, you need to install the
 necessary dependencies using the following commands:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>~/python3venv/bin/activate
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>-q<span class="w"> </span>--no-install-recommends<span class="w"> </span>gcc<span class="w"> </span>cmake<span class="w"> </span>python3-full<span class="w"> </span>python-gi-dev<span class="w"> </span>python3-dev<span class="w"> </span>python3-pip<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>libglib2.0-dev<span class="w"> </span>libcairo2-dev<span class="w"> </span>libopencv-objdetect-dev<span class="w"> </span>libopencv-photo-dev<span class="w"> </span>libopencv-stitching-dev<span class="w"> </span>libopencv-video-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>libopencv-calib3d-dev<span class="w"> </span>libopencv-core-dev<span class="w"> </span>libopencv-dnn-dev<span class="w"> </span>libgirepository1.0-dev
+
+<span class="nb">source</span><span class="w"> </span>~/python3venv/bin/activate
 <span class="nb">cd</span><span class="w"> </span>~/edge-ai-libraries/libraries/dl-streamer
 python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </pre></div>
@@ -706,9 +766,9 @@ python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </s
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-prerequisites-only-for-ubuntu">Step 1: Install prerequisites (only for Ubuntu)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-build-dependencies">Step 2: Install build dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-set-up-a-python-environment">Step 3: Set up a Python environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-ffmpeg">Step 4: Build FFmpeg</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-ffmpeg-fedora-only">Step 4: Build FFmpeg (fedora only)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-build-gstreamer">Step 5: Build GStreamer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-build-opencv">Step 6: Build OpenCV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-build-opencv-ubuntu-22-fedora">Step 6: Build OpenCV (ubuntu 22/fedora)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-clone-intel-dl-streamer-repository">Step 7: Clone Intel® DL Streamer repository</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-install-openvino-toolkit">Step 8: Install OpenVINO™ Toolkit</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-build-intel-dlstreamer">Step 9: Build Intel DLStreamer</a></li>

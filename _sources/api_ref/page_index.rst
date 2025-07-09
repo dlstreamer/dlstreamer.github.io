@@ -295,7 +295,7 @@ Next, we iterate by :ref:`gstgva.video_frame.VideoFrame.tensors <doxid-classgstg
 	    dims = tensor.dims()
 	    data = tensor.data()
 
-After we eject bounding box parameters from raw inference blob, we are ready to call :ref:`gstgva.video_frame.VideoFrame.add_region <doxid-classgstgva_1_1video__frame_1_1_video_frame_1a91d71fb1082fb075250c8cc10bbed2c2>` with box coordinates, label and confidence as parameters.
+After we eject bounding box parameters from raw inference blob, we are ready to call :ref:`gstgva.video_frame.VideoFrame.add_region <doxid-classgstgva_1_1video__frame_1_1_video_frame_1a0c73a2692b99e963a907b390d50c2652>` with box coordinates, label and confidence as parameters.
 
 .. ref-code-block:: cpp
 

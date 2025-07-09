@@ -24,8 +24,8 @@ Extra buffer metadata describing an audio frame event details. :ref:`More...<det
 		GstMeta :ref:`meta<doxid-struct_gst_g_v_a_audio_event_meta_1aa9e75d536dc0b26bdcd4a5244b39ff73>`;
 		GQuark :ref:`event_type<doxid-struct_gst_g_v_a_audio_event_meta_1a0dacfefbf7225e0debd793de5411d32e>`;
 		gint :ref:`id<doxid-struct_gst_g_v_a_audio_event_meta_1a90f4a9a1ed5700bda3c9347cf9328400>`;
-		gulong :ref:`start_timestamp<doxid-struct_gst_g_v_a_audio_event_meta_1a69e2d1983f3351a0d1e12925ab218037>`;
-		gulong :ref:`end_timestamp<doxid-struct_gst_g_v_a_audio_event_meta_1a0be03e85ec272ab042d116c900645384>`;
+		guint64 :ref:`start_timestamp<doxid-struct_gst_g_v_a_audio_event_meta_1a69e2d1983f3351a0d1e12925ab218037>`;
+		guint64 :ref:`end_timestamp<doxid-struct_gst_g_v_a_audio_event_meta_1a0be03e85ec272ab042d116c900645384>`;
 		GList* :ref:`params<doxid-struct_gst_g_v_a_audio_event_meta_1a1842127f10abe2ca8850864a7b350e1f>`;
 	};
 .. _details-struct_gst_g_v_a_audio_event_meta:
@@ -74,7 +74,7 @@ Identifier of this particular event
 .. ref-code-block:: cpp
 	:class: doxyrest-title-code-block
 
-	gulong start_timestamp
+	guint64 start_timestamp
 
 Start time stamp of the segment
 
@@ -84,7 +84,7 @@ Start time stamp of the segment
 .. ref-code-block:: cpp
 	:class: doxyrest-title-code-block
 
-	gulong end_timestamp
+	guint64 end_timestamp
 
 End time stamp of the segment
 
@@ -96,5 +96,5 @@ End time stamp of the segment
 
 	GList* params
 
-List of #GstStructure containing element-specific params for downstream, see :ref:`gst_gva_audio_event_meta_add_param() <doxid-gva__audio__event__meta_8h_1ab2ac8cd76f8f0a52f344f80921903f20>`.
+List of #GstStructure containing element-specific params for downstream, see :ref:`gst_gva_audio_event_meta_add_param() <doxid-gva__audio__event__meta_8h_1a71b5f79e7958b04f6af52821525c5b5b>`.
 
