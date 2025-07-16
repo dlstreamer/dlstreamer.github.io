@@ -440,9 +440,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-prerequisites-only-for-ubuntu">Step 1: Install prerequisites (only for Ubuntu)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-build-dependencies">Step 2: Install build dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-set-up-a-python-environment">Step 3: Set up a Python environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-ffmpeg-fedora-only">Step 4: Build FFmpeg (fedora only)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-ffmpeg">Step 4: Build FFmpeg</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-build-gstreamer">Step 5: Build GStreamer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-build-opencv-ubuntu-22-fedora">Step 6: Build OpenCV (ubuntu 22/fedora)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-build-opencv">Step 6: Build OpenCV</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-clone-intel-dl-streamer-repository">Step 7: Clone Intel® DL Streamer repository</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-install-openvino-toolkit">Step 8: Install OpenVINO™ Toolkit</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-build-intel-dlstreamer">Step 9: Build Intel DLStreamer</a></li>
@@ -481,7 +481,7 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w
 <span class="w">    </span>libssh2-1-dev<span class="w"> </span>cmake<span class="w"> </span>git<span class="w"> </span>valgrind<span class="w"> </span>numactl<span class="w"> </span>libvpx-dev<span class="w"> </span>libopus-dev<span class="w"> </span>libsrtp2-dev<span class="w"> </span>libxv-dev<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>linux-libc-dev<span class="w"> </span>libpmix2t64<span class="w"> </span>libhwloc15<span class="w"> </span>libhwloc-plugins<span class="w"> </span>libxcb1-dev<span class="w"> </span>libx11-xcb-dev<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>ffmpeg<span class="w"> </span>librdkafka-dev<span class="w"> </span>libpaho-mqtt-dev<span class="w"> </span>libopencv-dev<span class="w"> </span>libpostproc-dev<span class="w"> </span>libavfilter-dev<span class="w"> </span>libavdevice-dev<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>libswscale-dev<span class="w"> </span>libswresample-dev<span class="w"> </span>libavutil-dev<span class="w"> </span>libavformat-dev<span class="w"> </span>libavcodec-dev<span class="w"> </span>libtbb12
+<span class="w">    </span>libswscale-dev<span class="w"> </span>libswresample-dev<span class="w"> </span>libavutil-dev<span class="w"> </span>libavformat-dev<span class="w"> </span>libavcodec-dev<span class="w"> </span>libtbb12<span class="w"> </span>libxml2-dev
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
@@ -493,7 +493,7 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w
 <span class="w">    </span>libssh2-1-dev<span class="w"> </span>cmake<span class="w"> </span>git<span class="w"> </span>valgrind<span class="w"> </span>numactl<span class="w"> </span>libvpx-dev<span class="w"> </span>libopus-dev<span class="w"> </span>libsrtp2-dev<span class="w"> </span>libxv-dev<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>linux-libc-dev<span class="w"> </span>libpmix2<span class="w"> </span>libhwloc15<span class="w"> </span>libhwloc-plugins<span class="w"> </span>libxcb1-dev<span class="w"> </span>libx11-xcb-dev<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>ffmpeg<span class="w"> </span>libpaho-mqtt-dev<span class="w"> </span>libpostproc-dev<span class="w"> </span>libavfilter-dev<span class="w"> </span>libavdevice-dev<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>libswscale-dev<span class="w"> </span>libswresample-dev<span class="w"> </span>libavutil-dev<span class="w"> </span>libavformat-dev<span class="w"> </span>libavcodec-dev
+<span class="w">    </span>libswscale-dev<span class="w"> </span>libswresample-dev<span class="w"> </span>libavutil-dev<span class="w"> </span>libavformat-dev<span class="w"> </span>libavcodec-dev<span class="w"> </span>libxml2-dev
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
@@ -522,42 +522,90 @@ pip<span class="w"> </span>install<span class="w"> </span><span class="nv">meson
 </pre></div>
 </div>
 </section>
-<section id="step-4-build-ffmpeg-fedora-only">
-<h2>Step 4: Build FFmpeg (fedora only)<a class="headerlink" href="#step-4-build-ffmpeg-fedora-only" title="Permalink to this heading">#</a></h2>
-<p>Download and build FFmpeg:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>~/ffmpeg
-wget<span class="w"> </span>--no-check-certificate<span class="w"> </span>https://ffmpeg.org/releases/ffmpeg-6.1.1.tar.gz<span class="w"> </span>-O<span class="w"> </span>~/ffmpeg/ffmpeg-6.1.1.tar.gz
-tar<span class="w"> </span>-xf<span class="w"> </span>~/ffmpeg/ffmpeg-6.1.1.tar.gz<span class="w"> </span>-C<span class="w"> </span>~/ffmpeg
-rm<span class="w"> </span>~/ffmpeg/ffmpeg-6.1.1.tar.gz
+<section id="step-4-build-ffmpeg">
+<h2>Step 4: Build FFmpeg<a class="headerlink" href="#step-4-build-ffmpeg" title="Permalink to this heading">#</a></h2>
+<p>NOTE: If you have built and installed a different version of ffmpeg locally, it can cause build errors. It is recommended to uninstall it first.
+You can uninstall it with the following command (if installed from source):
+.. tabs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. tab:: Ubuntu
 
-<span class="nb">cd</span><span class="w"> </span>~/ffmpeg/ffmpeg-6.1.1
-./configure<span class="w"> </span>--enable-pic<span class="w"> </span>--enable-shared<span class="w"> </span>--enable-static<span class="w"> </span>--enable-avfilter<span class="w"> </span>--enable-vaapi<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--extra-cflags<span class="o">=</span><span class="s2">&quot;-I/include&quot;</span><span class="w"> </span>--extra-ldflags<span class="o">=</span><span class="s2">&quot;-L/lib&quot;</span><span class="w"> </span>--extra-libs<span class="o">=</span>-lpthread<span class="w"> </span>--extra-libs<span class="o">=</span>-lm<span class="w"> </span>--bindir<span class="o">=</span><span class="s2">&quot;/bin&quot;</span>
-make<span class="w"> </span>-j<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>nproc<span class="k">)</span><span class="s2">&quot;</span>
-sudo<span class="w"> </span>make<span class="w"> </span>install
+    You can uninstall it with the following command (if installed from source):
+
+    .. code:: sh
+
+        cd ${HOME}/ffmpeg # Change to the directory where ffmpeg was built
+        sudo make uninstall
+
+        # then reinstall ffmpeg libs
+        sudo apt-get install --reinstall ffmpeg libpostproc-dev libavfilter-dev libavdevice-dev \
+                    libswscale-dev libswresample-dev libavutil-dev libavformat-dev libavcodec-dev
+
+.. tab:: Fedora
+
+    You can uninstall it with the following command (if installed from source):
+
+    .. code:: sh
+
+        cd ${HOME}/ffmpeg # Change to the directory where ffmpeg was built
+        sudo make uninstall
+
+    Download and build FFmpeg:
+
+    .. code:: sh
+
+        mkdir ~/ffmpeg
+        wget --no-check-certificate https://ffmpeg.org/releases/ffmpeg-6.1.1.tar.gz -O ~/ffmpeg/ffmpeg-6.1.1.tar.gz
+        tar -xf ~/ffmpeg/ffmpeg-6.1.1.tar.gz -C ~/ffmpeg
+        rm ~/ffmpeg/ffmpeg-6.1.1.tar.gz
+
+        cd ~/ffmpeg/ffmpeg-6.1.1
+        ./configure --enable-pic --enable-shared --enable-static --enable-avfilter --enable-vaapi \
+            --extra-cflags=&quot;-I/include&quot; --extra-ldflags=&quot;-L/lib&quot; --extra-libs=-lpthread --extra-libs=-lm --bindir=&quot;/bin&quot;
+        make -j &quot;$(nproc)&quot;
+        sudo make install
 </pre></div>
 </div>
 </section>
 <section id="step-5-build-gstreamer">
 <h2>Step 5: Build GStreamer<a class="headerlink" href="#step-5-build-gstreamer" title="Permalink to this heading">#</a></h2>
+<p>Make sure that previous GStreamer installation is removed:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/opt/intel/dlstreamer/gstreamer
+</pre></div>
+</div>
 <p>Clone and build GStreamer:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~
 git<span class="w"> </span>clone<span class="w"> </span>https://gitlab.freedesktop.org/gstreamer/gstreamer.git
 
 <span class="nb">cd</span><span class="w"> </span>~/gstreamer
 git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;1.26.1&quot;</span><span class="w"> </span><span class="s2">&quot;tags/1.26.1&quot;</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span>/usr/local/lib/pkgconfig
+<span class="nb">export</span><span class="w"> </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span>/usr/lib/x86_64-linux-gnu/pkgconfig/:/usr/local/lib/pkgconfig:<span class="nv">$PKG_CONFIG_PATH</span>
+sudo<span class="w"> </span>ldconfig
 meson<span class="w"> </span>setup<span class="w"> </span>-Dexamples<span class="o">=</span>disabled<span class="w"> </span>-Dtests<span class="o">=</span>disabled<span class="w"> </span>-Dvaapi<span class="o">=</span>enabled<span class="w"> </span>-Dgst-examples<span class="o">=</span>disabled<span class="w"> </span>--buildtype<span class="o">=</span>release<span class="w"> </span>--prefix<span class="o">=</span>/opt/intel/dlstreamer/gstreamer<span class="w"> </span>--libdir<span class="o">=</span>lib/<span class="w"> </span>--libexecdir<span class="o">=</span>bin/<span class="w"> </span>build/
 ninja<span class="w"> </span>-C<span class="w"> </span>build
 sudo<span class="w"> </span>env<span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/python3venv/bin:<span class="nv">$PATH</span><span class="w"> </span>meson<span class="w"> </span>install<span class="w"> </span>-C<span class="w"> </span>build/
 </pre></div>
 </div>
 </section>
-<section id="step-6-build-opencv-ubuntu-22-fedora">
-<h2>Step 6: Build OpenCV (ubuntu 22/fedora)<a class="headerlink" href="#step-6-build-opencv-ubuntu-22-fedora" title="Permalink to this heading">#</a></h2>
-<p>Download and build OpenCV:</p>
+<section id="step-6-build-opencv">
+<h2>Step 6: Build OpenCV<a class="headerlink" href="#step-6-build-opencv" title="Permalink to this heading">#</a></h2>
+<p>NOTE: If you have built and installed a different version of OpenCV locally, it can cause build errors. It is recommended to uninstall it first.
+You can uninstall it with the following command (if installed from source):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/opencv/build<span class="w"> </span><span class="c1"># Change to the directory where OpenCV was built</span>
+sudo<span class="w"> </span>ninja<span class="w"> </span>uninstall
+</pre></div>
+</div>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Ubuntu 22</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Fedora 41</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>--no-check-certificate<span class="w"> </span>-O<span class="w"> </span>~/opencv.zip<span class="w"> </span>https://github.com/opencv/opencv/archive/4.6.0.zip
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Ubuntu 24</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Ubuntu 22</button><button aria-controls="panel-1-1-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-2" name="1-2" role="tab" tabindex="-1">Fedora 41</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><p>After uninstalling OpenCV, reinstall it with the following command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>--reinstall<span class="w"> </span>libopencv-dev
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><p>NOTE: If you have installed different version of OpenCV using apt-get, it is recommended to uninstall it first.
+You can uninstall it with the command below:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>remove<span class="w"> </span>--purge<span class="w"> </span>libopencv*
+</pre></div>
+</div>
+<p>Download and build OpenCV:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>--no-check-certificate<span class="w"> </span>-O<span class="w"> </span>~/opencv.zip<span class="w"> </span>https://github.com/opencv/opencv/archive/4.6.0.zip
 wget<span class="w"> </span>--no-check-certificate<span class="w"> </span>-O<span class="w"> </span>~/opencv_contrib.zip<span class="w"> </span>https://github.com/opencv/opencv_contrib/archive/4.6.0.zip
 unzip<span class="w"> </span>opencv.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 unzip<span class="w"> </span>opencv_contrib.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
@@ -572,7 +620,12 @@ ninja<span class="w"> </span>-j<span class="w"> </span><span class="s2">&quot;</
 sudo<span class="w"> </span>env<span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/python3venv/bin:<span class="nv">$PATH</span><span class="w"> </span>ninja<span class="w"> </span>install
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>--no-check-certificate<span class="w"> </span>-O<span class="w"> </span>~/opencv.zip<span class="w"> </span>https://github.com/opencv/opencv/archive/4.10.0.zip
+</div><div aria-labelledby="tab-1-1-2" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-2" name="1-2" role="tabpanel" tabindex="0"><blockquote>
+<div><p>NOTE: If you have installed different version of OpenCV using dnf, it is recommended to uninstall it first.
+You can uninstall it with the command below:</p>
+</div></blockquote>
+<p>Download and build OpenCV:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>--no-check-certificate<span class="w"> </span>-O<span class="w"> </span>~/opencv.zip<span class="w"> </span>https://github.com/opencv/opencv/archive/4.10.0.zip
 wget<span class="w"> </span>--no-check-certificate<span class="w"> </span>-O<span class="w"> </span>~/opencv_contrib.zip<span class="w"> </span>https://github.com/opencv/opencv_contrib/archive/4.10.0.zip
 unzip<span class="w"> </span>opencv.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 unzip<span class="w"> </span>opencv_contrib.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
@@ -766,9 +819,9 @@ python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </s
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-prerequisites-only-for-ubuntu">Step 1: Install prerequisites (only for Ubuntu)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-build-dependencies">Step 2: Install build dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-set-up-a-python-environment">Step 3: Set up a Python environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-ffmpeg-fedora-only">Step 4: Build FFmpeg (fedora only)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-ffmpeg">Step 4: Build FFmpeg</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-build-gstreamer">Step 5: Build GStreamer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-build-opencv-ubuntu-22-fedora">Step 6: Build OpenCV (ubuntu 22/fedora)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-build-opencv">Step 6: Build OpenCV</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-clone-intel-dl-streamer-repository">Step 7: Clone Intel® DL Streamer repository</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-install-openvino-toolkit">Step 8: Install OpenVINO™ Toolkit</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-build-intel-dlstreamer">Step 9: Build Intel DLStreamer</a></li>
