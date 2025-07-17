@@ -77,29 +77,34 @@ Create a Python virtual environment and install required Python packages:
     pip install --upgrade pip==24.0
     pip install meson==1.4.1 ninja==1.11.1.1
 
-Step 4: Build FFmpeg 
-^^^^^^^^^^^^^^^^^^^^
+Step 4: Build/Install FFmpeg 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 NOTE: If you have built and installed a different version of ffmpeg locally, it can cause build errors. It is recommended to uninstall it first.
 You can uninstall it with the following command (if installed from source):
+
 .. tabs::
 
     .. tab:: Ubuntu
 
         You can uninstall it with the following command (if installed from source):
-        
+
         .. code:: sh
 
             cd ${HOME}/ffmpeg # Change to the directory where ffmpeg was built
             sudo make uninstall
 
-            # then reinstall ffmpeg libs
+        Then reinstall ffmpeg libs:
+
+        .. code:: sh
+
             sudo apt-get install --reinstall ffmpeg libpostproc-dev libavfilter-dev libavdevice-dev \
                         libswscale-dev libswresample-dev libavutil-dev libavformat-dev libavcodec-dev
 
     .. tab:: Fedora
 
         You can uninstall it with the following command (if installed from source):
-        
+
         .. code:: sh
 
             cd ${HOME}/ffmpeg # Change to the directory where ffmpeg was built

@@ -440,7 +440,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-prerequisites-only-for-ubuntu">Step 1: Install prerequisites (only for Ubuntu)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-build-dependencies">Step 2: Install build dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-set-up-a-python-environment">Step 3: Set up a Python environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-ffmpeg">Step 4: Build FFmpeg</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-install-ffmpeg">Step 4: Build/Install FFmpeg</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-build-gstreamer">Step 5: Build GStreamer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-build-opencv">Step 6: Build OpenCV</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-clone-intel-dl-streamer-repository">Step 7: Clone Intel® DL Streamer repository</a></li>
@@ -522,49 +522,40 @@ pip<span class="w"> </span>install<span class="w"> </span><span class="nv">meson
 </pre></div>
 </div>
 </section>
-<section id="step-4-build-ffmpeg">
-<h2>Step 4: Build FFmpeg<a class="headerlink" href="#step-4-build-ffmpeg" title="Permalink to this heading">#</a></h2>
+<section id="step-4-build-install-ffmpeg">
+<h2>Step 4: Build/Install FFmpeg<a class="headerlink" href="#step-4-build-install-ffmpeg" title="Permalink to this heading">#</a></h2>
 <p>NOTE: If you have built and installed a different version of ffmpeg locally, it can cause build errors. It is recommended to uninstall it first.
-You can uninstall it with the following command (if installed from source):
-.. tabs:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. tab:: Ubuntu
-
-    You can uninstall it with the following command (if installed from source):
-
-    .. code:: sh
-
-        cd ${HOME}/ffmpeg # Change to the directory where ffmpeg was built
-        sudo make uninstall
-
-        # then reinstall ffmpeg libs
-        sudo apt-get install --reinstall ffmpeg libpostproc-dev libavfilter-dev libavdevice-dev \
-                    libswscale-dev libswresample-dev libavutil-dev libavformat-dev libavcodec-dev
-
-.. tab:: Fedora
-
-    You can uninstall it with the following command (if installed from source):
-
-    .. code:: sh
-
-        cd ${HOME}/ffmpeg # Change to the directory where ffmpeg was built
-        sudo make uninstall
-
-    Download and build FFmpeg:
-
-    .. code:: sh
-
-        mkdir ~/ffmpeg
-        wget --no-check-certificate https://ffmpeg.org/releases/ffmpeg-6.1.1.tar.gz -O ~/ffmpeg/ffmpeg-6.1.1.tar.gz
-        tar -xf ~/ffmpeg/ffmpeg-6.1.1.tar.gz -C ~/ffmpeg
-        rm ~/ffmpeg/ffmpeg-6.1.1.tar.gz
-
-        cd ~/ffmpeg/ffmpeg-6.1.1
-        ./configure --enable-pic --enable-shared --enable-static --enable-avfilter --enable-vaapi \
-            --extra-cflags=&quot;-I/include&quot; --extra-ldflags=&quot;-L/lib&quot; --extra-libs=-lpthread --extra-libs=-lm --bindir=&quot;/bin&quot;
-        make -j &quot;$(nproc)&quot;
-        sudo make install
+You can uninstall it with the following command (if installed from source):</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Ubuntu</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Fedora</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><p>You can uninstall it with the following command (if installed from source):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/ffmpeg<span class="w"> </span><span class="c1"># Change to the directory where ffmpeg was built</span>
+sudo<span class="w"> </span>make<span class="w"> </span>uninstall
 </pre></div>
 </div>
+<p>Then reinstall ffmpeg libs:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>--reinstall<span class="w"> </span>ffmpeg<span class="w"> </span>libpostproc-dev<span class="w"> </span>libavfilter-dev<span class="w"> </span>libavdevice-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">            </span>libswscale-dev<span class="w"> </span>libswresample-dev<span class="w"> </span>libavutil-dev<span class="w"> </span>libavformat-dev<span class="w"> </span>libavcodec-dev
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><p>You can uninstall it with the following command (if installed from source):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/ffmpeg<span class="w"> </span><span class="c1"># Change to the directory where ffmpeg was built</span>
+sudo<span class="w"> </span>make<span class="w"> </span>uninstall
+</pre></div>
+</div>
+<p>Download and build FFmpeg:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>~/ffmpeg
+wget<span class="w"> </span>--no-check-certificate<span class="w"> </span>https://ffmpeg.org/releases/ffmpeg-6.1.1.tar.gz<span class="w"> </span>-O<span class="w"> </span>~/ffmpeg/ffmpeg-6.1.1.tar.gz
+tar<span class="w"> </span>-xf<span class="w"> </span>~/ffmpeg/ffmpeg-6.1.1.tar.gz<span class="w"> </span>-C<span class="w"> </span>~/ffmpeg
+rm<span class="w"> </span>~/ffmpeg/ffmpeg-6.1.1.tar.gz
+
+<span class="nb">cd</span><span class="w"> </span>~/ffmpeg/ffmpeg-6.1.1
+./configure<span class="w"> </span>--enable-pic<span class="w"> </span>--enable-shared<span class="w"> </span>--enable-static<span class="w"> </span>--enable-avfilter<span class="w"> </span>--enable-vaapi<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--extra-cflags<span class="o">=</span><span class="s2">&quot;-I/include&quot;</span><span class="w"> </span>--extra-ldflags<span class="o">=</span><span class="s2">&quot;-L/lib&quot;</span><span class="w"> </span>--extra-libs<span class="o">=</span>-lpthread<span class="w"> </span>--extra-libs<span class="o">=</span>-lm<span class="w"> </span>--bindir<span class="o">=</span><span class="s2">&quot;/bin&quot;</span>
+make<span class="w"> </span>-j<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>nproc<span class="k">)</span><span class="s2">&quot;</span>
+sudo<span class="w"> </span>make<span class="w"> </span>install
+</pre></div>
+</div>
+</div></div>
 </section>
 <section id="step-5-build-gstreamer">
 <h2>Step 5: Build GStreamer<a class="headerlink" href="#step-5-build-gstreamer" title="Permalink to this heading">#</a></h2>
@@ -595,11 +586,11 @@ sudo<span class="w"> </span>ninja<span class="w"> </span>uninstall
 </pre></div>
 </div>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Ubuntu 24</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Ubuntu 22</button><button aria-controls="panel-1-1-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-2" name="1-2" role="tab" tabindex="-1">Fedora 41</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><p>After uninstalling OpenCV, reinstall it with the following command:</p>
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">Ubuntu 24</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">Ubuntu 22</button><button aria-controls="panel-2-2-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-2" name="2-2" role="tab" tabindex="-1">Fedora 41</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><p>After uninstalling OpenCV, reinstall it with the following command:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>--reinstall<span class="w"> </span>libopencv-dev
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><p>NOTE: If you have installed different version of OpenCV using apt-get, it is recommended to uninstall it first.
+</div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><p>NOTE: If you have installed different version of OpenCV using apt-get, it is recommended to uninstall it first.
 You can uninstall it with the command below:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>remove<span class="w"> </span>--purge<span class="w"> </span>libopencv*
 </pre></div>
@@ -620,7 +611,7 @@ ninja<span class="w"> </span>-j<span class="w"> </span><span class="s2">&quot;</
 sudo<span class="w"> </span>env<span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/python3venv/bin:<span class="nv">$PATH</span><span class="w"> </span>ninja<span class="w"> </span>install
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-1-1-2" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-2" name="1-2" role="tabpanel" tabindex="0"><blockquote>
+</div><div aria-labelledby="tab-2-2-2" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-2" name="2-2" role="tabpanel" tabindex="0"><blockquote>
 <div><p>NOTE: If you have installed different version of OpenCV using dnf, it is recommended to uninstall it first.
 You can uninstall it with the command below:</p>
 </div></blockquote>
@@ -679,7 +670,7 @@ OpenVINO™ Toolkit development environment:</p>
 <section id="step-9-build-intel-dlstreamer">
 <h2>Step 9: Build Intel DLStreamer<a class="headerlink" href="#step-9-build-intel-dlstreamer" title="Permalink to this heading">#</a></h2>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">Ubuntu 24</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">Ubuntu 22</button><button aria-controls="panel-2-2-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-2" name="2-2" role="tab" tabindex="-1">Fedora</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/edge-ai-libraries/libraries/dl-streamer
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-3-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-3-3-0" name="3-0" role="tab" tabindex="0">Ubuntu 24</button><button aria-controls="panel-3-3-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-1" name="3-1" role="tab" tabindex="-1">Ubuntu 22</button><button aria-controls="panel-3-3-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-2" name="3-2" role="tab" tabindex="-1">Fedora</button></div><div aria-labelledby="tab-3-3-0" class="sphinx-tabs-panel" id="panel-3-3-0" name="3-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/edge-ai-libraries/libraries/dl-streamer
 
 mkdir<span class="w"> </span>build
 <span class="nb">cd</span><span class="w"> </span>build
@@ -691,7 +682,7 @@ cmake<span class="w"> </span>-DENABLE_PAHO_INSTALLATION<span class="o">=</span>O
 make<span class="w"> </span>-j<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>nproc<span class="k">)</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/edge-ai-libraries/libraries/dl-streamer
+</div><div aria-labelledby="tab-3-3-1" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-1" name="3-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/edge-ai-libraries/libraries/dl-streamer
 
 curl<span class="w"> </span>-sSL<span class="w"> </span>https://github.com/edenhill/librdkafka/archive/v2.3.0.tar.gz<span class="w"> </span><span class="p">|</span><span class="w"> </span>tar<span class="w"> </span>-xz
 <span class="nb">cd</span><span class="w"> </span>/librdkafka-2.3.0
@@ -707,7 +698,7 @@ cmake<span class="w"> </span>-DENABLE_PAHO_INSTALLATION<span class="o">=</span>O
 make<span class="w"> </span>-j<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>nproc<span class="k">)</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-2-2-2" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-2" name="2-2" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/edge-ai-libraries/libraries/dl-streamer
+</div><div aria-labelledby="tab-3-3-2" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-2" name="3-2" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/edge-ai-libraries/libraries/dl-streamer
 
 curl<span class="w"> </span>-sSL<span class="w"> </span>https://github.com/edenhill/librdkafka/archive/v2.3.0.tar.gz<span class="w"> </span><span class="p">|</span><span class="w"> </span>tar<span class="w"> </span>-xz
 <span class="nb">cd</span><span class="w"> </span>./librdkafka-2.3.0
@@ -729,7 +720,7 @@ make<span class="w"> </span>-j<span class="w"> </span><span class="s2">&quot;</s
 <h2>Step 10: Set up environment<a class="headerlink" href="#step-10-set-up-environment" title="Permalink to this heading">#</a></h2>
 <p>Set up the required environment variables:</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-3-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-3-3-0" name="3-0" role="tab" tabindex="0">Ubuntu</button><button aria-controls="panel-3-3-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-1" name="3-1" role="tab" tabindex="-1">Fedora</button></div><div aria-labelledby="tab-3-3-0" class="sphinx-tabs-panel" id="panel-3-3-0" name="3-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVER_NAME</span><span class="o">=</span>iHD
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-4-4-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-4-4-0" name="4-0" role="tab" tabindex="0">Ubuntu</button><button aria-controls="panel-4-4-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-4-4-1" name="4-1" role="tab" tabindex="-1">Fedora</button></div><div aria-labelledby="tab-4-4-0" class="sphinx-tabs-panel" id="panel-4-4-0" name="4-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVER_NAME</span><span class="o">=</span>iHD
 <span class="nb">export</span><span class="w"> </span><span class="nv">GST_PLUGIN_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/edge-ai-libraries/libraries/dl-streamer/build/intel64/Release/lib:/opt/intel/dlstreamer/gstreamer/lib/gstreamer-1.0:/usr/lib/x86_64-linux-gnu/gstreamer-1.0&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">&quot;/opt/intel/dlstreamer/gstreamer/lib:</span><span class="nv">$HOME</span><span class="s2">/edge-ai-libraries/libraries/dl-streamer/build/intel64/Release/lib:/usr/lib:/usr/local/lib:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVERS_PATH</span><span class="o">=</span><span class="s2">&quot;/usr/lib/x86_64-linux-gnu/dri&quot;</span>
@@ -739,7 +730,7 @@ make<span class="w"> </span>-j<span class="w"> </span><span class="s2">&quot;</s
 <span class="nb">export</span><span class="w"> </span><span class="nv">GST_PLUGIN_FEATURE_RANK</span><span class="o">=</span><span class="si">${</span><span class="nv">GST_PLUGIN_FEATURE_RANK</span><span class="si">}</span>,ximagesink:MAX
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-3-3-1" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-1" name="3-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVER_NAME</span><span class="o">=</span>iHD
+</div><div aria-labelledby="tab-4-4-1" class="sphinx-tabs-panel" hidden="true" id="panel-4-4-1" name="4-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVER_NAME</span><span class="o">=</span>iHD
 <span class="nb">export</span><span class="w"> </span><span class="nv">GST_PLUGIN_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/edge-ai-libraries/libraries/dl-streamer/build/intel64/Release/lib:/opt/intel/dlstreamer/gstreamer/lib/gstreamer-1.0:/usr/lib64/gstreamer-1.0&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">&quot;/opt/intel/dlstreamer/gstreamer/lib:</span><span class="nv">$HOME</span><span class="s2">/edge-ai-libraries/libraries/dl-streamer/build/intel64/Release/lib:/usr/lib:/usr/local/lib:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVERS_PATH</span><span class="o">=</span><span class="s2">&quot;/usr/lib64/dri-nonfree&quot;</span>
@@ -819,7 +810,7 @@ python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </s
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-prerequisites-only-for-ubuntu">Step 1: Install prerequisites (only for Ubuntu)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-build-dependencies">Step 2: Install build dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-set-up-a-python-environment">Step 3: Set up a Python environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-ffmpeg">Step 4: Build FFmpeg</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-install-ffmpeg">Step 4: Build/Install FFmpeg</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-build-gstreamer">Step 5: Build GStreamer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-build-opencv">Step 6: Build OpenCV</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-clone-intel-dl-streamer-repository">Step 7: Clone Intel® DL Streamer repository</a></li>
