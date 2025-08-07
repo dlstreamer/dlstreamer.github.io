@@ -280,14 +280,14 @@ Then, we parse command-line arguments. When run this script, you should specify 
 
 Next, function ``process_frame`` defines post-processing. As we said above, this code is for SSD-like models, so please feel free to replace it with your own post-processing implementation that suffices your custom model. Meanwhile, let's take a look at usage of Intel® DL Streamer API in this piece.
 
-Tons of image information regarding current video frame can be obtain with :ref:`gstgva.video_frame.VideoFrame.video_info <doxid-classgstgva_1_1video__frame_1_1_video_frame_1ab20943e0804b2f72effefb587389877f>`. You can get image width, height, channels format and much more:
+Tons of image information regarding current video frame can be obtain with gstgva.video_frame.VideoFrame.video_info. You can get image width, height, channels format and much more:
 
 .. ref-code-block:: cpp
 
 	width = frame.video_info().width
 	height = frame.video_info().height
 
-Next, we iterate by :ref:`gstgva.video_frame.VideoFrame.tensors <doxid-classgstgva_1_1video__frame_1_1_video_frame_1a77d5b23d5e7b94b4c8ce376d05fb6f8d>`, which were added by **gvainference**. We can get some inference result information, like :ref:`gstgva.tensor.Tensor.dims <doxid-classgstgva_1_1tensor_1_1_tensor_1abc261e3b136831d4d039d20491997f15>` (list of model output blob dimensions) and :ref:`gstgva.tensor.Tensor.data <doxid-classgstgva_1_1tensor_1_1_tensor_1ada98d45397a28a562d10b1048f2e2e32>` (raw output blob to interpret with your post-processing code):
+Next, we iterate by gstgva.video_frame.VideoFrame.tensors, which were added by **gvainference**. We can get some inference result information, like gstgva.tensor.Tensor.dims (list of model output blob dimensions) and gstgva.tensor.Tensor.data (raw output blob to interpret with your post-processing code):
 
 .. ref-code-block:: cpp
 
@@ -295,7 +295,7 @@ Next, we iterate by :ref:`gstgva.video_frame.VideoFrame.tensors <doxid-classgstg
 	    dims = tensor.dims()
 	    data = tensor.data()
 
-After we eject bounding box parameters from raw inference blob, we are ready to call :ref:`gstgva.video_frame.VideoFrame.add_region <doxid-classgstgva_1_1video__frame_1_1_video_frame_1a0c73a2692b99e963a907b390d50c2652>` with box coordinates, label and confidence as parameters.
+After we eject bounding box parameters from raw inference blob, we are ready to call gstgva.video_frame.VideoFrame.add_region with box coordinates, label and confidence as parameters.
 
 .. ref-code-block:: cpp
 
