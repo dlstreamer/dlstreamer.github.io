@@ -18,4 +18,6 @@ Developer Guide
    converting_deepstream_to_dlstreamer
    how_to_contribute
    latency_tracer
-   model_proc_file   
+   model_proc_file
+   realsense
+

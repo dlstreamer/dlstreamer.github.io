@@ -51,7 +51,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="gvadetect" href="gvadetect.html" />
-    <link rel="prev" title="How to Create Model-proc File" href="../dev_guide/how_to_create_model_proc_file.html" />
+    <link rel="prev" title="Real Sense Plugin" href="../dev_guide/realsense.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -202,6 +202,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../dev_guide/how_to_create_model_proc_file.html">How to Create Model-proc File</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev_guide/realsense.html">Real Sense Plugin</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Elements</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -210,12 +211,14 @@
 <li class="toctree-l2"><a class="reference internal" href="gvainference.html">gvainference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gvatrack.html">gvatrack</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gvaaudiodetect.html">gvaaudiodetect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gvagenai.html">gvagenai</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gvaattachroi.html">gvaattachroi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gvafpscounter.html">gvafpscounter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gvametaconvert.html">gvametaconvert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gvametapublish.html">gvametapublish</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gvametaaggregate.html">gvametaaggregate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gvapython.html">gvapython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gvarealsense.html">gvarealsense</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gvawatermark.html">gvawatermark</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="gstelements.html">GStreamer Elements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="compositor.html">compositor</a></li>
@@ -487,6 +490,11 @@ gst-inspect-1.0 utility</p>
 <p><em>[eg syntax]</em> <em>gst-launch-1.0 … ! decodebin3 ! audioresample ! audioconvert ! audio/x-raw … ! audiomixer … ! gvaaudiodetect model=$mAudioDetect ! … OUT</em></p>
 </td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="gvagenai.html"><span class="doc">gvagenai</span></a></p></td>
+<td><p>Performs inference using GenAI models. It can be used to generate text descriptions from images or video.</p>
+<p><em>[eg syntax]</em> <em>gst-launch-1.0 … ! decodebin3 ! videoconvert ! gvagenai model=$mGenAI device=GPU ! … OUT</em></p>
+</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -528,7 +536,12 @@ gst-inspect-1.0 utility</p>
 <p><em>[eg syntax]</em> <em>gst-launch-1.0 … !  gvaclassify ! gvapython module={gvapython.callback_module.classAge_pp} ! … OUT</em></p>
 </td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="gvawatermark.html"><span class="doc">gvawatermark</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="gvarealsense.html"><span class="doc">gvarealsense</span></a></p></td>
+<td><p>Provides integration with Intel RealSense cameras, enabling video and depth stream capture for use in GStreamer pipelines.</p>
+<p><em>[eg syntax]</em> <em>gst-launch-1.0 … gvarealsense camera=/dev/video0 ! queue ! fakesink dump=true</em></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="gvawatermark.html"><span class="doc">gvawatermark</span></a></p></td>
 <td><p>Overlays the metadata on the video frame to visualize the inference results.</p>
 <p><em>[eg syntax]</em> <em>gst-launch-1.0 … ! decodebin3 ! gvadetect … ! gvawatermark ! … OUT</em></p>
 </td>
@@ -553,12 +566,12 @@ gst-inspect-1.0 utility</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../dev_guide/how_to_create_model_proc_file.html"
+       href="../dev_guide/realsense.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">How to Create Model-proc File</p>
+        <p class="prev-next-title">Real Sense Plugin</p>
       </div>
     </a>
     <a class="right-next"

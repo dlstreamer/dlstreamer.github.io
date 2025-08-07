@@ -40,6 +40,11 @@ Inference plugins
 
        *[eg syntax]* *gst-launch-1.0 ... ! decodebin3 ! audioresample ! audioconvert ! audio/x-raw ... ! audiomixer ... ! gvaaudiodetect model=$mAudioDetect ! ... OUT*
 
+   * - :doc:`gvagenai <gvagenai>`
+     - Performs inference using GenAI models. It can be used to generate text descriptions from images or video.
+
+       *[eg syntax]* *gst-launch-1.0 ... ! decodebin3 ! videoconvert ! gvagenai model=$mGenAI device=GPU ! ... OUT*
+
 
 Auxiliary plugins
 -----------------
@@ -78,6 +83,11 @@ Auxiliary plugins
 
        *[eg syntax]* *gst-launch-1.0 ... !  gvaclassify ! gvapython module={gvapython.callback_module.classAge_pp} ! ... OUT*
 
+   * - :doc:`gvarealsense <gvarealsense>`
+     - Provides integration with Intel RealSense cameras, enabling video and depth stream capture for use in GStreamer pipelines.
+
+       *[eg syntax]* *gst-launch-1.0 ... gvarealsense camera=/dev/video0 ! queue ! fakesink dump=true*
+
    * - :doc:`gvawatermark <gvawatermark>`
      - Overlays the metadata on the video frame to visualize the inference results.
 
@@ -92,11 +102,14 @@ Auxiliary plugins
    gvainference
    gvatrack
    gvaaudiodetect
+   gvagenai
    gvaattachroi
    gvafpscounter
    gvametaconvert
    gvametapublish
    gvametaaggregate
    gvapython
+   gvarealsense
    gvawatermark
    gstelements
+   

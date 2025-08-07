@@ -204,6 +204,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../how_to_create_model_proc_file.html">How to Create Model-proc File</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2"><a class="reference internal" href="../realsense.html">Real Sense Plugin</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../elements/elements.html">Elements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -212,12 +213,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvainference.html">gvainference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvatrack.html">gvatrack</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvaaudiodetect.html">gvaaudiodetect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvagenai.html">gvagenai</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvaattachroi.html">gvaattachroi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvafpscounter.html">gvafpscounter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvametaconvert.html">gvametaconvert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvametapublish.html">gvametapublish</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvametaaggregate.html">gvametaaggregate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvapython.html">gvapython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../elements/gvarealsense.html">gvarealsense</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../elements/gvawatermark.html">gvawatermark</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../elements/gstelements.html">GStreamer Elements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../elements/compositor.html">compositor</a></li>
@@ -568,7 +571,7 @@ sudo<span class="w"> </span>make<span class="w"> </span>install
 git<span class="w"> </span>clone<span class="w"> </span>https://gitlab.freedesktop.org/gstreamer/gstreamer.git
 
 <span class="nb">cd</span><span class="w"> </span>~/gstreamer
-git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;1.26.1&quot;</span><span class="w"> </span><span class="s2">&quot;tags/1.26.1&quot;</span>
+git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;1.26.4&quot;</span><span class="w"> </span><span class="s2">&quot;tags/1.26.4&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span>/usr/lib/x86_64-linux-gnu/pkgconfig/:/usr/local/lib/pkgconfig:<span class="nv">$PKG_CONFIG_PATH</span>
 sudo<span class="w"> </span>ldconfig
 meson<span class="w"> </span>setup<span class="w"> </span>-Dexamples<span class="o">=</span>disabled<span class="w"> </span>-Dtests<span class="o">=</span>disabled<span class="w"> </span>-Dvaapi<span class="o">=</span>enabled<span class="w"> </span>-Dgst-examples<span class="o">=</span>disabled<span class="w"> </span>--buildtype<span class="o">=</span>release<span class="w"> </span>--prefix<span class="o">=</span>/opt/intel/dlstreamer/gstreamer<span class="w"> </span>--libdir<span class="o">=</span>lib/<span class="w"> </span>--libexecdir<span class="o">=</span>bin/<span class="w"> </span>build/

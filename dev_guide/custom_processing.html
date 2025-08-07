@@ -202,6 +202,7 @@
 <li class="toctree-l3"><a class="reference internal" href="how_to_create_model_proc_file.html">How to Create Model-proc File</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2"><a class="reference internal" href="realsense.html">Real Sense Plugin</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../elements/elements.html">Elements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -210,12 +211,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvainference.html">gvainference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvatrack.html">gvatrack</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvaaudiodetect.html">gvaaudiodetect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvagenai.html">gvagenai</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvaattachroi.html">gvaattachroi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvafpscounter.html">gvafpscounter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvametaconvert.html">gvametaconvert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvametapublish.html">gvametapublish</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvametaaggregate.html">gvametaaggregate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvapython.html">gvapython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements/gvarealsense.html">gvarealsense</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elements/gvawatermark.html">gvawatermark</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../elements/gstelements.html">GStreamer Elements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../elements/compositor.html">compositor</a></li>
@@ -538,6 +541,8 @@ for gvadetect/gvaclassify elements.</p>
 that implements the post-processing logic without modifying the DL Streamer source code.
 This approach provides flexibility and modularity while maintaining clean separation
 between the core framework and custom processing logic.</p>
+<p>A practical example implementations demonstrated in
+<a class="reference external" href="https://github.com/open-edge-platform/edge-ai-libraries/tree/main/libraries/dl-streamer/samples/gstreamer/gst_launch/custom_postproc">sample</a></p>
 <p><strong>Important Requirements</strong></p>
 <p>Your custom library must use the <strong>GStreamer Analytics Library</strong> which provides
 standardized metadata structures for AI/ML results. The library implements structures
@@ -551,25 +556,20 @@ such as <code class="docutils literal notranslate"><span class="pre">GstTensorMe
 <li><p><strong>Object Detection</strong> (<code class="docutils literal notranslate"><span class="pre">GstAnalyticsODMtd</span></code>) - works only with <code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> element</p></li>
 <li><p><strong>Classification</strong> (<code class="docutils literal notranslate"><span class="pre">GstAnalyticsClsMtd</span></code>) - works with both <code class="docutils literal notranslate"><span class="pre">gvadetect</span></code> and <code class="docutils literal notranslate"><span class="pre">gvaclassify</span></code> elements</p></li>
 </ul>
-<p>The custom library approach is implemented through two specialized converters:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">custom_to_roi</span></code> - for object detection models that output regions of interest</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">custom_to_tensor</span></code> - for models that output tensor data</p></li>
-</ul>
 <p><strong>Implementation Requirements</strong></p>
 <p>Your custom library must export a <code class="docutils literal notranslate"><span class="pre">Convert</span></code> function with the following signature:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">Convert</span><span class="p">(</span><span class="n">GstTensorMeta</span> <span class="o">*</span><span class="n">tmeta</span><span class="p">,</span>
-             <span class="k">const</span> <span class="n">GstStructure</span> <span class="o">*</span><span class="n">network_info</span><span class="p">,</span>
-             <span class="k">const</span> <span class="n">GstStructure</span> <span class="o">*</span><span class="n">params_info</span><span class="p">,</span>
-             <span class="n">GstAnalyticsRelationMeta</span> <span class="o">*</span><span class="n">relation_meta</span><span class="p">);</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">Convert</span><span class="p">(</span><span class="n">GstTensorMeta</span> <span class="o">*</span><span class="n">outputTensors</span><span class="p">,</span>
+             <span class="k">const</span> <span class="n">GstStructure</span> <span class="o">*</span><span class="n">network</span><span class="p">,</span>
+             <span class="k">const</span> <span class="n">GstStructure</span> <span class="o">*</span><span class="n">params</span><span class="p">,</span>
+             <span class="n">GstAnalyticsRelationMeta</span> <span class="o">*</span><span class="n">relationMeta</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Where:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">tmeta</span></code> - contains output tensor data from the model inference</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">network_info</span></code> - model metadata including labels, input dimensions</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">params_info</span></code> - processing parameters like confidence thresholds</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">relation_meta</span></code> - output structure for attaching results</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">outputTensors</span></code> - contains output tensor data from the model inference</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">network</span></code> - model metadata including labels, input dimensions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">params</span></code> - processing parameters like confidence thresholds</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">relationMeta</span></code> - output structure for attaching results</p></li>
 </ul>
 <p><strong>Important Notes:</strong></p>
 <ul class="simple">
@@ -587,7 +587,7 @@ such as <code class="docutils literal notranslate"><span class="pre">GstTensorMe
 </div>
 <p><strong>Example Implementation</strong></p>
 <p>Here are examples of custom post-processing libraries for both use cases:</p>
-<p><strong>Example 1: Object Detection (custom_to_roi)</strong></p>
+<p><strong>Example 1: Object Detection</strong></p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;gst/gst.h&gt;</span>
 <span class="cp">#include</span> <span class="cpf">&lt;gst/analytics/analytics.h&gt;</span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdexcept&gt;</span>
@@ -654,7 +654,7 @@ such as <code class="docutils literal notranslate"><span class="pre">GstTensorMe
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>Example 2: Classification (custom_to_tensor)</strong></p>
+<p><strong>Example 2: Classification</strong></p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;gst/gst.h&gt;</span>
 <span class="cp">#include</span> <span class="cpf">&lt;gst/analytics/analytics.h&gt;</span>
 <span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span>
