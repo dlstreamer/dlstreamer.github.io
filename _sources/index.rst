@@ -1,3 +1,9 @@
+.. note::
+
+  This documentation is up to date with release 2025.0.1.3.
+  All future releases will be available in `edge-ai-libraries repository <https://github.com/open-edge-platform/edge-ai-libraries/blob/main/libraries/dl-streamer/README.md>`__. 
+  Updated documentation will be provided soon.
+
 Intel® Deep Learning Streamer
 =============================
 **Intel® Deep Learning Streamer (Intel® DL Streamer)** is an open-source streaming media analytics framework, based on GStreamer* multimedia framework, for creating complex media analytics pipelines for the Cloud or at the Edge, and it includes:

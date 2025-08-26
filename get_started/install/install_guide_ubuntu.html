@@ -570,17 +570,37 @@ To run the hello_dlstreamer script, execute the following command:</p>
 <p class="admonition-title">Note</p>
 <p>To set up Linux with the relevant environment variables every time a new terminal is opened, open ~/.bashrc and add the following lines:</p>
 </div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVER_NAME</span><span class="o">=</span>iHD
-<span class="nb">export</span><span class="w"> </span><span class="nv">GST_PLUGIN_PATH</span><span class="o">=</span>/opt/intel/dlstreamer/build/intel64/Release/lib:/opt/intel/dlstreamer/gstreamer/lib/gstreamer-1.0:/opt/intel/dlstreamer/gstreamer/lib/:
-<span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/opt/intel/dlstreamer/gstreamer/lib:/opt/intel/dlstreamer/build/intel64/Release/lib:/opt/intel/dlstreamer/lib/gstreamer-1.0:/usr/lib:/opt/intel/dlstreamer/build/intel64/Release/lib:/opt/opencv:/opt/openh264:/opt/rdkafka:/opt/ffmpeg:/usr/local/lib/gstreamer-1.0:/usr/local/lib
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Ubuntu 24</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Ubuntu 22</button><button aria-controls="panel-1-1-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-2" name="1-2" role="tab" tabindex="-1">Fedora 41</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVER_NAME</span><span class="o">=</span>iHD
+<span class="nb">export</span><span class="w"> </span><span class="nv">GST_PLUGIN_PATH</span><span class="o">=</span>/opt/intel/dlstreamer/lib:/opt/intel/dlstreamer/gstreamer/lib/gstreamer-1.0:/opt/intel/dlstreamer/gstreamer/lib/
+<span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/opt/intel/dlstreamer/gstreamer/lib:/opt/intel/dlstreamer/lib:/opt/intel/dlstreamer/lib/gstreamer-1.0:/usr/lib:/opt/intel/dlstreamer/lib:/usr/local/lib/gstreamer-1.0:/usr/local/lib
 <span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVERS_PATH</span><span class="o">=</span>/usr/lib/x86_64-linux-gnu/dri
 <span class="nb">export</span><span class="w"> </span><span class="nv">GST_VA_ALL_DRIVERS</span><span class="o">=</span><span class="m">1</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/opt/intel/dlstreamer/gstreamer/bin:/opt/intel/dlstreamer/build/intel64/Release/bin:<span class="nv">$PATH</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/opt/intel/dlstreamer/gstreamer/bin:/opt/intel/dlstreamer/bin:<span class="nv">$PATH</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">GST_PLUGIN_FEATURE_RANK</span><span class="o">=</span><span class="si">${</span><span class="nv">GST_PLUGIN_FEATURE_RANK</span><span class="si">}</span>,ximagesink:MAX
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVER_NAME</span><span class="o">=</span>iHD
+<span class="nb">export</span><span class="w"> </span><span class="nv">GST_PLUGIN_PATH</span><span class="o">=</span>/opt/intel/dlstreamer/lib:/opt/intel/dlstreamer/gstreamer/lib/gstreamer-1.0:/opt/intel/dlstreamer/gstreamer/lib/
+<span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/opt/intel/dlstreamer/gstreamer/lib:/opt/intel/dlstreamer/lib:/opt/intel/dlstreamer/lib/gstreamer-1.0:/usr/lib:/opt/intel/dlstreamer/lib:/usr/local/lib/gstreamer-1.0:/usr/local/lib:/opt/opencv:/opt/rdkafka
+<span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVERS_PATH</span><span class="o">=</span>/usr/lib/x86_64-linux-gnu/dri
+<span class="nb">export</span><span class="w"> </span><span class="nv">GST_VA_ALL_DRIVERS</span><span class="o">=</span><span class="m">1</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/opt/intel/dlstreamer/gstreamer/bin:/opt/intel/dlstreamer/bin:<span class="nv">$PATH</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">GST_PLUGIN_FEATURE_RANK</span><span class="o">=</span><span class="si">${</span><span class="nv">GST_PLUGIN_FEATURE_RANK</span><span class="si">}</span>,ximagesink:MAX
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-2" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-2" name="1-2" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVER_NAME</span><span class="o">=</span>iHD
+<span class="nb">export</span><span class="w"> </span><span class="nv">GST_PLUGIN_PATH</span><span class="o">=</span>/opt/intel/dlstreamer/lib:/opt/intel/dlstreamer/gstreamer/lib/gstreamer-1.0:/opt/intel/dlstreamer/gstreamer/lib/
+<span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/opt/intel/dlstreamer/gstreamer/lib:/opt/intel/dlstreamer/lib:/opt/intel/dlstreamer/lib/gstreamer-1.0:/usr/lib:/opt/intel/dlstreamer/lib:/usr/local/lib/gstreamer-1.0:/usr/local/lib:/opt/opencv:/opt/rdkafka:/opt/ffmpeg
+<span class="nb">export</span><span class="w"> </span><span class="nv">LIBVA_DRIVERS_PATH</span><span class="o">=</span>/usr/lib64/dri-nonfree
+<span class="nb">export</span><span class="w"> </span><span class="nv">GST_VA_ALL_DRIVERS</span><span class="o">=</span><span class="m">1</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/opt/intel/dlstreamer/gstreamer/bin:/opt/intel/dlstreamer/bin:<span class="nv">$PATH</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">GST_PLUGIN_FEATURE_RANK</span><span class="o">=</span><span class="si">${</span><span class="nv">GST_PLUGIN_FEATURE_RANK</span><span class="si">}</span>,ximagesink:MAX
+</pre></div>
+</div>
+</div></div>
 <p>or run:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>/opt/intel/dlstreamer/scripts/setup_dls_config.sh
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>/opt/intel/dlstreamer/scripts/setup_dls_env.sh
 </pre></div>
 </div>
 <p>to configure environment variables for the current terminal session.</p>
@@ -643,10 +663,10 @@ By default , the latest docker image points to Ubuntu 24 version.</p>
 <p>For <strong>Ubuntu 22.04</strong> please specify tag e.g. <strong>2025.0.1.2-ubuntu22</strong>.
 For <strong>Ubuntu 24.04</strong> please use <strong>latest</strong> tag or specified version e.g. <strong>2025.0.1.2-ubuntu24</strong>.</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Ubuntu 22</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Ubuntu 24</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>pull<span class="w"> </span>intel/dlstreamer:2025.0.1.2-ubuntu22
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">Ubuntu 22</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">Ubuntu 24</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>pull<span class="w"> </span>intel/dlstreamer:2025.0.1.2-ubuntu22
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>pull<span class="w"> </span>intel/dlstreamer:latest
+</div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>pull<span class="w"> </span>intel/dlstreamer:latest
 </pre></div>
 </div>
 </div></div>
@@ -655,10 +675,10 @@ For <strong>Ubuntu 24.04</strong> please use <strong>latest</strong> tag or spec
 <h3>Step 5: Run Intel® DL Streamer Pipeline Framework container<a class="headerlink" href="#step-5-run-intel-dl-streamer-pipeline-framework-container" title="Permalink to this heading">#</a></h3>
 <p>To confirm that your installation is completed successfully, please run a container</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">Ubuntu 22</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">Ubuntu 24</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>intel/dlstreamer:2025.0.1.2-ubuntu22
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-3-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-3-3-0" name="3-0" role="tab" tabindex="0">Ubuntu 22</button><button aria-controls="panel-3-3-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-1" name="3-1" role="tab" tabindex="-1">Ubuntu 24</button></div><div aria-labelledby="tab-3-3-0" class="sphinx-tabs-panel" id="panel-3-3-0" name="3-0" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>intel/dlstreamer:2025.0.1.2-ubuntu22
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>intel/dlstreamer:latest
+</div><div aria-labelledby="tab-3-3-1" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-1" name="3-1" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>intel/dlstreamer:latest
 </pre></div>
 </div>
 </div></div>
