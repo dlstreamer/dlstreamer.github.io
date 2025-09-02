@@ -4,18 +4,18 @@
    <strong>🔄 Redirecting in 5 seconds...</strong><br>
    You will be automatically redirected to the new documentation location.
    </div>
-   <meta http-equiv="refresh" content="3; url=https://docs.openedgeplatform.intel.com/oep/edge-ai-libraries/dl-streamer/index.html">
+   <meta http-equiv="refresh" content="3; url=https://github.com/open-edge-platform/edge-ai-libraries/blob/main/libraries/dl-streamer/README.md">
    <script>
    setTimeout(function() {
-       window.location.href = "https://docs.openedgeplatform.intel.com/oep/edge-ai-libraries/dl-streamer/index.html";
+       window.location.href = "https://github.com/open-edge-platform/edge-ai-libraries/blob/main/libraries/dl-streamer/README.md";
    }, 5000);
    </script>
 
 .. note::
 
   This documentation is up to date with release 2025.0.1.3.
-  All future releases will be available on Open Edge Platform <https://docs.openedgeplatform.intel.com/oep/edge-ai-libraries/dl-streamer/index.html>`__. 
-  
+  All future releases will be available in `edge-ai-libraries repository <https://github.com/open-edge-platform/edge-ai-libraries/blob/main/libraries/dl-streamer/README.md>`__. 
+  Updated documentation will be provided soon.
   
 Intel® Deep Learning Streamer
 =============================
